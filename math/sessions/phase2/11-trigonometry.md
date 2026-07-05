@@ -409,6 +409,8 @@ $\frac{\pi}{2}$ 제외 → 최종: $[0,\frac{\pi}{2})\cup(\frac{\pi}{2},\frac{7\
 
 $\sin\theta = -\frac{\sqrt{3}}{2}$, $\theta$ 4사분면. $\cos,\tan,\sec,\csc,\cot$ 전부 구하라.
 
+→ 따라하기: **예시 3, 4, 5**
+
 > 풀이: [풀이집](solutions/11-solutions.md#연습-1)
 
 ---
@@ -417,6 +419,8 @@ $\sin\theta = -\frac{\sqrt{3}}{2}$, $\theta$ 4사분면. $\cos,\tan,\sec,\csc,\c
 
 $y = 2\sin(3x+\pi)-1$의 진폭·주기·위상·수직이동을 말하고, 최대·최소값을 구하라.
 
+→ 따라하기: **예시 8**
+
 > 풀이: [풀이집](solutions/11-solutions.md#연습-2)
 
 ---
@@ -424,6 +428,8 @@ $y = 2\sin(3x+\pi)-1$의 진폭·주기·위상·수직이동을 말하고, 최�
 ## 연습 3
 
 $\cos 2x = \sin x$를 $[0, 2\pi]$에서 풀어라. $\cos 2x = 1-2\sin^2 x$.
+
+→ 따라하기: **예시 14, 11**
 
 > 풀이: [풀이집](solutions/11-solutions.md#연습-3)
 
@@ -434,6 +440,8 @@ $\cos 2x = \sin x$를 $[0, 2\pi]$에서 풀어라. $\cos 2x = 1-2\sin^2 x$.
 $5\sin x + 12\cos x$를 $R\sin(x+\phi)$ 꼴로 바꾸고, 최댓값과 그때의 $x$를 구하라.
 이 방법이 유용한 예시를 하나 더 들어보라.
 
+→ 따라하기: **예시 12**
+
 > 풀이: [풀이집](solutions/11-solutions.md#연습-4)
 
 ---
@@ -441,6 +449,8 @@ $5\sin x + 12\cos x$를 $R\sin(x+\phi)$ 꼴로 바꾸고, 최댓값과 그때의
 ## 연습 5
 
 $a=7$, $b=10$, $c=13$인 삼각형의 세 각과 넓이를 구하라.
+
+→ 따라하기: **예시 16, 17**
 
 > 풀이: [풀이집](solutions/11-solutions.md#연습-5)
 
@@ -450,6 +460,8 @@ $a=7$, $b=10$, $c=13$인 삼각형의 세 각과 넓이를 구하라.
 
 $\sec x + \tan x = 2$일 때 $\sec x - \tan x$와 $\sin x$를 구하라.
 $(\sec x + \tan x)(\sec x - \tan x) = 1$ 이용.
+
+→ 따라하기: **예시 5, 9**
 
 > 풀이: [풀이집](solutions/11-solutions.md#연습-6)
 
