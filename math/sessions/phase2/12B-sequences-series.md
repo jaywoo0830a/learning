@@ -535,7 +535,7 @@ The Fibonacci sequence satisfies $F_{n+2} = F_{n+1} + F_n$ with $F_1=F_2=1$. Pro
 
 ---
 
-## Basic Algebra Drill — Sequences and Series (8 Problems)
+## Basic Algebra Drill — Sequences and Series (10 Problems)
 
 > Pure calculation. Master the fundamental formulas through repetition.
 
@@ -555,11 +555,15 @@ The Fibonacci sequence satisfies $F_{n+2} = F_{n+1} + F_n$ with $F_1=F_2=1$. Pro
 
 **D8.** Compute $\sum_{k=1}^{6} (k^3 - k)$.
 
+**D9.** Find the sum of the first 20 terms of the arithmetic sequence: $7, 12, 17, 22, \dots$
+
+**D10.** Find the infinite sum: $8 + 4 + 2 + 1 + \frac{1}{2} + \cdots$
+
 > Solutions: [Solutions](solutions/12B-solutions.md#basic-drill)
 
 ---
 
-## Advanced Algebra Drill — Sequences and Series (8 Problems)
+## Advanced Algebra Drill — Sequences and Series (10 Problems)
 
 > Multi-step. Chain concepts across the full toolkit.
 
@@ -578,6 +582,10 @@ The Fibonacci sequence satisfies $F_{n+2} = F_{n+1} + F_n$ with $F_1=F_2=1$. Pro
 **A7.** Find $\lim_{n\to\infty} \left(\sqrt{n^2 + 3n} - n\right)$. (Hint: rationalize the numerator.)
 
 **A8.** A sequence has first term 1 and each term after the first is the sum of all previous terms. Find a formula for $a_n$ and prove it by induction.
+
+**A9.** Find $\sum_{k=1}^{n} k(k+1)$ using the formulas for $\sum k^2$ and $\sum k$.
+
+**A10.** The Fibonacci sequence satisfies $F_1=F_2=1$, $F_{n+2}=F_{n+1}+F_n$. Prove that $F_1+F_2+\cdots+F_n = F_{n+2}-1$ by induction.
 
 > Solutions: [Solutions](solutions/12B-solutions.md#advanced-drill)
 

@@ -397,9 +397,9 @@ A $3 \times 3$ matrix $M$ has column vectors $\vec{v}_1 = (2,0,0)$, $\vec{v}_2 =
 
 ---
 
-## Basic Algebra Drill — Matrices and Vectors (4 Problems)
+## Basic Algebra Drill — Matrices and Vectors (10 Problems)
 
-> Pure calculation. Build fluency with the fundamental operations.
+> Pure calculation. Build fluency with fundamental operations.
 
 **D1.** Multiply $\begin{pmatrix} 2 & 1 \\ 0 & 3 \end{pmatrix} \times \begin{pmatrix} 4 & -1 \\ 2 & 1 \end{pmatrix}$.
 
@@ -409,11 +409,23 @@ A $3 \times 3$ matrix $M$ has column vectors $\vec{v}_1 = (2,0,0)$, $\vec{v}_2 =
 
 **D4.** Compute $\vec{a}\cdot\vec{b}$ for $\vec{a} = (1, -2, 3)$, $\vec{b} = (4, 0, -1)$.
 
+**D5.** Add the matrices: $\begin{pmatrix} 1 & 3 \\ 2 & -1 \end{pmatrix} + \begin{pmatrix} 4 & 0 \\ -2 & 5 \end{pmatrix}$.
+
+**D6.** Scale the vector: $5 \cdot (-2, 3, 1)$. Write as a vector.
+
+**D7.** Compute the cross product: $(2, 1, 0) \times (0, 3, 1)$.
+
+**D8.** Find a unit vector in the direction of $\vec{v} = (3, -4)$.
+
+**D9.** Compute $\det\begin{pmatrix} 1 & 0 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 3 \end{pmatrix}$.
+
+**D10.** Find the dot product of $\vec{u} = (2, -1)$ and $\vec{v} = (-3, 4)$. Are they perpendicular?
+
 > Solutions: [Solutions](solutions/12A2-solutions.md#basic-drill)
 
 ---
 
-## Advanced Algebra Drill — Matrices and Vectors (4 Problems)
+## Advanced Algebra Drill — Matrices and Vectors (10 Problems)
 
 > Multi-step. Connect matrices to transformations and vectors to geometry.
 
@@ -423,8 +435,19 @@ A $3 \times 3$ matrix $M$ has column vectors $\vec{v}_1 = (2,0,0)$, $\vec{v}_2 =
 
 **A3.** Write the rotation matrix for $60^\circ$ counterclockwise. Apply it to the vector $(1, 0)$. What are the new coordinates?
 
-**A4.** Solve the system using matrices:
-$\begin{cases} 2x + y - z = 3 \\ x - y + 2z = 1 \\ 3x + 2y + z = 7 \end{cases}$
+**A4.** Solve the system: $2x + y - z = 3$, $x - y + 2z = 1$, $3x + 2y + z = 7$.
+
+**A5.** Find the angle between $\vec{a} = (1, 1, 0)$ and $\vec{b} = (0, 1, 1)$.
+
+**A6.** Find the scalar and vector projections of $\vec{a} = (5, 12)$ onto $\vec{b} = (3, 4)$.
+
+**A7.** Compute $A^2$ for $A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$.
+
+**A8.** Find the area of the triangle with vertices $(0,0,0)$, $(2,1,0)$, $(0,3,0)$ using the cross product.
+
+**A9.** Find a $2 \times 2$ matrix $A$ such that $A^2 = I$ but $A \neq \pm I$. (Hint: think about reflections.)
+
+**A10.** The columns of a $2 \times 2$ matrix are $(3,1)$ and $(1,3)$. Find the area of the parallelogram they span.
 
 > Solutions: [Solutions](solutions/12A2-solutions.md#advanced-drill)
 

@@ -103,6 +103,24 @@ $\bar{z} = 5 + 12i$. $|z| = \sqrt{25+144} = 13$. → **$\bar{z} = 5+12i$, $|z| =
 ### D4. $i^{4k+3}$
 $i^{4k+3} = (i^4)^k \cdot i^3 = 1^k \cdot (-i) = -i$. → **$-i$.**
 
+### D5. $\frac{1}{i}$
+Multiply by $\frac{-i}{-i}$: $\frac{1}{i} \cdot \frac{-i}{-i} = \frac{-i}{-i^2} = \frac{-i}{1} = -i$. → **$-i$.**
+
+### D6. $(3+2i) + (5-7i) - (1+4i)$
+$(3+5-1) + (2-7-4)i = 7 - 9i$. → **$7 - 9i$.**
+
+### D7. Modulus of $z = -6 + 8i$
+$|z| = \sqrt{36 + 64} = \sqrt{100} = 10$. → **10.**
+
+### D8. $e^{i\pi/2}$ in $a+bi$ form
+$\cos\frac{\pi}{2} + i\sin\frac{\pi}{2} = 0 + i$. → **$i$.**
+
+### D9. $\bar{z}$ and $|z|$ for $z = -3i$
+$\bar{z} = 3i$. $|z| = \sqrt{0+9} = 3$. → **$\bar{z}=3i$, $|z|=3$.**
+
+### D10. $i^{15} + i^{16} + i^{17} + i^{18}$
+$i^{15}=i^3=-i$, $i^{16}=1$, $i^{17}=i$, $i^{18}=-1$. Sum = $(-i)+1+i+(-1)=0$. → **0.**
+
 ---
 
 ## Advanced Drill
@@ -129,6 +147,34 @@ $k=3$: $2e^{i7\pi/4} = \sqrt{2} - i\sqrt{2}$.
 ### A4. Area of square from 4th roots of 1
 Roots: $(1,0), (0,1), (-1,0), (0,-1)$. Side length = $\sqrt{2}$. Area = $(\sqrt{2})^2 = 2$.
 → **2.**
+
+### A5. $z = \sqrt{3} - i$ in polar form. Then $z^6$.
+$r = \sqrt{3+1} = 2$. $\cos\theta = \frac{\sqrt{3}}{2}$, $\sin\theta = -\frac{1}{2}$, $\theta = -\frac{\pi}{6}$.
+$z = 2e^{-i\pi/6}$. $z^6 = 2^6 e^{-i\pi} = 64(-1) = -64$. → **$-64$.**
+
+### A6. $z^2 + 2z + 5 = 0$
+$z = \frac{-2 \pm \sqrt{4-20}}{2} = \frac{-2 \pm \sqrt{-16}}{2} = \frac{-2 \pm 4i}{2} = -1 \pm 2i$.
+→ **$z = -1 + 2i$, $z = -1 - 2i$.**
+
+### A7. $z^3 = 8i$
+$8i = 8e^{i\pi/2}$. $z_k = 2e^{i(\pi/2 + 2\pi k)/3}$, $k=0,1,2$.
+$k=0$: $2e^{i\pi/6} = \sqrt{3} + i$. $k=1$: $2e^{i5\pi/6} = -\sqrt{3} + i$. $k=2$: $2e^{i3\pi/2} = -2i$.
+→ **$\sqrt{3}+i$, $-\sqrt{3}+i$, $-2i$.**
+
+### A8. $z = 2e^{i\pi/6}$. Find $z^4$ and $1/z$.
+$z^4 = 2^4 e^{i4\pi/6} = 16 e^{i2\pi/3} = 16(-\frac{1}{2} + i\frac{\sqrt{3}}{2}) = -8 + 8i\sqrt{3}$.
+$1/z = \frac{1}{2}e^{-i\pi/6} = \frac{1}{2}(\frac{\sqrt{3}}{2} - i\frac{1}{2}) = \frac{\sqrt{3}}{4} - \frac{1}{4}i$.
+→ **$z^4 = -8 + 8\sqrt{3}i$, $1/z = \frac{\sqrt{3}}{4} - \frac{1}{4}i$.**
+
+### A9. Prove $|z_1 z_2| = |z_1||z_2|$
+Let $z_1 = a+bi$, $z_2 = c+di$. $z_1z_2 = (ac-bd) + (ad+bc)i$.
+$|z_1z_2|^2 = (ac-bd)^2 + (ad+bc)^2 = a^2c^2 + b^2d^2 + a^2d^2 + b^2c^2$.
+$|z_1|^2|z_2|^2 = (a^2+b^2)(c^2+d^2) = a^2c^2 + a^2d^2 + b^2c^2 + b^2d^2$. Equal. Proved.
+
+### A10. Area of triangle from cube roots of $8i$
+Roots from A7: $(\sqrt{3}, 1)$, $(-\sqrt{3}, 1)$, $(0, -2)$. Equilateral triangle, radius 2.
+Side length = distance between $(\sqrt{3},1)$ and $(-\sqrt{3},1)$ = $2\sqrt{3}$.
+Area = $\frac{\sqrt{3}}{4}(2\sqrt{3})^2 = \frac{\sqrt{3}}{4}\cdot 12 = 3\sqrt{3}$. → **$3\sqrt{3}$.**
 
 ---
 

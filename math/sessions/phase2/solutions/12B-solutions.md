@@ -198,6 +198,15 @@ Denominators: 3, 7, 11, 15, ... — arithmetic with $d = 4$. Reciprocals form an
 $\sum k^3 - \sum k = (\frac{6\cdot7}{2})^2 - \frac{6\cdot7}{2} = 21^2 - 21 = 441 - 21 = 420$.
 → **420.**
 
+### D9. Sum of first 20 terms of $7, 12, 17, 22, \dots$
+$a_1=7$, $d=5$, $a_{20} = 7+19\cdot5 = 102$.
+$S_{20} = \frac{20(7+102)}{2} = 10\cdot109 = 1090$.
+→ **1090.**
+
+### D10. Infinite sum $8 + 4 + 2 + 1 + \frac{1}{2} + \cdots$
+$a_1=8$, $r=\frac{1}{2}$. $S_\infty = \frac{8}{1-\frac{1}{2}} = 16$.
+→ **16.**
+
 ---
 
 ## Advanced Drill
@@ -256,6 +265,17 @@ $= \frac{(n^2+3n) - n^2}{\sqrt{n^2+3n} + n} = \frac{3n}{\sqrt{n^2+3n} + n}$.
 (3) Prove by induction: Base $n=2$: $a_2 = 1 = 2^{0}$ ✓.
 Assume $a_k = 2^{k-2}$ for $2 \leq k \leq m$. Then $a_{m+1} = \sum_{k=1}^{m} a_k = 1 + \sum_{k=2}^{m} 2^{k-2} = 1 + (2^{m-1} - 1) = 2^{m-1}$. Matches the pattern for $n=m+1$. ✓
 → **$a_1 = 1$, $a_n = 2^{n-2}$ for $n \geq 2$.**
+
+### A9. $\sum_{k=1}^{n} k(k+1) = \sum (k^2 + k)$
+$= \sum k^2 + \sum k = \frac{n(n+1)(2n+1)}{6} + \frac{n(n+1)}{2}$.
+$= n(n+1)\left[\frac{2n+1}{6} + \frac{1}{2}\right] = n(n+1)\cdot\frac{2n+1+3}{6} = \frac{n(n+1)(n+2)}{3}$.
+→ **$\frac{n(n+1)(n+2)}{3}$.**
+
+### A10. Prove $\sum_{k=1}^{n} F_k = F_{n+2} - 1$ by induction.
+Base $n=1$: $F_1 = 1$. $F_3 - 1 = 2 - 1 = 1$. ✓
+Assume $\sum_{k=1}^{m} F_k = F_{m+2} - 1$.
+Then $\sum_{k=1}^{m+1} F_k = (F_{m+2} - 1) + F_{m+1} = F_{m+2} + F_{m+1} - 1 = F_{m+3} - 1$.
+This matches the formula with $n = m+1$. ✓ Proved.
 
 ---
 

@@ -244,7 +244,7 @@ The three cube roots of $-8$ form a triangle in the complex plane. Find its area
 
 ---
 
-## Basic Algebra Drill — Complex Numbers (4 Problems)
+## Basic Algebra Drill — Complex Numbers (10 Problems)
 
 > Pure calculation. Build fluency with $i$, conjugates, and polar form.
 
@@ -256,11 +256,23 @@ The three cube roots of $-8$ form a triangle in the complex plane. Find its area
 
 **D4.** Find $i^{4k+3}$ for any integer $k$. State the result.
 
+**D5.** Simplify $\frac{1}{i}$. Write in $a+bi$ form.
+
+**D6.** Compute $(3+2i) + (5-7i) - (1+4i)$.
+
+**D7.** Find the modulus of $z = -6 + 8i$.
+
+**D8.** Write $e^{i\pi/2}$ in $a+bi$ form.
+
+**D9.** Find $\bar{z}$ and $|z|$ for $z = -3i$.
+
+**D10.** Simplify $i^{15} + i^{16} + i^{17} + i^{18}$.
+
 > Solutions: [Solutions](solutions/12A1-solutions.md#basic-drill)
 
 ---
 
-## Advanced Algebra Drill — Complex Numbers (4 Problems)
+## Advanced Algebra Drill — Complex Numbers (10 Problems)
 
 > Multi-step. Chain polar form, Euler, and De Moivre.
 
@@ -271,6 +283,18 @@ The three cube roots of $-8$ form a triangle in the complex plane. Find its area
 **A3.** Find all four 4th roots of $-16$. Write each in polar form $re^{i\theta}$ and in $a+bi$ form.
 
 **A4.** The four 4th roots of 1 form a square. Compute its area.
+
+**A5.** Write $z = \sqrt{3} - i$ in polar form. Then compute $z^6$.
+
+**A6.** Solve $z^2 + 2z + 5 = 0$ over the complex numbers.
+
+**A7.** Find all complex $z$ such that $z^3 = 8i$.
+
+**A8.** If $z = 2e^{i\pi/6}$, find $z^4$ and $\frac{1}{z}$ in $a+bi$ form.
+
+**A9.** Prove that $|z_1 z_2| = |z_1| \cdot |z_2|$ for any two complex numbers.
+
+**A10.** The three cube roots of $8i$ form a triangle in the complex plane. Find its area.
 
 > Solutions: [Solutions](solutions/12A1-solutions.md#advanced-drill)
 

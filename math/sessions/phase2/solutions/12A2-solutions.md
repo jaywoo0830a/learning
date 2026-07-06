@@ -108,6 +108,24 @@ $\sqrt{36+64} = \sqrt{100} = 10$. → **10.**
 ### D4. $\vec{a}\cdot\vec{b}$ for $\vec{a} = (1,-2,3)$, $\vec{b} = (4,0,-1)$
 $4 + 0 - 3 = 1$. → **1.**
 
+### D5. $\begin{pmatrix} 1 & 3 \\ 2 & -1 \end{pmatrix} + \begin{pmatrix} 4 & 0 \\ -2 & 5 \end{pmatrix}$
+$\begin{pmatrix} 1+4 & 3+0 \\ 2-2 & -1+5 \end{pmatrix} = \begin{pmatrix} 5 & 3 \\ 0 & 4 \end{pmatrix}$. → **$\begin{pmatrix} 5 & 3 \\ 0 & 4 \end{pmatrix}$.**
+
+### D6. $5 \cdot (-2, 3, 1)$
+$(5\cdot(-2),\; 5\cdot3,\; 5\cdot1) = (-10, 15, 5)$. → **$(-10, 15, 5)$.**
+
+### D7. $(2, 1, 0) \times (0, 3, 1)$
+$\begin{pmatrix} 1\cdot1 - 0\cdot3 \\ 0\cdot0 - 2\cdot1 \\ 2\cdot3 - 1\cdot0 \end{pmatrix} = (1, -2, 6)$. → **$(1, -2, 6)$.**
+
+### D8. Unit vector in direction of $\vec{v} = (3, -4)$
+$|\vec{v}| = \sqrt{9+16} = 5$. $\hat{v} = (\frac{3}{5}, -\frac{4}{5})$. → **$(\frac{3}{5}, -\frac{4}{5})$.**
+
+### D9. $\det\begin{pmatrix} 1 & 0 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 3 \end{pmatrix}$
+Diagonal matrix: $\det = 1 \cdot 2 \cdot 3 = 6$. → **6.**
+
+### D10. $\vec{u}\cdot\vec{v}$ for $\vec{u}=(2,-1)$, $\vec{v}=(-3,4)$. Perpendicular?
+Dot = $2(-3) + (-1)(4) = -6-4 = -10 \neq 0$. → **$-10$, not perpendicular.**
+
 ---
 
 ## Advanced Drill
@@ -129,6 +147,31 @@ $R = \begin{pmatrix} \frac{1}{2} & -\frac{\sqrt{3}}{2} \\ \frac{\sqrt{3}}{2} & \
 ### A4. Solve $\begin{cases} 2x+y-z=3 \\ x-y+2z=1 \\ 3x+2y+z=7 \end{cases}$
 From eq1: $z = 2x+y-3$. Substitute: $5x+y=7$, $5x+3y=10$. Solve: $y=\frac{3}{2}$, $x=\frac{11}{10}$, $z=\frac{7}{10}$.
 → **$x=\frac{11}{10},\; y=\frac{3}{2},\; z=\frac{7}{10}$.**
+
+### A5. Angle between $\vec{a} = (1,1,0)$ and $\vec{b} = (0,1,1)$
+$\vec{a}\cdot\vec{b} = 1$. $|\vec{a}| = \sqrt{2}$, $|\vec{b}| = \sqrt{2}$.
+$\cos\theta = \frac{1}{2}$ → $\theta = 60^\circ$. → **$60^\circ$.**
+
+### A6. Projection of $\vec{a} = (5,12)$ onto $\vec{b} = (3,4)$
+$|\vec{b}| = 5$. Scalar: $\frac{15+48}{5} = \frac{63}{5}$. Vector: $\frac{63}{25}(3,4)$.
+→ **Scalar = $\frac{63}{5}$, Vector = $(\frac{189}{25}, \frac{252}{25})$.**
+
+### A7. $A^2$ for $A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$
+$A^2 = \begin{pmatrix} 1\cdot1+2\cdot3 & 1\cdot2+2\cdot4 \\ 3\cdot1+4\cdot3 & 3\cdot2+4\cdot4 \end{pmatrix} = \begin{pmatrix} 7 & 10 \\ 15 & 22 \end{pmatrix}$.
+→ **$\begin{pmatrix} 7 & 10 \\ 15 & 22 \end{pmatrix}$.**
+
+### A8. Triangle area: $(0,0,0)$, $(2,1,0)$, $(0,3,0)$
+$\vec{v}_1 = (2,1,0)$, $\vec{v}_2 = (0,3,0)$. $\vec{v}_1\times\vec{v}_2 = (0,0,6)$. Area = $\frac{1}{2}\cdot6 = 3$.
+→ **3.**
+
+### A9. Find $2\times2$ matrix with $A^2=I$, $A \neq \pm I$.
+$A = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}$ (reflection across $x$-axis). $A^2 = I$.
+Any reflection matrix works: $A = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$ also satisfies $A^2 = I$.
+→ **$\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}$ (or any reflection).**
+
+### A10. Area from columns $(3,1)$ and $(1,3)$
+Area = $|\det\begin{pmatrix} 3 & 1 \\ 1 & 3 \end{pmatrix}| = |9-1| = 8$.
+→ **8.**
 
 ---
 
