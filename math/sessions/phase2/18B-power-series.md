@@ -1,0 +1,150 @@
+# Session 18B: Power Series — Where Does It Converge?
+
+**Phase 2 — Classical Techniques | 60 min**
+
+*Prerequisites: 18A (convergence tests), 14B (chain rule), 16A (FTC)*
+
+---
+
+## Example 1: What Is a Power Series?
+
+$\displaystyle \sum_{n=0}^\infty c_n(x-a)^n = c_0 + c_1(x-a) + c_2(x-a)^2 + \cdots$
+
+$a$ = center. The series is a **function of $x$**. Question: for which $x$ does it converge?
+
+---
+
+## Example 2: Radius of Convergence
+
+Use the **Ratio Test** (or Root Test) on the terms:
+
+$\displaystyle \lim_{n\to\infty}\left|\frac{c_{n+1}(x-a)^{n+1}}{c_n(x-a)^n}\right| = |x-a|\lim_{n\to\infty}\left|\frac{c_{n+1}}{c_n}\right| < 1$.
+
+**Radius** $R = \displaystyle \lim_{n\to\infty}\left|\frac{c_n}{c_{n+1}}\right|$ (if the limit exists).
+
+$\sum_{n=0}^\infty \frac{x^n}{n!}$: $R = \lim \frac{1/n!}{1/(n+1)!} = \lim (n+1) = \infty$. **Converges for all $x$.** This is $e^x$!
+
+$\sum_{n=0}^\infty n!\,x^n$: $R = \lim \frac{n!}{(n+1)!} = \lim \frac{1}{n+1} = 0$. **Converges only at $x=0$.**
+
+$\sum_{n=0}^\infty x^n$: $R = 1$. Converges for $|x|<1$, diverges for $|x|>1$. At $x=\pm1$: check separately (both diverge).
+
+![Radius of convergence on number line](graphs/18b1-radius-convergence.png)
+
+---
+
+## Example 3: Interval of Convergence — Check the Endpoints
+
+For $\sum \frac{x^n}{n}$: $R=1$. At $x=1$: $\sum 1/n$ diverges. At $x=-1$: $\sum (-1)^n/n$ converges (alternating).
+**Interval**: $[-1, 1)$.
+
+For $\sum \frac{x^n}{n^2}$: $R=1$. At $x=\pm1$: $\sum 1/n^2$ converges.
+**Interval**: $[-1, 1]$.
+
+---
+
+## Example 4: Differentiation and Integration Term-by-Term
+
+Within the radius of convergence, you can differentiate and integrate a power series **term by term**:
+
+$\frac{d}{dx}\sum c_n(x-a)^n = \sum n c_n(x-a)^{n-1}$.
+$\int \sum c_n(x-a)^n dx = C + \sum \frac{c_n}{n+1}(x-a)^{n+1}$.
+
+**The radius of convergence stays the same** (endpoints may change).
+
+---
+
+## Example 5: Building New Series from $\frac{1}{1-x}$
+
+$\frac{1}{1-x} = \sum_{n=0}^\infty x^n$, $|x|<1$.
+
+Replace $x$ with $-x$: $\frac{1}{1+x} = \sum (-1)^n x^n$.
+Replace $x$ with $x^2$: $\frac{1}{1-x^2} = \sum x^{2n}$.
+Integrate: $\int \frac{1}{1-x}dx = -\ln(1-x) = \sum \frac{x^{n+1}}{n+1}$. So $\ln(1+x) = \sum_{n=1}^\infty \frac{(-1)^{n+1}x^n}{n}$.
+Integrate $\frac{1}{1+x^2}$: $\arctan x = \sum_{n=0}^\infty \frac{(-1)^n x^{2n+1}}{2n+1}$.
+
+---
+
+## What We Just Did
+
+```
+(1) Power series: Σc_n(x-a)^n. Center a. Radius R from Ratio/Root test.
+(2) Interval of convergence: (-R,R) guaranteed. Check endpoints separately.
+(3) Term-by-term differentiation/integration preserves R.
+(4) Build new series from geometric: substitute, differentiate, integrate.
+```
+
+---
+
+## Practice 1
+
+Find radius and interval for $\sum_{n=1}^\infty \frac{(x-2)^n}{3^n n}$.
+
+→ Solutions: [Solutions](solutions/18B-solutions.md#practice-1)
+
+---
+
+## Practice 2
+
+Find a power series for $\ln(1-x^2)$ using the geometric series.
+
+→ Solutions: [Solutions](solutions/18B-solutions.md#practice-2)
+
+---
+
+## Practice 3
+
+Differentiate $\sum_{n=0}^\infty \frac{x^n}{n!}$ term-by-term. What do you notice?
+
+→ Solutions: [Solutions](solutions/18B-solutions.md#practice-3)
+
+---
+
+## Basic Algebra Drill — Power Series (10 Problems)
+
+**D1.** Find $R$ for $\sum_{n=0}^\infty \frac{x^n}{2^n}$.
+
+**D2.** Find $R$ for $\sum_{n=1}^\infty \frac{n x^n}{3^n}$.
+
+**D3.** Find interval for $\sum_{n=0}^\infty \frac{(-1)^n x^n}{n+1}$.
+
+**D4.** Write $\frac{1}{1+2x}$ as a power series. For which $x$?
+
+**D5.** Find a series for $\frac{1}{(1-x)^2}$ by differentiating $\frac{1}{1-x}$.
+
+**D6.** Find a series for $\ln(1-x)$ by integrating $\frac{1}{1-x}$.
+
+**D7.** Evaluate $\sum_{n=1}^\infty \frac{n}{2^n}$ by recognizing a differentiated series.
+
+**D8.** Find interval for $\sum_{n=1}^\infty \frac{(x+1)^n}{n^2}$.
+
+**D9.** Differentiate the series for $\sin x = \sum (-1)^n \frac{x^{2n+1}}{(2n+1)!}$.
+
+**D10.** Find $R$ for $\sum_{n=0}^\infty \frac{(2n)!}{(n!)^2}x^n$. Use ratio test.
+
+> Solutions: [Solutions](solutions/18B-solutions.md#basic-drill)
+
+---
+
+## Advanced Algebra Drill — Power Series (10 Problems)
+
+**A1.** Find the interval for $\sum_{n=1}^\infty \frac{n(x+3)^n}{4^n}$. Be careful with endpoints.
+
+**A2.** Find a power series for $\frac{x}{1+x-2x^2}$ by partial fractions + geometric series.
+
+**A3.** Use series to evaluate $\lim_{x\to0}\frac{e^x-1-x}{x^2}$.
+
+**A4.** Prove $\sum_{n=1}^\infty \frac{n}{3^n} = \frac{3}{4}$ by differentiating a geometric series.
+
+**A5.** Find the interval for $\sum_{n=1}^\infty \frac{(x-1)^n}{n\cdot5^n}$.
+
+**A6.** Express $\int_0^{1/2} \frac{dx}{1+x^4}$ as a series. Compute to 4 decimal places.
+
+**A7.** Find all $x$ for which $\sum_{n=0}^\infty \frac{n!\,(x-2)^n}{n^n}$ converges. Use ratio + Stirling.
+
+**A8.** A power series satisfies $f'(x)=f(x)$ with $f(0)=1$. Find the series and identify $f$.
+
+**A9.** Find the radius for $\sum_{n=0}^\infty \binom{2n}{n}x^n$ using the ratio test.
+
+**A10.** Cauchy product: multiply the series for $e^x$ by itself. Show the result is the series for $e^{2x}$.
+
+> Solutions: [Solutions](solutions/18B-solutions.md#advanced-drill)
