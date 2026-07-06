@@ -1,0 +1,37 @@
+% header.tex — Pandoc + XeLaTeX 가독성 개선
+
+% 산세리프도 한글 폰트로 (제목 등에 사용)
+\setsansfont{Noto Sans CJK KR}
+
+% 문단 간격 (들여쓰기 대신 여백)
+\setlength{\parskip}{0.6em}
+\setlength{\parindent}{0pt}
+
+% 섹션 제목 스타일
+\usepackage{titlesec}
+\titleformat{\section}{\Large\bfseries}{}{0em}{}[\vspace{-0.3em}\rule{\textwidth}{0.5pt}]
+\titleformat{\subsection}{\large\bfseries}{}{0em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries}{}{0em}{}
+
+% 링크 색상
+\usepackage{xcolor}
+\definecolor{linkblue}{HTML}{2563eb}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=linkblue,
+  urlcolor=linkblue,
+  citecolor=linkblue
+}
+
+% 수식 주변 여백 최적화
+\AtBeginDocument{%
+  \abovedisplayskip=0.6em plus 2pt minus 2pt
+  \belowdisplayskip=0.6em plus 2pt minus 2pt
+  \abovedisplayshortskip=0.3em plus 2pt minus 2pt
+  \belowdisplayshortskip=0.3em plus 2pt minus 2pt
+}
+
+% 강조(bold)에 색상 입히기
+\let\oldtextbf\textbf
+\renewcommand{\textbf}[1]{{\color{red!60!black}\oldtextbf{#1}}}

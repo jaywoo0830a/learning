@@ -11,5 +11,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     fonts-noto-cjk \
     && rm -rf /var/lib/apt/lists/*
 
+# LaTeX 스타일 헤더
+COPY header.tex /usr/local/share/header.tex
+
 WORKDIR /work
 ENTRYPOINT ["pandoc"]

@@ -42,11 +42,14 @@ docker run --rm \
     "$IMAGE" \
     "$(basename "$ABS_INPUT")" \
     --pdf-engine=xelatex \
+    -V documentclass=scrartcl \
     -V mainfont="Noto Sans CJK KR" \
     -V monofont="Noto Sans Mono CJK KR" \
-    -V fontsize=11pt \
-    -V linestretch=1.5 \
+    -V fontsize=12pt \
+    -V linestretch=1.3 \
     -V geometry:margin=2.5cm \
+    -V colorlinks=true \
+    --include-in-header=/usr/local/share/header.tex \
     -o "$(basename "$OUTPUT")"
 
 echo "✅ 완료: $WORKDIR/$(basename "$OUTPUT")"
