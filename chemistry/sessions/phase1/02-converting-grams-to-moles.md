@@ -109,6 +109,72 @@ You need 0.250 mol of NaOH. (Na=23.0, O=16.0, H=1.0, K=39.1)
 
 ---
 
+## What We Just Did
+
+```
+(1) Box number = molar mass (g/mol). For compounds, multiply by atom count, then add.
+(2) g → mol: Divide grams by the box number. n = m/M.
+(3) mol → g: Multiply mol by the box number. m = n × M.
+```
+
+---
+
+## Basic Drill — Grams ↔ Moles (10 Problems)
+
+> Use the periodic table values provided.
+
+**D1.** Find the box number of $\text{H}_2\text{O}$. (H=1.0, O=16.0)
+
+**D2.** Find the box number of $\text{Na}_2\text{CO}_3$. (Na=23.0, C=12.0, O=16.0)
+
+**D3.** Convert 36.0 g of $\text{H}_2\text{O}$ to mol. (H=1.0, O=16.0)
+
+**D4.** Convert 88.0 g of $\text{CO}_2$ to mol. (C=12.0, O=16.0)
+
+**D5.** Convert 0.500 mol of NaCl to g. (Na=23.0, Cl=35.5)
+
+**D6.** Convert 2.00 mol of $\text{H}_2\text{SO}_4$ to g. (H=1.0, S=32.1, O=16.0)
+
+**D7.** How many mol in 100.0 g of $\text{CaCO}_3$? (Ca=40.1, C=12.0, O=16.0)
+
+**D8.** What is the mass of 0.750 mol of $\text{C}_6\text{H}_{12}\text{O}_6$? (C=12.0, H=1.0, O=16.0)
+
+**D9.** Which has more mol: 50.0 g of NaCl or 50.0 g of KCl? (Na=23.0, Cl=35.5, K=39.1)
+
+**D10.** Find the box number of $\text{Al}_2(\text{SO}_4)_3$. (Al=27.0, S=32.1, O=16.0)
+
+> Solutions: [Solution Set](solutions/02-solutions.md#basic-drill)
+
+---
+
+## Advanced Drill — Grams ↔ Moles (10 Problems)
+
+> Multi-step, compare, and think in reverse.
+
+**A1.** Convert 5.85 g of NaCl to mol, then to number of formula units (use Avogadro's number: $6.022 \times 10^{23}$). (Na=23.0, Cl=35.5)
+
+**A2.** A sample of $\text{H}_2\text{O}$ contains 0.250 mol. What is its mass? How many molecules is that?
+
+**A3.** You need 0.100 mol of NaOH for a reaction. (a) How many g? (b) If you only have KOH (K=39.1), how many g for the same 0.100 mol? (Na=23.0, O=16.0, H=1.0)
+
+**A4.** Equal masses (10.0 g) of $\text{H}_2$ and $\text{O}_2$ — which contains more molecules? (H=1.0, O=16.0)
+
+**A5.** A hydrate $\text{CuSO}_4 \cdot 5\text{H}_2\text{O}$ has what box number? (Cu=63.5, S=32.1, O=16.0, H=1.0)
+
+**A6.** Convert 0.400 mol of $\text{Fe}_2\text{O}_3$ to g, then find the mass of Fe contained in it. (Fe=55.8, O=16.0)
+
+**A7.** A compound has box number 180.0. A 90.0 g sample contains how many mol? How many moles of carbon if the formula is $\text{C}_6\text{H}_{12}\text{O}_6$?
+
+**A8.** You weigh 15.0 g of an unknown compound with box number 60.0. How many mol? If each molecule contains 2 atoms of element X (box number 16.0), what is the mass of X in the sample?
+
+**A9.** A student needs 0.200 mol of a compound and calculates 11.7 g. What is the compound's box number? If the compound is NaCl, are they correct? (Na=23.0, Cl=35.5)
+
+**A10.** Compare 1.00 mol of $\text{CH}_4$ (C=12.0, H=1.0) with 1.00 mol of $\text{O}_2$ (O=16.0). Which has more mass? Which has more atoms total? Explain the difference.
+
+> Solutions: [Solution Set](solutions/02-solutions.md#advanced-drill)
+
+---
+
 ## Terminology
 
 | What we've been calling it | Term |
@@ -116,6 +182,12 @@ You need 0.250 mol of NaOH. (Na=23.0, O=16.0, H=1.0, K=39.1)
 | number written in the periodic table box | molar mass ($M$, g/mol) |
 | dividing g by the box number | $n = m/M$ |
 | multiplying mol by the box number | $m = n \times M$ |
+
+---
+
+![Grams to moles conversion flowchart](graphs/02-grams-moles.png)
+
+*Graph: The two-way conversion — divide by molar mass to go g→mol, multiply to go mol→g. The molar mass is the bridge.*
 
 ---
 

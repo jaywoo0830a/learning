@@ -1,75 +1,80 @@
-# 풀이 06: 먼저 사라지는 쪽 찾기 + 실제로 얻은 양 계산
+# Solutions 06: Limiting Reactant and Percent Yield
+
+## Exercise 1
+N₂ mol = 28.0÷28.0=1.00. mol÷coeff = 1.00÷1=1.00.
+H₂ mol = 6.0÷2.0=3.00. mol÷coeff = 3.00÷3=1.00.
+**Tie — both run out simultaneously.** NH₃ = 1.00×2×17.0=**34.0 g**
+
+## Exercise 2
+H₂ mol = 10.0÷2.0=5.00. ÷coeff = 5.00÷2=2.50.
+O₂ mol = 64.0÷32.0=2.00. ÷coeff = 2.00÷1=2.00.
+**O₂ runs out (2.00 < 2.50).** H₂O = 2.00×2/1×18.0=**72.0 g**
+
+## Exercise 3
+CH₄ mol = 16.0÷16.0=1.00. ÷1=1.00.
+O₂ mol = 48.0÷32.0=1.50. ÷2=0.75.
+**O₂ runs out (0.75 < 1.00).** CO₂ = 1.50×1/2=0.75 mol ×44.0=**33.0 g**
+
+## Exercise 4
+Fe₂O₃ mol = 80.0÷159.6=0.501. ÷1=0.501.
+CO mol = 42.0÷28.0=1.50. ÷3=0.500.
+**CO runs out (0.500 < 0.501).** Fe = 1.50×2/3×55.8=**55.8 g**
+
+## Exercise 5
+55.8 g theoretical. Actual = 39.1 g. (39.1÷55.8)×100 = **70.1%**
+
+## Exercise 6
+C₃H₈ mol = 44.0÷44.0=1.00. ÷1=1.00.
+O₂ mol = 128.0÷32.0=4.00. ÷5=0.800.
+(a) **O₂ runs out (0.800 < 1.00).**
+(b) CO₂ = 4.00×3/5×44.0=**105.6 g**
+(c) (99.0÷105.6)×100 = **93.8%**
 
 ---
 
-## 연습 1
+## Basic Drill
 
-$\text{N}_2 + 3\text{H}_2 \rightarrow 2\text{NH}_3$
-칸 숫자: $\text{N}_2$=28.0, $\text{H}_2$=2.0, $\text{NH}_3$=17.0
-
-$\text{N}_2$ mol = $28.0 \div 28.0 = 1.00$, &nbsp; mol÷계수 = $1.00 \div 1 = 1.00$
-$\text{H}_2$ mol = $6.0 \div 2.0 = 3.00$, &nbsp; mol÷계수 = $3.00 \div 3 = 1.00$
-
-몫이 같다 → 둘 다 정확히 소진.
-$\text{NH}_3$ mol = $1.00 \times \dfrac{2}{1} = 2.00$ mol → g = $2.00 \times 17.0 = \textbf{34.0 g}$
-
----
-
-## 연습 2
-
-$2\text{H}_2 + \text{O}_2 \rightarrow 2\text{H}_2\text{O}$
-칸 숫자: $\text{H}_2$=2.0, $\text{O}_2$=32.0, $\text{H}_2\text{O}$=18.0
-
-$\text{H}_2$ mol = $10.0 \div 2.0 = 5.00$, mol÷계수 = $5.00 \div 2 = 2.50$
-$\text{O}_2$ mol = $64.0 \div 32.0 = 2.00$, mol÷계수 = $2.00 \div 1 = 2.00$
-
-2.00 < 2.50 → $\text{O}_2$가 먼저 사라진다.
-$\text{H}_2\text{O}$ mol = $2.00 \times \dfrac{2}{1} = 4.00$ mol → g = $4.00 \times 18.0 = \textbf{72.0 g}$
+**D1.** N₂: 14.0÷28.0=0.500÷1=0.500. H₂: 4.0÷2.0=2.00÷3=0.667. **N₂ limits.** NH₃: 0.500×2×17.0=**17.0 g**
+**D2.** H₂: 4.0÷2.0=2.00÷2=1.00. O₂: 16.0÷32.0=0.500÷1=0.500. **O₂ limits.** H₂O: 0.500×2×18.0=**18.0 g**
+**D3.** CH₄: 8.0÷16.0=0.50÷1=0.50. O₂: 48.0÷32.0=1.50÷2=0.75. **CH₄ limits.** CO₂: 0.50×44.0=**22.0 g**
+**D4.** Mg: 12.15÷24.3=0.500÷2=0.250. O₂: 16.0÷32.0=0.500÷1=0.500. **Mg limits.** MgO: 0.500×40.3=**20.2 g**
+**D5.** Fe: 55.8÷55.8=1.00÷4=0.250. O₂: 24.0÷32.0=0.750÷3=0.250. **Tie.**
+**D6.** (12.0÷17.0)×100=**70.6%**
+**D7.** (15.0÷18.0)×100=**83.3%**
+**D8.** Al: 27.0÷27.0=1.00÷2=0.500. Cl₂: 53.25÷71.0=0.750÷3=0.250. **Cl₂ limits.** AlCl₃: 0.750×2/3=0.500mol×133.5=**66.8 g**
+**D9.** CaCO₃: 50.0÷100.1=0.500 mol. CaO: 0.500×56.1=**28.1 g**. % = 22.4÷28.1×100=**79.7%**
+**D10.** Na: 23.0÷23.0=1.00÷2=0.500. Cl₂: 17.75÷71.0=0.250÷1=0.250. **Cl₂ limits.** NaCl: 0.250×2/1×58.5=**29.3 g**
 
 ---
 
-## 연습 3
+## Advanced Drill
 
-$\text{CH}_4 + 2\text{O}_2 \rightarrow \text{CO}_2 + 2\text{H}_2\text{O}$
-칸 숫자: $\text{CH}_4$=16.0, $\text{O}_2$=32.0, $\text{CO}_2$=44.0
+**A1.** (a) Fe₂O₃: 0.501÷1=0.501. CO: 1.50÷3=0.500. **CO limits.**
+(b) Fe = 1.50×2/3×55.8=**55.8 g**
+(c) Fe₂O₃ used: 1.50×1/3=0.500 mol. Remaining: 0.501−0.500=0.001 mol ×159.6=**0.2 g excess**
 
-$\text{CH}_4$ mol = $16.0 \div 16.0 = 1.00$, mol÷계수 = $1.00 \div 1 = 1.00$
-$\text{O}_2$ mol = $48.0 \div 32.0 = 1.50$, mol÷계수 = $1.50 \div 2 = 0.75$
+**A2.** (a) C₃H₈: 22.0÷44.0=0.500÷1=0.500. O₂: 80.0÷32.0=2.50÷5=0.500. **Tie.**
+(b) CO₂ = 0.500×3×44.0=**66.0 g**
+(c) H₂O = 0.500×4×18.0=**36.0 g**
 
-0.75 < 1.00 → $\text{O}_2$가 먼저 사라진다.
-$\text{CO}_2$ mol = $1.50 \times \dfrac{1}{2} = 0.75$ mol → g = $0.75 \times 44.0 = \textbf{33.0 g}$
+**A3.** (55.0÷66.0)×100=**83.3%**. Reasons: incomplete reaction, side reactions, product lost during transfer/purification, measurement error.
 
----
+**A4.** Mg mol=2.43÷24.3=0.100. MgCl₂=0.100×95.3=**9.53 g**. %=(8.55÷9.53)×100=**89.7%**
 
-## 연습 4
+**A5.** With exactly stoichiometric 2:1 ratio: H₂ 2 mol, O₂ 1 mol. mol÷coeff: H₂=2÷2=1, O₂=1÷1=1. **Tie — both run out simultaneously. No single limiting reactant.**
 
-$\text{Fe}_2\text{O}_3 + 3\text{CO} \rightarrow 2\text{Fe} + 3\text{CO}_2$
-칸 숫자: $\text{Fe}_2\text{O}_3$=159.6, CO=28.0, Fe=55.8
+**A6.** (a) (35.2÷44.0)×100=**80.0%**. (b) CO₂ produced=35.2 g=0.800 mol. CaCO₃ reacted=0.800 mol×100.1=80.1 g. Remaining=100.0−80.1=**19.9 g**
 
-$\text{Fe}_2\text{O}_3$ mol = $80.0 \div 159.6 = 0.501$, mol÷계수 = $0.501 \div 1 = 0.501$
-CO mol = $42.0 \div 28.0 = 1.50$, mol÷계수 = $1.50 \div 3 = 0.500$
+**A7.** Actual = 60.0×0.85=**51.0 g**. To get 50.0 g: theoretical = 50.0÷0.85=**58.8 g**
 
-0.500 < 0.501 → CO가 먼저 사라진다.
-Fe mol = $1.50 \times \dfrac{2}{3} = 1.00$ mol → g = $1.00 \times 55.8 = \textbf{55.8 g}$
+**A8.** Al: 10.8÷27.0=0.400÷2=0.200. Br₂: 96.0÷159.8=0.601÷3=0.200. **Tie.**
+(b) AlBr₃=0.400×266.7=**106.7 g**. (c) 106.7×0.78=**83.2 g**
 
----
+**A9.** (a) N₂: 56.0÷28.0=2.00÷1=2.00. H₂: 15.0÷2.0=7.50÷3=2.50. **N₂ limits.**
+(b) NH₃=2.00×2×17.0=**68.0 g**
+(c) H₂ used: 2.00×3=6.00 mol×2.0=12.0 g. Excess: 15.0−12.0=**3.0 g H₂**
 
-## 연습 5
-
-계산 g = 55.8g, 실제 g = 39.1g
-백분율 = $39.1 \div 55.8 \times 100 = \textbf{70.1\%}$
-
----
-
-## 연습 6: 실전
-
-$\text{C}_3\text{H}_8 + 5\text{O}_2 \rightarrow 3\text{CO}_2 + 4\text{H}_2\text{O}$
-칸 숫자: $\text{C}_3\text{H}_8$=44.0, $\text{O}_2$=32.0, $\text{CO}_2$=44.0
-
-(a) $\text{C}_3\text{H}_8$ mol = $44.0 \div 44.0 = 1.00$, mol÷계수 = $1.00 \div 1 = 1.00$
-$\text{O}_2$ mol = $128.0 \div 32.0 = 4.00$, mol÷계수 = $4.00 \div 5 = 0.80$
-0.80 < 1.00 → **$\text{O}_2$가 먼저 사라진다.**
-
-(b) $\text{CO}_2$ mol = $4.00 \times \dfrac{3}{5} = 2.40$ mol → g = $2.40 \times 44.0 = \textbf{106 g}$
-
-(c) 백분율 = $99.0 \div 105.6 \times 100 = \textbf{93.8\%}$
+**A10.** (a) Same mass, larger box number → fewer moles → **box-100 reactant runs out.**
+(b) Box-50: 5.0÷50=0.10 mol. Box-100: 5.0÷100=0.05 mol. ÷1=0.05. **Box-100 limits.**
+(c) Product: 0.05×150.0=**7.5 g**
+(d) Box-50 used: 0.05 mol×50=2.5 g. Remaining: 5.0−2.5=**2.5 g**

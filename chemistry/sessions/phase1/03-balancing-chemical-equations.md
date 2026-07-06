@@ -115,6 +115,73 @@ Balance these combustion reactions. If a fraction appears, multiply everything b
 
 ---
 
+## What We Just Did
+
+```
+(1) Find the most complex molecule → set coefficient = 1.
+(2) Balance in order: metals → nonmetals → H → O (oxygen last).
+(3) If O₂ has a fractional coefficient, multiply ALL coefficients by 2 at the end.
+(4) Never change subscripts — only change the big numbers in front.
+```
+
+---
+
+## Basic Drill — Balancing Equations (10 Problems)
+
+> Balance each equation. Show the final integer coefficients.
+
+**D1.** $\text{H}_2 + \text{Cl}_2 \rightarrow \text{HCl}$
+
+**D2.** $\text{N}_2 + \text{H}_2 \rightarrow \text{NH}_3$
+
+**D3.** $\text{Na} + \text{Cl}_2 \rightarrow \text{NaCl}$
+
+**D4.** $\text{Mg} + \text{O}_2 \rightarrow \text{MgO}$
+
+**D5.** $\text{Fe} + \text{O}_2 \rightarrow \text{Fe}_2\text{O}_3$
+
+**D6.** $\text{Al} + \text{O}_2 \rightarrow \text{Al}_2\text{O}_3$
+
+**D7.** $\text{K} + \text{H}_2\text{O} \rightarrow \text{KOH} + \text{H}_2$
+
+**D8.** $\text{Zn} + \text{HCl} \rightarrow \text{ZnCl}_2 + \text{H}_2$
+
+**D9.** $\text{Li}_2\text{O} + \text{H}_2\text{O} \rightarrow \text{LiOH}$
+
+**D10.** $\text{SO}_2 + \text{O}_2 \rightarrow \text{SO}_3$
+
+> Solutions: [Solution Set](solutions/03-solutions.md#basic-drill)
+
+---
+
+## Advanced Drill — Balancing Equations (10 Problems)
+
+> Combustion, acid-base, and tricky ones. Handle fractions.
+
+**A1.** $\text{CH}_4 + \text{O}_2 \rightarrow \text{CO}_2 + \text{H}_2\text{O}$
+
+**A2.** $\text{C}_2\text{H}_6 + \text{O}_2 \rightarrow \text{CO}_2 + \text{H}_2\text{O}$
+
+**A3.** $\text{C}_3\text{H}_8 + \text{O}_2 \rightarrow \text{CO}_2 + \text{H}_2\text{O}$
+
+**A4.** $\text{C}_4\text{H}_{10} + \text{O}_2 \rightarrow \text{CO}_2 + \text{H}_2\text{O}$
+
+**A5.** $\text{C}_2\text{H}_5\text{OH} + \text{O}_2 \rightarrow \text{CO}_2 + \text{H}_2\text{O}$
+
+**A6.** $\text{H}_3\text{PO}_4 + \text{NaOH} \rightarrow \text{Na}_3\text{PO}_4 + \text{H}_2\text{O}$
+
+**A7.** $\text{Ca(OH)}_2 + \text{HCl} \rightarrow \text{CaCl}_2 + \text{H}_2\text{O}$
+
+**A8.** $\text{Al} + \text{H}_2\text{SO}_4 \rightarrow \text{Al}_2(\text{SO}_4)_3 + \text{H}_2$
+
+**A9.** $\text{NH}_3 + \text{O}_2 \rightarrow \text{NO} + \text{H}_2\text{O}$
+
+**A10.** $\text{Fe}_2\text{O}_3 + \text{CO} \rightarrow \text{Fe} + \text{CO}_2$
+
+> Solutions: [Solution Set](solutions/03-solutions.md#advanced-drill)
+
+---
+
 ## Terminology
 
 | What we've been calling it | Term |
@@ -122,6 +189,12 @@ Balance these combustion reactions. If a fraction appears, multiply everything b
 | big number written in front of a molecule | coefficient (stoichiometric coefficient) |
 | substances left of the arrow | reactants |
 | substances right of the arrow | products |
+
+---
+
+![Balancing equations method](graphs/03-balancing-equations.png)
+
+*Graph: Three-step balancing method — pick the complex molecule, balance in order, clear fractions at the end. Never touch subscripts.*
 
 ---
 

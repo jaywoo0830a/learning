@@ -1,72 +1,54 @@
-# 풀이 05: g → mol → mol → g
+# Solutions 05: g → mol → mol → g
+
+## Exercise 1
+MgO box = 40.3. Mg mol = 48.6÷24.3=2.00. MgO mol = 2.00×2/2=2.00.
+MgO g = 2.00×40.3=**80.6 g**
+
+## Exercise 2
+CO₂ box = 44.0. C mol = 6.0÷12.0=0.50. CO₂ mol = 0.50×1/1=0.50.
+CO₂ g = 0.50×44.0=**22.0 g**
+
+## Exercise 3
+CaCO₃ box=100.1. mol=50.0÷100.1≈0.500. CaO mol=0.500×1/1=0.500.
+CaO box=56.1. g=0.500×56.1=**28.1 g**
+
+## Exercise 4
+O₂ mol = 16.0÷32.0=0.500. H₂O mol = 0.500×2/1=1.00. g=1.00×18.0=**18.0 g**
+
+## Exercise 5
+Fe₂O₃ box=159.6. mol=80.0÷159.6=0.501. Fe mol=0.501×2/1=1.002.
+Fe g=1.002×55.8=**55.9 g**
+
+## Exercise 6
+C₃H₈ box=44.0. mol=22.0÷44.0=0.500. CO₂ mol=0.500×3/1=1.50. g=1.50×44.0=**66.0 g**.
+H₂O mol=0.500×4/1=2.00. g=2.00×18.0=**36.0 g**
 
 ---
 
-## 연습 1
+## Basic Drill
 
-$2\text{Mg} + \text{O}_2 \rightarrow 2\text{MgO}$
-Mg 칸 숫자 = 24.3, MgO 칸 숫자 = 24.3+16.0 = 40.3
-
-① Mg mol = $48.6 \div 24.3 = 2.00$ mol
-② MgO mol = $2.00 \times \dfrac{2}{2} = 2.00$ mol
-③ MgO g = $2.00 \times 40.3 = \textbf{80.6 g}$
-
----
-
-## 연습 2
-
-$\text{C} + \text{O}_2 \rightarrow \text{CO}_2$
-C 칸 숫자 = 12.0, $\text{CO}_2$ 칸 숫자 = 44.0
-
-① C mol = $6.0 \div 12.0 = 0.50$ mol
-② $\text{CO}_2$ mol = $0.50 \times \dfrac{1}{1} = 0.50$ mol
-③ $\text{CO}_2$ g = $0.50 \times 44.0 = \textbf{22.0 g}$
+**D1.** 12.15÷24.3=0.500 mol Mg. MgO=0.500×40.3=**20.2 g**
+**D2.** 3.0÷12.0=0.25 mol C. CO₂=0.25×44.0=**11.0 g**
+**D3.** 11.5÷23.0=0.500 mol Na. NaCl=0.500×58.5=**29.3 g**
+**D4.** 14.0÷28.0=0.500 mol N₂. NH₃=0.500×2/1×17.0=**17.0 g**
+**D5.** 4.0÷2.0=2.0 mol H₂. H₂O=2.0×18.0=**36.0 g**
+**D6.** 16.0÷32.1=0.498 mol S. SO₂=0.498×64.1=**31.9 g**
+**D7.** 25.0÷100.1=0.250 mol CaCO₃. CaO=0.250×56.1=**14.0 g**
+**D8.** 27.9÷55.8=0.500 mol Fe. Fe₂O₃=0.500×2/4×159.6=**39.9 g**
+**D9.** 8.0÷16.0=0.50 mol CH₄. CO₂=0.50×44.0=**22.0 g**
+**D10.** 13.5÷27.0=0.500 mol Al. AlCl₃=0.500×(133.5)=**66.8 g**
 
 ---
 
-## 연습 3
+## Advanced Drill
 
-$\text{CaCO}_3 \rightarrow \text{CaO} + \text{CO}_2$
-$\text{CaCO}_3$ 칸 숫자 = 40.1+12.0+48.0 = 100.1, CaO 칸 숫자 = 40.1+16.0 = 56.1
-
-① $\text{CaCO}_3$ mol = $50.0 \div 100.1 = 0.500$ mol
-② CaO mol = $0.500 \times \dfrac{1}{1} = 0.500$ mol
-③ CaO g = $0.500 \times 56.1 = \textbf{28.1 g}$
-
----
-
-## 연습 4
-
-$2\text{H}_2 + \text{O}_2 \rightarrow 2\text{H}_2\text{O}$
-$\text{O}_2$ 칸 숫자 = 32.0, $\text{H}_2\text{O}$ 칸 숫자 = 18.0
-
-① $\text{O}_2$ mol = $16.0 \div 32.0 = 0.500$ mol
-② $\text{H}_2\text{O}$ mol = $0.500 \times \dfrac{2}{1} = 1.00$ mol
-③ $\text{H}_2\text{O}$ g = $1.00 \times 18.0 = \textbf{18.0 g}$
-
----
-
-## 연습 5
-
-$\text{Fe}_2\text{O}_3 + 3\text{CO} \rightarrow 2\text{Fe} + 3\text{CO}_2$
-$\text{Fe}_2\text{O}_3$ 칸 숫자 = 55.8×2+16.0×3 = 111.6+48.0 = 159.6, Fe 칸 숫자 = 55.8
-
-① $\text{Fe}_2\text{O}_3$ mol = $80.0 \div 159.6 = 0.501$ mol
-② Fe mol = $0.501 \times \dfrac{2}{1} = 1.002$ mol
-③ Fe g = $1.002 \times 55.8 = \textbf{55.9 g}$
-
----
-
-## 연습 6: 실전
-
-$\text{C}_3\text{H}_8 + 5\text{O}_2 \rightarrow 3\text{CO}_2 + 4\text{H}_2\text{O}$
-$\text{C}_3\text{H}_8$ 칸 숫자 = 12.0×3+1.0×8 = 44.0
-$\text{CO}_2$ 칸 숫자 = 44.0, $\text{H}_2\text{O}$ 칸 숫자 = 18.0
-
-① $\text{C}_3\text{H}_8$ mol = $22.0 \div 44.0 = 0.500$ mol
-
-② $\text{CO}_2$ mol = $0.500 \times \dfrac{3}{1} = 1.50$ mol
-③ $\text{CO}_2$ g = $1.50 \times 44.0 = \textbf{66.0 g}$
-
-② $\text{H}_2\text{O}$ mol = $0.500 \times \dfrac{4}{1} = 2.00$ mol
-③ $\text{H}_2\text{O}$ g = $2.00 \times 18.0 = \textbf{36.0 g}$
+**A1.** H₂O: 36.0÷18.0=2.00 mol. H₂ needed: 2.00×2/2=2.00 mol → 2.00×2.0=**4.0 g**
+**A2.** 80.0÷159.6=0.501 mol. Fe=0.501×2/1×55.8=**55.9 g**
+**A3.** mol C₃H₈=22.0÷44.0=0.500. CO₂=0.500×3×44.0=66.0 g. H₂O=0.500×4×18.0=36.0 g. Total=**102.0 g**
+**A4.** Cl₂: 35.5÷71.0=0.500 mol. NaCl: 0.500×2/1×58.5=**58.5 g**
+**A5.** NH₃: 51.0÷17.0=3.00 mol. N₂: 3.00×1/2×28.0=**42.0 g**. H₂: 3.00×3/2×2.0=**9.0 g**
+**A6.** HgO=216.6. mol=43.4÷216.6=0.200. Hg=0.200×2/2×200.6=**40.1 g**. O₂=0.200×1/2×32.0=**3.20 g**
+**A7.** Equal masses but the ratio requires 1:2 in mol (1 CH₄ : 2 O₂). 16 g CH₄=1 mol needs 2 mol O₂=64 g. 16 g O₂ is only 0.5 mol — not enough. The question is "meaningless" because the mass ratio doesn't match the mole ratio. You must check moles, not just grams.
+**A8.** Glucose: 90.0÷180.0=0.500 mol. CO₂: 0.500×6×44.0=**132.0 g**. H₂O: 0.500×6×18.0=**54.0 g**
+**A9.** Al mol=27.0÷27.0=1.00. Fe mol=1.00×2/2=1.00. Fe g=1.00×55.8=**55.8 g**
+**A10.** NH₃: 1000÷17.0=58.8 mol. N₂: 58.8×1/2×28.0=**0.823 kg**. H₂: 58.8×3/2×2.0=**0.176 kg**

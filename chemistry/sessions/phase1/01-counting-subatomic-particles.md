@@ -121,6 +121,72 @@ Top integer is 29. Two versions exist with top-left 63 and 65, in a 3:1 ratio.
 
 ---
 
+## What We Just Did
+
+```
+(1) Protons = top integer (atomic number). Just copy it — no math.
+(2) Neutrons = top-left integer − top integer. Use integers only, ignore decimals.
+(3) Electrons = top integer − charge. Neutral: same as protons. +ion: subtract. −ion: add.
+```
+
+---
+
+## Basic Drill — Subatomic Particles (10 Problems)
+
+> Use the three rules: protons = top integer, neutrons = top-left − top integer, electrons = top integer − charge.
+
+**D1.** $^{23}_{11}\text{Na}$ (neutral). Protons, neutrons, electrons?
+
+**D2.** $^{35}_{17}\text{Cl}$ (neutral). Protons, neutrons, electrons?
+
+**D3.** $^{40}_{20}\text{Ca}^{2+}$. Protons, neutrons, electrons?
+
+**D4.** $^{16}_{\ 8}\text{O}^{2-}$. Protons, neutrons, electrons?
+
+**D5.** $^{27}_{13}\text{Al}^{3+}$. Protons, neutrons, electrons?
+
+**D6.** $^{56}_{26}\text{Fe}^{3+}$. Protons, neutrons, electrons?
+
+**D7.** $^{31}_{15}\text{P}^{3-}$. Protons, neutrons, electrons?
+
+**D8.** A neutral atom has 17 protons and 18 neutrons. Write its notation $^{A}_{Z}\text{X}$.
+
+**D9.** $^{39}_{19}\text{K}^+$ and $^{40}_{19}\text{K}^+$. Which has more neutrons? By how many?
+
+**D10.** $^{63}_{29}\text{Cu}^{2+}$ and $^{65}_{29}\text{Cu}^{2+}$. Same protons? Same neutrons? Same electrons?
+
+> Solutions: [Solution Set](solutions/01-solutions.md#basic-drill)
+
+---
+
+## Advanced Drill — Subatomic Particles (10 Problems)
+
+> Think backward. Given particle counts, reconstruct the notation or explain patterns.
+
+**A1.** An ion has 26 protons, 30 neutrons, and 23 electrons. Write its notation $^{A}_{Z}\text{X}^{\text{charge}}$.
+
+**A2.** Two isotopes of chlorine: $^{35}\text{Cl}$ and $^{37}\text{Cl}$. Protons, neutrons, and electrons for each (neutral). What's the same? What's different?
+
+**A3.** A neutral atom has a mass number of 80 and 45 neutrons. Element? Top integer?
+
+**A4.** $^{55}\text{Mn}$ forms $\text{Mn}^{7+}$. How many electrons remain?
+
+**A5.** An ion has 18 electrons and a $3+$ charge. What element is it?
+
+**A6.** $^{48}\text{Ti}^{4+}$ and $^{40}\text{Ca}^{2+}$ — which has more electrons? By how many?
+
+**A7.** Calculate the number of neutrons in $^{238}\text{U}^{6+}$. Does the charge affect the neutron count? Explain.
+
+**A8.** The decimal on the periodic table for chlorine is 35.45. Why is it not a whole number? (Hint: think about isotopes.)
+
+**A9.** An element has two isotopes: 63 amu (69.2%) and 65 amu (30.8%). Calculate the average atomic mass. Which element is this?
+
+**A10.** $^{32}\text{S}^{2-}$ — how many protons, neutrons, and electrons? Compare with $^{40}\text{Ar}$ (neutral). Why do they have the same number of electrons?
+
+> Solutions: [Solution Set](solutions/01-solutions.md#advanced-drill)
+
+---
+
 ## Terminology
 
 You already know all the methods. Now just the names.
@@ -132,6 +198,12 @@ You already know all the methods. Now just the names.
 | decimal below | average atomic mass |
 | electrically charged atom | ion / cation / anion |
 | same top integer, different top-left | isotope |
+
+---
+
+![Subatomic particle counting from nuclear notation](graphs/01-subatomic-particles.png)
+
+*Graph: Three rules for counting particles — protons = Z, neutrons = A−Z, electrons = Z−charge.*
 
 ---
 

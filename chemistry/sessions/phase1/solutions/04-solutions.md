@@ -1,64 +1,41 @@
-# 풀이 04: 계수로 몰 비 구하기
+# Solutions 04: Finding Mole Ratios from Coefficients
+
+## Exercise 1
+(a) 5.0 × 2/1 = **10.0**  (b) 9.0 × 2/3 = **6.0**
+
+## Exercise 2
+(a) 2.5 × 3/1 = **7.5**  (b) 15 × 5/3 = **25**  (c) 1.0 × 4/1 = **4.0**
+
+## Exercise 3
+(a) 10.0 × 2/4 = **5.00**  (b) 1.50 × 2/3 = **1.00**  (c) 10.0 × 3/4 = **7.50**
+
+## Exercise 4
+KCl: 4.50 × 2/2 = **4.50**. O₂: 4.50 × 3/2 = **6.75**
+
+## Exercise 5
+2.0 × 2/1 = **4.0 mol HCl**
+
+## Exercise 6
+(a) 5.00 × 2/1 = **10.0**  (b) 20.0 × 1/2 = **10.0**  (c) 8.00 × 2/2 = **8.00**
 
 ---
 
-## 연습 1
+## Basic Drill
 
-$\text{N}_2 + 3\text{H}_2 \rightarrow 2\text{NH}_3$
-
-(a) $\text{N}_2$ 5.0mol → $\text{NH}_3$: $5.0 \times \dfrac{2}{1} = \textbf{10.0 mol}$
-
-(b) $\text{H}_2$ 9.0mol → $\text{NH}_3$: $9.0 \times \dfrac{2}{3} = \textbf{6.0 mol}$
+**D1.** 8.0  **D2.** 6.0  **D3.** 5.0  **D4.** 6.0  **D5.** 2.0
+**D6.** 4.0  **D7.** 4.5  **D8.** 6.0  **D9.** 1.0  **D10.** 9.0
 
 ---
 
-## 연습 2
+## Advanced Drill
 
-$\text{C}_3\text{H}_8 + 5\text{O}_2 \rightarrow 3\text{CO}_2 + 4\text{H}_2\text{O}$
-
-(a) $\text{C}_3\text{H}_8$ 2.5mol → $\text{CO}_2$: $2.5 \times \dfrac{3}{1} = \textbf{7.5 mol}$
-
-(b) $\text{CO}_2$ 15mol → $\text{O}_2$: $15 \times \dfrac{5}{3} = \textbf{25 mol}$
-
-(c) $\text{C}_3\text{H}_8$ 1.0mol → $\text{H}_2\text{O}$: $1.0 \times \dfrac{4}{1} = \textbf{4.0 mol}$
-
----
-
-## 연습 3
-
-$4\text{Al} + 3\text{O}_2 \rightarrow 2\text{Al}_2\text{O}_3$
-
-(a) Al 10.0mol → $\text{Al}_2\text{O}_3$: $10.0 \times \dfrac{2}{4} = \textbf{5.00 mol}$
-
-(b) $\text{O}_2$ 1.50mol → $\text{Al}_2\text{O}_3$: $1.50 \times \dfrac{2}{3} = \textbf{1.00 mol}$
-
-(c) Al 10.0mol → $\text{O}_2$: $10.0 \times \dfrac{3}{4} = \textbf{7.50 mol}$
-
----
-
-## 연습 4
-
-$2\text{KClO}_3 \rightarrow 2\text{KCl} + 3\text{O}_2$
-
-$\text{KClO}_3$ 4.50mol → KCl: $4.50 \times \dfrac{2}{2} = \textbf{4.50 mol}$
-$\text{KClO}_3$ 4.50mol → $\text{O}_2$: $4.50 \times \dfrac{3}{2} = \textbf{6.75 mol}$
-
----
-
-## 연습 5
-
-$\text{Ca(OH)}_2 + 2\text{HCl} \rightarrow \text{CaCl}_2 + 2\text{H}_2\text{O}$
-
-$\text{CaCl}_2$ 2.0mol → HCl: $2.0 \times \dfrac{2}{1} = \textbf{4.0 mol}$
-
----
-
-## 연습 6: 실전
-
-$\text{C}_6\text{H}_{12}\text{O}_6 \rightarrow 2\text{C}_2\text{H}_5\text{OH} + 2\text{CO}_2$
-
-(a) 포도당 5.00mol → $\text{CO}_2$: $5.00 \times \dfrac{2}{1} = \textbf{10.0 mol}$
-
-(b) $\text{CO}_2$ 20.0mol → 포도당: $20.0 \times \dfrac{1}{2} = \textbf{10.0 mol}$
-
-(c) 에탄올 8.00mol → $\text{CO}_2$: $8.00 \times \dfrac{2}{2} = \textbf{8.00 mol}$
+**A1.** 5.0 mol N₂
+**A2.** H₂: 10.0 mol. O₂: 5.0 mol.
+**A3.** Fe: 4.0. O₂: 6.0. **O₂ produces more.**
+**A4.** CO₂: 6.0. H₂O: 8.0. **Total: 14.0 mol.**
+**A5.** Ca(OH)₂: 0.75. HCl: 1.50 mol.
+**A6.** Al: 10.0. Cl₂: 15.0 mol.
+**A7.** Ethanol: 6.00. CO₂: 6.00 mol. Both 1:2.
+**A8.** CO: 4.50. Products total: 7.50 mol.
+**A9.** 9.75 mol N₂
+**A10.** 0.5 + 1.5 = 2.0 mol gas. Mol increases (2→4 per 2NH₃).
