@@ -1,4 +1,4 @@
-# Session 9A: Graph Drawing Toolkit — How to Draw Any Function
+# Session 9A2: Graph Drawing Toolkit — How to Draw Any Function
 
 **Phase 2 — Classical Techniques | 75 min**
 
@@ -36,6 +36,10 @@ $\sqrt{\cdot} \to x \geq -1$. Denominator $\to x \neq 2$. Domain: $[-1,2) \cup (
 **Rule 4 — Logarithm**: $\log_3(2x-5)$.
 Argument $> 0$. $2x-5 > 0 \to x > \frac{5}{2}$.
 
+![The 7-step sequence applied to f(x)=(x²-4)/(x²-1)](graphs/9a-seven-step-sequence.png)
+
+*Graph 9A: The 7-step method in action — Domain → Symmetry → Intercepts → Asymptotes → Sign → Connect. Each panel adds one layer of understanding until the full graph emerges.*
+
 ---
 
 ## Example 2: Polynomial — Symmetry, Sign Chart, End Behavior
@@ -59,6 +63,10 @@ $x>2$: all positive → **above**.
 **Step 6 — Connect**: From bottom left, cross up at $-2$, down at $0$, up at $2$, to top right.
 
 ![Polynomial y=x³-4x](graphs/01-cubic-poly.png)
+
+![7-step build: polynomial](graphs/9a-step-ex2-polynomial.png)
+
+*Graph 9A Ex2: The 7-step method applied to a cubic — odd symmetry halves the work, the sign chart reveals four alternating regions, and end behavior sends the arms to ±∞.*
 
 ---
 
@@ -86,6 +94,10 @@ $x\to -2^-$: numerator $(-1)$, denominator $(-)$ → $+\infty$.
 
 ![Rational function with hole](graphs/02-rational-hole.png)
 
+![7-step build: rational with hole](graphs/9a-step-ex3-rational-hole.png)
+
+*Graph 9A Ex3: Factor → cancel → hole at x=2. The 7-step method catches the hole (Step 7), the vertical asymptote at x=−2, and the horizontal asymptote y=1.*
+
 ---
 
 ## Example 4: Slant Asymptote — Divide First
@@ -103,6 +115,10 @@ $f(x) = \frac{x^2 + 2x}{x - 1}$.
 
 ![Slant asymptote](graphs/03-slant-asymptote.png)
 
+![7-step build: slant asymptote](graphs/9a-step-ex4-slant.png)
+
+*Graph 9A Ex4: Step 4 reveals the slant asymptote y=x+3 (orange dashed) alongside the vertical x=1. The sign chart in Step 5 shows four alternating positive/negative regions.*
+
 ---
 
 ## Example 5: The $\frac{ax+b}{cx+d}$ Hyperbola Form
@@ -114,6 +130,10 @@ $f(x) = \frac{2x+1}{x-1}$.
 **Intercepts**: $y$-int $(0,-1)$. $x$-int $(-\frac{1}{2},0)$.
 
 **Center**: intersection of asymptotes $(1,2)$ — the graph is symmetric around this point.
+
+![7-step build: hyperbola](graphs/9a-step-ex5-hyperbola.png)
+
+*Graph 9A Ex5: The hyperbola form (ax+b)/(cx+d). Steps 3–4 reveal intercepts and both asymptotes. The sign chart confirms the two branches live in opposite quadrants.*
 
 **Approach**: $x\to1^+$ → $+\infty$, $x\to1^-$ → $-\infty$.
 
@@ -131,6 +151,10 @@ For $x<1$: nothing — the root is imaginary.
 **Shape**: $y=\sqrt{x}$ shifted right 1, up 2 — always creeping upward.
 
 ![Shifted square root](graphs/04-sqrt-shifted.png)
+
+![7-step build: radical half-graph](graphs/9a-step-ex6-radical.png)
+
+*Graph 9A Ex6: The radical function lives only where x≥1. Step 1 (domain) already tells you half the story — there is no left side. Step 5 (sign) confirms everything is positive.*
 
 > **Up to here**: 7-step sequence. Domain: 4 rules. Polynomial: symmetry + sign chart. Rational: cancel, hole, asymptotes. Slant: divide. Hyperbola: $\frac{ax+b}{cx+d}$. Radical: half-graph.
 
@@ -176,6 +200,10 @@ $|x^2-1|$: the dip becomes an upward bump. Everything is $\geq 0$.
 $f(x)=x^2-2x$. For $x\geq0$: original. For $x<0$: reflect right side across $y$-axis.
 Result: W-shape symmetric about $y$-axis.
 
+![Fold and copy — |f(x)| and f(|x|)](graphs/9a-fold-absolute-value.png)
+
+*Graph 9A: Left — f(x)=x²−1 dips below the axis. Right — |f(x)| folds the negative part upward, creating a W-shape between −1 and 1.*
+
 ---
 
 ## Example 10: Stretch and Shrink
@@ -192,6 +220,10 @@ Base: $f(x)=\sin x$ (height 1, period $2\pi$).
 **Rule**: $a\cdot f(bx)$. $a$ = vertical scale. $b$ = horizontal speed ($b>1$ squeezes, $b<1$ stretches).
 
 ![Transformations and scaling](graphs/08-transformations.png)
+
+![Stretch comparison — vertical vs horizontal](graphs/9a-stretch-comparison.png)
+
+*Graph 9A: Left — Vertical stretch changes amplitude. Right — Horizontal stretch changes period. In $a\cdot f(bx)$, $a$ controls height, $b$ controls width.*
 
 ---
 

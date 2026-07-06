@@ -35,6 +35,10 @@ The plane passes through $(3,0,0)$, $(0,2,0)$, $(0,0,-6)$.
 **Plane from point and normal**: $\vec{n} \cdot (\vec{x} - \vec{p}) = 0$.
 Through $(1,2,3)$ with normal $(2,-1,1)$: $2(x-1) - (y-2) + (z-3) = 0$ → $2x - y + z = 3$.
 
+![A plane in 3D with intercepts and normal vector](graphs/9c-plane-3d.png)
+
+*Graph 9C: The plane 2x+3y−z=6 showing its three intercepts (3,0,0), (0,2,0), (0,0,−6) and the normal vector n⃗=(2,3,−1) perpendicular to the plane.*
+
 ---
 
 ## Example 3: Distance from a Point to a Plane
@@ -85,7 +89,9 @@ $z = x^2 + y^2$: at $(0,0)$ → $z=0$. At $(1,0)$ → $z=1$. At $(2,1)$ → $z=5
 The surface is a bowl opening upward — a **paraboloid**.
 
 $z = \sqrt{1 - x^2 - y^2}$: only defined when $x^2+y^2 \leq 1$. The surface is the **upper hemisphere** of radius 1.
+![Building a 3D surface — wireframe to level curves](graphs/9c-step-surface.png)
 
+*Graph 9C-S1: Building $z=x^2+y^2$ in three stages. Step 1 — Wireframe skeleton reveals the bowl shape's underlying grid. Step 2 — Fill in the faces to see the solid paraboloid. Step 3 — Add white level curves (horizontal slices at z=1,2,3,4) to see how the bowl expands. The red/black dot marks the minimum at (0,0,0).*
 ---
 
 ## Example 7: Domain in 3D — Regions in the $xy$-Plane
@@ -151,6 +157,10 @@ $z = x^2 + y^2$: circular paraboloid. $z = x^2 + 2y^2$: elliptical paraboloid (s
 
 **Hyperbolic paraboloid (saddle)**: $z = \frac{x^2}{a^2} - \frac{y^2}{b^2}$. Curves up in one direction, down in the other. Shaped like a Pringle chip.
 
+![Hyperbolic paraboloid — the saddle surface](graphs/9c-saddle-3d.png)
+
+*Graph 9C: The hyperbolic paraboloid z=x²−y² — a saddle. It curves upward along the x-direction (a parabola opening up) and downward along the y-direction (a parabola opening down). The origin is the saddle point.*
+
 ![Elliptic paraboloid z = x² + y² — a bowl](graphs/9c5-paraboloid.png)
 
 *Graph 9C5: The bowl-shaped elliptic paraboloid z=x²+y². White rings show level curves (circles). The vertex is at the origin. Every vertical cross-section is a parabola.*
@@ -164,6 +174,10 @@ A cylinder has one variable missing from the equation.
 $x^2 + y^2 = 9$: in 3D, this is a circular cylinder — a circle of radius 3 extruded infinitely along the $z$-axis. $z$ can be anything.
 
 $z = \sin x$: in 3D, a wavy sheet extruded along the $y$-axis. Every vertical slice parallel to the $xz$-plane shows the same sine wave.
+
+![Circular cylinder — a circle extruded along z](graphs/9c-cylinder-3d.png)
+
+*Graph 9C: The cylinder x²+y²=1 — a circle of radius 1 extruded infinitely along the z-axis. The horizontal rings show that every cross-section perpendicular to z is the same circle.*
 
 ---
 
@@ -189,6 +203,10 @@ At $z = k$, the cross-section is a circle $x^2+y^2 = k^2$. The radius grows line
 
 *Graph 9C3: Left — Hyperboloid of one sheet (x²+y²−z²/4=1), shaped like a cooling tower. Right — Double cone (x²+y²=z²), two nappes meeting at the origin.*
 
+![Quadric surface gallery — 3D shapes + cross-sections](graphs/9c-step-quadrics.png)
+
+*Graph 9C-S2: The four main quadric surfaces side by side — Ellipsoid, Elliptic Paraboloid (bowl), Hyperboloid of one sheet (cooling tower), and Double Cone. Right column — What you see when you slice each horizontally: ellipses that shrink, circles that grow, circles narrowest at z=0, and circles growing linearly. Understanding cross-sections makes these 3D shapes predictable.*
+
 ---
 
 ## Part D: Intersection and Symmetry in 3D
@@ -209,11 +227,19 @@ The result is a circle in the plane.
 
 *Graph 9C4: The sphere x²+y²+z²=20 and plane x+y+z=6 intersect in a circle (red). The center (2,2,2) lies along the normal direction from the origin to the plane.*
 
+![Sphere–plane intersection — step by step](graphs/9c-step-intersection.png)
+
+*Graph 9C-S3: Finding the intersection circle in three steps. Step 1 — The sphere $x^2+y^2+z^2=20$ alone. Step 2 — The plane $x+y+z=6$ slices through it (orange). Step 3 — The intersection emerges as a red circle, center (2,2,2), radius $2\sqrt{2}$. The key formula: $r=\sqrt{R^2-d^2}$ where d is the distance from sphere center to plane.*
+
 ---
 
 ## Example 15: Intersection of Two Cylinders
 
 $x^2 + y^2 = 1$ and $x^2 + z^2 = 1$. Two cylinders intersecting at right angles. The intersection curve is a "bicylindrical curve" — it looks like an ellipse when viewed from certain angles.
+
+![Intersecting cylinders — x²+y²=1 and x²+z²=1](graphs/9c-intersecting-cylinders.png)
+
+*Graph 9C: Two perpendicular cylinders (blue: x²+y²=1, orange: x²+z²=1) intersect in a 3D curve (red). This is a preview of how 3D surfaces can create space curves.*
 
 ---
 

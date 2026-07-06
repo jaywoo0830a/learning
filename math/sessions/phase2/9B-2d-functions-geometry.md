@@ -22,6 +22,10 @@ Different results! Composition is not commutative: $f\circ g \neq g\circ f$ in g
 
 **Geometric view**: $g$ warps the $x$-values, then $f$ warps the output. Each function is a transformation of the number line.
 
+![Composition as a pipeline](graphs/9b-step-composition.png)
+
+*Graph 9B-S1: Composition as a pipeline — x=3 enters, g squares it to 9, f doubles+1 to get 19. Final formula: (f∘g)(x)=2x²+1. Each box is one transformation stage.*
+
 ---
 
 ## Example 2: Composition Shrinks the Domain
@@ -68,6 +72,10 @@ $f(x)=x^2$. Push in $2 \to 4$. Push in $-2 \to 4$. Two inputs → one output. No
 
 *Graph 9B4: f(x)=2x+1 (blue) and its inverse f⁻¹(x)=(x-1)/2 (red). Every point (a,b) on f becomes (b,a) on f⁻¹, reflected across the dashed line y=x.*
 
+![Inverse step-by-step — three stages](graphs/9b-step-inverse.png)
+
+*Graph 9B-S2: Building the inverse in three steps. Step 1 — Plot original points on f. Step 2 — Swap (x,y)→(y,x) coordinates. Step 3 — The result is a perfect mirror across y=x (dashed black). Notice (0,1)→(1,0), (1,3)→(3,1), (2,5)→(5,2).*
+
 ---
 
 ## Part B: Symmetry — The Two Mirror Types
@@ -93,6 +101,16 @@ $f(x) = x^3$, $f(x) = \sin x$, $f(x) = \frac{1}{x}$, $f(x) = x|x|$.
 
 **Test**: Replace $x$ with $-x$. If you get $-f(x)$, it's odd.
 **Drawing trick**: Draw only $x \geq 0$, then rotate 180° around the origin for $x<0$.
+
+![Even and odd symmetry — mirror vs rotation](graphs/9b-even-odd-symmetry.png)
+
+*Graph 9B: Left — Even function (x²) mirrors across the y-axis. Right — Odd function (x³) rotates 180° around the origin. Every function decomposes into even + odd parts.*
+
+---
+
+## Part C: Conic Sections
+
+$f(-x) = -f(x)$ for all $x$. The graph spins 180° around the origin onto itself.
 
 **Key fact**: Every function decomposes into even + odd:
 $f(x) = \underbrace{\frac{f(x)+f(-x)}{2}}_{\text{even}} + \underbrace{\frac{f(x)-f(-x)}{2}}_{\text{odd}}$.
@@ -170,6 +188,10 @@ Complete squares: $(x-3)^2 + 4(y+1)^2 = 4$ → $\frac{(x-3)^2}{4} + \frac{(y+1)^
 
 *Graph 9B1: The four conic sections with their key features labeled — foci, directrix, asymptotes. All arise from cutting a double cone at different angles.*
 
+![Conic build-up — definition → curve](graphs/9b-step-conics.png)
+
+*Graph 9B-S3: Each conic built in two stages. Left column — geometric definition (center+radius, foci+sum, focus+directrix, vertices+asymptotes). Right column — the resulting curve with its equation. The parabola $y=x^2/4$ opens upward because p=1>0. The hyperbola branches hug the orange asymptotes.*
+
 ---
 
 ## Part D: Parametric Curves — Describing Motion
@@ -196,6 +218,10 @@ One arch: $t \in [0, 2\pi]$. The point starts at $(0,0)$, rises to height $2R$, 
 ![The cycloid — path of a point on a rolling wheel](graphs/9b2-cycloid.png)
 
 *Graph 9B2: Two arches of the cycloid. The blue arch (t∈[0,2π]) shows one full rotation. The peak reaches height 2R. The base spans 2πR.*
+
+![Cycloid generation — wheel at four positions](graphs/9b-step-cycloid.png)
+
+*Graph 9B-S4: The cycloid generated step by step. A wheel of radius R=1 rolls rightward. At t=0 the point touches the ground. At t=π/2 it's at height R, at t=π it's at the peak (2R), at t=3π/2 it's descending. The red spoke shows which point on the wheel is being traced. The blue curve is the trail left behind.*
 
 ---
 
@@ -237,6 +263,10 @@ Distance = $|\sqrt{(x_0-h)^2 + (y_0-k)^2} - R|$.
 $(5,0)$ to circle $x^2+y^2=9$: distance to center is $5$, subtract radius $3$ → $2$.
 
 If the point is inside: subtract the distance from $R$ instead.
+
+![Point-to-circle distance](graphs/9b-point-circle-distance.png)
+
+*Graph 9B: Distance from P(5,0) to circle x²+y²=9 is |5−3|=2 — the straight line from P through the center to the closest circle point.*
 
 > **Up to here**: Composition = pipeline. Inverse = $y=x$ reflection. Even/odd symmetry.
 > Conics: circle (constant radius), ellipse (sum to foci), parabola (focus=directrix), hyperbola (difference to foci).
