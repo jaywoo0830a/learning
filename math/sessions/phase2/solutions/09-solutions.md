@@ -1,164 +1,160 @@
-# 09 풀이집 — 넣고, 돌리고, 뒤집고, 그리는 모든 기술
+# 09 Solutions — Push In, Spin Around, Flip Over, and Draw
 
 ---
 
-## 연습 1
+## Exercise 1
 
-> $f(x) = \frac{\sqrt{9-x^2}}{\ln(x-1)}$의 정의역을 구하라.
+> Find the domain of $f(x) = \frac{\sqrt{9-x^2}}{\ln(x-1)}$.
 
-조건을 하나씩 쓴다.
+Write each condition one at a time.
 
-① **제곱근 안** ≥ 0: $9 - x^2 \geq 0$ → $-3 \leq x \leq 3$.
+① **Inside square root** ≥ 0: $9 - x^2 \geq 0$ → $-3 \leq x \leq 3$.
 
-② **로그 진수** > 0: $x - 1 > 0$ → $x > 1$.
+② **Log argument** > 0: $x - 1 > 0$ → $x > 1$.
 
-③ **분모** ≠ 0: $\ln(x-1) \neq 0$ → $x-1 \neq 1$ → $x \neq 2$.
+③ **Denominator** ≠ 0: $\ln(x-1) \neq 0$ → $x-1 \neq 1$ → $x \neq 2$.
 
-④ 세 조건을 겹친다:
+④ Intersect all three conditions:
 $-3 \leq x \leq 3$ ∩ $x > 1$ ∩ $x \neq 2$.
 → $(1, 2) \cup (2, 3]$.
 
-→ **정의역: $(1, 2) \cup (2, 3]$.**
+→ **Domain: $(1, 2) \cup (2, 3]$.**
 
 ---
 
-## 연습 2
+## Exercise 2
 
-> $f(x) = \frac{x^2-4}{x^2-1}$의 그래프를 7단계로 그려라.
+> Draw the graph of $f(x) = \frac{x^2-4}{x^2-1}$ using the 7 steps.
 
-**1단계 — 정의역**: 분모 $x^2-1 = (x-1)(x+1) = 0$ → $x \neq \pm 1$.
+**Step 1 — Domain**: denominator $x^2-1 = (x-1)(x+1) = 0$ → $x \neq \pm 1$.
 
-**2단계 — 대칭성**: $f(-x) = \frac{x^2-4}{x^2-1} = f(x)$. → $y$축 대칭(우함수).
+**Step 2 — Symmetry**: $f(-x) = \frac{x^2-4}{x^2-1} = f(x)$. → $y$-axis symmetry (even function).
 
-**3단계 — 절편**:
-$x$절편: 분자=0 → $x^2-4=0$ → $x = \pm 2$.
-$y$절편: $x=0$ → $f(0) = \frac{-4}{-1} = 4$.
+**Step 3 — Intercepts**:
+$x$-intercepts: numerator=0 → $x^2-4=0$ → $x = \pm 2$.
+$y$-intercept: $x=0$ → $f(0) = \frac{-4}{-1} = 4$.
 
-**4단계 — 점근선**:
-수직: $x = -1$, $x = 1$에서 분모 0.
-수평: $x \to \pm\infty$, $\frac{x^2-4}{x^2-1} \to 1$. → $y=1$.
+**Step 4 — Asymptotes**:
+Vertical: denominator 0 at $x = -1$, $x = 1$.
+Horizontal: as $x \to \pm\infty$, $\frac{x^2-4}{x^2-1} \to 1$. → $y=1$.
 
-**5단계 — 부호**: 근 −2, −1, 1, 2로 구간 다섯.
-- $x < -2$: $(+)/(+) = +$. 축 위.
-- $-2 < x < -1$: $(−)/(+) = −$. 축 아래.
-- $-1 < x < 1$: $(−)/(−) = +$. 축 위. $x=0$에서 4.
-- $1 < x < 2$: $(−)/(+) = −$. 축 아래.
-- $x > 2$: $(+)/(+) = +$. 축 위.
+**Step 5 — Sign**: roots at −2, −1, 1, 2 create five intervals.
+- $x < -2$: $(+)/(+) = +$. Above axis.
+- $-2 < x < -1$: $(−)/(+) = −$. Below axis.
+- $-1 < x < 1$: $(−)/(−) = +$. Above axis. At $x=0$, value is 4.
+- $1 < x < 2$: $(−)/(+) = −$. Below axis.
+- $x > 2$: $(+)/(+) = +$. Above axis.
 
-**6단계 — 점근선 근처**:
-$x \to -1^-$: 분자 $(+)$, 분모 작은 $(+)$ → $+\infty$.
-$x \to -1^+$: 분자 $(+)$, 분모 작은 $(−)$ → $-\infty$.
-$x \to 1^-$: 분자 $(−)$, 분모 작은 $(−)$ → $+\infty$.
-$x \to 1^+$: 분자 $(−)$, 분모 작은 $(+)$ → $-\infty$.
+**Step 6 — Near asymptotes**:
+$x \to -1^-$: numerator $(+)$, denominator small $(+)$ → $+\infty$.
+$x \to -1^+$: numerator $(+)$, denominator small $(−)$ → $-\infty$.
+$x \to 1^-$: numerator $(−)$, denominator small $(−)$ → $+\infty$.
+$x \to 1^+$: numerator $(−)$, denominator small $(+)$ → $-\infty$.
 
-**7단계 — 그리기**:
-$y$축 대칭이니 오른쪽만 그리고 복사.
-$x=1$에 벽. $x=2$에서 축 통과. $y$절편 4. $x \to \infty$에서 $y=1$에 위쪽 접근.
-왼쪽은 오른쪽의 거울상.
+**Step 7 — Draw**:
+$y$-axis symmetric, so draw only the right side and copy.
+Wall at $x=1$. Crosses axis at $x=2$. $y$-intercept at 4. Approaches $y=1$ from above as $x \to \infty$.
+Left side is the mirror image of the right.
 
 ---
 
-## 연습 3: 구성형
+## Exercise 3: Constructive
 
-> 점근선이 $x=2$와 $y=1$인 $\frac{ax+b}{cx+d}$ 꼴 함수를 두 개 만들어라.
+> Make two functions of the form $\frac{ax+b}{cx+d}$ that both have asymptotes $x=2$ and $y=1$.
 
-$\frac{ax+b}{cx+d}$에서:
-- 수직 점근선: $cx+d=0$ → $x = -d/c = 2$ → $d = -2c$.
-- 수평 점근선: $a/c = 1$ → $a = c$.
+For $\frac{ax+b}{cx+d}$:
+- Vertical asymptote: $cx+d=0$ → $x = -d/c = 2$ → $d = -2c$.
+- Horizontal asymptote: $a/c = 1$ → $a = c$.
 
-$c=1$로 놓으면 $a=1$, $d=-2$. → $\frac{x+b}{x-2}$.
+Set $c=1$, then $a=1$, $d=-2$. → $\frac{x+b}{x-2}$.
 
-**함수 1**: $b=0$ → $f(x) = \frac{x}{x-2}$.
-$x$절편: $x=0$. $y$절편: $f(0)=0$. 원점 지남.
+**Function 1**: $b=0$ → $f(x) = \frac{x}{x-2}$.
+$x$-intercept: $x=0$. $y$-intercept: $f(0)=0$. Passes through the origin.
 $x \to 2^+$: $+\infty$. $x \to 2^-$: $-\infty$.
 
-**함수 2**: $b=2$ → $f(x) = \frac{x+2}{x-2}$.
-$x$절편: $x=-2$. $y$절편: $f(0)=-1$.
+**Function 2**: $b=2$ → $f(x) = \frac{x+2}{x-2}$.
+$x$-intercept: $x=-2$. $y$-intercept: $f(0)=-1$.
 $x \to 2^+$: $+\infty$. $x \to 2^-$: $-\infty$.
 
-비교: 두 함수 모두 점근선은 같지만, 절편 위치가 다르다.
-함수1은 원점을, 함수2는 $(−2,0)$과 $(0,−1)$을 지난다.
+Comparison: both functions share the same asymptotes, but their intercepts differ.
+Function 1 passes through the origin; Function 2 passes through $(−2,0)$ and $(0,−1)$.
 
 ---
 
-## 연습 4: 구성형
+## Exercise 4: Constructive
 
-> $f(x) = [x] + \{x\}^2$의 그래프를 $[-2, 3]$에서 그려라.
+> Draw the graph of $f(x) = [x] + \{x\}^2$ on $[-2, 3]$.
 
-$\{x\} = x - [x]$. 구간 $[n, n+1)$에서 $[x] = n$, $\{x\} = x - n$.
+$\{x\} = x - [x]$. On each interval $[n, n+1)$, $[x] = n$ and $\{x\} = x - n$.
 
-각 구간별 식:
+Formula for each interval:
 - $[-2, -1)$: $f(x) = -2 + (x+2)^2$.
-  $x=-2$: $f(-2) = -2 + 0 = -2$. $x \to -1^-$: $-2 + 1 = -1$ (빈 점).
+  $x=-2$: $f(-2) = -2 + 0 = -2$. $x \to -1^-$: $-2 + 1 = -1$ (empty dot).
 - $[-1, 0)$: $f(x) = -1 + (x+1)^2$.
-  $x=-1$: $f(-1) = -1$. $x \to 0^-$: $-1+1 = 0$ (빈 점).
+  $x=-1$: $f(-1) = -1$. $x \to 0^-$: $-1+1 = 0$ (empty dot).
 - $[0, 1)$: $f(x) = 0 + x^2 = x^2$.
-  $x=0$: $0$. $x \to 1^-$: $1$ (빈 점).
+  $x=0$: $0$. $x \to 1^-$: $1$ (empty dot).
 - $[1, 2)$: $f(x) = 1 + (x-1)^2$.
-  $x=1$: $1$. $x \to 2^-$: $1+1 = 2$ (빈 점).
+  $x=1$: $1$. $x \to 2^-$: $1+1 = 2$ (empty dot).
 - $[2, 3)$: $f(x) = 2 + (x-2)^2$.
-  $x=2$: $2$. $x \to 3^-$: $2+1 = 3$ (빈 점).
+  $x=2$: $2$. $x \to 3^-$: $2+1 = 3$ (empty dot).
 - $x=3$: $f(3) = 3 + 0^2 = 3$.
 
-각 구간에서 포물선 조각. 정수에서 왼쪽 끝은 채운 점, 오른쪽은 빈 점.
-정수마다 값이 이어지지 않고 살짝 점프한다.
-($x \to 1^-$에서 1, $x=1$에서 1 — $x=1$에서는 이어짐.)
+Each interval is a piece of a parabola. At integers, left endpoints are filled dots, right endpoints are empty.
+There are small jumps at integers.
+($x \to 1^-$ gives 1, $x=1$ gives 1 — it actually connects at $x=1$.)
 
 ---
 
-## 연습 5
+## Exercise 5
 
-> $f(x) = \frac{|x|-1}{x-1}$의 그래프를 그려라.
+> Draw the graph of $f(x) = \frac{|x|-1}{x-1}$.
 
-① $x \geq 0$과 $x < 0$으로 나눠 절댓값을 푼다.
+① Split into $x \geq 0$ and $x < 0$ to strip the absolute value.
 
-**경우 1: $x \geq 0$**: $|x| = x$.
+**Case 1: $x \geq 0$**: $|x| = x$.
 $f(x) = \frac{x-1}{x-1}$.
-$x \neq 1$이면 $f(x) = 1$. $x=1$은 구멍.
-→ $x \geq 0$, $x \neq 1$에서 높이 1인 수평선. $(1, 1)$에 빈 동그라미.
+For $x \neq 1$, $f(x) = 1$. $x=1$ is a hole.
+→ Horizontal line at height 1 for $x \geq 0$, $x \neq 1$. Empty circle at $(1, 1)$.
 
-**경우 2: $x < 0$**: $|x| = -x$.
+**Case 2: $x < 0$**: $|x| = -x$.
 $f(x) = \frac{-x-1}{x-1} = \frac{-(x+1)}{x-1}$.
-$x \neq 1$에서 정의 (1은 $x<0$ 구간에 없으니 무관).
-$x \to -\infty$: $f(x) \to \frac{-(-x)}{x} = 1$에서 $-1$? 다시 계산:
-$\frac{-x-1}{x-1} = \frac{-(x+1)}{x-1}$. $x \to -\infty$일 때 $\frac{-x}{x} = -1$.
-→ 수평 점근선 $y=-1$.
+As $x \to -\infty$: $\frac{-x-1}{x-1} = \frac{-(x+1)}{x-1} \to -1$.
+→ Horizontal asymptote $y=-1$.
 
-$x \to 1^-$ (왼쪽에서 1): 분자 $-2$, 분모 0⁻ → $+\infty$. 하지만 $x<0$ 구간이라 무관.
-
-② 그리기:
-$x \geq 0, x \neq 1$: $y=1$ 수평선. $(1,1)$ 구멍.
-$x < 0$: $y = \frac{-x-1}{x-1}$. $x=0$에서 $f(0) = \frac{-1}{-1} = 1$. $(0,1)$.
-$x=-1$에서 $f(-1) = \frac{1-1}{-2} = 0$. $(-1,0)$에서 축 통과.
-$x \to -\infty$에서 $y=-1$에 다가감.
+② Drawing:
+$x \geq 0, x \neq 1$: horizontal line $y=1$. Hole at $(1,1)$.
+$x < 0$: $y = \frac{-x-1}{x-1}$. At $x=0$, $f(0) = \frac{-1}{-1} = 1$. Point $(0,1)$.
+At $x=-1$, $f(-1) = \frac{1-1}{-2} = 0$. Crosses axis at $(-1,0)$.
+As $x \to -\infty$, approaches $y=-1$.
 
 ---
 
-## 연습 6: 실전
+## Exercise 6: Challenge
 
-> $f(x) = \frac{[x]}{x}$의 그래프를 $[-3, 0) \cup (0, 3]$에서 그려라.
+> Draw the graph of $f(x) = \frac{[x]}{x}$ on $[-3, 0) \cup (0, 3]$.
 
-① $[x]$는 각 구간 $[n, n+1)$에서 상수 $n$.
+① $[x]$ is constant $n$ on each interval $[n, n+1)$.
 
-**$x > 0$ 구간**:
+**$x > 0$ region**:
 - $0 < x < 1$: $[x]=0$ → $f(x)=0$.
-- $1 \leq x < 2$: $[x]=1$ → $f(x)=\frac{1}{x}$. $(1,1)$에서 $(2, 0.5)$ 직전까지.
-- $2 \leq x \leq 3$: $[x]=2$ → $f(x)=\frac{2}{x}$. $(2,1)$에서 $(3, \frac{2}{3})$까지.
+- $1 \leq x < 2$: $[x]=1$ → $f(x)=\frac{1}{x}$. From $(1,1)$ to just before $(2, 0.5)$.
+- $2 \leq x \leq 3$: $[x]=2$ → $f(x)=\frac{2}{x}$. From $(2,1)$ to $(3, \frac{2}{3})$.
 
-**$x < 0$ 구간**:
-- $-1 \leq x < 0$: $[x]=-1$ → $f(x)=\frac{-1}{x}$. $(-1,1)$에서 $x \to 0^-$일 때 $+\infty$.
-- $-2 \leq x < -1$: $[x]=-2$ → $f(x)=\frac{-2}{x}$. $(-2,1)$에서 $(-1, 2)$ 직전까지.
-- $-3 \leq x < -2$: $[x]=-3$ → $f(x)=\frac{-3}{x}$. $(-3,1)$에서 $(-2, \frac{3}{2})$ 직전까지.
+**$x < 0$ region**:
+- $-1 \leq x < 0$: $[x]=-1$ → $f(x)=\frac{-1}{x}$. From $(-1,1)$, shoots to $+\infty$ as $x \to 0^-$.
+- $-2 \leq x < -1$: $[x]=-2$ → $f(x)=\frac{-2}{x}$. From $(-2,1)$ to just before $(-1, 2)$.
+- $-3 \leq x < -2$: $[x]=-3$ → $f(x)=\frac{-3}{x}$. From $(-3,1)$ to just before $(-2, \frac{3}{2})$.
 
-② $x \to 0$ 동작:
-$x \to 0^+$: $[x]=0$, $f(x)=0$. → 0으로 수렴.
-$x \to 0^-$: $[x]=-1$, $f(x)=-\frac{1}{x}$ → $+\infty$. 수직 점근선처럼 치솟는다.
+② Behavior as $x \to 0$:
+$x \to 0^+$: $[x]=0$, $f(x)=0$. → Converges to 0.
+$x \to 0^-$: $[x]=-1$, $f(x)=-\frac{1}{x}$ → $+\infty$. Shoots up like a vertical asymptote.
 
-③ 구간 경계에서: $x=1$에서 왼쪽 $f \to 1$, 오른쪽 $f=1$ — 이어짐.
-$x=2$에서 왼쪽 $f \to 0.5$, 오른쪽 $f=1$ — 점프.
-$x=-1$에서 왼쪽 $f \to 2$, 오른쪽 $f=1$ — 점프.
-$x=-2$에서 왼쪽 $f \to 1.5$, 오른쪽 $f=1$ — 점프.
+③ At interval boundaries: at $x=1$, left $f \to 1$, right $f=1$ — connected.
+At $x=2$, left $f \to 0.5$, right $f=1$ — jump.
+At $x=-1$, left $f \to 2$, right $f=1$ — jump.
+At $x=-2$, left $f \to 1.5$, right $f=1$ — jump.
 
 ---
 
-[목차로 돌아가기](../09-functions.md)
+[Back to Index](../09-functions.md)

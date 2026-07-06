@@ -1,17 +1,17 @@
-# 07 풀이집 — 식을 찢고, 묶고, 푸는 모든 기술
+# 07 Solutions — Tearing, Bundling, and Solving
 
 ---
 
-## 연습 1
+## Exercise 1
 
-> $2x^3 + 3x^2 - 8x + 3$을 완전히 찢어라.
+> Tear $2x^3 + 3x^2 - 8x + 3$ completely.
 
-① 끝 항 3의 약수: $\pm 1, \pm 3$. 유리근 후보 (첫 계수 2): $\pm 1, \pm 3, \pm \frac{1}{2}, \pm \frac{3}{2}$.
+① Divisors of the constant 3: $\pm 1, \pm 3$. Rational root candidates (leading coeff 2): $\pm 1, \pm 3, \pm \frac{1}{2}, \pm \frac{3}{2}$.
 
-② 작은 것부터 넣어본다.
-$x=1$: $2+3-8+3=0$. **딱 0!** → $(x-1)$이 인수.
+② Plug in starting from the smallest.
+$x=1$: $2+3-8+3=0$. **Exactly 0!** → $(x-1)$ is a factor.
 
-③ 조립제법. 계수 [2, 3, −8, 3], 1로 나눈다.
+③ Synthetic division. Coefficients [2, 3, −8, 3], divide by 1.
 
 ```
    │  2   3   -8   3
@@ -20,113 +20,113 @@ $x=1$: $2+3-8+3=0$. **딱 0!** → $(x-1)$이 인수.
    │  2   5   -3   0
 ```
 
-몫: $2x^2 + 5x - 3$.
+Quotient: $2x^2 + 5x - 3$.
 
-④ 몫을 찢는다. $ac = 2 \times (-3) = -6$. 더해서 5, 곱해서 −6 → 6, −1.
+④ Tear the quotient. $ac = 2 \times (-3) = -6$. Add to 5, multiply to −6 → 6, −1.
 $2x^2 + 6x - x - 3 = 2x(x+3) - 1(x+3) = (2x-1)(x+3)$.
 
 → **$(x-1)(2x-1)(x+3)$.**
 
 ---
 
-## 연습 2
+## Exercise 2
 
-> $x^4 - 16$을 더 찢을 수 없을 때까지 찢어라.
+> Tear $x^4 - 16$ until nothing more can tear.
 
-① 합차: $(x^2)^2 - 4^2 = (x^2-4)(x^2+4)$.
-② $x^2-4$를 또 합차: $x^2 - 2^2 = (x-2)(x+2)$.
-③ $x^2+4$는 실수 범위에서 더 못 찢는다. $D = -16 < 0$.
+① Difference of squares: $(x^2)^2 - 4^2 = (x^2-4)(x^2+4)$.
+② Tear $x^2-4$ again with difference of squares: $x^2 - 2^2 = (x-2)(x+2)$.
+③ $x^2+4$ can't tear further over the reals. $D = -16 < 0$.
 
-→ **$(x-2)(x+2)(x^2+4)$.** 합차를 두 번 썼다.
+→ **$(x-2)(x+2)(x^2+4)$.** Used difference of squares twice.
 
 ---
 
-## 연습 3
+## Exercise 3
 
-> $\frac{4x^2 + 3x + 2}{x^3 + 2x^2 + x}$를 부분분수로 찢어라.
+> Tear $\frac{4x^2 + 3x + 2}{x^3 + 2x^2 + x}$ into partial fractions.
 
-① 분모 인수분해: $x^3 + 2x^2 + x = x(x^2 + 2x + 1) = x(x+1)^2$.
+① Tear the denominator: $x^3 + 2x^2 + x = x(x^2 + 2x + 1) = x(x+1)^2$.
 
-② 부분분수 틀: $\frac{4x^2+3x+2}{x(x+1)^2} = \frac{A}{x} + \frac{B}{x+1} + \frac{C}{(x+1)^2}$.
+② Partial fraction setup: $\frac{4x^2+3x+2}{x(x+1)^2} = \frac{A}{x} + \frac{B}{x+1} + \frac{C}{(x+1)^2}$.
 
-③ 양변에 $x(x+1)^2$ 곱하기:
+③ Multiply both sides by $x(x+1)^2$:
 $4x^2+3x+2 = A(x+1)^2 + Bx(x+1) + Cx$.
 
-④ 값 넣어서 하나씩 구한다.
+④ Plug in values to find them one by one.
 $x=0$: $2 = A \cdot 1 + 0 + 0$ → $A = 2$.
 $x=-1$: $4-3+2 = 0 + 0 + C(-1)$ → $3 = -C$ → $C = -3$.
 
-⑤ $A$와 $C$를 넣고 $x=1$ 대입: $4+3+2 = 9$.
-우변: $2(4) + B(1)(2) + (-3)(1) = 8 + 2B - 3 = 5 + 2B$.
+⑤ Plug $A$ and $C$ in, then substitute $x=1$: $4+3+2 = 9$.
+Right side: $2(4) + B(1)(2) + (-3)(1) = 8 + 2B - 3 = 5 + 2B$.
 $9 = 5 + 2B$ → $B = 2$.
 
 → **$\frac{2}{x} + \frac{2}{x+1} - \frac{3}{(x+1)^2}$.**
 
 ---
 
-## 연습 4: 구성형
+## Exercise 4: Constructive
 
-> 더해서 7, 곱해서 12인 두 수로 찢을 수 있는 이차식을 3개 만들어라.
+> Make 3 quadratic expressions that can be torn using two numbers that add to 7 and multiply to 12.
 
-더해서 7, 곱해서 12 → 두 수는 3과 4.
+Add to 7, multiply to 12 → the two numbers are 3 and 4.
 
-**앞 계수 1**: $x^2 + 7x + 12 = (x+3)(x+4)$.
+**Leading coefficient 1**: $x^2 + 7x + 12 = (x+3)(x+4)$.
 
-**앞 계수 2**: $2x^2 + 7x + \square$ 꼴.
-$ac$ 방법: $2 \times \square = 2\square$. 더해서 7, 곱해서 $2\square$인 두 수가 3, 4.
-3과 4를 곱하면 12. $2\square = 12$ → $\square = 6$.
-→ $2x^2 + 7x + 6$. 검산: $2x^2+3x+4x+6 = x(2x+3)+2(2x+3) = (x+2)(2x+3)$.
+**Leading coefficient 2**: Form $2x^2 + 7x + \square$.
+$ac$ method: $2 \times \square = 2\square$. Two numbers adding to 7 and multiplying to $2\square$ are 3 and 4.
+3 and 4 multiply to 12. $2\square = 12$ → $\square = 6$.
+→ $2x^2 + 7x + 6$. Check: $2x^2+3x+4x+6 = x(2x+3)+2(2x+3) = (x+2)(2x+3)$.
 
-**앞 계수 3**: $3x^2 + 7x + \square$. $3\square = 12$ → $\square = 4$.
-→ $3x^2 + 7x + 4$. 검산: $3x^2+3x+4x+4 = 3x(x+1)+4(x+1) = (3x+4)(x+1)$.
+**Leading coefficient 3**: $3x^2 + 7x + \square$. $3\square = 12$ → $\square = 4$.
+→ $3x^2 + 7x + 4$. Check: $3x^2+3x+4x+4 = 3x(x+1)+4(x+1) = (3x+4)(x+1)$.
 
-→ 답: **$x^2+7x+12$, $2x^2+7x+6$, $3x^2+7x+4$** 등 (무수히 많음).
+→ Answer: **$x^2+7x+12$, $2x^2+7x+6$, $3x^2+7x+4$** (infinitely many possible).
 
 ---
 
-## 연습 5
+## Exercise 5
 
-> $x^4 - 2x^3 - 13x^2 - 2x + 1 = 0$의 모든 근을 구하라.
+> Find all roots of $x^4 - 2x^3 - 13x^2 - 2x + 1 = 0$.
 
-① 계수: 1, −2, −13, −2, 1. 대칭이다. $x=0$은 근 아님 확인.
+① Coefficients: 1, −2, −13, −2, 1. Symmetric. Verify $x=0$ is not a root.
 
-② $x^2$으로 나눈다: $x^2 - 2x - 13 - \frac{2}{x} + \frac{1}{x^2} = 0$.
+② Divide by $x^2$: $x^2 - 2x - 13 - \frac{2}{x} + \frac{1}{x^2} = 0$.
 
-③ $t = x + \frac{1}{x}$ 치환.
+③ Substitute $t = x + \frac{1}{x}$.
 $x^2 + \frac{1}{x^2} = t^2 - 2$.
 
-④ 식 정리: $(t^2 - 2) - 2t - 13 = 0$ → $t^2 - 2t - 15 = 0$.
-$(t-5)(t+3) = 0$. → $t = 5$ 또는 $t = -3$.
+④ Clean up: $(t^2 - 2) - 2t - 13 = 0$ → $t^2 - 2t - 15 = 0$.
+$(t-5)(t+3) = 0$. → $t = 5$ or $t = -3$.
 
 ⑤ $t = 5$: $x + \frac{1}{x} = 5$ → $x^2 - 5x + 1 = 0$ → $x = \frac{5 \pm \sqrt{21}}{2}$.
 
 ⑥ $t = -3$: $x + \frac{1}{x} = -3$ → $x^2 + 3x + 1 = 0$ → $x = \frac{-3 \pm \sqrt{5}}{2}$.
 
-→ **네 근: $\frac{5 \pm \sqrt{21}}{2}$, $\frac{-3 \pm \sqrt{5}}{2}$.**
+→ **Four roots: $\frac{5 \pm \sqrt{21}}{2}$, $\frac{-3 \pm \sqrt{5}}{2}$.**
 
 ---
 
-## 연습 6: 실전
+## Exercise 6: Challenge
 
-> $x^3 - 3x^2 + ax + b = 0$의 세 근이 $1, r, r^2$일 때 $a, b, r$을 구하라.
+> The three roots of $x^3 - 3x^2 + ax + b = 0$ are $1, r, r^2$. Find $a$, $b$, and $r$.
 
-① 비에트 공식 적용 ($a_3=1, a_2=-3, a_1=a, a_0=b$):
-- 합: $1 + r + r^2 = -(-3) = 3$ → $r^2 + r + 1 = 3$ → $r^2 + r - 2 = 0$.
-- 곱2: $1 \cdot r + r \cdot r^2 + r^2 \cdot 1 = a$ → $r + r^3 + r^2 = a$.
-- 곱3: $1 \cdot r \cdot r^2 = -b$ → $r^3 = -b$.
+① Apply Vieta's formulas ($a_3=1, a_2=-3, a_1=a, a_0=b$):
+- Sum: $1 + r + r^2 = -(-3) = 3$ → $r^2 + r + 1 = 3$ → $r^2 + r - 2 = 0$.
+- Sum of pairwise products: $1 \cdot r + r \cdot r^2 + r^2 \cdot 1 = a$ → $r + r^3 + r^2 = a$.
+- Triple product: $1 \cdot r \cdot r^2 = -b$ → $r^3 = -b$.
 
-② $r^2 + r - 2 = 0$ → $(r+2)(r-1) = 0$ → $r = -2$ 또는 $r = 1$.
+② $r^2 + r - 2 = 0$ → $(r+2)(r-1) = 0$ → $r = -2$ or $r = 1$.
 
-③ $r = 1$이면 세 근이 1, 1, 1. 식은 $(x-1)^3 = x^3 - 3x^2 + 3x - 1$.
+③ If $r = 1$, the three roots are 1, 1, 1. The polynomial is $(x-1)^3 = x^3 - 3x^2 + 3x - 1$.
 → $a = 3$, $b = -1$.
 
-④ $r = -2$이면 세 근이 1, −2, 4.
-합: $1 + (-2) + 4 = 3$ ✓.
-곱2: $1(-2) + (-2)(4) + 4(1) = -2 - 8 + 4 = -6$ → $a = -6$.
-곱3: $1 \cdot (-2) \cdot 4 = -8$ → $-b = -8$ → $b = 8$.
+④ If $r = -2$, the three roots are 1, −2, 4.
+Sum: $1 + (-2) + 4 = 3$ ✓.
+Sum of pairwise products: $1(-2) + (-2)(4) + 4(1) = -2 - 8 + 4 = -6$ → $a = -6$.
+Triple product: $1 \cdot (-2) \cdot 4 = -8$ → $-b = -8$ → $b = 8$.
 
-→ **$(a, b, r) = (3, -1, 1)$ 또는 $(-6, 8, -2)$.**
+→ **$(a, b, r) = (3, -1, 1)$ or $(-6, 8, -2)$.**
 
 ---
 
-[목차로 돌아가기](../07-polynomials-and-equations.md)
+[Back to Index](../07-polynomials-and-equations.md)

@@ -1,84 +1,84 @@
-# 세션 07: 식을 찢고, 묶고, 푸는 모든 기술
+# Session 07: Tearing, Bundling, and Solving — Every Algebraic Trick
 
-**Phase 2 — 고전 테크닉 | 60분**
-
----
-
-## Part A: 식을 곱셈 꼴로 찢는다
+**Phase 2 — Classical Techniques | 60 min**
 
 ---
 
-## 예시 1: 두 수를 찾아 찢는다
+## Part A: Tearing Expressions into Multiplication Form
 
-이 식을 본다: $x^2 + 7x + 12$.
+---
 
-① 더해서 7, 곱해서 12인 두 수를 떠올린다. → 3과 4.
-② 그 두 수로 식을 찢는다. → $(x+3)(x+4)$.
+## Example 1: Find Two Numbers and Tear
 
-손으로 검산: $(x+3)(x+4)$를 펼친다.
+Look at this expression: $x^2 + 7x + 12$.
+
+① Think of two numbers that add to 7 and multiply to 12. → 3 and 4.
+② Tear the expression using those two numbers. → $(x+3)(x+4)$.
+
+Check by hand: spread out $(x+3)(x+4)$.
 $x \cdot x = x^2$. $x \cdot 4 = 4x$. $3 \cdot x = 3x$. $3 \cdot 4 = 12$.
-모은다: $x^2 + 7x + 12$. 딱 맞다.
+Gather: $x^2 + 7x + 12$. Matches exactly.
 
-더해서 7, 곱해서 −18 → −2, 9. 찢으면 $(x-2)(x+9)$.
-더해서 −5, 곱해서 6 → −2, −3. 찢으면 $(x-2)(x-3)$.
+Add to 7, multiply to −18 → −2, 9. Tear into $(x-2)(x+9)$.
+Add to −5, multiply to 6 → −2, −3. Tear into $(x-2)(x-3)$.
 
 ---
 
-## 예시 2: 앞 계수가 1이 아닐 때 — ac 방법
+## Example 2: When the Leading Coefficient Isn't 1 — the ac Method
 
 $2x^2 + 7x + 3$.
 
-① 앞 계수 2와 끝 3을 곱한다. → $2 \times 3 = 6$.
-② 더해서 7, 곱해서 6인 두 수를 찾는다. → 6과 1.
-③ 가운데 7x를 $6x + 1x$로 찢는다. → $2x^2 + 6x + x + 3$.
-④ 앞 두 개를 묶는다. → $2x(x+3)$.
-⑤ 뒤 두 개를 묶는다. → $1(x+3)$.
-⑥ 공통인 $(x+3)$을 뽑아낸다. → $(2x+1)(x+3)$.
+① Multiply the leading coefficient 2 and the constant 3. → $2 \times 3 = 6$.
+② Find two numbers that add to 7 and multiply to 6. → 6 and 1.
+③ Tear the middle $7x$ into $6x + 1x$. → $2x^2 + 6x + x + 3$.
+④ Bundle the first two terms. → $2x(x+3)$.
+⑤ Bundle the last two terms. → $1(x+3)$.
+⑥ Pull out the common $(x+3)$. → $(2x+1)(x+3)$.
 
-또 다른 식: $6x^2 + 5x - 6$.
+Another one: $6x^2 + 5x - 6$.
 ① $6 \times (-6) = -36$.
-② 더해서 5, 곱해서 −36 → 9, −4.
-③ 찢는다: $6x^2 + 9x - 4x - 6$.
-④ 묶는다: $3x(2x+3) - 2(2x+3)$.
-⑤ 뽑아낸다: $(3x-2)(2x+3)$.
+② Add to 5, multiply to −36 → 9, −4.
+③ Tear: $6x^2 + 9x - 4x - 6$.
+④ Bundle: $3x(2x+3) - 2(2x+3)$.
+⑤ Pull out: $(3x-2)(2x+3)$.
 
 ---
 
-## 예시 3: 제곱꼴 — 접어서 하나로
+## Example 3: Perfect Square — Fold into One
 
 $x^2 + 6x + 9$.
-첫 항은 $x$의 제곱. 끝 항은 3의 제곱.
-가운데 $6x$는 $2 \times x \times 3$. → $(x+3)^2$로 접는다.
+First term is $x$ squared. Last term is 3 squared.
+The middle $6x$ is $2 \times x \times 3$. → Fold into $(x+3)^2$.
 
-$x^2 - 10x + 25$. $x$의 제곱, 5의 제곱, 가운데 $2 \cdot x \cdot (-5) = -10x$.
-→ $(x-5)^2$로 접는다.
+$x^2 - 10x + 25$. $x$ squared, 5 squared, middle $2 \cdot x \cdot (-5) = -10x$.
+→ Fold into $(x-5)^2$.
 
-$4x^2 + 12x + 9$. $(2x)^2$, $3^2$, 가운데 $2 \cdot 2x \cdot 3 = 12x$.
-→ $(2x+3)^2$.
+$4x^2 + 12x + 9$. $(2x)^2$, $3^2$, middle $2 \cdot 2x \cdot 3 = 12x$.
+→ Fold into $(2x+3)^2$.
 
-$x^2 + 6x + 10$. $x^2$, $(\sqrt{10})^2$, 가운데 $2 \cdot x \cdot \sqrt{10} \neq 6x$.
-→ 접히지 않는다. 그대로 둔다.
+$x^2 + 6x + 10$. $x^2$, $(\sqrt{10})^2$, middle $2 \cdot x \cdot \sqrt{10} \neq 6x$.
+→ Won't fold. Leave it as is.
 
 ---
 
-## 예시 4: 제곱 빼기 제곱 — 합차로 찢는다
+## Example 4: Square Minus Square — Tear into Sum-and-Difference
 
-$x^2 - 9$. $x$의 제곱 빼기 3의 제곱.
+$x^2 - 9$. $x$ squared minus 3 squared.
 → $(x-3)(x+3)$.
 
 $4x^2 - 25$. $(2x)^2 - 5^2$.
 → $(2x-5)(2x+5)$.
 
 $x^4 - 16$. $(x^2)^2 - 4^2$ → $(x^2-4)(x^2+4)$.
-$x^2-4$를 또 찢는다: $(x-2)(x+2)$.
-→ 최종: $(x-2)(x+2)(x^2+4)$. $x^2+4$는 더 못 찢는다.
+Tear $x^2-4$ further: $(x-2)(x+2)$.
+→ Final: $(x-2)(x+2)(x^2+4)$. $x^2+4$ can't be torn further.
 
 ---
 
-## 예시 5: 세제곱 합차 — 공식으로 한 방에
+## Example 5: Sum and Difference of Cubes — One Shot
 
-$x^3 - 8$. $x$의 세제곱 빼기 2의 세제곱.
-→ $(x-2)(x^2 + 2x + 4)$. 둘째 괄호는 더 못 찢는다.
+$x^3 - 8$. $x$ cubed minus 2 cubed.
+→ $(x-2)(x^2 + 2x + 4)$. The second bracket won't tear further.
 
 $x^3 + 27$. $x^3 + 3^3$.
 → $(x+3)(x^2 - 3x + 9)$.
@@ -88,314 +88,314 @@ $8x^3 - 1$. $(2x)^3 - 1^3$.
 
 ---
 
-## 예시 6: 공통인수 — 가장 먼저 뽑아낸다
+## Example 6: Common Factor — Always Pull Out First
 
 $3x^3 - 12x$.
-① 모든 항에 들어있는 $3x$를 뽑아낸다. → $3x(x^2 - 4)$.
-② 괄호 안을 찢는다. $x^2-4 = (x-2)(x+2)$.
+① Pull out the $3x$ that lives in every term. → $3x(x^2 - 4)$.
+② Tear inside the parentheses. $x^2-4 = (x-2)(x+2)$.
 → $3x(x-2)(x+2)$.
 
 $2x^4 - 32$.
-① 2를 뽑아낸다. → $2(x^4 - 16)$.
-② 안을 합차로 찢는다: $(x^2-4)(x^2+4)$.
-③ $x^2-4$를 또 찢는다: $(x-2)(x+2)$.
+① Pull out 2. → $2(x^4 - 16)$.
+② Tear inside using difference of squares: $(x^2-4)(x^2+4)$.
+③ Tear $x^2-4$ further: $(x-2)(x+2)$.
 → $2(x-2)(x+2)(x^2+4)$.
 
 ---
 
-## Part B: 3차 이상 — 계수만으로 나누는 기술
+## Part B: Degree 3 and Beyond — Dividing With Coefficients Only
 
 ---
 
-## 예시 7: 조립제법 — 계수만으로 나눈다
+## Example 7: Synthetic Division — Divide Using Only Coefficients
 
 $x^3 - 6x^2 + 11x - 6$.
 
-① 끝 항 −6의 약수를 적는다: $\pm 1, \pm 2, \pm 3, \pm 6$.
-② 작은 것부터 하나씩 넣어본다.
-$x=1$을 넣는다: $1 - 6 + 11 - 6 = 0$. **딱 0!** → $(x-1)$이 인수다.
+① List the divisors of the constant −6: $\pm 1, \pm 2, \pm 3, \pm 6$.
+② Plug them in one by one, starting small.
+Plug in $x=1$: $1 - 6 + 11 - 6 = 0$. **Exactly 0!** → $(x-1)$ is a factor.
 
-③ 계수 [1, −6, 11, −6]으로 표를 그린다.
+③ Draw a table with coefficients [1, −6, 11, −6].
 
 ```
    │  1  -6   11  -6
  1 │      1   -5    6
 ───┼─────────────────
-   │  1  -5    6    0  ← 나머지 0!
+   │  1  -5    6    0  ← remainder 0!
 ```
 
-손으로 따라한다:
-- 맨 앞 1을 그대로 내린다.
-- 내린 1에 1을 곱한다 → 1. −6 아래에 쓴다. −6 + 1 = −5.
-- −5에 1을 곱한다 → −5. 11 아래에 쓴다. $11 + (-5) = 6$.
-- 6에 1을 곱한다 → 6. −6 아래에 쓴다. $-6 + 6 = 0$.
+Follow with your hand:
+- Bring down the first 1 as is.
+- Multiply the 1 you brought down by 1 → 1. Write it under −6. −6 + 1 = −5.
+- Multiply −5 by 1 → −5. Write it under 11. $11 + (-5) = 6$.
+- Multiply 6 by 1 → 6. Write it under −6. $-6 + 6 = 0$.
 
-④ 내려온 수 [1, −5, 6]이 몫: $x^2 - 5x + 6$.
-⑤ 이걸 다시 찢는다: $(x-2)(x-3)$.
-→ 최종: $(x-1)(x-2)(x-3)$.
+④ The numbers brought down [1, −5, 6] are the quotient: $x^2 - 5x + 6$.
+⑤ Tear this again: $(x-2)(x-3)$.
+→ Final: $(x-1)(x-2)(x-3)$.
 
 ---
 
-## 예시 8: 유리근 — 분수도 후보에 넣는다
+## Example 8: Rational Roots — Fractions Are Candidates Too
 
 $2x^3 - 3x^2 - 3x + 2$.
 
-① 후보 = $\frac{\text{끝 항 약수}}{\text{첫 계수 약수}}$: $\pm 1, \pm 2, \pm \frac{1}{2}$.
-② $x=1$ 넣기: $2-3-3+2 = -2$. 아니다.
-③ $x=-1$ 넣기: $-2-3+3+2 = 0$. **딱 0!** → $(x+1)$이 인수.
+① Candidates = $\frac{\text{divisors of constant}}{\text{divisors of leading coefficient}}$: $\pm 1, \pm 2, \pm \frac{1}{2}$.
+② Plug in $x=1$: $2-3-3+2 = -2$. Nope.
+③ Plug in $x=-1$: $-2-3+3+2 = 0$. **Exactly 0!** → $(x+1)$ is a factor.
 
-④ 조립제법으로 나눈다. 몫: $2x^2 - 5x + 2$.
-⑤ 다시 찢는다: $(2x-1)(x-2)$.
+④ Divide using synthetic division. Quotient: $2x^2 - 5x + 2$.
+⑤ Tear again: $(2x-1)(x-2)$.
 
-→ 근: $x = -1$, $x = \frac{1}{2}$, $x = 2$.
+→ Roots: $x = -1$, $x = \frac{1}{2}$, $x = 2$.
 
 ---
 
-## 예시 9: $t$로 바꿔 차수를 낮춘다
+## Example 9: Substitute $t$ to Lower the Degree
 
 $x^4 - 5x^2 + 4$.
 
-① $x^2$을 $t$로 바꾼다. → $t^2 - 5t + 4$.
-② 찢는다: $(t-1)(t-4)$.
-③ $t$를 $x^2$으로 되돌린다: $(x^2-1)(x^2-4)$.
-④ 각각 합차로 찢는다: $(x-1)(x+1)(x-2)(x+2)$.
+① Replace $x^2$ with $t$. → $t^2 - 5t + 4$.
+② Tear: $(t-1)(t-4)$.
+③ Return $t$ to $x^2$: $(x^2-1)(x^2-4)$.
+④ Tear each using difference of squares: $(x-1)(x+1)(x-2)(x+2)$.
 
 $x^6 - 9x^3 + 8$.
-① $x^3$을 $t$로. → $t^2 - 9t + 8$.
+① Replace $x^3$ with $t$. → $t^2 - 9t + 8$.
 ② $(t-1)(t-8)$.
-③ 되돌리기: $(x^3-1)(x^3-8)$.
-④ 세제곱 공식: $(x-1)(x^2+x+1)(x-2)(x^2+2x+4)$.
+③ Return: $(x^3-1)(x^3-8)$.
+④ Cube formulas: $(x-1)(x^2+x+1)(x-2)(x^2+2x+4)$.
 
 ---
 
-## 예시 10: 계수가 좌우대칭 — $x^2$으로 나눈다
+## Example 10: Symmetric Coefficients — Divide by $x^2$
 
 $x^4 + x^3 - 4x^2 + x + 1 = 0$.
 
-① 계수를 본다: 1, 1, −4, 1, 1. 가운데 기준 대칭이다.
-② $x=0$은 근이 아니다. 양변을 $x^2$으로 나눈다.
+① Look at the coefficients: 1, 1, −4, 1, 1. Symmetric around the center.
+② $x=0$ is not a root. Divide both sides by $x^2$.
 
 $x^2 + x - 4 + \frac{1}{x} + \frac{1}{x^2} = 0$.
 
-③ $x + \frac{1}{x}$를 $t$로 바꾼다.
+③ Replace $x + \frac{1}{x}$ with $t$.
 $x^2 + \frac{1}{x^2} = (x + \frac{1}{x})^2 - 2 = t^2 - 2$.
 
-④ 식 정리: $(t^2 - 2) + t - 4 = 0$ → $t^2 + t - 6 = 0$.
-⑤ 찢는다: $(t+3)(t-2) = 0$. → $t = -3$ 또는 $t = 2$.
+④ Clean up: $(t^2 - 2) + t - 4 = 0$ → $t^2 + t - 6 = 0$.
+⑤ Tear: $(t+3)(t-2) = 0$. → $t = -3$ or $t = 2$.
 
 ⑥ $t = -3$: $x + \frac{1}{x} = -3$ → $x^2 + 3x + 1 = 0$ → $x = \frac{-3 \pm \sqrt{5}}{2}$.
-⑦ $t = 2$: $x + \frac{1}{x} = 2$ → $(x-1)^2 = 0$ → $x = 1$ (겹근, 두 번).
+⑦ $t = 2$: $x + \frac{1}{x} = 2$ → $(x-1)^2 = 0$ → $x = 1$ (double root, appears twice).
 
 ---
 
-## 예시 11: 근과 계수의 관계 — 비에트
+## Example 11: Roots and Coefficients — Vieta
 
-이차방정식 $x^2 + px + q = 0$의 두 근을 $r_1, r_2$라 하자.
+Let the two roots of $x^2 + px + q = 0$ be $r_1, r_2$.
 
-합: $r_1 + r_2 = -p$. 곱: $r_1 r_2 = q$.
+Sum: $r_1 + r_2 = -p$. Product: $r_1 r_2 = q$.
 
-손으로 확인: $x^2 - 5x + 6 = 0$ → 합 5, 곱 6 → 근은 2, 3.
+Check by hand: $x^2 - 5x + 6 = 0$ → sum 5, product 6 → roots are 2, 3.
 
-근 하나가 $2 + \sqrt{3}$이고 합이 4라면, 다른 근은 $2 - \sqrt{3}$. 합이 4니까.
+If one root is $2 + \sqrt{3}$ and the sum is 4, the other root is $2 - \sqrt{3}$. Because the sum is 4.
 
-삼차방정식 $x^3 + ax^2 + bx + c = 0$의 세 근 $r_1, r_2, r_3$:
+For a cubic $x^3 + ax^2 + bx + c = 0$ with roots $r_1, r_2, r_3$:
 - $r_1 + r_2 + r_3 = -a$.
 - $r_1 r_2 + r_2 r_3 + r_3 r_1 = b$.
 - $r_1 r_2 r_3 = -c$.
 
 ---
 
-## Part C: 분수를 여러 조각으로 찢는다
+## Part C: Tearing Fractions into Pieces
 
 ---
 
-## 예시 12: 서로 다른 일차인수
+## Example 12: Distinct Linear Factors
 
 $\frac{5x-1}{x^2 - x - 2}$.
 
-① 분모를 먼저 찢는다: $(x-2)(x+1)$.
-② $\frac{5x-1}{(x-2)(x+1)} = \frac{A}{x-2} + \frac{B}{x+1}$ 꼴이라 가정한다.
-③ 양변에 $(x-2)(x+1)$을 곱한다: $5x-1 = A(x+1) + B(x-2)$.
+① Tear the denominator first: $(x-2)(x+1)$.
+② Assume the form $\frac{5x-1}{(x-2)(x+1)} = \frac{A}{x-2} + \frac{B}{x+1}$.
+③ Multiply both sides by $(x-2)(x+1)$: $5x-1 = A(x+1) + B(x-2)$.
 
-④ $x=2$를 넣는다. $B$가 사라진다 → $9 = 3A$ → $A = 3$.
-⑤ $x=-1$을 넣는다. $A$가 사라진다 → $-6 = -3B$ → $B = 2$.
+④ Plug in $x=2$. $B$ vanishes → $9 = 3A$ → $A = 3$.
+⑤ Plug in $x=-1$. $A$ vanishes → $-6 = -3B$ → $B = 2$.
 
 → $\frac{3}{x-2} + \frac{2}{x+1}$.
 
 ---
 
-## 예시 13: 분모에 제곱이 있을 때
+## Example 13: When the Denominator Has a Square
 
 $\frac{2x+1}{(x-1)^2} = \frac{A}{x-1} + \frac{B}{(x-1)^2}$.
 
-① 양변에 $(x-1)^2$을 곱한다: $2x+1 = A(x-1) + B$.
-② $x=1$을 넣는다: $3 = B$.
-③ $x=0$을 넣는다: $1 = -A + 3$ → $A = 2$.
+① Multiply both sides by $(x-1)^2$: $2x+1 = A(x-1) + B$.
+② Plug in $x=1$: $3 = B$.
+③ Plug in $x=0$: $1 = -A + 3$ → $A = 2$.
 
 → $\frac{2}{x-1} + \frac{3}{(x-1)^2}$.
 
 ---
 
-## 예시 14: 분자 차수가 더 클 때
+## Example 14: When the Numerator Has Higher Degree
 
 $\frac{x^2}{x-1}$.
 
-① 분자 차수(2)가 분모(1)보다 크다. **먼저 나눈다.**
+① Numerator degree (2) is bigger than denominator (1). **Divide first.**
 ② $x^2 \div (x-1) = x + 1 + \frac{1}{x-1}$.
-③ 나머지 $\frac{1}{x-1}$은 이미 찢을 게 없다.
+③ The remainder $\frac{1}{x-1}$ is already fully torn.
 
 → $x + 1 + \frac{1}{x-1}$.
 
 ---
 
-## 자주 하는 실수
+## Common Mistakes
 
-### 실수 1: 조립제법 인수 부호를 반대로 쓴다
+### Mistake 1: Getting the Sign Wrong in Synthetic Division Factors
 
-**틀린 길**: "$x=-1$을 넣었더니 나머지 0. 인수는 $(x-1)$."
+**Wrong path**: "I plugged in $x=-1$ and got remainder 0. The factor is $(x-1)$."
 
-**왜 틀렸나**: $x=-1$에서 0이면 인수는 $x - (-1) = x+1$이다.
-넣은 값의 부호를 뒤집어야 인수의 상수항이 된다.
+**Why it's wrong**: If it hits 0 at $x=-1$, the factor is $x - (-1) = x+1$.
+You must flip the sign of the value you plugged in to get the constant term of the factor.
 
-**옳은 길**: $x=r$에서 0이면 인수는 $(x-r)$.
-
----
-
-### 실수 2: 분자 차수 확인 없이 부분분수 틀에 넣는다
-
-**틀린 길**: "$\frac{x^2}{x-1}$도 $\frac{A}{x-1}$로 놓는다."
-
-**왜 틀렸나**: 분자 차수가 더 크면 가분수다. 나눗셈 먼저!
-
-**옳은 길**: 나누고, 나머지만 부분분수로 찢는다.
+**Right path**: If it hits 0 at $x=r$, the factor is $(x-r)$.
 
 ---
 
-### 실수 3: 겹근을 하나만 센다
+### Mistake 2: Jumping to Partial Fractions Without Checking the Degree
 
-**틀린 길**: "$(x-1)^2 = 0$ → $x=1$."
+**Wrong path**: "$\frac{x^2}{x-1}$ can be set up as $\frac{A}{x-1}$."
 
-**왜 틀렸나**: $(x-1)^2=0$은 $x=1$이 두 번 나온 근이다. 중근.
+**Why it's wrong**: If the numerator degree is bigger, it's an improper fraction. Divide first!
 
-**옳은 길**: "$x=1$ (중근, 두 번)"이라고 쓴다.
-
----
-
-### 실수 4: 공통인수를 안 보고 바로 찢으려 든다
-
-**틀린 길**: "$3x^3 - 12x$를 바로 합차로 찢으려 한다."
-
-**왜 틀렸나**: $3x$가 모든 항에 들어있다. 먼저 뽑아내야 한다.
-
-**옳은 길**: 항상 공통인수를 가장 먼저 뽑아낸다.
+**Right path**: Divide, then tear only the remainder into partial fractions.
 
 ---
 
-## 방금 우리가 한 일
+### Mistake 3: Counting a Double Root Only Once
+
+**Wrong path**: "$(x-1)^2 = 0$ → $x=1$."
+
+**Why it's wrong**: $(x-1)^2=0$ means $x=1$ appears twice. It's a double root.
+
+**Right path**: Write "$x=1$ (double root, twice)."
+
+---
+
+### Mistake 4: Trying to Tear Without Pulling Out the Common Factor First
+
+**Wrong path**: "I'll tear $3x^3 - 12x$ using difference of squares right away."
+
+**Why it's wrong**: $3x$ lives in every term. You must pull it out first.
+
+**Right path**: Always pull out the common factor before anything else.
+
+---
+
+## What We Just Did
 
 ```
-① 공통인수를 가장 먼저 뽑아낸다. (안 하면 길 막힌다)
-② 차수에 맞는 찢기 도구를 고른다:
-   - 2차 → 두 수 찾기 / ac방법 / 완전제곱 / 합차
-   - 3차 → 세제곱공식 / 조립제법(유리근 정리)
-   - 4차 이상 → t=x²치환 / 대칭이면 x²로 나누고 t=x+1/x
-③ 찢은 조각마다 더 찢을 수 있는지 끝까지 확인한다.
-④ 부분분수는 분모 찢고 A,B,C로 놓고, 하나씩 지워가며 푼다.
-```
-
----
-
-## 연습 1
-
-$2x^3 + 3x^2 - 8x + 3$을 완전히 찢어라. (끝 항 ±1, ±3, 분수 후보도)
-
-→ 따라하기: **예시 7, 8, 1, 2**
-
-> 풀이: [풀이집](solutions/07-solutions.md#연습-1)
-
----
-
-## 연습 2
-
-$x^4 - 16$을 더 찢을 수 없을 때까지 찢어라. (합차를 몇 번이나?)
-
-→ 따라하기: **예시 4**
-
-> 풀이: [풀이집](solutions/07-solutions.md#연습-2)
-
----
-
-## 연습 3
-
-$\frac{4x^2 + 3x + 2}{x^3 + 2x^2 + x}$를 부분분수로 찢어라. (분모 인수분해 먼저!)
-
-→ 따라하기: **예시 12, 13**
-
-> 풀이: [풀이집](solutions/07-solutions.md#연습-3)
-
----
-
-## 연습 4: 구성형
-
-더해서 7, 곱해서 12인 두 수로 찢을 수 있는 이차식을 3개 만들어라.
-앞 계수 1인 것 1개, 앞 계수 1 아닌 것 2개.
-
-→ 따라하기: **예시 1, 2**
-
-> 풀이: [풀이집](solutions/07-solutions.md#연습-4)
-
----
-
-## 연습 5
-
-$x^4 - 2x^3 - 13x^2 - 2x + 1 = 0$의 모든 근을 구하라. (계수 대칭 → $x^2$으로 나누기)
-
-→ 따라하기: **예시 10**
-
-> 풀이: [풀이집](solutions/07-solutions.md#연습-5)
-
----
-
-## 연습 6: 실전
-
-$x^3 - 3x^2 + ax + b = 0$의 세 근이 1, $r$, $r^2$꼴이다. $a, b, r$을 모두 구하라.
-비에트: 합 = 3, 둘씩 곱한 합 = a, 셋 곱 = −b.
-
-→ 따라하기: **예시 11**
-
-> 풀이: [풀이집](solutions/07-solutions.md#연습-6)
-
----
-
-## 오늘 배운 절차
-
-```
-1단계: 공통인수를 뽑아낸다. 없으면 2단계로.
-2단계: 차수에 맞는 도구를 고른다.
-       - 2차: 두 수 찾기 / ac방법 / 완전제곱 / 합차
-       - 3차: 세제곱공식 / 조립제법(유리근 정리)
-       - 4차↑: t=x² 치환 / 대칭→x²나누고 t=x+1/x 치환
-       - 분수: 분모찢고 A,B,C로 놓고 하나씩 지워가며 풀기
-3단계: 찢은 조각마다 더 찢을 수 있는지 끝까지 확인한다.
+① Pull out the common factor first. (If you skip this, you hit a dead end.)
+② Pick the right tearing tool for the degree:
+   - Degree 2 → find-two-numbers / ac method / perfect square / difference of squares
+   - Degree 3 → sum/difference of cubes / synthetic division (rational root theorem)
+   - Degree 4+ → substitute t=x² / if symmetric, divide by x² and substitute t=x+1/x
+③ Check every torn piece to see if it can tear further.
+④ For partial fractions: tear the denominator, set up A,B,C, and erase them one by one.
 ```
 
 ---
 
-## 용어 정리
+## Exercise 1
 
-지금까지 우리는 "찢는다", "뽑아낸다", "묶는다", "접는다", "밀어넣는다" 같은 쉬운 말만 썼다.
-**방법은 이미 다 배웠다.** 이제 수학에서 쓰는 이름을 소개한다.
+Tear $2x^3 + 3x^2 - 8x + 3$ completely. (Constant divisors ±1, ±3; fractions too.)
 
-| 우리가 써온 말 | 수학 용어 | 기호/설명 |
-|:------------:|:--------:|:---:|
-| 찢는다 | 인수분해 | factor |
-| 펼친다 | 전개 | expand |
-| 공통인수 뽑아내기 | 공통인수 추출 | factor out |
-| 제곱으로 접기 | 완전제곱식 | $(a \pm b)^2 = a^2 \pm 2ab + b^2$ |
-| 제곱 빼기 제곱 | 제곱의 차 | $a^2 - b^2 = (a-b)(a+b)$ |
-| 세제곱 합차 | 세제곱의 합/차 | $a^3 \pm b^3 = (a \pm b)(a^2 \mp ab + b^2)$ |
-| 조립제법 | synthetic division | 계수만으로 $(x-r)$ 나누기 |
-| 근과 계수 관계 | 비에트 공식 | Vieta's formulas |
-| 좌우대칭 식 | 상반방정식 | reciprocal equation |
-| 분수 찢기 | 부분분수 분해 | partial fraction |
-| 겹근 | 중근 | multiple root |
+→ Follow: **Examples 7, 8, 1, 2**
+
+> Solutions: [Solution Set](solutions/07-solutions.md#exercise-1)
+
+---
+
+## Exercise 2
+
+Tear $x^4 - 16$ until nothing left can tear. (How many difference-of-squares steps?)
+
+→ Follow: **Example 4**
+
+> Solutions: [Solution Set](solutions/07-solutions.md#exercise-2)
+
+---
+
+## Exercise 3
+
+Tear $\frac{4x^2 + 3x + 2}{x^3 + 2x^2 + x}$ into partial fractions. (Tear the denominator first!)
+
+→ Follow: **Examples 12, 13**
+
+> Solutions: [Solution Set](solutions/07-solutions.md#exercise-3)
+
+---
+
+## Exercise 4: Constructive
+
+Make 3 quadratic expressions that can be torn using two numbers that add to 7 and multiply to 12.
+One with leading coefficient 1, and two with leading coefficient not 1.
+
+→ Follow: **Examples 1, 2**
+
+> Solutions: [Solution Set](solutions/07-solutions.md#exercise-4)
+
+---
+
+## Exercise 5
+
+Find all roots of $x^4 - 2x^3 - 13x^2 - 2x + 1 = 0$. (Symmetric coefficients → divide by $x^2$.)
+
+→ Follow: **Example 10**
+
+> Solutions: [Solution Set](solutions/07-solutions.md#exercise-5)
+
+---
+
+## Exercise 6: Challenge
+
+The three roots of $x^3 - 3x^2 + ax + b = 0$ are 1, $r$, and $r^2$. Find $a$, $b$, and $r$.
+Vieta: sum = 3, sum of pairwise products = $a$, triple product = $-b$.
+
+→ Follow: **Example 11**
+
+> Solutions: [Solution Set](solutions/07-solutions.md#exercise-6)
+
+---
+
+## Today's Procedure
+
+```
+Step 1: Pull out the common factor. If there is none, go to Step 2.
+Step 2: Pick the tool for the degree.
+       - Degree 2: find-two-numbers / ac method / perfect square / difference of squares
+       - Degree 3: sum/difference of cubes / synthetic division (rational root theorem)
+       - Degree 4+: substitute t=x² / symmetric→divide by x², substitute t=x+1/x
+       - Fractions: tear denominator, set up A,B,C, erase one by one
+Step 3: Check every torn piece — can it tear further?
+```
+
+---
+
+## Terminology
+
+Up to now, we've only used simple words: "tear", "pull out", "bundle", "fold", "push in".
+**You already know the methods.** Now we give them their math names.
+
+| What we've been calling it | Math Term | Symbol / Explanation |
+|:--------------------------:|:---------:|:---:|
+| tear | factoring / factorization | factor |
+| spread out | expand | expand |
+| pull out the common factor | factor out the common factor | factor out |
+| fold into a square | perfect square trinomial | $(a \pm b)^2 = a^2 \pm 2ab + b^2$ |
+| square minus square | difference of squares | $a^2 - b^2 = (a-b)(a+b)$ |
+| sum/difference of cubes | sum/difference of cubes | $a^3 \pm b^3 = (a \pm b)(a^2 \mp ab + b^2)$ |
+| divide with coefficients only | synthetic division | divide by $(x-r)$ using coefficients only |
+| roots and coefficients | Vieta's formulas | Vieta's formulas |
+| symmetric coefficients | reciprocal equation | reciprocal equation |
+| tear fractions | partial fraction decomposition | partial fraction |
+| stacked root | multiple root | multiple root |

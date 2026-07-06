@@ -1,128 +1,128 @@
-# 08 풀이집 — 범위를 칼로 가르듯
+# 08 Solutions — Slicing the Number Line
 
 ---
 
-## 연습 1
+## Exercise 1
 
-> $\frac{x^2 - 4}{x+3} \leq 0$. 분자 찢고, 분모 ≠ 0 표시, 구간 나눠 부호 판정.
+> $\frac{x^2 - 4}{x+3} \leq 0$. Tear the numerator, mark denominator ≠ 0, split into intervals, judge signs.
 
-① 분자 찢기: $x^2-4 = (x-2)(x+2)$.
+① Tear the numerator: $x^2-4 = (x-2)(x+2)$.
 $\frac{(x-2)(x+2)}{x+3} \leq 0$.
 
-② 0 되는 점: 분자 → $x=2$, $x=-2$. 분모 → $x=-3$ (빠진다).
+② Zero points: numerator → $x=2$, $x=-2$. Denominator → $x=-3$ (excluded).
 
-③ 구간 넷: $(-\infty, -3)$, $(-3, -2]$, $[-2, 2]$, $[2, \infty)$.
+③ Four intervals: $(-\infty, -3)$, $(-3, -2]$, $[-2, 2]$, $[2, \infty)$.
 
-④ 각 구간 부호:
+④ Sign in each interval:
 - $x < -3$: $x=-4$ → $(−6)(−2)/(−1) = (+)/(−) = −$ ≤ 0. ✅
 - $-3 < x \leq -2$: $x=-2.5$ → $(−4.5)(−0.5)/(0.5) = (+)/(+) = +$ ≤ 0. ❌
 - $-2 \leq x \leq 2$: $x=0$ → $(−2)(2)/(3) = (−)/(+) = −$ ≤ 0. ✅
 - $x \geq 2$: $x=3$ → $(1)(5)/(6) = (+)/(+) = +$ ≤ 0. ❌
 
-⑤ 경계: $x=-2$, $x=2$는 분자 0 → 포함. $x=-3$은 제외.
+⑤ Boundaries: $x=-2$, $x=2$ make numerator 0 → included. $x=-3$ is excluded.
 
-→ **$x < -3$ 또는 $-2 \leq x \leq 2$.**
+→ **$x < -3$ or $-2 \leq x \leq 2$.**
 
 ---
 
-## 연습 2
+## Exercise 2
 
-> $2^x + 2^{x+1} > 48$. $2^x$로 묶기 먼저.
+> $2^x + 2^{x+1} > 48$. Start by pulling out $2^x$.
 
 ① $2^{x+1} = 2 \cdot 2^x$. → $2^x + 2 \cdot 2^x = 3 \cdot 2^x > 48$.
 
 ② $2^x > 16$. $16 = 2^4$.
 
-③ 밑 2 > 1 → 부등호 유지: $x > 4$.
+③ Base 2 > 1 → keep inequality direction: $x > 4$.
 
 → **$x > 4$.**
 
 ---
 
-## 연습 3
+## Exercise 3
 
-> $\log_2 (x^2 - 3x) \leq 2$. 진수 > 0 조건 잊지 마라.
+> $\log_2 (x^2 - 3x) \leq 2$. Don't forget the argument > 0 condition.
 
 ① $2 = \log_2 4$. → $\log_2(x^2-3x) \leq \log_2 4$.
-밑 2 > 1 → $x^2 - 3x \leq 4$ → $x^2 - 3x - 4 \leq 0$.
+Base 2 > 1 → $x^2 - 3x \leq 4$ → $x^2 - 3x - 4 \leq 0$.
 
-② 찢는다: $(x-4)(x+1) \leq 0$.
+② Tear: $(x-4)(x+1) \leq 0$.
 → $-1 \leq x \leq 4$.
 
-③ 진수 조건: $x^2 - 3x > 0$ → $x(x-3) > 0$.
-→ $x < 0$ 또는 $x > 3$.
+③ Argument condition: $x^2 - 3x > 0$ → $x(x-3) > 0$.
+→ $x < 0$ or $x > 3$.
 
-④ 두 조건을 겹친다:
-$-1 \leq x \leq 4$ ∩ ($x < 0$ 또는 $x > 3$).
+④ Intersect the two conditions:
+$-1 \leq x \leq 4$ ∩ ($x < 0$ or $x > 3$).
 → $[-1, 0)$ ∪ $(3, 4]$.
 
-→ **$-1 \leq x < 0$ 또는 $3 < x \leq 4$.**
+→ **$-1 \leq x < 0$ or $3 < x \leq 4$.**
 
 ---
 
-## 연습 4: 구성형
+## Exercise 4: Constructive
 
-> $[x]^2 - 5[x] + 6 = 0$을 만족하는 $x$의 범위를 구하고, 같은 꼴 문제를 만들어라.
+> Find the range of $x$ satisfying $[x]^2 - 5[x] + 6 = 0$, then make your own problem of the same form.
 
-① $t = [x]$ 치환: $t^2 - 5t + 6 = 0$ → $(t-2)(t-3) = 0$.
+① Substitute $t = [x]$: $t^2 - 5t + 6 = 0$ → $(t-2)(t-3) = 0$.
 
 ② $t = 2$: $[x] = 2$ → $2 \leq x < 3$.
 $t = 3$: $[x] = 3$ → $3 \leq x < 4$.
 
-→ **$2 \leq x < 3$ 또는 $3 \leq x < 4$, 즉 $2 \leq x < 4$.**
+→ **$2 \leq x < 3$ or $3 \leq x < 4$, i.e. $2 \leq x < 4$.**
 
-③ 내가 만든 문제: $[x]^2 + [x] - 6 = 0$.
-$(t+3)(t-2) = 0$ → $t = -3$ 또는 $t = 2$.
+③ My own problem: $[x]^2 + [x] - 6 = 0$.
+$(t+3)(t-2) = 0$ → $t = -3$ or $t = 2$.
 $[x] = -3$ → $-3 \leq x < -2$.
 $[x] = 2$ → $2 \leq x < 3$.
-→ 답: $-3 \leq x < -2$ 또는 $2 \leq x < 3$.
+→ Answer: $-3 \leq x < -2$ or $2 \leq x < 3$.
 
 ---
 
-## 연습 5
+## Exercise 5
 
-> $|x-2| + |x+3| \leq 7$. 0 되는 점으로 구간 셋 쪼개기.
+> $|x-2| + |x+3| \leq 7$. Split into three intervals at the zero points.
 
-① 절댓값 안 0 되는 점: $x=2$, $x=-3$. 구간 셋.
+① Zero points of the absolute value insides: $x=2$, $x=-3$. Three intervals.
 
-**구간 1: $x < -3$**
-둘 다 음수. $-(x-2) - (x+3) = -x+2 -x-3 = -2x-1 \leq 7$.
+**Interval 1: $x < -3$**
+Both insides negative. $-(x-2) - (x+3) = -x+2 -x-3 = -2x-1 \leq 7$.
 $-2x \leq 8$ → $x \geq -4$.
-겹침 → $-4 \leq x < -3$.
+Intersect → $-4 \leq x < -3$.
 
-**구간 2: $-3 \leq x < 2$**
-$x-2$ 음수, $x+3$ 양수.
-$-(x-2) + (x+3) = -x+2 + x+3 = 5 \leq 7$. 항상 참.
-→ 구간 전체: $-3 \leq x < 2$.
+**Interval 2: $-3 \leq x < 2$**
+$x-2$ negative, $x+3$ positive.
+$-(x-2) + (x+3) = -x+2 + x+3 = 5 \leq 7$. Always true.
+→ Whole interval: $-3 \leq x < 2$.
 
-**구간 3: $x \geq 2$**
-둘 다 양수. $(x-2) + (x+3) = 2x+1 \leq 7$.
+**Interval 3: $x \geq 2$**
+Both positive. $(x-2) + (x+3) = 2x+1 \leq 7$.
 $2x \leq 6$ → $x \leq 3$.
-겹침 → $2 \leq x \leq 3$.
+Intersect → $2 \leq x \leq 3$.
 
-② 합집합 → **$-4 \leq x \leq 3$.**
+② Union → **$-4 \leq x \leq 3$.**
 
 ---
 
-## 연습 6: 실전
+## Exercise 6: Challenge
 
-> $\{x\} + [x]^2 \leq x$를 $0 \leq x < 3$에서 풀어라.
+> Solve $\{x\} + [x]^2 \leq x$ for $0 \leq x < 3$.
 
-① $\{x\} = x - [x]$ 대입: $(x - [x]) + [x]^2 \leq x$.
-$x$를 소거 → $-[x] + [x]^2 \leq 0$ → $[x]([x] - 1) \leq 0$.
+① Substitute $\{x\} = x - [x]$: $(x - [x]) + [x]^2 \leq x$.
+Cancel $x$ → $-[x] + [x]^2 \leq 0$ → $[x]([x] - 1) \leq 0$.
 
-② $t = [x]$, $t$는 정수. $t(t-1) \leq 0$ → $0 \leq t \leq 1$.
-$t = 0$ 또는 $t = 1$.
+② $t = [x]$, $t$ is an integer. $t(t-1) \leq 0$ → $0 \leq t \leq 1$.
+$t = 0$ or $t = 1$.
 
-③ $0 \leq x < 3$ 구간에서:
+③ In the interval $0 \leq x < 3$:
 $t = 0$: $[x] = 0$ → $0 \leq x < 1$.
 $t = 1$: $[x] = 1$ → $1 \leq x < 2$.
 
-④ $t = 2$일 때 $2 \cdot 1 = 2 > 0$ → 부등식 성립 안 함.
-$2 \leq x < 3$ 구간은 답에서 제외.
+④ When $t = 2$, $2 \cdot 1 = 2 > 0$ → inequality fails.
+The interval $2 \leq x < 3$ is excluded.
 
-→ **$0 \leq x < 1$ 또는 $1 \leq x < 2$, 즉 $0 \leq x < 2$.**
+→ **$0 \leq x < 1$ or $1 \leq x < 2$, i.e. $0 \leq x < 2$.**
 
 ---
 
-[목차로 돌아가기](../08-inequalities.md)
+[Back to Index](../08-inequalities.md)

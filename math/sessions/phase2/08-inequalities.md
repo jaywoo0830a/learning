@@ -1,145 +1,145 @@
-# 세션 08: 범위를 칼로 가르듯 — 부등식 정복
+# Session 08: Slicing the Number Line — Mastering Inequalities
 
-**Phase 2 — 고전 테크닉 | 45분**
-
----
-
-## Part A: 수직선 위에 범위를 새긴다
+**Phase 2 — Classical Techniques | 45 min**
 
 ---
 
-## 예시 1: 일차부등식 — 음수로 나눌 때만 조심
+## Part A: Marking Ranges on the Number Line
+
+---
+
+## Example 1: Linear Inequalities — Only Careful When Dividing by Negatives
 
 $3x + 5 > 2x - 1$.
 
-① $x$ 항을 왼쪽에 모은다. $2x$를 왼쪽으로 옮긴다 → $3x - 2x + 5 > -1$.
-② 숫자를 오른쪽에 모은다. 5를 오른쪽으로 옮긴다 → $x > -6$.
+① Gather $x$ terms on the left. Move $2x$ to the left → $3x - 2x + 5 > -1$.
+② Gather numbers on the right. Move 5 to the right → $x > -6$.
 
 $-2x < 6$.
-① 양변을 −2로 나눈다.
-② **음수로 나누면 부등호가 뒤집힌다.** → $x > -3$.
+① Divide both sides by −2.
+② **Dividing by a negative flips the inequality sign.** → $x > -3$.
 
 $-3 < 2x + 1 \leq 5$.
-① 1을 뺀다 → $-4 < 2x \leq 4$.
-② 2로 나눈다 → $-2 < x \leq 2$.
+① Subtract 1 → $-4 < 2x \leq 4$.
+② Divide by 2 → $-2 < x \leq 2$.
 
-수직선에 그린다: −2에 빈 동그라미, 2에 채운 동그라미, 그 사이를 칠한다.
+Draw on the number line: empty circle at −2, filled circle at 2, shade between them.
 
 ---
 
-## 예시 2: 이차부등식 — 찢고, 구간 나누고, 부호 본다
+## Example 2: Quadratic Inequalities — Tear, Split into Intervals, Check Signs
 
 $x^2 - 5x + 6 > 0$.
 
-① 먼저 찢는다: $(x-2)(x-3) > 0$.
-② 0이 되는 점을 찾는다: $x=2$, $x=3$.
-③ 이 두 점이 수직선을 셋으로 나눈다.
+① Tear first: $(x-2)(x-3) > 0$.
+② Find the points where it hits 0: $x=2$, $x=3$.
+③ These two points split the number line into three pieces.
 
-④ 각 구간에서 수 하나를 골라 부호를 확인한다.
-- $x < 2$: $x=0$을 넣는다 → $(−2)(−3) = 6 > 0$. ✅
-- $2 < x < 3$: $x=2.5$를 넣는다 → $(0.5)(−0.5) = -0.25 < 0$. ❌
-- $x > 3$: $x=4$를 넣는다 → $(2)(1) = 2 > 0$. ✅
+④ Pick one number from each interval and check the sign.
+- $x < 2$: plug in $x=0$ → $(−2)(−3) = 6 > 0$. ✅
+- $2 < x < 3$: plug in $x=2.5$ → $(0.5)(−0.5) = -0.25 < 0$. ❌
+- $x > 3$: plug in $x=4$ → $(2)(1) = 2 > 0$. ✅
 
-→ **$x < 2$ 또는 $x > 3$.**
+→ **$x < 2$ or $x > 3$.**
 
 ---
 
-## 예시 3: 계수가 음수 — 먼저 양수로 뒤집는다
+## Example 3: Negative Leading Coefficient — Flip to Positive First
 
 $-x^2 + 4x - 3 \geq 0$.
 
-① −1을 곱해 부등호를 뒤집는다 → $x^2 - 4x + 3 \leq 0$.
-② 찢는다: $(x-1)(x-3) \leq 0$.
+① Multiply by −1 and flip the inequality → $x^2 - 4x + 3 \leq 0$.
+② Tear: $(x-1)(x-3) \leq 0$.
 
-③ 0이 되는 점: $x=1$, $x=3$. 구간 셋.
+③ Zero points: $x=1$, $x=3$. Three intervals.
 - $x < 1$: $(−)(−) = +$. ❌
 - $1 < x < 3$: $(+)(−) = −$. ✅
 - $x > 3$: $(+)(+) = +$. ❌
 
-④ 경계 $x=1$, $x=3$에서 0이니 포함. → **$1 \leq x \leq 3$.**
+④ The boundaries $x=1$, $x=3$ give 0, so include them. → **$1 \leq x \leq 3$.**
 
 ---
 
-## 예시 4: 판별식만 보고 끝내기
+## Example 4: Just Looking at the Discriminant
 
 $x^2 + x + 1 > 0$.
 
-① 찢어본다: 더해서 1, 곱해서 1인 정수는 없다.
-② 판별식: $1^2 - 4 \times 1 \times 1 = -3 < 0$.
-③ $x^2$ 계수 양수, 판별식 음수 → 포물선이 $x$축 위에만 있다.
-→ **모든 $x$에서 성립. 항상 참.**
+① Try tearing: no two integers add to 1 and multiply to 1.
+② Discriminant: $1^2 - 4 \times 1 \times 1 = -3 < 0$.
+③ $x^2$ coefficient positive, discriminant negative → the parabola sits entirely above the $x$-axis.
+→ **True for all $x$. Always true.**
 
 $x^2 + 2x + 1 \leq 0$.
 ① $(x+1)^2 \leq 0$.
-② 제곱은 0보다 작을 수 없다. 0인 점만 가능.
-→ **$x = -1$에서만 성립. 딱 한 점.**
+② A square can't be less than 0. Only the point where it equals 0 works.
+→ **True only at $x = -1$. Exactly one point.**
 
 ---
 
-## Part B: 분수·고차·절댓값 부등식
+## Part B: Rational, Higher-Degree, and Absolute Value Inequalities
 
 ---
 
-## 예시 5: 분수부등식 — 분모를 함부로 건들지 않는다
+## Example 5: Rational Inequalities — Never Recklessly Multiply by the Denominator
 
 $\frac{x-1}{x+2} > 0$.
 
-① 부호가 바뀌는 점을 찾는다.
-분자 = 0 → $x = 1$. 분모 = 0 → $x = -2$.
-이 두 점이 수직선을 셋으로 나눈다. $x=-2$는 빠진다(분모 0).
+① Find the points where the sign can flip.
+Numerator = 0 → $x = 1$. Denominator = 0 → $x = -2$.
+These two points split the number line into three. $x=-2$ is excluded (denominator 0).
 
-② 각 구간에서 수 하나를 골라 부호를 확인한다.
+② Pick one number from each interval and check the sign.
 - $x < -2$: $x=-3$ → $(−4)/(−1) = 4 > 0$. ✅
 - $-2 < x < 1$: $x=0$ → $(−1)/(2) = -0.5 < 0$. ❌
 - $x > 1$: $x=2$ → $(1)/(4) = 0.25 > 0$. ✅
 
-→ **$x < -2$ 또는 $x > 1$.**
+→ **$x < -2$ or $x > 1$.**
 
 ---
 
-## 예시 6: 오른쪽이 0이 아닐 때 — 통분으로 옮긴다
+## Example 6: When the Right Side Isn't 0 — Move Everything and Combine
 
 $\frac{2}{x-1} \geq 1$.
 
-① 오른쪽 1을 왼쪽으로 옮긴다 → $\frac{2}{x-1} - 1 \geq 0$.
-② 통분: $\frac{2 - (x-1)}{x-1} = \frac{3-x}{x-1} \geq 0$.
+① Move the 1 on the right to the left → $\frac{2}{x-1} - 1 \geq 0$.
+② Combine into one fraction: $\frac{2 - (x-1)}{x-1} = \frac{3-x}{x-1} \geq 0$.
 
-③ 분자 0: $x=3$. 분모 0: $x=1$ (빠진다).
+③ Numerator 0: $x=3$. Denominator 0: $x=1$ (excluded).
 - $x < 1$: $(+)/(−) = −$. ❌
-- $1 < x \leq 3$: $(+)/(+) = +$. ✅ ($x=3$ 포함)
+- $1 < x \leq 3$: $(+)/(+) = +$. ✅ ($x=3$ included)
 - $x > 3$: $(−)/(+) = −$. ❌
 
 → **$1 < x \leq 3$.**
 
 ---
 
-## 예시 7: 고차부등식 — 찢고 모든 근을 찍는다
+## Example 7: Higher-Degree Inequalities — Tear and Mark Every Root
 
 $x^3 - 3x^2 - 4x + 12 \geq 0$.
 
-① $x=2$를 넣어본다: $8 - 12 - 8 + 12 = 0$. 딱 0.
-② 조립제법으로 $(x-2)$를 뽑아낸다.
-몫 $x^2 - x - 6 = (x-3)(x+2)$.
+① Try plugging in $x=2$: $8 - 12 - 8 + 12 = 0$. Exactly 0.
+② Pull out $(x-2)$ using synthetic division.
+Quotient $x^2 - x - 6 = (x-3)(x+2)$.
 → $(x-2)(x-3)(x+2) \geq 0$.
 
-③ 0이 되는 점: $x = -2, 2, 3$. 구간 넷.
+③ Zero points: $x = -2, 2, 3$. Four intervals.
 - $x < -2$: $(−)(−)(−) = −$. ❌
 - $-2 < x < 2$: $(−)(−)(+) = +$. ✅
 - $2 < x < 3$: $(+)(−)(+) = −$. ❌
 - $x > 3$: $(+)(+)(+) = +$. ✅
 
-→ **$-2 \leq x \leq 2$ 또는 $x \geq 3$.**
+→ **$-2 \leq x \leq 2$ or $x \geq 3$.**
 
 ---
 
-## 예시 8: $(x-a)^n$ — 짝수 거듭제곱이면 부호 불변
+## Example 8: $(x-a)^n$ — Even Powers Don't Flip the Sign
 
 $(x-1)^2 (x+2) < 0$.
 
-① 0이 되는 점: $x=1$ (두 번 — 짝수), $x=-2$ (한 번 — 홀수).
-② 짝수 거듭제곱은 지나도 부호가 안 바뀐다. 홀수만 바뀐다.
+① Zero points: $x=1$ (twice — even), $x=-2$ (once — odd).
+② Even powers don't change sign when crossing. Only odd powers do.
 
-③ 구간:
+③ Intervals:
 - $x < -2$: $(+)^2(−) = −$. ✅
 - $-2 < x < 1$: $(+)^2(+) = +$. ❌
 - $x > 1$: $(+)^2(+) = +$. ❌
@@ -148,117 +148,117 @@ $(x-1)^2 (x+2) < 0$.
 
 ---
 
-## 예시 9: 절댓값 하나 — 구간의 양끝
+## Example 9: Single Absolute Value — Distance from the Zero Point
 
 $|x-3| < 5$.
 
-① 절댓값 부등식은 "0 되는 점에서 양옆으로 거리"다.
+① An absolute value inequality is "distance left and right from the zero point."
 $-5 < x-3 < 5$.
-② 3을 더한다 → **$-2 < x < 8$.**
+② Add 3 → **$-2 < x < 8$.**
 
 $|2x+1| \geq 3$.
-① 0 되는 점에서 바깥쪽으로:
-$2x+1 \leq -3$ 또는 $2x+1 \geq 3$.
-② $2x \leq -4$ → $x \leq -2$. 또는 $2x \geq 2$ → $x \geq 1$.
+① Outside the zero point in both directions:
+$2x+1 \leq -3$ or $2x+1 \geq 3$.
+② $2x \leq -4$ → $x \leq -2$. Or $2x \geq 2$ → $x \geq 1$.
 
-→ **$x \leq -2$ 또는 $x \geq 1$.**
+→ **$x \leq -2$ or $x \geq 1$.**
 
 ---
 
-## 예시 10: 절댓값 두 개 — 구간을 쪼개서 하나씩
+## Example 10: Two Absolute Values — Split into Intervals and Handle One by One
 
 $|x-1| + |x+2| \leq 5$.
 
-① 절댓값 안이 0이 되는 점을 찾는다: $x=1$, $x=-2$.
-② 이 점들로 전체를 셋으로 쪼갠다.
+① Find where each absolute value's inside hits 0: $x=1$, $x=-2$.
+② Split the whole line into three using these points.
 
-**구간 1: $x < -2$**
-두 절댓값 안 모두 음수 → 부호 뒤집어 벗긴다.
+**Interval 1: $x < -2$**
+Both insides are negative → flip signs to strip the absolute bars.
 $-(x-1) - (x+2) = -2x - 1 \leq 5$.
 $-2x \leq 6$ → $x \geq -3$.
-구간과 겹친다 → $-3 \leq x < -2$.
+Intersect with the interval → $-3 \leq x < -2$.
 
-**구간 2: $-2 \leq x < 1$**
-$(x-1)$ 음수, $(x+2)$ 양수.
-$-(x-1) + (x+2) = 3 \leq 5$. 항상 참.
-→ 구간 전체가 답: $-2 \leq x < 1$.
+**Interval 2: $-2 \leq x < 1$**
+$(x-1)$ negative, $(x+2)$ positive.
+$-(x-1) + (x+2) = 3 \leq 5$. Always true.
+→ The whole interval is an answer: $-2 \leq x < 1$.
 
-**구간 3: $x \geq 1$**
-둘 다 양수 → 그냥 벗긴다.
+**Interval 3: $x \geq 1$**
+Both positive → just strip the bars.
 $(x-1) + (x+2) = 2x+1 \leq 5$.
 $2x \leq 4$ → $x \leq 2$.
-구간과 겹친다 → $1 \leq x \leq 2$.
+Intersect with the interval → $1 \leq x \leq 2$.
 
-③ 셋을 합친다 → **$-3 \leq x \leq 2$.**
-
----
-
-## Part C: 지수·로그 부등식
+③ Combine all three → **$-3 \leq x \leq 2$.**
 
 ---
 
-## 예시 11: 지수부등식 — 밑에 따라 부등호 방향이 갈린다
+## Part C: Exponential and Logarithmic Inequalities
+
+---
+
+## Example 11: Exponential Inequalities — The Inequality Direction Depends on the Base
 
 $2^{x+1} > 8$.
 
-① 8을 밑 2의 거듭제곱으로: $8 = 2^3$.
-② $2^{x+1} > 2^3$. 밑 2 > 1 → 부등호 그대로: $x+1 > 3$ → $x > 2$.
+① Write 8 as a power of base 2: $8 = 2^3$.
+② $2^{x+1} > 2^3$. Base 2 > 1 → keep the inequality as is: $x+1 > 3$ → $x > 2$.
 
 $\left(\frac{1}{2}\right)^{x+1} \geq \frac{1}{4}$.
 
 ① $\frac{1}{4} = \left(\frac{1}{2}\right)^2$.
-② 밑 $\frac{1}{2} < 1$ → **부등호 뒤집힌다:** $x+1 \leq 2$ → $x \leq 1$.
+② Base $\frac{1}{2} < 1$ → **flip the inequality:** $x+1 \leq 2$ → $x \leq 1$.
 
 ---
 
-## 예시 12: 로그부등식 — 진수 > 0이 먼저다
+## Example 12: Logarithmic Inequalities — Check the Argument First
 
 $\log_2 (x-1) < 3$.
 
-① 3을 밑 2 로그로: $3 = \log_2 8$.
-② $\log_2 (x-1) < \log_2 8$. 밑 2 > 1 → $x-1 < 8$ → $x < 9$.
-③ **진수 조건**: $x-1 > 0$ → $x > 1$.
+① Write 3 as a base-2 log: $3 = \log_2 8$.
+② $\log_2 (x-1) < \log_2 8$. Base 2 > 1 → $x-1 < 8$ → $x < 9$.
+③ **Argument condition**: $x-1 > 0$ → $x > 1$.
 
 → **$1 < x < 9$.**
 
 $\log_{\frac{1}{2}} (x+2) \geq 1$.
 
 ① $1 = \log_{\frac{1}{2}} \frac{1}{2}$.
-② 밑 $\frac{1}{2} < 1$ → 부등호 뒤집기: $x+2 \leq \frac{1}{2}$ → $x \leq -\frac{3}{2}$.
-③ 진수 조건: $x+2 > 0$ → $x > -2$.
+② Base $\frac{1}{2} < 1$ → flip: $x+2 \leq \frac{1}{2}$ → $x \leq -\frac{3}{2}$.
+③ Argument condition: $x+2 > 0$ → $x > -2$.
 
 → **$-2 < x \leq -\frac{3}{2}$.**
 
 ---
 
-## Part D: 정수 경계를 넘나드는 부등식
+## Part D: Inequalities Crossing Integer Boundaries
 
 ---
 
-## 예시 13: $[x]$의 뜻부터 다진다
+## Example 13: First, Get the Meaning of $[x]$ Down
 
-$[x]$는 $x$를 넘지 않는 가장 큰 정수다.
+$[x]$ is the greatest integer that does not exceed $x$.
 
-값을 찍어본다:
+Let's pin down some values:
 $[3.7] = 3$, $[3.0] = 3$, $[0.5] = 0$.
 $[-1.2] = -2$, $[-1.0] = -1$, $[5] = 5$.
 
-위에서 본 패턴을 되짚어보자. $[3.7]=3$일 때 $3 \leq 3.7 < 4$.
-$[0.5]=0$일 때 $0 \leq 0.5 < 1$. $[-1.2]=-2$일 때 $-2 \leq -1.2 < -1$.
-즉 $[x]=3$이면 → $3 \leq x < 4$.
+Now trace the pattern we just saw. $[3.7]=3$ means $3 \leq 3.7 < 4$.
+$[0.5]=0$ means $0 \leq 0.5 < 1$. $[-1.2]=-2$ means $-2 \leq -1.2 < -1$.
+So $[x]=3$ means → $3 \leq x < 4$.
 $[2x] = 5$ → $5 \leq 2x < 6$ → $2.5 \leq x < 3$.
 
 ---
 
-## 예시 14: $[x]$가 들어간 부등식 — $t$로 바꾼다
+## Example 14: Inequalities Containing $[x]$ — Replace with $t$
 
 $[x]^2 - [x] - 6 < 0$.
 
-① $[x]$를 $t$로 바꾼다: $t^2 - t - 6 < 0$.
-② 찢는다: $(t-3)(t+2) < 0$ → $-2 < t < 3$.
-③ $t = [x]$는 정수다. → $t = -1, 0, 1, 2$.
+① Replace $[x]$ with $t$: $t^2 - t - 6 < 0$.
+② Tear: $(t-3)(t+2) < 0$ → $-2 < t < 3$.
+③ $t = [x]$ is an integer. → $t = -1, 0, 1, 2$.
 
-④ 각 $t$값을 $x$ 구간으로 바꾼다:
+④ Convert each $t$ value to an $x$ interval:
 $[x] = -1$ → $-1 \leq x < 0$.
 $[x] = 0$ → $0 \leq x < 1$.
 $[x] = 1$ → $1 \leq x < 2$.
@@ -268,184 +268,184 @@ $[x] = 2$ → $2 \leq x < 3$.
 
 ---
 
-## 예시 15: $[x+1] > [x]$ — 항상 참인가?
+## Example 15: $[x+1] > [x]$ — Always True?
 
 $[x+1] > [x]$.
 
-$x$가 정수 $n$일 때: $[n+1] = n+1$, $[n] = n$ → $n+1 > n$. 참.
-$x$가 정수 아닐 때, $x = n + \delta$: $[x+1] = n+1$, $[x] = n$ → $n+1 > n$. 참.
+When $x$ is an integer $n$: $[n+1] = n+1$, $[n] = n$ → $n+1 > n$. True.
+When $x$ is not an integer, $x = n + \delta$: $[x+1] = n+1$, $[x] = n$ → $n+1 > n$. True.
 
-→ **모든 $x$에서 성립.** 이유: $[x+1] = [x] + 1$이 항상 성립하기 때문.
+→ **True for all $x$.** Reason: $[x+1] = [x] + 1$ always holds.
 
 ---
 
-## 예시 16: 천장함수와 분수부
+## Example 16: Ceiling Function and Fractional Part
 
-$\lceil x \rceil$: $x$ 이상의 가장 작은 정수.
+$\lceil x \rceil$: the smallest integer that is not less than $x$.
 $\lceil 3.2 \rceil = 4$, $\lceil -1.2 \rceil = -1$.
 
-$\{x\} = x - [x]$: $x$의 소수 부분. 항상 $0 \leq \{x\} < 1$.
+$\{x\} = x - [x]$: the fractional part of $x$. Always $0 \leq \{x\} < 1$.
 $\{3.7\} = 0.7$, $\{-1.2\} = 0.8$.
 
-**활용**:
-$\lceil x \rceil = [x]$ → $x$가 정수일 때.
-$\lceil x \rceil = [x] + 1$ → $x$가 정수 아닐 때.
+**Usage**:
+$\lceil x \rceil = [x]$ → when $x$ is an integer.
+$\lceil x \rceil = [x] + 1$ → when $x$ is not an integer.
 
-$\{x\} > 0.5$ → 모든 정수 $n$에 대해 $n + 0.5 < x < n+1$ 구간.
-
----
-
-## 자주 하는 실수
-
-### 실수 1: 분수부등식에서 분모를 마구 곱한다
-
-**틀린 길**: "$\frac{x-1}{x+2} > 0$이니까 $x+2$ 곱해서 $x-1 > 0$."
-
-**왜 틀렸나**: $x+2$가 양수인지 음수인지 모른다. 부등호 방향을 알 수 없다.
-
-**옳은 길**: 분자·분모 각각 0 되는 점으로 구간을 나눈다. 분모는 절대 곱하지 않는다.
+$\{x\} > 0.5$ → for every integer $n$, the interval $n + 0.5 < x < n+1$.
 
 ---
 
-### 실수 2: 로그부등식에서 진수 조건을 잊는다
+## Common Mistakes
 
-**틀린 길**: "$\log_2(x-1) < 3$ → $x < 9$."
+### Mistake 1: Recklessly Multiplying Both Sides of a Rational Inequality by the Denominator
 
-**왜 틀렸나**: 로그는 진수가 반드시 양수여야 한다. $x-1 > 0$ → $x > 1$.
+**Wrong path**: "$\frac{x-1}{x+2} > 0$ so multiply by $x+2$ and get $x-1 > 0$."
 
-**옳은 길**: 부등식 풀고, **꼭 진수 > 0을 겹친다.**
+**Why it's wrong**: You don't know whether $x+2$ is positive or negative. The inequality direction is unknown.
 
----
-
-### 실수 3: $[x] \geq 2$를 $x \geq 2$로 쓴다 — 맞긴 한데 위험
-
-**틀린 길**: "$[x] \geq 2$니까 $x \geq 2$." — 이 경우엔 우연히 맞지만...
-
-**왜 위험한가**: $[x] > 2$는 $x \geq 3$이다. $[x] = 2$가 $2 \leq x < 3$이기 때문.
-등호 유무를 정수 경계에서 꼭 확인해야 한다.
-
-**옳은 길**: $[x] = n \leftrightarrow n \leq x < n+1$을 기본으로 깐다.
+**Right path**: Split into intervals using the points where numerator and denominator each equal 0. Never multiply by the denominator.
 
 ---
 
-### 실수 4: 짝수 거듭제곱 인수를 지날 때 부호가 바뀐다고 착각
+### Mistake 2: Forgetting the Argument Condition in Logarithmic Inequalities
 
-**틀린 길**: "$(x-1)^2(x+2)$에서 $x=1$에서도 부호가 바뀐다."
+**Wrong path**: "$\log_2(x-1) < 3$ → $x < 9$."
 
-**왜 틀렸나**: $(x-1)^2$은 $x=1$에서 0이지만, 제곱이라 부호가 무조건 양수다.
-$x=1$ 좌우 모두 $(x-1)^2 > 0$. 부호 변화 없다.
+**Why it's wrong**: A logarithm's argument must be strictly positive. $x-1 > 0$ → $x > 1$.
 
-**옳은 길**: $(x-a)^{짝수}$는 부호 불변, $(x-a)^{홀수}$만 부호 바뀜.
+**Right path**: Solve the inequality, then **always intersect with argument > 0.**
 
 ---
 
-## 방금 우리가 한 일
+### Mistake 3: Writing $[x] \geq 2$ as $x \geq 2$ — Coincidentally Right, but Dangerous
+
+**Wrong path**: "$[x] \geq 2$ so $x \geq 2$." — in this case it happens to be right, but...
+
+**Why it's dangerous**: $[x] > 2$ actually means $x \geq 3$. Because $[x] = 2$ covers $2 \leq x < 3$.
+You must check the equals sign at integer boundaries every time.
+
+**Right path**: Always start from $[x] = n \leftrightarrow n \leq x < n+1$.
+
+---
+
+### Mistake 4: Thinking the Sign Flips When Crossing an Even-Power Factor
+
+**Wrong path**: "In $(x-1)^2(x+2)$, the sign flips at $x=1$ too."
+
+**Why it's wrong**: $(x-1)^2$ is 0 at $x=1$, but because it's squared, its sign is always positive.
+On both sides of $x=1$, $(x-1)^2 > 0$. No sign change.
+
+**Right path**: $(x-a)^{\text{even}}$ → sign unchanged. Only $(x-a)^{\text{odd}}$ flips the sign.
+
+---
+
+## What We Just Did
 
 ```
-① 오른쪽을 0으로 만든다. 왼쪽은 전부 찢는다.
-② 0이 되는 점을 수직선에 찍는다. 분모=0은 반드시 뺀다.
-③ 각 구간에서 수 하나 골라 찢은 식의 부호를 판정한다.
-④ 짝수 거듭제곱 인수는 부호 불변임을 기억한다.
-⑤ 지수·로그는 밑>1이면 부등호 유지, 0<밑<1이면 뒤집기.
-   로그는 꼭 진수>0 조건을 덧붙인다.
-⑥ 절댓값은 0 되는 점으로 구간 쪼개서 하나씩 벗긴다.
-⑦ [x]는 t=[x] 치환 먼저. t 정수임을 이용한다.
-```
-
----
-
-## 연습 1
-
-$\frac{x^2 - 4}{x+3} \leq 0$. 분자 찢고, 분모 ≠ 0 표시, 구간 나눠 부호 판정.
-
-→ 따라하기: **예시 5**
-
-> 풀이: [풀이집](solutions/08-solutions.md#연습-1)
-
----
-
-## 연습 2
-
-$2^x + 2^{x+1} > 48$. $2^x$로 묶어내는 것이 먼저다.
-
-→ 따라하기: **예시 11**
-
-> 풀이: [풀이집](solutions/08-solutions.md#연습-2)
-
----
-
-## 연습 3
-
-$\log_2 (x^2 - 3x) \leq 2$. 진수 > 0 조건을 반드시 겹친다.
-
-→ 따라하기: **예시 12**
-
-> 풀이: [풀이집](solutions/08-solutions.md#연습-3)
-
----
-
-## 연습 4: 구성형
-
-$[x]^2 - 5[x] + 6 = 0$을 만족하는 $x$의 범위를 구하고,
-같은 꼴로 $[x]$에 대한 이차방정식을 하나 만들어 풀어보라.
-
-→ 따라하기: **예시 14**
-
-> 풀이: [풀이집](solutions/08-solutions.md#연습-4)
-
----
-
-## 연습 5
-
-$|x-2| + |x+3| \leq 7$. 0 되는 점으로 구간 셋 쪼개기.
-
-→ 따라하기: **예시 10**
-
-> 풀이: [풀이집](solutions/08-solutions.md#연습-5)
-
----
-
-## 연습 6: 실전
-
-$\{x\} + [x]^2 \leq x$를 $0 \leq x < 3$에서 풀어라.
-$\{x\}=x-[x]$를 대입하면 단순한 꼴이 나온다.
-
-→ 따라하기: **예시 14, 16**
-
-> 풀이: [풀이집](solutions/08-solutions.md#연습-6)
-
----
-
-## 오늘 배운 절차
-
-```
-1단계: 오른쪽을 0으로 만든다. 왼쪽은 전부 찢는다.
-2단계: 0이 되는 점을 수직선에 찍는다. 분모=0은 빼고.
-       (짝수 거듭제곱 인수 주의 — 부호 불변)
-3단계: 각 구간에서 수 하나 골라 부호를 확인한다.
-       - 분수: 분자 분모 각각 부호
-       - 지수·로그: 밑>1 유지, 0<밑<1 뒤집기. 로그는 진수>0
-       - 절댓값 n개: 0 되는 점으로 구간 쪼개서 하나씩
-       - [x]: t=[x] 치환, t는 정수
+① Make the right side 0. Tear the left side completely.
+② Mark every zero point on the number line. Always exclude denominator=0.
+③ Pick one number in each interval and judge the sign of the torn expression.
+④ Remember: even-power factors don't flip the sign.
+⑤ Exponentials/logs: base>1 → keep inequality, 0<base<1 → flip.
+   For logs, always intersect with argument>0.
+⑥ Absolute values: split into intervals at the zero points, strip bars one by one.
+⑦ [x]: substitute t=[x] first. Remember t is an integer.
 ```
 
 ---
 
-## 용어 정리
+## Exercise 1
 
-지금까지 우리는 "찢는다", "옮긴다", "수직선에 찍는다", "부호를 본다", "쪼갠다" 같은 쉬운 말만 썼다.
-**방법은 이미 다 배웠다.** 이제 수학에서 쓰는 이름을 소개한다.
+$\frac{x^2 - 4}{x+3} \leq 0$. Tear the numerator, mark denominator ≠ 0, split into intervals, judge signs.
 
-| 우리가 써온 말 | 수학 용어 | 기호/설명 |
-|:------------:|:--------:|:---:|
-| 부등호가 뒤집힌다 | 부등호 방향 역전 | 음수 곱하거나 밑<1 |
-| 0이 되는 점 | 임계점 | critical point |
-| 구간 나누기 | 구간법 | interval method |
-| 찢은 식 부호만 보기 | 부호표 | sign chart |
-| 판별식 | 판별식 | $D = b^2 - 4ac$ |
-| 진수 | 진수 | 로그 오른쪽에 오는 식 |
-| 밑 | 밑 | base |
-| 바닥함수 | 바닥함수(가우스 기호) | $\lfloor x \rfloor = [x]$ |
-| 천장함수 | 천장함수 | $\lceil x \rceil$ |
-| 소수 부분 | 분수부 | $\{x\} = x - [x]$ |
-| 절댓값 | 절댓값 | $\lvert x \rvert$ |
+→ Follow: **Example 5**
+
+> Solutions: [Solution Set](solutions/08-solutions.md#exercise-1)
+
+---
+
+## Exercise 2
+
+$2^x + 2^{x+1} > 48$. Start by pulling out $2^x$.
+
+→ Follow: **Example 11**
+
+> Solutions: [Solution Set](solutions/08-solutions.md#exercise-2)
+
+---
+
+## Exercise 3
+
+$\log_2 (x^2 - 3x) \leq 2$. Make sure to intersect with the argument > 0 condition.
+
+→ Follow: **Example 12**
+
+> Solutions: [Solution Set](solutions/08-solutions.md#exercise-3)
+
+---
+
+## Exercise 4: Constructive
+
+Find the range of $x$ that satisfies $[x]^2 - 5[x] + 6 = 0$.
+Then make your own quadratic equation in $[x]$ of the same form and solve it.
+
+→ Follow: **Example 14**
+
+> Solutions: [Solution Set](solutions/08-solutions.md#exercise-4)
+
+---
+
+## Exercise 5
+
+$|x-2| + |x+3| \leq 7$. Split into three intervals at the zero points.
+
+→ Follow: **Example 10**
+
+> Solutions: [Solution Set](solutions/08-solutions.md#exercise-5)
+
+---
+
+## Exercise 6: Challenge
+
+Solve $\{x\} + [x]^2 \leq x$ for $0 \leq x < 3$.
+Substituting $\{x\}=x-[x]$ gives a simple form.
+
+→ Follow: **Examples 14, 16**
+
+> Solutions: [Solution Set](solutions/08-solutions.md#exercise-6)
+
+---
+
+## Today's Procedure
+
+```
+Step 1: Make the right side 0. Tear the left side completely.
+Step 2: Mark every zero point on the number line. Exclude denominator=0.
+       (Watch for even-power factors — sign doesn't flip there.)
+Step 3: Pick one number per interval and check the sign.
+       - Rational: check numerator and denominator signs separately
+       - Exponential/log: base>1 keep, 0<base<1 flip. Logs: intersect with argument>0
+       - n absolute values: split at zero points, handle one interval at a time
+       - [x]: substitute t=[x]; t is an integer
+```
+
+---
+
+## Terminology
+
+Up to now, we've only used simple words: "tear", "move", "mark on the number line", "check the sign", "split".
+**You already know the methods.** Now we give them their math names.
+
+| What we've been calling it | Math Term | Symbol / Explanation |
+|:--------------------------:|:---------:|:---:|
+| the inequality sign flips | inequality direction reversal | when multiplying by a negative or base<1 |
+| point where it hits 0 | critical point | critical point |
+| splitting into intervals | interval method | interval method |
+| checking only the sign of the torn expression | sign chart | sign chart |
+| discriminant | discriminant | $D = b^2 - 4ac$ |
+| argument | argument | the expression inside a logarithm |
+| base | base | base |
+| floor function | floor function (Gauss notation) | $\lfloor x \rfloor = [x]$ |
+| ceiling function | ceiling function | $\lceil x \rceil$ |
+| fractional part | fractional part | $\{x\} = x - [x]$ |
+| absolute value | absolute value | $\lvert x \rvert$ |
