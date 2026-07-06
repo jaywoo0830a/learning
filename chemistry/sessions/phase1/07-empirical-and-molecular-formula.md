@@ -1,155 +1,155 @@
-# 세션 07: 실험식과 분자식
+# Session 07: Empirical and Molecular Formulas
 
-**Phase 1 — 화학량론 | 70분**
+**Phase 1 — Stoichiometry | 70 min**
 
-**방법 1 (실험식):** g을 칸 숫자로 나눈다 → 가장 작은 값으로 모두 나눈다 → 정수비 나올 때까지 곱한다.
-**방법 2 (분자식):** 분자량 ÷ 실험식량 = $n$ → 실험식에 $n$을 곱한다.
-**방법 3 (태워서 분석):** $\text{CO}_2$와 $\text{H}_2\text{O}$의 g으로 C, H, O의 g을 역산한다.
-
----
-
-## 들어가기
-
-원소 분석 결과(질량 백분율이나 g)로부터 원자 개수의 가장 간단한 정수비(실험식)를 구한다. 분자량을 추가로 알면 실제 분자식까지 구한다. 유기 화합물은 태워서 나온 $\text{CO}_2$와 $\text{H}_2\text{O}$의 g을 측정해 C, H, O 함량을 알아낸다.
+**Method 1 (empirical):** Divide g by box number → divide all by the smallest → multiply until you get integer ratios.
+**Method 2 (molecular):** Molar mass ÷ empirical formula mass = $n$ → multiply the empirical formula by $n$.
+**Method 3 (combustion analysis):** Use g of $\text{CO}_2$ and $\text{H}_2\text{O}$ to back-calculate g of C, H, and O.
 
 ---
 
-## Part A: 실험식 구하기
+## Getting Started
 
-### ① 각 원소의 g을 그 원소의 칸 숫자로 나눈다 (g → mol)
-
-### ② 모든 mol을 가장 작은 mol로 나눈다
-
-### ③ 정수비가 나올 때까지 2, 3, ...을 곱한다
-
-예: 1 : 1.5 → ×2 → 2 : 3. &nbsp; 1 : 1.33 → ×3 → 3 : 4.
+From elemental analysis data (mass percentages or grams), find the simplest whole-number ratio of atoms (empirical formula). If you also know the molar mass, you can find the actual molecular formula. For organic compounds, burn them and measure the $\text{CO}_2$ and $\text{H}_2\text{O}$ produced to determine C, H, and O content.
 
 ---
 
-### 예시 1
+## Part A: Finding the Empirical Formula
 
-질량 백분율: C 40.0%, H 6.7%, O 53.3%. (C=12.0, H=1.0, O=16.0)
+### ① Divide each element's g by that element's box number (g → mol)
 
-100g 기준: C 40.0g, H 6.7g, O 53.3g.
-칸 숫자로 나누기: C = $40.0 \div 12.0 = 3.33$, &nbsp; H = $6.7 \div 1.0 = 6.7$, &nbsp; O = $53.3 \div 16.0 = 3.33$.
-가장 작은 값 3.33으로 나누기: C = 1.00, H = 2.01, O = 1.00.
-→ 실험식: $\text{CH}_2\text{O}$
+### ② Divide all mol values by the smallest mol
+
+### ③ Multiply by 2, 3, ... until you get integer ratios
+
+Example: 1 : 1.5 → ×2 → 2 : 3. &nbsp; 1 : 1.33 → ×3 → 3 : 4.
 
 ---
 
-### 예시 2
+### Example 1
+
+Mass percent: C 40.0%, H 6.7%, O 53.3%. (C=12.0, H=1.0, O=16.0)
+
+Assume 100 g: C 40.0 g, H 6.7 g, O 53.3 g.
+Divide by box numbers: C = $40.0 \div 12.0 = 3.33$, &nbsp; H = $6.7 \div 1.0 = 6.7$, &nbsp; O = $53.3 \div 16.0 = 3.33$.
+Divide by the smallest (3.33): C = 1.00, H = 2.01, O = 1.00.
+→ Empirical formula: $\text{CH}_2\text{O}$
+
+---
+
+### Example 2
 
 Fe 69.9%, O 30.1%. (Fe=55.8, O=16.0)
 
-100g 기준: Fe mol = $69.9 \div 55.8 = 1.25$, &nbsp; O mol = $30.1 \div 16.0 = 1.88$.
-가장 작은 값 1.25로 나누기: Fe = 1.00, O = 1.50.
-×2: Fe = 2, O = 3 → 실험식: $\text{Fe}_2\text{O}_3$
+Assume 100 g: Fe mol = $69.9 \div 55.8 = 1.25$, &nbsp; O mol = $30.1 \div 16.0 = 1.88$.
+Divide by the smallest (1.25): Fe = 1.00, O = 1.50.
+×2: Fe = 2, O = 3 → Empirical formula: $\text{Fe}_2\text{O}_3$
 
 ---
 
-## Part B: 분자식 구하기
+## Part B: Finding the Molecular Formula
 
-### 분자량 ÷ 실험식량 = $n$ → 실험식에 $n$을 곱한다
+### Molar mass ÷ empirical formula mass = $n$ → multiply the empirical formula by $n$
 
-예: 실험식 $\text{CH}_2\text{O}$ (실험식량 = 12.0 + 2.0 + 16.0 = 30.0), 분자량 = 180.0.
-$n = 180.0 \div 30.0 = 6$ → 분자식: $\text{C}_6\text{H}_{12}\text{O}_6$
-
----
-
-## Part C: 태워서 분석하기
-
-유기 화합물을 태워 $\text{CO}_2$와 $\text{H}_2\text{O}$의 g을 잰다.
-
-### C: $\text{CO}_2$ g → $\text{CO}_2$ mol → C mol 그대로 → C g
-### H: $\text{H}_2\text{O}$ g → $\text{H}_2\text{O}$ mol → H mol은 ×2 → H g
-### O: (시료 g − C g − H g) → O g → O mol
-
-그다음 Part A와 같다. → mol을 칸 숫자로 나누고, 최소값으로 나누고, 정수비.
+Example: Empirical formula $\text{CH}_2\text{O}$ (empirical formula mass = 12.0 + 2.0 + 16.0 = 30.0), molar mass = 180.0.
+$n = 180.0 \div 30.0 = 6$ → Molecular formula: $\text{C}_6\text{H}_{12}\text{O}_6$
 
 ---
 
-## 자주 하는 실수
+## Part C: Combustion Analysis
 
-$\text{H}_2\text{O}$ 한 분자에 H가 **2개**인 것을 잊는다. $\text{H}_2\text{O}$ mol × 2 = H mol.
+Burn an organic compound and measure the g of $\text{CO}_2$ and $\text{H}_2\text{O}$ produced.
 
----
+### C: $\text{CO}_2$ g → $\text{CO}_2$ mol → C mol (same) → C g
+### H: $\text{H}_2\text{O}$ g → $\text{H}_2\text{O}$ mol → H mol (×2) → H g
+### O: (sample g − C g − H g) → O g → O mol
 
-## 연습 1
-
-질량 백분율: Na 32.4%, S 22.5%, O 45.1%. 실험식? (Na=23.0, S=32.1, O=16.0)
-
-> 풀이: [풀이집](solutions/07-solutions.md#연습-1)
+Then continue as in Part A. → divide mol by box numbers, divide by the smallest, get integer ratios.
 
 ---
 
-## 연습 2
+## Common Mistakes
 
-실험식 $\text{CH}$, 분자량 78.0. 분자식?
-
-> 풀이: [풀이집](solutions/07-solutions.md#연습-2)
+Forgetting that one $\text{H}_2\text{O}$ molecule contains **2** H atoms. $\text{H}_2\text{O}$ mol × 2 = H mol.
 
 ---
 
-## 연습 3
+## Exercise 1
 
-질량 백분율: C 85.6%, H 14.4%. 분자량 56.0. 실험식과 분자식? (C=12.0, H=1.0)
+Mass percent: Na 32.4%, S 22.5%, O 45.1%. Empirical formula? (Na=23.0, S=32.1, O=16.0)
 
-> 풀이: [풀이집](solutions/07-solutions.md#연습-3)
-
----
-
-## 연습 4
-
-어떤 화합물 0.250mol의 질량이 22.0g. 질량 백분율: C 54.5%, H 9.1%, O 36.4%. 분자식? (C=12.0, H=1.0, O=16.0)
-
-> 풀이: [풀이집](solutions/07-solutions.md#연습-4)
+> Solutions: [Solution Set](solutions/07-solutions.md#exercise-1)
 
 ---
 
-## 연습 5: 태워서 분석
+## Exercise 2
 
-$\text{C}_x\text{H}_y\text{O}_z$ 3.00g 연소 → $\text{CO}_2$ 4.40g, $\text{H}_2\text{O}$ 1.80g. 실험식? (C=12.0, H=1.0, O=16.0)
+Empirical formula $\text{CH}$, molar mass 78.0. Molecular formula?
 
-> 풀이: [풀이집](solutions/07-solutions.md#연습-5)
-
----
-
-## 연습 6: 실전
-
-$\text{C}_x\text{H}_y\text{O}_z$ 2.20g 연소 → $\text{CO}_2$ 4.40g, $\text{H}_2\text{O}$ 1.80g. 분자량 88.0.
-(a) 실험식? (b) 분자식? (C=12.0, H=1.0, O=16.0)
-
-> 풀이: [풀이집](solutions/07-solutions.md#연습-6)
+> Solutions: [Solution Set](solutions/07-solutions.md#exercise-2)
 
 ---
 
-## 용어 정리
+## Exercise 3
 
-| 우리 말 | 용어 |
+Mass percent: C 85.6%, H 14.4%. Molar mass 56.0. Empirical and molecular formulas? (C=12.0, H=1.0)
+
+> Solutions: [Solution Set](solutions/07-solutions.md#exercise-3)
+
+---
+
+## Exercise 4
+
+A 0.250 mol sample of a compound has a mass of 22.0 g. Mass percent: C 54.5%, H 9.1%, O 36.4%. Molecular formula? (C=12.0, H=1.0, O=16.0)
+
+> Solutions: [Solution Set](solutions/07-solutions.md#exercise-4)
+
+---
+
+## Exercise 5: Combustion Analysis
+
+$\text{C}_x\text{H}_y\text{O}_z$ 3.00 g burned → $\text{CO}_2$ 4.40 g, $\text{H}_2\text{O}$ 1.80 g. Empirical formula? (C=12.0, H=1.0, O=16.0)
+
+> Solutions: [Solution Set](solutions/07-solutions.md#exercise-5)
+
+---
+
+## Exercise 6: Challenge
+
+$\text{C}_x\text{H}_y\text{O}_z$ 2.20 g burned → $\text{CO}_2$ 4.40 g, $\text{H}_2\text{O}$ 1.80 g. Molar mass 88.0.
+(a) Empirical formula? (b) Molecular formula? (C=12.0, H=1.0, O=16.0)
+
+> Solutions: [Solution Set](solutions/07-solutions.md#exercise-6)
+
+---
+
+## Terminology
+
+| What we've been calling it | Term |
 |:------:|:---:|
-| 가장 간단한 정수비 식 | 실험식 |
-| 실제 원자 개수 식 | 분자식 |
-| 실험식의 칸 숫자 합 | 실험식량 |
-| 분자량 ÷ 실험식량 | $n$ (곱하는 배수) |
-| 태워서 분석 | 연소 분석 |
+| simplest whole-number ratio formula | empirical formula |
+| actual atom count formula | molecular formula |
+| sum of box numbers for the empirical formula | empirical formula mass |
+| molar mass ÷ empirical formula mass | $n$ (multiplier) |
+| burn-and-analyze | combustion analysis |
 
 ---
 
-## 오늘의 절차
+## Today's Procedure
 
 ```
-[실험식]
-① 각 원소 g ÷ 칸 숫자 = mol
-② 모든 mol ÷ 가장 작은 mol
-③ 정수비 나올 때까지 ×2, ×3, ...
+[Empirical Formula]
+① Each element g ÷ box number = mol
+② All mol ÷ smallest mol
+③ Multiply by 2, 3, ... until integer ratios appear
 
-[분자식]
-① 분자량 ÷ 실험식량 = n
-② 실험식 × n
+[Molecular Formula]
+① Molar mass ÷ empirical formula mass = n
+② Empirical formula × n
 
-[태워서 분석]
+[Combustion Analysis]
 ① CO₂ g → CO₂ mol → C mol = C g
-② H₂O g → H₂O mol → H mol(×2) = H g
-③ O g = 시료 g − C g − H g → O mol
-④ 실험식 구하기
+② H₂O g → H₂O mol → H mol (×2) = H g
+③ O g = sample g − C g − H g → O mol
+④ Find the empirical formula
 ```

@@ -56,6 +56,8 @@ $y$-axis symmetric, so draw only the right side and copy.
 Wall at $x=1$. Crosses axis at $x=2$. $y$-intercept at 4. Approaches $y=1$ from above as $x \to \infty$.
 Left side is the mirror image of the right.
 
+![Graph of f(x)=(x^2-4)/(x^2-1)](../graphs/sol09-ex2-rational.png)
+
 ---
 
 ## Exercise 3: Constructive
@@ -78,6 +80,8 @@ $x \to 2^+$: $+\infty$. $x \to 2^-$: $-\infty$.
 
 Comparison: both functions share the same asymptotes, but their intercepts differ.
 Function 1 passes through the origin; Function 2 passes through $(−2,0)$ and $(0,−1)$.
+
+![Two hyperbolas with asymptotes x=2, y=1](../graphs/sol09-ex3-two-hyperbolas.png)
 
 ---
 
@@ -104,6 +108,8 @@ Each interval is a piece of a parabola. At integers, left endpoints are filled d
 There are small jumps at integers.
 ($x \to 1^-$ gives 1, $x=1$ gives 1 — it actually connects at $x=1$.)
 
+![Graph of f(x)=[x]+{x}^2 on [-2,3]](../graphs/sol09-ex4-floor-frac.png)
+
 ---
 
 ## Exercise 5
@@ -127,6 +133,8 @@ $x \geq 0, x \neq 1$: horizontal line $y=1$. Hole at $(1,1)$.
 $x < 0$: $y = \frac{-x-1}{x-1}$. At $x=0$, $f(0) = \frac{-1}{-1} = 1$. Point $(0,1)$.
 At $x=-1$, $f(-1) = \frac{1-1}{-2} = 0$. Crosses axis at $(-1,0)$.
 As $x \to -\infty$, approaches $y=-1$.
+
+![Graph of f(x)=(|x|-1)/(x-1)](../graphs/sol09-ex5-abs-rational.png)
 
 ---
 
@@ -154,6 +162,8 @@ $x \to 0^-$: $[x]=-1$, $f(x)=-\frac{1}{x}$ → $+\infty$. Shoots up like a verti
 At $x=2$, left $f \to 0.5$, right $f=1$ — jump.
 At $x=-1$, left $f \to 2$, right $f=1$ — jump.
 At $x=-2$, left $f \to 1.5$, right $f=1$ — jump.
+
+![Graph of f(x)=[x]/x on [-3,0)∪(0,3]](../graphs/sol09-ex6-floor-over-x.png)
 
 ---
 

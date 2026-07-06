@@ -1,24 +1,24 @@
-# 세션 02: g과 mol 바꾸기
+# Session 02: Converting Between Grams and Moles
 
-**Phase 1 — 화학량론 | 20분**
-**방법:** g을 칸 숫자로 나누면 mol. mol에 칸 숫자를 곱하면 g.
-
----
-
-## 들어가기
-
-실험실에서는 저울로 g을 잰다. 반응 계산은 mol로 한다. 서로 바꾸는 방법은 둘뿐이다.
-
-- 저울 숫자(g)를 주기율표 숫자로 **나누면** mol이 나온다.
-- mol에 주기율표 숫자를 **곱하면** g이 나온다.
+**Phase 1 — Stoichiometry | 20 min**
+**Method:** Divide g by the box number → mol. Multiply mol by the box number → g.
 
 ---
 
-## ① 칸 숫자 읽기 — 원소별로 더한다
+## Getting Started
 
-주기율표 각 칸에 숫자가 하나씩 적혀 있다. 화합물이면 원소 개수만큼 곱해서 더한다.
+In the lab, you weigh things in grams on a balance. Reaction calculations use moles. There are only two ways to convert between them.
 
-| 원소 | 칸 숫자 | 화합물 | 칸 숫자 더하기 |
+- Divide the balance reading (g) by the periodic table number → you get mol.
+- Multiply mol by the periodic table number → you get g.
+
+---
+
+## ① Reading the Box Number — Add by Element
+
+Each box on the periodic table has one number. For a compound, multiply by the atom count for each element, then add.
+
+| Element | Box Number | Compound | Adding Box Numbers |
 |:---:|:---:|:---:|:---:|
 | H | 1.008 | $\text{H}_2\text{O}$ | 1.008×2 + 16.00 = 18.016 |
 | C | 12.01 | $\text{CO}_2$ | 12.01 + 16.00×2 = 44.01 |
@@ -27,102 +27,102 @@
 
 ---
 
-## ② g → mol: g을 칸 숫자로 나눈다
+## ② g → mol: Divide g by the Box Number
 
-**g ÷ 칸 숫자 = mol**
+**g ÷ box number = mol**
 
-- 탄소 24.02g, 칸 숫자 12.01 → $24.02 \div 12.01 = 2.00$ mol
-- 물 36.03g, 칸 숫자 18.016 → $36.03 \div 18.016 = 2.00$ mol
-- NaCl 117g, 칸 숫자 58.5 → $117 \div 58.5 = 2.00$ mol
-
----
-
-## ③ mol → g: mol에 칸 숫자를 곱한다
-
-**mol × 칸 숫자 = g**
-
-- 철 3.50mol, 칸 숫자 55.85 → $3.50 \times 55.85 = 195.48$ g
-- $\text{CO}_2$ 0.250mol, 칸 숫자 44.01 → $0.250 \times 44.01 = 11.00$ g
+- Carbon 24.02 g, box number 12.01 → $24.02 \div 12.01 = 2.00$ mol
+- Water 36.03 g, box number 18.016 → $36.03 \div 18.016 = 2.00$ mol
+- NaCl 117 g, box number 58.5 → $117 \div 58.5 = 2.00$ mol
 
 ---
 
-## 자주 하는 실수
+## ③ mol → g: Multiply mol by the Box Number
 
-화합물 칸 숫자를 더할 때 아래첨자·괄호를 빠뜨린다.
+**mol × box number = g**
 
-- $\text{Ca(OH)}_2$: Ca 1개, O 2개, H 2개
-- $\text{Al}_2(\text{SO}_4)_3$: Al 2개, S 3개, O 12개
+- Iron 3.50 mol, box number 55.85 → $3.50 \times 55.85 = 195.48$ g
+- $\text{CO}_2$ 0.250 mol, box number 44.01 → $0.250 \times 44.01 = 11.00$ g
 
 ---
 
-## 연습 1
+## Common Mistakes
 
-칸 숫자 구하기. (Na=23.0, Cl=35.5, H=1.0, S=32.1, O=16.0, Ca=40.1, C=12.0)
+Forgetting subscripts and parentheses when adding box numbers for a compound.
+
+- $\text{Ca(OH)}_2$: Ca ×1, O ×2, H ×2
+- $\text{Al}_2(\text{SO}_4)_3$: Al ×2, S ×3, O ×12
+
+---
+
+## Exercise 1
+
+Find the box number. (Na=23.0, Cl=35.5, H=1.0, S=32.1, O=16.0, Ca=40.1, C=12.0)
 (a) NaCl (b) $\text{H}_2\text{SO}_4$ (c) $\text{Ca(OH)}_2$ (d) $\text{C}_6\text{H}_{12}\text{O}_6$
 
-> 풀이: [풀이집](solutions/02-solutions.md#연습-1)
+> Solutions: [Solution Set](solutions/02-solutions.md#exercise-1)
 
 ---
 
-## 연습 2
+## Exercise 2
 
-g을 칸 숫자로 나눠 mol 구하기. (Na=23.0, O=16.0, H=1.0)
-(a) NaCl 117g (b) $\text{H}_2\text{SO}_4$ 196g (c) NaOH 80g
+Divide g by the box number to find mol. (Na=23.0, O=16.0, H=1.0)
+(a) NaCl 117 g (b) $\text{H}_2\text{SO}_4$ 196 g (c) NaOH 80 g
 
-> 풀이: [풀이집](solutions/02-solutions.md#연습-2)
-
----
-
-## 연습 3
-
-mol에 칸 숫자를 곱해 g 구하기. (C=12.0, O=16.0)
-(a) NaCl 0.500mol (b) $\text{H}_2\text{O}$ 5.00mol (c) $\text{CO}_2$ 0.250mol
-
-> 풀이: [풀이집](solutions/02-solutions.md#연습-3)
+> Solutions: [Solution Set](solutions/02-solutions.md#exercise-2)
 
 ---
 
-## 연습 4
+## Exercise 3
 
-$\text{C}_6\text{H}_{12}\text{O}_6$ 45.0g은 몇 mol? (C=12.0, H=1.0, O=16.0)
+Multiply mol by the box number to find g. (C=12.0, O=16.0)
+(a) NaCl 0.500 mol (b) $\text{H}_2\text{O}$ 5.00 mol (c) $\text{CO}_2$ 0.250 mol
 
-> 풀이: [풀이집](solutions/02-solutions.md#연습-4)
-
----
-
-## 연습 5
-
-$\text{Al}_2(\text{SO}_4)_3$ 0.200mol은 몇 g? (Al=27.0, S=32.1, O=16.0)
-
-> 풀이: [풀이집](solutions/02-solutions.md#연습-5)
+> Solutions: [Solution Set](solutions/02-solutions.md#exercise-3)
 
 ---
 
-## 연습 6: 실전
+## Exercise 4
 
-NaOH 0.250mol이 필요하다. (Na=23.0, O=16.0, H=1.0, K=39.1)
-(a) NaOH는 몇 g?
-(b) KOH로 대체하면 몇 g?
-(c) 같은 mol인데 g이 다른 이유는?
+$\text{C}_6\text{H}_{12}\text{O}_6$ 45.0 g is how many mol? (C=12.0, H=1.0, O=16.0)
 
-> 풀이: [풀이집](solutions/02-solutions.md#연습-6)
+> Solutions: [Solution Set](solutions/02-solutions.md#exercise-4)
 
 ---
 
-## 용어 정리
+## Exercise 5
 
-| 우리 말 | 용어 |
+$\text{Al}_2(\text{SO}_4)_3$ 0.200 mol is how many g? (Al=27.0, S=32.1, O=16.0)
+
+> Solutions: [Solution Set](solutions/02-solutions.md#exercise-5)
+
+---
+
+## Exercise 6: Challenge
+
+You need 0.250 mol of NaOH. (Na=23.0, O=16.0, H=1.0, K=39.1)
+(a) How many g of NaOH?
+(b) If you use KOH instead, how many g?
+(c) Same mol, different g — why?
+
+> Solutions: [Solution Set](solutions/02-solutions.md#exercise-6)
+
+---
+
+## Terminology
+
+| What we've been calling it | Term |
 |:------:|:---:|
-| 주기율표 칸에 적힌 숫자 | 몰 질량 ($M$, g/mol) |
-| g을 칸 숫자로 나누기 | $n = m/M$ |
-| mol에 칸 숫자 곱하기 | $m = n \times M$ |
+| number written in the periodic table box | molar mass ($M$, g/mol) |
+| dividing g by the box number | $n = m/M$ |
+| multiplying mol by the box number | $m = n \times M$ |
 
 ---
 
-## 오늘의 절차
+## Today's Procedure
 
 ```
-① 칸 숫자 읽기. 화합물이면 원소별로 더하기.
-② g → mol: g ÷ 칸 숫자.
-③ mol → g: mol × 칸 숫자.
+① Read the box number. For compounds, add by element.
+② g → mol: g ÷ box number.
+③ mol → g: mol × box number.
 ```

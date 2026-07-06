@@ -1,31 +1,31 @@
-# 세션 01: 원자 안 입자 개수 세기
+# Session 01: Counting Particles Inside an Atom
 
-**Phase 1 — 화학량론 | 20분**
-**방법:** 위 정수 = 양성자. 왼쪽 위 − 위 정수 = 중성자. 위 정수 − 오른쪽 위 전하 = 전자.
-
----
-
-## 들어가기
-
-주기율표를 펴라. 각 칸에는 숫자가 세 개 보인다.
-
-```
-왼쪽 위: 질량수 (정수)
-가운데 위: 원자번호 (정수)   ← 주기율표 칸의 위 정수
-가운데 아래: 평균 원자량 (소수)
-```
-
-이온은 기호 오른쪽 위에 전하가 붙는다. 예: $\text{Fe}^{3+}$, $\text{O}^{2-}$.
-
-이 종이 위 숫자들로 원자 하나에 든 입자 개수를 센다. 더하기 빼기만 하면 된다.
+**Phase 1 — Stoichiometry | 20 min**
+**Method:** Top integer = protons. Top left − top integer = neutrons. Top integer − top-right charge = electrons.
 
 ---
 
-## ① 양성자 수 — 위 정수를 그대로 쓴다
+## Getting Started
 
-주기율표 칸의 **위에 적힌 정수**가 양성자 개수다. 아무 계산 없다. 그냥 옮겨 적는다.
+Open your periodic table. Each box shows three numbers.
 
-| 원소 | 위 정수 | 양성자 |
+```
+Top left: mass number (integer)
+Center top: atomic number (integer)   ← the top integer in the periodic table box
+Center bottom: average atomic mass (decimal)
+```
+
+Ions have a charge written at the top right of the symbol. Example: $\text{Fe}^{3+}$, $\text{O}^{2-}$.
+
+Using these numbers on the paper, count the particles inside a single atom. All you need is addition and subtraction.
+
+---
+
+## ① Number of Protons — Copy the Top Integer As Is
+
+The **top integer** in the periodic table box is the number of protons. No calculation. Just copy it down.
+
+| Element | Top Integer | Protons |
 |:---:|:------:|:-----:|
 | H | 1 | 1 |
 | C | 6 | 6 |
@@ -34,13 +34,13 @@
 
 ---
 
-## ② 중성자 수 — 왼쪽 위에서 위 정수를 뺀다
+## ② Number of Neutrons — Subtract the Top Integer from the Top Left
 
-**왼쪽 위 숫자 − 위 정수 = 중성자 수.**
+**Top-left number − top integer = number of neutrons.**
 
-주의: 아래 소수(35.45 같은 것)는 쓰지 않는다. 반드시 왼쪽 위 정수를 쓴다.
+Caution: do not use the decimal below (like 35.45). Always use the top-left integer.
 
-| 표기 | 왼쪽 위 | 위 정수 | 빼기 | 중성자 |
+| Notation | Top Left | Top Integer | Subtract | Neutrons |
 |:---:|:----:|:---:|:---:|:---:|
 | $^{12}_{\ 6}\text{C}$ | 12 | 6 | 12−6 | 6 |
 | $^{14}_{\ 6}\text{C}$ | 14 | 6 | 14−6 | 8 |
@@ -49,97 +49,97 @@
 
 ---
 
-## ③ 전자 수 — 위 정수에서 오른쪽 위 전하를 뺀다
+## ③ Number of Electrons — Subtract the Top-Right Charge from the Top Integer
 
-전하가 없으면(중성): 전자 수 = 위 정수 그대로.
-전하가 $+$면: 위 정수에서 그 숫자만큼 뺀다.
-전하가 $-$면: 위 정수에 그 숫자만큼 더한다.
+No charge (neutral): electrons = top integer, as is.
+Charge is $+$: subtract that number from the top integer.
+Charge is $-$: add that number to the top integer.
 
-- $\text{Fe}^{3+}$: 위 정수 26, 오른쪽 위 +3 → $26 - 3 = 23$개
-- $\text{O}^{2-}$: 위 정수 8, 오른쪽 위 −2 → $8 + 2 = 10$개
-
----
-
-## 자주 하는 실수
-
-주기율표 **아래 소수**(35.45)를 왼쪽 위 숫자로 착각하고 중성자 계산. 중성자는 정수로 나온다. 아래 소수는 무시한다.
+- $\text{Fe}^{3+}$: top integer 26, top-right +3 → $26 - 3 = 23$ electrons
+- $\text{O}^{2-}$: top integer 8, top-right −2 → $8 + 2 = 10$ electrons
 
 ---
 
-## 연습 1
+## Common Mistakes
 
-$^{31}_{15}\text{P}$ (중성). 양성자, 중성자, 전자 수는?
-
-> 풀이: [풀이집](solutions/01-solutions.md#연습-1)
+Mistaking the **decimal below** (35.45) on the periodic table for the top-left number when calculating neutrons. The neutron count always comes out as an integer. Ignore the decimal below.
 
 ---
 
-## 연습 2
+## Exercise 1
 
-$^{56}_{26}\text{Fe}$ (중성). 양성자, 중성자, 전자 수는?
+$^{31}_{15}\text{P}$ (neutral). Protons, neutrons, electrons?
 
-> 풀이: [풀이집](solutions/01-solutions.md#연습-2)
+> Solutions: [Solution Set](solutions/01-solutions.md#exercise-1)
 
 ---
 
-## 연습 3
+## Exercise 2
 
-각각 양성자, 중성자, 전자 수를 구하라.
+$^{56}_{26}\text{Fe}$ (neutral). Protons, neutrons, electrons?
+
+> Solutions: [Solution Set](solutions/01-solutions.md#exercise-2)
+
+---
+
+## Exercise 3
+
+Find the number of protons, neutrons, and electrons for each.
 (a) $^{24}_{12}\text{Mg}^{2+}$
 (b) $^{32}_{16}\text{S}^{2-}$
 (c) $^{40}_{20}\text{Ca}^{2+}$
 
-> 풀이: [풀이집](solutions/01-solutions.md#연습-3)
+> Solutions: [Solution Set](solutions/01-solutions.md#exercise-3)
 
 ---
 
-## 연습 4
+## Exercise 4
 
-양성자 19개, 중성자 20개인 중성 원자. 왼쪽 위 숫자는? 위 정수는? 원소 이름은?
+A neutral atom has 19 protons and 20 neutrons. Top-left number? Top integer? Element name?
 
-> 풀이: [풀이집](solutions/01-solutions.md#연습-4)
-
----
-
-## 연습 5
-
-$^{79}_{35}\text{Br}^-$와 $^{80}_{35}\text{Br}^-$. 양성자, 중성자, 전자 수를 각각 구하고 무엇이 같고 무엇이 다른지 쓰라.
-
-> 풀이: [풀이집](solutions/01-solutions.md#연습-5)
+> Solutions: [Solution Set](solutions/01-solutions.md#exercise-4)
 
 ---
 
-## 연습 6: 실전
+## Exercise 5
 
-위 정수 29. 왼쪽 위가 63인 것과 65인 것이 3:1 비율로 존재.
-(a) 원소 이름은?
-(b) 각각 중성자 수는?
-(c) 왼쪽 위 63짜리가 $2+$ 전하일 때 전자 수는?
-(d) 주기율표 아래 소수가 63.5인 이유는?
+$^{79}_{35}\text{Br}^-$ and $^{80}_{35}\text{Br}^-$. Find protons, neutrons, and electrons for each. Write what's the same and what's different.
 
-> 풀이: [풀이집](solutions/01-solutions.md#연습-6)
+> Solutions: [Solution Set](solutions/01-solutions.md#exercise-5)
 
 ---
 
-## 용어 정리
+## Exercise 6: Challenge
 
-방법은 이미 다 배웠다. 이름만 소개한다.
+Top integer is 29. Two versions exist with top-left 63 and 65, in a 3:1 ratio.
+(a) Element name?
+(b) Neutron count for each?
+(c) When the top-left-63 version has a $2+$ charge, how many electrons?
+(d) Why is the decimal below on the periodic table 63.5?
 
-| 우리 말 | 용어 |
+> Solutions: [Solution Set](solutions/01-solutions.md#exercise-6)
+
+---
+
+## Terminology
+
+You already know all the methods. Now just the names.
+
+| What we've been calling it | Term |
 |:------:|:---:|
-| 위 정수 | 원자번호 ($Z$) |
-| 왼쪽 위 정수 | 질량수 ($A$) |
-| 아래 소수 | 평균 원자량 |
-| 전기 띤 원자 | 이온 / 양이온 / 음이온 |
-| 위 정수 같고 왼쪽 위만 다른 원자 | 동위원소 |
+| top integer | atomic number ($Z$) |
+| top-left integer | mass number ($A$) |
+| decimal below | average atomic mass |
+| electrically charged atom | ion / cation / anion |
+| same top integer, different top-left | isotope |
 
 ---
 
-## 오늘의 절차
+## Today's Procedure
 
 ```
-① 위 정수를 그대로 쓴다 = 양성자
-② 왼쪽 위 − 위 정수 = 중성자
-③ 위 정수 − 오른쪽 위 전하 = 전자
-   (전하 없으면 그대로, +면 빼고, −면 더한다)
+① Copy the top integer as is = protons
+② Top left − top integer = neutrons
+③ Top integer − top-right charge = electrons
+   (no charge → as is, + → subtract, − → add)
 ```

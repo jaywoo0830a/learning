@@ -1,130 +1,130 @@
-# 세션 06: 먼저 사라지는 쪽 찾기 + 실제로 얻은 양 계산
+# Session 06: Finding What Runs Out First + Calculating What You Actually Got
 
-**Phase 1 — 화학량론 | 100분**
+**Phase 1 — Stoichiometry | 100 min**
 
-**방법 1:** 각 반응물 mol ÷ 앞 계수. 몫이 작은 쪽이 먼저 사라진다.
-**방법 2:** (실제 g ÷ 계산으로 나온 g) × 100.
-
----
-
-## 들어가기
-
-반응물이 둘 이상이면 한쪽이 먼저 소진된다. 그쪽을 찾아야 반응이 어디서 끝나는지 안다. 먼저 사라지는 쪽으로 생성물 양을 계산하고, 실험에서 실제 얻은 양과 비교한다.
+**Method 1:** Divide each reactant's mol by its coefficient. The smaller quotient is the one that runs out first.
+**Method 2:** (actual g ÷ calculated g) × 100.
 
 ---
 
-## Part A: 먼저 사라지는 쪽 찾기
+## Getting Started
 
-### ① 각 반응물의 g을 칸 숫자로 나눠 mol 구하기
-
-### ② 각 mol을 자기 앞 계수로 나눈다
-
-mol ÷ 계수. 이 값이 작은 쪽이 먼저 사라진다.
-
-### ③ 그쪽 mol로 생성물 mol 계산
+When there are two or more reactants, one of them gets used up first. You need to find which one it is to know where the reaction stops. Use that one to calculate how much product forms, then compare with what you actually obtained in the lab.
 
 ---
 
-### 예시
+## Part A: Finding What Runs Out First
 
-$2\text{Al} + 3\text{Cl}_2 \rightarrow 2\text{AlCl}_3$. Al 54.0g, $\text{Cl}_2$ 106.5g.
+### ① Divide each reactant's g by its box number to find mol
 
-Al: 칸 숫자 27.0, mol = $54.0 \div 27.0 = 2.00$. mol÷계수 = $2.00 \div 2 = 1.00$
-$\text{Cl}_2$: 칸 숫자 71.0, mol = $106.5 \div 71.0 = 1.50$. mol÷계수 = $1.50 \div 3 = 0.500$
+### ② Divide each mol by its coefficient
 
-0.500이 1.00보다 작다 → $\text{Cl}_2$가 먼저 사라진다.
+mol ÷ coefficient. The smaller value is the one that runs out first.
+
+### ③ Use that one's mol to calculate the product mol
+
+---
+
+### Example
+
+$2\text{Al} + 3\text{Cl}_2 \rightarrow 2\text{AlCl}_3$. Al 54.0 g, $\text{Cl}_2$ 106.5 g.
+
+Al: box number 27.0, mol = $54.0 \div 27.0 = 2.00$. mol÷coefficient = $2.00 \div 2 = 1.00$
+$\text{Cl}_2$: box number 71.0, mol = $106.5 \div 71.0 = 1.50$. mol÷coefficient = $1.50 \div 3 = 0.500$
+
+0.500 is smaller than 1.00 → $\text{Cl}_2$ runs out first.
 $\text{AlCl}_3$ mol = $1.50 \times \dfrac{2}{3} = 1.00$ mol
 
 ---
 
-## Part B: 실제 얻은 양 ÷ 계산으로 나온 양
+## Part B: Actual Got ÷ Calculated
 
-### (실제 g ÷ 계산 g) × 100 = 백분율
+### (actual g ÷ calculated g) × 100 = percent
 
-계산으로 나온 양 = Part A에서 구한 생성물 g.
-실제 양 = 실험에서 저울로 잰 g.
+Calculated = the product g you found in Part A.
+Actual = the g you measured on the balance in the lab.
 
-예: 계산 78.0g, 실제 62.4g → $(62.4 \div 78.0) \times 100 = 80.0\%$.
-
----
-
-## 자주 하는 실수
-
-g만 보고 "이게 더 적으니까 먼저 사라지겠다"라고 판단. mol로 바꾸고 계수로 나누기 전까지는 알 수 없다.
+Example: calculated 78.0 g, actual 62.4 g → $(62.4 \div 78.0) \times 100 = 80.0\%$.
 
 ---
 
-## 연습 1
+## Common Mistakes
 
-$\text{N}_2 + 3\text{H}_2 \rightarrow 2\text{NH}_3$. $\text{N}_2$ 28.0g, $\text{H}_2$ 6.0g. 먼저 사라지는 쪽? $\text{NH}_3$ 계산 g? (N=14.0, H=1.0)
-
-> 풀이: [풀이집](solutions/06-solutions.md#연습-1)
+Looking only at grams and thinking "this one has fewer grams, so it must run out first." You can't know until you convert to mol and divide by the coefficient.
 
 ---
 
-## 연습 2
+## Exercise 1
 
-$2\text{H}_2 + \text{O}_2 \rightarrow 2\text{H}_2\text{O}$. $\text{H}_2$ 10.0g, $\text{O}_2$ 64.0g. 먼저 사라지는 쪽? $\text{H}_2\text{O}$ 계산 g? (H=1.0, O=16.0)
+$\text{N}_2 + 3\text{H}_2 \rightarrow 2\text{NH}_3$. $\text{N}_2$ 28.0 g, $\text{H}_2$ 6.0 g. Which runs out first? Calculated g of $\text{NH}_3$? (N=14.0, H=1.0)
 
-> 풀이: [풀이집](solutions/06-solutions.md#연습-2)
-
----
-
-## 연습 3
-
-$\text{CH}_4 + 2\text{O}_2 \rightarrow \text{CO}_2 + 2\text{H}_2\text{O}$. $\text{CH}_4$ 16.0g, $\text{O}_2$ 48.0g. 먼저 사라지는 쪽? $\text{CO}_2$ 계산 g? (C=12.0, H=1.0, O=16.0)
-
-> 풀이: [풀이집](solutions/06-solutions.md#연습-3)
+> Solutions: [Solution Set](solutions/06-solutions.md#exercise-1)
 
 ---
 
-## 연습 4
+## Exercise 2
 
-$\text{Fe}_2\text{O}_3 + 3\text{CO} \rightarrow 2\text{Fe} + 3\text{CO}_2$. $\text{Fe}_2\text{O}_3$ 80.0g, CO 42.0g. 먼저 사라지는 쪽? Fe 계산 g? (Fe=55.8, O=16.0, C=12.0)
+$2\text{H}_2 + \text{O}_2 \rightarrow 2\text{H}_2\text{O}$. $\text{H}_2$ 10.0 g, $\text{O}_2$ 64.0 g. Which runs out first? Calculated g of $\text{H}_2\text{O}$? (H=1.0, O=16.0)
 
-> 풀이: [풀이집](solutions/06-solutions.md#연습-4)
-
----
-
-## 연습 5
-
-연습 4에서 실제 얻은 Fe가 39.1g. 백분율은?
-
-> 풀이: [풀이집](solutions/06-solutions.md#연습-5)
+> Solutions: [Solution Set](solutions/06-solutions.md#exercise-2)
 
 ---
 
-## 연습 6: 실전
+## Exercise 3
 
-$\text{C}_3\text{H}_8 + 5\text{O}_2 \rightarrow 3\text{CO}_2 + 4\text{H}_2\text{O}$. $\text{C}_3\text{H}_8$ 44.0g, $\text{O}_2$ 128.0g. (C=12.0, H=1.0, O=16.0)
-(a) 먼저 사라지는 쪽?
-(b) $\text{CO}_2$ 계산 g?
-(c) $\text{CO}_2$ 99.0g 얻었다면 백분율?
+$\text{CH}_4 + 2\text{O}_2 \rightarrow \text{CO}_2 + 2\text{H}_2\text{O}$. $\text{CH}_4$ 16.0 g, $\text{O}_2$ 48.0 g. Which runs out first? Calculated g of $\text{CO}_2$? (C=12.0, H=1.0, O=16.0)
 
-> 풀이: [풀이집](solutions/06-solutions.md#연습-6)
+> Solutions: [Solution Set](solutions/06-solutions.md#exercise-3)
 
 ---
 
-## 용어 정리
+## Exercise 4
 
-| 우리 말 | 용어 |
+$\text{Fe}_2\text{O}_3 + 3\text{CO} \rightarrow 2\text{Fe} + 3\text{CO}_2$. $\text{Fe}_2\text{O}_3$ 80.0 g, CO 42.0 g. Which runs out first? Calculated g of Fe? (Fe=55.8, O=16.0, C=12.0)
+
+> Solutions: [Solution Set](solutions/06-solutions.md#exercise-4)
+
+---
+
+## Exercise 5
+
+In Exercise 4, the actual Fe obtained is 39.1 g. What is the percent?
+
+> Solutions: [Solution Set](solutions/06-solutions.md#exercise-5)
+
+---
+
+## Exercise 6: Challenge
+
+$\text{C}_3\text{H}_8 + 5\text{O}_2 \rightarrow 3\text{CO}_2 + 4\text{H}_2\text{O}$. $\text{C}_3\text{H}_8$ 44.0 g, $\text{O}_2$ 128.0 g. (C=12.0, H=1.0, O=16.0)
+(a) Which runs out first?
+(b) Calculated g of $\text{CO}_2$?
+(c) If 99.0 g of $\text{CO}_2$ was obtained, what is the percent?
+
+> Solutions: [Solution Set](solutions/06-solutions.md#exercise-6)
+
+---
+
+## Terminology
+
+| What we've been calling it | Term |
 |:------:|:---:|
-| 먼저 사라지는 쪽 | 한계 반응물 |
-| 남는 쪽 | 과잉 반응물 |
-| 계산으로 나온 양 | 이론 수득량 |
-| 실제 얻은 양 | 실제 수득량 |
-| (실제 ÷ 계산) × 100 | 수득률 (퍼센트 수율) |
+| the one that runs out first | limiting reactant |
+| the one that's left over | excess reactant |
+| amount from calculation | theoretical yield |
+| amount actually obtained | actual yield |
+| (actual ÷ calculated) × 100 | percent yield |
 
 ---
 
-## 오늘의 절차
+## Today's Procedure
 
 ```
-[먼저 사라지는 쪽]
-① 각 반응물 g ÷ 칸 숫자 = mol
-② 각 mol ÷ 앞 계수 → 몫 비교. 작은 쪽이 먼저 사라진다.
-③ 그쪽 mol × (생성물 계수 ÷ 그쪽 계수) = 생성물 mol → ×칸 숫자 → g
+[Finding what runs out first]
+① Each reactant g ÷ box number = mol
+② Each mol ÷ its coefficient → compare quotients. Smaller one runs out first.
+③ That one's mol × (product coefficient ÷ its coefficient) = product mol → × box number → g
 
-[백분율]
-① (실제 g ÷ 계산 g) × 100
+[Percent]
+① (actual g ÷ calculated g) × 100
 ```
