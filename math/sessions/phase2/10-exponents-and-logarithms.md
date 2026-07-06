@@ -1,510 +1,941 @@
-# 세션 10: 지수와 로그 — 거듭제곱의 모든 것
+# Session 10: Exponents and Logarithms — Mastering Powers
 
-**Phase 2 — 고전 테크닉 | 75분**
-
----
-
-## Part A: 지수 — 거듭제곱의 규칙
+**Phase 2 — Classical Techniques | 120 min**
 
 ---
 
-## 예시 1: 지수를 더하고 빼고 곱하고
-
-**밑이 같을 때**: $2^3 \times 2^4$. 지수끼리 더한다 → $2^{3+4} = 2^7 = 128$.
-$3^5 \div 3^2$. 지수끼리 뺀다 → $3^{5-2} = 3^3 = 27$.
-
-손 확인: $2^3=8$, $2^4=16$. $8 \times 16 = 128 = 2^7$. 맞다.
-
-**거듭제곱의 거듭제곱**: $(2^3)^4$. 지수끼리 곱한다 → $2^{3 \times 4} = 2^{12} = 4096$.
+## Part A: Exponents — The Rules of Repeated Multiplication
 
 ---
 
-## 예시 2: 지수가 0 또는 음수
+## Example 1: Adding, Subtracting, and Multiplying Exponents
 
-**0제곱**: $5^0 = 1$. $(-3)^0 = 1$. $x^0 = 1$ ($x \neq 0$).
-이유: $5^3 \div 5^3 = 5^{3-3} = 5^0 = 1$.
+**Same base, multiply**: $2^3 \times 2^4$. Add the exponents. → $2^{3+4} = 2^7 = 128$.
+$3^5 \div 3^2$. Subtract the exponents. → $3^{5-2} = 3^3 = 27$.
 
-**음수 지수**: $2^{-3} = \frac{1}{2^3} = \frac{1}{8}$.
-$\left(\frac{2}{3}\right)^{-2} = \left(\frac{3}{2}\right)^2 = \frac{9}{4}$. 뒤집고 제곱.
+Hand check: $2^3=8$, $2^4=16$. $8 \times 16 = 128 = 2^7$. Correct.
 
-**지수법칙 정리**:
-- $a^m \cdot a^n = a^{m+n}$ (곱 → 더하기)
-- $a^m \div a^n = a^{m-n}$ (나누기 → 빼기)
-- $(a^m)^n = a^{mn}$ (거듭제곱 → 곱하기)
-- $a^{-n} = \frac{1}{a^n}$ (음수 → 역수)
+**Power of a power**: $(2^3)^4$. Multiply the exponents. → $2^{3 \times 4} = 2^{12} = 4096$.
 
 ---
 
-## 예시 3: 분수 지수 — 루트로 바꾼다
+## Example 2: Zero and Negative Exponents
 
-$8^{\frac{1}{3}} = \sqrt[3]{8} = 2$. 분모=루트 차수.
+**Zero exponent**: $5^0 = 1$. $(-3)^0 = 1$. $x^0 = 1$ ($x \neq 0$).
+Why: $5^3 \div 5^3 = 5^{3-3} = 5^0 = 1$.
+
+**Negative exponent**: $2^{-3} = \frac{1}{2^3} = \frac{1}{8}$.
+$\left(\frac{2}{3}\right)^{-2} = \left(\frac{3}{2}\right)^2 = \frac{9}{4}$. Flip it, then square.
+
+**Exponent rules summary**:
+- $a^m \cdot a^n = a^{m+n}$ (multiply → add)
+- $a^m \div a^n = a^{m-n}$ (divide → subtract)
+- $(a^m)^n = a^{mn}$ (power of power → multiply)
+- $(ab)^n = a^n b^n$ (power of product → distribute)
+- $a^{-n} = \frac{1}{a^n}$ (negative → reciprocal)
+
+---
+
+## Example 3: Fractional Exponents — Turn Them into Roots
+
+$8^{\frac{1}{3}} = \sqrt[3]{8} = 2$. Denominator = root degree.
 $16^{\frac{1}{4}} = \sqrt[4]{16} = 2$.
 
-$8^{\frac{2}{3}}$: 분모=루트, 분자=거듭제곱.
-$\sqrt[3]{8^2} = \sqrt[3]{64} = 4$. 또는 $(\sqrt[3]{8})^2 = 2^2 = 4$.
+$8^{\frac{2}{3}}$: denominator = root, numerator = power.
+$\sqrt[3]{8^2} = \sqrt[3]{64} = 4$. Or $(\sqrt[3]{8})^2 = 2^2 = 4$. Same result.
 
 $27^{-\frac{2}{3}} = \frac{1}{(\sqrt[3]{27})^2} = \frac{1}{3^2} = \frac{1}{9}$.
 
-**규칙**: $a^{\frac{m}{n}} = \sqrt[n]{a^m} = (\sqrt[n]{a})^m$.
+**Rule**: $a^{\frac{m}{n}} = \sqrt[n]{a^m} = (\sqrt[n]{a})^m$.
 
 ---
 
-## 예시 4: 밑이 다를 때 — 통일한다
+## Visual Interlude: The Geometry of Powers — Three Views of $2^x$
+
+**View 1 — Repeated Doubling on a Number Line.**
+
+Place your finger at 1. Each step to the right multiplies by 2. Going right: multiply by 2. Going left: divide by 2. The number line is not additive — it is multiplicative. Equal steps in $x$ mean equal multiplicative jumps.
+
+![Number line doubling](graphs/10e1-doubling-numberline.png)
+
+**View 2 — Area Growth of a Square.**
+
+A square of side $s$ has area $s^2$. Double the side ($s \to 2s$): area quadruples ($s^2 \to 4s^2$). The exponent 2 captures the dimension: 2D objects scale as side$^2$. A cube of side $s$ scales as $s^3$.
+
+![Dimension scaling](graphs/10e2-dimension-scaling.png)
+
+**View 3 — The Graph as a Curve That Is Its Own Slope.**
+
+The slope (steepness) at any point on $y = e^x$ equals the height at that point. This unique property — being its own derivative — is why $e^x$ is the "natural" exponential.
+
+![Slope equals height](graphs/10e3-exp-slope-equals-height.png)
+
+---
+
+## Example 4: Different Bases — Unify Them
 
 $4^x = 2^{x+1}$.
-① $4 = 2^2$ → $2^{2x} = 2^{x+1}$.
-② $2x = x+1$ → $x = 1$.
+(1) $4 = 2^2$ → $2^{2x} = 2^{x+1}$.
+(2) $2x = x+1$ → $x = 1$.
 
 $9^{x-1} = 27^{2x}$.
-① 밑 3: $3^{2x-2} = 3^{6x}$.
-② $2x-2 = 6x$ → $x = -\frac{1}{2}$.
+(1) Base 3: $3^{2x-2} = 3^{6x}$.
+(2) $2x-2 = 6x$ → $x = -\frac{1}{2}$.
+
+$25^{x} \cdot 125^{1-x} = 5$.
+(1) $5^{2x} \cdot 5^{3(1-x)} = 5^1$ → $5^{2x+3(1-x)} = 5^1$.
+(2) $2x+3-3x = 1$ → $-x+3 = 1$ → $x = 2$.
 
 ---
 
-## 예시 5: $a^x = t$ 치환 — 이차방정식으로
+## Example 5: Substitute $a^x = t$ — Turn Into a Quadratic
 
 $2^{2x} - 5 \cdot 2^x + 4 = 0$.
-① $t = 2^x$ ($t>0$) → $t^2 - 5t + 4 = 0$.
-② $(t-1)(t-4) = 0$ → $t=1,4$.
-③ $2^x = 1$ → $x=0$. $2^x = 4$ → $x=2$.
+(1) $t = 2^x$ ($t>0$) → $t^2 - 5t + 4 = 0$.
+(2) $(t-1)(t-4) = 0$ → $t=1,4$.
+(3) $2^x = 1$ → $x=0$. $2^x = 4$ → $x=2$.
 
 $3^{x+1} + 3^{x-1} = 30$.
-① $3 \cdot 3^x + \frac{1}{3}\cdot 3^x = \frac{10}{3}\cdot 3^x = 30$.
-② $3^x = 9$ → $x = 2$.
+(1) $3 \cdot 3^x + \frac{1}{3}\cdot 3^x = \frac{10}{3}\cdot 3^x = 30$.
+(2) $3^x = 9$ → $x = 2$.
 
 $5^x + 5^{2-x} = 26$.
-① $5^x = t$. $5^{2-x} = 25 \cdot 5^{-x} = \frac{25}{t}$.
-② $t + \frac{25}{t} = 26$ → $t^2 - 26t + 25 = 0$ → $(t-1)(t-25)=0$.
-③ $t=1$: $x=0$. $t=25$: $5^x=25$ → $x=2$.
+(1) $5^x = t$. $5^{2-x} = 25 \cdot 5^{-x} = \frac{25}{t}$.
+(2) $t + \frac{25}{t} = 26$ → $t^2 - 26t + 25 = 0$ → $(t-1)(t-25)=0$.
+(3) $t=1$: $x=0$. $t=25$: $5^x=25$ → $x=2$.
 
 ---
 
-## 예시 6: 지수부등식 — 밑 크기가 결정
+## Example 6: Exponential Inequalities — Base Size Decides the Direction
 
-$2^{x+1} > 8$. $8 = 2^3$. 밑>1 → $x+1 > 3$ → $x > 2$.
+$2^{x+1} > 8$. $8 = 2^3$. Base > 1 → keep inequality: $x+1 > 3$ → $x > 2$.
 
 $\left(\frac{1}{2}\right)^{x} \geq 4$. $4 = 2^2 = \left(\frac{1}{2}\right)^{-2}$.
-밑<1 → 부등호 뒤집기: $x \leq -2$.
+Base < 1 → flip inequality: $x \leq -2$.
 
-$3^{x^2-4} < 1$. $1 = 3^0$. 밑>1 → $x^2-4 < 0$ → $-2 < x < 2$.
+$3^{x^2-4} < 1$. $1 = 3^0$. Base > 1 → $x^2-4 < 0$ → $-2 < x < 2$.
 
-> **여기까지**: 지수법칙 5개. $a^x=t$ 치환으로 이차방정식. 밑>1이면 부등호 유지, 밑<1이면 뒤집기.
+$\left(\frac{1}{3}\right)^{x^2} > \frac{1}{27}$.
+$\frac{1}{27} = \left(\frac{1}{3}\right)^3$. Base < 1 → $x^2 < 3$ → $-\sqrt{3} < x < \sqrt{3}$.
+
+> **Up to here**: 5 exponent rules. $a^x=t$ substitution for quadratics. Base > 1 keeps inequality sign; base < 1 flips it.
 
 ---
 
-## Part B: 로그 — "몇 제곱?"에 답한다
+## Basic Algebra Drill — Exponents (6 Problems)
+
+> Pure calculation. No tricks, no traps. Build speed and fluency.
+
+**D1.** Simplify $3^4 \cdot 3^{-2}$. Write the answer as an integer.
+
+**D2.** Simplify $\frac{5^6}{5^2}$. Write the answer as an integer.
+
+**D3.** Simplify $(2^3)^2$. Write the answer as an integer.
+
+**D4.** Rewrite $16^{-\frac{1}{2}}$ as a simple fraction.
+
+**D5.** Rewrite $27^{\frac{2}{3}}$ as an integer.
+
+**D6.** Simplify $\frac{10^4 \cdot 10^{-1}}{10^2}$. Write the answer as an integer.
+
+**D7.** Rewrite $\left(\frac{8}{27}\right)^{-\frac{2}{3}}$ as a simple fraction.
+
+**D8.** Compute $\log_5 125 + \log_5 \frac{1}{5}$. Write the answer as an integer.
+
+> Solutions: [Solutions](solutions/10-solutions.md#basic-drill)
 
 ---
 
-## 예시 7: 로그의 뜻
+## Part B: Logarithms — Answering "What Power?"
 
-$\log_2 8$: "2의 몇 제곱이 8?" → $2^3=8$ → **3**.
+---
+
+## Example 7: What a Logarithm Means
+
+$\log_2 8$: "2 to what power gives 8?" → $2^3=8$ → **3**.
 
 $\log_3 81 = 4$. $\log_5 \frac{1}{25} = -2$. $\log_{10} 1000 = 3$.
-$\log_a 1 = 0$ (모든 밑). $\log_a a = 1$.
+$\log_a 1 = 0$ (any base). $\log_a a = 1$.
+
+$\log_{10} 0.001 = -3$. $\log_2 0.5 = -1$.
 
 ---
 
-## 예시 8: 로그 연산 — 곱→더하기, 나누기→빼기
+## Example 8: Log Operations — Product Becomes Sum, Quotient Becomes Difference
 
-$\log_2 (8 \times 4) = \log_2 8 + \log_2 4 = 3 + 2 = 5$. 확인: $32 = 2^5$.
+$\log_2 (8 \times 4) = \log_2 8 + \log_2 4 = 3 + 2 = 5$. Check: $32 = 2^5$.
 
-$\log_3 \frac{81}{9} = \log_3 81 - \log_3 9 = 4 - 2 = 2$. 확인: $9 = 3^2$.
+$\log_3 \frac{81}{9} = \log_3 81 - \log_3 9 = 4 - 2 = 2$. Check: $9 = 3^2$.
 
 $\log_2 8^5 = 5 \log_2 8 = 5 \times 3 = 15$.
 
-**규칙 3개**:
+**Three rules**:
 - $\log_a(MN) = \log_a M + \log_a N$
 - $\log_a(M/N) = \log_a M - \log_a N$
 - $\log_a(M^k) = k\log_a M$
 
 ---
 
-## 예시 9: 밑 변환 — 어떤 밑이든 된다
+## Visual Interlude: The Logarithm as Area Under $1/x$
 
-$\log_4 8 = \frac{\log_2 8}{\log_2 4} = \frac{3}{2}$. $4^{3/2} = 8$. 맞다.
+**The natural log $\ln a$ is the area under the curve $y = 1/x$ from $x=1$ to $x=a$.**
+
+This visual definition makes log rules obvious:
+
+**$\ln(ab) = \ln a + \ln b$**: The area from 1 to $ab$ equals the area from 1 to $a$ plus the area from $a$ to $ab$.
+Stretch the second piece horizontally by factor $1/a$ and vertically by factor $a$ (area unchanged!) — it becomes the area from 1 to $b$.
+
+**$\ln(1/a) = -\ln a$**: The area from 1 to $1/a$ is the negative of the area from 1 to $a$ (by symmetry of $1/x$ under $x \to 1/x$).
+
+**$\ln(a^k) = k\ln a$**: Stretching the $x$-axis by factor $k$ stretches the area by factor $k$.
+
+This geometric picture — log as area — unifies all three rules under one visual principle: **stretching and compressing area under a hyperbola.**
+
+![Log as area under 1/x](graphs/10f-log-as-area.png)
+
+---
+
+## Example 9: Change of Base — Any Base Works
+
+$\log_4 8 = \frac{\log_2 8}{\log_2 4} = \frac{3}{2}$. $4^{3/2} = 8$. Correct.
 
 $\log_8 2 = \frac{\log_2 2}{\log_2 8} = \frac{1}{3}$.
 
 $\log_{27} 9 = \frac{\log_3 9}{\log_3 27} = \frac{2}{3}$.
 
-**밑 변환 공식**: $\log_a b = \frac{\log_c b}{\log_c a}$ ($c$는 임의).
+**Change of base formula**: $\log_a b = \frac{\log_c b}{\log_c a}$ (any $c$).
+
+Handy: $\log_a b \cdot \log_b a = 1$. Because $\frac{\log b}{\log a} \cdot \frac{\log a}{\log b} = 1$.
 
 ---
 
-## 예시 10: 상용로그와 자연로그
+## Example 10: Common Log and Natural Log
 
-**$\log x$** = $\log_{10} x$ (밑 10 생략). $\log 100 = 2$, $\log 0.001 = -3$.
+**$\log x$** = $\log_{10} x$ (base 10 omitted). $\log 100 = 2$, $\log 0.001 = -3$.
 
 **$\ln x$** = $\log_e x$. $e \approx 2.71828$.
 $\ln e = 1$, $\ln 1 = 0$, $\ln e^2 = 2$.
 
-$e$의 정의: $\lim_{n\to\infty} (1 + \frac{1}{n})^n$. 연속복리의 극한.
+Definition of $e$: $\lim_{n\to\infty} \left(1 + \frac{1}{n}\right)^n$. The limit of continuous compounding.
 
-**$\ln$ ↔ $\log$ 변환**: $\log x = \frac{\ln x}{\ln 10} \approx \frac{\ln x}{2.3026}$.
-
----
-
-## 예시 11: $e^x$와 $\ln x$의 그래프 — 거울처럼 대칭
-
-$y = e^x$: $(0,1)$ 지남. $x \to -\infty$ → $0$. $x \to \infty$ → $\infty$. 급증.
-
-$y = \ln x$: $(1,0)$ 지남. $x \to 0^+$ → $-\infty$. $x \to \infty$ → $\infty$. 느리게 증가.
-
-둘은 $y=x$ 선에 대칭. $(0,1)$ ↔ $(1,0)$, $(1,e)$ ↔ $(e,1)$.
-
-![지수와 자연로그](graphs/10b-exp-ln-inverse.png)
+**$\ln$ ↔ $\log$ conversion**: $\log x = \frac{\ln x}{\ln 10} \approx \frac{\ln x}{2.3026}$.
 
 ---
 
-## 예시 12: 로그부등식 — 진수>0 먼저!
+## Example 11: Graphs of $e^x$ and $\ln x$ — Mirror Images
+
+$y = e^x$: passes through $(0,1)$. $x \to -\infty$ → $0$. $x \to \infty$ → $\infty$. Explosive growth.
+
+$y = \ln x$: passes through $(1,0)$. $x \to 0^+$ → $-\infty$. $x \to \infty$ → $\infty$. Slow growth.
+
+The two are symmetric across the line $y=x$. $(0,1)$ ↔ $(1,0)$, $(1,e)$ ↔ $(e,1)$.
+
+![Exponential and natural log](graphs/10b-exp-ln-inverse.png)
+
+**Visual Comparison — A Race Between Functions:**
+
+Superimpose four curves on one set of axes to feel their personalities. At $x=10$: $x=10$, $x^2=100$, $2^x=1024$, $\ln x=2.30$.
+The exponential overtakes the quadratic at $x=4$ and never looks back. The log crawls.
+
+![Growth race: x vs x² vs 2ˣ vs ln x](graphs/10h-growth-race.png)
+
+**The mirror principle**: Flip the graph of $y = 2^x$ over the line $y=x$. What you get is $y = \log_2 x$.
+Every point $(a, 2^a)$ becomes $(2^a, a)$. The roles of input and output swap.
+
+---
+
+## Example 12: Log Inequalities — Check the Argument First!
 
 $\log_2 (x-1) < 3$.
-① $3 = \log_2 8$. 밑>1 → $x-1 < 8$ → $x < 9$.
-② 진수>0: $x-1 > 0$ → $x > 1$.
+(1) $3 = \log_2 8$. Base > 1 → $x-1 < 8$ → $x < 9$.
+(2) Argument > 0: $x-1 > 0$ → $x > 1$.
 → **$1 < x < 9$.**
 
 $\log_{\frac{1}{2}} (x+2) \geq 1$.
-① $1 = \log_{\frac{1}{2}} \frac{1}{2}$. 밑<1 → $x+2 \leq \frac{1}{2}$ → $x \leq -\frac{3}{2}$.
-② 진수>0: $x+2 > 0$ → $x > -2$.
+(1) $1 = \log_{\frac{1}{2}} \tfrac{1}{2}$. Base < 1 → $x+2 \leq \tfrac{1}{2}$ → $x \leq -\frac{3}{2}$.
+(2) Argument > 0: $x+2 > 0$ → $x > -2$.
 → **$-2 < x \leq -\frac{3}{2}$.**
 
-> **여기까지**: 로그=지수의 거울. 연산 3규칙. $\ln$은 밑 $e$, $\log$는 밑 10.
-> 로그부등식은 진수>0 조건을 반드시 겹친다.
+$\log_3(x^2-4) \leq 1$.
+(1) $1 = \log_3 3$. Base > 1 → $x^2-4 \leq 3$ → $x^2 \leq 7$ → $-\sqrt{7} \leq x \leq \sqrt{7}$.
+(2) Argument > 0: $x^2-4 > 0$ → $|x| > 2$.
+(3) Intersect: $[-\sqrt{7}, -2) \cup (2, \sqrt{7}]$.
+
+> **Up to here**: Log = mirror of exponent. 3 operation rules. $\ln$ uses base $e$, $\log$ uses base 10.
+> Log inequalities: always impose argument > 0 on top of the solution.
 
 ---
 
-## Part C: 지수·로그 방정식 — 모든 유형
+## Part C: Exponential and Logarithmic Equations — Every Type
 
 ---
 
-## 예시 13: 로그 합치고 풀기
+## Example 13: Combine Logs, Then Solve
 
 $\log_2 (x+1) + \log_2 (x-1) = 3$.
-① 합침: $\log_2[(x+1)(x-1)] = 3$.
-② 풀기: $(x+1)(x-1) = 2^3 = 8$ → $x^2-1=8$ → $x = \pm 3$.
-③ 진수: $x+1>0, x-1>0$ → $x>1$. $x=-3$ 탈락. → **$x=3$.**
+(1) Combine: $\log_2[(x+1)(x-1)] = 3$.
+(2) Solve: $(x+1)(x-1) = 2^3 = 8$ → $x^2-1=8$ → $x = \pm 3$.
+(3) Check arguments: $x+1>0, x-1>0$ → $x>1$. $x=-3$ discarded. → **$x=3$.**
+
+$\log(x+2) - \log(x-1) = 1$.
+(1) $\log\frac{x+2}{x-1} = 1$ → $\frac{x+2}{x-1} = 10$.
+(2) $x+2 = 10x-10$ → $12 = 9x$ → $x = \frac{4}{3}$.
+(3) Arguments: $x+2>0, x-1>0$ → $x>1$. $\frac{4}{3} > 1$. Valid.
 
 ---
 
-## 예시 14: $\log$를 $t$로 치환
+## Example 14: Substitute $\log$ as $t$
 
 $(\log_2 x)^2 - 3\log_2 x + 2 = 0$.
-① $t = \log_2 x$ → $t^2-3t+2=0$ → $t=1,2$.
-② $x = 2^1 = 2$, $x = 2^2 = 4$. → **$x=2,4$.**
+(1) $t = \log_2 x$ → $t^2-3t+2=0$ → $t=1,2$.
+(2) $x = 2^1 = 2$, $x = 2^2 = 4$. → **$x=2,4$.**
+
+$(\ln x)^2 - 5\ln x + 6 = 0$.
+$t=\ln x$ → $t^2-5t+6=0$ → $t=2,3$ → $x=e^2, e^3$.
 
 ---
 
-## 예시 15: 양변에 $\ln$ 취하기
+## Example 15: Take $\ln$ on Both Sides
 
 $2^x = 3^{x+1}$.
-① $\ln(2^x) = \ln(3^{x+1})$ → $x\ln 2 = (x+1)\ln 3$.
-② $x\ln 2 = x\ln 3 + \ln 3$ → $x(\ln 2 - \ln 3) = \ln 3$.
-③ $x = \frac{\ln 3}{\ln 2 - \ln 3} \approx -2.71$.
+(1) $\ln(2^x) = \ln(3^{x+1})$ → $x\ln 2 = (x+1)\ln 3$.
+(2) $x\ln 2 = x\ln 3 + \ln 3$ → $x(\ln 2 - \ln 3) = \ln 3$.
+(3) $x = \frac{\ln 3}{\ln 2 - \ln 3} \approx -2.71$.
 
 $3^{2x-1} = 5^{x}$.
-① $(2x-1)\ln 3 = x\ln 5$ → $2x\ln 3 - \ln 3 = x\ln 5$.
-② $x(2\ln 3 - \ln 5) = \ln 3$ → $x = \frac{\ln 3}{2\ln 3 - \ln 5}$.
+(1) $(2x-1)\ln 3 = x\ln 5$ → $2x\ln 3 - \ln 3 = x\ln 5$.
+(2) $x(2\ln 3 - \ln 5) = \ln 3$ → $x = \frac{\ln 3}{2\ln 3 - \ln 5}$.
+
+$7^{x} = 2^{2x+3}$.
+(1) $x\ln 7 = (2x+3)\ln 2$ → $x\ln 7 = 2x\ln 2 + 3\ln 2$.
+(2) $x(\ln 7 - 2\ln 2) = 3\ln 2$ → $x = \frac{3\ln 2}{\ln 7 - 2\ln 2}$.
 
 ---
 
-## 예시 16: 지수에 로그 섞인 고난도
+## Example 16: The Mixed Type — $x$ Appears in Both Exponent and Base
 
 $x^{\log_2 x} = 8x$.
-① 양변에 $\log_2$ 취함: $\log_2(x^{\log_2 x}) = \log_2(8x)$.
-② $(\log_2 x)^2 = 3 + \log_2 x$.
-③ $t = \log_2 x$: $t^2 - t - 3 = 0$ → $t = \frac{1 \pm \sqrt{13}}{2}$.
-④ $x = 2^{\frac{1 \pm \sqrt{13}}{2}}$.
+(1) Take $\log_2$ of both sides: $\log_2(x^{\log_2 x}) = \log_2(8x)$.
+(2) $(\log_2 x)^2 = 3 + \log_2 x$.
+(3) $t = \log_2 x$: $t^2 - t - 3 = 0$ → $t = \frac{1 \pm \sqrt{13}}{2}$.
+(4) $x = 2^{\frac{1 \pm \sqrt{13}}{2}}$.
+
+$x^{\log_3 x} = 9x$.
+(1) $\log_3(x^{\log_3 x}) = \log_3(9x)$ → $(\log_3 x)^2 = 2 + \log_3 x$.
+(2) $t^2 - t - 2 = 0$ → $t = -1, 2$ → $x = \frac{1}{3}, 9$.
 
 ---
 
-## Part D: 현실 세계의 지수와 로그
+## Part D: Exponents and Logs in the Real World
 
 ---
 
-## 예시 17: 복리와 연속복리
+## Example 17: Compound Interest and Continuous Compounding
 
-**일반 복리**: $A = P(1 + \frac{r}{n})^{nt}$.
-$n$=이자 횟수/년. $n \to \infty$이면 연속복리 $A = Pe^{rt}$.
+**Ordinary compound interest**: $A = P\left(1 + \frac{r}{n}\right)^{nt}$.
+$n$ = number of compoundings per year. As $n \to \infty$, continuous compounding: $A = Pe^{rt}$.
 
-100만원, 5%, 3년. 연 1회: $100(1.05)^3 = 115.76$만원.
-분기별($n=4$): $100(1 + \frac{0.05}{4})^{12} = 116.08$만원.
-연속복리: $100 \cdot e^{0.15} = 116.18$만원.
+1,000,000 won, 5%, 3 years.
+Yearly ($n=1$): $100(1.05)^3 = 115.76$ ten-thousands.
+Quarterly ($n=4$): $100\left(1 + \frac{0.05}{4}\right)^{12} = 116.08$ ten-thousands.
+Continuous: $100 \cdot e^{0.15} = 116.18$ ten-thousands.
 
 ---
 
-## 예시 18: 반감기와 배증시간
+## Example 18: Half-Life and Doubling Time
 
-**반감기** (half-life): 양이 반으로 줄어드는 시간 $t_{1/2}$.
+**Half-life** $t_{1/2}$: time for quantity to halve.
 $N(t) = N_0 e^{-kt}$, $k = \frac{\ln 2}{t_{1/2}}$.
 
-탄소-14 반감기 5730년. $k = \frac{\ln 2}{5730} \approx 0.000121$.
-100g에서 25g 남을 때까지 = 반감기 2번 = 11460년.
+Carbon-14 half-life = 5730 years. $k = \frac{\ln 2}{5730} \approx 0.000121$.
+From 100g to 25g = 2 half-lives = 11460 years.
 
-**배증시간** (doubling time): $t_2 = \frac{\ln 2}{k}$.
-매년 7% 성장: $t_2 = \frac{\ln 2}{0.07} \approx 9.9$년. 10년마다 두 배.
+**Doubling time** $t_2 = \frac{\ln 2}{r}$.
+7% annual growth: $t_2 = \frac{\ln 2}{0.07} \approx 9.9$ years. Doubles every 10 years.
 
 ---
 
-## 예시 19: pH, 데시벨, 지진 규모 — 모두 로그!
+## Example 19: pH, Decibels, Richter Scale — All Log Scales!
 
 **pH**: $\text{pH} = -\log[\text{H}^+]$.
-중성: $[\text{H}^+] = 10^{-7}$ → pH = 7.
-산성: $[\text{H}^+] = 10^{-3}$ → pH = 3. pH 1 감소 = 수소이온 10배.
+Neutral: $[\text{H}^+] = 10^{-7}$ → pH = 7.
+Acidic: $[\text{H}^+] = 10^{-3}$ → pH = 3. pH drops by 1 = H+ concentration ×10.
 
-**데시벨(dB)**: $\beta = 10\log\frac{I}{I_0}$.
-$I_0 = 10^{-12}$ W/m² (가청 한계).
-대화(50dB): $I = 10^{-7}$. 콘서트(110dB): $I = 10^{-1}$. 60dB 차이 = 백만 배.
+**Decibels (dB)**: $\beta = 10\log\frac{I}{I_0}$.
+$I_0 = 10^{-12}$ W/m² (threshold of hearing).
+Conversation (50dB): $I = 10^{-7}$. Concert (110dB): $I = 10^{-1}$. 60dB difference = million-fold.
 
-**리히터 규모**: $M = \log\frac{A}{A_0}$.
-규모 5→6: 진폭 10배, 에너지 약 32배.
-
----
-
-## 예시 20: 지수증가 vs 로그증가
-
-지수함수 $2^x$: $x=10$ → 1024. $x=20$ → 약 100만. 폭발적.
-로그함수 $\log_2 x$: $x=1024$ → 10. $x=100만$ → 약 20. 굼뜨다.
-
-데이터가 너무 넓은 범위일 때 로그 눈금을 쓴다:
-1, 10, 100, 1000 → 로그 눈금에선 0, 1, 2, 3 등간격.
-
-![로그 밑 비교](graphs/10d-log-bases.png)
-
-> **여기까지**: 복리·반감기·pH·dB·리히터 — 전부 지수/로그 응용.
-> 로그 눈금은 넓은 범위를 압축한다.
+**Richter scale**: $M = \log\frac{A}{A_0}$.
+Magnitude 5 → 6: amplitude ×10, energy ≈ ×32.
 
 ---
 
-## Part E: 궁극의 방정식·부등식 결정 트리
+## Example 20: Exponential Growth vs. Log Growth
 
-> 어떤 지수·로그 문제든 아래 결정 트리로 무기를 고른다.
+Exponential $2^x$: $x=10$ → 1024. $x=20$ → about 1,000,000. Explosive.
+Logarithmic $\log_2 x$: $x=1024$ → 10. $x=$1,000,000 → about 20. Sluggish.
+
+When data spans a huge range, use log scale:
+1, 10, 100, 1000 → on log scale: 0, 1, 2, 3 — evenly spaced.
+
+![Comparing log bases](graphs/10d-log-bases.png)
+
+> **Up to here**: Compound interest, half-life, pH, dB, Richter — all applications of exponents and logs.
+> Log scales compress wide ranges.
 
 ---
 
-## 🔑 방정식 — 무엇부터 할까?
+## Visual Interlude: The Log Scale — Compressing the Universe
+
+A linear scale places 1, 2, 3, 4 at equal intervals. A log scale places 1, 10, 100, 1000 at equal intervals.
+
+**Why this matters**: On a linear scale, the difference between 1 and 2 looks the same as the difference between 1001 and 1002.
+On a log scale, 1 and 10 are as far apart as 1000 and 10000 — because both jumps are a factor of 10.
+
+![Linear scale](graphs/10g1-linear-scale.png)
+
+![Log scale](graphs/10g2-log-scale.png)
+
+The entire history of the universe fits on a log scale: from Planck length ($10^{-35}$ m) to the observable universe ($10^{26}$ m) — a range of $10^{61}$.
+Without log scales, we could not draw this on a single sheet of paper.
+
+---
+
+## Part E: Advanced Techniques — Beyond the Textbook
+
+---
+
+## Example 21: The Power Tower — Iterated Exponentiation (Tetration)
+
+What is $x^{x^{x^{\cdot^{\cdot^{\cdot}}}}} = 2$? That is, an infinite stack of $x$ raised to $x$ raised to $x$...
+
+(1) If the tower equals 2, then the whole tower *is* $x$ raised to (the tower), which equals 2.
+So $x^2 = 2$ → $x = \sqrt{2}$.
+
+(2) Check: $(\sqrt{2})^{(\sqrt{2})^{(\sqrt{2})^{\cdots}}} = 2$. Indeed it converges.
+
+**What if the tower equals 4?** $x^4 = 4$ → $x = \sqrt[4]{4} = \sqrt{2}$. Wait — same $x$? That seems contradictory. The tower $\sqrt{2}^{\sqrt{2}^{\sqrt{2}^{\cdots}}}$ converges to 2, not 4. The equation $x^4 = 4$ gave a valid algebraic root, but the infinite tower actually converges only to values in $[e^{-e}, e^{1/e}] \approx [0.0659, 1.4447]$. So $x = \sqrt{2} \approx 1.414$ works and converges to 2. The tower does not converge to 4 from that starting value — 4 is outside the convergence range.
+
+**Convergence condition**: The infinite tower $x^{x^{x^{\cdot^{\cdot^{\cdot}}}}}$ converges if and only if $e^{-e} \leq x \leq e^{1/e}$ (Euler, 1783). When it converges, the limit $L$ satisfies $x^L = L$.
+
+**Special trick**: The maximum convergent value is $e$. At $x = e^{1/e}$, the limit is exactly $e$.
+
+---
+
+## Example 22: The Lambert $W$ Function — Solving $x e^x = k$
+
+The equation $x e^x = 5$ cannot be solved with elementary functions. The Lambert $W$ function is defined as the inverse of $f(x) = x e^x$:
+$W(k)$ is the solution to $W e^W = k$.
+
+**Example**: $x \cdot 2^x = 3$.
+(1) Rewrite $2^x = e^{x\ln 2}$. Then $x e^{x\ln 2} = 3$.
+(2) Multiply both sides by $\ln 2$: $(x\ln 2) e^{x\ln 2} = 3\ln 2$.
+(3) Now it is $u e^u = 3\ln 2$, where $u = x\ln 2$.
+(4) $u = W(3\ln 2)$ → $x = \frac{W(3\ln 2)}{\ln 2}$.
+
+**Example**: $x^x = 7$.
+(1) $x^x = e^{x\ln x} = 7$. Take $\ln$: $x\ln x = \ln 7$.
+(2) Set $u = \ln x$, so $x = e^u$: $e^u \cdot u = \ln 7$ → $u e^u = \ln 7$.
+(3) $u = W(\ln 7)$ → $\ln x = W(\ln 7)$ → $x = e^{W(\ln 7)}$.
+(4) Also expressible as $x = \frac{\ln 7}{W(\ln 7)}$. Numerically: $\ln 7 \approx 1.9459$, $W(1.9459) \approx 0.8689$, $x \approx 2.316$.
+
+**The general trick for $x^x = k$**: take $\ln$, rearrange to $(\ln x) e^{\ln x} = \ln k$, then $W(\ln k) = \ln x$, so $x = e^{W(\ln k)}$.
+
+**Another form**: $a^x = bx + c$. Rearrange to match $u e^u$ form, apply $W$.
+
+---
+
+## Example 23: The Log-Sum-Exp Trick (Numerical Stability)
+
+When computing $\ln(e^{1000} + e^{1001})$ directly, $e^{1000}$ overflows double-precision floats. The log-sum-exp trick:
+
+$\ln(e^a + e^b) = \max(a, b) + \ln\left(1 + e^{-|a-b|}\right)$.
+
+For $a=1000, b=1001$: $\max = 1001$, $|a-b| = 1$.
+$\ln(e^{1000} + e^{1001}) = 1001 + \ln(1 + e^{-1}) = 1001 + \ln(1 + 0.3679) = 1001 + 0.3133 \approx 1001.3133$.
+
+This is how machine learning libraries compute stable softmax and cross-entropy. The small $e^{-|a-b|}$ sidesteps overflow completely. For $n$ terms: $\ln(\sum_i e^{a_i}) = \max(a_i) + \ln(\sum_i e^{a_i - \max(a_i)})$.
+
+---
+
+## Example 24: Logarithmic Differentiation — Tackle Messy Products and Powers
+
+$y = x^x$. How to differentiate? Neither power rule (exponent not constant) nor exponential rule (base not constant) applies directly.
+
+(1) Take $\ln$ of both sides: $\ln y = \ln(x^x) = x\ln x$.
+(2) Differentiate implicitly: $\frac{y'}{y} = \ln x + x \cdot \frac{1}{x} = \ln x + 1$.
+(3) $y' = y(\ln x + 1) = x^x(\ln x + 1)$.
+
+More generally, for $y = f(x)^{g(x)}$:
+(1) $\ln y = g(x) \ln f(x)$.
+(2) $\frac{y'}{y} = g'(x)\ln f(x) + g(x)\frac{f'(x)}{f(x)}$.
+(3) $y' = f(x)^{g(x)}\left[g'(x)\ln f(x) + \frac{g(x)f'(x)}{f(x)}\right]$.
+
+**Another application**: $y = \frac{(x^2+1)^3 \sqrt{x-1}}{(x+2)^5}$.
+(1) $\ln y = 3\ln(x^2+1) + \frac{1}{2}\ln(x-1) - 5\ln(x+2)$.
+(2) Differentiate: $\frac{y'}{y} = \frac{6x}{x^2+1} + \frac{1}{2(x-1)} - \frac{5}{x+2}$.
+(3) $y' = y \times$ (that expression). Clean one-step differentiation of a mess.
+
+---
+
+## Example 25: The AM–GM Inequality via Logs (Jensen)
+
+For positive numbers $x_1, \ldots, x_n$, the arithmetic mean is at least the geometric mean:
+$\frac{x_1+\cdots+x_n}{n} \geq \sqrt[n]{x_1\cdots x_n}$.
+
+Proof via concavity of $\ln x$: $\ln x$ is concave on $(0,\infty)$. By Jensen's inequality:
+$\ln\!\left(\frac{x_1+\cdots+x_n}{n}\right) \geq \frac{\ln x_1 + \cdots + \ln x_n}{n} = \ln\!\left(\sqrt[n]{x_1\cdots x_n}\right)$.
+
+Exponentiate both sides (monotonic): $\frac{x_1+\cdots+x_n}{n} \geq \sqrt[n]{x_1\cdots x_n}$.
+
+**Application**: Prove $a^2 + b^2 + c^2 \geq ab + bc + ca$.
+By AM–GM on pairs: $\frac{a^2+b^2}{2} \geq ab$, $\frac{b^2+c^2}{2} \geq bc$, $\frac{c^2+a^2}{2} \geq ca$. Sum all three.
+
+---
+
+## Example 26: The Inequality $\ln(1+x) \leq x$ for $x > -1$
+
+From the graph of $\ln(1+x)$: it lies below its tangent line $y=x$ at $x=0$.
+This inequality is a workhorse of analysis.
+
+**Proof sketch**: $\ln(1+x) = \int_0^x \frac{1}{1+t} dt \leq \int_0^x 1 dt = x$ for $x \geq 0$. For $-1 < x < 0$, the inequality still holds by concavity.
+
+**Uses**:
+- $\ln(n+1) - \ln n = \ln(1 + \frac{1}{n}) \leq \frac{1}{n}$. Summing to get a harmonic series bound.
+- $\left(1 + \frac{1}{n}\right)^n \leq e$. Because $n\ln(1+\frac{1}{n}) \leq n \cdot \frac{1}{n} = 1$, exponentiate.
+- For any $\varepsilon > 0$, $\ln x \leq \frac{x^\varepsilon - 1}{\varepsilon}$. A generalization via convexity.
+- Sandwich: $\frac{x}{1+x} \leq \ln(1+x) \leq x$ for $x > -1$ (the left side follows from $\ln(1+x) = -\ln(\frac{1}{1+x})$).
+
+---
+
+## Example 27: Benford's Law — Why 1 Appears Most Often as the First Digit
+
+In many real-world datasets (populations, stock prices, physical constants), the first digit $d$ occurs with probability $P(d) = \log_{10}\!\left(1 + \frac{1}{d}\right)$.
+
+$P(1) \approx 30.1\%$, $P(2) \approx 17.6\%$, ..., $P(9) \approx 4.6\%$.
+
+Why? A dataset whose log values are uniformly distributed (scale-invariant) produces this distribution. The mantissa of $\log_{10} x$ (the fractional part) determines the first digit. If the mantissa is uniformly distributed in $[0,1)$, then the probability of first digit $d$ is $\log_{10}(d+1) - \log_{10}(d) = \log_{10}\!\left(1 + \frac{1}{d}\right)$.
+
+This is used to detect **fraud**: people fabricating numbers tend to distribute first digits uniformly; real data follows Benford.
+
+---
+
+## Example 28: Solving $a^b = b^a$ Type Equations
+
+The equation $x^y = y^x$ for $x \neq y$ has nontrivial positive solutions. Take $\ln$:
+$y\ln x = x\ln y$ → $\frac{\ln x}{x} = \frac{\ln y}{y}$.
+
+So $x$ and $y$ are two points where $f(t) = \frac{\ln t}{t}$ takes the same value.
+
+$f(t)$ increases on $(0, e]$, peaks at $t=e$ with $f(e)=1/e$, then decreases. For any $u \in (0, 1/e)$, there are two solutions $t_1 < e < t_2$ with $f(t_1) = f(t_2) = u$.
+
+**Only integer solution with $x \neq y$**: $2^4 = 4^2 = 16$. Because $f(2) = f(4) = \frac{\ln 2}{2}$.
+
+**Parametric form**: Let $y = tx$. Then $x^{tx} = (tx)^x$ → $x^t = tx$ → $x = t^{1/(t-1)}$, $y = t^{t/(t-1)}$. For rational $t$, this often generates integer pairs. $t=2$ gives $(2,4)$.
+
+---
+
+## Example 29: Stirling's Approximation — Factorials via Logs
+
+$\ln(n!) = \sum_{k=1}^n \ln k$. Approximate by an integral:
+$\ln(n!) \approx n\ln n - n + O(\ln n)$.
+
+Stirling's formula: $n! \approx \sqrt{2\pi n} \left(\frac{n}{e}\right)^n$.
+
+**Application**: How many digits in $100!$?
+$\log_{10}(100!) \approx 100\ln(100)/\ln(10) - 100/\ln(10) + \tfrac{1}{2}\log_{10}(200\pi)$.
+$\log_{10}(100!) \approx 157.97$. So $100!$ has 158 digits.
+
+This log-integral technique is the only practical way to estimate huge factorials.
+
+---
+
+## Example 30: The Sophomore's Dream — When a Series Swaps Sum and Integral
+
+The identity $\int_0^1 x^{-x} dx = \sum_{n=1}^\infty n^{-n}$ connects integration and infinite series.
+Write $x^{-x} = e^{-x\ln x} = \sum_{n=0}^\infty \frac{(-x\ln x)^n}{n!}$.
+Integrate term by term: $\int_0^1 (-x\ln x)^n dx = \frac{n!}{(n+1)^{n+1}}$.
+The sum telescopes beautifully to $\sum_{n=1}^\infty n^{-n} \approx 1.29129$.
+
+Similarly: $\int_0^1 x^x dx = \sum_{n=1}^\infty (-1)^{n+1} n^{-n}$.
+
+These are rare cases where $x^x$ — which normally requires Lambert $W$ — yields an exact series solution through interchange of sum and integral.
+
+---
+
+## Part F: Ultimate Equation and Inequality Decision Tree
+
+> For any exponent or log problem, pick your weapon using the decision tree below.
+
+---
+
+## Decision Tree — Equations
 
 ```
-지수·로그 방정식을 만나면
-├── ① 밑이 같은가?
-│   ├── YES → 지수끼리 같다고 놓는다 (a^{f(x)} = a^{g(x)} → f=g)
-│   └── NO  → 밑 통일 시도. 안 되면 →
-│       ├── 밑이 2,4,8... or 3,9,27... → 통일 가능
-│       └── 밑이 2와 3처럼 소인수 다르면 → 양변에 log/ln 취하기
-├── ② a^x 꼴이 반복되는가?
-│   └── YES → t = a^x 치환 (t>0). 이차방정식으로.
-├── ③ log_a (…) 꼴이 여러 개인가?
-│   ├── 합/차 → log 합치기 (logM + logN = logMN)
-│   └── log_a f(x) = 숫자 → a^{숫자} = f(x) 로 풀기
-├── ④ (log x)^2 꼴인가?
-│   └── YES → t = log x 치환. 이차방정식.
-├── ⑤ x가 지수와 밑에 둘 다 있는가? (예: x^{log x})
-│   └── YES → 양변에 log 취하기. log(x^{log x}) = (log x)^2.
-└── ⑥ 그래도 안 풀리면?
-    └── 그래프 그려서 근 개수 파악 → 수치적 근사.
+You encounter an exponential or logarithmic equation:
+├── (1) Same base on both sides?
+│   ├── YES → Set exponents equal: a^{f(x)} = a^{g(x)} → f = g
+│   └── NO → Try to unify bases. If not possible:
+│       ├── Bases like 2,4,8... or 3,9,27... → Unify possible
+│       └── Bases with different primes (2 vs 3) → Take log/ln on both sides
+├── (2) Does a^x repeat?
+│   └── YES → Substitute t = a^x (t > 0). Solve the resulting quadratic/polynomial.
+├── (3) Multiple log_a(...) terms?
+│   ├── Sum/difference → Combine: log M + log N = log(MN)
+│   └── log_a f(x) = number → a^{number} = f(x)
+├── (4) (log x)^2 form?
+│   └── YES → Substitute t = log x. Solve quadratic/polynomial.
+├── (5) x in both exponent and base? (e.g., x^{log x})
+│   └── YES → Take log of both sides. log(x^{log x}) = (log x)^2.
+├── (6) x^x = k or x e^x = k?
+│   └── YES → Rearrange to u e^u form. Use Lambert W.
+├── (7) Power tower / tetration?
+│   └── YES → x^{tower} = tower → x^{result} = result.
+└── (8) Still stuck?
+    └── Graph both sides. Count intersections. Numerical approximation.
 ```
 
 ---
 
-## 예시 21: 결정 트리로 분류 — 어떤 무기를 쓸까?
+## Example 31: Decision Tree in Action — Classify Before Solving
 
-**유형 1 — 밑 통일**: $2^{x+2} = 4^{x-1}$ → $2^{x+2} = 2^{2x-2}$ → $x+2=2x-2$ → $x=4$.
+**Type 1 — Base unification**: $2^{x+2} = 4^{x-1}$ → $2^{x+2} = 2^{2x-2}$ → $x+2=2x-2$ → $x=4$.
 
-**유형 2 — $t$ 치환**: $9^x - 4\cdot3^x + 3 = 0$.
+**Type 2 — $t$-substitution**: $9^x - 4\cdot3^x + 3 = 0$.
 $t=3^x$ → $t^2-4t+3=0$ → $t=1,3$ → $x=0,1$.
 
-**유형 3 — 로그 합치기**: $\log_2 x + \log_2(x-2) = 3$.
-$\log_2[x(x-2)]=3$ → $x(x-2)=8$ → $x^2-2x-8=0$ → $x=4$ ($x=-2$ 탈락).
+**Type 3 — Log combining**: $\log_2 x + \log_2(x-2) = 3$.
+$\log_2[x(x-2)]=3$ → $x(x-2)=8$ → $x^2-2x-8=0$ → $x=4$ ($x=-2$ discarded).
 
-**유형 4 — $\log$ 치환**: $(\log_3 x)^2 - 2\log_3 x - 3 = 0$.
+**Type 4 — Log substitution**: $(\log_3 x)^2 - 2\log_3 x - 3 = 0$.
 $t=\log_3 x$ → $t^2-2t-3=0$ → $t=-1,3$ → $x=\frac{1}{3}, 27$.
 
-**유형 5 — 양변에 $\ln$**: $2^{x} = 5^{x-1}$.
+**Type 5 — $\ln$ on both sides**: $2^{x} = 5^{x-1}$.
 $x\ln 2 = (x-1)\ln 5$ → $x(\ln 2 - \ln 5) = -\ln 5$ → $x = \frac{\ln 5}{\ln 5 - \ln 2}$.
 
-**유형 6 — $x^{\log}$ 꼴**: $x^{\log_3 x} = 9x$.
-$\log_3$ 취함 → $(\log_3 x)^2 = 2 + \log_3 x$ → $t^2-t-2=0$ → $t=-1,2$ → $x=\frac{1}{3}, 9$.
+**Type 6 — $x^{\log}$ form**: $x^{\log_3 x} = 9x$.
+Take $\log_3$ → $(\log_3 x)^2 = 2 + \log_3 x$ → $t^2-t-2=0$ → $t=-1,2$ → $x=\frac{1}{3}, 9$.
+
+**Type 7 — Lambert W**: $x \cdot 2^x = 5$.
+$(x\ln 2) e^{x\ln 2} = 5\ln 2$ → $x = \frac{W(5\ln 2)}{\ln 2}$.
+
+**Type 8 — Power tower**: $x^{x^{x^{\cdots}}} = 3$.
+$x^3 = 3$ → $x = \sqrt[3]{3}$. (Check convergence: $\sqrt[3]{3} \approx 1.442 < e^{1/e} \approx 1.445$, so it converges.)
 
 ---
 
-## 🔑 부등식 — 무엇부터 할까?
+## Decision Tree — Inequalities
 
 ```
-지수·로그 부등식을 만나면
-├── ① 지수부등식인가?
-│   ├── 밑>1 → 부등호 그대로: a^{f} > a^{g} → f > g
-│   ├── 0<밑<1 → 부등호 뒤집기: a^{f} > a^{g} → f < g
-│   └── a^{f} > (다른 밑) → 밑 통일 or 로그 취하기
-├── ② 로그부등식인가?
-│   ├── 밑>1 → 부등호 그대로 + 진수>0
-│   ├── 0<밑<1 → 부등호 뒤집기 + 진수>0
-│   └── log f(x) > log g(x) → f>g>0 (밑>1) or 0<f<g (밑<1)
-├── ③ a^x = t 치환이 되는가?
-│   └── t>0 조건으로 부등식 → t 범위 → x 범위
-└── ④ 그래프로 판단
-    └── y=a^x 또는 y=log_a x 그래프 그리고 높이 비교
-```
-
----
-
-## 예시 22: 부등식 결정 트리 실전
-
-**밑>1 로그부등식**: $\log_3(x^2-1) > \log_3(x+5)$.
-① 밑>1 → $x^2-1 > x+5$ 그리고 진수>0.
-② $x^2-x-6 > 0$ → $(x-3)(x+2) > 0$ → $x < -2$ 또는 $x > 3$.
-③ 진수: $x^2-1>0$ → $|x|>1$. $x+5>0$ → $x>-5$.
-④ 겹침: $(-5,-1)\cup(1,\infty)$ ∩ ($x<-2$ 또는 $x>3$) = $(-5,-2) \cup (3,\infty)$.
-⑤ 진수와 겹침: $(-5,-2)\cup(3,\infty)$ ∩ $((-\infty,-1)\cup(1,\infty))$ = $(-5,-2)\cup(3,\infty)$.
-
-**밑<1 지수부등식**: $\left(\frac{1}{3}\right)^{2x-1} > 9$.
-① $9 = 3^2 = \left(\frac{1}{3}\right)^{-2}$.
-② 밑$\frac{1}{3}$<1 → $2x-1 < -2$ → $2x < -1$ → $x < -\frac{1}{2}$.
-
-**혼합 부등식**: $2^x < 3^{x-1}$.
-① $\ln$ 취함: $x\ln 2 < (x-1)\ln 3$.
-② $x\ln 2 - x\ln 3 < -\ln 3$ → $x(\ln 2 - \ln 3) < -\ln 3$.
-③ $\ln 2 - \ln 3 < 0$ → $x > \frac{-\ln 3}{\ln 2 - \ln 3} = \frac{\ln 3}{\ln 3 - \ln 2}$.
-
----
-
-## 자주 하는 실수
-
-### 실수 1: $\log(x+y) = \log x + \log y$로 찢는다
-
-**틀린 길**: "$\log(x+y) = \log x + \log y$."
-
-**왜 틀렸나**: $\log(xy) = \log x + \log y$다. 합은 못 찢는다.
-
-**옳은 길**: $\log(xy)$일 때만 $\log x + \log y$.
-
----
-
-### 실수 2: 로그방정식에서 진수 조건 누락
-
-**틀린 길**: "$\log_2(x-1) + \log_2(x+3) = 3$ → $x^2+2x-3=8$ → $x=...$"
-
-**왜 틀렸나**: 구한 해가 $x-1>0$, $x+3>0$을 만족하는지 반드시 확인.
-
-**옳은 길**: 방정식 풀고 진수>0으로 걸러낸다.
-
----
-
-### 실수 3: $a^0 = 0$으로 착각
-
-**틀린 길**: "$2^0 = 0$."
-
-**왜 틀렸나**: 어떤 수도 0제곱은 1이다. $a^0 = 1$ ($a \neq 0$).
-
-**옳은 길**: $2^0 = 1$, $10^0 = 1$, $e^0 = 1$.
-
----
-
-## 방금 우리가 한 일
-
-```
-① 지수법칙 5개. 로그=지수 거울. ln(e), log(10). 그래프 대칭.
-② 방정식 결정 트리:
-   밑통일 → a^x=t 치환 → 로그합치기 → log치환 → 양변 ln → x^{log}.
-③ 부등식 결정 트리:
-   밑>1이면 부등호 유지, 밑<1이면 뒤집기. 진수>0 반드시.
-④ 실전: 복리·연속복리·반감기·배증·pH·dB·리히터.
+You encounter an exponential or logarithmic inequality:
+├── (1) Exponential inequality?
+│   ├── Base > 1 → Keep sign: a^f > a^g → f > g
+│   ├── 0 < base < 1 → Flip sign: a^f > a^g → f < g
+│   └── a^f > (different base) → Unify base or take log
+├── (2) Logarithmic inequality?
+│   ├── Base > 1 → Keep sign + enforce argument > 0
+│   ├── 0 < base < 1 → Flip sign + enforce argument > 0
+│   └── log f(x) > log g(x) → f > g > 0 (base>1) or 0 < f < g (base<1)
+├── (3) Substitutable via a^x = t?
+│   └── t > 0 constraint → t range → x range
+├── (4) Quadratic in log or a^x?
+│   └── Solve the inequality for t, then map back.
+└── (5) Graph to confirm:
+    └── Sketch y = a^x or y = log_a x. Compare heights.
 ```
 
 ---
 
-## 연습 1
+## Example 32: Inequality Decision Tree in Action
 
-$2^{x+1} = 8^{x-2}$. 밑 2로 통일.
+**Base > 1 log inequality**: $\log_3(x^2-1) > \log_3(x+5)$.
+(1) Base > 1 → $x^2-1 > x+5$ AND both arguments > 0.
+(2) $x^2-x-6 > 0$ → $(x-3)(x+2) > 0$ → $x < -2$ or $x > 3$.
+(3) Arguments: $x^2-1>0$ → $|x|>1$. $x+5>0$ → $x>-5$.
+(4) Intersect: $(-5,-2) \cup (3,\infty)$.
 
-→ 따라하기: **예시 4**
+**Base < 1 exponential inequality**: $\left(\frac{1}{3}\right)^{2x-1} > 9$.
+(1) $9 = 3^2 = \left(\frac{1}{3}\right)^{-2}$.
+(2) Base $\frac{1}{3} < 1$ → $2x-1 < -2$ → $2x < -1$ → $x < -\frac{1}{2}$.
 
-> 풀이: [풀이집](solutions/10-solutions.md#연습-1)
+**Mixed-base inequality**: $2^x < 3^{x-1}$.
+(1) Take $\ln$: $x\ln 2 < (x-1)\ln 3$.
+(2) $x\ln 2 - x\ln 3 < -\ln 3$ → $x(\ln 2 - \ln 3) < -\ln 3$.
+(3) $\ln 2 - \ln 3 < 0$, divide and flip: $x > \frac{-\ln 3}{\ln 2 - \ln 3} = \frac{\ln 3}{\ln 3 - \ln 2}$.
 
----
-
-## 연습 2
-
-$\log_3(2x-1) - \log_3(x+1) = 1$. 로그 빼기=나누기. 진수 조건!
-
-→ 따라하기: **예시 13**
-
-> 풀이: [풀이집](solutions/10-solutions.md#연습-2)
-
----
-
-## 연습 3
-
-$4^x - 2^{x+2} - 32 = 0$. $2^x = t$ 치환.
-
-→ 따라하기: **예시 5**
-
-> 풀이: [풀이집](solutions/10-solutions.md#연습-3)
+**Quadratic log inequality**: $(\log_2 x)^2 - 3\log_2 x + 2 < 0$.
+(1) $t = \log_2 x$: $t^2 - 3t + 2 < 0$ → $(t-1)(t-2) < 0$ → $1 < t < 2$.
+(2) $1 < \log_2 x < 2$ → $2^1 < x < 2^2$ → $2 < x < 4$.
 
 ---
 
-## 연습 4: 구성형
+## Advanced Algebra Drill — Exponents and Logs (6 Problems)
 
-$2^a = 3$과 $3^b = 2$일 때 $ab = 1$임을 보이고,
-$5^c = 7$과 $7^d = 5$인 $c,d$도 같은 관계임을 확인하라.
-일반 규칙을 말로 설명하라.
+> Intensive computation. These target the intermediate steps most students skip. Work each one fully.
 
-→ 따라하기: **예시 7, 9**
+**A1.** Simplify $\frac{2^{n+3} - 2^{n+1}}{2^{n}}$. Express as an integer.
 
-> 풀이: [풀이집](solutions/10-solutions.md#연습-4)
+**A2.** Solve for $x$: $3^{2x} \cdot 9^{1-x} = \frac{1}{27}$.
 
----
+**A3.** Simplify $\log_2 48 - \log_2 3$. Express as a rational number.
 
-## 연습 5
+**A4.** Compute $\log_2 5 \cdot \log_5 8 \cdot \log_8 3 \cdot \log_3 16$. (Hint: chain the change-of-base formula.)
 
-$x^{\log_2 x} = 8x$. 양변에 $\log_2$ 취하기.
+**A5.** Simplify $\frac{\log_3 16}{\log_9 4}$. Express as a rational number.
 
-→ 따라하기: **예시 15**
+**A6.** Write $\ln\!\left(\frac{e^3 \sqrt{e}}{e^{-2}}\right)$ as a single simplified number.
 
-> 풀이: [풀이집](solutions/10-solutions.md#연습-5)
+**A7.** Solve $\log_2(x-3) + \log_2(x+1) = 3$. Check all arguments after solving.
 
----
+**A8.** Chain-simplify: $\log_3 2 \cdot \log_4 3 \cdot \log_5 4 \cdot \log_6 5 \cdot \log_7 6 \cdot \log_8 7$. Express as a rational number. (Hint: telescope via change-of-base.)
 
-## 연습 6: 실전
-
-방사성 물질이 매년 8%씩 붕괴한다. 처음 500g에서 100g 미만이 되는 시점을 구하라.
-$500(0.92)^t < 100$. 양변에 $\log$ 취하기.
-
-→ 따라하기: **예시 18**
-
-> 풀이: [풀이집](solutions/10-solutions.md#연습-6)
+> Solutions: [Solutions](solutions/10-solutions.md#advanced-drill)
 
 ---
 
-## 오늘 배운 절차
+## Common Mistakes
+
+### Mistake 1: Tearing $\log(x+y)$ as $\log x + \log y$
+
+**Wrong path**: "$\log(x+y) = \log x + \log y$."
+
+**Why wrong**: $\log(xy) = \log x + \log y$. A sum inside the log cannot be torn apart this way.
+
+**Right path**: Only $\log(xy)$ splits into $\log x + \log y$. For $\log(x+y)$, leave it alone or factor if possible.
+
+---
+
+### Mistake 2: Forgetting the argument condition in log equations
+
+**Wrong path**: "$\log_2(x-1) + \log_2(x+3) = 3$ → $x^2+2x-3=8$ → $x = \ldots$" (without checking).
+
+**Why wrong**: Solutions must satisfy $x-1 > 0$ AND $x+3 > 0$. Any root violating this is invalid.
+
+**Right path**: Solve the equation, then filter roots by argument > 0.
+
+---
+
+### Mistake 3: $a^0 = 0$
+
+**Wrong path**: "$2^0 = 0$."
+
+**Why wrong**: Any nonzero number to the zero power equals 1. $a^0 = 1$ ($a \neq 0$).
+
+**Right path**: $2^0 = 1$, $10^0 = 1$, $e^0 = 1$.
+
+---
+
+### Mistake 4: $(e^x)^2 = e^{x^2}$
+
+**Wrong path**: "$(e^x)^2 = e^{x^2}$."
+
+**Why wrong**: Multiply the exponents when raising a power to a power: $(a^m)^n = a^{mn}$. So $(e^x)^2 = e^{2x}$. The expression $e^{x^2}$ is a different function — $e$ raised to $x^2$ — not the square of $e^x$.
+
+**Right path**: $(e^x)^2 = e^{2x}$. Keep the two forms separate: $(e^x)^2$ squares after exponentiating; $e^{x^2}$ squares before exponentiating.
+
+---
+
+### Mistake 5: $\log_a(b-c) = \log_a b - \log_a c$
+
+**Wrong path**: "$\log_2(8-2) = \log_2 8 - \log_2 2 = 3-1 = 2$."
+
+**Why wrong**: $\log_2(8-2) = \log_2 6 \approx 2.585$, not 2. The log rules apply to multiplication/division inside the argument, never addition/subtraction.
+
+**Right path**: $\log_a(b/c) = \log_a b - \log_a c$ is valid. $\log_a(b-c)$ has no simple expansion.
+
+---
+
+## What We Just Did
 
 ```
-1단계: 지수법칙 5개+로그 3규칙 암기. ln/log 구분.
-2단계: 방정식 결정 트리 — 밑통일→t치환→로그합치기→ln취하기.
-       부등식 결정 트리 — 밑 크기로 부등호 결정. 진수>0.
-3단계: 실전 — 복리·반감기·pH·dB. 로그눈금. 그래프로 판단.
+(1) Exponent rules — 5 laws for multiplying, dividing, and powering.
+    Log rules — product becomes sum, quotient becomes difference, power pulls out.
+    ln uses base e, log uses base 10. The two are mirror images across y = x.
+
+(2) Equation types — unify bases first. If bases differ, take ln of both sides.
+    Repeated a^x → t-substitution (t > 0). Multiple logs → combine into one.
+    (log x)^2 form → t = log x. x in both exponent and base → take log of both sides.
+    Inequality types — base > 1 keeps the sign. Base < 1 flips the sign.
+    Always check arg > 0 for log inequalities.
+
+(3) Advanced tools — Lambert W for x e^x and x^x. Power tower convergence.
+    Log-differentiation for f(x)^{g(x)}. ln(1+x) ≤ x and the AM–GM proof.
+    Real-world: half-life, compound interest, pH, dB, Richter scale.
 ```
 
 ---
 
-## 용어 정리
+## Practice 1
 
-지금까지 우리는 "지수", "밑", "진수", "로그를 취한다", "반감기" 같은 쉬운 말만 썼다.
-**방법은 이미 다 배웠다.** 이제 수학에서 쓰는 이름을 소개한다.
+$2^{x+1} = 8^{x-2}$. Unify to base 2.
 
-| 우리가 써온 말 | 수학 용어 | 기호/설명 |
-|:------------:|:--------:|:---:|
-| 지수 | exponent | $a^n$에서 $n$ |
-| 밑 | base | $a^n$, $\log_a b$에서 $a$ |
-| 진수 | argument | $\log_a b$에서 $b$ |
-| 제곱근(루트) | radical | $\sqrt[n]{a}$ |
-| 역수 | reciprocal | $a^{-1} = 1/a$ |
-| 로그를 취한다 | take logarithm | 양변에 $\log$/$\ln$ |
-| 밑 변환 | change of base | $\log_a b = \frac{\log_c b}{\log_c a}$ |
-| 자연로그 | natural log | $\ln x = \log_e x$ |
-| 상용로그 | common log | $\log x = \log_{10} x$ |
-| 연속복리 | continuous compound | $A = Pe^{rt}$ |
-| 반감기 | half-life | $t_{1/2} = \ln 2/k$ |
-| 배증시간 | doubling time | $t_2 = \ln 2/r$ |
-| pH | 수소이온농도 | $\text{pH} = -\log[\text{H}^+]$ |
-| 데시벨 | decibel | $\beta = 10\log(I/I_0)$ |
-| 오일러 수 | Euler's number | $e \approx 2.71828$ |
+→ Reference: **Example 4**
+
+> Solutions: [Solutions](solutions/10-solutions.md#practice-1)
+
+---
+
+## Practice 2
+
+$\log_3(2x-1) - \log_3(x+1) = 1$. Log subtraction = division. Check arguments!
+
+→ Reference: **Example 13**
+
+> Solutions: [Solutions](solutions/10-solutions.md#practice-2)
+
+---
+
+## Practice 3
+
+$4^x - 2^{x+2} - 32 = 0$. Substitute $t = 2^x$.
+
+→ Reference: **Example 5**
+
+> Solutions: [Solutions](solutions/10-solutions.md#practice-3)
+
+---
+
+## Practice 4: Composition
+
+$2^a = 3$ and $3^b = 2$. Show that $ab = 1$.
+Then check $5^c = 7$ and $7^d = 5$ for the same relationship.
+State the general rule in words.
+
+→ Reference: **Example 7, 9**
+
+> Solutions: [Solutions](solutions/10-solutions.md#practice-4)
+
+---
+
+## Practice 5
+
+$x^{\log_2 x} = 8x$. Take $\log_2$ of both sides.
+
+→ Reference: **Example 16**
+
+> Solutions: [Solutions](solutions/10-solutions.md#practice-5)
+
+---
+
+## Practice 6: Real Battle
+
+A radioactive substance decays 8% per year. Starting with 500g, find when it falls below 100g.
+$500(0.92)^t < 100$. Take $\log$ of both sides.
+
+→ Reference: **Example 18**
+
+> Solutions: [Solutions](solutions/10-solutions.md#practice-6)
+
+---
+
+## Practice 7
+
+$3^{x+2} - 3^{x} = 72$. Factor out $3^x$.
+
+→ Reference: **Example 5**
+
+> Solutions: [Solutions](solutions/10-solutions.md#practice-7)
+
+---
+
+## Practice 8
+
+$\log_2(x^2 - 3x) = 2$. Remove the log and check arguments.
+
+→ Reference: **Example 7, 12**
+
+> Solutions: [Solutions](solutions/10-solutions.md#practice-8)
+
+---
+
+## Practice 9: Composition
+
+Invent two different exponential equations where the substitution $t = 2^x$ leads to $t^2 - 6t + 8 = 0$.
+Solve both and explain why they both reduce to the same quadratic.
+
+→ Reference: **Example 5**
+
+> Solutions: [Solutions](solutions/10-solutions.md#practice-9)
+
+---
+
+## Practice 10
+
+$\log_{\frac{1}{2}}(3x+1) \geq -2$. Handle base < 1 and argument > 0.
+
+→ Reference: **Example 12**
+
+> Solutions: [Solutions](solutions/10-solutions.md#practice-10)
+
+---
+
+## Practice 11
+
+$x \cdot 3^x = 9$. Use the Lambert $W$ technique:
+rewrite $3^x = e^{x\ln 3}$, multiply by $\ln 3$, match $u e^u$ form.
+
+→ Reference: **Example 22**
+
+> Solutions: [Solutions](solutions/10-solutions.md#practice-11)
+
+---
+
+## Practice 12: Real Battle
+
+Show that the infinite power tower $x^{x^{x^{\cdot^{\cdot^{\cdot}}}}}$ converges only for $e^{-e} \leq x \leq e^{1/e}$.
+Then solve $x^{x^{x^{\cdot^{\cdot^{\cdot}}}}} = y$ for $x$ in terms of $y$, and evaluate for $y = e$.
+Hint: if the limit is $L$, then $x^L = L$, so $x = L^{1/L}$.
+
+→ Reference: **Example 21**
+
+> Solutions: [Solutions](solutions/10-solutions.md#practice-12)
+
+---
+
+## Today's Procedure
+
+```
+Step 1: Apply the rules — multiply→add exponents, divide→subtract exponents,
+         power→multiply exponents. Log of product→sum of logs.
+         Log of quotient→difference of logs. Log of power→pull exponent out.
+
+Step 2: Choose your weapon — same base? equate exponents. Different bases?
+         take ln. Repeated a^x? t-substitution. Multiple logs? combine.
+         Base>1? keep inequality. Base<1? flip inequality.
+         Always check argument > 0.
+
+Step 3: Extend — Lambert W for unsolvable exponentials. Power towers converge
+         only for x in [e^{-e}, e^{1/e}]. Log-differentiate to handle x^x.
+         Apply to half-life, pH, dB, compound interest.
+```
+
+---
+
+## Terminology
+
+Up to now we used plain words like "exponent", "base", "argument", "take log", "half-life".
+**You have already learned all the methods.** Now we attach the formal mathematical names.
+
+| What we called it | Mathematical term | Notation / Explanation |
+|:-----------------:|:-----------------:|:----------------------:|
+| exponent | exponent | $a^n$ — the $n$ |
+| base | base | $a^n$ or $\log_a b$ — the $a$ |
+| argument (of log) | argument | $\log_a b$ — the $b$ |
+| root / radical | radical | $\sqrt[n]{a}$ |
+| reciprocal | reciprocal | $a^{-1} = 1/a$ |
+| take the log | take logarithm | apply $\log$ or $\ln$ to both sides |
+| change of base | change of base | $\log_a b = \frac{\log_c b}{\log_c a}$ |
+| natural log | natural logarithm | $\ln x = \log_e x$ |
+| common log | common logarithm | $\log x = \log_{10} x$ |
+| continuous compounding | continuous compound interest | $A = Pe^{rt}$ |
+| half-life | half-life | $t_{1/2} = \ln 2 / k$ |
+| doubling time | doubling time | $t_2 = \ln 2 / r$ |
+| pH | pH (hydrogen ion concentration) | $\text{pH} = -\log[\text{H}^+]$ |
+| decibel | decibel | $\beta = 10\log(I/I_0)$ |
+| Euler's number | Euler's number | $e \approx 2.718281828$ |
+| tetration | tetration / power tower | $^{n}a = a^{a^{\cdot^{\cdot^{a}}}}$ ($n$ times) |
+| Lambert W function | Lambert $W$ function | $W(x)$ solves $W e^W = x$ |
+| log-sum-exp | log-sum-exp trick | $\ln(e^a+e^b) = \max(a,b) + \ln(1+e^{-|a-b|})$ |
+| logarithmic differentiation | logarithmic differentiation | Take $\ln$ then differentiate implicitly |
+| Benford's Law | Benford's Law | $P(d) = \log_{10}(1 + 1/d)$ for first digit $d$ |
+| Stirling's approximation | Stirling's approximation | $n! \approx \sqrt{2\pi n}(n/e)^n$ |

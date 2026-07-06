@@ -261,7 +261,7 @@ ax.text(0.8, 2.2, 'b', fontsize=11, ha='center')
 # Angle arcs
 from matplotlib.patches import Arc
 ax.add_patch(Arc((0,0), 0.8, 0.8, angle=0, theta1=0, theta2=63, color='blue', linewidth=1.5))
-ax.add_patch(Arc((5,0), 0.8, 0.8, angle=180, theta1=0, theta2=53, color='red', linewidth=1.5))
+ax.add_patch(Arc((5,0), 0.8, 0.8, angle=0, theta1=126.87, theta2=180, color='red', linewidth=1.5))
 ax.add_patch(Arc((2,4), 0.8, 0.8, angle=243, theta1=0, theta2=64, color='green', linewidth=1.5))
 ax.set_aspect('equal')
 ax.set_xlim(-1, 6.5)
