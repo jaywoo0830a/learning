@@ -1,0 +1,22 @@
+FROM node:latest
+
+# Puppeteer 의존 라이브러리 + 한글 폰트
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    fonts-noto-cjk \
+    ca-certificates \
+    libnss3 libnspr4 libatk1.0-0t64 libatk-bridge2.0-0t64 \
+    libcups2t64 libdrm2 libxkbcommon0 libxcomposite1 \
+    libxdamage1 libxfixes3 libxrandr2 libgbm1 \
+    libpango-1.0-0 libcairo2 libasound2t64 \
+    && rm -rf /var/lib/apt/lists/*
+
+# Puppeteer가 Chromium을 자체 다운로드
+ENV PUPPETEER_SKIP_DOWNLOAD=false
+ENV NODE_PATH=/usr/local/lib/node_modules
+RUN npm install -g marked katex puppeteer
+
+# 변환 스크립트
+COPY pdfgen.js /usr/local/bin/pdfgen.js
+
+WORKDIR /work
+ENTRYPOINT ["node", "/usr/local/bin/pdfgen.js"]
