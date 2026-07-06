@@ -2,122 +2,200 @@
 
 **Phase 2 — Classical Techniques | 70 min**
 
-*Prerequisites: 13A (algebraic limits), 10A (exponents & logs), 11A (trig foundations)*
+*A derivative is instantaneous slope — how fast $y$ changes when $x$ twitches. You find it with a limit, but you compute it with rules. Memorize eight forms. Apply them in three steps: split, pull constants, match the dictionary.*
+
+**Prerequisites**: 13A (algebraic limits), 10A (exponents & logs), 11A (trig foundations)
 
 ---
 
-## Part A: What Is a Derivative?
+## Part A: What Is a Derivative — The Limit Definition
 
 ---
 
-## Example 1: The Limit Definition
-
-A derivative is **instantaneous slope** — the slope of the tangent line at a single point. You find it by shrinking the interval between two points to zero:
+## Example 1: The Limit Definition — Three Steps
 
 $f'(x) = \displaystyle \lim_{h\to 0}\frac{f(x+h)-f(x)}{h}$.
 
-For $f(x)=x^2$ at $x=3$:
+**Procedure for computing $f'(a)$ from the definition**:
 
-① Average rate: $\frac{f(3+h)-f(3)}{h} = \frac{(9+6h+h^2)-9}{h} = \frac{6h+h^2}{h} = 6+h$.
-② Send $h\to0$: $6+h \to 6$.
-③ $f'(3)=6$ — the slope of the tangent line at $x=3$.
+| Step | Action |
+|:---:|:---|
+| 1 | Write the difference quotient: $\frac{f(a+h)-f(a)}{h}$ |
+| 2 | Simplify algebraically — expand, cancel, factor out $h$ from numerator |
+| 3 | Take the limit as $h \to 0$ — plug $h=0$ into the simplified expression |
+
+$f(x)=x^2$ at $x=3$:
+1. $\frac{(3+h)^2 - 3^2}{h} = \frac{9+6h+h^2-9}{h} = \frac{6h+h^2}{h}$.
+2. Factor out $h$: $\frac{h(6+h)}{h} = 6+h$ (for $h \neq 0$).
+3. $\lim_{h\to 0}(6+h) = 6$. So $f'(3)=6$.
+
+$f'(a)$ = slope of the tangent line at $x=a$.
 
 ![Tangent line derivative](graphs/14a-tangent.png)
 
 ---
 
-## Part B: The Power Rule and Basic Derivatives
+## Part B: The Derivative Dictionary — Eight Forms to Memorize
+
+> **How to use this section**: When you see any of these forms, apply the rule immediately. No thinking — just pattern-match.
 
 ---
 
 ## Example 2: The Power Rule — $\frac{d}{dx}x^n = nx^{n-1}$
 
-Bring the exponent down as a coefficient, then subtract 1 from the exponent.
+**Procedure**: Bring the exponent down as a coefficient. Subtract 1 from the exponent.
 
-$\frac{d}{dx}x^5 = 5x^4$.
-$\frac{d}{dx}x^{100} = 100x^{99}$.
-$\frac{d}{dx}\sqrt{x} = \frac{d}{dx}x^{1/2} = \frac{1}{2}x^{-1/2} = \frac{1}{2\sqrt{x}}$.
-$\frac{d}{dx}\frac{1}{x^3} = \frac{d}{dx}x^{-3} = -3x^{-4} = -\frac{3}{x^4}$.
+| $f(x)$ | $f'(x)$ | Pattern |
+|:---|:---|:---|
+| $x^5$ | $5x^4$ | Exponent $5 \to$ coefficient, new exponent $4$ |
+| $x^{100}$ | $100x^{99}$ | Same rule — no exceptions for large powers |
+| $\sqrt{x} = x^{1/2}$ | $\frac{1}{2}x^{-1/2} = \frac{1}{2\sqrt{x}}$ | Fractional exponents work identically |
+| $\frac{1}{x^3} = x^{-3}$ | $-3x^{-4} = -\frac{3}{x^4}$ | Negative exponents work identically |
+| $x$ | $1\cdot x^0 = 1$ | $x^1 \to 1\cdot x^0 = 1$ |
+| $7$ (constant) | $0$ | $7 = 7x^0$, derivative = $0\cdot 7x^{-1} = 0$ |
 
-**Constant rule**: $\frac{d}{dx}7 = 0$. A flat line has zero slope.
-**Constant multiple**: $\frac{d}{dx}(5x^3) = 5\cdot 3x^2 = 15x^2$. The constant rides along.
+**The constant rule**: $\frac{d}{dx}c = 0$. A flat line has zero slope everywhere.
 
----
-
-## Example 3: Exponential and Logarithmic Derivatives
-
-$\frac{d}{dx}e^x = e^x$. **The only function that is its own derivative.**
-$\frac{d}{dx}e^{2x} = e^{2x}\cdot 2 = 2e^{2x}$ (chain rule — preview of 14B).
-
-$\frac{d}{dx}\ln x = \frac{1}{x}$ ($x>0$).
-$\frac{d}{dx}\ln(5x) = \frac{1}{5x}\cdot 5 = \frac{1}{x}$.
-
-$\frac{d}{dx}a^x = a^x\ln a$ ($a>0$). $\frac{d}{dx}2^x = 2^x\ln 2$.
-$\frac{d}{dx}\log_a x = \frac{1}{x\ln a}$.
+**The constant multiple rule**: $\frac{d}{dx}(c\cdot f(x)) = c\cdot f'(x)$. The constant rides along.
 
 ---
 
-## Example 4: Trigonometric Derivatives — A Cyclic Dance
+## Example 3: The Complete Derivative Dictionary
 
-$\frac{d}{dx}\sin x = \cos x$.
-$\frac{d}{dx}\cos x = -\sin x$. (Sign flips!)
-$\frac{d}{dx}\tan x = \sec^2 x$.
+| $f(x)$ | $f'(x)$ | Memory hook |
+|:---|:---|:---|
+| $x^n$ | $nx^{n-1}$ | Exponent down, subtract 1 |
+| $e^x$ | $e^x$ | The only function that is its own derivative |
+| $a^x$ | $a^x\ln a$ | Multiply by $\ln$ of the base |
+| $\ln x$ | $\frac{1}{x}$ | Reciprocal of $x$ (for $x>0$) |
+| $\log_a x$ | $\frac{1}{x\ln a}$ | $\frac{1}{x}$ divided by $\ln$ of base |
+| $\sin x$ | $\cos x$ | $\sin \to \cos$ (no sign change) |
+| $\cos x$ | $-\sin x$ | $\cos \to -\sin$ (sign FLIPS) |
+| $\tan x$ | $\sec^2 x$ | Also equals $1/\cos^2 x$ |
 
-The full set:
-$\frac{d}{dx}\csc x = -\csc x\cot x$.
-$\frac{d}{dx}\sec x = \sec x\tan x$.
-$\frac{d}{dx}\cot x = -\csc^2 x$.
+**Three-step procedure for any derivative**:
+1. **Split** at every $+$ or $-$: $(f \pm g)' = f' \pm g'$.
+2. **Pull** constants outside: $(cf)' = c \cdot f'$.
+3. **Match** each piece to the dictionary above.
 
-**Memory aid**: $\sin\to\cos$, $\cos\to-\sin$. Differentiate four times and you return to $\sin x$.
+---
+
+## Example 4: Applying the Three-Step Procedure
+
+$\frac{d}{dx}(3x^4 - 2x^2 + 5x - 7)$.
+
+| Step | Action | Result |
+|:---:|:---|:---|
+| 1 | Split | $3x^4$ derivative + $(-2x^2)$ derivative + $(5x)$ derivative + $(-7)$ derivative |
+| 2 | Pull constants | $3\cdot\frac{d}{dx}x^4 - 2\cdot\frac{d}{dx}x^2 + 5\cdot\frac{d}{dx}x - 7\cdot\frac{d}{dx}1$ |
+| 3 | Dictionary | $3(4x^3) - 2(2x) + 5(1) - 7(0) = 12x^3 - 4x + 5$ |
+
+$\frac{d}{dx}(2\sin x + e^x - \ln x)$:
+1. Split into three terms.
+2. No constants to pull (coefficients stay).
+3. Dictionary: $2\cos x + e^x - \frac{1}{x}$.
+
+---
+
+## Example 5: Exponentials and Logarithms — All Variants
+
+| Form | Derivative | Note |
+|:---|:---|:---|
+| $e^x$ | $e^x$ | Unchanged. The identity function of differentiation. |
+| $e^{kx}$ | $ke^{kx}$ | Preview of chain rule (14B). For now, treat as a pattern. |
+| $a^x$ | $a^x\ln a$ | $\ln a$ is just a constant multiplier. |
+| $\ln x$ | $1/x$ | Domain: $x>0$. |
+| $\ln(kx)$ | $1/x$ | $\ln(kx) = \ln k + \ln x$, derivative of constant is 0. |
+
+$\frac{d}{dx}2^x = 2^x\ln 2$. $\frac{d}{dx}\log_3 x = \frac{1}{x\ln 3}$.
+
+---
+
+## Example 6: Trigonometric Derivatives — The Cyclic Pattern
+
+| $f(x)$ | $f'(x)$ | $f''(x)$ | $f'''(x)$ | $f^{(4)}(x)$ |
+|:---|:---|:---|:---|:---|
+| $\sin x$ | $\cos x$ | $-\sin x$ | $-\cos x$ | $\sin x$ (back!) |
+| $\cos x$ | $-\sin x$ | $-\cos x$ | $\sin x$ | $\cos x$ (back!) |
+
+**The cycle**: $\sin \to \cos \to -\sin \to -\cos \to \sin$. Four derivatives return you to the start.
 
 ![Derivative of sin is cos](graphs/14b-sin-derivative.png)
 
 ---
 
-## Example 5: Sum, Difference, and Constant Multiple Rules
+## Part C: The Tangent Line — From Derivative to Geometry
 
-Derivatives split across sums: $(f\pm g)' = f' \pm g'$.
+---
 
-$\frac{d}{dx}(3x^4 - 2x^2 + 5x - 7) = 12x^3 - 4x + 5$.
+## Example 7: Writing the Tangent Line Equation — Three Steps
 
-$\frac{d}{dx}(2\sin x + e^x - \ln x) = 2\cos x + e^x - \frac{1}{x}$.
+**Procedure**: Given $f(x)$ and a point $x=a$:
 
-> **Up to here**: Power rule (bring down exponent, subtract 1). $e^x$ stays $e^x$. $\ln x \to 1/x$.
-> $\sin \to \cos$, $\cos \to -\sin$, $\tan \to \sec^2$. Sums split apart.
+| Step | Action |
+|:---:|:---|
+| 1 | Compute $y_0 = f(a)$ — the point of tangency is $(a, f(a))$ |
+| 2 | Compute $m = f'(a)$ — the slope at that point |
+| 3 | Write $y - y_0 = m(x - a)$ — point-slope form |
+
+$f(x)=x^2+\ln x$ at $x=1$:
+1. $y_0 = f(1) = 1^2 + \ln 1 = 1 + 0 = 1$. Point: $(1,1)$.
+2. $f'(x) = 2x + \frac{1}{x}$. $m = f'(1) = 2 + 1 = 3$.
+3. $y - 1 = 3(x - 1)$ → $y = 3x - 2$.
+
+---
+
+## Example 8: Finding Horizontal Tangents
+
+**Procedure**: Set $f'(x)=0$ and solve for $x$.
+
+$f(x)=x^3-3x^2-9x+5$. $f'(x)=3x^2-6x-9 = 3(x^2-2x-3) = 3(x-3)(x+1)$.
+$f'(x)=0$ at $x=3$ and $x=-1$. These are the $x$-coordinates where the tangent is horizontal.
+
+> **Up to here**: Derivative = limit of difference quotient. Dictionary of 8 forms. Three-step procedure: split → pull constants → match dictionary. Tangent line: find point, find slope, write equation.
 
 ---
 
 ## Common Mistakes
 
-### Mistake 1: Forgetting the negative sign for $\cos x$
+### Mistake 1: Using the power rule on exponentials
 
-**Wrong**: $\frac{d}{dx}\cos x = \sin x$. **Right**: $\frac{d}{dx}\cos x = -\sin x$.
+**Wrong**: $\frac{d}{dx}e^x = xe^{x-1}$. **Right**: $\frac{d}{dx}e^x = e^x$. The power rule is ONLY for $x^n$ (variable base, constant exponent). $e^x$ has constant base, variable exponent — completely different.
 
-### Mistake 2: $\frac{d}{dx}e^x = xe^{x-1}$
+### Mistake 2: Forgetting the negative sign for $\cos x$
 
-**Wrong**: Using the power rule on an exponential. **Right**: $\frac{d}{dx}e^x = e^x$.
+**Wrong**: $\frac{d}{dx}\cos x = \sin x$. **Right**: $\frac{d}{dx}\cos x = -\sin x$. Differentiate twice and you'll see why — $\sin \to \cos \to -\sin \to -\cos \to \sin$.
 
-### Mistake 3: $\frac{d}{dx}\ln x = x\ln x$
+### Mistake 3: $\frac{d}{dx}\ln x = x\ln x$ or $\ln x$
 
-**Wrong**. **Right**: $\frac{d}{dx}\ln x = \frac{1}{x}$.
+**Wrong**: Confusing derivative with antiderivative. **Right**: $\frac{d}{dx}\ln x = \frac{1}{x}$. The derivative of $\ln x$ is simple; the integral of $\ln x$ is $x\ln x - x + C$ (Session 16B).
+
+### Mistake 4: Forgetting to set $f'(x)=0$ for horizontal tangents
+
+**Wrong**: "The minimum of $x^2$ is at $x=0$ because I can see it on the graph." **Right**: Set $f'(x)=2x=0 \to x=0$. The derivative locates extrema precisely, without guessing from a graph.
 
 ---
 
 ## What We Just Did
 
 ```
-(1) Derivative definition: f'(x) = lim_{h→0} [f(x+h)-f(x)]/h.
-(2) Power rule: d/dx(x^n) = n x^{n-1}. Works for any real n.
-(3) Exponential: d/dx(e^x)=e^x, d/dx(a^x)=a^x ln a.
-(4) Logarithmic: d/dx(ln x)=1/x.
-(5) Trig: d/dx(sin x)=cos x, d/dx(cos x)=-sin x, d/dx(tan x)=sec² x.
+(1) Limit definition: f'(a) = lim_{h→0} [f(a+h)−f(a)]/h.
+    Expand, cancel h, plug h=0.
+
+(2) Derivative dictionary (8 forms): xⁿ→nxⁿ⁻¹, eˣ→eˣ, ln x→1/x,
+    sin x→cos x, cos x→−sin x, tan x→sec²x.
+
+(3) Three-step procedure for any derivative:
+    Split at +/− → Pull constants out → Match each piece to the dictionary.
+
+(4) Tangent line: point (a,f(a)), slope f'(a), equation y−f(a)=f'(a)(x−a).
 ```
 
 ---
 
 ## Practice 1
 
-Use the limit definition: find $f'(2)$ for $f(x)=x^2+3x$.
+Use the limit definition to find $f'(2)$ for $f(x)=x^2+3x$.
 
 → Reference: **Example 1**
 
@@ -127,9 +205,9 @@ Use the limit definition: find $f'(2)$ for $f(x)=x^2+3x$.
 
 ## Practice 2
 
-Differentiate: $f(x)=4x^5 - 3x^3 + 2x - 1 + \frac{1}{x}$.
+Differentiate $f(x)=4x^5 - 3x^3 + 2x - 1 + \frac{1}{x}$. Use the 3-step procedure: split, pull constants, match dictionary.
 
-→ Reference: **Example 2, 5**
+→ Reference: **Example 2, 4**
 
 > Solutions: [Solutions](solutions/14A-solutions.md#practice-2)
 
@@ -137,9 +215,9 @@ Differentiate: $f(x)=4x^5 - 3x^3 + 2x - 1 + \frac{1}{x}$.
 
 ## Practice 3
 
-Differentiate: $g(x)=3e^x - 2\ln x + 5\sin x - \cos x$.
+Differentiate $g(x)=3e^x - 2\ln x + 5\sin x - \cos x$.
 
-→ Reference: **Example 3, 4, 5**
+→ Reference: **Example 3, 4, 6**
 
 > Solutions: [Solutions](solutions/14A-solutions.md#practice-3)
 
@@ -147,9 +225,9 @@ Differentiate: $g(x)=3e^x - 2\ln x + 5\sin x - \cos x$.
 
 ## Practice 4
 
-Differentiate: $h(x)=2^x + \log_3 x + \tan x$.
+Differentiate $h(x)=2^x + \log_3 x + \tan x$.
 
-→ Reference: **Example 3, 4**
+→ Reference: **Example 5, 6**
 
 > Solutions: [Solutions](solutions/14A-solutions.md#practice-4)
 
@@ -157,9 +235,9 @@ Differentiate: $h(x)=2^x + \log_3 x + \tan x$.
 
 ## Practice 5
 
-Find all $x$ where $f'(x)=0$ for $f(x)=x^3-3x^2-9x+5$.
+Find all $x$ where the tangent line to $f(x)=x^3-3x^2-9x+5$ is horizontal.
 
-→ Reference: **Example 2, 5**
+→ Reference: **Example 8**
 
 > Solutions: [Solutions](solutions/14A-solutions.md#practice-5)
 
@@ -167,9 +245,9 @@ Find all $x$ where $f'(x)=0$ for $f(x)=x^3-3x^2-9x+5$.
 
 ## Practice 6: Real Battle
 
-Find the equation of the tangent line to $f(x)=x^2+\ln x$ at $x=1$.
+Find the tangent line to $f(x)=x^2+\ln x$ at $x=1$. Write your answer in $y=mx+b$ form.
 
-→ Reference: **Example 1, 3**
+→ Reference: **Example 7**
 
 > Solutions: [Solutions](solutions/14A-solutions.md#practice-6)
 
@@ -177,25 +255,27 @@ Find the equation of the tangent line to $f(x)=x^2+\ln x$ at $x=1$.
 
 ## Basic Algebra Drill — Derivative Fundamentals (10 Problems)
 
-**D1.** $\frac{d}{dx}(7x^4)$. Use the power rule.
+> Run the 3-step procedure: split, pull constants, match dictionary.
 
-**D2.** $\frac{d}{dx}(-3x^{10})$. Power rule with negative coefficient.
+**D1.** $\frac{d}{dx}(7x^4)$. Power rule: exponent down, subtract 1.
 
-**D3.** $\frac{d}{dx}(\sqrt[3]{x})$. Write as $x^{1/3}$.
+**D2.** $\frac{d}{dx}(-3x^{10})$. Negative coefficient rides along.
 
-**D4.** $\frac{d}{dx}(5e^x)$. Constant multiple + exponential.
+**D3.** $\frac{d}{dx}(\sqrt[3]{x})$. Write as $x^{1/3}$ first.
 
-**D5.** $\frac{d}{dx}(4\ln x)$. Constant multiple + log.
+**D4.** $\frac{d}{dx}(5e^x)$. Constant multiple: 5 stays, $e^x \to e^x$.
 
-**D6.** $\frac{d}{dx}(3\sin x - 2\cos x)$. Trig derivatives.
+**D5.** $\frac{d}{dx}(4\ln x)$. Constant multiple: 4 stays, $\ln x \to 1/x$.
 
-**D7.** $\frac{d}{dx}(\tan x + \sec x)$. Trig derivatives.
+**D6.** $\frac{d}{dx}(3\sin x - 2\cos x)$. Split, constant multiple, dictionary.
 
-**D8.** $\frac{d}{dx}(2^x + \log_5 x)$. General exponential/log.
+**D7.** $\frac{d}{dx}(\tan x + \sec x)$. Dictionary: $\tan x \to \sec^2 x$, $\sec x \to \sec x\tan x$.
 
-**D9.** $\frac{d}{dx}\left(\frac{1}{x^4}\right)$. Write as $x^{-4}$.
+**D8.** $\frac{d}{dx}(2^x + \log_5 x)$. General forms: $a^x \to a^x\ln a$, $\log_a x \to 1/(x\ln a)$.
 
-**D10.** Find $f'(0)$ for $f(x)=x^3-2x^2+5x-1$.
+**D9.** $\frac{d}{dx}\left(\frac{1}{x^4}\right)$. Rewrite as $x^{-4}$, apply power rule.
+
+**D10.** Find $f'(0)$ for $f(x)=x^3-2x^2+5x-1$. Differentiate, then plug $x=0$.
 
 > Solutions: [Solutions](solutions/14A-solutions.md#basic-drill)
 
@@ -203,25 +283,27 @@ Find the equation of the tangent line to $f(x)=x^2+\ln x$ at $x=1$.
 
 ## Advanced Algebra Drill — Derivative Fundamentals (10 Problems)
 
-**A1.** Use the limit definition to prove $\frac{d}{dx}x^2 = 2x$.
+> Prove, connect, and extend the basic rules.
 
-**A2.** Find $a$ and $b$ so that $f(x)=ax^2+bx$ has $f'(1)=5$ and $f'(2)=9$.
+**A1.** Use the limit definition to prove $\frac{d}{dx}x^2 = 2x$. Show all three steps.
 
-**A3.** Differentiate $f(x)=\frac{x^3}{\sqrt{x}}$. Simplify first using exponent laws.
+**A2.** Find $a$ and $b$ so $f(x)=ax^2+bx$ has $f'(1)=5$ and $f'(2)=9$. Set up equations, solve.
 
-**A4.** Find the point on $y=x^2$ where the tangent line has slope 6.
+**A3.** Differentiate $f(x)=\frac{x^3}{\sqrt{x}}$. Simplify to $x^{5/2}$ first, then apply power rule.
 
-**A5.** Differentiate $f(x)=e^{x}\sin x$ (product rule preview — use the definition pattern or wait for 14B).
+**A4.** Find the point on $y=x^2$ where the tangent line has slope 6. Set $2x=6$.
 
-**A6.** Find the $x$-values where $f(x)=x^3-6x^2+9x$ has horizontal tangent lines.
+**A5.** Use the limit definition to find $f'(x)$ for $f(x)=\frac{1}{x}$. (Common denominator trick.)
 
-**A7.** Prove $\frac{d}{dx}\tan x = \sec^2 x$ using $\tan x = \frac{\sin x}{\cos x}$ and the quotient rule from 14B.
+**A6.** Find all $x$ where $f(x)=x^3-6x^2+9x$ has horizontal tangent lines. Factor $f'(x)$.
 
-**A8.** Differentiate $f(x)=\ln(x^2)$ in two ways: (a) using $\ln(x^2)=2\ln x$, (b) using the chain rule. Verify they agree.
+**A7.** Prove $\frac{d}{dx}\tan x = \sec^2 x$ using $\tan x = \frac{\sin x}{\cos x}$ and the quotient rule.
 
-**A9.** A function satisfies $f'(x)=f(x)$ for all $x$ and $f(0)=3$. What must $f(x)$ be? (Hint: which function is its own derivative?)
+**A8.** Differentiate $f(x)=\ln(x^2)$ two ways: (a) $\ln(x^2)=2\ln x \to 2/x$. (b) Chain rule. Compare.
 
-**A10.** Find the equation of the line tangent to $y=e^x$ that passes through the origin. (Hint: the line has slope $e^a$ at $x=a$ and passes through $(0,0)$.)
+**A9.** A function satisfies $f'(x)=f(x)$ for all $x$ and $f(0)=3$. What is $f(x)$? (Which function equals its own derivative?)
+
+**A10.** Find the tangent line to $y=e^x$ that passes through the origin $(0,0)$. The line has slope $e^a$, passes through $(a,e^a)$ and $(0,0)$. Solve for $a$.
 
 > Solutions: [Solutions](solutions/14A-solutions.md#advanced-drill)
 
@@ -229,26 +311,28 @@ Find the equation of the tangent line to $f(x)=x^2+\ln x$ at $x=1$.
 
 ## Today's Procedure
 
-```
-Step 1: Memorize the five basic derivative families —
-    Power: x^n → n x^{n-1}
-    Exponential: e^x → e^x, a^x → a^x ln a
-    Log: ln x → 1/x
-    Trig: sin→cos, cos→-sin, tan→sec²
-    Constants and sums split apart.
-
-Step 2: The limit definition f'(x)=lim(f(x+h)-f(x))/h is the foundation.
-    Every derivative rule can be proven from it.
-```
+| When you see... | Do this... |
+|:---|:---|
+| $x^n$ (any $n \neq 0$) | Power rule: $nx^{n-1}$ |
+| $e^x$ | Unchanged: $e^x$ |
+| $a^x$ | Multiply by $\ln a$: $a^x\ln a$ |
+| $\ln x$ | Reciprocal: $1/x$ |
+| $\sin x$, $\cos x$, $\tan x$ | Dictionary: $\cos x$, $-\sin x$, $\sec^2 x$ |
+| Sum/difference of functions | Split at $+/-$, differentiate each |
+| Constant times a function | Pull the constant out |
+| Need slope at $x=a$ | Compute $f'(a)$ |
+| Need tangent line at $x=a$ | Point $(a,f(a))$, slope $f'(a)$, equation $y-f(a)=f'(a)(x-a)$ |
+| Need horizontal tangents | Set $f'(x)=0$, solve for $x$ |
 
 ---
 
 ## Terminology
 
 | What we call it | Math term | Notation |
-|:---------------:|:---------:|:--------:|
+|:---:|:---:|:---:|
 | instantaneous slope | derivative | $f'(x)$, $\frac{dy}{dx}$ |
-| limit definition | difference quotient limit | $\lim_{h\to0}\frac{f(x+h)-f(x)}{h}$ |
-| power rule | power rule | $\frac{d}{dx}x^n = nx^{n-1}$ |
-| its own derivative | exponential invariance | $\frac{d}{dx}e^x=e^x$ |
-| tangent line | tangent line | $y-f(a)=f'(a)(x-a)$ |
+| limit of difference quotient | derivative definition | $\lim_{h\to0}\frac{f(x+h)-f(x)}{h}$ |
+| exponent down, subtract 1 | power rule | $\frac{d}{dx}x^n = nx^{n-1}$ |
+| its own derivative | exponential invariance | $\frac{d}{dx}e^x = e^x$ |
+| touch at one point | tangent line | $y-f(a)=f'(a)(x-a)$ |
+| slope equals zero | horizontal tangent | $f'(x)=0$ |

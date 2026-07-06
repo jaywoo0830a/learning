@@ -2,185 +2,354 @@
 
 **Phase 2 — Classical Techniques | 80 min**
 
-*Prerequisites: 14A (basic derivatives), 10A (exponents & logs), 11A (trig)*
+*Simple functions differentiate with a dictionary lookup. Products, quotients, and nested functions need rules. This session gives you a decision tree: identify the structure, apply the matching procedure. By the end, you can differentiate anything built from elementary functions.*
+
+**Prerequisites**: 14A (basic derivative dictionary), 10A (exponents & logs), 11A (trig)
 
 ---
 
-## Part A: The Three Pillars — Product, Quotient, Chain
+## The Differentiation Decision Tree
+
+> **Before you start**, identify the outermost structure. Match it to a procedure.
+
+```
+Look at the function. What is the LAST operation you would perform when evaluating?
+
+1. Is it f ± g?                  → Split and differentiate each piece (14A)
+2. Is it f × g (product)?        → PRODUCT RULE (14B-A)
+3. Is it f ÷ g (quotient)?       → QUOTIENT RULE (14B-A)
+4. Is it f(g(x)) (composition)?  → CHAIN RULE (14B-B)
+5. Are x and y mixed together?   → IMPLICIT DIFFERENTIATION (14B-C)
+6. Is it f(x)^{g(x)}?            → LOGARITHMIC DIFFERENTIATION (14B-C)
+7. Is it parametric (x(t),y(t))? → PARAMETRIC: dy/dx = (dy/dt)/(dx/dt) (14B-D)
+```
+
+---
+
+## Part A: Product and Quotient — Multiplication and Division
 
 ---
 
 ## Example 1: Product Rule — $(fg)' = f'g + fg'$
 
-Two functions multiplied: differentiate one at a time, leave the other alone, then add.
+**Procedure**:
+
+| Step | Action |
+|:---:|:---|
+| 1 | Identify the **two factors**: $f(x)$ and $g(x)$ |
+| 2 | Differentiate the **first**: $f'(x)$. Leave the second alone. |
+| 3 | Differentiate the **second**: $g'(x)$. Leave the first alone. |
+| 4 | **Add** the two products: $f'(x)g(x) + f(x)g'(x)$ |
+| 5 | Simplify — factor common terms if possible |
 
 **Memory**: "First derivative × second + first × second derivative."
 
-$f(x)=x^2\sin x$.
+$\frac{d}{dx}(x^2\sin x)$:
 
-① $f'=2x$, $g'=\cos x$.
-② $(fg)' = 2x\cdot\sin x + x^2\cdot\cos x = 2x\sin x + x^2\cos x$.
+| Step | Action |
+|:---:|:---|
+| 1 | $f=x^2$, $g=\sin x$ |
+| 2 | $f'=2x$ |
+| 3 | $g'=\cos x$ |
+| 4 | $2x\cdot\sin x + x^2\cdot\cos x = 2x\sin x + x^2\cos x$ |
 
-$(x^3+1)e^x$: $= 3x^2e^x + (x^3+1)e^x = e^x(x^3+3x^2+1)$.
+**Triple product**: $(fgh)' = f'gh + fg'h + fgh'$. Pattern: differentiate one factor at a time.
 
-**Product of three**: $(fgh)' = f'gh + fg'h + fgh'$.
+$\frac{d}{dx}(x e^x \sin x) = 1\cdot e^x\sin x + x\cdot e^x\sin x + x e^x\cdot\cos x = e^x(\sin x + x\sin x + x\cos x)$.
 
 ---
 
 ## Example 2: Quotient Rule — $(f/g)' = \frac{f'g - fg'}{g^2}$
 
+**Procedure**:
+
+| Step | Action |
+|:---:|:---|
+| 1 | Identify **top** $f(x)$ and **bottom** $g(x)$ |
+| 2 | Differentiate top: $f'(x)$. Differentiate bottom: $g'(x)$ |
+| 3 | Assemble numerator: $f'(x)g(x) - f(x)g'(x)$ (top derivative FIRST) |
+| 4 | Denominator: $[g(x)]^2$ |
+| 5 | Simplify algebraically — expand, cancel, factor |
+
 **Memory**: "Low d-high minus high d-low, over low squared."
 
-$f(x)=\frac{x^2}{x+1}$.
+$\frac{d}{dx}\frac{x^2}{x+1}$:
 
-① $f'=2x$, $g'=1$.
-② $\frac{2x(x+1) - x^2(1)}{(x+1)^2} = \frac{2x^2+2x-x^2}{(x+1)^2} = \frac{x^2+2x}{(x+1)^2}$.
-
-**Proof of $\frac{d}{dx}\tan x$**:
-$\tan x = \frac{\sin x}{\cos x}$. Quotient rule:
-$\frac{\cos x\cdot\cos x - \sin x\cdot(-\sin x)}{\cos^2 x} = \frac{\cos^2 x + \sin^2 x}{\cos^2 x} = \frac{1}{\cos^2 x} = \sec^2 x$. ✓
+| Step | Action |
+|:---:|:---|
+| 1 | $f=x^2$ (top), $g=x+1$ (bottom) |
+| 2 | $f'=2x$, $g'=1$ |
+| 3 | Numerator: $2x(x+1) - x^2(1) = 2x^2+2x - x^2 = x^2+2x$ |
+| 4 | Denominator: $(x+1)^2$ |
+| 5 | $\frac{x^2+2x}{(x+1)^2} = \frac{x(x+2)}{(x+1)^2}$ |
 
 ---
 
-## Example 3: Chain Rule — $(f(g(x)))' = f'(g(x))\cdot g'(x)$
+## Example 3: Product vs. Quotient — The Decision
 
-**The most powerful differentiation tool.** When a function is nested inside another, differentiate the outside (evaluated at the inside), then multiply by the derivative of the inside.
+| If... | Use... | Because... |
+|:---|:---|:---|
+| Two factors multiplied | Product rule | $(fg)' = f'g + fg'$ |
+| A fraction | Quotient rule | $(f/g)' = (f'g-fg')/g^2$ |
+| A fraction where bottom is simple ($x^n$) | Rewrite as $f \cdot x^{-n}$, use product rule | Often faster — avoids quotient rule algebra |
+
+$\frac{d}{dx}\frac{\sin x}{x}$: Use quotient rule. $f=\sin x$, $g=x$. $\frac{\cos x\cdot x - \sin x\cdot 1}{x^2} = \frac{x\cos x - \sin x}{x^2}$.
+
+$\frac{d}{dx}\frac{3}{x^2}$: Rewrite as $3x^{-2}$. Power rule: $-6x^{-3} = -\frac{6}{x^3}$. Faster than quotient rule.
+
+---
+
+## Part B: The Chain Rule — Differentiating Nested Functions
+
+> **The most important rule in all of calculus.** When one function is inside another, differentiate layer by layer from outside in.
+
+---
+
+## Example 4: The Chain Rule Algorithm — Peel the Onion
+
+**Procedure for $(f \circ g)(x) = f(g(x))$**:
+
+| Step | Action |
+|:---:|:---|
+| 1 | Identify the **outer function** $f$ (the last thing you'd evaluate) |
+| 2 | Identify the **inner function** $g$ (inside the parentheses, root, exponent, etc.) |
+| 3 | Differentiate the **outer**: $f'(\text{leave inside untouched})$ |
+| 4 | Multiply by the derivative of the **inner**: $g'(x)$ |
 
 **Memory**: "Derivative of outside × derivative of inside."
 
+---
+
+## Example 5: Basic Chain Rule — One Layer
+
 $\frac{d}{dx}(x^2+1)^5$:
-① Outside: $5(x^2+1)^4$. ② Inside: $2x$.
-→ $5(x^2+1)^4\cdot 2x = 10x(x^2+1)^4$.
 
-$\frac{d}{dx}\sin(x^3) = \cos(x^3)\cdot 3x^2$.
+| Step | Action |
+|:---:|:---|
+| 1 | Outer: $(\square)^5 \to$ power rule on the outside |
+| 2 | Inner: $\square = x^2+1$ |
+| 3 | Outer derivative: $5(x^2+1)^4$ (bring 5 down, leave inside untouched) |
+| 4 | Inner derivative: $2x$. Multiply: $5(x^2+1)^4 \cdot 2x = 10x(x^2+1)^4$ |
 
-$\frac{d}{dx}e^{\sin x} = e^{\sin x}\cdot\cos x$.
+$\frac{d}{dx}\sin(x^3)$: Outer = $\sin(\square) \to \cos(\square)$. Inner = $x^3 \to 3x^2$. Result: $\cos(x^3)\cdot 3x^2 = 3x^2\cos(x^3)$.
 
-$\frac{d}{dx}\ln(\cos x) = \frac{1}{\cos x}\cdot(-\sin x) = -\tan x$.
+$\frac{d}{dx}e^{\sin x}$: Outer = $e^{\square} \to e^{\square}$. Inner = $\sin x \to \cos x$. Result: $e^{\sin x}\cos x$.
+
+$\frac{d}{dx}\ln(\cos x)$: Outer = $\ln(\square) \to 1/\square$. Inner = $\cos x \to -\sin x$. Result: $\frac{1}{\cos x}\cdot(-\sin x) = -\tan x$.
 
 ---
 
-## Example 4: Nested Chain — Three or More Layers
+## Example 6: Nested Chain — Two or Three Layers
 
-Peel the onion one layer at a time, from outside in.
+**Procedure for multiple layers**: Peel from outermost to innermost, writing each derivative in a chain. Multiply them all together.
 
 $\frac{d}{dx}\sin(e^{x^2})$:
-① Outside: $\cos(e^{x^2})$.
-② Middle: $e^{x^2}$.
-③ Inside: $2x$.
-→ $\cos(e^{x^2})\cdot e^{x^2}\cdot 2x = 2x e^{x^2}\cos(e^{x^2})$.
 
-$\frac{d}{dx}\sqrt{\ln(\sin x)} = \frac{1}{2\sqrt{\ln(\sin x)}}\cdot\frac{1}{\sin x}\cdot\cos x = \frac{\cot x}{2\sqrt{\ln(\sin x)}}$.
+| Layer | Function | Derivative |
+|:---:|:---|:---|
+| Outermost | $\sin(\square)$ | $\cos(e^{x^2})$ |
+| Middle | $e^{\square}$ | $e^{x^2}$ |
+| Innermost | $x^2$ | $2x$ |
+
+Multiply all three: $\cos(e^{x^2}) \cdot e^{x^2} \cdot 2x = 2x e^{x^2}\cos(e^{x^2})$.
+
+$\frac{d}{dx}\sqrt{\ln(\sin x)}$:
+
+| Layer | Derivative |
+|:---|:---|
+| $\sqrt{\square} = (\square)^{1/2}$ | $\frac{1}{2}(\ln(\sin x))^{-1/2}$ |
+| $\ln(\square)$ | $\frac{1}{\sin x}$ |
+| $\sin x$ | $\cos x$ |
+
+Multiply: $\frac{1}{2\sqrt{\ln(\sin x)}} \cdot \frac{1}{\sin x} \cdot \cos x = \frac{\cot x}{2\sqrt{\ln(\sin x)}}$.
 
 ---
 
-## Part B: Implicit, Logarithmic, and Parametric Differentiation
+## Example 7: Chain Rule Quick Reference
+
+| Outer form | Outer derivative | Example |
+|:---|:---|:---|
+| $(\square)^n$ | $n(\square)^{n-1}$ | $(x^3+1)^4 \to 4(x^3+1)^3\cdot 3x^2$ |
+| $\sin(\square)$ | $\cos(\square)$ | $\sin(5x) \to \cos(5x)\cdot 5$ |
+| $\cos(\square)$ | $-\sin(\square)$ | $\cos(x^2) \to -\sin(x^2)\cdot 2x$ |
+| $e^{\square}$ | $e^{\square}$ | $e^{3x} \to e^{3x}\cdot 3$ |
+| $\ln(\square)$ | $1/\square$ | $\ln(x^2+1) \to \frac{1}{x^2+1}\cdot 2x$ |
+| $\tan(\square)$ | $\sec^2(\square)$ | $\tan(x^3) \to \sec^2(x^3)\cdot 3x^2$ |
 
 ---
 
-## Example 5: Implicit Differentiation — $y$ Is Hiding
+## Part C: Implicit and Logarithmic Differentiation
 
-When $x$ and $y$ are mixed together (like $x^2+y^2=25$), treat $y$ as a function of $x$. Differentiate both sides with respect to $x$, and **multiply by $\frac{dy}{dx}$ whenever you differentiate $y$**.
+---
+
+## Example 8: Implicit Differentiation — When $y$ Is Hidden
+
+**Trigger**: $x$ and $y$ are mixed together in an equation (not $y=$ something).
+
+**Procedure**:
+
+| Step | Action |
+|:---:|:---|
+| 1 | Differentiate **both sides** with respect to $x$ |
+| 2 | Whenever you differentiate a $y$-term, **multiply by $\frac{dy}{dx}$** (treat $y$ as a function of $x$) |
+| 3 | **Collect** all terms with $\frac{dy}{dx}$ on one side, everything else on the other |
+| 4 | **Factor out** $\frac{dy}{dx}$, then **solve** for it |
 
 $x^2 + y^2 = 25$. Find $\frac{dy}{dx}$.
 
-① $2x + 2y\cdot\frac{dy}{dx} = 0$.
-② $2y\frac{dy}{dx} = -2x$ → $\frac{dy}{dx} = -\frac{x}{y}$.
+| Step | Action |
+|:---:|:---|
+| 1 | $\frac{d}{dx}(x^2) + \frac{d}{dx}(y^2) = \frac{d}{dx}(25)$ |
+| 2 | $2x + 2y\frac{dy}{dx} = 0$ (the $y^2$ needs $\frac{dy}{dx}$!) |
+| 3 | $2y\frac{dy}{dx} = -2x$ |
+| 4 | $\frac{dy}{dx} = -\frac{x}{y}$ |
 
-$x^3 + y^3 = 6xy$ at $(3,3)$:
-① $3x^2 + 3y^2\frac{dy}{dx} = 6y + 6x\frac{dy}{dx}$.
-② Group $\frac{dy}{dx}$ terms: $3y^2\frac{dy}{dx}-6x\frac{dy}{dx} = 6y-3x^2$.
-③ $\frac{dy}{dx} = \frac{6y-3x^2}{3y^2-6x}$.
-④ At $(3,3)$: $\frac{18-27}{27-18} = -1$.
+**Check**: At $(3,4)$ on the circle, slope = $-3/4$. The tangent is perpendicular to the radius (slope $4/3$). Product of slopes = $-1$ ✓.
 
 ---
 
-## Example 6: Logarithmic Differentiation — $x^x$ and Friends
+## Example 9: Implicit with Product — $x$ and $y$ Multiplied
 
-When both base and exponent are functions of $x$, take $\ln$ of both sides first.
+$x^3 + y^3 = 6xy$ at $(3,3)$. Find $\frac{dy}{dx}$.
 
-$y = x^x$.
+1. $\frac{d}{dx}(x^3) + \frac{d}{dx}(y^3) = \frac{d}{dx}(6xy)$.
+2. $3x^2 + 3y^2\frac{dy}{dx} = 6(y + x\frac{dy}{dx})$. (Right side needs product rule on $xy$!)
+3. $3x^2 + 3y^2\frac{dy}{dx} = 6y + 6x\frac{dy}{dx}$.
+4. $3y^2\frac{dy}{dx} - 6x\frac{dy}{dx} = 6y - 3x^2$.
+5. $\frac{dy}{dx}(3y^2-6x) = 6y-3x^2$ → $\frac{dy}{dx} = \frac{6y-3x^2}{3y^2-6x}$.
+6. At $(3,3)$: $\frac{18-27}{27-18} = -1$.
 
-① $\ln y = x\ln x$.
-② Differentiate: $\frac{1}{y}\frac{dy}{dx} = \ln x + x\cdot\frac{1}{x} = \ln x + 1$.
-③ $\frac{dy}{dx} = x^x(\ln x + 1)$.
+---
+
+## Example 10: Logarithmic Differentiation — $x^x$ and Friends
+
+**Trigger**: Both base AND exponent contain $x$ (e.g., $x^x$, $(\sin x)^{\cos x}$, $(x^2+1)^x$).
+
+**Procedure**:
+
+| Step | Action |
+|:---:|:---|
+| 1 | Set $y = f(x)$. Take $\ln$ of **both sides**: $\ln y = \ln(f(x))$ |
+| 2 | Use log laws to **simplify** the right side: $\ln(a^b) = b\ln a$ |
+| 3 | Differentiate **both sides** with respect to $x$. Left side: $\frac{1}{y}\frac{dy}{dx}$. Right side: use product/chain as needed |
+| 4 | **Multiply** both sides by $y$ to isolate $\frac{dy}{dx}$ |
+| 5 | **Replace** $y$ with the original $f(x)$ |
+
+$y = x^x$:
+
+| Step | Action |
+|:---:|:---|
+| 1,2 | $\ln y = x\ln x$ |
+| 3 | $\frac{1}{y}\frac{dy}{dx} = \ln x + x\cdot\frac{1}{x} = \ln x + 1$ |
+| 4,5 | $\frac{dy}{dx} = x^x(\ln x + 1)$ |
 
 $y = (x^2+1)^{\sin x}$:
-① $\ln y = \sin x\cdot\ln(x^2+1)$.
-② $\frac{y'}{y} = \cos x\ln(x^2+1) + \sin x\cdot\frac{2x}{x^2+1}$.
-③ $y' = (x^2+1)^{\sin x}\left[\cos x\ln(x^2+1) + \frac{2x\sin x}{x^2+1}\right]$.
+
+1,2. $\ln y = \sin x \cdot \ln(x^2+1)$.
+3. $\frac{y'}{y} = \cos x\ln(x^2+1) + \sin x \cdot \frac{2x}{x^2+1}$.
+4,5. $y' = (x^2+1)^{\sin x}\left[\cos x\ln(x^2+1) + \frac{2x\sin x}{x^2+1}\right]$.
 
 ---
 
-## Example 7: Inverse Function Derivative
-
-If $y=f(x)$, then $(f^{-1})'(y) = \frac{1}{f'(x)}$.
-
-$f(x)=x^3+x$. $f(1)=2$. Find $(f^{-1})'(2)$.
-$f'(x)=3x^2+1$, $f'(1)=4$. $(f^{-1})'(2) = \frac{1}{4}$.
+## Part D: Parametric and Inverse Function Derivatives
 
 ---
 
-## Example 8: Parametric Differentiation
+## Example 11: Parametric — $\frac{dy}{dx} = \frac{dy/dt}{dx/dt}$
 
-$x=x(t)$, $y=y(t)$: $\displaystyle \frac{dy}{dx} = \frac{dy/dt}{dx/dt}$.
+**Trigger**: $x$ and $y$ are given as functions of a third variable $t$.
+
+**Procedure**:
+1. Differentiate $y(t)$ with respect to $t$ → $dy/dt$.
+2. Differentiate $x(t)$ with respect to $t$ → $dx/dt$.
+3. Divide: $\frac{dy}{dx} = \frac{dy/dt}{dx/dt}$.
 
 $x=t^2$, $y=t^3$: $\frac{dy}{dx} = \frac{3t^2}{2t} = \frac{3t}{2}$.
 
-$x=\cos t$, $y=\sin t$ at $t=\pi/4$: $\frac{dy}{dx} = \frac{\cos t}{-\sin t} = -\cot t \to -1$.
+$x=\cos t$, $y=\sin t$ at $t=\pi/4$: $\frac{dy}{dx} = \frac{\cos t}{-\sin t} = -\cot t$. At $t=\pi/4$: $-1$.
 
 ---
 
-## Part C: Special Function Derivatives
+## Example 12: Inverse Function Derivative
+
+If $y=f(x)$ and $f$ is invertible: $(f^{-1})'(y) = \frac{1}{f'(x)}$ where $y=f(x)$.
+
+**Procedure**: To find $(f^{-1})'(b)$:
+1. Solve $f(a)=b$ to find $a$.
+2. Compute $f'(a)$.
+3. Answer = $1/f'(a)$.
+
+$f(x)=x^3+x$. Find $(f^{-1})'(2)$.
+
+1. $f(1)=1^3+1=2$, so $a=1$.
+2. $f'(x)=3x^2+1$, $f'(1)=4$.
+3. $(f^{-1})'(2) = 1/4$.
 
 ---
 
-## Example 9: Inverse Trig Functions
+## Example 13: Inverse Trig Derivatives — Quick Reference
 
-$\frac{d}{dx}\arcsin x = \frac{1}{\sqrt{1-x^2}}$ ($|x|<1$).
-$\frac{d}{dx}\arccos x = -\frac{1}{\sqrt{1-x^2}}$ ($|x|<1$).
-$\frac{d}{dx}\arctan x = \frac{1}{1+x^2}$.
+| $f(x)$ | $f'(x)$ | Domain |
+|:---|:---|:---|
+| $\arcsin x$ | $\frac{1}{\sqrt{1-x^2}}$ | $\vert x\vert < 1$ |
+| $\arccos x$ | $-\frac{1}{\sqrt{1-x^2}}$ | $\vert x\vert < 1$ |
+| $\arctan x$ | $\frac{1}{1+x^2}$ | all real $x$ |
 
-$\frac{d}{dx}\arcsin(2x) = \frac{2}{\sqrt{1-4x^2}}$.
-$\frac{d}{dx}\arctan(x^2) = \frac{2x}{1+x^4}$.
+Combined with chain rule: $\frac{d}{dx}\arcsin(2x) = \frac{2}{\sqrt{1-4x^2}}$. $\frac{d}{dx}\arctan(x^2) = \frac{2x}{1+x^4}$.
 
 ---
 
-## Example 10: Absolute Value and Piecewise Functions
+## Example 14: Absolute Value and Piecewise — Check the Break Points
 
-$|x|$: $f'(x)=1$ for $x>0$, $f'(x)=-1$ for $x<0$, undefined at $x=0$.
+$|x|$: $f'(x)=1$ for $x>0$, $f'(x)=-1$ for $x<0$, **undefined** at $x=0$ (corner).
 
-$|x^2-1|$: $x<-1$ or $x>1$: $f'=2x$. $-1<x<1$: $f'=-2x$. Non-differentiable at $x=\pm1$.
+$|x^2-1|$: Breaks where $x^2-1=0 \to x=\pm1$.
+- $x<-1$ or $x>1$: $f(x)=x^2-1$, $f'(x)=2x$.
+- $-1<x<1$: $f(x)=1-x^2$, $f'(x)=-2x$.
+- Non-differentiable at $x=\pm1$ (kinks).
 
-> **Up to here**: Product = $f'g+fg'$. Quotient = $(f'g-fg')/g^2$. Chain = outside'×inside'.
-> Implicit: differentiate both sides, multiply $\frac{dy}{dx}$ for every $y$.
-> Log-diff: take $\ln$ first. Parametric: $(dy/dt)/(dx/dt)$.
+> **Up to here**: Product = f'g+fg'. Quotient = (f'g−fg')/g². Chain = outside' × inside'. Implicit: differentiate both sides, attach dy/dx to y-terms, solve. Log-diff: take ln, simplify, differentiate, multiply by y. Parametric: dy/dx = (dy/dt)/(dx/dt).
 
 ---
 
 ## Common Mistakes
 
-### Mistake 1: Forgetting the chain rule's inside derivative
+### Mistake 1: Forgetting the chain rule's inner derivative
 
-**Wrong**: $\frac{d}{dx}\sin(x^2) = \cos(x^2)$. **Right**: $2x\cos(x^2)$.
+**Wrong**: $\frac{d}{dx}\sin(x^2) = \cos(x^2)$. **Right**: $\cos(x^2)\cdot 2x$. The chain rule is NOT optional — every composition needs the inner derivative.
 
-### Mistake 2: Swapping order in the quotient rule
+### Mistake 2: Swapping the order in the quotient rule numerator
 
-**Wrong**: $fg' - f'g$ in numerator. **Right**: $f'g - fg'$. "Derivative of top first."
+**Wrong**: $\frac{fg' - f'g}{g^2}$. **Right**: $\frac{f'g - fg'}{g^2}$. "Derivative of the TOP first." Check: $\frac{d}{dx}\frac{1}{x} = \frac{0\cdot x - 1\cdot 1}{x^2} = -\frac{1}{x^2} = -x^{-2}$. Power rule gives the same ✓.
 
 ### Mistake 3: Dropping $\frac{dy}{dx}$ in implicit differentiation
 
-**Wrong**: Differentiating $y^2$ as $2y$ with no $\frac{dy}{dx}$. **Right**: $2y\frac{dy}{dx}$.
+**Wrong**: Differentiating $y^2$ as $2y$ with no $\frac{dy}{dx}$. **Right**: $\frac{d}{dx}(y^2) = 2y\frac{dy}{dx}$. $y$ is a function of $x$, not a variable.
+
+### Mistake 4: Using log-diff when a simpler rule works
+
+**Wrong**: Log-diff on $y=x^2\sin x$. **Right**: Product rule — faster and less error-prone. Log-diff is specifically for $f(x)^{g(x)}$ forms.
+
+### Mistake 5: Product rule on a constant times a function
+
+**Wrong**: $\frac{d}{dx}(5\sin x) = 0\cdot\sin x + 5\cdot\cos x$. **Right**: Pull the constant out: $5\cdot\frac{d}{dx}\sin x = 5\cos x$. The product rule works but is overkill.
 
 ---
 
 ## What We Just Did
 
 ```
-(1) Product rule: (fg)' = f'g + fg'. Quotient rule: (f/g)' = (f'g-fg')/g².
+(1) Product rule: (fg)' = f'g + fg'. Quotient: (f/g)' = (f'g−fg')/g².
+    Decision: two factors→product. Fraction→quotient. Simple denominator→rewrite as x⁻ⁿ.
+
 (2) Chain rule: (f(g(x)))' = f'(g(x))·g'(x). Peel from outside in.
-(3) Implicit diff: differentiate both sides, multiply dy/dx for y terms.
-(4) Log-diff: take ln, then differentiate. Solves x^x and f(x)^g(x).
+    Multiple layers: write the derivative chain, multiply all layers.
+
+(3) Implicit: differentiate both sides w.r.t. x. Attach dy/dx to every y-term.
+    Collect dy/dx terms, factor, solve. Product rule applies to xy terms.
+
+(4) Log-diff: y=f(x)^g(x) → ln y = g(x)·ln(f(x)). Differentiate, multiply by y.
+
 (5) Parametric: dy/dx = (dy/dt)/(dx/dt). Inverse: (f⁻¹)'(y) = 1/f'(x).
 ```
 
@@ -188,85 +357,75 @@ $|x^2-1|$: $x<-1$ or $x>1$: $f'=2x$. $-1<x<1$: $f'=-2x$. Non-differentiable at $
 
 ## Practice 1
 
-Differentiate: $f(x)=x^3\cos x$. Product rule.
+$f(x)=x^3\cos x$. Run the product rule: $f=x^3$, $g=\cos x$. $f'=$?, $g'=$?, assemble.
 
-→ Reference: **Example 1**
-
-> Solutions: [Solutions](solutions/14B-solutions.md#practice-1)
+→ Solutions: [Solutions](solutions/14B-solutions.md#practice-1)
 
 ---
 
 ## Practice 2
 
-Differentiate: $g(x)=\frac{e^x}{x^2+1}$. Quotient rule.
+$g(x)=\frac{e^x}{x^2+1}$. Run the quotient rule: top=$e^x$, bottom=$x^2+1$. Assemble numerator carefully.
 
-→ Reference: **Example 2**
-
-> Solutions: [Solutions](solutions/14B-solutions.md#practice-2)
+→ Solutions: [Solutions](solutions/14B-solutions.md#practice-2)
 
 ---
 
 ## Practice 3
 
-Differentiate: $h(x)=\ln(\sin(x^2))$. Chain rule (3 layers).
+$h(x)=\ln(\sin(x^2))$. Chain rule: how many layers? Peel from outside in. Multiply the chain.
 
-→ Reference: **Example 4**
-
-> Solutions: [Solutions](solutions/14B-solutions.md#practice-3)
+→ Solutions: [Solutions](solutions/14B-solutions.md#practice-3)
 
 ---
 
 ## Practice 4
 
-$x^2+xy+y^2=7$. Find $\frac{dy}{dx}$ at $(1,2)$. Implicit differentiation.
+$x^2+xy+y^2=7$. Find $\frac{dy}{dx}$ at $(1,2)$. Implicit: remember product rule on $xy$.
 
-→ Reference: **Example 5**
-
-> Solutions: [Solutions](solutions/14B-solutions.md#practice-4)
+→ Solutions: [Solutions](solutions/14B-solutions.md#practice-4)
 
 ---
 
 ## Practice 5
 
-Differentiate: $y=(\cos x)^{\sin x}$. Logarithmic differentiation.
+$y=(\cos x)^{\sin x}$. Log-diff: take $\ln$, simplify, differentiate, solve for $y'$.
 
-→ Reference: **Example 6**
-
-> Solutions: [Solutions](solutions/14B-solutions.md#practice-5)
+→ Solutions: [Solutions](solutions/14B-solutions.md#practice-5)
 
 ---
 
 ## Practice 6: Real Battle
 
-$x=2t-t^2$, $y=3t^2-t^3$. Find $\frac{dy}{dx}$ at $t=1$ and the tangent line equation.
+$x=2t-t^2$, $y=3t^2-t^3$. Find $\frac{dy}{dx}$ at $t=1$ and the equation of the tangent line.
 
-→ Reference: **Example 8**
-
-> Solutions: [Solutions](solutions/14B-solutions.md#practice-6)
+→ Solutions: [Solutions](solutions/14B-solutions.md#practice-6)
 
 ---
 
 ## Basic Algebra Drill — Advanced Differentiation (10 Problems)
 
-**D1.** $\frac{d}{dx}(x^2e^x)$. Product rule.
+> Identify the structure. Apply the matching procedure.
 
-**D2.** $\frac{d}{dx}\left(\frac{\sin x}{x}\right)$. Quotient rule.
+**D1.** $\frac{d}{dx}(x^2e^x)$. Product rule: $f=x^2$, $g=e^x$.
 
-**D3.** $\frac{d}{dx}((3x+2)^6)$. Chain rule.
+**D2.** $\frac{d}{dx}\left(\frac{\sin x}{x}\right)$. Quotient rule: top=$\sin x$, bottom=$x$.
 
-**D4.** $\frac{d}{dx}\cos(5x)$. Chain rule.
+**D3.** $\frac{d}{dx}((3x+2)^6)$. Chain rule: outer=$(\square)^6$, inner=$3x+2$.
 
-**D5.** $\frac{d}{dx}\ln(x^2+1)$. Chain rule.
+**D4.** $\frac{d}{dx}\cos(5x)$. Chain rule: outer=$\cos(\square)$, inner=$5x$.
 
-**D6.** $\frac{d}{dx}\arcsin(3x)$. Inverse trig.
+**D5.** $\frac{d}{dx}\ln(x^2+1)$. Chain rule: outer=$\ln(\square)$, inner=$x^2+1$.
 
-**D7.** $\frac{d}{dx}\arctan(\sqrt{x})$. Inverse trig + chain.
+**D6.** $\frac{d}{dx}\arcsin(3x)$. Inverse trig + chain: $\frac{1}{\sqrt{1-(3x)^2}}\cdot 3$.
 
-**D8.** $\frac{d}{dx}(x^2\sin x\cos x)$. Triple product.
+**D7.** $\frac{d}{dx}\arctan(\sqrt{x})$. Inverse trig + chain: inner=$\sqrt{x}$.
 
-**D9.** Find $\frac{dy}{dx}$ for $y^2+x^2y=4x$ using implicit differentiation.
+**D8.** $\frac{d}{dx}(x^2\sin x\cos x)$. Triple product OR group two factors.
 
-**D10.** $x=e^{2t}$, $y=\ln t$. Find $\frac{dy}{dx}$. Parametric.
+**D9.** Find $\frac{dy}{dx}$ for $y^2+x^2y=4x$. Implicit with product rule on $x^2y$.
+
+**D10.** $x=e^{2t}$, $y=\ln t$. Find $\frac{dy}{dx}$. Parametric: $dy/dt \div dx/dt$.
 
 > Solutions: [Solutions](solutions/14B-solutions.md#basic-drill)
 
@@ -274,25 +433,27 @@ $x=2t-t^2$, $y=3t^2-t^3$. Find $\frac{dy}{dx}$ at $t=1$ and the tangent line equ
 
 ## Advanced Algebra Drill — Advanced Differentiation (10 Problems)
 
-**A1.** Differentiate $f(x)=x^x$ two ways: (a) logarithmic differentiation, (b) write $x^x=e^{x\ln x}$ and use chain rule. Verify they match.
+> Combine techniques. Prove identities. Handle edge cases.
 
-**A2.** Find the 100th derivative of $\sin x$. (Hint: the cycle length is 4.)
+**A1.** Differentiate $x^x$ two ways: (a) log-diff, (b) $x^x=e^{x\ln x}$ + chain rule. Verify match.
 
-**A3.** $f(x)=\frac{x^2-1}{x^2+1}$. Find $f'(x)$ and simplify fully.
+**A2.** Find the 100th derivative of $\sin x$. Cycle length = 4. $100 \div 4 = 25$ remainder 0 → back to $\sin x$.
 
-**A4.** $\sin(xy)=x+y$. Find $\frac{dy}{dx}$ using implicit differentiation.
+**A3.** $f(x)=\frac{x^2-1}{x^2+1}$. Find $f'(x)$ and simplify to a single fraction.
 
-**A5.** Differentiate $f(x)=\arctan(\ln x) + \arcsin(e^{-x})$.
+**A4.** $\sin(xy)=x+y$. Find $\frac{dy}{dx}$. Implicit: chain rule on $\sin(xy)$, product rule on $xy$.
 
-**A6.** Find the equation of the tangent line to $x^3+y^3=9xy$ at $(2,4)$. (This is the Folium of Descartes.)
+**A5.** $f(x)=\arctan(\ln x) + \arcsin(e^{-x})$. Chain rule on both terms.
 
-**A7.** $f(x)=|x^3-3x|$. Find all $x$ where $f$ is NOT differentiable.
+**A6.** Find tangent line to $x^3+y^3=9xy$ at $(2,4)$. Implicit diff, plug point.
 
-**A8.** Prove that $\frac{d}{dx}\arcsin x = \frac{1}{\sqrt{1-x^2}}$ using implicit differentiation on $\sin y = x$.
+**A7.** $f(x)=|x^3-3x|$. Find all $x$ where $f$ is NOT differentiable. (Solve $x^3-3x=0$.)
 
-**A9.** Differentiate $f(x)=x^{x^x}$. (Hint: take $\ln$ twice.)
+**A8.** Prove $\frac{d}{dx}\arcsin x = \frac{1}{\sqrt{1-x^2}}$. Implicit: $y=\arcsin x \to \sin y = x$. Differentiate.
 
-**A10.** $x=t-\sin t$, $y=1-\cos t$ (cycloid). Find $\frac{dy}{dx}$ in terms of $t$ and simplify. Find where the tangent is horizontal.
+**A9.** $f(x)=x^{x^x}$. Take $\ln$ twice: $\ln(\ln y) = x\ln x + \ln(\ln x)$? Actually: $\ln y = x^x\ln x$, then differentiate with product rule + chain.
+
+**A10.** Cycloid: $x=t-\sin t$, $y=1-\cos t$. Find $\frac{dy}{dx}$ in terms of $t$. Simplify using half-angle identities. Find where the tangent is horizontal.
 
 > Solutions: [Solutions](solutions/14B-solutions.md#advanced-drill)
 
@@ -300,28 +461,30 @@ $x=2t-t^2$, $y=3t^2-t^3$. Find $\frac{dy}{dx}$ at $t=1$ and the tangent line equ
 
 ## Today's Procedure
 
-```
-Step 1: Identify the structure. Multiplication → product rule.
-    Division → quotient rule. Nested function → chain rule.
-    Mixed x and y → implicit. f(x)^g(x) → log-diff.
-
-Step 2: Chain rule = outside' × inside'. For multiple layers,
-    peel from outermost to innermost.
-
-Step 3: Implicit: differentiate everything, attach dy/dx to y-terms,
-    then solve for dy/dx.
-```
+| When you see... | Do this... |
+|:---|:---|
+| $f(x)\cdot g(x)$ | **Product rule**: $f'g + fg'$ |
+| $\frac{f(x)}{g(x)}$ | **Quotient rule**: $(f'g-fg')/g^2$ |
+| $\frac{c}{g(x)}$ (constant top) | Rewrite as $c\cdot g(x)^{-1}$, use chain rule — faster |
+| $f(g(x))$ (nested) | **Chain rule**: $f'(g(x))\cdot g'(x)$. Peel outside→in |
+| Multiple layers | Write the derivative chain. Multiply all layers |
+| $x$ and $y$ mixed | **Implicit**: diff both sides, $y\to y'$, collect, solve |
+| $f(x)^{g(x)}$ | **Log-diff**: $\ln y = g\ln f$, differentiate, $\times y$ |
+| $x(t), y(t)$ | **Parametric**: $dy/dx = (dy/dt)/(dx/dt)$ |
+| $\arcsin, \arccos, \arctan$ | Dictionary + chain rule |
+| Absolute value, piecewise | Break at zeros. Check each piece. Test differentiability at breaks |
 
 ---
 
 ## Terminology
 
 | What we call it | Math term | Notation |
-|:---------------:|:---------:|:--------:|
-| product rule | product rule | $(fg)' = f'g + fg'$ |
-| quotient rule | quotient rule | $(f/g)' = (f'g-fg')/g^2$ |
-| chain rule | chain rule | $(f\circ g)' = (f'\circ g)\cdot g'$ |
-| implicit | implicit differentiation | differentiate both sides, solve for $dy/dx$ |
-| log-diff | logarithmic differentiation | take $\ln$, then differentiate |
-| parametric | parametric derivative | $dy/dx = (dy/dt)/(dx/dt)$ |
-| inverse trig | inverse trigonometric derivative | $\arcsin$, $\arccos$, $\arctan$ rules |
+|:---:|:---:|:---:|
+| differentiate a product | product rule | $(fg)' = f'g + fg'$ |
+| differentiate a quotient | quotient rule | $(f/g)' = (f'g-fg')/g^2$ |
+| differentiate nested functions | chain rule | $(f\circ g)' = (f'\circ g)\cdot g'$ |
+| peel from outside in | chain rule layers | multiply derivative chain |
+| treat $y$ as function of $x$ | implicit differentiation | attach $dy/dx$ to $y$-terms |
+| take $\ln$ first | logarithmic differentiation | for $f(x)^{g(x)}$ forms |
+| $dy/dt$ over $dx/dt$ | parametric derivative | $\frac{dy}{dx} = \frac{dy/dt}{dx/dt}$ |
+| derivative of inverse | inverse function theorem | $(f^{-1})'(y) = 1/f'(x)$ |
