@@ -205,6 +205,21 @@ Step 4: p-test determines convergence quickly without full computation.
 
 ---
 
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| $L = \int_a^b \sqrt{1+(y')^2}\,dx$ | "arc length equals integral from a to b of square root of one plus y prime squared d x" | length of curve y=f(x) from x=a to x=b |
+| $L = \int_a^b \sqrt{(dx/dt)^2+(dy/dt)^2}\,dt$ | "arc length in parametric form" | length of parametric curve |
+| $\int_a^\infty f(x)\,dx$ | "improper integral from a to infinity" | limit: $\lim_{b\to\infty}\int_a^b f(x)dx$ — infinite interval |
+| $\int_a^b f(x)\,dx$ with discontinuity | "improper integral with a discontinuity" | limit at the point where integrand blows up |
+| convergent / divergent | "convergent" / "divergent" | improper integral has finite value / does not |
+| $\int_1^\infty \frac{1}{x^p}\,dx$ | "integral from 1 to infinity of 1 over x to the p" | p-test: converges if p>1, diverges if p≤1 |
+| comparison test | "comparison test" | if 0 ≤ f(x) ≤ g(x) and ∫g converges, then ∫f converges |
+| surface of revolution | "surface area of revolution" | $S = 2\pi\int y\sqrt{1+(y')^2}\,dx$ — rotate curve, find surface area |
+
+---
+
 ## Terminology
 
 | What we call it | Math term | Notation |

@@ -476,6 +476,23 @@ $x=2t-t^2$, $y=3t^2-t^3$. Find $\frac{dy}{dx}$ at $t=1$ and the equation of the 
 
 ---
 
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| $\frac{d}{dx}f(g(x)) = f'(g(x)) \cdot g'(x)$ | "derivative of f of g of x equals f prime of g of x times g prime of x" | chain rule — differentiate outside, then multiply by inside derivative |
+| implicit differentiation | "implicit differentiation" | differentiate both sides w.r.t. x, treat y as y(x), solve for dy/dx |
+| $\frac{d}{dx}[\ln f(x)] = \frac{f'(x)}{f(x)}$ | "derivative of ln f of x equals f prime of x over f of x" | logarithmic derivative |
+| logarithmic differentiation | "logarithmic differentiation" | take ln of both sides first — useful for products/quotients/powers |
+| $\frac{d}{dx}[f^{-1}(x)] = \frac{1}{f'(f^{-1}(x))}$ | "derivative of inverse function" | slope of inverse = reciprocal of slope at corresponding point |
+| $\frac{dy}{dx} = \frac{dy/dt}{dx/dt}$ | "d y d x equals d y d t over d x d t" | parametric derivative — chain rule with parameter t |
+| $\frac{d}{dx}[a^x] = a^x \ln a$ | "derivative of a to the x equals a to the x ln a" | exponential derivative for arbitrary base |
+| $\frac{d}{dx}[\log_a x] = \frac{1}{x\ln a}$ | "derivative of log base a of x" | logarithmic derivative for arbitrary base |
+| related rates | "related rates" | two quantities change with time — relate their rates via implicit differentiation w.r.t. t |
+| $\frac{dx}{dt}$ | "d x d t" / "rate of change of x with respect to time" | time derivative in related rates problems |
+
+---
+
 ## Terminology
 
 | What we call it | Math term | Notation |

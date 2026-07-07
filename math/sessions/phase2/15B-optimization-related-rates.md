@@ -203,6 +203,23 @@ Two cars: car A goes north at 60 km/h, car B goes east at 80 km/h. Both start fr
 
 ---
 
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| optimization | "optimization" | find maximum or minimum of a quantity |
+| objective function | "objective function" | the quantity to maximize or minimize |
+| constraint | "constraint" | relationship between variables — used to eliminate one variable |
+| feasible region | "feasible region" / "domain" | all valid values satisfying constraints |
+| endpoint check | "endpoint check" | evaluate objective at domain boundaries — extremum could occur there |
+| related rates | "related rates" | find rate of change of one quantity from known rate of another |
+| $\frac{d}{dt}$ | "d d t" / "time derivative" | differentiate with respect to time — key operator in related rates |
+| $\frac{dV}{dt}$ | "d V d t" / "rate of change of volume" | example: filling/draining rate of a tank |
+| Pythagorean relation | "Pythagorean relation" | $x^2+y^2=z^2$ — common in distance-related problems |
+| similar triangles | "similar triangles" | ratio-preserving — used to relate variables geometrically |
+
+---
+
 ## Today's Procedure
 
 ```

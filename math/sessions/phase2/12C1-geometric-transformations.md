@@ -315,6 +315,24 @@ Step 3: Eigenvectors = invariant directions under a linear transformation.
 
 ---
 
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| translation | "translation" / "shift" | move every point by the same vector — shape unchanged |
+| rotation | "rotation" | spin around a point by angle θ — shape and size preserved |
+| reflection | "reflection" / "mirror" | flip across a line — mirror image |
+| dilation / scaling | "dilation" / "scaling" | stretch or shrink — size changes, shape preserved |
+| $T(\vec{x}) = A\vec{x} + \vec{b}$ | "T of x equals A x plus b" | affine transformation: linear part + translation |
+| $R_\theta$ | "R sub theta" / "rotation by theta" | $\begin{bmatrix}\cos\theta&-\sin\theta\\\sin\theta&\cos\theta\end{bmatrix}$ — rotation matrix |
+| isometry | "isometry" / "rigid motion" | distance-preserving transformation — rotation, reflection, translation |
+| congruent | "congruent" | same size and shape — can be mapped by isometries |
+| similar | "similar" | same shape, possibly different size — isometry + dilation |
+| $\det A$ | "determinant of A" | area scaling factor of linear transformation |
+| eigenvalue / eigenvector | "eigenvalue" / "eigenvector" | $A\vec{v}=\lambda\vec{v}$ — direction unchanged by transformation |
+
+---
+
 ## Terminology
 
 | What we called it | Mathematical term | Notation |

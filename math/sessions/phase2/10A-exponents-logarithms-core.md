@@ -544,6 +544,25 @@ Step 3: Practice until the steps feel automatic. If you can solve Example 5, 13,
 
 ---
 
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| $a^m$ | "a to the m" / "a raised to the m-th power" | exponentiation: base a, exponent m |
+| $a^m \cdot a^n = a^{m+n}$ | "a to the m times a to the n equals a to the m plus n" | product rule — add exponents |
+| $(a^m)^n = a^{mn}$ | "a to the m, all to the n, equals a to the m n" | power of a power — multiply exponents |
+| $a^{-n} = 1/a^n$ | "a to the negative n equals one over a to the n" | negative exponent = reciprocal |
+| $a^{m/n} = \sqrt[n]{a^m}$ | "a to the m over n equals the n-th root of a to the m" | fractional exponent = root |
+| $e$ | "e" / "Euler's number" | natural base ≈ 2.71828... |
+| $\ln x$ | "natural log of x" / "ell-en of x" | logarithm base e — inverse of e^x |
+| $\log_a x$ | "log base a of x" | logarithm: a^{\log_a x} = x |
+| $\log(MN) = \log M + \log N$ | "log of M N equals log M plus log N" | product property |
+| $\log(M/N) = \log M - \log N$ | "log of M over N equals log M minus log N" | quotient property |
+| $\log(M^k) = k\log M$ | "log of M to the k equals k log M" | power property |
+| $e^{\ln x} = x$ | "e to the natural log of x equals x" | exponential and natural log are inverses |
+
+---
+
 ## Terminology
 
 | What we called it | Mathematical term | Notation / Explanation |

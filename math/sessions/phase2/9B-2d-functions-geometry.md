@@ -443,6 +443,24 @@ Step 3: Distance — point-to-line formula. Point-to-circle = |distance to cente
 
 ---
 
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| $d = \sqrt{(x_2-x_1)^2 + (y_2-y_1)^2}$ | "distance equals square root of x2 minus x1 squared plus y2 minus y1 squared" | distance formula |
+| $m = \frac{y_2-y_1}{x_2-x_1}$ | "m equals y2 minus y1 over x2 minus x1" / "slope" | slope = rise over run |
+| $y = mx + b$ | "y equals m x plus b" / "slope-intercept form" | line: m=slope, b=y-intercept |
+| $y-y_1 = m(x-x_1)$ | "y minus y1 equals m times x minus x1" | point-slope form |
+| $Ax+By+C=0$ | "A x plus B y plus C equals zero" | general form of a line |
+| $(x-h)^2 + (y-k)^2 = r^2$ | "x minus h squared plus y minus k squared equals r squared" | circle: center (h,k), radius r |
+| $(x-h)^2/a^2 + (y-k)^2/b^2 = 1$ | "ellipse equation" | ellipse: a=semi-major, b=semi-minor |
+| $(x-h)^2/a^2 - (y-k)^2/b^2 = 1$ | "hyperbola equation" | hyperbola: opens left-right |
+| $y = ax^2+bx+c$ | "y equals a x squared plus b x plus c" | parabola: vertex at x=-b/(2a) |
+| $m_1 m_2 = -1$ | "m1 times m2 equals negative one" | perpendicular lines condition |
+| $\theta = \tan^{-1}(m)$ | "theta equals inverse tan of m" | angle of inclination |
+
+---
+
 ## Terminology
 
 | What we call it | Math term | Notation |

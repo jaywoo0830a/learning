@@ -34,6 +34,10 @@ Multiply ODE by $\mu$: $\frac{d}{dx}(\mu y) = \mu Q$. Integrate: $y = \frac{1}{\
 
 **Why it works**: $\mu' = \mu P$, so $(\mu y)' = \mu y' + \mu' y = \mu(y'+Py) = \mu Q$.
 
+![Integrating factor — 3D $\mu y$ surface, 2D slope field, 1D product rule](graphs/19b-integrating-factor.png)
+
+*Graph 19B: 3D — the surface $\mu y$ for $y' + 2xy = x$ with $\mu = e^{x^2}$. Multiplying by $\mu$ turns the left side into an exact derivative. 2D — slope field with solution curves $y = 0.5 + Ce^{-x^2}$. The red line $y=0.5$ is the equilibrium ($C=0$). 1D — the product rule in action: $(\mu y)'$ (orange) exactly equals $\mu Q = xe^{x^2}$ (red dashed).*
+
 ---
 
 ## Example 4: Integrating Factor in Action
@@ -151,3 +155,34 @@ Solve: $y' - \frac{2}{x}y = x^3$, $x>0$.
 **A10.** Show that every solution of $y' = y(1-y)$ approaches 1 as $t\to\infty$ (except $y\equiv0$).
 
 > Solutions: [Solutions](solutions/19B-solutions.md#advanced-drill)
+
+---
+
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| $\frac{dy}{dx} = g(x)h(y)$ | "d y d x equals g of x times h of y" | separable ODE — split y and x to opposite sides |
+| $\int \frac{dy}{h(y)}$ | "integral of d y over h of y" | integration with respect to y after separation |
+| $y' + P(x)y = Q(x)$ | "y prime plus P of x y equals Q of x" | standard form of a first-order linear ODE |
+| $\mu(x)$ | "mu of x" / "integrating factor" | μ = e^{∫P dx} — multiplies ODE to make left side an exact derivative |
+| $\frac{d}{dx}(\mu y)$ | "d d x of mu y" | derivative of product — left side becomes this after multiplying by μ |
+| $\ln|y|$ | "natural log of absolute y" | absolute value is essential — domain of ln is positive numbers only |
+| $y \equiv 0$ | "y is identically zero" | zero everywhere — the trivial equilibrium solution |
+| $\lim_{t\to\infty}$ | "limit as t goes to infinity" | long-term behavior of the solution |
+| equilibrium | "equilibrium" / "steady state" | constant solution where y'=0 — no change over time |
+| separable / linear | "separable" / "linear" | ODE classification — determines solution method |
+
+
+---
+
+## Terminology
+
+| What we call it | Math term | Notation |
+|:---:|:---:|:---:|
+| separate y and x | separable equation | $\frac{dy}{dx}=g(x)h(y)$ |
+| multiply by μ to make left side exact | integrating factor | $\mu(x) = e^{\int P(x)dx}$ |
+| standard form for first-order linear | linear first-order ODE | $y' + P(x)y = Q(x)$ |
+| constant solution where y'=0 | equilibrium / steady state | $f(y)=0$ |
+| nearby solutions converge to it | stable equilibrium | (attractor) |
+| nearby solutions move away | unstable equilibrium | (repellor) |

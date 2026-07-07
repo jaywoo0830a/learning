@@ -490,6 +490,23 @@ Step 3: Special functions — [x] staircase, {x} sawtooth. They repeat.
 
 ---
 
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| intercepts | "intercepts" | where graph crosses axes: x-intercept (y=0), y-intercept (x=0) |
+| asymptote | "asymptote" / "AS-imp-tote" | line the graph approaches but never touches |
+| vertical asymptote | "vertical asymptote" / "VA" | denominator = 0, function → ±∞ |
+| horizontal asymptote | "horizontal asymptote" / "HA" | end behavior as x → ±∞ |
+| slant asymptote | "slant asymptote" / "oblique" | degree of numerator = degree of denominator + 1 |
+| increasing / decreasing | "increasing" / "decreasing" | f'(x)>0 / f'(x)<0 — slope sign |
+| local maximum / minimum | "local max" / "local min" / "turning point" | f' changes sign (+→- for max, -→+ for min) |
+| concave up / down | "concave up" / "concave down" | f''(x)>0 = cup shape ∪, f''(x)<0 = cap shape ∩ |
+| inflection point | "inflection point" | concavity changes — f'' changes sign |
+| symmetry | "symmetry" | even: f(-x)=f(x) (y-axis mirror), odd: f(-x)=-f(x) (origin rotation) |
+
+---
+
 ## Terminology
 
 | What we call it | Math term | Notation |

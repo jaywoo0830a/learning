@@ -473,6 +473,25 @@ Step 3: Connection — matrix × vector = new vector. Columns of a matrix
 
 ---
 
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| $\vec{v} = \langle v_1, v_2 \rangle$ | "vector v equals angle-bracket v1 comma v2" | vector in component form |
+| $\|\vec{v}\|$ | "magnitude of v" / "norm of v" / "length" | $\sqrt{v_1^2+v_2^2}$ — length of the arrow |
+| $\vec{v} \cdot \vec{w}$ | "v dot w" / "dot product" | $v_1w_1+v_2w_2$ — scalar result, related to cosine of angle |
+| $\vec{v} \cdot \vec{w} = \|\vec{v}\|\|\vec{w}\|\cos\theta$ | "v dot w equals norm v times norm w times cosine theta" | geometric dot product formula |
+| $A = [a_{ij}]$ | "A equals matrix with entries a i j" | matrix: i=row index, j=column index |
+| $AB$ | "A times B" / "matrix product" | $(AB)_{ij} = \sum_k a_{ik}b_{kj}$ — row of A dot column of B |
+| $A^{-1}$ | "A inverse" | matrix inverse: $AA^{-1}=A^{-1}A=I$ |
+| $I$ | "I" / "the identity matrix" | ones on diagonal, zeros elsewhere — like multiplying by 1 |
+| $\det(A)$ | "determinant of A" | $\det = ad-bc$ for 2×2 — zero means singular (no inverse) |
+| $A^\mathsf{T}$ | "A transpose" | rows become columns, columns become rows |
+| orthogonal | "orthogonal" | $\vec{v}\cdot\vec{w}=0$ — perpendicular vectors |
+| $\vec{0}$ | "zero vector" | vector with all components zero |
+
+---
+
 ## Terminology
 
 Up to now we used plain words like "grid", "dot product", "shadow", "cross".

@@ -474,6 +474,23 @@ Step 3: Extend — Euler's formula gives every identity algebraically. Cubic equ
 
 ---
 
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| $\sin(A\pm B)$ | "sine of A plus or minus B" | sine addition formula: sinAcosB ± cosAsinB |
+| $\cos(A\pm B)$ | "cosine of A plus or minus B" | cosine addition formula: cosAcosB ∓ sinAsinB |
+| $\tan(A\pm B)$ | "tangent of A plus or minus B" | (tanA ± tanB)/(1 ∓ tanA tanB) |
+| $\sin^2\theta = \frac{1-\cos2\theta}{2}$ | "sine squared theta equals one minus cosine two theta over two" | power-reduction — used in integration |
+| $\cos^2\theta = \frac{1+\cos2\theta}{2}$ | "cosine squared theta equals one plus cosine two theta over two" | power-reduction — used in integration |
+| $\sin^{-1}x$, $\cos^{-1}x$, $\tan^{-1}x$ | "inverse sine of x" / "arcsine of x" | inverse trig — returns an angle |
+| $\arcsin x$ | "arcsine of x" | alternative notation for sin^{-1}x (avoids confusion with 1/sin) |
+| Law of Sines | "Law of Sines" | $\frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C}$ |
+| Law of Cosines | "Law of Cosines" | $c^2 = a^2 + b^2 - 2ab\cos C$ — generalizes Pythagorean theorem |
+| harmonic identity | "harmonic identity" / "auxiliary angle method" | $a\sin x + b\cos x = R\sin(x+\phi)$ where $R=\sqrt{a^2+b^2}$ |
+
+---
+
 ## Terminology
 
 Up to now we used plain words like "splitting angles", "harmonic addition", "golden ratio".

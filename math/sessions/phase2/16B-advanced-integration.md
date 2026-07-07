@@ -497,6 +497,23 @@ A classmate sees $\int \frac{x}{\sqrt{1-x^2}}\,dx$ and says: "Trig sub! $\sqrt{1
 
 ---
 
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| integration by parts | "integration by parts" | $\int u\,dv = uv - \int v\,du$ — reverse product rule |
+| LIATE | "L I A T E" / "lee-ah-tay" | order for choosing u: Logarithmic, Inverse trig, Algebraic, Trig, Exponential |
+| $\int \sin^2 x\,dx$ | "integral of sine squared x" | use power-reduction: $\sin^2 x = (1-\cos2x)/2$ |
+| $\int \tan x\,dx = \ln|\sec x| + C$ | "integral of tangent x equals ln absolute secant x plus C" | write as sin/cos, substitute u=cos x |
+| $\int \sec x\,dx = \ln|\sec x + \tan x| + C$ | "integral of secant x" | multiply top and bottom by sec x + tan x |
+| $\sqrt{a^2-x^2}$ | "square root of a squared minus x squared" | trig substitution: $x = a\sin\theta$ |
+| $\sqrt{a^2+x^2}$ | "square root of a squared plus x squared" | trig substitution: $x = a\tan\theta$ |
+| $\sqrt{x^2-a^2}$ | "square root of x squared minus a squared" | trig substitution: $x = a\sec\theta$ |
+| partial fractions | "partial fractions" | decompose rational function into sum of simpler fractions |
+| completing the square | "completing the square" | rewrite $ax^2+bx+c$ as $a(x-h)^2+k$ — used for arctan/arcsin integrals |
+
+---
+
 ## Terminology
 
 | What we call it | Math term | Notation |

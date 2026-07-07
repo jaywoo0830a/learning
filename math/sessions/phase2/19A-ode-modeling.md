@@ -34,6 +34,10 @@ $k>0$: exponential growth (population, compound interest). $k<0$: exponential de
 
 **Doubling time**: $t_2 = \frac{\ln 2}{k}$. **Half-life**: $t_{1/2} = \frac{\ln 2}{|k|}$.
 
+![Exponential growth and decay — 3D surface, 2D families, 1D log-scale](graphs/19a-growth-decay.png)
+
+*Graph 19A-2: 3D — the surface $y = e^{kt}$ over the $(t, k)$ plane. When $k>0$ the surface rises; $k<0$ it falls; $k=0$ it's flat. 2D — families of growth (red, $k=0.5$) and decay (blue, $k=-0.5$) with different starting values. 1D — log-scale reveals doubling time and half-life are the same horizontal distance: $\ln 2 / |k| \approx 1.39$.*
+
 Bacteria double every 3 hours. $k = \frac{\ln 2}{3} \approx 0.231$. From 1000: $P(t)=1000e^{0.231t}$.
 
 ---
@@ -172,3 +176,38 @@ A 200L tank initially contains 100L pure water. Brine (2 kg/L salt) enters at 3 
 **A10.** A lake (10⁶ m³) receives polluted water (0.1 kg/m³) at 100 m³/day, drains at same rate. Initially clean. Write ODE, find pollution after 1 year.
 
 > Solutions: [Solutions](solutions/19A-solutions.md#advanced-drill)
+
+---
+
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| $\frac{dy}{dx}$ | "d y d x" / "the derivative of y with respect to x" | instantaneous rate of change, slope |
+| $y'$ | "y prime" | shorthand for dy/dx |
+| $\frac{dP}{dt}$ | "d P d t" / "the rate of change of P" | time derivative — how P changes per unit time |
+| $\int$ | "integral" | integration symbol — finds area, accumulation |
+| $e^{kt}$ | "e to the k t" | exponential function — e ≈ 2.718, base of natural growth/decay |
+| $\ln$ | "natural log" / "ell-en" | logarithm base e — inverse of e^x |
+| $\lim$ | "limit" | limit — value approached, not necessarily reached |
+| $t_{1/2}$ | "t-half" / "half-life" | time for quantity to decrease by half |
+| $t_2$ | "t-two" / "doubling time" | time for quantity to double |
+| $k$ | "k" / "rate constant" | growth (k>0) or decay (k<0) rate |
+| $L$ | "L" / "carrying capacity" | upper bound in logistic growth — saturation level |
+| $C$ | "C" / "constant of integration" | arbitrary constant — determined by initial condition |
+| $T_{\text{env}}$ | "T env" / "environment temperature" | ambient temperature in Newton cooling |
+
+
+---
+
+## Terminology
+
+| What we call it | Math term | Notation |
+|:---:|:---:|:---:|
+| equation with derivatives | ordinary differential equation (ODE) | $\frac{dy}{dx}=f(x,y)$ |
+| solution + arbitrary constant | general solution | $y = Ce^{kt}$ |
+| solution with specific initial value | particular solution | $y(0)=y_0$ plugged in |
+| exponential growth/decay model | $y'=ky$ | $y=Ce^{kt}$ |
+| S-shaped growth to a limit | logistic equation | $\frac{dP}{dt}=kP(1-P/L)$ |
+| temperature approaches environment | Newton's law of cooling | $\frac{dT}{dt}=-k(T-T_{\text{env}})$ |
+| inflow minus outflow | mixing problem | $\frac{dA}{dt} = \text{rate in} - \text{rate out}$ |

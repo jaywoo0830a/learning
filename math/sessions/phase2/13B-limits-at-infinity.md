@@ -357,6 +357,23 @@ Step 4: Standard limits: (1+k/n)^n → e^k. n^{1/n} → 1. lnn/n → 0.
 
 ---
 
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| $\lim_{x \to \infty} f(x) = L$ | "limit as x goes to infinity of f of x equals L" | horizontal asymptote at y = L |
+| $\lim_{x \to -\infty} f(x) = L$ | "limit as x goes to negative infinity" | end behavior as x → -∞ |
+| $\deg(P) < \deg(Q)$ | "degree of P less than degree of Q" | rational function → 0 as x → ±∞ |
+| $\deg(P) = \deg(Q)$ | "degrees equal" | limit = ratio of leading coefficients |
+| $\deg(P) > \deg(Q)$ | "degree of P greater than degree of Q" | limit = ±∞ — check leading coefficient signs |
+| leading coefficient | "leading coefficient" | coefficient of highest-degree term — dominates at infinity |
+| $\frac{\ln x}{x} \to 0$ | "ln x over x goes to zero as x goes to infinity" | logarithm grows slower than any positive power |
+| $\frac{x}{e^x} \to 0$ | "x over e to the x goes to zero" | exponential dominates any polynomial |
+| slant asymptote | "slant asymptote" / "oblique asymptote" | deg(num) = deg(den)+1 — polynomial long division gives line |
+| end behavior model | "end behavior model" | leading term dominates — ignore lower-order terms at infinity |
+
+---
+
 ## Terminology
 
 | What we call it | Math term | Notation |

@@ -308,6 +308,22 @@ Step 3: Parametric surfaces need two parameters (u, v).
 
 ---
 
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| $\vec{r}(t) = \langle x(t), y(t) \rangle$ | "r of t equals angle-bracket x of t comma y of t" | parametric curve — position at time t |
+| $\vec{r}\,'(t)$ | "r prime of t" / "velocity vector" | derivative of position — tangent direction |
+| $\|\vec{r}\,'(t)\|$ | "speed" / "magnitude of velocity" | how fast the point moves — scalar |
+| $\vec{T}(t) = \vec{r}\,'/\|\vec{r}\,'\|$ | "T of t equals r prime over its magnitude" | unit tangent vector |
+| $\vec{N}(t)$ | "N of t" / "unit normal" | perpendicular to tangent — points toward center of curvature |
+| $\kappa(t)$ | "kappa of t" / "curvature" | how sharply the curve bends — 1/radius of curvature |
+| $L = \int_a^b \|\vec{r}\,'(t)\|\,dt$ | "arc length equals integral of speed" | length of curve from t=a to t=b |
+| $\vec{r}(u,v) = \langle x(u,v), y(u,v), z(u,v) \rangle$ | "r of u v" | parametric surface — two parameters sweep a surface |
+| tangent plane | "tangent plane" | spanned by $\vec{r}_u$ and $\vec{r}_v$ — best flat approximation to surface |
+
+---
+
 ## Terminology
 
 | What we called it | Mathematical term | Notation |

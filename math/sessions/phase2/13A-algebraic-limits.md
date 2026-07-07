@@ -407,6 +407,24 @@ Step 3: 0·∞ → rewrite as a quotient (f·g = f/(1/g)).
 
 ---
 
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| $\lim_{x \to a} f(x)$ | "limit as x approaches a of f of x" | value f(x) gets arbitrarily close to as x nears a |
+| $\frac{0}{0}$ | "zero over zero" / "indeterminate form" | cannot evaluate directly — factor, rationalize, or use known limits |
+| $\frac{\infty}{\infty}$ | "infinity over infinity" | indeterminate — divide numerator and denominator by highest power |
+| $\frac{\sin x}{x} \to 1$ | "sine x over x goes to 1 as x goes to 0" | fundamental trigonometric limit |
+| $\frac{e^x-1}{x} \to 1$ | "e to the x minus 1 over x goes to 1" | fundamental exponential limit |
+| conjugate | "conjugate" | $\sqrt{A}+\sqrt{B}$ is conjugate of $\sqrt{A}-\sqrt{B}$ — multiply to remove radicals |
+| $\lim_{x \to a^-}$ | "limit as x approaches a from the left" / "left-hand limit" | approach a from smaller values |
+| $\lim_{x \to a^+}$ | "limit as x approaches a from the right" / "right-hand limit" | approach a from larger values |
+| DNE | "does not exist" | limit does not exist — left ≠ right, or infinite oscillation |
+| $\infty$ | "infinity" | unbounded growth — NOT a number, notation meaning "grows without bound" |
+| hole / removable discontinuity | "hole" / "removable discontinuity" | limit exists but function value is different or undefined |
+
+---
+
 ## Terminology
 
 | What we call it | Math term | Notation |

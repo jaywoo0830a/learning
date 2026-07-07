@@ -165,6 +165,22 @@ Step 3: When stuck, swap order. Redescribe the bounding curves.
 
 ---
 
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| $\iint_D f\,dA$ | "double integral over D of f d A" | integral over 2D region — volume under surface |
+| $dA$ | "d A" / "area element" | dA = dx dy = dy dx — infinitesimal area piece |
+| $\int_a^b\int_{g_1(x)}^{g_2(x)} f\,dy\,dx$ | "integral a to b, integral g1 to g2, f dy dx" | iterated integral — inner first (y), then outer (x) |
+| $dy\,dx$ | "dy dx" / "integrate y first, then x" | Type I: vertical strips — outer limits are constants |
+| $dx\,dy$ | "dx dy" / "integrate x first, then y" | Type II: horizontal strips — outer limits are constants |
+| Fubini | "Fubini" / "foo-BEE-nee" | theorem: order of integration can be swapped for continuous functions |
+| Type I region | "type one region" | vertical strips: a≤x≤b, g₁(x)≤y≤g₂(x) |
+| Type II region | "type two region" | horizontal strips: c≤y≤d, h₁(y)≤x≤h₂(y) |
+
+
+---
+
 ## Terminology
 
 | What we call it | Math term | Notation |

@@ -612,6 +612,26 @@ Step 3: Advanced — recurrence a_{n+1}=a_n+f(n) → sum the differences.
 
 ---
 
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| $a_n$ | "a sub n" / "a n" | n-th term of a sequence |
+| $\{a_n\}_{n=1}^{\infty}$ | "the sequence a n from n equals 1 to infinity" | infinite sequence notation |
+| $\sum_{n=1}^{\infty} a_n$ | "sum from n equals 1 to infinity of a n" | infinite series — sum of all terms |
+| $S_n = \sum_{k=1}^{n} a_k$ | "S sub n equals sum from k equals 1 to n of a k" | n-th partial sum |
+| $\lim_{n\to\infty} a_n = L$ | "limit as n goes to infinity of a n equals L" | sequence converges to L |
+| $a_n = a_1 + (n-1)d$ | "a n equals a1 plus n minus 1 d" | arithmetic sequence — constant difference d |
+| $a_n = a_1 r^{n-1}$ | "a n equals a1 times r to the n minus 1" | geometric sequence — constant ratio r |
+| $S_n = \frac{n(a_1+a_n)}{2}$ | "S n equals n times a1 plus a n over 2" | arithmetic series sum |
+| $S_n = a_1\frac{1-r^n}{1-r}$ | "S n equals a1 times one minus r to the n over one minus r" | geometric series sum (finite) |
+| $\sum_{n=0}^{\infty} ar^n = \frac{a}{1-r}$ | "sum of a r to the n equals a over one minus r" | infinite geometric series — converges if |r|<1 |
+| $\sum_{k=1}^{n} k = \frac{n(n+1)}{2}$ | "sum of first n integers equals n times n plus 1 over 2" | Gauss's formula |
+| $\sum_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6}$ | "sum of first n squares" | sum of squares formula |
+| telescoping | "telescoping" | series where intermediate terms cancel — only first and last survive |
+
+---
+
 ## Terminology
 
 Up to now we used plain words like "first term", "common difference", "multiplier", "canceling sum".

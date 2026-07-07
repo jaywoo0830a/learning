@@ -326,6 +326,25 @@ Find the tangent line to $f(x)=x^2+\ln x$ at $x=1$. Write your answer in $y=mx+b
 
 ---
 
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| $f'(x)$ | "f prime of x" | derivative of f — instantaneous rate of change, slope of tangent |
+| $\frac{dy}{dx}$ | "d y d x" / "derivative of y with respect to x" | Leibniz notation for derivative |
+| $\frac{d}{dx}$ | "d d x" / "derivative operator" | take the derivative with respect to x |
+| $f'(a) = \lim_{h\to0}\frac{f(a+h)-f(a)}{h}$ | "f prime of a equals limit as h goes to zero of f of a plus h minus f of a over h" | limit definition of the derivative |
+| $\frac{d}{dx}x^n = nx^{n-1}$ | "derivative of x to the n equals n x to the n minus 1" | power rule |
+| $\frac{d}{dx}e^x = e^x$ | "derivative of e to the x equals e to the x" | e^x is its own derivative |
+| $\frac{d}{dx}\sin x = \cos x$ | "derivative of sine x equals cosine x" | sine derivative |
+| $\frac{d}{dx}\cos x = -\sin x$ | "derivative of cosine x equals negative sine x" | cosine derivative — note the minus sign |
+| $(f+g)' = f' + g'$ | "f plus g prime equals f prime plus g prime" | sum rule — derivative of sum = sum of derivatives |
+| $(fg)' = f'g + fg'$ | "f g prime equals f prime g plus f g prime" | product rule — NOT f'g'! |
+| $(f/g)' = \frac{f'g - fg'}{g^2}$ | "f over g prime equals f prime g minus f g prime over g squared" | quotient rule |
+| tangent line: $y - f(a) = f'(a)(x-a)$ | "tangent line at a" | line that just touches the curve at exactly one point |
+
+---
+
 ## Terminology
 
 | What we call it | Math term | Notation |

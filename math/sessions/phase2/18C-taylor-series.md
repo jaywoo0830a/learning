@@ -169,3 +169,32 @@ Estimate $\int_0^{0.5} \sin(x^2)dx$ to 4 decimal places using series.
 **A10.** Use the Lagrange remainder to prove that $e$ is irrational. (Sketch: assume $e=p/q$, multiply by $q!$, use remainder bound.)
 
 > Solutions: [Solutions](solutions/18C-solutions.md#advanced-drill)
+
+---
+
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| Taylor series | "Taylor series" | f(x) = Σ f^{(n)}(a)/n! · (x-a)^n — infinite polynomial matching all derivatives at a |
+| Maclaurin series | "Maclaurin series" | Taylor series centered at a=0 — special case |
+| $n!$ | "n factorial" | product 1×2×3×...×n — grows extremely fast |
+| $\sin x = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \cdots$ | "sine x equals x minus x cubed over 3 factorial plus x to the fifth over 5 factorial minus ..." | Maclaurin series for sine — odd powers, alternating signs |
+| $\cos x = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \cdots$ | "cosine x equals one minus x squared over 2 factorial plus ..." | Maclaurin series for cosine — even powers, alternating signs |
+| $e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots$ | "e to the x equals one plus x plus x squared over 2 factorial ..." | Maclaurin series for exponential — all positive |
+| $\frac{1}{1-x} = 1 + x + x^2 + x^3 + \cdots$ | "one over one minus x equals one plus x plus x squared ..." | geometric series — converges for |x|<1 |
+| $\ln(1+x) = x - \frac{x^2}{2} + \frac{x^3}{3} - \cdots$ | "ln of one plus x equals x minus x squared over 2 plus x cubed over 3 ..." | Maclaurin series for natural log — alternating, converges for -1<x≤1 |
+| Lagrange remainder | "Lagrange remainder" | R_n = f^{(n+1)}(ξ)/(n+1)! · (x-a)^{n+1} — bounds error of Taylor polynomial |
+| $|R_n| \leq \frac{M}{(n+1)!}|x-a|^{n+1}$ | "absolute remainder less than or equal to M over n+1 factorial times x minus a to the n+1" | error bound — M = max of |f^{(n+1)}| on the interval |
+
+---
+
+## Terminology
+
+| What we call it | Math term | Notation |
+|:---:|:---:|:---:|
+| infinite polynomial matching derivatives | Taylor series | $\sum \frac{f^{(n)}(a)}{n!}(x-a)^n$ |
+| Taylor series at 0 | Maclaurin series | $\sum \frac{f^{(n)}(0)}{n!}x^n$ |
+| error of n-th degree approximation | Lagrange remainder | $R_n = \frac{f^{(n+1)}(\xi)}{(n+1)!}(x-a)^{n+1}$ |
+| product 1·2·3·...·n | factorial | $n!$ |
+| bounding the remainder | error estimation | $|R_n| \leq \frac{M}{(n+1)!}|x-a|^{n+1}$ |

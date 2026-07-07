@@ -227,6 +227,25 @@ Step 3: Even-power factors never flip sign when crossing their root.
 
 ---
 
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| $<$ | "less than" | strict inequality — endpoint NOT included |
+| $\leq$ | "less than or equal to" | non-strict inequality — endpoint IS included |
+| $>$ | "greater than" | strict inequality |
+| $\geq$ | "greater than or equal to" | non-strict inequality |
+| $(x-a)(x-b) < 0$ | "x minus a times x minus b less than zero" | quadratic inequality |
+| sign chart | "sign chart" / "sign diagram" | number line divided at critical points; test each interval |
+| critical point / zero | "critical point" / "zero" | where expression equals zero or is undefined |
+| interval notation | "interval notation" | $(a,b)$ = open, $[a,b]$ = closed, $(a,b]$ = half-open |
+| $\cup$ | "union" | combine disjoint intervals |
+| $\cap$ | "intersection" | common elements of intervals |
+| $|x| < a$ | "absolute value of x less than a" | equivalent to $-a < x < a$ |
+| $|x| > a$ | "absolute value of x greater than a" | equivalent to $x < -a$ or $x > a$ |
+
+---
+
 ## Terminology
 
 | What we called it | Math term | Notation |

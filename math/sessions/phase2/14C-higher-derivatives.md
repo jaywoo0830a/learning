@@ -431,6 +431,23 @@ $f(x)=x^3-3x^2-9x+5$. (a) Find all $x$ where $f'(x)=0$ (critical points). (b) Fi
 
 ---
 
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| $f''(x)$ | "f double prime of x" / "second derivative" | derivative of derivative — rate of change of slope |
+| $f'''(x)$ | "f triple prime" / "third derivative" | derivative of second derivative — jerk in physics |
+| $f^{(n)}(x)$ | "f superscript n of x" / "n-th derivative" | higher-order derivative notation (for n > 3) |
+| $\frac{d^2y}{dx^2}$ | "d two y d x squared" / "second derivative" | Leibniz notation for f''(x) |
+| $\frac{d^ny}{dx^n}$ | "d n y d x to the n" / "n-th derivative" | Leibniz notation for n-th derivative |
+| concavity | "concavity" | f''>0 = concave up (∪), f''<0 = concave down (∩) |
+| inflection point | "inflection point" | f'' changes sign — concavity flips |
+| Taylor polynomial | "Taylor polynomial" | $P_n(x) = \sum_{k=0}^n \frac{f^{(k)}(a)}{k!}(x-a)^k$ — polynomial that matches f and its first n derivatives at a |
+| jerk | "jerk" | third derivative of position — rate of change of acceleration |
+| $C^n$ | "C n" / "n-times continuously differentiable" | first n derivatives exist and are continuous |
+
+---
+
 ## Terminology
 
 | What we call it | Math term | Notation |

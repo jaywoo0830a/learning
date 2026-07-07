@@ -108,6 +108,14 @@ Tangent plane: $2(x-1)+4(y-2)+6(z-3)=0$ → $x+2y+3z=14$.
 
 *Graph 24A: The sphere $x^2+y^2+z^2=14$ with tangent plane at $(1,2,3)$. The normal vector $\nabla F(1,2,3)=\langle 2,4,6\rangle$ is perpendicular to the tangent plane. This generalizes the 2D implicit formula: gradient of the defining function gives the normal.*
 
+---
+
+> **🔗 Bridge to Linear Algebra**: The multivariable chain rule is secretly **matrix multiplication**. For $\vec{z} = \vec{F}(\vec{G}(\vec{x}))$, the derivative (Jacobian matrix) satisfies:
+>
+> $$J_{\vec{F}\circ\vec{G}}(\vec{x}) = J_{\vec{F}}(\vec{G}(\vec{x})) \cdot J_{\vec{G}}(\vec{x})$$
+>
+> The tree diagram method you just learned IS the row-column multiplication of Jacobians. Each path from an output variable to an input variable corresponds to multiplying one row of $J_F$ with one column of $J_G$. For the scalar path $z = f(x(t), y(t))$: $J_f = \langle f_x, f_y \rangle$ ($1\times2$ row), $J_{\vec{r}} = \begin{pmatrix} x' \\ y' \end{pmatrix}$ ($2\times1$ column), and $\frac{dz}{dt} = J_f \cdot J_{\vec{r}} = f_x x' + f_y y'$. For multiple intermediates: the full Jacobian product $J_F \cdot J_G$ gives ALL partial derivatives $\partial z_i/\partial x_j$ at once. When you study Session 26A, you'll recognize this as the universal chain rule — no tree diagrams needed for $n$ variables, just multiply the Jacobian matrices in the correct order.
+
 > **Up to here**: Chain rule path: $dz/dt = \nabla f \cdot \vec{r}\,'(t)$. Tree diagram: sum over all variable-dependency paths. Implicit: $dy/dx = -F_x/F_y$, surfaces: $\partial z/\partial x = -F_x/F_z$, tangent plane via $\nabla F \cdot \langle x-x_0, y-y_0, z-z_0\rangle = 0$.
 
 ---
@@ -203,6 +211,22 @@ Step 1: Chain rule — path: dz/dt = ∇f·r'(t). Multiple vars: tree diagram.
 Step 2: Implicit — 2D curve: dy/dx = −F_x/F_y.
         Surface: z_x = −F_x/F_z, tangent plane: ∇F·⟨x−x₀,…⟩ = 0.
 ```
+
+---
+
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| $\frac{dz}{dt}$ | "d z d t" / "total derivative" | z ultimately depends only on t — use d, not ∂ |
+| $\frac{\partial z}{\partial u}$ | "partial z partial u" | partial derivative when z depends on multiple variables |
+| $\nabla F$ | "grad F" / "del F" | gradient of F(x,y,z) — normal vector to level surface |
+| $\frac{dy}{dx} = -\frac{F_x}{F_y}$ | "d y d x equals negative F sub x over F sub y" | implicit differentiation formula for F(x,y)=0 |
+| $\frac{\partial z}{\partial x} = -\frac{F_x}{F_z}$ | "partial z partial x equals negative F_x over F_z" | implicit partial for surface F(x,y,z)=0 |
+| $J$ | "J" / "Jacobian" | matrix of all first-order partial derivatives — chain rule = matrix multiplication |
+| tree diagram | "tree diagram" | visual dependency graph — sum over all paths from output to input |
+| $\nabla F \cdot \langle x-x_0, y-y_0, z-z_0 \rangle = 0$ | "grad F dot displacement vector equals zero" | tangent plane to implicit surface — gradient is normal vector |
+
 
 ---
 

@@ -42,6 +42,18 @@ $\phi = \int M\,dx = x^2+xy + h(y)$. $\frac{\partial\phi}{\partial y} = x + h'(y
 
 $\phi(x,y) = x^2+xy+y^2 = C$.
 
+![Exact ODE — 3D potential surface, 2D vector field + level curves, 1D slice](graphs/19c-exact-ode-potential.png)
+
+*Graph 19C: 3D — the potential surface $\phi(x,y) = x^2 + xy + y^2$. Solutions are level curves of this surface (red ellipses at constant height). 2D — the vector field $\nabla\phi = \langle 2x+y, x+2y\rangle$ is everywhere perpendicular to the level curves. The ODE $(2x+y)dx + (x+2y)dy = 0$ says "walk perpendicular to the gradient" — i.e., stay on a level curve. 1D — a slice along $y=x$ shows the potential minimum at the origin — all solution ellipses surround this point.*
+
+---
+
+> **🔗 Bridge to Vector Calculus**: The exactness condition $\frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}$ has a deeper meaning. In 2D vector calculus (Session 25D), a vector field $\vec{F} = \langle M, N \rangle$ has zero curl if and only if $\frac{\partial N}{\partial x} - \frac{\partial M}{\partial y} = 0$. That's the **same condition** — an exact ODE is one where $\langle M, N \rangle$ is a conservative vector field.
+>
+> The function $\phi(x,y)$ that satisfies $\frac{\partial\phi}{\partial x}=M$, $\frac{\partial\phi}{\partial y}=N$ is the **scalar potential**: $\nabla\phi = \langle M, N \rangle$. The solution $\phi(x,y)=C$ means "the potential is constant along solution curves" — exactly like energy conservation in physics, where a particle follows a level curve of the potential.
+>
+> When you study conservative fields in Session 25D, you'll see this same idea in 3D: $\nabla\times\vec{F}=\vec{0} \iff \vec{F}=\nabla\phi$, and the potential is found by the same partial integration algorithm you just used here.
+
 ---
 
 ## Example 4: Making Equations Exact — Integrating Factors
@@ -147,3 +159,35 @@ Solve: $(2xy+1)dx + (x^2+3y^2)dy = 0$. Test for exactness.
 **A10.** Find curves such that every tangent line passes through the origin. Set up ODE and solve.
 
 > Solutions: [Solutions](solutions/19C-solutions.md#advanced-drill)
+
+---
+
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| $v = \frac{y}{x}$ | "v equals y over x" | substitution for homogeneous equations — y = xv |
+| $\frac{dy}{dx} = F(\frac{y}{x})$ | "d y d x equals F of y over x" | homogeneous ODE — depends only on ratio y/x |
+| $y' + P(x)y = Q(x)y^n$ | "y prime plus P y equals Q y to the n" | Bernoulli equation — nonlinear, reduces to linear via v = y^{1-n} |
+| $v = y^{1-n}$ | "v equals y to the one minus n" | Bernoulli substitution — transforms to linear ODE in v |
+| $M(x,y)dx + N(x,y)dy = 0$ | "M d x plus N d y equals zero" | standard form for exact ODE |
+| $\frac{\partial M}{\partial y}$ | "partial M partial y" / "M sub y" | partial derivative of M with respect to y |
+| $M_y = N_x$ | "M sub y equals N sub x" | exactness condition — partial derivatives match |
+| $\phi(x,y)$ | "phi of x y" / "potential function" | scalar function whose gradient gives the vector field ⟨M,N⟩ |
+| $\mu(x)$, $\mu(y)$ | "mu of x" / "integrating factor" | factor making a non-exact ODE exact |
+| orthogonal trajectories | "orthogonal trajectories" | curves intersecting a given family at right angles |
+| Riccati | "Riccati" / "ree-CAH-tee" | y' = P y² + Q y + R — nonlinear, needs one known solution |
+
+
+---
+
+## Terminology
+
+| What we call it | Math term | Notation |
+|:---:|:---:|:---:|
+| F depends only on y/x | homogeneous equation | $\frac{dy}{dx}=F(y/x)$ |
+| y^n term makes it nonlinear | Bernoulli equation | $y'+Py=Qy^n$ |
+| M dx + N dy is an exact differential | exact equation | $M_y = N_x$ |
+| function whose gradient gives (M,N) | potential / scalar function | $\phi(x,y)$ s.t. $\nabla\phi=\langle M,N\rangle$ |
+| multiply to make exact | integrating factor (exact) | $\mu(x)$ or $\mu(y)$ |
+| curves intersecting at right angles | orthogonal trajectories | slope → −1/slope |

@@ -318,6 +318,25 @@ Step 3: Roots — z^n = w has exactly n solutions.
 
 ---
 
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| $i$ | "i" / "the imaginary unit" | $i^2 = -1$ — fundamental imaginary number |
+| $z = a + bi$ | "z equals a plus b i" | complex number: a=real part, b=imaginary part |
+| $\bar{z}$ | "z bar" / "z conjugate" / "complex conjugate" | $\overline{a+bi} = a - bi$ — flip sign of imaginary part |
+| $|z|$ | "modulus of z" / "absolute value of z" / "magnitude" | $|a+bi| = \sqrt{a^2+b^2}$ — distance from origin |
+| $\operatorname{Re}(z)$ | "real part of z" | the a in a+bi |
+| $\operatorname{Im}(z)$ | "imaginary part of z" | the b in a+bi (a real number — NOT bi!) |
+| $re^{i\theta}$ | "r e to the i theta" / "polar form" | $r=|z|$, $\theta=\arg(z)$ — polar/exponential form |
+| $\arg(z)$ | "argument of z" | angle $\theta$ from positive real axis |
+| Euler's formula | "Euler's formula" | $e^{i\theta} = \cos\theta + i\sin\theta$ |
+| De Moivre | "De Moivre's theorem" | $z^n = r^n e^{in\theta} = r^n(\cos n\theta + i\sin n\theta)$ |
+| $n$-th roots of unity | "n-th roots of unity" | $e^{2\pi i k/n}$ for k=0,1,…,n-1 — equally spaced on unit circle |
+| complex plane / Argand diagram | "complex plane" / "Argand diagram" | x-axis=real, y-axis=imaginary |
+
+---
+
 ## Terminology
 
 Up to now we used plain words like "imaginary", "conjugate", "modulus", "angle".

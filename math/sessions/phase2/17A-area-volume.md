@@ -190,6 +190,22 @@ $y=x^2$, $x\in[0,2]$ rotated about $y$-axis. Shell method.
 
 ---
 
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| $\int_a^b [f(x)-g(x)]\,dx$ | "integral from a to b of f of x minus g of x d x" | area between curves — top minus bottom |
+| disk method | "disk method" | $V = \pi\int R(x)^2\,dx$ — rotate region about axis, solid disk cross-sections |
+| washer method | "washer method" | $V = \pi\int (R^2 - r^2)\,dx$ — hollow solid, outer radius R, inner radius r |
+| shell method | "shell method" | $V = 2\pi\int x\,h(x)\,dx$ — cylindrical shells, integrate parallel to axis |
+| $\pi$ | "pi" | appears in volume formulas — area of circle = πr² |
+| cross-section | "cross-section" | slice perpendicular to axis — basis for volume integration |
+| solid of revolution | "solid of revolution" | 3D shape formed by rotating a 2D region around an axis |
+| $x$-axis / $y$-axis rotation | "rotation about the x-axis" / "y-axis" | axis of revolution determines disk/washer/shell choice |
+| $\Delta x$, $\Delta y$ | "delta x" / "delta y" | thickness of slice — becomes dx or dy in the limit |
+
+---
+
 ## Today's Procedure
 
 ```

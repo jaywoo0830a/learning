@@ -233,6 +233,20 @@ Step 3: Floor/ceiling — let t=[x] (an integer). Solve the integer inequality.
 
 ---
 
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| $\frac{P(x)}{Q(x)} \geq 0$ | "P of x over Q of x greater than or equal to zero" | rational inequality — watch denominator zeros |
+| $x \neq a$ | "x not equal to a" / "x cannot be a" | excluded value — denominator cannot be zero |
+| quadratic in form | "quadratic in form" | substitution $t = f(x)$ reduces to quadratic |
+| $\sqrt{A} < B$ | "square root of A less than B" | requires $A \geq 0$ AND squaring both sides |
+| AM-GM | "A M G M" / "arithmetic mean - geometric mean inequality" | $(a+b)/2 \geq \sqrt{ab}$ for $a,b \geq 0$ |
+| Cauchy-Schwarz | "Cauchy-Schwarz inequality" | $(a_1b_1+\cdots)^2 \leq (a_1^2+\cdots)(b_1^2+\cdots)$ |
+| $\pm\infty$ | "plus or minus infinity" | unbounded direction on number line |
+
+---
+
 ## Terminology
 
 | What we called it | Math term | Notation |

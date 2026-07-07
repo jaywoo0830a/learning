@@ -242,6 +242,25 @@ Step 3: Substitution t=x^k for hidden quadratics.
 
 ---
 
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| $x^n$ | "x to the n" / "x raised to the n-th power" | power / exponent form |
+| $a x^2 + b x + c = 0$ | "a x squared plus b x plus c equals zero" | quadratic equation (standard form) |
+| $x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}$ | "x equals negative b plus or minus the square root of b squared minus 4 a c, all over 2 a" | quadratic formula |
+| $b^2-4ac$ | "b squared minus 4 a c" / "discriminant" | determines nature of roots (>0: two real, =0: one real, <0: complex) |
+| $(x-r)(x-s)=0$ | "x minus r times x minus s equals zero" | factored form — roots are r and s |
+| $a^2-b^2$ | "a squared minus b squared" | difference of squares — factors as (a-b)(a+b) |
+| $a^3 \pm b^3$ | "a cubed plus or minus b cubed" | sum/difference of cubes |
+| $(x+a)^n$ | "x plus a, all to the n" | binomial expansion — use Pascal's triangle |
+| $\pm$ | "plus or minus" | two possibilities: plus AND minus |
+| synthetic division | "synthetic division" | fast polynomial division by (x-r) |
+| $\sum r_i$ | "sum of r sub i" / "sum of roots" | Vieta: sum = -b/a |
+| $\prod r_i$ | "product of r sub i" / "product of roots" | Vieta: product = (-1)^n a_0/a_n |
+
+---
+
 ## Terminology
 
 | What we called it | Math term | Notation |

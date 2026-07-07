@@ -330,6 +330,24 @@ Step 3: Geometric reasoning.
 
 ---
 
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| $x = r\cos\theta$, $y = r\sin\theta$ | "x equals r cosine theta, y equals r sine theta" | polar → rectangular conversion |
+| $r = \sqrt{x^2+y^2}$ | "r equals square root of x squared plus y squared" | distance from origin in polar |
+| $\theta = \tan^{-1}(y/x)$ | "theta equals inverse tangent of y over x" | angle from positive x-axis |
+| $x = \rho\sin\phi\cos\theta$ | "x equals rho sine phi cosine theta" | spherical → rectangular (x) |
+| $y = \rho\sin\phi\sin\theta$ | "y equals rho sine phi sine theta" | spherical → rectangular (y) |
+| $z = \rho\cos\phi$ | "z equals rho cosine phi" | spherical → rectangular (z) |
+| $\rho$ | "rho" | distance from origin (spherical) — NOT same as polar r |
+| $\phi$ | "phi" | angle from positive z-axis: 0 at north pole, π at south pole |
+| $x = r\cos\theta$, $y = r\sin\theta$, $z = z$ | "x equals r cosine theta, y equals r sine theta, z equals z" | cylindrical coordinates — polar in xy + z |
+| $dA = r\,dr\,d\theta$ | "d A equals r d r d theta" | polar area element — Jacobian = r |
+| $dV = \rho^2\sin\phi\,d\rho\,d\phi\,d\theta$ | "d V equals rho squared sine phi d rho d phi d theta" | spherical volume element |
+
+---
+
 ## Terminology
 
 | What we called it | Mathematical term | Notation |

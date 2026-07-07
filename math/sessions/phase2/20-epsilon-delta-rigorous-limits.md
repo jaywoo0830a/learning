@@ -401,6 +401,26 @@ Step 3: Prove limit laws from the definition. Sum law: split ε/2. Squeeze:
 
 ---
 
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| $\forall$ | "for all" / "for every" | universal quantifier — applies to every element |
+| $\exists$ | "there exists" / "for some" | existential quantifier — at least one element |
+| $\Rightarrow$ | "implies" / "then" | logical implication — if left holds, right must hold |
+| $\varepsilon$ | "epsilon" | output tolerance — an arbitrarily small positive number |
+| $\delta$ | "delta" | input window radius — chosen based on ε |
+| $\lim_{x \to a} f(x) = L$ | "limit as x approaches a of f of x equals L" | ε-δ definition: for every ε>0, there exists δ>0 such that... |
+| $0 < |x-a| < \delta$ | "zero less than absolute x minus a less than delta" | x is within δ of a, but x ≠ a — the point itself is excluded |
+| $|f(x)-L| < \varepsilon$ | "absolute f of x minus L less than epsilon" | f(x) is within ε of the limit L |
+| $\lceil x \rceil$ | "ceiling of x" | smallest integer ≥ x — used in ε-N to pick integer N |
+| $\neg$ | "not" / "negation" | logical negation — flips truth value |
+| $N \in \mathbb{N}$ | "N in the natural numbers" | N is a natural number (1, 2, 3, ...) |
+| Cauchy criterion | "Cauchy criterion" | ∀ε ∃N ∀m,n≥N: |a_m−a_n|<ε — sequence converges iff Cauchy |
+
+
+---
+
 ## Terminology
 
 | What we call it | Math term | Notation |

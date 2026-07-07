@@ -239,6 +239,25 @@ Determine convergence: $\displaystyle \sum_{n=1}^\infty \frac{(-1)^{n+1}}{\sqrt{
 
 ---
 
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| $\sum_{n=1}^{\infty} a_n$ converges | "the series converges" | partial sums approach a finite limit |
+| $\sum a_n$ diverges | "the series diverges" | partial sums → ∞, −∞, or oscillate |
+| $\lim_{n\to\infty} a_n \neq 0$ | "limit of a n does not equal zero" | Divergence Test: if limit ≠ 0, series MUST diverge (but limit=0 does NOT guarantee convergence!) |
+| geometric series | "geometric series" | $\sum ar^n$ — converges to $a/(1-r)$ if |r|<1 |
+| $p$-series | "p series" | $\sum 1/n^p$ — converges if p>1, diverges if p≤1 |
+| Integral Test | "integral test" | compare series to $\int f(x)dx$ where $f(n)=a_n$ — same convergence behavior |
+| Comparison Test | "comparison test" / "direct comparison" | term-by-term ≤ known series — if bigger converges, smaller also converges |
+| Limit Comparison Test | "limit comparison test" | if $\lim a_n/b_n = c > 0$ (finite), series share convergence fate |
+| Ratio Test | "ratio test" | $\lim |a_{n+1}/a_n| = L$: L<1→converges, L>1→diverges, L=1→inconclusive |
+| Root Test | "root test" | $\lim \sqrt[n]{|a_n|} = L$ — same criteria as Ratio Test |
+| Alternating Series Test | "alternating series test" | terms decrease to 0 in absolute value → converges |
+| absolutely / conditionally convergent | "absolutely convergent" / "conditionally convergent" | ∑|a_n| converges / ∑|a_n| diverges but ∑a_n converges |
+
+---
+
 ## Today's Procedure
 
 ```

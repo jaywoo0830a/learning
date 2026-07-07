@@ -207,6 +207,24 @@ Step 3: Clairaut: f_{xy}=f_{yx} when continuous.
 
 ---
 
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| $\frac{\partial f}{\partial x}$ | "partial f partial x" / "del f del x" | derivative with respect to x, treating y as constant |
+| $f_x$ | "f sub x" | shorthand for ∂f/∂x |
+| $\nabla f$ | "grad f" / "del f" / "gradient" | vector of all partial derivatives: ∇f = ⟨f_x, f_y⟩ |
+| $D_{\vec{u}}f$ | "d sub u f" / "directional derivative" | rate of change in direction of unit vector u — D_u f = ∇f·u |
+| $f_{xy}$ | "f sub x y" / "mixed partial" | differentiate first with respect to x, then y |
+| $f_{xx}$ | "f sub x x" | second partial with respect to x — differentiate twice |
+| $\nabla^2 f$ | "del squared f" / "Laplacian" | f_{xx} + f_{yy} — sum of all second partials |
+| $|\nabla f|$ | "magnitude of grad f" | maximum rate of change — steepness of the steepest path |
+| Clairaut's Theorem | "Clairaut's theorem" / "Clair-OH" | f_{xy} = f_{yx} when mixed partials are continuous — order doesn't matter |
+| tangent plane | "tangent plane" | z = f(a,b) + ∇f(a,b)·⟨x−a, y−b⟩ — best flat approximation to surface |
+
+
+---
+
 ## Terminology
 
 | What we call it | Math term | Notation |

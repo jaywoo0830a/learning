@@ -202,6 +202,22 @@ Step 3: Symmetric systems — rewrite in terms of S=x+y, P=xy.
 
 ---
 
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| $\frac{P(x)}{Q(x)}$ | "P of x over Q of x" | rational function — polynomial divided by polynomial |
+| $\frac{A}{x-a}$ | "A over x minus a" | partial fraction — linear factor term |
+| $\frac{Ax+B}{x^2+bx+c}$ | "A x plus B over x squared plus b x plus c" | partial fraction — irreducible quadratic term |
+| $\begin{cases} ax+by=e \\ cx+dy=f \end{cases}$ | "system: a x plus b y equals e, c x plus d y equals f" | 2×2 linear system |
+| elimination | "elimination" / "Gaussian elimination" | add/subtract equations to remove a variable |
+| substitution | "substitution" | solve one equation for a variable, plug into the other |
+| $\det = ad-bc$ | "determinant equals a d minus b c" | determines if system has unique solution (≠0) |
+| consistent / inconsistent | "consistent" / "inconsistent" | has solution(s) / has no solution |
+| $n \times n$ | "n by n" | square system with n equations and n unknowns |
+
+---
+
 ## Terminology
 
 | What we called it | Math term | Notation |

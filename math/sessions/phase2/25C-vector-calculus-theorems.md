@@ -117,6 +117,20 @@ $\iint_D 3\,dA = 3 \cdot \text{Area(triangle)} = 3 \cdot \frac{1}{2} = \frac{3}{
 
 ---
 
+> **🔗 Bridge to Physics — Faraday's Law**: Stokes' theorem isn't just a math identity — it IS one of Maxwell's equations. Take the differential form of Faraday's law: $\nabla\times\vec{E} = -\frac{\partial\vec{B}}{\partial t}$. Integrate both sides over a surface $S$ bounded by a curve $C$:
+>
+> $$\iint_S (\nabla\times\vec{E})\cdot d\vec{S} = -\iint_S \frac{\partial\vec{B}}{\partial t}\cdot d\vec{S}$$
+>
+> Apply Stokes to the left side: $\oint_C \vec{E}\cdot d\vec{r} = -\frac{d}{dt}\iint_S \vec{B}\cdot d\vec{S}$.
+>
+> **This is Faraday's law of induction**: the electric circulation around a loop (the EMF, measured in volts) equals the negative rate of change of magnetic flux through the loop. A changing magnetic field **creates** a circulating electric field — generators, transformers, and wireless charging all work by this principle. Stokes' theorem is the mathematical bridge between the local law ($\nabla\times\vec{E} = -\partial\vec{B}/\partial t$) and the measurable quantity (voltage around a loop).
+
+![Stokes → Faraday — 3D surface+flux, 2D circulation loop, 1D EMF](graphs/25c-stokes-faraday.png)
+
+*Graph 25C-2: 3D — a disk surface $S$ (teal) with upward magnetic field $\vec{B}$ (blue arrows). The boundary curve $C$ (red circle) carries a circulating electric field $\vec{E}$ (red arrows along $C$). Stokes says: circulation of $\vec{E}$ around $C$ = flux of $\nabla\times\vec{E}$ through $S$. Faraday says: that flux equals $-d\Phi_B/dt$. 2D — top-down view: the B-field dots (blue) pierce the disk; the E-field (red arrows) circulates counterclockwise when B decreases. 1D — flux $\Phi_B(t) = \cos t$ (blue) and induced EMF $\mathcal{E} = \sin t$ (red). EMF is maximum when flux changes fastest (steepest slope); EMF is zero when flux is at an extremum.*
+
+---
+
 ## Part D: The Divergence Theorem — Flux = Total Divergence
 
 ---
@@ -255,6 +269,25 @@ Step 2: Green (2D): ∮_C = ∬_D (Q_x−P_y). Stokes (3D surface): ∮_C = ∬_
 Step 3: Divergence (3D volume): ∬_S F·dS = ∭_E div F dV.
         All = FTC: ∫_∂M = ∫_M (derivative).
 ```
+
+---
+
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| $\int_C \vec{F}\cdot d\vec{r}$ | "line integral over C of F dot d r" | work done by vector field F along curve C |
+| $\oint_C$ | "closed line integral" / "circulation" | line integral around a closed loop |
+| $\nabla\times\vec{F}$ | "curl of F" / "del cross F" | vector field rotation — local vorticity, measures circulation density |
+| $\nabla\cdot\vec{F}$ | "divergence of F" / "del dot F" | scalar spreading rate — measures flux density, source/sink strength |
+| $\iint_S \vec{F}\cdot d\vec{S}$ | "surface integral of F dot d S" | flux through surface S — amount of field passing through |
+| $d\vec{S}$ | "d S vector" / "surface element vector" | magnitude = area, direction = outward normal |
+| $\iiint_E (\nabla\cdot\vec{F})\,dV$ | "triple integral of divergence F d V" | total divergence inside volume — equals flux through boundary |
+| Green | "Green's theorem" | ∮_C = ∬_D (Q_x−P_y) dA — 2D: circulation = curl over area |
+| Stokes | "Stokes' theorem" | ∮_C = ∬_S (∇×F)·dS — 3D surface: circulation = curl flux |
+| Divergence / Gauss | "Divergence theorem" / "Gauss's theorem" | ∬_S = ∭_E (∇·F) dV — flux = total divergence |
+| $\partial M$ | "boundary of M" | ∂M = boundary of region M — unified FTC: ∫_{∂M} = ∫_M (derivative) |
+
 
 ---
 

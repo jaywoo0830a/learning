@@ -363,6 +363,24 @@ A student computes $\int_{-2}^2 x^3\,dx = [\frac{x^4}{4}]_{-2}^2 = 4-4 = 0$ and 
 
 ---
 
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| $\int f(x)\,dx$ | "integral of f of x d x" / "antiderivative" | indefinite integral — family of functions whose derivative is f |
+| $\int_a^b f(x)\,dx$ | "integral from a to b of f of x d x" | definite integral — net signed area under curve |
+| FTC | "F T C" / "Fundamental Theorem of Calculus" | $\int_a^b f = F(b)-F(a)$ where $F'=f$ |
+| $\int x^n\,dx = \frac{x^{n+1}}{n+1} + C$ | "integral of x to the n equals x to the n+1 over n+1 plus C" | power rule for integration — reverse of derivative power rule |
+| $+C$ | "plus C" / "constant of integration" | antiderivative is a family — all differ by a constant |
+| $u$-substitution | "u substitution" | reverse chain rule: $u=g(x)$, $du=g'(x)dx$ |
+| $\int e^x\,dx = e^x + C$ | "integral of e to the x equals e to the x plus C" | exponential antiderivative |
+| $\int \frac{1}{x}\,dx = \ln|x| + C$ | "integral of one over x equals natural log of absolute x plus C" | produces natural log — absolute value essential |
+| $\int \sin x\,dx = -\cos x + C$ | "integral of sine x equals negative cosine x plus C" | note the minus sign — derivative of cos is -sin |
+| $\int \cos x\,dx = \sin x + C$ | "integral of cosine x equals sine x plus C" | cosine antiderivative |
+| Riemann sum | "Riemann sum" | $\sum f(x_i^*)\Delta x$ — approximates area with rectangles |
+
+---
+
 ## Terminology
 
 | What we call it | Math term | Notation |

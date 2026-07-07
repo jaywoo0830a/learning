@@ -223,6 +223,14 @@ EVT (Session 21) → Rolle's Theorem → MVT → FTC Part 1 → FTC Part 2
 
 Every "obvious" calculus fact traces back to the completeness of the real numbers (Session 05 — $\mathbb{R}$ has no gaps). EVT is where completeness enters calculus. From there, everything cascades.
 
+---
+
+> **🔗 Bridge to Multivariable**: In 2D, the second-order Taylor expansion reveals the **Hessian matrix** $H$ (Sessions 23B, 26B):
+>
+> $$f(\vec{a}+\vec{h}) = f(\vec{a}) + \nabla f(\vec{a})\cdot\vec{h} + \frac{1}{2}\vec{h}^{\mathsf{T}} H(\vec{a}) \vec{h} + \cdots$$
+>
+> The Hessian $H_{ij} = \frac{\partial^2 f}{\partial x_i \partial x_j}$ is a symmetric matrix of second partials. The quadratic term $\frac{1}{2}\vec{h}^{\mathsf{T}}H\vec{h}$ generalizes $\frac{1}{2}f''(a)h^2$ from 1D. At a critical point ($\nabla f = \vec{0}$), the Hessian determines whether the point is a minimum ($H$ positive definite — all eigenvalues > 0), maximum ($H$ negative definite), or saddle ($H$ indefinite). This is why the second derivative test in 24B uses $D = f_{xx}f_{yy} - f_{xy}^2 = \det H$ — the determinant of the $2\times2$ Hessian. The Lagrange remainder also generalizes: $R_2 = \frac{1}{6}\sum_{i,j,k}\frac{\partial^3 f}{\partial x_i\partial x_j\partial x_k}(\vec{\xi}) h_i h_j h_k$.
+
 > **Up to here**: Rolle: f(a)=f(b) ⇒ ∃c with f'(c)=0 (proof via EVT). MVT: ∃c with f'(c)=[f(b)-f(a)]/(b-a) (proof via Rolle on gap function). MVT corollaries: f'=0⇒constant, f'>0⇒increasing, f'=g'⇒f=g+C. FTC Part 1: d/dx ∫_a^x f = f(x) (proof via EVT + squeeze). FTC Part 2: ∫_a^b f = F(b)-F(a) (proof via FTC Part 1 + MVT). Taylor: f(x)=P_n(x)+R_n(x), Lagrange remainder R_n = f^{(n+1)}(ξ)/(n+1)!·(x-a)^{n+1}. Error bounding via max of |f^{(n+1)}|.
 
 ---
@@ -397,6 +405,25 @@ Step 2: FTC Part 1: d/dx ∫_a^x f = f(x) (EVT + squeeze).
 Step 3: Taylor's theorem: f = P_n + R_n. R_n = f^{(n+1)}(ξ)/(n+1)!·(x-a)^{n+1}.
         Cauchy MVT for proof. Error bounding: |R_n| ≤ max|f^{(n+1)}|/(n+1)!·|x-a|^{n+1}.
 ```
+
+---
+
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| $\exists c$ | "there exists c" | theorem guarantees existence of a point c — not necessarily unique |
+| $f'(c) = \frac{f(b)-f(a)}{b-a}$ | "f prime of c equals f of b minus f of a over b minus a" | MVT: instantaneous slope equals average slope at some c |
+| $\int_a^b f(x)\,dx$ | "integral from a to b of f of x d x" | definite integral — net signed area on [a,b] |
+| $F'(x) = f(x)$ | "F prime of x equals f of x" | FTC Part 1: derivative of accumulation function is the integrand |
+| $P_n(x)$ | "P n of x" / "Taylor polynomial" | degree-n polynomial matching f and its first n derivatives at a |
+| $R_n(x)$ | "R n of x" / "remainder" | error term — the difference f(x) − P_n(x) |
+| $f^{(n)}$ | "f superscript n" / "n-th derivative" | f^{(4)} = fourth derivative — parentheses distinguish from power |
+| $O((x-a)^{n+1})$ | "big-O of x minus a to the n+1" | remainder decays at least as fast as (x-a)^{n+1} |
+| $\equiv$ | "identically equals" | equality holding for all x — stronger than = |
+| Rolle's Theorem | "Rolle's theorem" | f(a)=f(b) ⇒ ∃c with f'(c)=0 — special case of MVT |
+| Cauchy MVT | "Cauchy Mean Value Theorem" | generalizes MVT to two functions — foundation of L'Hôpital and Taylor proofs |
+
 
 ---
 

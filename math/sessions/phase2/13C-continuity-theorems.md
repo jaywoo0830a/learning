@@ -360,6 +360,24 @@ Step 3: Sequences — treat n→∞ like x→∞.
 
 ---
 
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| continuous at $x=a$ | "continuous at x equals a" | limit = f(a) — no break, jump, or hole |
+| $\lim_{x\to a} f(x) = f(a)$ | "limit as x goes to a of f of x equals f of a" | continuity definition — three conditions in one |
+| IVT | "I V T" / "Intermediate Value Theorem" | continuous function on [a,b] hits every value between f(a) and f(b) |
+| EVT | "E V T" / "Extreme Value Theorem" | continuous function on closed [a,b] attains absolute max and min |
+| $[a,b]$ | "closed interval a b" | includes endpoints — required for EVT |
+| $(a,b)$ | "open interval a b" | excludes endpoints — EVT does NOT apply here |
+| jump discontinuity | "jump discontinuity" | left and right limits exist but are different |
+| removable discontinuity | "removable discontinuity" | limit exists — could be "fixed" by redefining f(a) |
+| infinite discontinuity | "infinite discontinuity" / "vertical asymptote" | function → ±∞ at the point |
+| oscillating discontinuity | "oscillating discontinuity" | sin(1/x) near 0 — no limit, infinite oscillation |
+| $C^0$, $C^1$, $C^2$ | "C zero, C one, C two" | C^0=continuous, C^1=continuously differentiable, C^2=second derivative continuous |
+
+---
+
 ## Terminology
 
 | What we call it | Math term | Notation |

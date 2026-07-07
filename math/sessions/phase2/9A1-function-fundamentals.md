@@ -841,6 +841,26 @@ Step 4: Transformations — g(x)=a·f(b(x−h))+k. Read inside out.
 
 ---
 
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| $f(x)$ | "f of x" / "the value of f at x" | function notation — input x, output f(x) |
+| domain | "domain" | set of all valid inputs x |
+| range | "range" / "image" | set of all possible outputs f(x) |
+| $f: A \to B$ | "f maps A to B" / "f from A to B" | function with domain A, codomain B |
+| $f \circ g$ | "f composed with g" / "f circle g" | composition: $(f \circ g)(x) = f(g(x))$ — apply g first, then f |
+| $f^{-1}$ | "f inverse" / "the inverse of f" | undoes f: $f^{-1}(f(x)) = x$ |
+| one-to-one / injective | "one-to-one" / "injective" | each output comes from exactly one input — passes horizontal line test |
+| onto / surjective | "onto" / "surjective" | every element of codomain is hit |
+| $f(x-h)$ | "f of x minus h" | shift RIGHT by h (counterintuitive!) |
+| $f(x)+k$ | "f of x plus k" | shift UP by k |
+| $-f(x)$ | "negative f of x" | reflect across x-axis |
+| $f(-x)$ | "f of negative x" | reflect across y-axis |
+| $a \cdot f(x)$ | "a times f of x" | vertical stretch ($|a|>1$) or compression ($|a|<1$) |
+
+---
+
 ## Terminology
 
 | What we call it | Math term | Notation |

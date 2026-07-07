@@ -212,6 +212,24 @@ $f(x)=\frac{x^2-1}{x^2+1}$. Find all asymptotes, extrema, inflection points. Ske
 
 ---
 
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| critical point | "critical point" | f'(x)=0 or f'(x) undefined — candidate for extremum |
+| local maximum | "local max" / "relative maximum" | highest point in its neighborhood — f' changes + → − |
+| local minimum | "local min" / "relative minimum" | lowest point in its neighborhood — f' changes − → + |
+| absolute/global extremum | "absolute max/min" / "global extremum" | highest/lowest point on the entire domain — check critical points AND endpoints |
+| $f'(x) > 0$ | "f prime of x greater than zero" | function is increasing |
+| $f'(x) < 0$ | "f prime of x less than zero" | function is decreasing |
+| $f''(x) > 0$ | "f double prime greater than zero" | concave up ∪ — slope is increasing |
+| $f''(x) < 0$ | "f double prime less than zero" | concave down ∩ — slope is decreasing |
+| first derivative test | "first derivative test" | check sign of f' on either side of critical point |
+| second derivative test | "second derivative test" | f'(a)=0, f''(a)>0 → local min; f''(a)<0 → local max; f''(a)=0 → inconclusive |
+| MVT | "M V T" / "Mean Value Theorem" | $f'(c) = [f(b)-f(a)]/(b-a)$ for some c in (a,b) |
+
+---
+
 ## Today's Procedure
 
 ```

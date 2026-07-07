@@ -434,6 +434,23 @@ Step 3: Quadric surfaces = 3D analogs of conic sections. Learn the six:
 
 ---
 
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| $z = f(x,y)$ | "z equals f of x y" | surface over the xy-plane — height at each point |
+| level curve / contour | "level curve" / "contour line" | $f(x,y)=c$ — horizontal slice through surface |
+| $x^2+y^2+z^2 = R^2$ | "x squared plus y squared plus z squared equals R squared" | sphere of radius R centered at origin |
+| $z = x^2 + y^2$ | "z equals x squared plus y squared" | paraboloid — bowl shape opening upward |
+| $z^2 = x^2 + y^2$ | "z squared equals x squared plus y squared" | double cone |
+| $x^2/a^2 + y^2/b^2 - z^2/c^2 = 1$ | "hyperboloid of one sheet" | cooling tower shape |
+| trace | "trace" / "cross-section" | intersection of surface with a coordinate plane |
+| $xy$-plane, $xz$-plane, $yz$-plane | "x y plane" / "x z plane" / "y z plane" | the three coordinate planes |
+| octant | "octant" | one of 8 regions divided by the coordinate planes |
+| quadric surface | "quadric surface" | surface defined by a second-degree equation in x, y, z |
+
+---
+
 ## Terminology
 
 | What we call it | Math term | Notation |

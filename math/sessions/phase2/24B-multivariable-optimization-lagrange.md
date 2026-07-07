@@ -222,6 +222,24 @@ Step 3: Global extrema on closed region = interior pts + boundary.
 
 ---
 
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| $\nabla f = \vec{0}$ | "grad f equals the zero vector" | critical point condition — both partial derivatives vanish |
+| $D = f_{xx}f_{yy} - f_{xy}^2$ | "D equals f x x times f y y minus f x y squared" | second derivative discriminant — D>0 extremum, D<0 saddle |
+| $D>0, f_{xx}>0$ | "D greater than zero, f x x greater than zero" | local minimum — bowl shape opening upward |
+| $D>0, f_{xx}<0$ | "D greater than zero, f x x less than zero" | local maximum — hill shape |
+| $D<0$ | "D less than zero" | saddle point — curves up in one direction, down in another |
+| $\nabla f = \lambda \nabla g$ | "grad f equals lambda grad g" | Lagrange multiplier condition — gradients are parallel |
+| $\lambda$ | "lambda" / "Lagrange multiplier" | shadow price — rate of change of optimum per unit relaxation of constraint |
+| $g(x,y) = c$ | "g of x y equals c" | constraint equation — the curve the optimum must lie on |
+| Hessian | "Hessian" | matrix of second partials — eigenvalues determine min/max/saddle |
+| saddle point | "saddle point" | critical point that is neither min nor max — Hessian has both positive and negative eigenvalues |
+
+
+---
+
 ## Terminology
 
 | What we call it | Math term | Notation |

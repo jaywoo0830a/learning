@@ -148,3 +148,32 @@ Differentiate $\sum_{n=0}^\infty \frac{x^n}{n!}$ term-by-term. What do you notic
 **A10.** Cauchy product: multiply the series for $e^x$ by itself. Show the result is the series for $e^{2x}$.
 
 > Solutions: [Solutions](solutions/18B-solutions.md#advanced-drill)
+
+---
+
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| $\sum_{n=0}^{\infty} c_n (x-a)^n$ | "power series centered at a" | infinite polynomial — function represented as series around a |
+| center | "center" / "a" | point around which the power series is expanded |
+| radius of convergence $R$ | "radius of convergence" | series converges for |x-a|<R, diverges for |x-a|>R |
+| interval of convergence | "interval of convergence" | (a-R, a+R) — endpoints must be checked separately |
+| Ratio Test for $R$ | "ratio test for radius" | R = lim |c_n/c_{n+1}| if the limit exists |
+| term-by-term differentiation | "term-by-term differentiation" | derivative of power series = sum of derivatives — valid inside radius |
+| term-by-term integration | "term-by-term integration" | integral of power series = sum of integrals — valid inside radius |
+| $e^x = \sum_{n=0}^{\infty} \frac{x^n}{n!}$ | "e to the x equals sum of x to the n over n factorial" | Maclaurin series for exponential — converges for all x |
+| analytic function | "analytic function" | function that equals its power series in some interval |
+| singular point | "singular point" | where function is not analytic — determines radius of convergence |
+
+---
+
+## Terminology
+
+| What we call it | Math term | Notation |
+|:---:|:---:|:---:|
+| infinite polynomial around a | power series | $\sum c_n(x-a)^n$ |
+| distance to nearest singularity | radius of convergence | $R$ |
+| domain of convergence | interval of convergence | $(a-R, a+R)$ plus checked endpoints |
+| differentiate/integrate term-by-term | termwise operations | valid for |x-a|<R |
+| equals its power series | analytic function | locally represented by series |

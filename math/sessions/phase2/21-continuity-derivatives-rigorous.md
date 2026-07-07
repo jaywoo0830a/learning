@@ -209,6 +209,10 @@ Divide by $(x-a)$ and take the limit: $[\phi(g(a))] \cdot [\psi(a)] = f'(g(a)) \
 
 **For credit exams**: know the statement of the chain rule proof strategy (Carathéodory or linear approximation). The full ε-δ chain rule proof is typically reserved for honors analysis.
 
+---
+
+> **🔗 Bridge to Multivariable**: In 1D, the derivative $f'(a)$ is a single number — the slope of the tangent line. In higher dimensions, the derivative becomes a **matrix**: the Jacobian $J$ (Session 26A). For $\vec{F}: \mathbb{R}^n \to \mathbb{R}^m$, the derivative at $\vec{a}$ is the $m\times n$ matrix of all partial derivatives $J_{ij} = \frac{\partial F_i}{\partial x_j}$. The linear approximation $\vec{F}(\vec{a}+\vec{h}) \approx \vec{F}(\vec{a}) + J\vec{h}$ replaces the 1D tangent line $f(a+h) \approx f(a) + f'(a)h$. Every derivative proof in this session — sum rule, product rule, chain rule — generalizes to the Jacobian. The product rule becomes matrix multiplication; the chain rule becomes $J_{F\circ G} = J_F \cdot J_G$. The limit definition $\lim_{h\to 0}\frac{f(a+h)-f(a)}{h}$ becomes $\lim_{\vec{h}\to\vec{0}}\frac{\|\vec{F}(\vec{a}+\vec{h}) - \vec{F}(\vec{a}) - J\vec{h}\|}{\|\vec{h}\|} = 0$ — the Jacobian is the unique linear map that makes this limit zero.
+
 > **Up to here**: Continuity = limit equals function value (no 0< in definition). IVT: continuous on [a,b] ⇒ hits every intermediate value. EVT: continuous on closed [a,b] ⇒ max and min exist. Derivative = limit of difference quotient. Differentiability ⇒ continuity (converse false: |x| at 0). Sum, product, reciprocal rules proved from limit laws. Chain rule = Carathéodory lemma or linear approximation.
 
 ---
@@ -383,6 +387,24 @@ Step 3: Prove derivative rules from the limit definition.
         Reciprocal → Quotient. Chain rule (linear approximation).
         Power rule (induction + product rule).
 ```
+
+---
+
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| $f'(a)$ | "f prime of a" | derivative at a — slope of tangent line |
+| $\frac{d}{dx}$ | "d d x" / "derivative operator" | take the derivative with respect to x |
+| $(f+g)' = f' + g'$ | "f plus g prime equals f prime plus g prime" | sum rule — derivative distributes over addition |
+| $(fg)' = f'g + fg'$ | "f g prime equals f prime g plus f g prime" | product rule — NOT simply f'g'! |
+| $(1/g)' = -g'/g^2$ | "one over g prime equals negative g prime over g squared" | reciprocal rule — special case of quotient rule |
+| $(f \circ g)' = f'(g) \cdot g'$ | "f composed with g prime equals f prime of g times g prime" | chain rule — differentiate outer, multiply by inner derivative |
+| IVT | "I V T" / "Intermediate Value Theorem" | continuous f on [a,b] hits every value between f(a) and f(b) |
+| EVT | "E V T" / "Extreme Value Theorem" | continuous f on closed [a,b] attains max and min |
+| $C^0, C^1, C^2$ | "C zero, C one, C two" | C⁰=continuous, C¹=continuously differentiable, C²=second derivative continuous |
+| removable / jump / essential | "removable" / "jump" / "essential" | three discontinuity types: hole, step, infinite oscillation |
+
 
 ---
 

@@ -24,6 +24,18 @@ $y''+4y'+13y=0$. $r^2+4r+13=0$. $r=-2\pm3i$. $y=e^{-2x}(c_1\cos3x+c_2\sin3x)$.
 
 ---
 
+> **🔗 Bridge to Linear Algebra**: The characteristic equation $ar^2+br+c=0$ is secretly an eigenvalue problem. Rewrite $y''+ay'+by=0$ in state-space form (Session 19E):
+>
+> $$\dot{\vec{x}} = \begin{pmatrix} 0 & 1 \\ -b & -a \end{pmatrix}\vec{x}, \quad \vec{x} = \begin{pmatrix} y \\ y' \end{pmatrix}.$$
+>
+> The eigenvalues of $A = \begin{pmatrix} 0 & 1 \\ -b & -a \end{pmatrix}$ satisfy $\det(A - rI) = 0$:
+>
+> $$\det\begin{pmatrix} -r & 1 \\ -b & -a-r \end{pmatrix} = r(a+r) + b = r^2 + ar + b = 0.$$
+>
+> **The characteristic equation IS the eigenvalue equation.** The roots $r_1, r_2$ are eigenvalues. The solution $y=e^{rt}$ corresponds to the eigenvector $\begin{pmatrix}1 \\ r\end{pmatrix}$. This is why complex eigenvalues give sines and cosines — they're the same complex exponentials rotating in the phase plane. When you move to Session 19E, you'll see this connection fully exploited: coupled systems → matrix $A$ → eigenvalues → solution.
+
+---
+
 ## Example 2: Simple Harmonic Motion
 
 $y'' + \omega^2 y = 0$. $r^2+\omega^2=0$, $r=\pm i\omega$. $y=c_1\cos\omega t + c_2\sin\omega t = A\sin(\omega t+\phi)$.
@@ -44,6 +56,10 @@ $r = \frac{-c\pm\sqrt{c^2-4mk}}{2m}$.
 - **Critically damped** ($c^2 = 4mk$): repeated root, fastest return.
 - **Underdamped** ($c^2 < 4mk$): complex roots, oscillation with decaying amplitude.
 
+![Damping types — 3D state space, 2D phase portraits, 1D time traces](graphs/19d-damping-types.png)
+
+*Graph 19D-1: 3D — state space trajectories $(y, y', t)$ for all three damping regimes. Red: overdamped (slides to zero), Blue: underdamped (spirals in), Green: critically damped (fastest return without oscillation). 2D — phase portraits $(y, y')$ reveal the geometry: overdamped follows the slow eigen-direction, critically damped touches the origin along one line, underdamped spirals. 1D — time traces show overdamped as sum of two decaying exponentials (slow + fast), critically damped as $(c_1+c_2 t)e^{-t}$, underdamped as $e^{-\alpha t}\cos(\beta t)$ with its exponential envelope.*
+
 ---
 
 ## Example 4: Euler's Method — Numerical Approximation
@@ -60,7 +76,9 @@ $x_4=0.4,y_4=1.5282$: $y_5=1.5282+0.1(0.4+1.5282)=1.7210$.
 
 $y(0.5)\approx1.721$. Exact: $y=-x-1+2e^x$, $y(0.5)=1.797$. Error $\approx0.076$.
 
-![Euler method visualization](graphs/19d1-euler-method.png)
+![Euler method — 3D staircase, 2D comparison, 1D error](graphs/19d-euler-method.png)
+
+*Graph 19D-2: 3D — Euler's method as a staircase climbing the unknown solution surface. Each vertical step = $h$, each horizontal jump = $h \cdot f(x_n, y_n)$. 2D — Euler approximation (red dots) vs exact solution (blue curve) for $y' = x+y$, $y(0)=1$ with step $h=0.3$. The red segments show the slope used at each step. 1D — absolute error grows roughly linearly with $x$: global error $\propto h$ (first-order method).*
 
 ---
 
@@ -150,3 +168,38 @@ Use Euler with $h=0.2$ to estimate $y(0.4)$ for $y'=y$, $y(0)=1$.
 **A10.** Lotka-Volterra: show $(c/d, a/b)$ is an equilibrium. Linearize and classify stability.
 
 > Solutions: [Solutions](solutions/19D-solutions.md#advanced-drill)
+
+---
+
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| $y''$ | "y double prime" / "second derivative" | acceleration — rate of change of slope |
+| $ay''+by'+cy=0$ | "a y double prime plus b y prime plus c y equals zero" | second-order linear homogeneous ODE |
+| $r$ | "r" / "characteristic root" | root of ar²+br+c=0 — determines solution form |
+| $i$ | "i" / "the imaginary unit" | i² = −1 — appears in complex roots for oscillatory solutions |
+| $e^{\alpha x}(c_1\cos\beta x + c_2\sin\beta x)$ | "e to the alpha x times c1 cosine beta x plus c2 sine beta x" | solution for complex roots α±iβ — damped/growing oscillation |
+| $c_1, c_2$ | "c one, c two" / "arbitrary constants" | determined by initial conditions |
+| $\omega$ | "omega" / "angular frequency" | ω = 2πf = 2π/T — radians per unit time |
+| $T = 2\pi/\omega$ | "T equals two pi over omega" | period — time for one complete cycle |
+| $h$ | "h" / "step size" | Euler method step — smaller h = better accuracy |
+| $y_{n+1} = y_n + h f(x_n, y_n)$ | "y n+1 equals y n plus h times f of x n, y n" | Euler method — one step of slope-following |
+| $O(h^2)$ | "big-O of h squared" | local truncation error proportional to h² |
+| RK2 | "R K two" / "Runge-Kutta second order" | improved Euler — averages slopes for better accuracy |
+| overdamped / critically damped / underdamped | "overdamped" / "critically damped" / "underdamped" | three damping regimes: no oscillation / fastest return / decaying oscillation |
+
+
+---
+
+## Terminology
+
+| What we call it | Math term | Notation |
+|:---:|:---:|:---:|
+| highest derivative is 2nd | second-order ODE | $ay''+by'+cy=0$ |
+| equation for r from y=e^{rx} | characteristic equation | $ar^2+br+c=0$ |
+| roots are real numbers | real distinct / repeated roots | $r_1,r_2 \in \mathbb{R}$ |
+| roots are α±iβ | complex conjugate roots | $r = \alpha \pm i\beta$ |
+| mass-spring oscillation | simple harmonic motion | $y''+\omega^2y=0$ |
+| step-by-step slope approximation | Euler's method | $y_{n+1}=y_n+h f(x_n,y_n)$ |
+| predict-correct average slope | improved Euler / RK2 | $y_{n+1}=y_n+\frac{h}{2}[f_n+f_{n+1}]$ |

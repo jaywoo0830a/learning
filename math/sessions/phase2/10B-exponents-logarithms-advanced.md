@@ -535,6 +535,23 @@ Step 3: Think — The decision trees (equations + inequalities) cover every type
 
 ---
 
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| $b^x = e^{x \ln b}$ | "b to the x equals e to the x natural log b" | change of base for exponentials |
+| $\log_b a = \frac{\ln a}{\ln b}$ | "log base b of a equals ln a over ln b" | change of base formula |
+| $a^x = b$ | "a to the x equals b" | exponential equation — take log of both sides |
+| $\log_a(x+1) + \log_a(x-1) = c$ | "log base a of x plus 1 plus log base a of x minus 1 equals c" | logarithmic equation — combine then exponentiate |
+| compound interest | "compound interest" | $A = P(1+r/n)^{nt}$ — interest added n times per year |
+| continuous compounding | "continuous compounding" | $A = Pe^{rt}$ — interest added continuously |
+| $t_2 = \ln 2 / k$ | "t-two equals ln 2 over k" / "doubling time" | time for quantity to double under exponential growth |
+| $t_{1/2} = \ln 2 / |k|$ | "t-half equals ln 2 over absolute k" / "half-life" | time for quantity to halve under exponential decay |
+| log-log plot | "log-log plot" | both axes logarithmic — power laws appear as straight lines |
+| semi-log plot | "semi-log plot" | y-axis logarithmic, x-axis linear — exponentials appear as straight lines |
+
+---
+
 ## Terminology
 
 | What we called it | Mathematical term | Notation / Explanation |

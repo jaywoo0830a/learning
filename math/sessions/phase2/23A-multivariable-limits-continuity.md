@@ -222,6 +222,23 @@ Step 3: Continuity: limit = f(a,b). Check piecewise definitions at origin.
 
 ---
 
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| $\lim_{(x,y)\to(a,b)}$ | "limit as x y approaches a b" | multivariable limit — must be same along ALL paths to exist |
+| $\mathbb{R}^2$ | "R two" / "the plane" | two-dimensional real space — all ordered pairs (x,y) |
+| $r$ | "r" / "radial distance" | distance from origin: r = √(x²+y²) |
+| $\theta$ | "theta" | angle from positive x-axis in polar coordinates |
+| $x = r\cos\theta$, $y = r\sin\theta$ | "x equals r cosine theta, y equals r sine theta" | polar-to-rectangular conversion |
+| two-path test | "two-path test" | find two paths giving different limits → limit DNE |
+| polar squeeze | "polar squeeze" | convert to (r,θ), show expression → 0 as r→0 regardless of θ |
+| $f(x,y)$ | "f of x y" | function of two variables — height z over each point (x,y) |
+| level curve | "level curve" / "contour" | f(x,y)=c — horizontal slice through the surface |
+
+
+---
+
 ## Terminology
 
 | What we call it | Math term | Notation |

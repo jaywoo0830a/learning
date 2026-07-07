@@ -377,6 +377,26 @@ Step 3: Graphs — sin: starts at 0, period 2π. cos: starts at 1, period 2π.
 
 ---
 
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| $\sin\theta$ | "sine theta" | opposite / hypotenuse in right triangle; y-coordinate on unit circle |
+| $\cos\theta$ | "cosine theta" | adjacent / hypotenuse; x-coordinate on unit circle |
+| $\tan\theta$ | "tangent theta" | sin/cos = opposite/adjacent; slope of terminal ray |
+| $\csc\theta$ | "cosecant theta" | 1/sin — reciprocal of sine |
+| $\sec\theta$ | "secant theta" | 1/cos — reciprocal of cosine |
+| $\cot\theta$ | "cotangent theta" | 1/tan = cos/sin — reciprocal of tangent |
+| $\pi$ rad = 180° | "pi radians equals 180 degrees" | radian-degree conversion |
+| $\sin^2\theta + \cos^2\theta = 1$ | "sine squared theta plus cosine squared theta equals one" | Pythagorean identity |
+| $\sin(2\theta) = 2\sin\theta\cos\theta$ | "sine two theta equals two sine theta cosine theta" | double-angle formula for sine |
+| $\cos(2\theta) = \cos^2\theta - \sin^2\theta$ | "cosine two theta equals cos squared theta minus sin squared theta" | double-angle formula for cosine |
+| $2\pi$ | "two pi" / "tau" | period of sine and cosine (one full circle) |
+| $\pi$ | "pi" | period of tangent |
+| $f(x) = A\sin(Bx + C) + D$ | "A sine B x plus C plus D" | sinusoid: A=amplitude, 2π/B=period, -C/B=phase shift, D=vertical shift |
+
+---
+
 ## Terminology
 
 Up to now we used plain words like "radian", "unit circle", "wave", "one full turn".

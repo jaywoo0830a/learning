@@ -124,7 +124,23 @@ $x=\frac{u+v}{2}$, $y=\frac{u-v}{2}$. Jacobian = $|\begin{vmatrix} 1/2 & 1/2 \\ 
 
 Integral = $\int_0^2\int_0^2 u^2 \cdot v \cdot \frac{1}{2}\,du\,dv = \frac{1}{2} \cdot \frac{8}{3} \cdot 2 = \frac{8}{3}$. Trivial after the transform.
 
-> **Up to here**: Polar: $dA=r\,dr\,d\theta$. Cylindrical: $dV=r\,dr\,d\theta\,dz$. Spherical: $dV=\rho^2\sin\phi\,d\rho\,d\phi\,d\theta$. General Jacobian: $|\partial(x,y)/\partial(u,v)|$.
+---
+
+> **🔗 Bridge to Linear Algebra**: The notation $\frac{\partial(x,y)}{\partial(u,v)}$ is the **determinant of the Jacobian matrix** — the same construct from Session 26A. The Jacobian matrix $J$ packs all partial derivatives:
+>
+> $$J = \begin{pmatrix} \frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\[4pt] \frac{\partial y}{\partial u} & \frac{\partial y}{\partial v} \end{pmatrix}$$
+>
+> Its columns tell you how a small step in $u$ or $v$ moves the $(x,y)$ point: $J_{*,1} = \langle x_u, y_u \rangle$ (how $\Delta u$ changes output), $J_{*,2} = \langle x_v, y_v \rangle$ (how $\Delta v$ changes output). These two column vectors span a **parallelogram** whose area is $|\det J|$. That's why $dA = |\det J|\,du\,dv$ — the determinant IS the area scaling factor.
+>
+> For polar: $J = \begin{pmatrix} \cos\theta & -r\sin\theta \\ \sin\theta & r\cos\theta \end{pmatrix}$, $\det J = r$. For the tilted square above: $J = \begin{pmatrix} 1/2 & 1/2 \\ 1/2 & -1/2 \end{pmatrix}$, $\det J = -1/2$, $|\det J| = 1/2$.
+>
+> In 3D, the same logic applies: $dV = |\det J|\,du\,dv\,dw$ where $J$ is now $3\times3$ and $|\det J|$ is the volume of the parallelepiped spanned by its three columns.
+
+![Jacobian matrix — 3D grid mapping, 2D parallelogram, 1D det(J)](graphs/25b-jacobian-matrix.png)
+
+*Graph 25B-2: 3D — a regular grid in $(u,v)$ space maps to a deformed grid in $(x,y)$ space via $(x,y) = (u+v, u-v)$. A small square in $(u,v)$ (red, bottom plane) becomes a parallelogram in $(x,y)$ (red, top plane). 2D — the two column vectors of $J = \begin{pmatrix}1&1\\1&-1\end{pmatrix}$ span a parallelogram whose area $|\det J| = 2$ is exactly the scaling factor. 1D — $\det J$ as a function of position: for polar, $\det J = r$ grows linearly (purple); for the linear mapping above, $\det J = -2$ is constant (red dashed); for spherical at fixed $\phi$, $\det J \propto \rho^2$ (green).*
+
+> **Up to here**: Polar: $dA=r\,dr\,d\theta$. Cylindrical: $dV=r\,dr\,d\theta\,dz$. Spherical: $dV=\rho^2\sin\phi\,d\rho\,d\phi\,d\theta$. General Jacobian: $|\partial(x,y)/\partial(u,v)| = |\det J|$.
 
 ---
 
@@ -216,6 +232,24 @@ Step 1: Polar (2D): dA = r·dr·dθ. Cylindrical (3D): dV = r·dr·dθ·dz.
 Step 2: Spherical: dV = ρ²sinφ·dρ·dφ·dθ. φ∈[0,π], θ∈[0,2π].
 Step 3: General Jacobian = |∂(x,y)/∂(u,v)|. Transform region + integrand + area element.
 ```
+
+---
+
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| $\iiint_E f\,dV$ | "triple integral over E of f d V" | integral over 3D region — hypervolume under a 3D graph, or mass with density f |
+| $dV$ | "d V" / "volume element" | depends on coordinate system — must include Jacobian |
+| $r\,dr\,d\theta$ | "r d r d theta" | polar area element — Jacobian = r |
+| $r\,dr\,d\theta\,dz$ | "r d r d theta d z" | cylindrical volume element — Jacobian = r |
+| $\rho^2\sin\phi\,d\rho\,d\phi\,d\theta$ | "rho squared sine phi d rho d phi d theta" | spherical volume element — Jacobian = ρ² sin φ |
+| $\rho$ | "rho" | distance from origin (spherical) — not the same as polar/cylindrical r |
+| $\phi$ | "phi" | angle from positive z-axis: 0=north pole, π/2=equator, π=south pole |
+| $\theta$ | "theta" | azimuthal angle in xy-plane: 0 to 2π |
+| $\left|\frac{\partial(x,y)}{\partial(u,v)}\right|$ | "absolute Jacobian" / "absolute value of partial x y over partial u v" | area scaling factor for coordinate transformation — determinant of Jacobian matrix |
+| $\det J$ | "determinant of J" | determinant of Jacobian matrix — gives local volume/area stretch factor |
+
 
 ---
 
