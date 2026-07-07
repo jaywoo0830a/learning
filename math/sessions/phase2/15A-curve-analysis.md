@@ -46,6 +46,10 @@ If $f$ is continuous on $[a,b]$ and differentiable on $(a,b)$, there exists $c\i
 
 $f(x)=x^2$ on $[1,4]$: average slope $=\frac{16-1}{3}=5$. $f'(x)=2x=5 \to x=2.5$. ✓
 
+![MVT — secant and tangent parallelism](graphs/15a-mvt-geometry.png)
+
+*Graph 15A-1: ⬢ 3D — the function f(x)=x² as a space curve with the secant line (red, from x=1 to x=4) and the tangent line (green, at c=2.5). The tangent is parallel to the secant — exactly what MVT guarantees. ⬡ 2D — classic MVT visualization: secant through (1,1) and (4,16) with slope 5, tangent at c=2.5 with the same slope. ⬝ 1D — the derivative f'(x)=2x (blue) compared to the average slope=5 (red dashed). They intersect exactly at c=2.5.*
+
 ---
 
 ## Part C: Increasing, Decreasing, and Extrema
@@ -97,6 +101,10 @@ $f(x)=x^3-3x$: $f''(x)=6x$. $x<0$: concave down. $x>0$: concave up. Inflection a
 
 ![Critical points and optimization](graphs/15a-critical-points.png)
 
+![Cubic analysis — f, f', f'' together](graphs/15a-cubic-analysis.png)
+
+*Graph 15A-2: ⬢ 3D — f(x)=x³−3x (blue), its derivative f'(x)=3x²−3 (green), and second derivative f''(x)=6x (red) displayed as stacked layers. The critical points at x=±1 (where f'=0) and the inflection point at x=0 (where f''=0) are marked. ⬡ 2D — annotated curve showing local maximum at (−1,2), local minimum at (1,−2), and inflection point at (0,0). ⬝ 1D — the curve with green-shaded increasing regions (f'>0), red-shaded decreasing region (f'<0), and concavity labels (concave down for x<0, concave up for x>0).*
+
 ---
 
 ## Part E: The 7-Step Curve Sketch
@@ -113,6 +121,10 @@ $f(x)=\frac{x^2}{x-1}$.
 ④ **$f'$**: $f'(x)=\frac{x(x-2)}{(x-1)^2}$. Critical at $x=0,2$. $x=0$: max $(0,0)$. $x=2$: min $(2,4)$.
 ⑤ **$f''$**: $f''(x)=\frac{2}{(x-1)^3}$. Never 0. $x<1$: concave down. $x>1$: concave up.
 ⑥ **Sketch**: left branch (below slant, concave down, peak at origin), right branch (min at $(2,4)$, concave up, hugging slant).
+
+![Complete 7-step curve sketch](graphs/15a-complete-sketch.png)
+
+*Graph 15A-3: ⬢ 3D — the two branches of f(x)=x²/(x-1) separated by the vertical asymptote at x=1. The left branch peaks at (0,0) and plunges to −∞ as x→1⁻. The right branch dips to a minimum at (2,4) and rises toward its slant asymptote y=x+1. ⬡ 2D — full annotated sketch with vertical asymptote (red dashed, x=1), slant asymptote (green dashed, y=x+1), local maximum at (0,0), and local minimum at (2,4). ⬝ 1D — the sign behavior of f'(x) (blue, solid) and f''(x) (red, dashed). f' changes sign at x=0 (+ → − → max) and x=2 (− → + → min). f'' is negative for x<1 (concave down) and positive for x>1 (concave up).*
 
 ---
 

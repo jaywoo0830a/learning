@@ -68,6 +68,10 @@ $V = \pi\int_0^4 (\sqrt{x})^2\,dx = \pi\int_0^4 x\,dx = \pi\left[\frac{x^2}{2}\r
 
 ![Solid of revolution](graphs/17b-solid-revolution.png)
 
+![Disk method — y=√x rotated about x-axis](graphs/17a-disk-method-3d.png)
+
+*Graph 17A-1: ⬢ 3D — the solid of revolution formed by rotating y=√x around the x-axis. Wireframe disks show circular cross-sections at sampled x-positions. Each disk has radius R(x)=√x and area π[R(x)]²=πx. ⬡ 2D — cross-sectional view: the curve y=√x (top) and y=−√x (bottom) enclose the region. A sample disk at x=2 has radius √2 and area 2π. ⬝ 1D — [R(x)]² = x (blue, shaded area) and the accumulating volume V(x) = πx²/2 (red dashed). The total volume V(4) = 8π is the area under π[R(x)]² from 0 to 4.*
+
 ---
 
 ## Example 7: Washer Method — Hollow Solid
@@ -76,6 +80,10 @@ $V = \pi \displaystyle \int_a^b [(R_{\text{outer}})^2 - (R_{\text{inner}})^2]\,d
 
 Region between $y=x$ and $y=x^2$ rotated about $x$-axis:
 $V = \pi\int_0^1 (x^2-(x^2)^2)dx = \pi\int_0^1 (x^2-x^4)dx = \frac{2\pi}{15}$.
+
+![Washer method — hollow solid between two curves](graphs/17a-washer-method-3d.png)
+
+*Graph 17A-2: ⬢ 3D — the hollow solid formed by rotating the region between y=x (outer, blue) and y=x² (inner, red) around the x-axis. Each cross-section is a washer: outer radius R=x, inner radius r=x². ⬡ 2D — the region between y=x and y=x² on [0,1]. When rotated, the outer curve sweeps a solid paraboloid; the inner curve carves out a hollow core. ⬝ 1D — R² = x² (blue) and r² = x⁴ (red). The washer area at each x is π(R²−r²) = π(x²−x⁴) (purple shaded region). Integrate from 0 to 1 to get V = 2π/15.*
 
 ---
 
@@ -92,6 +100,10 @@ $V = 2\pi \displaystyle \int_a^b x\cdot h(x)\,dx$ where $h(x)$ is the height of 
 
 Rotate $y=x^2$, $x\in[0,2]$ about $y$-axis:
 $V = 2\pi\int_0^2 x\cdot x^2\,dx = 2\pi\int_0^2 x^3\,dx = 2\pi\left[\frac{x^4}{4}\right]_0^2 = 8\pi$.
+
+![Shell method — cylindrical shells about y-axis](graphs/17a-shell-method-3d.png)
+
+*Graph 17A-3: ⬢ 3D — nested cylindrical shells formed by rotating vertical strips of the region under y=x² about the y-axis. Each shell at radius x has height h(x)=x² and circumference 2πx. ⬡ 2D — the region under y=x² with a sample shell at x=1.5 highlighted. The shell's height is x²=2.25, its circumference is 2π(1.5)≈9.42, and its unwrapped area is 2πx·h(x). ⬝ 1D — the shell integrand x·h(x) = x³ (green, shaded) and the accumulating volume V(x) = 2πx⁴/4 (red dashed). Total volume V(2) = 2π·16/4 = 8π — matching the answer.*
 
 ---
 

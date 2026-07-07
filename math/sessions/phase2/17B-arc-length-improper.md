@@ -19,6 +19,10 @@ $f'(x)=\frac{3}{2}\sqrt{x}$, $1+[f']^2 = 1+\frac{9}{4}x$.
 $L = \int_0^4 \sqrt{1+\frac{9}{4}x}\,dx$. $u=1+\frac{9}{4}x$, $du=\frac{9}{4}dx$.
 $L = \frac{4}{9}\int_1^{10} u^{1/2}du = \frac{8}{27}(10^{3/2}-1) \approx 8.63$.
 
+![Arc length — polygonal approximation converging to the curve](graphs/17b-arc-length-approx.png)
+
+*Graph 17B-1: ⬢ 3D — the curve y=x^(3/2) (black) with polygonal approximations using n=2,4,8,16 segments (stacked by color). As n increases, the total polygon length converges to the true arc length. ⬡ 2D — the curve with a 6-segment approximation. Each segment length ΔL = √(Δx²+Δy²) = √(1+(Δy/Δx)²)·Δx. In the limit, ΔL→ds = √(1+(dy/dx)²)·dx. ⬝ 1D — the integrand √(1+(f')²) = √(1+2.25x) for y=x^(3/2) (blue, shaded). The arc length L ≈ 8.63 is the area under this curve from x=0 to x=4.*
+
 ---
 
 ## Example 2: Circle Arc Length
@@ -58,6 +62,10 @@ Rotate $y=\sqrt{x}$ from $x=0$ to $x=4$: $f'=\frac{1}{2\sqrt{x}}$, $1+(f')^2=1+\
 $S = 2\pi\int_0^4\sqrt{x}\sqrt{\frac{4x+1}{4x}}dx = 2\pi\int_0^4\frac{\sqrt{4x+1}}{2}dx = \pi\int_0^4\sqrt{4x+1}\,dx$.
 $u=4x+1$: $S = \pi\cdot\frac{1}{6}(17^{3/2}-1) \approx 36.18$.
 
+![Surface of revolution — band elements and integrand](graphs/17b-surface-revolution.png)
+
+*Graph 17B-2: ⬢ 3D — the surface formed by rotating y=√x around the x-axis. The blue surface shows the full paraboloid; red rings mark individual surface area bands. ⬡ 2D — the generating curve y=√x with a highlighted band at x=2. Each band has radius y, slant width ds = √(1+(y')²)dx, and area dS = 2πy·ds. The total surface is the sum of all bands. ⬝ 1D — the integrand 2πy√(1+(y')²) (red, shaded). The surface area S ≈ 36.2 is the area under this curve from x=0 to x=4.*
+
 ---
 
 ## Example 6: Surface Area of a Sphere
@@ -89,6 +97,10 @@ $\displaystyle \int_0^1 \frac{1}{\sqrt{x}}\,dx = \lim_{a\to0^+}\int_a^1 x^{-1/2}
 $\displaystyle \int_1^\infty \frac{1}{x^p}\,dx$ converges if $p>1$, diverges if $p\leq1$.
 
 $\displaystyle \int_0^1 \frac{1}{x^p}\,dx$ converges if $p<1$, diverges if $p\geq1$.
+
+![Improper integrals — p-test and convergence](graphs/17b-improper-integrals.png)
+
+*Graph 17B-3: ⬢ 3D — the area under 1/x² from x=1 to ∞. Although the region extends infinitely far to the right, the total area is exactly 1 — finite! The height 1/x² decays fast enough that the cumulative area converges. ⬡ 2D — comparison of 1/x² (green, converges, p=2>1) vs 1/x (red, diverges, p=1). The key insight: 1/x² hugs the x-axis tightly enough for finite total area; 1/x does not. ⬝ 1D — the p-test map: ∫₁^∞ 1/x^p dx converges to 1/(p−1) for p>1 (blue curve) and diverges for p≤1 (red zone). The boundary p=1 is the harmonic series threshold — infinitesimally above it, convergence; at or below, divergence.*
 
 ---
 

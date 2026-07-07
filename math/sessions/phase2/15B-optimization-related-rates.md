@@ -30,6 +30,10 @@ A box is made from a 12×12 sheet by cutting squares of side $x$ from each corne
 
 ![Optimization example](graphs/15b-optimization.png)
 
+![Box volume optimization — V(x) surface and analysis](graphs/15b-box-optimization.png)
+
+*Graph 15B-1: ⬢ 3D — the box (at optimal cut x=2) shown alongside the volume curve V(x)=x(12−2x)². The red dot marks the maximum at x=2, V=128. ⬡ 2D — the volume function V(x) with the maximum clearly marked. The domain is (0,6) since x cannot exceed half the sheet width. ⬝ 1D — the derivative V'(x) sign chart: positive (green, V increasing) for x<2, zero at x=2 (critical point), negative (red, V decreasing) for x>2. The sign change + → − confirms a local maximum.*
+
 ---
 
 ## Example 3: Distance Minimization
@@ -78,6 +82,10 @@ A 5m ladder leans against a wall. The bottom slides away at 1 m/s. How fast does
 ② $2x\frac{dx}{dt}+2y\frac{dy}{dt}=0 \to \frac{dy}{dt}=-\frac{x}{y}\frac{dx}{dt}$.
 ③ At $x=3$, $y=4$, $\frac{dx}{dt}=1$: $\frac{dy}{dt}=-\frac{3}{4}$ m/s (falling at 0.75 m/s).
 
+![Ladder related rates — sliding geometry](graphs/15b-ladder-rates.png)
+
+*Graph 15B-2: ⬢ 3D — the ladder at successive time instants, sliding down as the bottom moves right at 1 m/s. The trajectory of top and bottom form a quarter-circle in the (x,y,t) space. ⬡ 2D — the geometric setup at the instant x=3, y=4. The Pythagorean relation x²+y²=25 is differentiated to 2x·dx/dt + 2y·dy/dt = 0. Bottom slides right (red arrow, +1 m/s), top slides down (green arrow, −3/4 m/s). ⬝ 1D — dy/dt as a function of x: as the bottom moves farther from the wall, the top accelerates downward. At x=3, dy/dt = −0.75 m/s. As x→5 (ladder nearly flat), dy/dt → −∞.*
+
 ---
 
 ## Example 8: Conical Tank
@@ -87,6 +95,10 @@ Water pours into a conical tank (radius 2m, height 5m) at 3 m³/min. How fast do
 ① $V=\frac{1}{3}\pi r^2 h$. By similar triangles: $r/h=2/5 \to r=0.4h$.
 ② $V=\frac{1}{3}\pi(0.4h)^2 h=\frac{0.16}{3}\pi h^3$.
 ③ $\frac{dV}{dt}=0.16\pi h^2\frac{dh}{dt}=3$. At $h=1$: $\frac{dh}{dt}=\frac{3}{0.16\pi}\approx 5.97$ m/min.
+
+![Conical tank — water filling rate](graphs/15b-conical-tank.png)
+
+*Graph 15B-3: ⬢ 3D — the conical tank (R=2m, H=5m) with water filled to height h=1m (blue). The water surface is a disk of radius r=0.4m. ⬡ 2D — cross-section showing similar triangles: r/h = R/H = 2/5, so r = 0.4h. This relation collapses V from two variables (r,h) to one (h). ⬝ 1D — dh/dt as a function of water height h. The rise rate is fastest when the tank is nearly empty (h small, dh/dt ~ 1/h²) and slows dramatically as it fills. At h=1m, dh/dt ≈ 5.97 m/min; at h=4m, dh/dt ≈ 0.37 m/min.*
 
 ---
 
