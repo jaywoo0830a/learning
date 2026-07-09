@@ -45,21 +45,15 @@ $\theta=\frac{\pi}{6}$: $\cos\frac{\pi}{6}=\frac{\sqrt{3}}{2}$, $\sin\frac{\pi}{
 
 ## Visual Interlude: Unwrapping the Circle into the Sine Wave
 
-**The single most important visualization in trigonometry.**
-
-Imagine a point moving counterclockwise around the unit circle at constant speed. Now imagine a second graph underneath: the horizontal axis is the angle $\theta$ (or time), the vertical axis shows the height ($y$-coordinate) of the point.
+A point moves counterclockwise around the unit circle at constant speed. Below it, a graph tracks its height ($y$-coordinate) against angle $\theta$.
 
 ![Unwrapping the unit circle into a sine wave](graphs/11f-unwrapping-circle.png)
 
-At $\theta = 0$: the point is at $(1,0)$ — height 0. The sine wave starts at 0.
-At $\theta = \frac{\pi}{2}$: the point is at $(0,1)$ — height 1. The sine wave hits its peak.
-At $\theta = \pi$: the point is at $(-1,0)$ — height 0. The sine wave crosses the axis.
-At $\theta = \frac{3\pi}{2}$: the point is at $(0,-1)$ — height −1. The sine wave bottoms out.
-At $\theta = 2\pi$: back to $(1,0)$ — one full cycle complete.
+At $\theta = 0$: height 0 → sine starts at 0. At $\theta = \frac{\pi}{2}$: height 1 → peak. At $\theta = \pi$: height 0 → crosses axis. At $\theta = \frac{3\pi}{2}$: height −1 → trough. At $\theta = 2\pi$: back to 0 — one full cycle.
 
-**The cosine wave is the same unwrapping, but reading the $x$-coordinate instead.** It starts at 1 (the $x$-coordinate of the starting point), not 0. The phase difference is literally "a quarter-turn ahead."
+**Cosine** unwraps the $x$-coordinate instead — starts at 1, shifted left by $\frac{\pi}{2}$.
 
-**Tangent unwrapped**: At each angle, draw a vertical line tangent to the circle at $(1,0)$. Extend the radius. Where it hits the tangent line, the $y$-coordinate is $\tan\theta$. As $\theta \to 90^\circ$, the radius becomes parallel to the tangent line — they never meet — so $\tan\theta \to \infty$.
+**Tangent unwrapped**: draw a vertical line at $(1,0)$. Extend the radius — where it hits the tangent line, the $y$-coordinate is $\tan\theta$. As $\theta \to 90^\circ$, the radius parallels the tangent line (they never meet) → $\tan\theta \to \infty$.
 
 ---
 
@@ -105,7 +99,7 @@ Every angle $\theta$ has a "shadow" in Quadrant 1 — its reference angle $\thet
 
 ![Reference angle — Quadrant IV](graphs/11g3-reference-angle-q4.png)
 
-**The rule**: The *magnitude* of any trig value at any angle is the same as at its reference angle. Only the sign changes — determined by the quadrant.
+**The rule**: The *magnitude* of any trig value at any angle equals its value at the reference angle. Only the sign changes — determined by the quadrant.
 
 ---
 
@@ -143,16 +137,13 @@ Hits 1 at $\frac{\pi}{2}$, 0 at $\pi$, −1 at $\frac{3\pi}{2}$, 0 at $2\pi$. Or
 
 **Visual Insight — Tangent as Slope:**
 
-On the unit circle, draw the radius to $(\cos\theta, \sin\theta)$. The slope of that radius line is:
-$$\text{slope} = \frac{\text{rise}}{\text{run}} = \frac{\sin\theta}{\cos\theta} = \tan\theta.$$
-
-So $\tan\theta$ is **the slope of the radius**.
+On the unit circle, the radius to $(\cos\theta, \sin\theta)$ has slope $\frac{\sin\theta}{\cos\theta} = \tan\theta$.
 
 ![Tangent as the slope of the radius](graphs/11h-tangent-as-slope.png)
 
 **Visual Insight — $\sin\theta$ and $\cos\theta$ as Projections:**
 
-Drop a perpendicular from the point on the circle to the $x$-axis: the $x$-intercept is $\cos\theta$, the $y$-intercept is $\sin\theta$. They are literally the horizontal and vertical shadows of a rotating unit vector.
+Drop a perpendicular from the circle-point to the $x$-axis: the $x$-intercept is $\cos\theta$, the $y$-intercept is $\sin\theta$. They are the horizontal and vertical shadows of a rotating unit vector.
 
 ---
 
@@ -193,13 +184,11 @@ Amplitude 4, period $\frac{2\pi}{\pi}=2$, phase $x=-\frac{1}{4}$ (left by $\frac
 
 ## Visual Interlude: Geometric Proof of $\sin^2\theta + \cos^2\theta = 1$
 
-**No algebra needed — just look at the unit circle.**
-
-The point $(\cos\theta, \sin\theta)$ lies on the circle $x^2 + y^2 = 1$. Substitute $x = \cos\theta$, $y = \sin\theta$: $\cos^2\theta + \sin^2\theta = 1$. This is the Pythagorean theorem in disguise.
+The point $(\cos\theta, \sin\theta)$ lies on the circle $x^2 + y^2 = 1$. Substitute: $\cos^2\theta + \sin^2\theta = 1$. This is the Pythagorean theorem — no algebra needed.
 
 ![Geometric proof of Pythagorean identity](graphs/11i-pythagorean-proof.png)
 
-Three identities from one picture — the unit circle is a factory for identities.
+From this one picture flow all the Pythagorean identities: divide by $\cos^2\theta$ → $1 + \tan^2\theta = \sec^2\theta$; divide by $\sin^2\theta$ → $1 + \cot^2\theta = \csc^2\theta$.
 
 ---
 
