@@ -2,6 +2,10 @@
 
 **Phase 2 — Classical Techniques | 105 min**
 
+*Prerequisite: [11A — Trigonometric Foundations](11A-trig-foundations.md) (radians, unit circle, six trig functions, graphs, inverse trig)*
+
+*This session assumes you can: convert degrees ↔ radians, read sin/cos/tan/csc/sec/cot from the unit circle, sketch all six graphs with transformations, and evaluate arcsin/arccos/arctan. If any of this is shaky, review 11A first.*
+
 ---
 
 ## Part A: Trigonometric Identities — Your Algebraic Arsenal
@@ -149,18 +153,29 @@ $a=5$, $b=8$, $C=30^\circ$ → $\frac{1}{2}\cdot5\cdot8\cdot\sin30^\circ = 10$.
 
 ---
 
-## Example 9: Inverse Trigonometric Functions
+## Example 9: Inverse Trigonometric Functions — The Bridge Back to Angles
 
-$\arcsin x$: $\theta \in [-\frac{\pi}{2}, \frac{\pi}{2}]$. $\arcsin\frac{1}{2} = \frac{\pi}{6}$.
-$\arccos x$: $\theta \in [0, \pi]$. $\arccos\frac{1}{2} = \frac{\pi}{3}$.
-$\arctan x$: $\theta \in (-\frac{\pi}{2}, \frac{\pi}{2})$. $\arctan 1 = \frac{\pi}{4}$.
+> **From 11A**: You already know $\arcsin$, $\arccos$, $\arctan$ — their restricted domains, ranges, and graphs. Here we focus on *using* them in equations and identities.
 
-$\arcsin(\sin\frac{5\pi}{6})$: $\sin\frac{5\pi}{6} = \frac{1}{2}$. $\arcsin\frac{1}{2} = \frac{\pi}{6}$.
+$\arcsin\frac{1}{2} = \frac{\pi}{6}$. $\arccos\frac{1}{2} = \frac{\pi}{3}$. $\arctan 1 = \frac{\pi}{4}$.
+
+**The domain trap**: $\arcsin(\sin\frac{5\pi}{6})$: $\sin\frac{5\pi}{6} = \frac{1}{2}$. $\arcsin\frac{1}{2} = \frac{\pi}{6}$.
 $\frac{5\pi}{6}$ lies outside $\arcsin$'s range; the answer is the value in $[-\frac{\pi}{2}, \frac{\pi}{2}]$ with the same sine.
+
+**Inverse trig in equations** — these appear when the unknown is an angle:
+
+$2\arcsin x = \arccos x$. Take cosine of both sides:
+$\cos(2\arcsin x) = \cos(\arccos x) = x$.
+Let $\theta = \arcsin x$, so $\sin\theta = x$, $\cos\theta = \sqrt{1-x^2}$ (since $\theta \in [-\frac{\pi}{2}, \frac{\pi}{2}]$).
+$\cos 2\theta = 1 - 2\sin^2\theta = 1 - 2x^2$. So $1 - 2x^2 = x$ → $2x^2 + x - 1 = 0$ → $x = \frac{1}{2}$ or $x = -1$.
+Check: $x=\frac{1}{2}$ → $2\arcsin\frac{1}{2} = \frac{\pi}{3}$, $\arccos\frac{1}{2} = \frac{\pi}{3}$. ✓
+$x=-1$ → $2\arcsin(-1) = -\pi$. But $\arccos(-1) = \pi$. Not equal. Discard.
+
+$\arctan x + \arctan\frac{1}{x} = \frac{\pi}{2}$ (for $x > 0$). The two angles are complementary.
 
 ![Inverse trig functions — mirror of the original across y=x](graphs/11b7-inverse-trig-functions.png)
 
-> **Geometric insight**: Inverse = reflect across $y=x$. To keep it a function, restrict domain: $\sin \to [-\frac{\pi}{2}, \frac{\pi}{2}]$, $\cos \to [0, \pi]$, $\tan \to (-\frac{\pi}{2}, \frac{\pi}{2})$.
+> **Geometric insight**: Inverse trig equations often reduce to algebraic equations after applying a trig function to both sides. The key extra step: checking that the solution falls within each inverse function's range.
 
 ---
 
@@ -356,12 +371,15 @@ You encounter a trigonometric inequality:
 ## What We Just Did
 
 ```
+Building on 11A (radians, unit circle, six graphs, inverse trig):
+
 (1) Identity toolkit — sum/difference (6 formulas). Double/half/triple angle.
     Harmonic addition merges a sin+b cos into one wave. Product↔sum converts
     multiplication to addition and vice versa.
 
 (2) Equation solving — one trig type → t-sub. Mixed angles → unify via double-angle.
     Mixed sin+cos → factor or harmonic-add. Rational trig → tan half-angle.
+    Inverse trig equations → apply trig to both sides, check ranges.
     Triangles: SAS→law of cosines, AAS→law of sines. Area = ½ab sin C or Heron.
 
 (3) Advanced — Euler's formula unifies all identities. Chebyshev polynomials encode
