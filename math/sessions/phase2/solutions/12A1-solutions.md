@@ -4,114 +4,132 @@
 
 ## Practice 1
 
-**Divide $\frac{3-i}{2+i}$.**
+**Divide $\frac{3-i}{2+i}$. Write in $a+bi$ form. Matrix + determinant verification.**
 
-Multiply numerator and denominator by the conjugate of $2+i$, which is $2-i$:
+Multiply by conjugate $2-i$:
+$\frac{3-i}{2+i} \cdot \frac{2-i}{2-i} = \frac{(3-i)(2-i)}{4+1} = \frac{6-3i-2i+i^2}{5} = \frac{6-5i-1}{5} = \frac{5-5i}{5} = 1 - i$.
 
-$$\frac{3-i}{2+i} \cdot \frac{2-i}{2-i} = \frac{(3-i)(2-i)}{(2+i)(2-i)}$$
+Matrix for $z=1-i$: $M = \begin{pmatrix} 1 & 1 \\ -1 & 1 \end{pmatrix}$.
+$\det(M) = 1\cdot 1 - 1\cdot(-1) = 1+1 = 2$.
+$|z|^2 = 1^2 + (-1)^2 = 2 = \det(M)$ ✓.
 
-Numerator: $(3)(2) + (3)(-i) + (-i)(2) + (-i)(-i) = 6 - 3i - 2i + i^2 = 6 - 5i - 1 = 5 - 5i$.
-
-Denominator: $(2)^2 + (1)^2 = 4 + 1 = 5$.
-
-$$\frac{5-5i}{5} = 1 - i$$
-
-> **Answer**: $1 - i$
+> **Answer**: $z = 1-i$, $M = \begin{pmatrix} 1 & 1 \\ -1 & 1 \end{pmatrix}$, $\det(M) = |z|^2 = 2$
 
 ---
 
 ## Practice 2
 
-**Write $z = 1-i$ in polar form. Then compute $z^8$ using De Moivre.**
+**Write $z = 1-i$ in polar form. Compute $z^8$. Matrix view: why positive real?**
 
-**Polar form**: $r = \sqrt{1^2 + (-1)^2} = \sqrt{2}$.
+$r = \sqrt{1^2+(-1)^2} = \sqrt{2}$. $\theta = -\pi/4$.
+$z = \sqrt{2}e^{-i\pi/4}$.
 
-$\cos\theta = \frac{1}{\sqrt{2}}$, $\sin\theta = \frac{-1}{\sqrt{2}}$, so $\theta = -\frac{\pi}{4}$ (or $\frac{7\pi}{4}$).
+$z^8 = (\sqrt{2})^8 \cdot e^{-i\cdot 8\pi/4} = 16 \cdot e^{-i\cdot 2\pi} = 16$.
 
-$$z = \sqrt{2}\,e^{-i\pi/4}$$
+**Matrix view**: $M = \begin{pmatrix} 1 & 1 \\ -1 & 1 \end{pmatrix}$. After 8 multiplications, the rotation angle is $8 \times (-45^\circ) = -360^\circ = 0^\circ$. The rotation returns to 0 — so the result is a pure positive scaling by $r^8 = 16$. The matrix $M^8 = 16I$, a pure scaling matrix (no rotation part). That's why $z^8 = 16$, a positive real.
 
-**De Moivre**: $z^8 = (\sqrt{2})^8 \cdot e^{-i\cdot 8\pi/4} = 2^4 \cdot e^{-i\cdot 2\pi} = 16 \cdot e^{-i\cdot 2\pi}$.
-
-Since $e^{-i\cdot 2\pi} = \cos(-2\pi) + i\sin(-2\pi) = 1$,
-
-$$z^8 = 16$$
-
-> **Answer**: $z = \sqrt{2}\,e^{-i\pi/4}$, $z^8 = 16$
+> **Answer**: $z = \sqrt{2}e^{-i\pi/4}$, $z^8 = 16$
 
 ---
 
 ## Practice 3
 
-**Find all three cube roots of $-8$. Give each in $a+bi$ form.**
+**Find all three cube roots of $-8$. Matrix for each root, verify $M^3 = -8I$.**
 
-$-8 = 8e^{i\pi}$ (modulus 8, angle $\pi$).
+$-8 = 8e^{i\pi}$. $z_k = 2e^{i(\pi+2\pi k)/3}$ for $k=0,1,2$.
+- $k=0$: $2e^{i\pi/3} = 1 + i\sqrt{3}$ → $M_0 = \begin{pmatrix} 1 & -\sqrt{3} \\ \sqrt{3} & 1 \end{pmatrix}$.
+  $M_0^2 = \begin{pmatrix} -2 & -2\sqrt{3} \\ 2\sqrt{3} & -2 \end{pmatrix}$, $M_0^3 = M_0^2 \cdot M_0 = \begin{pmatrix} -8 & 0 \\ 0 & -8 \end{pmatrix} = -8I$ ✓.
+- $k=1$: $2e^{i\pi} = -2$ → $M_1 = \begin{pmatrix} -2 & 0 \\ 0 & -2 \end{pmatrix} = -2I$. $M_1^3 = (-2)^3 I = -8I$ ✓.
+- $k=2$: $2e^{i\cdot 5\pi/3} = 1 - i\sqrt{3}$ → $M_2 = \begin{pmatrix} 1 & \sqrt{3} \\ -\sqrt{3} & 1 \end{pmatrix}$. $M_2^3 = -8I$ ✓.
 
-Cube roots: $z_k = 8^{1/3} \cdot e^{i(\pi + 2\pi k)/3} = 2 \cdot e^{i(\pi + 2\pi k)/3}$ for $k = 0, 1, 2$.
-
-- $k=0$: $2e^{i\pi/3} = 2(\cos\frac{\pi}{3} + i\sin\frac{\pi}{3}) = 2(\frac{1}{2} + i\frac{\sqrt{3}}{2}) = 1 + i\sqrt{3}$
-- $k=1$: $2e^{i\pi} = 2(\cos\pi + i\sin\pi) = 2(-1 + 0) = -2$
-- $k=2$: $2e^{i\cdot 5\pi/3} = 2(\cos\frac{5\pi}{3} + i\sin\frac{5\pi}{3}) = 2(\frac{1}{2} - i\frac{\sqrt{3}}{2}) = 1 - i\sqrt{3}$
-
-Check: $(1+i\sqrt{3})^3 = 1^3 + 3\cdot1^2(i\sqrt{3}) + 3\cdot1(i\sqrt{3})^2 + (i\sqrt{3})^3 = 1 + 3i\sqrt{3} - 9 - 3i\sqrt{3} = -8$ ✓.
-$(-2)^3 = -8$ ✓.
-
-> **Answer**: $1 + i\sqrt{3},\; -2,\; 1 - i\sqrt{3}$
+> **Answer**: $1+i\sqrt{3}$, $-2$, $1-i\sqrt{3}$
 
 ---
 
 ## Practice 4: Composition
 
-**Explain why multiplying by $i$ rotates by $90^\circ$, then multiply $3+4i$ by $i^3$ and describe geometrically.**
+**Why does multiplying by $i$ rotate by $90^\circ$? Matrix for $i^3$, and result of $(3+4i)i^3$.**
 
-$i = 0 + 1i = 1 \cdot e^{i\pi/2}$ — modulus 1, angle $\pi/2 = 90^\circ$. Multiplying by $i$ adds $\pi/2$ to the argument: the point rotates $90^\circ$ CCW without changing its distance from the origin.
+$i = 0+1i$ → $J = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix} = R_{90^\circ}$ — the $90^\circ$ CCW rotation matrix. Multiplying any complex number by $i$ means multiplying its matrix by $J$, which is exactly applying the $90^\circ$ rotation.
 
-$i^3 = i^2 \cdot i = (-1) \cdot i = -i = e^{-i\pi/2}$ (or $e^{i\cdot 3\pi/2}$).
+$i^3 = -i$ → $J^3 = \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix} = R_{270^\circ}$ (or $R_{-90^\circ}$) — a $90^\circ$ clockwise rotation.
 
-$(3+4i) \cdot i^3 = (3+4i)(-i) = -3i - 4i^2 = -3i + 4 = 4 - 3i$.
+$(3+4i) \cdot i^3 = (3+4i)(-i) = -3i+4 = 4-3i$. Matrix: $\begin{pmatrix} 3 & -4 \\ 4 & 3 \end{pmatrix}\begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix} = \begin{pmatrix} 4 & 3 \\ -3 & 4 \end{pmatrix}$ ↔ $4-3i$ ✓.
 
-Geometric interpretation: Multiplying by $i^3 = -i$ rotates the point $90^\circ$ **clockwise** (or $270^\circ$ CCW). The point $(3,4)$ rotates to $(4,-3)$. Modulus preserved: $|3+4i| = 5$, $|4-3i| = \sqrt{16+9} = 5$ ✓.
-
-> **Answer**: $4 - 3i$; rotation by $90^\circ$ clockwise ($270^\circ$ CCW)
+> **Answer**: $4-3i$; $i^3$ matrix = $R_{270^\circ}$, rotation by $90^\circ$ CW
 
 ---
 
 ## Practice 5
 
-**Write $z = -1 + i\sqrt{3}$ in polar form $re^{i\theta}$. Then find $z^6$.**
+**Write $z=-1+i\sqrt{3}$ in polar form. Compute $z^6$. Matrices and determinants.**
 
-$r = \sqrt{(-1)^2 + (\sqrt{3})^2} = \sqrt{1+3} = 2$.
+$r = \sqrt{1+3} = 2$. $\theta = 2\pi/3$. $z = 2e^{i\cdot 2\pi/3}$.
+$z^6 = 2^6 e^{i\cdot 12\pi/3} = 64 e^{i\cdot 4\pi} = 64$.
 
-$\cos\theta = -\frac{1}{2}$, $\sin\theta = \frac{\sqrt{3}}{2}$, so $\theta = \frac{2\pi}{3}$ (Quadrant II).
+Matrix for $z$: $M = \begin{pmatrix} -1 & -\sqrt{3} \\ \sqrt{3} & -1 \end{pmatrix}$. $\det(M) = (-1)^2 + (\sqrt{3})^2 = 4$.
+Matrix for $z^6 = 64$: $M_6 = \begin{pmatrix} 64 & 0 \\ 0 & 64 \end{pmatrix}$. $\det(M_6) = 64^2 = 4096$.
 
-Polar form: $z = 2e^{i\cdot 2\pi/3}$.
+Relationship: $\det(M_6) = (\det(M))^6 = 4^6 = 4096$ ✓. Determinant powers like modulus powers.
 
-$z^6 = 2^6 \cdot e^{i\cdot 6 \cdot 2\pi/3} = 64 \cdot e^{i\cdot 4\pi} = 64(\cos 4\pi + i\sin 4\pi) = 64(1 + 0) = 64$.
-
-> **Answer**: $z = 2e^{i\cdot 2\pi/3}$, $z^6 = 64$
+> **Answer**: $z=2e^{i\cdot 2\pi/3}$, $z^6=64$, $\det(M)=4$, $\det(M_6)=4^6=4096$
 
 ---
 
-## Practice 6: Real Battle
+## Practice 6
 
-**The three cube roots of $-8$ form a triangle. Find its area. Also find a $2\times 2$ rotation matrix for $120^\circ$ and verify $R^3 = I$.**
+**Cube roots of $-8$ triangle area. $120^\circ$ rotation matrix connection.**
 
-From Practice 3, the roots are $z_0 = 1+i\sqrt{3}$, $z_1 = -2$, $z_2 = 1-i\sqrt{3}$. These lie on a circle of radius 2, equally spaced by $120^\circ$.
+Roots: $1+i\sqrt{3}$, $-2$, $1-i\sqrt{3}$, on circle radius 2.
+Area = $\frac{3\sqrt{3}}{4}r^2 = \frac{3\sqrt{3}}{4}\cdot 4 = 3\sqrt{3}$.
 
-**Area**: The three points form an equilateral triangle inscribed in a circle of radius $r=2$. Area = $\frac{3\sqrt{3}}{4}r^2 = \frac{3\sqrt{3}}{4} \cdot 4 = 3\sqrt{3}$.
+$R_{120^\circ} = \begin{pmatrix} -1/2 & -\sqrt{3}/2 \\ \sqrt{3}/2 & -1/2 \end{pmatrix}$. $R^3 = I$ ✓.
 
-Alternatively using coordinates $(1,\sqrt{3})$, $(-2,0)$, $(1,-\sqrt{3})$:
-$\text{Area} = \frac{1}{2}|x_1(y_2-y_3) + x_2(y_3-y_1) + x_3(y_1-y_2)|$
-$= \frac{1}{2}|1(0-(-\sqrt{3})) + (-2)(-\sqrt{3}-\sqrt{3}) + 1(\sqrt{3}-0)|$
-$= \frac{1}{2}|\sqrt{3} + 4\sqrt{3} + \sqrt{3}| = \frac{1}{2} \cdot 6\sqrt{3} = 3\sqrt{3}$.
+**Connection**: $R_{120^\circ}$ corresponds to the complex number $-\frac{1}{2} + i\frac{\sqrt{3}}{2} = e^{i\cdot 2\pi/3}$. This is $\omega = e^{i\cdot 2\pi/3}$, the primitive cube root of unity. And $1+i\sqrt{3} = 2\omega^2$, $-2 = 2\omega^0 = 2$, $1-i\sqrt{3} = 2\omega$. The rotation matrix for $120^\circ$ IS the complex number $\omega$ in matrix form.
 
-**Rotation matrix for $120^\circ$ CCW**:
-$R = \begin{pmatrix} \cos 120^\circ & -\sin 120^\circ \\ \sin 120^\circ & \cos 120^\circ \end{pmatrix} = \begin{pmatrix} -\frac{1}{2} & -\frac{\sqrt{3}}{2} \\ \frac{\sqrt{3}}{2} & -\frac{1}{2} \end{pmatrix}$.
+> **Answer**: Area $=3\sqrt{3}$, $R=\begin{pmatrix}-1/2&-\sqrt{3}/2\\\sqrt{3}/2&-1/2\end{pmatrix} \leftrightarrow e^{i\cdot 2\pi/3}$
 
-Verify $R^3 = I$: Rotating by $120^\circ$ three times = $360^\circ$ = identity. Algebraically:
-$R^2 = \begin{pmatrix} -\frac{1}{2} & \frac{\sqrt{3}}{2} \\ -\frac{\sqrt{3}}{2} & -\frac{1}{2} \end{pmatrix}$ (rotation by $240^\circ$).
-$R^3 = R^2 \cdot R = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = I$. ✓
+---
 
-> **Answer**: Area $= 3\sqrt{3}$, $R = \begin{pmatrix} -1/2 & -\sqrt{3}/2 \\ \sqrt{3}/2 & -1/2 \end{pmatrix}$
+## Practice 7: Matrix Bridge
+
+**$z=3+4i$, $M=\begin{pmatrix}3&-4\\4&3\end{pmatrix}$. Find $M^{-1}$ and $1/z$, verify match.**
+
+$M^{-1} = \frac{1}{\det(M)}\begin{pmatrix} 3 & 4 \\ -4 & 3 \end{pmatrix} = \frac{1}{9+16}\begin{pmatrix} 3 & 4 \\ -4 & 3 \end{pmatrix} = \frac{1}{25}\begin{pmatrix} 3 & 4 \\ -4 & 3 \end{pmatrix}$.
+
+$1/z = \frac{\bar{z}}{|z|^2} = \frac{3-4i}{25} = \frac{3}{25} - \frac{4}{25}i$.
+
+Matrix for $1/z$: $\begin{pmatrix} 3/25 & 4/25 \\ -4/25 & 3/25 \end{pmatrix} = \frac{1}{25}\begin{pmatrix} 3 & 4 \\ -4 & 3 \end{pmatrix}$. Matches $M^{-1}$ ✓.
+
+Geometric meaning of $M^{-1}$: inverse rotation-scaling. $\det(M)=25$, so $M^{-1}$ scales by $1/\sqrt{25}=1/5$ and rotates by $-\arctan(4/3) \approx -53.13^\circ$ (the opposite rotation, then shrink).
+
+> **Answer**: $M^{-1} = \frac{1}{25}\begin{pmatrix}3&4\\-4&3\end{pmatrix}$, $1/z = \frac{3}{25}-\frac{4}{25}i$
+
+---
+
+## Practice 8: Real Battle
+
+**Product of all $n$th roots of unity = $(-1)^{n-1}$. Area of regular $n$-gon.**
+
+Roots: $1, \omega, \omega^2, \dots, \omega^{n-1}$ with $\omega = e^{2\pi i/n}$.
+
+Product: $1 \cdot \omega \cdot \omega^2 \cdots \omega^{n-1} = \omega^{0+1+2+\cdots+(n-1)} = \omega^{n(n-1)/2}$.
+$\omega^{n(n-1)/2} = (e^{2\pi i/n})^{n(n-1)/2} = e^{i\pi(n-1)} = (e^{i\pi})^{n-1} = (-1)^{n-1}$.
+
+Test:
+- $n=3$: roots $1, e^{i\cdot 2\pi/3}, e^{i\cdot 4\pi/3}$. Product $= e^{i\cdot 2\pi} = 1 = (-1)^2$ ✓.
+- $n=4$: roots $1, i, -1, -i$. Product $= -1 \cdot 1 = -1 = (-1)^3$ ✓.
+- $n=5$: product $= e^{i\cdot 4\pi} = 1 = (-1)^4$ ✓.
+
+**Area of regular $n$-gon** inscribed in unit circle:
+Divide into $n$ isosceles triangles, each with central angle $2\pi/n$, sides 1,1.
+Area of one triangle $= \frac{1}{2}\cdot 1\cdot 1\cdot \sin(2\pi/n) = \frac{1}{2}\sin(2\pi/n)$.
+Total area $= \frac{n}{2}\sin(2\pi/n)$.
+
+For $n=3$: $\frac{3}{2}\sin(120^\circ) = \frac{3}{2}\cdot\frac{\sqrt{3}}{2} = \frac{3\sqrt{3}}{4}$ ✓.
+For $n=4$: $\frac{4}{2}\sin(90^\circ) = 2\cdot 1 = 2$ ✓.
+
+> **Answer**: Product $=(-1)^{n-1}$, Area $=\frac{n}{2}\sin(2\pi/n)$
 
 ---
 
@@ -205,6 +223,71 @@ Sum: $(-i) + 1 + i + (-1) = 0$.
 The 4-cycle sums to zero over any complete block: $i^k + i^{k+1} + i^{k+2} + i^{k+3} = 0$.
 
 > **Answer**: $0$
+
+---
+
+### D11. ◆ Geometry — $z=2+2i$, its conjugate, $z\bar{z}$, $z+\bar{z}$
+
+$z = 2+2i$, $\bar{z} = 2-2i$.
+
+**Geometric relationship**: $\bar{z}$ is the reflection of $z$ across the real axis. Same $x$-coordinate (2), opposite $y$-coordinate ($+2$ vs $-2$).
+
+$z \cdot \bar{z} = (2+2i)(2-2i) = 4+4 = 8 = |z|^2$. ($|z| = \sqrt{8} = 2\sqrt{2}$).
+$z + \bar{z} = (2+2i) + (2-2i) = 4 = 2\cdot\operatorname{Re}(z)$.
+
+> **Answer**: $\bar{z}=2-2i$ (reflection), $z\bar{z}=8$, $z+\bar{z}=4$
+
+---
+
+### D12. ◆ Matrix Connection — Matrix for $z=1+i$, $\det(M)$, $|z|$
+
+$M = \begin{pmatrix} 1 & -1 \\ 1 & 1 \end{pmatrix}$.
+
+$\det(M) = 1\cdot 1 - (-1)\cdot 1 = 1+1 = 2$.
+
+$|z| = \sqrt{1^2+1^2} = \sqrt{2}$.
+
+Relationship: $|z|^2 = \det(M)$. Check: $(\sqrt{2})^2 = 2 = \det(M)$ ✓.
+
+> **Answer**: $M=\begin{pmatrix}1&-1\\1&1\end{pmatrix}$, $\det(M)=2$, $|z|=\sqrt{2}$, $|z|^2=\det(M)$
+
+---
+
+### D13. ◆ Geometry — $z_1=1+i$ multiplied by $z_2=i$
+
+$z_1 \cdot i = (1+i)i = i + i^2 = -1 + i$.
+
+Geometrically: $z_1 = 1+i$ is at $(1,1)$, angle $45^\circ$, modulus $\sqrt{2}$.
+Multiplying by $i$ adds $90^\circ$: new angle $135^\circ$, modulus stays $\sqrt{2}$.
+New point: $(-1, 1)$. This is exactly a $90^\circ$ CCW rotation of $(1,1)$.
+
+> **Answer**: $z_1 \cdot i = -1+i$; $90^\circ$ CCW rotation
+
+---
+
+### D14. ◆ Matrix Connection — $J=\begin{pmatrix}0&-1\\1&0\end{pmatrix}$, powers
+
+$J^2 = \begin{pmatrix} -1 & 0 \\ 0 & -1 \end{pmatrix} = -I$ ↔ $-1$.
+$J^3 = J^2 \cdot J = \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}$ ↔ $-i$.
+$J^4 = J^2 \cdot J^2 = I$ ↔ $1$.
+
+These correspond to $i^2=-1$, $i^3=-i$, $i^4=1$. The 4-cycle in matrix form.
+
+> **Answer**: $J^2=-I$ ($-1$), $J^3=\begin{pmatrix}0&1\\-1&0\end{pmatrix}$ ($-i$), $J^4=I$ ($1$)
+
+---
+
+### D15. ◆ Geometry — $1/z$ for $z=2i$
+
+$z = 2i$ has $|z| = 2 > 1$ (outside the unit circle).
+
+$1/z = 1/(2i) = -i/2 = 0 - 0.5i$.
+
+$|1/z| = 0.5 < 1$ (inside the unit circle).
+
+Product: $|z| \cdot |1/z| = 2 \cdot 0.5 = 1$. Always true: $|z| \cdot |1/z| = 1$.
+
+> **Answer**: $1/z = -0.5i$, $|z|=2$ (outside), $|1/z|=0.5$ (inside), product = 1
 
 ---
 
@@ -329,3 +412,73 @@ Area of equilateral triangle inscribed in radius $r=2$:
 $\text{Area} = \frac{3\sqrt{3}}{4}r^2 = \frac{3\sqrt{3}}{4} \cdot 4 = 3\sqrt{3}$.
 
 > **Answer**: $3\sqrt{3}$
+
+---
+
+### A11. ◆ $z = \frac{1}{2} + \frac{\sqrt{3}}{2}i$, check $z^3=-1$, rotation angle, matrix $R$ with $R^3=-I$
+
+$z = \cos 60^\circ + i\sin 60^\circ = e^{i\pi/3}$. $z^3 = e^{i\pi} = -1$ ✓.
+
+Rotation angle: $60^\circ$ CCW. Matrix: $R = \begin{pmatrix} 1/2 & -\sqrt{3}/2 \\ \sqrt{3}/2 & 1/2 \end{pmatrix}$.
+
+$R^2 = \begin{pmatrix} -1/2 & -\sqrt{3}/2 \\ \sqrt{3}/2 & -1/2 \end{pmatrix}$ (rotate $120^\circ$).
+$R^3 = R^2 \cdot R = \begin{pmatrix} -1 & 0 \\ 0 & -1 \end{pmatrix} = -I$ ✓.
+
+$\det(R) = (1/2)^2 + (\sqrt{3}/2)^2 = 1/4 + 3/4 = 1$.
+
+> **Answer**: $R = \begin{pmatrix}1/2&-\sqrt{3}/2\\\sqrt{3}/2&1/2\end{pmatrix}$, $\det(R)=1$, $R^3=-I$
+
+---
+
+### A12. ◆ $z_1=3e^{i\pi/6}$, $z_2=2e^{i\pi/3}$, product and triangle area
+
+$z_1 z_2 = 6e^{i(\pi/6+\pi/3)} = 6e^{i\pi/2} = 6i = 0+6i$.
+
+Triangle vertices: $0$, $z_1$, $z_1 z_2$. In coordinates: $(0,0)$, $(3\cos 30^\circ, 3\sin 30^\circ) = (3\sqrt{3}/2, 1.5)$, $(0,6)$.
+
+The angle at 0 between $z_1$ and $z_1z_2$ is $\arg(z_2) = \pi/3 = 60^\circ$.
+
+Area = $\frac{1}{2}|z_1||z_1z_2|\sin 60^\circ = \frac{1}{2} \cdot 3 \cdot 6 \cdot \frac{\sqrt{3}}{2} = \frac{9\sqrt{3}}{2}$.
+
+> **Answer**: $z_1z_2 = 6i$, Area = $\frac{9\sqrt{3}}{2}$
+
+---
+
+### A13. ◆ Unit circle closed under multiplication — rotation closure
+
+If $|z_1|=|z_2|=1$, then $|z_1z_2| = |z_1|\cdot|z_2| = 1\cdot 1 = 1$ (by property from A9).
+
+**Matrix version**: Pure rotation matrices have $\det(R) = 1$ and $R^T R = I$. If $R_1, R_2$ are pure rotations, then $\det(R_1 R_2) = \det(R_1)\det(R_2) = 1\cdot 1 = 1$ and $(R_1 R_2)^T(R_1 R_2) = R_2^T R_1^T R_1 R_2 = R_2^T I R_2 = I$. So $R_1 R_2$ is also a pure rotation — closed under multiplication.
+
+> **Answer**: $|z_1z_2|=|z_1||z_2|=1$; product of rotation matrices is a rotation matrix
+
+---
+
+### A14. ◆ Sum of $n$th roots of unity = 0
+
+Roots: $1, \omega, \omega^2, \dots, \omega^{n-1}$ with $\omega = e^{2\pi i/n}$.
+
+Sum = $1 + \omega + \omega^2 + \cdots + \omega^{n-1}$. This is a geometric series with ratio $\omega$:
+$S = \frac{1-\omega^n}{1-\omega} = \frac{1-1}{1-\omega} = 0$ (since $\omega^n = e^{2\pi i} = 1$ and $\omega \neq 1$ for $n \geq 2$).
+
+**Center of mass**: The average position is $\frac{1}{n}\sum \omega^k = 0$. The center of mass of the $n$ equally spaced points is exactly the origin — as expected for a regular polygon centered at the origin.
+
+> **Answer**: Sum $= \frac{1-\omega^n}{1-\omega} = 0$; center of mass at origin
+
+---
+
+### A15. ◆ $T(z)=iz$ (rotate $90^\circ$) and $S(z)=\bar{z}$ (reflect) as matrices, compositions
+
+$T(z) = iz = i(x+iy) = -y + ix$. So $T\begin{pmatrix}x\\y\end{pmatrix} = \begin{pmatrix}-y\\x\end{pmatrix} = \begin{pmatrix}0&-1\\1&0\end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix}$.
+Matrix $T = \begin{pmatrix}0&-1\\1&0\end{pmatrix} = J$.
+
+$S(z) = \bar{z} = x-iy$. So $S\begin{pmatrix}x\\y\end{pmatrix} = \begin{pmatrix}x\\-y\end{pmatrix} = \begin{pmatrix}1&0\\0&-1\end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix}$.
+Matrix $S = \begin{pmatrix}1&0\\0&-1\end{pmatrix}$ (reflection across $x$-axis).
+
+$T \circ S = \begin{pmatrix}0&-1\\1&0\end{pmatrix}\begin{pmatrix}1&0\\0&-1\end{pmatrix} = \begin{pmatrix}0&1\\1&0\end{pmatrix}$. This is reflection across $y=x$: $(x,y) \to (y,x)$.
+
+$S \circ T = \begin{pmatrix}1&0\\0&-1\end{pmatrix}\begin{pmatrix}0&-1\\1&0\end{pmatrix} = \begin{pmatrix}0&-1\\-1&0\end{pmatrix}$. This is reflection across $y=-x$: $(x,y) \to (-y,-x)$.
+
+$T \circ S \neq S \circ T$ — they do not commute. Geometrically: reflecting then rotating gives a different result than rotating then reflecting (the two compositions are reflections across perpendicular lines: $y=x$ vs $y=-x$).
+
+> **Answer**: $T=\begin{pmatrix}0&-1\\1&0\end{pmatrix}$, $S=\begin{pmatrix}1&0\\0&-1\end{pmatrix}$; $TS=\begin{pmatrix}0&1\\1&0\end{pmatrix}$ (reflect $y=x$), $ST=\begin{pmatrix}0&-1\\-1&0\end{pmatrix}$ (reflect $y=-x$); they do not commute
