@@ -85,7 +85,11 @@ $\det(A) = 0\cdot0 - 1\cdot(-1) = 1$. Rotation preserves area.
 
 If $\det(A) = 0$, the transformation collapses the plane onto a line or a point — area becomes 0.
 
-![Matrix transforms unit square into parallelogram](graphs/12f-matrix-transformation.png)
+![Matrix columns become parallelogram edges — unit square transforms](graphs/0715/12/01-matrix-transformation-2d.png)
+
+![Determinant as area scaling: 6 fundamental 2×2 transformation types](graphs/0715/12/02-determinant-area-scaling.png)
+
+> **Visual guide**: The left image shows how the two columns of $A$ become the edges of a parallelogram. The right image compares six transformation types — stretch, rotation, shear, reflection, and collapse — each with its determinant.
 
 ---
 
@@ -102,6 +106,10 @@ $\begin{pmatrix} x \\ y \end{pmatrix} = \frac{1}{5}\begin{pmatrix} 4 & -3 \\ -1 
 
 Check: $2(0.4) + 3(1.4) = 0.8 + 4.2 = 5$ ✓. $0.4 + 4(1.4) = 0.4 + 5.6 = 6$ ✓.
 
+![Linear system as line intersection: unique, none, infinite solutions](graphs/0715/12/15-linear-system-geometric.png)
+
+> **Visual guide**: A $2 \times 2$ linear system is two lines in the plane. The solution is their intersection point. The three cases — unique, none, infinite — correspond to $\det \neq 0$, parallel lines, and coincident lines.
+
 ---
 
 ## Example 7: Matrix Powers — Composing Transformations
@@ -114,6 +122,12 @@ $A^3 = \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}$ (rotation by $270^\circ$).
 $A^4 = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = I$ (full rotation — back to start).
 
 Matrices can represent geometric transformations — rotation, reflection, scaling, shearing — and matrix powers compose those transformations.
+
+![Matrix powers: applying A repeatedly composes transformations](graphs/0715/12/16-matrix-powers-transform.png)
+
+![Matrix multiplication as composition: shear then rotate vs rotate then shear](graphs/0715/12/03-matrix-multiplication-composition.png)
+
+> **Visual guide**: The top image shows repeated application of a $90^\circ$ rotation matrix — after 4 steps, everything returns. The bottom image illustrates why $AB \neq BA$: applying shear then rotation gives a different result than rotation then shear.
 
 > **Up to here**: Matrices are grids. Add and scale entry-by-entry. Multiply via row × column.
 > The inverse undoes a matrix: $A^{-1}A = I$. Determinant = area scaling factor.
@@ -138,7 +152,11 @@ $\vec{a} = (3, 4)$. $|\vec{a}| = \sqrt{9+16} = 5$.
 Add vectors component-wise: $\vec{a} + \vec{b} = (a_1+b_1, a_2+b_2)$.
 Scale a vector: $k\vec{a} = (ka_1, ka_2)$.
 
-![Vector addition](graphs/12c-vectors.png)
+![Vector addition: tip-to-tail parallelogram law](graphs/0715/12/08-vector-addition.png)
+
+![Vector magnitude: Pythagorean theorem in components](graphs/0715/12/09-vector-magnitude.png)
+
+> **Visual guide**: The top image shows the parallelogram law for adding two vectors. The bottom image shows how the magnitude (length) of a vector comes directly from the Pythagorean theorem applied to its components.
 
 ---
 
@@ -159,6 +177,10 @@ $(3,4)\cdot(-4,3) = -12 + 12 = 0$. The vectors are at right angles.
 - Zero → exactly $90^\circ$ (perpendicular).
 - Negative → angle $> 90^\circ$ (obtuse).
 
+![Dot product: measuring the angle between two vectors](graphs/0715/12/10-dot-product-angle.png)
+
+> **Visual guide**: The dot product $\vec{a}\cdot\vec{b} = |\vec{a}||\vec{b}|\cos\theta$ directly gives the cosine of the angle. When the dot product is zero, the vectors are perpendicular (the angle arc would show $90^\circ$).
+
 ---
 
 ## Example 10: Vector Projection — The Shadow of One Vector on Another
@@ -172,6 +194,10 @@ Scalar projection = $\frac{3\cdot1 + 4\cdot0}{1} = 3$. The shadow of $(3,4)$ on 
 Vector projection = $3\cdot(1,0) = (3,0)$. The shadow as a vector is $(3,0)$.
 
 The projection formula decomposes any vector into a part parallel to $\vec{b}$ and a part perpendicular to $\vec{b}$.
+
+![Vector projection: shadow of a⃗ onto b⃗ with perpendicular component](graphs/0715/12/11-vector-projection.png)
+
+> **Visual guide**: The green arrow is $\text{proj}_{\vec{b}}\vec{a}$, the shadow of $\vec{a}$ falling onto $\vec{b}$. The orange dashed arrow is the perpendicular remainder — together they add back to $\vec{a}$.
 
 ---
 
@@ -189,7 +215,11 @@ This equals the area of the parallelogram formed by $\vec{a}$ and $\vec{b}$.
 
 **Cross product = 0 → parallel vectors** (since $\sin\theta = 0$).
 
-![Cross product — perpendicular vector and parallelogram area](graphs/12h-3d-cross-product.png)
+![Cross product: a⃗×b⃗ is perpendicular to both a⃗ and b⃗ (right-hand rule)](graphs/0715/12/12-cross-product-3d.png)
+
+![Cross product magnitude equals parallelogram area](graphs/0715/12/13-cross-product-area.png)
+
+> **Visual guide**: The top 3D image shows how $\vec{a}\times\vec{b}$ points perpendicular to the plane containing $\vec{a}$ and $\vec{b}$. The bottom 2D image shows that the magnitude $|\vec{a}\times\vec{b}|$ equals the area of the parallelogram spanned by the two vectors.
 
 ---
 
@@ -227,6 +257,18 @@ The columns of $A$ tell you exactly where the standard basis vectors go:
 
 **Rotation matrix**: $R_\theta = \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix}$ rotates every vector by $\theta$ counterclockwise.
 
+![Grid deformation: every point (x,y) maps to A(x,y), the grid warps](graphs/0715/12/20-basis-transformation-grid.png)
+
+![Rotation matrix: preserving length, changing direction by angle θ](graphs/0715/12/05-rotation-matrix.png)
+
+![Reflection matrices: mirroring space across x-axis, y-axis, and y=x](graphs/0715/12/06-reflection-matrix.png)
+
+![Shear matrices: tilting space while preserving area (det=1)](graphs/0715/12/07-shear-matrix.png)
+
+![Inverse matrix: A⁻¹ undoes A — the square returns to its original form](graphs/0715/12/04-inverse-matrix-geometry.png)
+
+> **Visual guide**: These five images together show the complete geometric picture. The grid deformation shows how every point in space moves. Rotation, reflection, and shear are the fundamental building blocks — any linear transformation can be decomposed into these. The inverse image proves visually that $A^{-1}(A(\square)) = \square$.
+
 ---
 
 ## Visual Interlude: From 2D to 3D to $n$D
@@ -235,17 +277,17 @@ The columns of $A$ tell you exactly where the standard basis vectors go:
 
 **Dimension 3 — Volume.** In 3D, the determinant scales volume. A $3 \times 3$ matrix turns the unit cube into a parallelepiped.
 
-![Determinant = volume in 3D](graphs/12i-determinant-volume-3d.png)
+![Determinant = volume in 3D: unit cube → parallelepiped](graphs/0715/12/14-determinant-volume-3d.png)
 
 **Beyond 3D — Hyper-volume.** In 4D and higher, we lose direct visual intuition. But the determinant still scales "hyper-volume" in exactly the same way.
 
 **How projection works — reducing dimension step by step:**
 
-![2D to 1D projection — dropping one dimension](graphs/12j1-2d-to-1d-projection.png)
+![2D → 1D projection: dropping one dimension via a 1×2 matrix](graphs/0715/12/17-2d-to-1d-projection.png)
 
-![3D to 2D projection — flattening the z-coordinate](graphs/12j2-3d-to-2d-projection.png)
+![3D → 2D projection: flattening the z-coordinate via a 2×3 matrix](graphs/0715/12/18-3d-to-2d-projection.png)
 
-![Dimensionality reduction cascade from nD to 2D](graphs/12j3-dimensionality-cascade.png)
+![Dimensionality cascade: nD → (n-1)D → ... → 2D → 1D → scalar](graphs/0715/12/19-dimensionality-cascade.png)
 
 A 4D→2D projection (like PCA or t-SNE in machine learning) is just a $2 \times 4$ matrix that collapses 4 dimensions onto a flat screen while preserving as much structure as possible. The determinant in higher dimensions still measures the volume-scaling factor — we just cannot draw it directly.
 
@@ -397,9 +439,9 @@ A $3 \times 3$ matrix $M$ has column vectors $\vec{v}_1 = (2,0,0)$, $\vec{v}_2 =
 
 ---
 
-## Basic Algebra Drill — Matrices and Vectors (10 Problems)
+## Basic Algebra Drill — Matrices and Vectors (15 Problems)
 
-> Pure calculation. Build fluency with fundamental operations.
+> Pure calculation + geometric fusion. Build fluency with fundamental operations.
 
 **D1.** Multiply $\begin{pmatrix} 2 & 1 \\ 0 & 3 \end{pmatrix} \times \begin{pmatrix} 4 & -1 \\ 2 & 1 \end{pmatrix}$.
 
@@ -421,13 +463,23 @@ A $3 \times 3$ matrix $M$ has column vectors $\vec{v}_1 = (2,0,0)$, $\vec{v}_2 =
 
 **D10.** Find the dot product of $\vec{u} = (2, -1)$ and $\vec{v} = (-3, 4)$. Are they perpendicular?
 
+**D11. ◆ Geometry Fusion** — The matrix $A = \begin{pmatrix} 2 & 0 \\ 0 & 0.5 \end{pmatrix}$ stretches the $x$-axis by 2 and shrinks the $y$-axis by 0.5. Draw (in your mind) what happens to the unit square. What is the area of the resulting shape? What is $\det(A)$?
+
+**D12. ◆ Geometry Fusion** — The columns of a $2 \times 2$ matrix are $\vec{c}_1 = (4, 0)$ and $\vec{c}_2 = (1, 3)$. What shape do these two vectors span? Find its area. Then write the matrix $A$ and compute $\det(A)$ to confirm.
+
+**D13. ◆ Geometry Fusion** — A vector $\vec{v} = (2, 5)$ is transformed by $A = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}$. Find $A\vec{v}$. What is the angle between $\vec{v}$ and $A\vec{v}$? (Hint: use the dot product.) What geometric operation does $A$ perform?
+
+**D14. ◆ Geometry Fusion** — The matrix $B = \begin{pmatrix} 1 & 2 \\ 2 & 4 \end{pmatrix}$ has $\det(B) = 0$. What do the columns of $B$ look like geometrically? Explain why the transformation collapses the plane, and what the image (range) looks like.
+
+**D15. ◆ Geometry Fusion** — Apply the shear matrix $S = \begin{pmatrix} 1 & 1.5 \\ 0 & 1 \end{pmatrix}$ to the vector $\vec{v} = (2, 1)$. Draw the original and transformed vector. Does the shear change the $y$-coordinate? Does it change the area of any shape? Explain why $\det(S) = 1$.
+
 > Solutions: [Solutions](solutions/12A2-solutions.md#basic-drill)
 
 ---
 
-## Advanced Algebra Drill — Matrices and Vectors (10 Problems)
+## Advanced Algebra Drill — Matrices and Vectors (15 Problems)
 
-> Multi-step. Connect matrices to transformations and vectors to geometry.
+> Multi-step. Connect matrices to transformations and vectors to geometry. Includes geometric fusion problems.
 
 **A1.** Find $A^{-1}$ for $A = \begin{pmatrix} 4 & 3 \\ 3 & 2 \end{pmatrix}$. Then compute $A \times A^{-1}$ to verify.
 
@@ -448,6 +500,18 @@ A $3 \times 3$ matrix $M$ has column vectors $\vec{v}_1 = (2,0,0)$, $\vec{v}_2 =
 **A9.** Find a $2 \times 2$ matrix $A$ such that $A^2 = I$ but $A \neq \pm I$. (Hint: think about reflections.)
 
 **A10.** The columns of a $2 \times 2$ matrix are $(3,1)$ and $(1,3)$. Find the area of the parallelogram they span.
+
+> **◆ Geometry Fusion (Problems A11–A15)** — These problems fuse matrix algebra with vector geometry. Visualize before calculating.
+
+**A11. ◆** A matrix $M$ first shears ($S = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$) then rotates by $90^\circ$ ($R = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}$). Write the combined matrix $RS$. Apply it to the unit square vertices $(0,0)$, $(1,0)$, $(1,1)$, $(0,1)$. Sketch the final shape. What is $\det(RS)$ and what does it mean geometrically?
+
+**A12. ◆** The matrix $P = \begin{pmatrix} 3/5 & 4/5 \\ 4/5 & -3/5 \end{pmatrix}$ satisfies $P^2 = I$ and $P = P^T$. Apply $P$ to the vector $\vec{v} = (5, 0)$. Then compute the angle between $\vec{v}$ and $P\vec{v}$ using the dot product. What geometric transformation does $P$ represent? (Hint: check $\det(P)$.)
+
+**A13. ◆** Find a $2 \times 2$ matrix $A$ that projects every vector onto the line $y = 2x$. (Hint: the projection of $(x,y)$ onto direction $(1,2)$.) Apply $A$ to $(3, 1)$ and verify that the result lies on $y = 2x$. What is $\det(A)$ and why does that make sense geometrically?
+
+**A14. ◆** Two vectors $\vec{a} = (4, 1, 2)$ and $\vec{b} = (1, 3, -1)$ define a parallelogram in 3D. Find its area using $|\vec{a} \times \vec{b}|$. Then find a unit vector perpendicular to the parallelogram. If we form a $3 \times 3$ matrix $M$ whose first two columns are $\vec{a}$ and $\vec{b}$ and third column is $\vec{a} \times \vec{b}$, what is $\det(M)$? (Think geometrically before computing.)
+
+**A15. ◆** The transformation $T(\vec{x}) = A\vec{x}$ with $A = \begin{pmatrix} 0.8 & -0.6 \\ 0.6 & 0.8 \end{pmatrix}$ is applied to a triangle with vertices $(0,0)$, $(2,0)$, $(0,1)$. Find the area of the original triangle, then the area of the transformed triangle. Explain why the areas are equal. Is $A$ a pure rotation? How can you tell from the columns?
 
 > Solutions: [Solutions](solutions/12A2-solutions.md#advanced-drill)
 
