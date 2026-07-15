@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STEM Learning Mode</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/htmlasitis@0.1.0/htmlasitis.css">
+  <style>
+    :root { --hai-font-body:"Playfair Display","Georgia",serif; --hai-font-mono:"Playfair Display",monospace; --hai-font-size-body:9.5pt; --hai-line-height-body:1.35; }
+    .hai-page { background:#fefefd; }
+    .hai-page h1 { font-family:"Playfair Display",serif; font-size:10pt; margin:0 0 8pt 0; padding-bottom:2pt; border-bottom:0.5pt solid #bbb; color:#555; }
+    .hai-page h2 { font-family:"Playfair Display",serif; font-size:9.5pt; margin:10pt 0 5pt 0; color:#666; }
+    .hairline { border:none; border-top:0.3pt solid #ddd; margin:6pt 0; }
+
+    /* Pencil lines */
+    .pl { border-bottom:0.35pt solid #d0d0d0; min-height:16pt; margin:2.5pt 0; }
+    .pl-dense { border-bottom:0.35pt solid #d0d0d0; min-height:14pt; margin:2pt 0; }
+
+    /* Dot grid */
+    .dg {
+      background-image:radial-gradient(circle,#d8d8d8 0.35pt,transparent 0.35pt);
+      background-size:10pt 10pt;
+      border:0.35pt solid #ddd;
+    }
+
+    /* Compact section label */
+    .sl { font-family:"Playfair Display",serif; font-style:italic; font-size:7pt; color:#aaa; letter-spacing:0.3pt; margin-bottom:3pt; }
+
+    .row { display:flex; gap:6pt; }
+    .col-1 { flex:1; }
+    .col-2 { flex:2; }
+    .col-3 { flex:3; }
+
+    .box { border:0.4pt solid #ddd; padding:6pt 7pt; }
+    .box-head { border:0.4pt solid #ddd; padding:3pt 7pt; background:#fafaf8; }
+    .box-head-tight { border:0.4pt solid #ddd; padding:2pt 6pt; background:#fafaf8; }
+  </style>
+</head>
+<body>
+
+<!-- ================================================================ -->
+<!-- PAGE 1: CORNELL COMPACT (Retrieval Practice + Elaborative Encoding) -->
+<!-- ================================================================ -->
+<section class="hai-page">
+  <h1>Cornell Compact</h1>
+  <p class="sl">Retrieval practice: the single most effective learning strategy (Karpicke &amp; Blunt, 2011). Cues trigger recall. Cover the right side and self-test.</p>
+
+  <!-- Main area: cues (25%) + notes (75%) -->
+  <div class="row" style="margin-bottom:6pt;">
+    <div class="col-1 box-head"><span class="sl">Cues / Questions</span></div>
+    <div class="col-3 box-head"><span class="sl">Notes / Explanations</span></div>
+  </div>
+  <div class="row">
+    <div class="col-1 box">
+      <div class="pl-dense"></div><div class="pl-dense"></div><div class="pl-dense"></div>
+      <div class="pl-dense"></div><div class="pl-dense"></div><div class="pl-dense"></div>
+      <div class="pl-dense"></div><div class="pl-dense"></div><div class="pl-dense"></div>
+      <div class="pl-dense"></div><div class="pl-dense"></div>
+    </div>
+    <div class="col-3 box">
+      <div class="pl-dense"></div><div class="pl-dense"></div><div class="pl-dense"></div>
+      <div class="pl-dense"></div><div class="pl-dense"></div><div class="pl-dense"></div>
+      <div class="pl-dense"></div><div class="pl-dense"></div><div class="pl-dense"></div>
+      <div class="pl-dense"></div><div class="pl-dense"></div>
+    </div>
+  </div>
+
+  <!-- Summary zone -->
+  <div class="box-head" style="margin-top:5pt;"><span class="sl">2-Sentence Summary</span></div>
+  <div class="box">
+    <div class="pl"></div>
+    <div class="pl"></div>
+  </div>
+
+  <hr class="hairline">
+
+  <!-- Diagram zone for dual coding -->
+  <div class="sl">Diagram / Sketch (dual coding)</div>
+  <div class="dg" style="height:65pt;"></div>
+</section>
+
+<!-- ================================================================ -->
+<!-- PAGE 2: ACTIVE RECALL + FEYNMAN -->
+<!-- ================================================================ -->
+<section class="hai-page">
+  <h1>Active Recall &amp; Explain</h1>
+
+  <!-- Self-generated Q&A grid -->
+  <div class="sl">Generate your own questions. Cover the answer column. Test yourself. (Generation effect: self-made questions are remembered better.)</div>
+
+  <div class="row" style="margin-bottom:4pt;">
+    <div class="col-1 box-head"><span class="sl">Question</span></div>
+    <div class="col-2 box-head"><span class="sl">Answer</span></div>
+  </div>
+  <div class="row" style="margin-bottom:3pt;">
+    <div class="col-1 box">
+      <div class="pl-dense"></div><div class="pl-dense"></div><div class="pl-dense"></div>
+      <div class="pl-dense"></div><div class="pl-dense"></div><div class="pl-dense"></div>
+    </div>
+    <div class="col-2 box">
+      <div class="pl-dense"></div><div class="pl-dense"></div><div class="pl-dense"></div>
+      <div class="pl-dense"></div><div class="pl-dense"></div><div class="pl-dense"></div>
+    </div>
+  </div>
+
+  <hr class="hairline">
+
+  <!-- Feynman Technique -->
+  <div class="sl">Feynman: explain this as if to a 12-year-old. Gaps in your understanding become obvious.</div>
+
+  <div class="box">
+    <div class="pl"></div><div class="pl"></div><div class="pl"></div>
+    <div class="pl"></div><div class="pl"></div><div class="pl"></div>
+    <div class="pl"></div><div class="pl"></div><div class="pl"></div>
+  </div>
+
+  <hr class="hairline">
+
+  <!-- Elaboration: connect to prior knowledge -->
+  <div class="sl">Elaboration: how does this connect to something you already know?</div>
+  <div class="box">
+    <div class="pl"></div><div class="pl"></div><div class="pl"></div>
+    <div class="pl"></div>
+  </div>
+
+  <!-- Misconception check -->
+  <div class="row" style="margin-top:6pt;">
+    <div class="col-1">
+      <div class="sl">Common mistake I might make:</div>
+      <div class="box"><div class="pl"></div><div class="pl"></div></div>
+    </div>
+    <div class="col-1">
+      <div class="sl">How I will avoid it:</div>
+      <div class="box"><div class="pl"></div><div class="pl"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================ -->
+<!-- PAGE 3: CONCEPT MAP + INTERLEAVE -->
+<!-- ================================================================ -->
+<section class="hai-page">
+  <h1>Concept Map &amp; Interleave</h1>
+
+  <div class="sl">Draw relationships between concepts. Label every arrow. Interleave: mix topics from different chapters -- strengthens discrimination.</div>
+
+  <!-- Full-page concept map -->
+  <div class="dg" style="height:200pt;margin-bottom:6pt;"></div>
+
+  <hr class="hairline">
+
+  <!-- Cross-topic connections -->
+  <div class="sl">Surprising connection between this topic and:</div>
+  <div class="row" style="margin-bottom:4pt;">
+    <div class="col-1"><div class="box-head" style="margin-bottom:0;"><span class="sl">Earlier topic</span></div><div class="box"><div class="pl-dense"></div><div class="pl-dense"></div></div></div>
+    <div class="col-1"><div class="box-head" style="margin-bottom:0;"><span class="sl">Another subject</span></div><div class="box"><div class="pl-dense"></div><div class="pl-dense"></div></div></div>
+    <div class="col-1"><div class="box-head" style="margin-bottom:0;"><span class="sl">Real world</span></div><div class="box"><div class="pl-dense"></div><div class="pl-dense"></div></div></div>
+  </div>
+
+  <!-- Daily recall prompt -->
+  <div class="box-head"><span class="sl">Tomorrow: without looking, write everything you remember about this topic.</span></div>
+  <div class="box">
+    <div class="pl"></div><div class="pl"></div><div class="pl"></div>
+    <div class="pl"></div><div class="pl"></div>
+  </div>
+</section>
+
+</body>
+</html>

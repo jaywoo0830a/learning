@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STEM Problem-Solving Mode</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/htmlasitis@0.1.0/htmlasitis.css">
+  <style>
+    :root { --hai-font-body:"Playfair Display","Georgia",serif; --hai-font-mono:"Playfair Display",monospace; --hai-font-size-body:9.5pt; --hai-line-height-body:1.35; }
+    .hai-page { background:#fefefd; }
+    .hai-page h1 { font-family:"Playfair Display",serif; font-size:10pt; margin:0 0 8pt 0; padding-bottom:2pt; border-bottom:0.5pt solid #bbb; color:#555; }
+    .hairline { border:none; border-top:0.3pt solid #ddd; margin:6pt 0; }
+
+    .pl { border-bottom:0.35pt solid #d0d0d0; min-height:16pt; margin:2.5pt 0; }
+    .pl-s { border-bottom:0.35pt solid #d0d0d0; min-height:14pt; margin:2pt 0; }
+    .pl-xs { border-bottom:0.35pt solid #d0d0d0; min-height:12pt; margin:1.5pt 0; }
+
+    .dg {
+      background-image:radial-gradient(circle,#d8d8d8 0.35pt,transparent 0.35pt);
+      background-size:10pt 10pt;
+      border:0.35pt solid #ddd;
+    }
+
+    .sl { font-family:"Playfair Display",serif; font-style:italic; font-size:7pt; color:#aaa; letter-spacing:0.3pt; margin-bottom:3pt; }
+
+    .row { display:flex; gap:6pt; }
+    .c1 { flex:1; } .c2 { flex:2; } .c3 { flex:3; }
+
+    .bx { border:0.4pt solid #ddd; padding:6pt 7pt; }
+    .bxh { border:0.4pt solid #ddd; padding:3pt 7pt; background:#fafaf8; }
+
+    /* Step rows */
+    .step-row { display:flex; gap:5pt; margin-bottom:4pt; }
+    .step-num { width:16pt; text-align:center; font-size:8pt; color:#888; padding-top:2pt; flex-shrink:0; }
+    .step-body { flex:1; }
+  </style>
+</head>
+<body>
+
+<!-- ================================================================ -->
+<!-- PAGE 1: COMPACT SOLVER -->
+<!-- ================================================================ -->
+<section class="hai-page">
+  <h1>Compact Solver</h1>
+
+  <!-- Given + Find row: minimal height, dense -->
+  <div class="row" style="margin-bottom:6pt;">
+    <div class="c1"><div class="bxh"><span class="sl">Given</span></div><div class="bx"><div class="pl-s"></div><div class="pl-s"></div></div></div>
+    <div class="c1"><div class="bxh"><span class="sl">Find</span></div><div class="bx"><div class="pl-s"></div><div class="pl-s"></div></div></div>
+    <div class="c1"><div class="bxh"><span class="sl">Relevant Formulas</span></div><div class="bx"><div class="pl-s"></div><div class="pl-s"></div></div></div>
+  </div>
+
+  <!-- Diagram + initial reasoning -->
+  <div class="row" style="margin-bottom:6pt;">
+    <div class="c1"><div class="bxh"><span class="sl">Diagram</span></div><div class="dg" style="height:120pt;"></div></div>
+    <div class="c2">
+      <div class="bxh"><span class="sl">Approach (before starting, write your strategy)</span></div>
+      <div class="bx"><div class="pl-s"></div><div class="pl-s"></div><div class="pl-s"></div><div class="pl-s"></div></div>
+    </div>
+  </div>
+
+  <!-- Solution area -->
+  <div class="bxh"><span class="sl">Solution</span></div>
+  <div class="bx">
+    <div class="pl"></div><div class="pl"></div><div class="pl"></div>
+    <div class="pl"></div><div class="pl"></div><div class="pl"></div>
+    <div class="pl"></div><div class="pl"></div><div class="pl"></div>
+  </div>
+
+  <!-- Answer + check -->
+  <div class="row" style="margin-top:5pt;">
+    <div class="c2"><div class="bxh"><span class="sl">Answer</span></div><div class="bx"><div class="pl"></div><div class="pl"></div></div></div>
+    <div class="c1">
+      <div class="bxh"><span class="sl">Unit check</span></div><div class="bx"><div class="pl-xs"></div></div>
+      <div class="bxh" style="margin-top:4pt;"><span class="sl">Sign check</span></div><div class="bx"><div class="pl-xs"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================ -->
+<!-- PAGE 2: STEP TRACKER (metacognitive) -->
+<!-- ================================================================ -->
+<section class="hai-page">
+  <h1>Step Tracker</h1>
+  <p class="sl">Metacognition: writing WHY you did each step catches errors before they compound. Working memory offloading: write intermediates.</p>
+
+  <div class="row" style="margin-bottom:4pt;">
+    <div style="width:18pt;"></div>
+    <div class="c3 bxh"><span class="sl">What I Did (operation)</span></div>
+    <div class="c2 bxh"><span class="sl">Why (reasoning, theorem, rule)</span></div>
+    <div class="c1 bxh"><span class="sl">Check</span></div>
+  </div>
+
+  <div class="step-row"><div class="step-num">1</div><div class="step-body row"><div class="c3 bx"><div class="pl"></div></div><div class="c2 bx"><div class="pl"></div></div><div class="c1 bx"><div class="pl"></div></div></div></div>
+  <div class="step-row"><div class="step-num">2</div><div class="step-body row"><div class="c3 bx"><div class="pl"></div></div><div class="c2 bx"><div class="pl"></div></div><div class="c1 bx"><div class="pl"></div></div></div></div>
+  <div class="step-row"><div class="step-num">3</div><div class="step-body row"><div class="c3 bx"><div class="pl"></div></div><div class="c2 bx"><div class="pl"></div></div><div class="c1 bx"><div class="pl"></div></div></div></div>
+  <div class="step-row"><div class="step-num">4</div><div class="step-body row"><div class="c3 bx"><div class="pl"></div></div><div class="c2 bx"><div class="pl"></div></div><div class="c1 bx"><div class="pl"></div></div></div></div>
+  <div class="step-row"><div class="step-num">5</div><div class="step-body row"><div class="c3 bx"><div class="pl"></div></div><div class="c2 bx"><div class="pl"></div></div><div class="c1 bx"><div class="pl"></div></div></div></div>
+  <div class="step-row"><div class="step-num">6</div><div class="step-body row"><div class="c3 bx"><div class="pl"></div></div><div class="c2 bx"><div class="pl"></div></div><div class="c1 bx"><div class="pl"></div></div></div></div>
+
+  <hr class="hairline">
+
+  <!-- Answer + verification at bottom -->
+  <div class="row">
+    <div class="c2">
+      <div class="bxh"><span class="sl">Final Answer</span></div>
+      <div class="bx"><div class="pl"></div><div class="pl"></div></div>
+    </div>
+    <div class="c1">
+      <div class="bxh"><span class="sl">Plug back in? &check;</span></div>
+      <div class="bx"><div class="pl-xs"></div></div>
+      <div class="bxh" style="margin-top:3pt;"><span class="sl">Reasonable? &check;</span></div>
+      <div class="bx"><div class="pl-xs"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================ -->
+<!-- PAGE 3: MULTI-ATTEMPT + ERROR LOG -->
+<!-- ================================================================ -->
+<section class="hai-page">
+  <h1>Multi-Attempt</h1>
+  <p class="sl">Deliberate practice: three rapid attempts on the same problem. Each attempt reveals different patterns. Compare, do not just redo.</p>
+
+  <div class="row" style="margin-bottom:4pt;">
+    <div class="c1"><div class="bxh"><span class="sl">Attempt 1</span></div><div class="bx"><div class="pl"></div><div class="pl"></div><div class="pl"></div><div class="pl"></div><div class="pl"></div></div></div>
+    <div class="c1"><div class="bxh"><span class="sl">Attempt 2</span></div><div class="bx"><div class="pl"></div><div class="pl"></div><div class="pl"></div><div class="pl"></div><div class="pl"></div></div></div>
+    <div class="c1"><div class="bxh"><span class="sl">Attempt 3</span></div><div class="bx"><div class="pl"></div><div class="pl"></div><div class="pl"></div><div class="pl"></div><div class="pl"></div></div></div>
+  </div>
+
+  <hr class="hairline">
+
+  <!-- Diagram space across all attempts -->
+  <div class="bxh"><span class="sl">Diagram (shared, for all three attempts)</span></div>
+  <div class="dg" style="height:110pt;margin-bottom:6pt;"></div>
+
+  <!-- Error diagnosis -->
+  <div class="row">
+    <div class="c1">
+      <div class="bxh"><span class="sl">Where I got stuck</span></div>
+      <div class="bx"><div class="pl-s"></div><div class="pl-s"></div><div class="pl-s"></div></div>
+    </div>
+    <div class="c1">
+      <div class="bxh"><span class="sl">What was the key insight?</span></div>
+      <div class="bx"><div class="pl-s"></div><div class="pl-s"></div><div class="pl-s"></div></div>
+    </div>
+  </div>
+
+  <!-- One-liner lesson -->
+  <div class="bxh" style="margin-top:4pt;"><span class="sl">One thing I will remember from this problem</span></div>
+  <div class="bx"><div class="pl"></div></div>
+</section>
+
+</body>
+</html>
