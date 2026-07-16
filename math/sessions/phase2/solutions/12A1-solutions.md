@@ -15,6 +15,8 @@ $|z|^2 = 1^2 + (-1)^2 = 2 = \det(M)$ ✓.
 
 > **Answer**: $z = 1-i$, $M = \begin{pmatrix} 1 & 1 \\ -1 & 1 \end{pmatrix}$, $\det(M) = |z|^2 = 2$
 
+![Complex division result and matrix determinant verification](graphs/12A1/p1-division-matrix.png)
+
 ---
 
 ## Practice 2
@@ -30,6 +32,8 @@ $z^8 = (\sqrt{2})^8 \cdot e^{-i\cdot 8\pi/4} = 16 \cdot e^{-i\cdot 2\pi} = 16$.
 
 > **Answer**: $z = \sqrt{2}e^{-i\pi/4}$, $z^8 = 16$
 
+![Polar form and De Moivre power spiral returning to positive real](graphs/12A1/p2-polar-power.png)
+
 ---
 
 ## Practice 3
@@ -44,6 +48,8 @@ $-8 = 8e^{i\pi}$. $z_k = 2e^{i(\pi+2\pi k)/3}$ for $k=0,1,2$.
 
 > **Answer**: $1+i\sqrt{3}$, $-2$, $1-i\sqrt{3}$
 
+![Three cube roots of -8 forming equilateral triangle on circle r=2](graphs/12A1/p3-cube-roots-minus8.png)
+
 ---
 
 ## Practice 4: Composition
@@ -57,6 +63,8 @@ $i^3 = -i$ → $J^3 = \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix} = R_{270^\ci
 $(3+4i) \cdot i^3 = (3+4i)(-i) = -3i+4 = 4-3i$. Matrix: $\begin{pmatrix} 3 & -4 \\ 4 & 3 \end{pmatrix}\begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix} = \begin{pmatrix} 4 & 3 \\ -3 & 4 \end{pmatrix}$ ↔ $4-3i$ ✓.
 
 > **Answer**: $4-3i$; $i^3$ matrix = $R_{270^\circ}$, rotation by $90^\circ$ CW
+
+![Multiplying by i³ rotates 90° clockwise](graphs/12A1/p4-i3-rotation.png)
 
 ---
 
@@ -74,6 +82,8 @@ Relationship: $\det(M_6) = (\det(M))^6 = 4^6 = 4096$ ✓. Determinant powers lik
 
 > **Answer**: $z=2e^{i\cdot 2\pi/3}$, $z^6=64$, $\det(M)=4$, $\det(M_6)=4^6=4096$
 
+![z⁶ = 64 from z = 2e^{i·2π/3} - rotation returns to positive real](graphs/12A1/p5-z6-computation.png)
+
 ---
 
 ## Practice 6
@@ -88,6 +98,8 @@ $R_{120^\circ} = \begin{pmatrix} -1/2 & -\sqrt{3}/2 \\ \sqrt{3}/2 & -1/2 \end{pm
 **Connection**: $R_{120^\circ}$ corresponds to the complex number $-\frac{1}{2} + i\frac{\sqrt{3}}{2} = e^{i\cdot 2\pi/3}$. This is $\omega = e^{i\cdot 2\pi/3}$, the primitive cube root of unity. And $1+i\sqrt{3} = 2\omega^2$, $-2 = 2\omega^0 = 2$, $1-i\sqrt{3} = 2\omega$. The rotation matrix for $120^\circ$ IS the complex number $\omega$ in matrix form.
 
 > **Answer**: Area $=3\sqrt{3}$, $R=\begin{pmatrix}-1/2&-\sqrt{3}/2\\\sqrt{3}/2&-1/2\end{pmatrix} \leftrightarrow e^{i\cdot 2\pi/3}$
+
+![Triangle area and 120° rotation matrix connection](graphs/12A1/p6-triangle-area.png)
 
 ---
 
@@ -104,6 +116,8 @@ Matrix for $1/z$: $\begin{pmatrix} 3/25 & 4/25 \\ -4/25 & 3/25 \end{pmatrix} = \
 Geometric meaning of $M^{-1}$: inverse rotation-scaling. $\det(M)=25$, so $M^{-1}$ scales by $1/\sqrt{25}=1/5$ and rotates by $-\arctan(4/3) \approx -53.13^\circ$ (the opposite rotation, then shrink).
 
 > **Answer**: $M^{-1} = \frac{1}{25}\begin{pmatrix}3&4\\-4&3\end{pmatrix}$, $1/z = \frac{3}{25}-\frac{4}{25}i$
+
+![Matrix inverse equals complex reciprocal](graphs/12A1/p7-inverse-correspondence.png)
 
 ---
 
@@ -130,6 +144,8 @@ For $n=3$: $\frac{3}{2}\sin(120^\circ) = \frac{3}{2}\cdot\frac{\sqrt{3}}{2} = \f
 For $n=4$: $\frac{4}{2}\sin(90^\circ) = 2\cdot 1 = 2$ ✓.
 
 > **Answer**: Product $=(-1)^{n-1}$, Area $=\frac{n}{2}\sin(2\pi/n)$
+
+![Roots of unity: regular n-gon, product formula, sum = 0](graphs/12A1/p8-roots-unity.png)
 
 ---
 
@@ -327,6 +343,8 @@ $-16 = 16e^{i\pi}$. Fourth roots: $z_k = 16^{1/4} \cdot e^{i(\pi + 2\pi k)/4} = 
 
 > **Answer**: $\sqrt{2}+i\sqrt{2},\; -\sqrt{2}+i\sqrt{2},\; -\sqrt{2}-i\sqrt{2},\; \sqrt{2}-i\sqrt{2}$
 
+![Four 4th roots of -16 forming a square on circle r=2](graphs/12A1/a3-fourth-roots.png)
+
 ---
 
 ### A4. Area of the square formed by 4th roots of 1
@@ -339,6 +357,8 @@ Area: $s^2 = 2$.
 Alternatively: The square is inscribed in the unit circle. Area = $2r^2 = 2 \cdot 1 = 2$.
 
 > **Answer**: $2$
+
+![4th roots of 1 form a square, diagonal=2, side=√2, area=2](graphs/12A1/a4-square-4th-roots.png)
 
 ---
 
@@ -375,6 +395,8 @@ Cube roots: $z_k = 8^{1/3} \cdot e^{i(\pi/2 + 2\pi k)/3} = 2 \cdot e^{i(\pi/2 + 
 Check: $(\sqrt{3}+i)^3$ — using De Moivre: $(2e^{i\pi/6})^3 = 8e^{i\pi/2} = 8i$ ✓.
 
 > **Answer**: $\sqrt{3}+i,\; -\sqrt{3}+i,\; -2i$
+
+![Three cube roots of 8i forming equilateral triangle on circle r=2](graphs/12A1/a7-cube-roots-8i.png)
 
 ---
 
@@ -428,6 +450,8 @@ $\det(R) = (1/2)^2 + (\sqrt{3}/2)^2 = 1/4 + 3/4 = 1$.
 
 > **Answer**: $R = \begin{pmatrix}1/2&-\sqrt{3}/2\\\sqrt{3}/2&1/2\end{pmatrix}$, $\det(R)=1$, $R^3=-I$
 
+![z = e^{iπ/3}, 60° rotation, z³ = -1](graphs/12A1/a11-z3-minus1.png)
+
 ---
 
 ### A12. ◆ $z_1=3e^{i\pi/6}$, $z_2=2e^{i\pi/3}$, product and triangle area
@@ -441,6 +465,8 @@ The angle at 0 between $z_1$ and $z_1z_2$ is $\arg(z_2) = \pi/3 = 60^\circ$.
 Area = $\frac{1}{2}|z_1||z_1z_2|\sin 60^\circ = \frac{1}{2} \cdot 3 \cdot 6 \cdot \frac{\sqrt{3}}{2} = \frac{9\sqrt{3}}{2}$.
 
 > **Answer**: $z_1z_2 = 6i$, Area = $\frac{9\sqrt{3}}{2}$
+
+![Triangle (0, z₁, z₁z₂) with area 9√3/2](graphs/12A1/a12-triangle-product.png)
 
 ---
 
@@ -465,6 +491,8 @@ $S = \frac{1-\omega^n}{1-\omega} = \frac{1-1}{1-\omega} = 0$ (since $\omega^n = 
 
 > **Answer**: Sum $= \frac{1-\omega^n}{1-\omega} = 0$; center of mass at origin
 
+![Sum of nth roots of unity = 0 — center of mass at origin](graphs/12A1/a14-roots-sum-zero.png)
+
 ---
 
 ### A15. ◆ $T(z)=iz$ (rotate $90^\circ$) and $S(z)=\bar{z}$ (reflect) as matrices, compositions
@@ -482,3 +510,7 @@ $S \circ T = \begin{pmatrix}1&0\\0&-1\end{pmatrix}\begin{pmatrix}0&-1\\1&0\end{p
 $T \circ S \neq S \circ T$ — they do not commute. Geometrically: reflecting then rotating gives a different result than rotating then reflecting (the two compositions are reflections across perpendicular lines: $y=x$ vs $y=-x$).
 
 > **Answer**: $T=\begin{pmatrix}0&-1\\1&0\end{pmatrix}$, $S=\begin{pmatrix}1&0\\0&-1\end{pmatrix}$; $TS=\begin{pmatrix}0&1\\1&0\end{pmatrix}$ (reflect $y=x$), $ST=\begin{pmatrix}0&-1\\-1&0\end{pmatrix}$ (reflect $y=-x$); they do not commute
+
+![T∘S: Reflect then Rotate = Reflect y=x](graphs/12A1/a15-composition-ts.png)
+
+![S∘T: Rotate then Reflect = Reflect y=-x](graphs/12A1/a15b-composition-st.png)

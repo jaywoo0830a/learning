@@ -14,6 +14,8 @@ Column 2 = $2 \times$ Column 1. The unit square collapses onto the line through 
 
 > **Answer**: Collapse onto a line; e.g., $A = \begin{pmatrix} 2 & 4 \\ 1 & 2 \end{pmatrix}$
 
+![det(A)=0: plane collapses onto line y=x/2](graphs/12A2/p1-det-zero-collapse.png)
+
 ---
 
 ## Practice 2
@@ -32,6 +34,8 @@ Check: $3(19/7) - 2(4/7) = 57/7 - 8/7 = 49/7 = 7$ ✓.
 $(19/7) + 4(4/7) = 19/7 + 16/7 = 35/7 = 5$ ✓.
 
 > **Answer**: $x = \frac{19}{7}$, $y = \frac{4}{7}$
+
+![Linear system solution as intersection point of two lines](graphs/12A2/p2-linear-system.png)
 
 ---
 
@@ -53,6 +57,8 @@ $(-10,7,9)\cdot(1,4,-2) = -10 + 28 - 18 = 0$ ✓.
 
 > **Answer**: $\vec{a}\cdot\vec{b} = -8$, $\vec{a}\times\vec{b} = (-10, 7, 9)$
 
+![Cross product in 3D: perpendicular to both vectors](graphs/12A2/p3-cross-product-3d.png)
+
 ---
 
 ## Practice 4
@@ -68,6 +74,8 @@ $|\vec{AB} \times \vec{AC}| = \sqrt{0^2+0^2+11^2} = 11$.
 Triangle area = $\frac{1}{2} \cdot 11 = \frac{11}{2}$.
 
 > **Answer**: $\frac{11}{2}$
+
+![Triangle area in 3D = ½|AB×AC|](graphs/12A2/p4-triangle-area-3d.png)
 
 ---
 
@@ -90,6 +98,8 @@ The products differ — matrix multiplication order matters!
 
 > **Answer**: $R_{90}R_x = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$ (reflect across $y=x$), $R_x R_{90} = \begin{pmatrix} 0 & -1 \\ -1 & 0 \end{pmatrix}$ (reflect across $y=-x$)
 
+![Composition: Reflect×Rotate — order matters](graphs/12A2/p5-composition.png)
+
 ---
 
 ## Practice 6
@@ -107,6 +117,8 @@ Check: $|(7.56, 10.08)| = \sqrt{7.56^2+10.08^2} = \sqrt{57.15+101.61} \approx \s
 
 > **Answer**: Scalar projection = $\frac{63}{5}$, Vector projection = $\left(\frac{189}{25}, \frac{252}{25}\right)$
 
+![Vector projection of (5,12) onto (3,4)](graphs/12A2/p6-projection.png)
+
 ---
 
 ## Practice 7
@@ -120,6 +132,8 @@ $A^{-1} = \frac{1}{1}\begin{pmatrix} 3 & -1 \\ -5 & 2 \end{pmatrix} = \begin{pma
 Verify: $A \cdot A^{-1} = \begin{pmatrix} 2 & 1 \\ 5 & 3 \end{pmatrix}\begin{pmatrix} 3 & -1 \\ -5 & 2 \end{pmatrix} = \begin{pmatrix} 6-5 & -2+2 \\ 15-15 & -5+6 \end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = I$ ✓.
 
 > **Answer**: $A^{-1} = \begin{pmatrix} 3 & -1 \\ -5 & 2 \end{pmatrix}$
+
+![Inverse matrix undoes the transformation](graphs/12A2/p7-inverse-matrix.png)
 
 ---
 
@@ -136,6 +150,8 @@ The three column vectors are mutually perpendicular (along $x$, $y$, $z$ axes), 
 Applying $M$ to the unit cube (vertices from $(0,0,0)$ to $(1,1,1)$): each point $(x,y,z) \to (2x, 3y, 5z)$. The unit cube stretches to a $2 \times 3 \times 5$ rectangular box. Volume = $30 = |\det(M)|$ ✓.
 
 > **Answer**: $\det(M) = 30$, volume = 30, shape = $2\times 3\times 5$ rectangular box
+
+![3D parallelepiped: volume = det(M) = 30](graphs/12A2/p8-parallelepiped-3d.png)
 
 ---
 
@@ -235,6 +251,8 @@ Not perpendicular (dot product $\neq 0$). Since $-10 < 0$, the angle is obtuse $
 
 > **Answer**: Rectangle $2 \times 0.5$, area = 1, $\det(A) = 1$
 
+![Stretch matrix: x doubles, y halves, area preserved](graphs/12A2/d11-stretch-matrix.png)
+
 ---
 
 ### D12. ◆ Geometry Fusion — Columns $\vec{c}_1=(4,0)$, $\vec{c}_2=(1,3)$
@@ -249,6 +267,8 @@ $\det(A) = 4\cdot 3 - 1\cdot 0 = 12$ ✓.
 
 > **Answer**: Parallelogram of area 12, $A = \begin{pmatrix} 4 & 1 \\ 0 & 3 \end{pmatrix}$, $\det(A) = 12$
 
+![Parallelogram area = base × height = det(A)](graphs/12A2/d12-column-parallelogram.png)
+
 ---
 
 ### D13. ◆ Geometry Fusion — $\vec{v}=(2,5)$ transformed by $A=\begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}$
@@ -260,6 +280,8 @@ $A\vec{v} = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}\begin{pmatrix} 2 \\ 5 
 $A$ is the $90^\circ$ CCW rotation matrix. It rotates every vector by exactly $90^\circ$ while preserving its length: $|(2,5)| = \sqrt{29}$, $|(-5,2)| = \sqrt{29}$ ✓.
 
 > **Answer**: $A\vec{v} = (-5, 2)$, angle = $90^\circ$, $A$ rotates by $90^\circ$ CCW
+
+![90° CCW rotation preserves vector length](graphs/12A2/d13-rotation-90.png)
 
 ---
 
@@ -273,6 +295,8 @@ $\det(B) = 1\cdot 4 - 2\cdot 2 = 0$.
 
 > **Answer**: Columns are parallel (line $y=2x$), plane collapses to line $y=2x$
 
+![Singular matrix: entire plane collapses onto line y=2x](graphs/12A2/d14-singular-collapse.png)
+
 ---
 
 ### D15. ◆ Geometry Fusion — Shear $S = \begin{pmatrix} 1 & 1.5 \\ 0 & 1 \end{pmatrix}$ on $\vec{v}=(2,1)$
@@ -284,6 +308,8 @@ The $y$-coordinate is unchanged (1 → 1). The $x$-coordinate shifted by $1.5 \t
 $\det(S) = 1\cdot 1 - 1.5\cdot 0 = 1$. A shear preserves area because it "slides" each horizontal line by an amount proportional to its height — like pushing a deck of cards. The shape changes but the total area stays the same.
 
 > **Answer**: $S\vec{v} = (3.5, 1)$, $y$ unchanged, area preserved ($\det=1$)
+
+![Shear slides horizontal lines, area preserved](graphs/12A2/d15-shear.png)
 
 ---
 
@@ -322,6 +348,8 @@ $R_{60}\begin{pmatrix} 1 \\ 0 \end{pmatrix} = \begin{pmatrix} 1/2 \\ \sqrt{3}/2 
 This is exactly the first column of $R_{60}$ — because applying the rotation to $\vec{e}_1$ gives column 1.
 
 > **Answer**: $R_{60} = \begin{pmatrix} 1/2 & -\sqrt{3}/2 \\ \sqrt{3}/2 & 1/2 \end{pmatrix}$, result = $(\frac{1}{2}, \frac{\sqrt{3}}{2})$
+
+![60° CCW rotation matrix applied to unit square](graphs/12A2/a3-rotation-60.png)
 
 ---
 
@@ -435,6 +463,8 @@ $\det(RS) = 0\cdot 1 - (-1)\cdot 1 = 1$. The determinant is the product: $\det(R
 
 > **Answer**: $RS = \begin{pmatrix} 0 & -1 \\ 1 & 1 \end{pmatrix}$, $\det = 1$ (area preserved)
 
+![Shear then rotate composition preserves area](graphs/12A2/a11-shear-rotate.png)
+
 ---
 
 ### A12. ◆ Geometry Fusion — $P = \begin{pmatrix} 3/5 & 4/5 \\ 4/5 & -3/5 \end{pmatrix}$
@@ -450,6 +480,8 @@ $\det(P) = (3/5)(-3/5) - (4/5)(4/5) = -9/25 - 16/25 = -25/25 = -1$.
 $P$ is a **reflection**. $\det = -1$ confirms it's not a rotation (rotations have $\det = +1$). $P^2=I$ and $P=P^T$ means it's an orthogonal reflection. The reflection line is through the eigenvector with eigenvalue 1: solving $P\vec{x} = \vec{x}$ gives direction $(2,1)$. So $P$ reflects across the line $y = x/2$ (or more precisely, the line through the origin with slope $1/2$, since $(2,1)$ is on $y=x/2$).
 
 > **Answer**: $P\vec{v} = (3,4)$, $\theta \approx 53.13^\circ$, reflection across line through $(2,1)$
+
+![Reflection matrix P: det=-1, reflects across y=x/2](graphs/12A2/a12-reflection-p.png)
 
 ---
 
@@ -470,6 +502,8 @@ $\det(A) = (1/5)(4/5) - (2/5)(2/5) = 4/25 - 4/25 = 0$.
 Geometric meaning: A projection collapses the 2D plane onto a 1D line — all area is lost, so $\det=0$. The matrix is singular.
 
 > **Answer**: $A = \frac{1}{5}\begin{pmatrix} 1 & 2 \\ 2 & 4 \end{pmatrix}$, result = $(1,2)$ on $y=2x$, $\det=0$ (collapses to line)
+
+![Projection onto y=2x: det=0, collapses 2D→1D](graphs/12A2/a13-projection-line.png)
 
 ---
 
@@ -495,6 +529,8 @@ $= 4(33+6) - 1(11-12) - 7(-1-6) = 4(39) - (-1) - 7(-7) = 156 + 1 + 49 = 206$ ✓
 
 > **Answer**: Area = $\sqrt{206}$, $\hat{n} = \frac{(-7,6,11)}{\sqrt{206}}$, $\det(M) = 206$
 
+![3D parallelogram: area = |a⃗×b⃗| = √206](graphs/12A2/a14-parallelogram-3d.png)
+
 ---
 
 ### A15. ◆ Geometry Fusion — $A = \begin{pmatrix} 0.8 & -0.6 \\ 0.6 & 0.8 \end{pmatrix}$ on triangle
@@ -515,3 +551,5 @@ The areas are equal (both 1) because $|\det(A)| = |0.8\cdot 0.8 - (-0.6)\cdot 0.
 This looks like $\cos\theta = 0.8$, $\sin\theta = 0.6$, so $\theta = \arcsin(0.6) = \arccos(0.8) \approx 36.87^\circ$. Yes, $A$ is a pure rotation by $\approx 36.87^\circ$ CCW. A pure rotation: orthonormal columns + determinant $+1$.
 
 > **Answer**: Original area = 1, transformed area = 1 (equal because $|\det|=1$). Yes, pure rotation by $\approx 36.87^\circ$
+
+![Pure rotation on triangle: area preserved, |det|=1](graphs/12A2/a15-rotation-triangle.png)
