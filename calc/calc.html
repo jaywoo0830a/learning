@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calc — 32-digit precision</title>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+
+<!-- decimal.js: arbitrary-precision decimal arithmetic (like PHP bcmath) -->
+<script src="https://cdn.jsdelivr.net/npm/decimal.js@10.5.0/decimal.min.js"></script>
+
+<style>
+  /* ============================================================
+      Design System — Minimal token set
+     ============================================================ */
+  :root {
+    /* spacing */
+    --space-xs:  0.25rem;  /* 4px  */
+    --space-sm:  0.5rem;   /* 8px  */
+    --space-md:  0.75rem;  /* 12px */
+    --space-lg:  1rem;     /* 16px */
+    --space-xl:  2rem;     /* 32px */
+
+    /* radius */
+    --radius-sm: 0.375rem; /* 6px  */
+    --radius-md: 0.5rem;   /* 8px  */
+    --radius-lg: 0.75rem;  /* 12px */
+
+    /* colors — surface */
+    --c-bg:       #121212;
+    --c-surface:  #1e1e1e;
+    --c-hover:    #2a2a2a;
+    --c-border:   #333;
+
+    /* colors — accent */
+    --c-accent:   #00cc77;
+    --c-accent-dim:  #1a3a28;
+    --c-accent-strong:#0d4f1a;
+
+    /* colors — danger */
+    --c-danger:   #ff7777;
+    --c-danger-dim: #3a1e1e;
+
+    /* colors — text */
+    --c-text:     #ddd;
+    --c-text-dim: #777;
+
+    /* typography — single family, 1rem base */
+    --font:       'Roboto Mono', monospace;
+    --fs-sm:      0.75rem;  /* 12px */
+    --fs-base:    1rem;     /* 16px */
+    --fs-lg:      1.125rem; /* 18px */
+    --fs-xl:      1.25rem;  /* 20px */
+    --fs-xxl:     1.5rem;   /* 24px */
+    --lh:         1.4;
+
+    /* transition */
+    --t-fast:     0.12s ease;
+  }
+
+  /* ============================================================
+      Reset & Base
+     ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { font-size: 100%; }
+
+  body {
+    font-family: var(--font);
+    font-size: var(--fs-base);
+    line-height: var(--lh);
+    color: var(--c-text);
+    background: var(--c-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    user-select: none;
+  }
+
+  /* ============================================================
+      Calculator Shell
+     ============================================================ */
+  .calc {
+    background: var(--c-surface);
+    border: 1px solid var(--c-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    width: 24rem; /* 384px */
+    box-shadow: 0 var(--space-sm) var(--space-xl) rgba(0,0,0,.45);
+  }
+
+  /* ============================================================
+      Display
+     ============================================================ */
+  .display {
+    background: #0a1a0a;
+    color: var(--c-accent);
+    font-family: var(--font);
+    font-size: var(--fs-xl);
+    line-height: var(--lh);
+    text-align: right;
+    padding: var(--space-md) var(--space-lg);
+    border: 2px solid var(--c-accent-dim);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-md);
+    min-height: 3.5rem;
+    word-break: break-all;
+  }
+
+  /* ============================================================
+      Button Grid
+     ============================================================ */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-sm);
+  }
+
+  .grid button {
+    font-family: var(--font);
+    font-size: var(--fs-lg);
+    padding: 0.875rem 0;
+    border: 1px solid var(--c-border);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: background var(--t-fast), transform 0.06s ease;
+    outline: none;
+  }
+  .grid button:active { transform: scale(.95); }
+
+  /* --- variant: number --- */
+  .num {
+    background: var(--c-hover);
+    color: var(--c-text);
+  }
+  .num:hover { background: #333; }
+
+  /* --- variant: operator --- */
+  .op {
+    background: var(--c-accent-dim);
+    color: var(--c-accent);
+    border-color: #2a5a38;
+  }
+  .op:hover { background: #244a34; }
+
+  /* --- variant: equals --- */
+  .eq {
+    background: var(--c-accent-strong);
+    color: #fff;
+    font-weight: 700;
+    font-size: var(--fs-xxl);
+    border-color: #1a7a28;
+  }
+  .eq:hover { background: #105a22; }
+
+  /* --- variant: clear --- */
+  .clr {
+    background: var(--c-danger-dim);
+    color: var(--c-danger);
+    border-color: #4a2828;
+  }
+  .clr:hover { background: #4a2828; }
+
+  /* --- layout: wide (span 2) --- */
+  .wide { grid-column: span 2; }
+
+  /* ============================================================
+      Info Footer
+     ============================================================ */
+  .info {
+    text-align: center;
+    color: var(--c-text-dim);
+    font-size: var(--fs-sm);
+    margin-top: var(--space-md);
+  }
+</style>
+</head>
+<body>
+
+<div class="calc">
+  <div class="display" id="display">0</div>
+
+  <div class="grid">
+    <button class="clr" data-key="C">C</button>
+    <button class="clr" data-key="CE">CE</button>
+    <button class="clr" data-key="⌫">⌫</button>
+    <button class="op"  data-key="/">/</button>
+
+    <button class="num" data-key="7">7</button>
+    <button class="num" data-key="8">8</button>
+    <button class="num" data-key="9">9</button>
+    <button class="op"  data-key="*">*</button>
+
+    <button class="num" data-key="4">4</button>
+    <button class="num" data-key="5">5</button>
+    <button class="num" data-key="6">6</button>
+    <button class="op"  data-key="-">-</button>
+
+    <button class="num" data-key="1">1</button>
+    <button class="num" data-key="2">2</button>
+    <button class="num" data-key="3">3</button>
+    <button class="op"  data-key="+">+</button>
+
+    <button class="num wide" data-key="0">0</button>
+    <button class="num" data-key=".">.</button>
+    <button class="eq"  data-key="=">=</button>
+  </div>
+
+  <div class="info">32-digit precision · truncates after 33rd decimal (no rounding)</div>
+</div>
+
+<script>
+// ============================================================
+//  Decimal.js configuration (PHP bcmath style)
+// ============================================================
+Decimal.set({ precision: 100, rounding: Decimal.ROUND_DOWN });
+
+const SCALE = 32;
+
+function truncate(d) {
+  return d.toFixed(SCALE, Decimal.ROUND_DOWN);
+}
+
+function bcadd(a, b)  { return truncate(new Decimal(a).plus(b)); }
+function bcsub(a, b)  { return truncate(new Decimal(a).minus(b)); }
+function bcmul(a, b)  { return truncate(new Decimal(a).times(b)); }
+function bcdiv(a, b)  { return truncate(new Decimal(a).div(b)); }
+
+// ============================================================
+//  Calculator state
+// ============================================================
+const display = document.getElementById('display');
+
+let currentInput = '';
+let operand = null;
+let operator = null;
+let newInput = true;
+
+function updateDisplay() {
+  display.textContent = currentInput || '0';
+}
+
+// ============================================================
+//  Input handlers
+// ============================================================
+function inputDigit(d) {
+  if (newInput) { currentInput = ''; newInput = false; }
+  currentInput += d;
+  updateDisplay();
+}
+
+function inputDot() {
+  if (newInput) { currentInput = '0'; newInput = false; }
+  if (!currentInput.includes('.')) currentInput += '.';
+  updateDisplay();
+}
+
+function inputOperator(op) {
+  if (!currentInput) return;
+  if (operand !== null && operator && !newInput) {
+    compute();
+  }
+  operand = currentInput;
+  operator = op;
+  newInput = true;
+}
+
+function compute() {
+  if (operator === null) return;
+
+  let b;
+  if (newInput && operand !== null) {
+    b = operand;
+  } else {
+    b = currentInput;
+    if (!b) return;
+  }
+
+  const a = operand;
+  const op = operator;
+
+  let result;
+  try {
+    switch (op) {
+      case '+': result = bcadd(a, b); break;
+      case '-': result = bcsub(a, b); break;
+      case '*': result = bcmul(a, b); break;
+      case '/': result = bcdiv(a, b); break;
+      default: return;
+    }
+  } catch (e) {
+    display.textContent = 'Error: division by zero';
+    operand = null; operator = null; newInput = true;
+    return;
+  }
+
+  currentInput = result;
+  operand = result;
+  operator = null;
+  newInput = true;
+  updateDisplay();
+}
+
+function clearAll() {
+  currentInput = '';
+  operand = null;
+  operator = null;
+  newInput = true;
+  display.textContent = '0';
+}
+
+function clearEntry() {
+  currentInput = '';
+  newInput = true;
+  display.textContent = '0';
+}
+
+function backspace() {
+  if (newInput || !currentInput) return;
+  currentInput = currentInput.slice(0, -1);
+  updateDisplay();
+}
+
+// ============================================================
+//  Button clicks
+// ============================================================
+document.querySelectorAll('.grid button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const key = btn.dataset.key;
+    if (/\d/.test(key))           inputDigit(key);
+    else if (key === '.')         inputDot();
+    else if ('+-*/'.includes(key)) inputOperator(key);
+    else if (key === '=')         compute();
+    else if (key === 'C')         clearAll();
+    else if (key === 'CE')        clearEntry();
+    else if (key === '⌫')         backspace();
+  });
+});
+
+// ============================================================
+//  Keyboard / numpad
+// ============================================================
+document.addEventListener('keydown', e => {
+  if (e.ctrlKey || e.metaKey) return;
+
+  const key = e.key;
+
+  if (/^[0-9]$/.test(key))      { e.preventDefault(); inputDigit(key); }
+  else if (key === '.')          { e.preventDefault(); inputDot(); }
+  else if (key === '+')          { e.preventDefault(); inputOperator('+'); }
+  else if (key === '-')          { e.preventDefault(); inputOperator('-'); }
+  else if (key === '*')          { e.preventDefault(); inputOperator('*'); }
+  else if (key === '/')          { e.preventDefault(); inputOperator('/'); }
+  else if (key === 'Enter' || key === '=') { e.preventDefault(); compute(); }
+  else if (key === 'Backspace')  { e.preventDefault(); backspace(); }
+  else if (key === 'Delete')     { e.preventDefault(); clearEntry(); }
+  else if (key === 'Escape')     { e.preventDefault(); clearAll(); }
+});
+</script>
+
+</body>
+</html>
