@@ -3,16 +3,6 @@
 > **Topic:** Using numbers to identify substances and determine chemical formulas.
 > **Time:** 150 minutes
 > **Big Fat Notebook:** Chapters 3, 6
->
-> | English | Pronunciation & Meaning |
-> |---------|-------------------------|
-> | **density** | /ˈden.sə.ti/ — mass per unit volume; $\rho = m/V$ (g/cm³ or g/mL) |
-> | **percent composition** | /pərˈsent ˌkɑːm.pəˈzɪʃ.ən/ — mass percent of each element in a compound |
-> | **empirical formula** | /ɪmˈpɪr.ɪ.kəl ˈfɔːr.mjə.lə/ — simplest whole-number ratio of atoms |
-> | **molecular formula** | /məˈlek.jə.lər ˈfɔːr.mjə.lə/ — actual number of atoms in one molecule |
-> | **hydrate** | /ˈhaɪ.dreɪt/ — a compound with water molecules trapped in its crystal structure |
-> | **anhydrous** | /ænˈhaɪ.drəs/ — the compound after water has been removed |
-> | **water displacement** | /ˈwɔː.tər dɪˈspleɪs.mənt/ — measuring volume by how much water an object pushes aside |
 
 ---
 
@@ -399,3 +389,20 @@ Read **Chapters 3 and 6** of *Everything You Need to Ace Chemistry in One Big Fa
 The concepts — what density means physically, how percent composition connects to formulas, why the mole is central — will lock into place. You've solved 20 problems harder than anything the book asks.
 
 > Solutions: [solutions/03-solutions.md](../solutions/03-solutions.md)
+
+---
+
+## 📝 Key Terms — Quick Reference
+
+| Term | What it means |
+|------|---------------|
+| **density** | $\rho = m/V$; characteristic property used to identify substances |
+| **water displacement** | $V_{\text{object}} = V_{\text{final}} - V_{\text{initial}}$; used for irregular solids |
+| **percent composition** | (mass of element in 1 mol ÷ molar mass) × 100% |
+| **empirical formula** | simplest whole-number atom ratio (e.g., $CH_2O$, not $C_6H_{12}O_6$) |
+| **molecular formula** | actual number of atoms per molecule ($n \times$ empirical formula) |
+| **$n = M_{\text{molecular}} / M_{\text{empirical}}$** | the multiplier to go from empirical → molecular |
+| **hydrate** | ionic compound with water trapped in crystal ($MgSO_4 \cdot 7H_2O$) |
+| **anhydrous** | the salt after water is driven off by heating |
+| **divide by smallest** | the critical step in empirical formulas — raw mole values are NOT subscripts |
+| **.5 → ×2, .33/.67 → ×3** | when the ratio isn't integer, multiply ALL numbers by 2 or 3 |

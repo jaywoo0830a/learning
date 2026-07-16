@@ -3,18 +3,6 @@
 > **Topic:** When reactions happen in water, concentration is the new mass.
 > **Time:** 150 minutes
 > **Big Fat Notebook:** Chapters 8, 10
->
-> | English | Pronunciation & Meaning |
-> |---------|-------------------------|
-> | **molarity** | /moʊˈlær.ə.ti/ — moles of solute per liter of solution (M) |
-> | **solution** | /səˈluː.ʃən/ — homogeneous mixture of solute dissolved in solvent |
-> | **solute** | /ˈsɑː.ljuːt/ — the substance being dissolved |
-> | **solvent** | /ˈsɑːl.vənt/ — the substance doing the dissolving (usually water) |
-> | **concentration** | /ˌkɑːn.sənˈtreɪ.ʃən/ — how much solute is in a given volume |
-> | **dilution** | /daɪˈluː.ʃən/ — adding solvent to lower concentration; $M_1V_1 = M_2V_2$ |
-> | **precipitate** | /prɪˈsɪp.ɪ.teɪt/ (v.), /prɪˈsɪp.ɪ.tət/ (n.) — insoluble solid formed in solution |
-> | **precipitation** | /prɪˌsɪp.ɪˈteɪ.ʃən/ — reaction producing a solid from two solutions |
-> | **dissociation** | /dɪˌsoʊ.ʃiˈeɪ.ʃən/ — ionic compound splitting into ions in water |
 
 ---
 
@@ -409,3 +397,20 @@ Read **Chapters 8 and 10** of *Everything You Need to Ace Chemistry in One Big F
 You've solved 20 problems, from simple molarity to finding the percent purity of an impure sample. Solutions are no longer mysterious — they're just moles dissolved in liters.
 
 > Solutions: [solutions/07-solutions.md](../solutions/07-solutions.md)
+
+---
+
+## 📝 Key Terms — Quick Reference
+
+| Term | What it means |
+|------|---------------|
+| **molarity (M)** | $\text{mol} / \text{L}$ — the standard concentration unit in chemistry |
+| **solute** | the substance being dissolved (e.g., salt) |
+| **solvent** | the substance doing the dissolving (usually water) |
+| **dilution** | adding solvent to lower concentration; $M_1V_1 = M_2V_2$ |
+| **mL → L** | divide by 1000 — the #1 mistake in solution problems |
+| **$M_1V_1 = M_2V_2$ in mL** | volumes can stay in mL (they cancel); only convert when finding moles |
+| **precipitate** | insoluble solid formed when two solutions are mixed |
+| **dissociation** | ionic compound splits into ions: $NaCl \to Na^+ + Cl^-$ |
+| **spectator ion** | ion that doesn't participate in the reaction (e.g., $Na^+$ in many precipitations) |
+| **ion concentration** | $[\text{ion}] = \text{coefficient} \times [\text{compound}]$ for complete dissociation |

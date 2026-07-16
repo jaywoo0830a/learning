@@ -3,17 +3,6 @@
 > **Topic:** From a pile of one substance to a pile of another — the mole ratio is the bridge.
 > **Time:** 150 minutes
 > **Big Fat Notebook:** Chapter 7
->
-> | English | Pronunciation & Meaning |
-> |---------|-------------------------|
-> | **stoichiometry** | /ˌstɔɪ.kiˈɑː.mə.tri/ — the quantitative study of reactants and products |
-> | **chemical equation** | /ˈkem.ɪ.kəl ɪˈkweɪ.ʒən/ — symbolic representation of a reaction |
-> | **balancing** | /ˈbæl.ən.sɪŋ/ — making atom counts equal on both sides |
-> | **coefficient** | /ˌkoʊ.ɪˈfɪʃ.ənt/ — the large number placed before a formula |
-> | **mole ratio** | /moʊl ˈreɪ.ʃi.oʊ/ — ratio of coefficients from a balanced equation |
-> | **combustion** | /kəmˈbʌs.tʃən/ — reaction with $O_2$ producing $CO_2$ and $H_2O$ |
-> | **by inspection** | /baɪ ɪnˈspek.ʃən/ — balancing systematically by eye (C → H → O) |
-> | **excess** | /ˈek.ses/ — more than enough; will not run out first |
 
 ---
 
@@ -532,3 +521,20 @@ Read **Chapter 7** of *Everything You Need to Ace Chemistry in One Big Fat Noteb
 You've solved 20 problems — from balancing $H_2 + O_2$ to reverse-engineering a hydrocarbon's molecular formula from combustion data. The concepts — what a balanced equation actually says about atom counts, why mole ratios work, how stoichiometry connects the lab to the equation — will lock into place.
 
 > Solutions: [solutions/05-solutions.md](../solutions/05-solutions.md)
+
+---
+
+## 📝 Key Terms — Quick Reference
+
+| Term | What it means |
+|------|---------------|
+| **stoichiometry** | the quantitative relationship between reactants and products |
+| **coefficient** | the big number in front of a formula in a balanced equation |
+| **subscript** | the small number within a formula ($H_2O$ has subscript 2 on H) — never change these when balancing |
+| **mole ratio** | $\frac{\text{coeff of target}}{\text{coeff of given}}$ — used to convert between substances |
+| **combustion** | reaction with $O_2$ producing $CO_2$ and $H_2O$; balance order: **C → H → O** |
+| **balancing by inspection** | systematic trial: count atoms, adjust coefficients, recount |
+| **LCM trick** | for $O_2$ balancing: find LCM of O counts, divide by 2 for the $O_2$ coefficient |
+| **excess** | "more than enough" — calculate from the other reagent |
+| **g → mol → mol → g** | the unbreakable chain — never skip the mole step |
+| **mass ratio ≠ mole ratio** | $2H_2 + O_2$: mole ratio 2:1, mass ratio ~1:8 — don't confuse them |

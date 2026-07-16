@@ -3,17 +3,6 @@
 > **Topic:** Learning to speak the language of measurement precision.
 > **Time:** 120 minutes
 > **Big Fat Notebook:** Chapters 1–2
->
-> | English | Pronunciation & Meaning |
-> |---------|-------------------------|
-> | **significant figures (sig figs)** | /sɪɡˈnɪf.ɪ.kənt ˈfɪɡ.jərz/ — digits that carry meaning about measurement precision |
-> | **precision** | /prɪˈsɪʒ.ən/ — how closely repeated measurements agree with each other |
-> | **accuracy** | /ˈæk.jə.rə.si/ — how close a measurement is to the true value |
-> | **scientific notation** | /ˌsaɪ.ənˈtɪf.ɪk noʊˈteɪ.ʃən/ — writing numbers as $a \times 10^n$ where $1 \leq a < 10$ |
-> | **decimal places** | /ˈdes.ə.məl pleɪ.sɪz/ — digits after the decimal point; used in +/− rounding |
-> | **rounding** | /ˈraʊn.dɪŋ/ — reducing digits to match the least precise measurement |
-> | **leading zero** | /ˈliː.dɪŋ ˈzɪr.oʊ/ — zeros before the first nonzero digit; never significant |
-> | **trailing zero** | /ˈtreɪ.lɪŋ ˈzɪr.oʊ/ — zeros after the last nonzero digit; significant only with a decimal point |
 
 ---
 
@@ -307,3 +296,20 @@ Read **Chapters 1–2** of *Everything You Need to Ace Chemistry in One Big Fat 
 The concepts — why measurements have uncertainty, how sig figs communicate that uncertainty, why precision ≠ accuracy — will lock into place. You've solved 20 problems harder than anything the book asks.
 
 > Solutions: [solutions/01-solutions.md](../solutions/01-solutions.md)
+
+---
+
+## 📝 Key Terms — Quick Reference
+
+| Term | What it means |
+|------|---------------|
+| **sig figs** | digits in a measurement that carry meaning about precision |
+| **precision** | how close repeated measurements are to each other (reproducibility) |
+| **accuracy** | how close a measurement is to the true value |
+| **leading zero** | zero before the first nonzero digit (0.0045 → never significant) |
+| **trailing zero** | zero after last nonzero; significant ONLY if decimal point present (3.40 vs 340) |
+| **scientific notation** | $a \times 10^n$ where $1 \leq a < 10$; coefficient shows sig figs |
+| **×/÷ rule** | answer gets the **fewest sig figs** among inputs |
+| **+/− rule** | answer gets the **fewest decimal places** among inputs |
+| **EE key** | calculator button for ×10^; use it instead of typing `× 10 ^` |
+| **rounding** | done only at the **final answer** — never intermediate steps |

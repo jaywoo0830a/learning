@@ -3,17 +3,6 @@
 > **Topic:** When two reactants compete, which one runs out — and how much product can you really make?
 > **Time:** 150 minutes
 > **Big Fat Notebook:** Chapter 7
->
-> | English | Pronunciation & Meaning |
-> |---------|-------------------------|
-> | **limiting reagent** | /ˈlɪm.ɪ.tɪŋ riˈeɪ.dʒənt/ — the reactant that runs out first |
-> | **excess reagent** | /ˈek.ses riˈeɪ.dʒənt/ — the reactant left over after the reaction |
-> | **theoretical yield** | /ˌθiː.əˈret.ɪ.kəl jiːld/ — max product possible from the limiting reagent |
-> | **percent yield** | /pərˈsent jiːld/ — (actual / theoretical) × 100% |
-> | **actual yield** | /ˈæk.tʃu.əl jiːld/ — the amount actually collected in the lab |
-> | **ammonia** | /əˈmoʊ.ni.ə/ — $NH_3$ |
-> | **reactant** | /riˈæk.tənt/ — starting material in a reaction |
-> | **product** | /ˈprɑː.dʌkt/ — substance formed by a reaction |
 
 ---
 
@@ -443,3 +432,20 @@ Read **Chapter 7** of *Everything You Need to Ace Chemistry in One Big Fat Noteb
 You've solved 20 problems, from simple LR identification to reverse-engineering mixture composition from precipitate mass. Limiting reagent problems are now procedural, not puzzling.
 
 > Solutions: [solutions/06-solutions.md](../solutions/06-solutions.md)
+
+---
+
+## 📝 Key Terms — Quick Reference
+
+| Term | What it means |
+|------|---------------|
+| **limiting reagent (LR)** | the reactant that runs out first — determines theoretical yield |
+| **excess reagent** | the reactant left over after the reaction completes |
+| **theoretical yield** | maximum product possible, calculated from the LR |
+| **actual yield** | what you actually collect in the lab (always ≤ theoretical in a perfect world) |
+| **percent yield** | $\frac{\text{actual}}{\text{theoretical}} \times 100\%$ |
+| **mol/coeff method** | divide mol of each reactant by its coefficient — **smallest = LR** |
+| **product method** | calculate product each reactant could make — the one making **less = LR** |
+| **grams ≠ LR** | never pick LR by comparing grams — always convert to moles first |
+| **yield > 100%** | red flag — product is impure, wet, or you used the wrong LR |
+| **excess remaining** | $\text{mol}_{\text{initial}} - \text{mol}_{\text{consumed}}$, then convert to grams |

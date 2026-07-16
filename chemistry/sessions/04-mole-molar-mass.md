@@ -3,16 +3,6 @@
 > **Topic:** The bridge between the visible world (grams) and the invisible world (atoms).
 > **Time:** 150 minutes
 > **Big Fat Notebook:** Chapter 6
->
-> | English | Pronunciation & Meaning |
-> |---------|-------------------------|
-> | **mole** | /moʊl/ — SI unit for amount of substance; $6.022 \times 10^{23}$ things |
-> | **molar mass** | /ˈmoʊ.lər mæs/ — mass of one mole (g/mol) |
-> | **Avogadro's number** | /ˌæv.əˈɡɑː.droʊz ˈnʌm.bər/ — $N_A = 6.022 \times 10^{23}$ particles/mol |
-> | **formula unit** | /ˈfɔːr.mjə.lə ˈjuː.nɪt/ — smallest repeating unit of an ionic compound |
-> | **diatomic** | /ˌdaɪ.əˈtɑː.mɪk/ — consisting of two atoms ($H_2, N_2, O_2, F_2, Cl_2, Br_2, I_2$) |
-> | **particles** | /ˈpɑːr.tɪ.kəlz/ — generic term for atoms, molecules, ions |
-> | **periodic table** | /ˌpɪr.iˈɑː.dɪk ˈteɪ.bəl/ — chart of elements organized by atomic number |
 
 ---
 
@@ -452,3 +442,20 @@ Read **Chapter 6** of *Everything You Need to Ace Chemistry in One Big Fat Noteb
 You've solved 20 problems, from "how many moles in 25.0 g of NaCl" to "how many iron atoms in one hemoglobin molecule." The concepts — what a mole actually means, why Avogadro's number exists, how molar mass connects the periodic table to the lab bench — will lock into place.
 
 > Solutions: [solutions/04-solutions.md](../solutions/04-solutions.md)
+
+---
+
+## 📝 Key Terms — Quick Reference
+
+| Term | What it means |
+|------|---------------|
+| **mole (mol)** | $6.022 \times 10^{23}$ things — the chemist's "dozen" |
+| **Avogadro's number ($N_A$)** | $6.022 \times 10^{23}$ particles/mol |
+| **molar mass ($M$)** | mass of 1 mole in g/mol; found on the periodic table |
+| **grams → moles** | divide by molar mass: $\text{mol} = \text{g} \div M$ |
+| **moles → grams** | multiply by molar mass: $\text{g} = \text{mol} \times M$ |
+| **moles → particles** | multiply by $N_A$ |
+| **particles → moles** | divide by $N_A$ |
+| **diatomic elements** | $H_2, N_2, O_2, F_2, Cl_2, Br_2, I_2$ — always use molecular molar mass |
+| **formula unit** | the smallest repeating unit of an ionic compound (e.g., NaCl, not a molecule) |
+| **molar mass of hydrate** | includes the mass of water molecules ($CuSO_4 \cdot 5H_2O$ = 249.7 g/mol) |

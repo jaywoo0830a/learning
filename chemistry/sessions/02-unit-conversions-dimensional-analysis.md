@@ -3,15 +3,6 @@
 > **Topic:** Moving between units without getting lost. The chain method.
 > **Time:** 150 minutes
 > **Big Fat Notebook:** Chapters 1–2
->
-> | English | Pronunciation & Meaning |
-> |---------|-------------------------|
-> | **dimensional analysis** | /dɪˈmen.ʃən.əl əˈnæl.ə.sɪs/ — the chain method; multiplying by conversion fractions until units cancel |
-> | **conversion factor** | /kənˈvɜːr.ʒən ˈfæk.tər/ — a fraction equal to 1 that relates two units (e.g., 1000 mL / 1 L) |
-> | **derived unit** | /dɪˈraɪvd ˈjuː.nɪt/ — a unit made by combining base units (e.g., g/mL, km/h, m/s) |
-> | **metric prefix** | /ˈmet.rɪk ˈpriː.fɪks/ — kilo- (10³), centi- (10⁻²), milli- (10⁻³), micro- (10⁻⁶) |
-> | **density** | /ˈden.sə.ti/ — mass per unit volume; $\rho = m/V$, common units g/mL or g/cm³ |
-> | **cubic conversion** | /ˈkjuː.bɪk kənˈvɜːr.ʒən/ — squaring/cubing conversion factors when units have exponents (m², cm³) |
 
 ---
 
@@ -330,3 +321,20 @@ Read **Chapters 1–2** of *Everything You Need to Ace Chemistry in One Big Fat 
 The concepts — why unit cancellation works, how density bridges mass and volume, why squared conversions are the #1 trap — will lock into place. You've solved 20 problems harder than anything the book asks.
 
 > Solutions: [solutions/02-solutions.md](../solutions/02-solutions.md)
+
+---
+
+## 📝 Key Terms — Quick Reference
+
+| Term | What it means |
+|------|---------------|
+| **dimensional analysis** | the chain method — multiply by conversion fractions until units cancel |
+| **conversion factor** | a fraction equal to 1 (e.g., $\frac{1000\text{ mL}}{1\text{ L}}$) |
+| **derived unit** | unit made from base units: km/h, g/mL, g/cm³ |
+| **metric prefixes** | k (10³), c (10⁻²), m (10⁻³), μ (10⁻⁶) |
+| **density ($\rho$)** | $\rho = m/V$; bridge between mass and volume |
+| **1 cm³ = 1 mL** | exactly — always, no exceptions |
+| **squared/cubed conversion** | if the unit has an exponent, the conversion factor gets the same exponent: $(100)^2 = 10,\!000$ |
+| **want/have rule** | unit you WANT on top, unit you HAVE on bottom |
+| **exact numbers** | conversions like 1 min = 60 s have infinite sig figs — they never limit precision |
+| **density flip** | $m = \rho V$ or $V = m/\rho$ — the fraction flips based on what you're solving for |
