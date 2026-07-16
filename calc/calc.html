@@ -79,7 +79,6 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    user-select: none;
   }
 
   /* ============================================================
@@ -90,8 +89,9 @@
     border: 1px solid var(--c-border);
     border-radius: var(--radius-lg);
     padding: var(--space-lg);
-    width: 24rem; /* 384px */
+    width: min(24rem, 100vw - 2rem); /* 384px, shrinks on mobile */
     box-shadow: 0 var(--space-sm) var(--space-xl) rgba(0,0,0,.45);
+    user-select: none;
   }
 
   /* ============================================================
@@ -130,6 +130,8 @@
     cursor: pointer;
     transition: background var(--t-fast), transform 0.06s ease;
     outline: none;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
   }
   .grid button:active { transform: scale(.95); }
 
