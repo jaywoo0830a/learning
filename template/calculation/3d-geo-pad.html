@@ -1,0 +1,1680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Analytic Geometry Pad</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/htmlasitis@0.1.0/htmlasitis.css">
+
+  <style>
+    :root {
+      --hai-font-body: "PT Serif", serif;
+      --hai-font-mono: "PT Serif", monospace;
+      --hai-font-size-body: 9pt;
+      --hai-line-height-body: 1.4;
+    }
+
+    /* ── Page layout ─────────────────────────────────────────────── */
+    .hai-page.calc-pad {
+      display: flex;
+      flex-direction: column;
+      background-color: #fff;
+      /*
+         Isometric dot grid — triangular lattice for 3D axis guides.
+         Two offset dot layers at 5 mm spacing.  Visible but not dominant.
+      */
+      background-image:
+        radial-gradient(circle, #888 0.65pt, transparent 0.65pt),
+        radial-gradient(circle, #888 0.65pt, transparent 0.65pt);
+      background-size:
+        5mm 8.66mm,
+        5mm 8.66mm;
+      background-position:
+        0 0,
+        2.5mm 4.33mm;
+    }
+
+    /* ── Quote ──────────────────────────────────────────────────── */
+    .calc-quote {
+      position: absolute;
+      top: 9mm;
+      left: 50%;
+      transform: translateX(-50%);
+      width: fit-content;
+      max-width: 85%;
+      font-family: "PT Serif", serif;
+      font-size: 8pt;
+      font-style: italic;
+      color: #666;
+      line-height: 1.35;
+      text-align: center;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Header ─────────────────────────────────────────────────── */
+    .calc-header {
+      display: flex;
+      align-items: baseline;
+      gap: 3mm;
+      margin-bottom: 6mm;
+      padding-bottom: 2.5mm;
+      border-bottom: 0.4pt solid #777;
+      font-family: "PT Serif", serif;
+      font-size: 7pt;
+      color: #555;
+      letter-spacing: 0.3pt;
+      flex-shrink: 0;
+    }
+    .calc-header .field { display: flex; align-items: baseline; gap: 1.5mm; }
+    .calc-header .field .label { font-style: italic; color: #666; }
+    .calc-header .field .value {
+      min-width: 18mm;
+      border-bottom: 0.3pt solid #777;
+      color: #555;
+    }
+    .calc-header .field.spacer { flex: 1; }
+
+    /* ── Anchors area ───────────────────────────────────────────── */
+    .anchors-area {
+      position: relative;
+      flex: 1;
+      min-height: 0;
+    }
+    .anchor-row {
+      display: flex;
+      align-items: center;
+      height: 0;
+      margin-bottom: 45mm;   /* wider spacing — 3D problems need more room */
+      position: relative;
+    }
+    .anchor-row:last-of-type { margin-bottom: 0; }
+
+    .anchor-num {
+      flex-shrink: 0;
+      width: 6.5mm;
+      height: 6.5mm;
+      border-radius: 50%;
+      border: 0.5pt solid #666;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "PT Serif", serif;
+      font-size: 7pt;
+      font-weight: 700;
+      color: #666;
+      margin-right: 3mm;
+    }
+
+    .anchor-guide {
+      flex: 1;
+      border-top: 0.3pt dotted #888;
+      margin: 0 2mm;
+    }
+
+    .anchor-answer {
+      flex-shrink: 0;
+      font-family: "PT Serif", serif;
+      font-size: 6.5pt;
+      color: #777;
+      letter-spacing: 1pt;
+      border: 0.35pt solid #777;
+      border-radius: 2pt;
+      padding: 1pt 2.5mm;
+    }
+
+    /* ── Fold guide ─────────────────────────────────────────────── */
+    .fold-guide {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      border-top: 0.35pt dashed #888;
+      pointer-events: none;
+    }
+    .fold-guide::after {
+      content: "half-page guide";
+      position: absolute;
+      right: 2mm;
+      top: -3.5mm;
+      font-family: "PT Serif", serif;
+      font-size: 5.5pt;
+      font-style: italic;
+      color: #888;
+      letter-spacing: 0.3pt;
+      background: #fff;
+      padding: 0 1mm;
+    }
+
+    /* ── Page number ────────────────────────────────────────────── */
+    .calc-pad .hai-page-number {
+      font-family: "PT Serif", serif;
+      font-size: 7pt;
+      color: #888;
+      font-style: italic;
+    }
+
+    /* ── Global reset ───────────────────────────────────────────── */
+    .calc-pad, .calc-pad * { font-family: "PT Serif", serif; }
+
+    /* ── Print ──────────────────────────────────────────────────── */
+    @media print {
+      .calc-pad {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        color-adjust: exact;
+      }
+      .calc-pad * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;If I have seen further, it is by standing on the shoulders of giants.&rdquo; &mdash; Isaac Newton</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 1 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;Imagination is more important than knowledge.&rdquo; &mdash; Albert Einstein</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 2 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;The first principle is that you must not fool yourself — and you are the easiest person to fool.&rdquo; &mdash; Richard Feynman</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 3 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;Mathematics is the queen of the sciences, and number theory is the queen of mathematics.&rdquo; &mdash; Carl Friedrich Gauss</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 4 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;The scientist does not study nature because it is useful; he studies it because he delights in it.&rdquo; &mdash; Henri Poincaré</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 5 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;Nothing in life is to be feared, it is only to be understood.&rdquo; &mdash; Marie Curie</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 6 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;The book of nature is written in the language of mathematics.&rdquo; &mdash; Galileo Galilei</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 7 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;I much prefer the sharpest criticism of a single intelligent man to the thoughtless approval of the masses.&rdquo; &mdash; Johannes Kepler</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 8 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;Prediction is very difficult, especially about the future.&rdquo; &mdash; Niels Bohr</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 9 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;What we observe is not nature itself, but nature exposed to our method of questioning.&rdquo; &mdash; Werner Heisenberg</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 10 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;A physical law must possess mathematical beauty.&rdquo; &mdash; Paul Dirac</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 11 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;If people do not believe that mathematics is simple, it is only because they do not realize how complicated life is.&rdquo; &mdash; John von Neumann</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 12 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;We can only see a short distance ahead, but we can see plenty there that needs to be done.&rdquo; &mdash; Alan Turing</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 13 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;My methods are really methods of working and thinking; this is why they have crept in everywhere anonymously.&rdquo; &mdash; Emmy Noether</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 14 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;Simplicity is the ultimate sophistication.&rdquo; &mdash; Leonardo da Vinci</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 15 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;Give me a place to stand, and I shall move the earth.&rdquo; &mdash; Archimedes</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 16 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;There is no royal road to geometry.&rdquo; &mdash; Euclid</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 17 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;The present is big with the future.&rdquo; &mdash; Gottfried Wilhelm Leibniz</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 18 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;Logic is the foundation of the certainty of all the knowledge we acquire.&rdquo; &mdash; Leonhard Euler</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 19 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;As long as algebra and geometry have been separated, their progress has been slow and their uses limited.&rdquo; &mdash; Joseph-Louis Lagrange</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 20 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;What we know is not much. What we do not know is immense.&rdquo; &mdash; Pierre-Simon Laplace</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 21 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;Thoroughly conscious ignorance is the prelude to every real advance in science.&rdquo; &mdash; James Clerk Maxwell</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 22 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;Nothing is too wonderful to be true, if it be consistent with the laws of nature.&rdquo; &mdash; Michael Faraday</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 23 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;If you are out to describe the truth, leave elegance to the tailor.&rdquo; &mdash; Ludwig Boltzmann</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 24 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;The task is not to see what has never been seen, but to think what has never been thought.&rdquo; &mdash; Erwin Schrödinger</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 25 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;Science cannot solve the ultimate mystery of nature. And that is because, in the last analysis, we ourselves are part of the mystery we are trying to solve.&rdquo; &mdash; Max Planck</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 26 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;There are two possible outcomes: if the result confirms the hypothesis, then you have made a measurement. If the result is contrary to the hypothesis, then you have made a discovery.&rdquo; &mdash; Enrico Fermi</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 27 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;We must know. We will know.&rdquo; &mdash; David Hilbert</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 28 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;The value of mathematical science is measured by the progress it brings about in our understanding of the physical world.&rdquo; &mdash; Bernhard Riemann</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 29 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;Unfortunately what is little recognized is that the most worthwhile scientific works are those in which the author points out what he does not know.&rdquo; &mdash; Évariste Galois</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 30 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;We are generally the better persuaded by the reasons we discover ourselves than by those given to us by others.&rdquo; &mdash; Blaise Pascal</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 31 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;Each problem that I solved became a rule which served afterwards to solve other problems.&rdquo; &mdash; René Descartes</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 32 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;The more I think about language, the more it amazes me that people ever understand each other at all.&rdquo; &mdash; Kurt Gödel</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 33 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;That brain of mine is something more than merely mortal; as time will show.&rdquo; &mdash; Ada Lovelace</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 34 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;An equation for me has no meaning unless it expresses a thought of God.&rdquo; &mdash; Srinivasa Ramanujan</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 35 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;If you cannot solve the proposed problem, try to solve first some related problem.&rdquo; &mdash; George Pólya</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 36 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;A mathematician, like a painter or a poet, is a maker of patterns.&rdquo; &mdash; G. H. Hardy</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 37 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;If you are not completely confused by quantum mechanics, you do not understand it.&rdquo; &mdash; John Archibald Wheeler</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 38 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;The effort to understand the universe is one of the very few things that lifts human life a little above the level of farce.&rdquo; &mdash; Steven Weinberg</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 39 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;Sometimes it is the people no one can imagine anything of who do the things no one can imagine.&rdquo; &mdash; Roger Penrose</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 40 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;Mathematics is a game of ideas. The more ideas you have, the richer the game becomes.&rdquo; &mdash; Terence Tao</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 41 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;I find it fascinating that you can look at the same problem from different perspectives and approach it using different methods.&rdquo; &mdash; Maryam Mirzakhani</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 42 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;Science is a perception of the world around us. Science is a place where what you find in nature pleases you.&rdquo; &mdash; Subrahmanyan Chandrasekhar</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 43 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;The essential fact which emerges is that the three smallest and most active reservoirs of carbon are the atmosphere, the biosphere, and the human population.&rdquo; &mdash; Freeman Dyson</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 44 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;I visualize a time when we will be to robots what dogs are to humans, and I am rooting for the machines.&rdquo; &mdash; Claude Shannon</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 45 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;The world of the future will be an ever more demanding struggle against the limitations of our intelligence.&rdquo; &mdash; Norbert Wiener</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 46 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;The most dangerous phrase in the language is: we have always done it this way.&rdquo; &mdash; Grace Hopper</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 47 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;UNIX is simple. It just takes a genius to understand its simplicity.&rdquo; &mdash; Dennis Ritchie</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 48 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;The most important thing in the programming language is the name. A language will not succeed without a good name.&rdquo; &mdash; Donald Knuth</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 49 &mdash;</div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <div class="calc-quote">&ldquo;Simplicity is a great virtue but it requires hard work to achieve it and education to appreciate it.&rdquo; &mdash; Edsger W. Dijkstra</div>
+
+    <div class="calc-header">
+      <div class="field"><span class="label">Date</span><span class="value"></span></div>
+      <div class="field"><span class="label">Subject</span><span class="value" style="min-width:22mm;"></span></div>
+      <div class="field"><span class="label">Topic</span><span class="value" style="min-width:28mm;"></span></div>
+      <div class="field spacer"></div>
+      <div class="field"><span class="label">p.</span><span class="value" style="min-width:8mm;text-align:right;"></span></div>
+    </div>
+
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row"><div class="anchor-num">1</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">2</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row"><div class="anchor-num">3</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row"><div class="anchor-num">4</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+      <div class="anchor-row" style="margin-bottom:0;"><div class="anchor-num">5</div><div class="anchor-guide"></div><div class="anchor-answer">Ans</div></div>
+
+    </div>
+
+    <div class="hai-page-number">&mdash; 50 &mdash;</div>
+
+  </section>
+
+</body>
+</html>
