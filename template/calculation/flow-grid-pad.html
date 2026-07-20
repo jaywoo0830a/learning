@@ -1,0 +1,4243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculation Pad — Flow Grid</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <!-- htmlasitis A4 print-safe CSS library -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/htmlasitis@0.1.0/htmlasitis.css">
+
+  <style>
+    /* =====================================================================
+       THEME — override htmlasitis defaults
+       ===================================================================== */
+    :root {
+      --hai-font-body: "PT Serif", serif;
+      --hai-font-mono: "PT Serif", monospace;
+      --hai-font-size-body: 9pt;
+      --hai-line-height-body: 1.4;
+    }
+
+    /* =====================================================================
+       CALCULATION PAD — specific styles
+       ===================================================================== */
+
+    /* Make .hai-page a flex column so .anchors-area fills remaining space */
+    .hai-page.calc-pad {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* --- Dot grid layers on the entire .hai-page background --- */
+    /*
+       Three-layer background:
+       Layer 1 (bottom):  Isometric ghost dots — triangular lattice, very faint.
+                          Dots at 30° / 90° / 150° for 3D axis sketching.
+                          Spacing ≈ 5 mm between adjacent dots (equilateral).
+       Layer 2 (middle):  Isometric ghost dots — offset half a cell.
+       Layer 3 (top):     Main 5 mm square dot grid for equation alignment,
+                          2D graphs, tables, and matrices.
+    */
+    .hai-page.calc-pad {
+      background-color: #fefefd;
+
+      background-image:
+        /* Layer 1 — isometric ghost dots (row 0) */
+        radial-gradient(circle, #c8c8c8 0.2pt, transparent 0.2pt),
+        /* Layer 2 — isometric ghost dots (row 1, offset) */
+        radial-gradient(circle, #c8c8c8 0.2pt, transparent 0.2pt),
+        /* Layer 3 — main 5 mm square dot grid */
+        radial-gradient(circle, #b0b0b0 0.35pt, transparent 0.35pt);
+
+      background-size:
+        /* iso ghost tile: 5 mm wide × 8.66 mm tall (2 rows per cycle) */
+        5mm 8.66mm,
+        5mm 8.66mm,
+        /* main square grid */
+        5mm 5mm;
+
+      background-position:
+        /* iso row 0 */
+        0 0,
+        /* iso row 1 — offset by half a cell horizontally, one row vertically */
+        2.5mm 4.33mm,
+        /* main grid */
+        0 0;
+    }
+
+    /* =====================================================================
+       HEADER — date, subject, topic, page number
+       ===================================================================== */
+    .calc-header {
+      display: flex;
+      align-items: baseline;
+      gap: 3mm;
+      margin-bottom: 6mm;
+      padding-bottom: 2.5mm;
+      border-bottom: 0.4pt solid #c8c8c8;
+      font-family: "PT Serif", serif;
+      font-size: 7pt;
+      color: #aaa;
+      letter-spacing: 0.3pt;
+      flex-shrink: 0;
+    }
+    .calc-header .field {
+      display: flex;
+      align-items: baseline;
+      gap: 1.5mm;
+    }
+    .calc-header .field .label {
+      font-style: italic;
+      color: #bbb;
+    }
+    .calc-header .field .value {
+      min-width: 18mm;
+      border-bottom: 0.3pt solid #d5d5d5;
+      color: #666;
+    }
+    .calc-header .field.spacer {
+      flex: 1;
+    }
+
+    /* =====================================================================
+       ANCHOR ROWS — problem starting points with answer placeholders
+       ===================================================================== */
+    .anchors-area {
+      position: relative;
+      flex: 1;
+      min-height: 0;       /* allow flex shrink below content height */
+    }
+
+    .anchor-row {
+      display: flex;
+      align-items: center;
+      height: 0;            /* collapsed — anchors float visually */
+      margin-bottom: 38mm;  /* spacing between anchor rows */
+      position: relative;
+    }
+    .anchor-row:last-of-type {
+      margin-bottom: 0;
+    }
+
+    /* The numbered circle */
+    .anchor-num {
+      flex-shrink: 0;
+      width: 6.5mm;
+      height: 6.5mm;
+      border-radius: 50%;
+      border: 0.5pt solid #c0c0c0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "PT Serif", serif;
+      font-size: 7pt;
+      font-weight: 700;
+      color: #b0b0b0;
+      margin-right: 3mm;
+    }
+
+    /* Dotted guide line from anchor to answer placeholder */
+    .anchor-guide {
+      flex: 1;
+      border-top: 0.25pt dotted #d8d8d8;
+      margin: 0 2mm;
+    }
+
+    /* Answer placeholder on the right */
+    .anchor-answer {
+      flex-shrink: 0;
+      font-family: "PT Serif", serif;
+      font-size: 6.5pt;
+      color: #c8c8c8;
+      letter-spacing: 1pt;
+      border: 0.35pt solid #d8d8d8;
+      border-radius: 2pt;
+      padding: 1pt 2.5mm;
+    }
+
+    /* =====================================================================
+       HALF-FOLD GUIDE LINE — at vertical center of content area
+       ===================================================================== */
+    .fold-guide {
+      position: absolute;
+      /* Content area is 257 mm tall. 50 % = 128.5 mm from content top.
+         Content top is at 20 mm from page top (padding-y).
+         So the line is at 148.5 mm from page top = 50 % of .hai-page height. */
+      top: 50%;
+      left: 0;
+      right: 0;
+      border-top: 0.3pt dashed #d5d5d5;
+      pointer-events: none;
+    }
+    .fold-guide::after {
+      content: "fold guide";
+      position: absolute;
+      right: 2mm;
+      top: -3.5mm;
+      font-family: "PT Serif", serif;
+      font-size: 5.5pt;
+      font-style: italic;
+      color: #d5d5d5;
+      letter-spacing: 0.3pt;
+      background: #fefefd;
+      padding: 0 1mm;
+    }
+
+    /* =====================================================================
+       MINI ISOMETRIC GRID — 3D sketch area, bottom-right corner
+       ===================================================================== */
+    .iso-mini {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 42mm;
+      height: 34mm;
+      overflow: hidden;
+      border: 0.35pt solid #c8c8c8;
+      border-radius: 2pt;
+      background: #fefefd;
+    }
+    .iso-mini::before {
+      content: "";
+      position: absolute;
+      /* Large enough to cover after 30° rotation */
+      width: 300%;
+      height: 300%;
+      top: -100%;
+      left: -100%;
+      background-image:
+        radial-gradient(circle, #c0c0c0 0.22pt, transparent 0.22pt);
+      background-size: 3mm 3mm;
+      transform: rotate(30deg);
+    }
+    .iso-mini-label {
+      position: absolute;
+      bottom: 0.5mm;
+      right: 1.5mm;
+      font-family: "PT Serif", serif;
+      font-size: 5pt;
+      font-style: italic;
+      color: #c8c8c8;
+      letter-spacing: 0.3pt;
+      background: #fefefd;
+      padding: 0 0.8mm;
+    }
+
+    /* =====================================================================
+       PAGE NUMBER — htmlasitis built-in, positioned 12 mm from bottom
+       ===================================================================== */
+    .calc-pad .hai-page-number {
+      font-family: "PT Serif", serif;
+      font-size: 7pt;
+      color: #c0c0c0;
+      font-style: italic;
+    }
+
+    /* =====================================================================
+       GLOBAL RESET within calc-pad — keep PT Serif everywhere
+       ===================================================================== */
+    .calc-pad,
+    .calc-pad * {
+      font-family: "PT Serif", serif;
+    }
+
+    /* =====================================================================
+       PRINT — ensure dot grid and all faint elements print correctly
+       ===================================================================== */
+    @media print {
+      .calc-pad {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        color-adjust: exact;
+      }
+      .calc-pad * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+
+    /* =====================================================================
+       QUOTE — faint scholarly quote for intellectual inspiration
+       ===================================================================== */
+    .calc-quote {
+      font-family: "PT Serif", serif;
+      font-size: 6.5pt;
+      font-style: italic;
+      color: #d0d0d0;
+      text-align: center;
+      margin-bottom: 3.5mm;
+      flex-shrink: 0;
+      line-height: 1.35;
+    }
+
+    /* =====================================================================
+       GLOBAL RESET within calc-pad — keep PT Serif everywhere
+       ===================================================================== */
+    .calc-pad,
+    .calc-pad * {
+      font-family: "PT Serif", serif;
+    }
+
+    /* =====================================================================
+       PRINT — ensure dot grid and all faint elements print correctly
+       ===================================================================== */
+    @media print {
+      .calc-pad {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        color-adjust: exact;
+      }
+      .calc-pad * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+
+    /* =====================================================================
+       QUOTE — faint scholarly quote, absolutely centered on the page
+       ===================================================================== */
+    .calc-quote {
+      font-family: "PT Serif", serif;
+      font-size: 6.5pt;
+      font-style: italic;
+      color: #d0d0d0;
+      margin-bottom: 3.5mm;
+      flex-shrink: 0;
+      line-height: 1.35;
+      /* Absolute centering — shrink to content, auto-margin to center */
+      width: fit-content;
+      max-width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* =====================================================================
+       GLOBAL RESET within calc-pad — keep PT Serif everywhere
+       ===================================================================== */
+    .calc-pad,
+    .calc-pad * {
+      font-family: "PT Serif", serif;
+    }
+
+    /* =====================================================================
+       PRINT — ensure dot grid and all faint elements print correctly
+       ===================================================================== */
+    @media print {
+      .calc-pad {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        color-adjust: exact;
+      }
+      .calc-pad * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+
+    /* =====================================================================
+       QUOTE — absolutely positioned in the top margin, never affects layout.
+       Regardless of quote length (1–3 lines), the header and anchors
+       remain fixed in place.  Faint enough not to distract from writing.
+       ===================================================================== */
+    .calc-quote {
+      position: absolute;
+      top: 9mm;                         /* sits inside the 20 mm top padding */
+      left: 50%;
+      transform: translateX(-50%);
+      width: fit-content;
+      max-width: 85%;                   /* prevent overflow on very long quotes */
+      font-family: "PT Serif", serif;
+      font-size: 6.5pt;
+      font-style: italic;
+      color: #d0d0d0;
+      line-height: 1.35;
+      text-align: center;
+      pointer-events: none;             /* does not interfere with selection */
+      z-index: 0;
+    }
+
+    /* =====================================================================
+       GLOBAL RESET within calc-pad — keep PT Serif everywhere
+       ===================================================================== */
+    .calc-pad,
+    .calc-pad * {
+      font-family: "PT Serif", serif;
+    }
+
+    /* =====================================================================
+       PRINT — ensure dot grid and all faint elements print correctly
+       ===================================================================== */
+    @media print {
+      .calc-pad {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        color-adjust: exact;
+      }
+      .calc-pad * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ====================================================================
+       PAGE 1
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;If I have seen further, it is by standing on the shoulders of giants.&rdquo; &mdash; Isaac Newton</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 1 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 2
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;Imagination is more important than knowledge.&rdquo; &mdash; Albert Einstein</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 2 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 3
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;The first principle is that you must not fool yourself — and you are the easiest person to fool.&rdquo; &mdash; Richard Feynman</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 3 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 4
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;Mathematics is the queen of the sciences, and number theory is the queen of mathematics.&rdquo; &mdash; Carl Friedrich Gauss</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 4 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 5
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;The scientist does not study nature because it is useful; he studies it because he delights in it.&rdquo; &mdash; Henri Poincaré</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 5 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 6
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;Nothing in life is to be feared, it is only to be understood.&rdquo; &mdash; Marie Curie</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 6 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 7
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;The book of nature is written in the language of mathematics.&rdquo; &mdash; Galileo Galilei</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 7 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 8
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;I much prefer the sharpest criticism of a single intelligent man to the thoughtless approval of the masses.&rdquo; &mdash; Johannes Kepler</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 8 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 9
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;Prediction is very difficult, especially about the future.&rdquo; &mdash; Niels Bohr</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 9 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 10
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;What we observe is not nature itself, but nature exposed to our method of questioning.&rdquo; &mdash; Werner Heisenberg</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 10 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 11
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;A physical law must possess mathematical beauty.&rdquo; &mdash; Paul Dirac</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 11 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 12
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;If people do not believe that mathematics is simple, it is only because they do not realize how complicated life is.&rdquo; &mdash; John von Neumann</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 12 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 13
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;We can only see a short distance ahead, but we can see plenty there that needs to be done.&rdquo; &mdash; Alan Turing</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 13 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 14
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;My methods are really methods of working and thinking; this is why they have crept in everywhere anonymously.&rdquo; &mdash; Emmy Noether</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 14 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 15
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;Simplicity is the ultimate sophistication.&rdquo; &mdash; Leonardo da Vinci</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 15 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 16
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;Give me a place to stand, and I shall move the earth.&rdquo; &mdash; Archimedes</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 16 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 17
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;There is no royal road to geometry.&rdquo; &mdash; Euclid</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 17 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 18
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;The present is big with the future.&rdquo; &mdash; Gottfried Wilhelm Leibniz</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 18 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 19
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;Logic is the foundation of the certainty of all the knowledge we acquire.&rdquo; &mdash; Leonhard Euler</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 19 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 20
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;As long as algebra and geometry have been separated, their progress has been slow and their uses limited.&rdquo; &mdash; Joseph-Louis Lagrange</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 20 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 21
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;What we know is not much. What we do not know is immense.&rdquo; &mdash; Pierre-Simon Laplace</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 21 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 22
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;Thoroughly conscious ignorance is the prelude to every real advance in science.&rdquo; &mdash; James Clerk Maxwell</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 22 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 23
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;Nothing is too wonderful to be true, if it be consistent with the laws of nature.&rdquo; &mdash; Michael Faraday</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 23 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 24
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;If you are out to describe the truth, leave elegance to the tailor.&rdquo; &mdash; Ludwig Boltzmann</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 24 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 25
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;The task is not to see what has never been seen, but to think what has never been thought.&rdquo; &mdash; Erwin Schrödinger</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 25 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 26
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;Science cannot solve the ultimate mystery of nature. And that is because, in the last analysis, we ourselves are part of the mystery we are trying to solve.&rdquo; &mdash; Max Planck</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 26 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 27
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;There are two possible outcomes: if the result confirms the hypothesis, then you have made a measurement. If the result is contrary to the hypothesis, then you have made a discovery.&rdquo; &mdash; Enrico Fermi</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 27 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 28
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;We must know. We will know.&rdquo; &mdash; David Hilbert</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 28 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 29
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;The value of mathematical science is measured by the progress it brings about in our understanding of the physical world.&rdquo; &mdash; Bernhard Riemann</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 29 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 30
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;Unfortunately what is little recognized is that the most worthwhile scientific works are those in which the author points out what he does not know.&rdquo; &mdash; Évariste Galois</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 30 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 31
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;We are generally the better persuaded by the reasons we discover ourselves than by those given to us by others.&rdquo; &mdash; Blaise Pascal</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 31 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 32
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;Each problem that I solved became a rule which served afterwards to solve other problems.&rdquo; &mdash; René Descartes</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 32 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 33
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;The more I think about language, the more it amazes me that people ever understand each other at all.&rdquo; &mdash; Kurt Gödel</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 33 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 34
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;That brain of mine is something more than merely mortal; as time will show.&rdquo; &mdash; Ada Lovelace</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 34 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 35
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;An equation for me has no meaning unless it expresses a thought of God.&rdquo; &mdash; Srinivasa Ramanujan</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 35 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 36
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;If you cannot solve the proposed problem, try to solve first some related problem.&rdquo; &mdash; George Pólya</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 36 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 37
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;A mathematician, like a painter or a poet, is a maker of patterns.&rdquo; &mdash; G. H. Hardy</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 37 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 38
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;If you are not completely confused by quantum mechanics, you do not understand it.&rdquo; &mdash; John Archibald Wheeler</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 38 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 39
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;The effort to understand the universe is one of the very few things that lifts human life a little above the level of farce.&rdquo; &mdash; Steven Weinberg</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 39 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 40
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;Sometimes it is the people no one can imagine anything of who do the things no one can imagine.&rdquo; &mdash; Roger Penrose</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 40 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 41
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;Mathematics is a game of ideas. The more ideas you have, the richer the game becomes.&rdquo; &mdash; Terence Tao</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 41 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 42
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;I find it fascinating that you can look at the same problem from different perspectives and approach it using different methods.&rdquo; &mdash; Maryam Mirzakhani</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 42 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 43
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;Science is a perception of the world around us. Science is a place where what you find in nature pleases you.&rdquo; &mdash; Subrahmanyan Chandrasekhar</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 43 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 44
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;The essential fact which emerges is that the three smallest and most active reservoirs of carbon are the atmosphere, the biosphere, and the human population.&rdquo; &mdash; Freeman Dyson</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 44 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 45
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;I visualize a time when we will be to robots what dogs are to humans, and I am rooting for the machines.&rdquo; &mdash; Claude Shannon</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 45 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 46
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;The world of the future will be an ever more demanding struggle against the limitations of our intelligence.&rdquo; &mdash; Norbert Wiener</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 46 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 47
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;The most dangerous phrase in the language is: we have always done it this way.&rdquo; &mdash; Grace Hopper</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 47 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 48
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;UNIX is simple. It just takes a genius to understand its simplicity.&rdquo; &mdash; Dennis Ritchie</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 48 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 49
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;The most important thing in the programming language is the name. A language will not succeed without a good name.&rdquo; &mdash; Donald Knuth</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 49 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+  <!-- ====================================================================
+       PAGE 50
+       ==================================================================== -->
+  <section class="hai-page calc-pad">
+
+    <!-- QUOTE -->
+    <div class="calc-quote">&ldquo;Simplicity is a great virtue but it requires hard work to achieve it and education to appreciate it.&rdquo; &mdash; Edsger W. Dijkstra</div>
+
+    <!-- HEADER -->
+    <div class="calc-header">
+      <div class="field">
+        <span class="label">Date</span>
+        <span class="value"></span>
+      </div>
+      <div class="field">
+        <span class="label">Subject</span>
+        <span class="value" style="min-width:22mm;"></span>
+      </div>
+      <div class="field">
+        <span class="label">Topic</span>
+        <span class="value" style="min-width:28mm;"></span>
+      </div>
+      <div class="field spacer"></div>
+      <div class="field">
+        <span class="label">p.</span>
+        <span class="value" style="min-width:8mm;text-align:right;"></span>
+      </div>
+    </div>
+
+    <!-- ANCHOR ROWS -->
+    <div class="anchors-area" style="position:relative;">
+
+      <div class="anchor-row">
+        <div class="anchor-num">1</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">2</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">3</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="fold-guide"></div>
+
+      <div class="anchor-row">
+        <div class="anchor-num">4</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-num">5</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+      <div class="anchor-row" style="margin-bottom:0;">
+        <div class="anchor-num">6</div>
+        <div class="anchor-guide"></div>
+        <div class="anchor-answer">Ans</div>
+      </div>
+
+      <div class="iso-mini">
+        <span class="iso-mini-label">3 mm iso grid</span>
+      </div>
+
+    </div><!-- /.anchors-area -->
+
+    <!-- PAGE NUMBER -->
+    <div class="hai-page-number">&mdash; 50 &mdash;</div>
+
+  </section><!-- /.hai-page -->
+
+
+</body>
+</html>
