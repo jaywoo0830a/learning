@@ -30,7 +30,7 @@ Reflection across $x$-axis ($\alpha=0$): $F_0 = \begin{pmatrix}1&0\\0&-1\end{pma
 $H_x = \begin{pmatrix} 1 & k \\ 0 & 1 \end{pmatrix}$.
 $H_x\begin{pmatrix}x\\y\end{pmatrix} = \begin{pmatrix}x+ky\\y\end{pmatrix}$. The $x$-coordinate shifts by $k$ times the $y$-coordinate. Squares become parallelograms, but area stays the same — $\det(H_x) = 1$.
 
-![Four fundamental 2D transformations on a unit square](graphs/12c1a-four-transformations.png)
+![Four fundamental 2D transformations on a unit square](graphs/0721/12C1/12c1a-four-transformations.png)
 
 *Graph 12C1a: Rotation, scaling, reflection, and shear applied to the unit square. Notice how each matrix changes the square's shape while the columns of the matrix encode the images of basis vectors.*
 
@@ -47,6 +47,39 @@ $R_{90} \cdot F_0 = \begin{pmatrix}0&-1\\1&0\end{pmatrix}\begin{pmatrix}1&0\\0&-
 This is a reflection across the line $y = x$. Different result!
 
 **Rule**: Transformations are applied right-to-left. $BA\vec{x}$ means apply $A$ first, then $B$.
+
+---
+
+## Example 2B: Composition Visualized — Geometry Confirms Algebra
+
+![Composition order matters — rotate-then-reflect vs reflect-then-rotate](graphs/0721/12C1/12c1d-composition.png)
+
+*Graph 12C1d: A triangle transformed by two different sequences. Left — Rotate 90° CCW, then reflect across the x-axis: the result is a reflection across y = −x. Right — Reflect first, then rotate 90° CCW: the result is a reflection across y = x. Same two operations, different order → different final position. This confirms $F_0 R_{90} \neq R_{90} F_0$.*
+
+**Why order matters geometrically**: Think of the triangle as pinned to the origin. Rotation spins it. Reflection flips it. If you spin first, the flip happens at a different orientation, so the final resting place is different.
+
+---
+
+## Example 2C: Reflection Across an Arbitrary Line — Connecting to 9B Line Geometry
+
+From 9B, we know a line making angle $\alpha$ with the $x$-axis has slope $m = \tan\alpha$. Reflecting across this line is a transformation that:
+
+1. Preserves distances (it's an **isometry** — same as rotation and translation).
+2. Has eigenvalues $+1$ (along the mirror line — points stay put) and $-1$ (perpendicular to the mirror — points flip).
+
+The reflection matrix $F_\alpha = \begin{pmatrix} \cos 2\alpha & \sin 2\alpha \\ \sin 2\alpha & -\cos 2\alpha \end{pmatrix}$.
+
+**Geometric derivation**: Reflect a vector $\vec{v}$ across a line with unit direction $\hat{u}$:
+- Decompose $\vec{v} = \vec{v}_\parallel + \vec{v}_\perp$.
+- The parallel component stays: $\vec{v}_\parallel = (\hat{u}\cdot\vec{v})\hat{u}$.
+- The perpendicular component flips: $\vec{v}_\perp \to -\vec{v}_\perp$.
+- Result: $F\vec{v} = \vec{v}_\parallel - \vec{v}_\perp = 2(\hat{u}\cdot\vec{v})\hat{u} - \vec{v}$.
+
+This is the **Householder reflection** formula — used in QR decomposition and computer graphics.
+
+![Reflection across a line — geometric meaning](graphs/0721/12C1/12c1f-reflection-geometry.png)
+
+*Graph 12C1f: Reflecting a vector across a line at 30°. The original vector (blue), its projection onto the mirror line (green dashed), and the reflected vector (red). The angle between the original and the mirror equals the angle between the mirror and the reflection.*
 
 ---
 
@@ -85,6 +118,32 @@ The $x$-coordinate stays fixed; $y$ and $z$ rotate in their plane.
 
 Any 3D rotation can be built by composing these three (Euler angles). In homogeneous coordinates, 3D transformations use $4 \times 4$ matrices.
 
+![3D rotations around each axis](graphs/0721/12C1/12c1e-3d-rotations.png)
+
+*Graph 12C1e: A block rotated by 60° around the X-axis (red), Y-axis (green), and Z-axis (blue). The ghost outlines show the original position. Notice only the coordinates in the perpendicular plane change — the axis coordinate stays fixed.*
+
+---
+
+## Example 4B: Homogeneous Transformations — Chaining in 2D
+
+The real power of homogeneous coordinates becomes apparent when you chain multiple transformations. Since a translation can now be a matrix, **any sequence** of rotations, scalings, reflections, and translations collapses into a single $3 \times 3$ matrix.
+
+**Example**: Rotate a house-shaped polygon by $45^\circ$ around the point $(1, 1)$, then translate by $(3, 1)$.
+
+(1) Translate by $(-1, -1)$ to move $(1,1)$ to the origin.
+(2) Rotate by $45^\circ$: $R_{45}$.
+(3) Translate back by $(1, 1)$.
+(4) Translate by $(3, 1)$ for the final shift.
+
+Combined: $M = T_{(3,1)} \cdot T_{(1,1)} \cdot R_{45} \cdot T_{(-1,-1)}$.
+Since $T_{(3,1)} \cdot T_{(1,1)} = T_{(4,2)}$, this simplifies to $M = T_{(4,2)} \cdot R_{45} \cdot T_{(-1,-1)}$.
+
+**Key insight**: With homogeneous coordinates, the distinction between "linear" and "affine" transformations disappears. Every affine transformation is a single matrix multiplication.
+
+![Homogeneous transformations — translation as matrix](graphs/0721/12C1/12c1g-homogeneous-translation.png)
+
+*Graph 12C1g: Left — A 2×2 matrix can rotate (shown) but cannot translate. Right — With 3×3 homogeneous matrices, translation becomes a matrix multiply (green = translated, purple = rotated about (1,1)). Both operations are now in the same algebraic framework.*
+
 ---
 
 ## Example 5: Eigenvectors — The Directions That Stay Fixed
@@ -106,9 +165,9 @@ This matrix has **no real eigenvectors** — every vector changes direction. The
 **Example**: $A = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}$ (reflection across $x$-axis).
 Eigenvectors: $(1,0)$ with $\lambda=1$ (fixed). $(0,1)$ with $\lambda=-1$ (flipped). The $x$-axis is the mirror line — points on it stay put.
 
-![Eigenvectors — when a matrix preserves direction](graphs/12c1b-eigenvectors.png)
+![Eigenvectors — when a matrix preserves direction](graphs/0721/12C1/12c1b-eigenvectors.png)
 
-*Graph 12C1b: Left — A matrix with real eigenvectors stretches the unit circle into an ellipse along invariant directions. Right — A pure 90° rotation changes every direction; no real eigenvector exists.*
+*Graph 12C1b: Left — A scaling matrix stretches the unit circle into an ellipse along the eigenvector directions (axes). Right — A pure 90° rotation changes every direction; no real eigenvector exists — the eigenvalues are purely imaginary.*
 
 ---
 
@@ -126,7 +185,7 @@ Every $m \times n$ matrix $A$ can be decomposed as $A = U \Sigma V^T$, where:
 
 The singular values $\sigma_1, \sigma_2$ are the semi-axes of the ellipse that the unit circle maps to. Their product $|\sigma_1 \sigma_2| = |\det(A)|$, the area scaling factor.
 
-![SVD decomposition — rotate, scale, rotate](graphs/12c1c-svd-decomposition.png)
+![SVD decomposition — rotate, scale, rotate](graphs/0721/12C1/12c1c-svd-decomposition.png)
 
 *Graph 12C1c: The SVD reveals every matrix as three steps — rotate (Vᵀ), scale (Σ), rotate (U). The unit circle becomes an ellipse whose semi-axes are the singular values.*
 
@@ -244,7 +303,37 @@ Build the $3 \times 3$ homogeneous matrix that performs a reflection across the 
 
 ---
 
-## Basic Algebra Drill — Transformations (10 Problems)
+## Practice 7: Composition of 3D Rotations (🔗 9C)
+
+A point $(1, 2, 3)$ is rotated by $90^\circ$ around the $z$-axis, then by $90^\circ$ around the new $x$-axis. Use $3 \times 3$ rotation matrices to find the final position.
+
+→ Reference: **Example 4, 4B**
+
+> Solutions: [Solutions](solutions/12C1-solutions.md#practice-7)
+
+---
+
+## Practice 8: Reflection Across a Line from 9B (🔗 9B)
+
+From 9B, the line $3x + 4y = 10$ has normal vector $(3, 4)$ and slope $m = -3/4$. Find the angle $\alpha$ this line makes with the $x$-axis, then write its reflection matrix $F_\alpha$. Apply it to the point $(2, 1)$.
+
+→ Reference: **Example 2C, 9B Example 1-4**
+
+> Solutions: [Solutions](solutions/12C1-solutions.md#practice-8)
+
+---
+
+## Practice 9: SVD of a Matrix from 9B Ellipse (🔗 9B, 9C)
+
+The ellipse $\frac{x^2}{25} + \frac{y^2}{9} = 1$ (from 9B) can be obtained by applying a matrix $A$ to the unit circle. Find the singular values of $A$ (they are the semi-axes). What is $|\det(A)|$?
+
+→ Reference: **Example 6, 9B Example 12**
+
+> Solutions: [Solutions](solutions/12C1-solutions.md#practice-9)
+
+---
+
+## Basic Algebra Drill — Transformations (12 Problems)
 
 > Pure matrix computation.
 
@@ -272,7 +361,7 @@ Build the $3 \times 3$ homogeneous matrix that performs a reflection across the 
 
 ---
 
-## Advanced Algebra Drill — Transformations (10 Problems)
+## Advanced Algebra Drill — Transformations (12 Problems)
 
 > Multi-step geometric reasoning.
 
@@ -295,6 +384,10 @@ Build the $3 \times 3$ homogeneous matrix that performs a reflection across the 
 **A9.** Derive the $3 \times 3$ homogeneous matrix for reflection across an arbitrary line $y = mx + b$ in 2D. (Hint: translate $b$ to origin, reflect across $y=mx$, translate back.)
 
 **A10.** A shear matrix $H_x(k)$ has determinant 1. What geometric property must any matrix with determinant 1 have? Verify that $H_x(k)$ preserves area by transforming a unit square.
+
+**A11.** (🔗 9C) A point on a sphere of radius 5 at spherical coordinates $(\rho=5, \phi=\pi/3, \theta=\pi/4)$ is rotated by $30^\circ$ around the $z$-axis. Use the 3D rotation matrix $R_z$ to find its new Cartesian coordinates.
+
+**A12.** (🔗 9B) The parabola $y = x^2$ is sheared by $H_x(2)$ (shear factor 2). Find the equation of the resulting curve. Is it still a parabola? Use the discriminant $B^2-4AC$ from 9B to verify.
 
 > Solutions: [Solutions](solutions/12C1-solutions.md#advanced-drill)
 

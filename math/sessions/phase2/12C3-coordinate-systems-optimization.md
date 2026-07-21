@@ -45,9 +45,9 @@ $r = \sqrt{x^2 + y^2}$, $\theta = \tan^{-1}(y/x)$ (adjust quadrant).
 Convert: $r = \sin\theta \implies r^2 = r\sin\theta \implies x^2 + y^2 = y \implies x^2 + (y - \frac{1}{2})^2 = \frac{1}{4}$.
 A circle of radius $\frac{1}{2}$ centered at $(0, \frac{1}{2})$. In Cartesian, this is a quadratic equation. In polar, it's just $r = \sin\theta$.
 
-![Polar curves — cardioid and 3-petal rose](graphs/12c3a-polar-curves.png)
+![Polar curves — cardioid and 3-petal rose](graphs/0721/12C3/12c3a-polar-curves.png)
 
-*Graph 12C3a: Left — The cardioid r = 1 + cos θ, a heart-shaped curve that is simply described in polar coordinates. Right — The 3-petal rose r = sin(3θ). Both are trivially expressed in polar form but would be high-degree polynomials in Cartesian.*
+*Graph 12C3a: Top — The cardioid $r = 1 + \cos\theta$ (left) and its $(r,\theta)$ plot (right). Bottom — The 3-petal rose $r = \sin(3\theta)$ (left) and its $(r,\theta)$ plot (right). Both are simple in polar form but would be high-degree polynomials in Cartesian.*
 
 ---
 
@@ -69,9 +69,27 @@ $x = \rho\sin\phi\cos\theta$, $y = \rho\sin\phi\sin\theta$, $z = \rho\cos\phi$.
 
 A sphere: $\rho = R$ (a constant). Again, the equation becomes trivial.
 
-![Spherical coordinates on the unit sphere](graphs/12c3b-spherical-coords.png)
+![Spherical coordinates on the unit sphere](graphs/0721/12C3/12c3b-spherical-coords.png)
 
-*Graph 12C3b: A point on the unit sphere labeled by its spherical coordinates (ρ=1, φ=π/3, θ=π/4). The green arc shows the azimuthal angle θ in the xy-plane. The red radial line is ρ.*
+*Graph 12C3b: A point on the unit sphere labeled by its spherical coordinates $(\rho=1,\; \phi=\pi/3,\; \theta=\pi/4)$. The green arc shows the azimuthal angle $\theta$ in the $xy$-plane. The purple arc shows the polar angle $\phi$ from the $z$-axis. The red radial line is $\rho$.*
+
+---
+
+## Example 3A: Coordinate Systems Compared — Same Point, Four Views (🔗 9B, 9C)
+
+The same point can be described in four different coordinate systems. Which you use depends on the symmetry of your problem.
+
+![Coordinate systems compared](graphs/0721/12C3/12c3e-coordinate-systems-comparison.png)
+
+*Graph 12C3e: The point $(3, 4, 5)$ in Cartesian coordinates (top-left, bottom-left), in polar coordinates (top-middle), and in spherical coordinates (bottom-middle). The conversion formulas (right column) let you switch between systems freely.*
+
+**Choosing the right system**:
+| Problem symmetry | Use |
+|:----------------:|:---:|
+| Rectangular box, straight lines | **Cartesian** $(x, y, z)$ |
+| Circles, rotations, radial symmetry in 2D | **Polar** $(r, \theta)$ |
+| Tubes, cylinders, cones, rotational symmetry about $z$ | **Cylindrical** $(r, \theta, z)$ |
+| Spheres, balls, central forces | **Spherical** $(\rho, \phi, \theta)$ |
 
 ---
 
@@ -105,9 +123,9 @@ Distance: $d = |\vec{v}_\perp| = \frac{|\vec{v} \times \vec{d}|}{|\vec{d}|}$.
 
 **Insight**: The cross product formula is often simplest for computing in 3D.
 
-![Distance from point to line — 2D and 3D](graphs/12c3d-point-line-distance.png)
+![Distance from point to line — 2D and 3D](graphs/0721/12C3/12c3d-point-line-distance.png)
 
-*Graph 12C3d: Left — 2D distance from a point to a line via the perpendicular formula. Right — In 3D, the cross product |v⃗ × d⃗| / |d⃗| yields the perpendicular distance to a line.*
+*Graph 12C3d: Left — 2D distance from point (3,4) to line $3x+4y=10$ is $|15-10|/5 = 3$. The perpendicular (red dashed) ends at the foot. Right — In 3D, distance from (2,1,0) to the line through the origin along (1,1,1) uses the cross product formula: $d = |\vec{v} \times \vec{d}|/|\vec{d}|$.*
 
 ---
 
@@ -121,9 +139,9 @@ A point is **inside** the convex hull if it can be written as a convex combinati
 
 The convex hull is used in collision detection, computational geometry, and machine learning (support vector machines find a convex boundary).
 
-![Convex hull — the smallest enclosing polygon](graphs/12c3c-convex-hull.png)
+![Convex hull — the smallest enclosing polygon](graphs/0721/12C3/12c3c-convex-hull.png)
 
-*Graph 12C3c: A set of points with their convex hull outlined in red. Interior points (squares) lie inside the polygon. The hull is the tightest convex shape wrapping all points.*
+*Graph 12C3c: Left — A random set of points. The green square marks the lowest point used as the anchor for Graham scan. Right — The convex hull (red polygon) is the smallest convex shape containing all points. Hull vertices are marked with red circles, interior points with blue squares.*
 
 ---
 
@@ -135,7 +153,42 @@ where $\alpha, \beta, \gamma \ge 0$ and $\alpha + \beta + \gamma = 1$.
 
 **Interpretation**: $(\alpha, \beta, \gamma)$ are proportional to the areas of the subtriangles opposite each vertex. They are the **barycentric coordinates**.
 
+**Example**: For triangle $A(0,0)$, $B(6,0)$, $C(2,5)$, the centroid has barycentric coordinates $(\frac{1}{3}, \frac{1}{3}, \frac{1}{3})$ since it's the average of the three vertices.
+
+To find barycentric coordinates of any point $P$, compute:
+$\alpha = \frac{\text{Area}(PBC)}{\text{Area}(ABC)},\quad
+\beta = \frac{\text{Area}(APC)}{\text{Area}(ABC)},\quad
+\gamma = \frac{\text{Area}(ABP)}{\text{Area}(ABC)}$.
+
+![Barycentric coordinates in a triangle — area ratios and color interpolation](graphs/0721/12C3/12c3g-barycentric-coords.png)
+
+*Graph 12C3g: Left — Point P inside triangle ABC with barycentric coordinates (0.5, 0.3, 0.2). The three colored sub-triangles show the area ratios. Right — Color interpolation using barycentric coordinates: each vertex has a color (A=red, B=green, C=blue), and every interior point gets a blended color based on its barycentric weights.*
+
 Applications: color interpolation in computer graphics (Gouraud shading), hit testing in ray tracing, finite element methods.
+
+---
+
+## Example 7A: Distance Between Skew Lines — The Common Perpendicular (🔗 9C)
+
+Two lines in 3D that are neither parallel nor intersecting are called **skew lines**. The shortest distance between them is along the segment perpendicular to both lines.
+
+**Method**: Given lines $\vec{r}_1(t) = \vec{p}_1 + t\vec{d}_1$ and $\vec{r}_2(s) = \vec{p}_2 + s\vec{d}_2$:
+
+1. The vector connecting the two lines: $\vec{v} = \vec{p}_2 - \vec{p}_1$.
+2. The direction perpendicular to both lines: $\vec{n} = \vec{d}_1 \times \vec{d}_2$.
+3. The shortest distance: $d = \frac{|\vec{v} \cdot \vec{n}|}{|\vec{n}|} = \frac{|(\vec{p}_2 - \vec{p}_1) \cdot (\vec{d}_1 \times \vec{d}_2)|}{|\vec{d}_1 \times \vec{d}_2|}$.
+
+**Example**: Line 1 along the $x$-axis: $\vec{r}_1(t) = (t, 0, 0)$. Line 2 through $(0, 1, 1)$ along the $z$-axis: $\vec{r}_2(s) = (0, 1, s)$.
+- $\vec{v} = (0, 1, 1) - (0, 0, 0) = (0, 1, 1)$.
+- $\vec{d}_1 = (1, 0, 0)$, $\vec{d}_2 = (0, 0, 1)$, so $\vec{n} = (0, -1, 0)$.
+- $|\vec{n}| = 1$.
+- $d = |0 \cdot 0 + 1 \cdot (-1) + 1 \cdot 0| / 1 = 1$.
+
+The shortest segment connects $(0, 0, 0)$ on Line 1 to $(0, 1, 1)$ on Line 2.
+
+![Distance between skew lines](graphs/0721/12C3/12c3h-skew-lines-distance.png)
+
+*Graph 12C3h: Two skew lines — L₁ along the x-axis (blue) and L₂ through (0,1,1) along the z-axis (red). The shortest distance (red dashed) connects them perpendicularly. The distance is 1 unit.*
 
 ---
 
@@ -149,6 +202,12 @@ The closest point is along the normal direction: $\vec{p}_{\text{closest}} = \fr
 **Lagrange multipliers** method: Minimize $f(x,y,z) = x^2 + y^2 + z^2$ subject to $g(x,y,z) = ax + by + cz - d = 0$.
 $\nabla f = \lambda \nabla g \implies (2x, 2y, 2z) = \lambda(a, b, c)$.
 So $(x, y, z) \propto (a, b, c)$ — the closest point is along the normal. Substitute back to find the scaling.
+
+**Geometric picture**: The level sets of $f$ are spheres centered at the origin. The closest point on the plane is where a sphere is tangent to the plane — where the sphere's normal (radial direction) is parallel to the plane's normal.
+
+![Lagrange multipliers — closest point on a plane](graphs/0721/12C3/12c3f-lagrange-optimization.png)
+
+*Graph 12C3f: The plane $2x+3y+z=6$ (blue surface), with the closest point to the origin marked in red. The green wireframe sphere is tangent to the plane at this point. The red dashed line shows the gradient $\nabla f = 2\vec{p}$ (radial direction), and the purple arrow shows $\nabla g = \vec{n}$ (plane normal). At the optimum, $\nabla f \parallel \nabla g$.*
 
 > **Up to here**: Coordinate systems (Cartesian, polar, cylindrical, spherical) match problem symmetry.
 > Distance formulas in 2D, 3D, n-D. Line–plane intersection. Point–line distance (cross product formula).
@@ -257,7 +316,37 @@ You have four points in the plane: $(0, 0)$, $(3, 0)$, $(3, 2)$, $(1, 1)$. Deter
 
 ---
 
-## Basic Algebra Drill — Coordinate Systems (10 Problems)
+## Practice 7: Distance Between Skew Lines (🔗 9C)
+
+Find the distance between the lines $\vec{r}_1(t) = (1, 0, 0) + t(2, 1, 0)$ and $\vec{r}_2(s) = (0, 1, 1) + s(0, 2, 1)$.
+
+→ Reference: **Example 7A**
+
+> Solutions: [Solutions](solutions/12C3-solutions.md#practice-7)
+
+---
+
+## Practice 8: Optimization with Lagrange Multipliers (🔗 9C)
+
+Find the point on the plane $x + 2y + 2z = 9$ that is closest to the origin. Use both the geometric formula and Lagrange multipliers.
+
+→ Reference: **Example 8**
+
+> Solutions: [Solutions](solutions/12C3-solutions.md#practice-8)
+
+---
+
+## Practice 9: Coordinate Choice (🔗 9B)
+
+The polar curve $r = 2\cos\theta$ is a circle. Convert to Cartesian and find its center and radius. What is the arc length for $\theta \in [-\pi/2, \pi/2]$?
+
+→ Reference: **Example 2, 3A**
+
+> Solutions: [Solutions](solutions/12C3-solutions.md#practice-9)
+
+---
+
+## Basic Algebra Drill — Coordinate Systems (12 Problems)
 
 > Direct computation.
 
@@ -281,11 +370,15 @@ You have four points in the plane: $(0, 0)$, $(3, 0)$, $(3, 2)$, $(1, 1)$. Deter
 
 **D10.** Write the Cartesian equation of the sphere $\rho = 5$ in spherical coordinates.
 
+**D11.** (🔗 9C) Find the cylindrical coordinates of the point $(x, y, z) = (3, 4, -2)$.
+
+**D12.** (🔗 9B) Convert the polar equation $r = 4\cos\theta$ to Cartesian and identify the curve.
+
 > Solutions: [Solutions](solutions/12C3-solutions.md#basic-drill)
 
 ---
 
-## Advanced Algebra Drill — Coordinate Systems (10 Problems)
+## Advanced Algebra Drill — Coordinate Systems (12 Problems)
 
 > Multi-step geometric reasoning.
 
@@ -308,6 +401,10 @@ You have four points in the plane: $(0, 0)$, $(3, 0)$, $(3, 2)$, $(1, 1)$. Deter
 **A9.** Find the maximum and minimum distances from the origin to the curve $x^2 + 4y^2 = 4$ (an ellipse) using Lagrange multipliers.
 
 **A10.** Three points in the plane: $(0, 0)$, $(5, 0)$, $(2, 4)$. Find the point inside the triangle that minimizes the sum of squared distances to the three vertices. (Hint: this is the centroid.)
+
+**A11.** (🔗 9C, 12C2) Find the distance between two skew lines: the $x$-axis and the line through $(0, 1, 1)$ parallel to $(1, 1, 0)$.
+
+**A12.** (🔗 12C1) A point $(x, y)$ is rotated by $90^\circ$, then the result is converted to polar coordinates. If the original point is $(3, 1)$, what are $(r, \theta)$ after the rotation? Solve two ways: (1) rotate then convert, (2) use the relationship between rotation and angle addition.
 
 > Solutions: [Solutions](solutions/12C3-solutions.md#advanced-drill)
 

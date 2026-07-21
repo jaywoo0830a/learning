@@ -48,9 +48,28 @@ The $x, y$ coordinates trace a circle, while $z$ climbs steadily. The result: a 
 
 **Pitch**: The vertical rise per full turn $= 2\pi$ (since $z$ changes by $2\pi$ when $t$ increases by $2\pi$).
 
-![Circular helix — a 3D parametric space curve](graphs/12c2a-helix.png)
+![Circular helix — a 3D parametric space curve](graphs/0721/12C2/12c2a-helix.png)
 
 *Graph 12C2a: The circular helix r(t) = (cos t, sin t, t). The orange segment highlights one full turn (pitch = 2π). The gray projection on the xy-plane is the unit circle.*
+
+---
+
+## Example 3B: The Conical Spiral — Combining Helix and Cone (🔗 9C)
+
+From 9C, a cone is $z^2 = x^2 + y^2$. From the helix (Example 3), we have a climbing circle. Combine them — let the radius grow linearly with height:
+
+$\vec{r}(t) = (t\cos t,\; t\sin t,\; t), \quad t \in [0, 6\pi]$.
+
+The $xy$-projection is a spiral that expands outward, while $z$ climbs at the same rate. The result wraps around the cone $z = \sqrt{x^2 + y^2}$.
+
+**Speed**: $\vec{r}{\,}'(t) = (\cos t - t\sin t,\; \sin t + t\cos t,\; 1)$.
+$|\vec{r}{\,}'(t)| = \sqrt{(\cos t - t\sin t)^2 + (\sin t + t\cos t)^2 + 1} = \sqrt{1 + t^2 + 1} = \sqrt{t^2 + 2}$.
+
+The speed grows with $t$ — unlike the helix (constant speed $\sqrt{2}$), the conical spiral accelerates as it expands outward.
+
+![Conical spiral — wrapping around a cone](graphs/0721/12C2/12c2e-conical-spiral.png)
+
+*Graph 12C2e: The conical spiral wraps around the cone $z = \sqrt{x^2+y^2}$. The radius grows linearly as the curve climbs. The gray wireframe shows the cone surface, and the dashed curve is the xy-projection.* 
 
 ---
 
@@ -70,13 +89,54 @@ The workhorse of vector graphics — fonts, SVG, CAD all use cubic Béziers.
 
 The coefficients are **Bernstein polynomials** — binomial coefficients times powers of $t$ and $1-t$.
 
-![Cubic Bézier curve — 4 control points, smooth interpolation](graphs/12c2b-bezier-cubic.png)
+![Cubic Bézier curve — 4 control points, smooth interpolation](graphs/0721/12C2/12c2b-bezier-cubic.png)
 
-*Graph 12C2b: A cubic Bézier curve with control points P₀ through P₃. The curve starts at P₀ (t=0) and ends at P₃ (t=1), pulled toward P₁ and P₂ without passing through them. Red dot marks t=0.5.*
+*Graph 12C2b: Linear, quadratic, and cubic Bézier curves. The control polygon (red dashed lines) shows how each control point influences the curve's shape. The cubic Bézier is the workhorse of vector graphics — fonts, SVG, and CAD.*
+
+---
+
+## Example 4B: The Cycloid — A Wheel's Trail (🔗 9B)
+
+From 9B, we met the cycloid as a parametric curve from a rolling wheel. Let's revisit it with our full parametric toolkit.
+
+A point on the rim of a wheel of radius $R$ rolling along the $x$-axis:
+
+$\vec{r}(t) = (R(t - \sin t),\; R(1 - \cos t)), \quad t \ge 0$.
+
+**Velocity**: $\vec{r}{\,}'(t) = (R(1 - \cos t),\; R\sin t)$.
+**Speed**: $|\vec{r}{\,}'(t)| = R\sqrt{(1-\cos t)^2 + \sin^2 t} = R\sqrt{2 - 2\cos t} = 2R|\sin(t/2)|$.
+
+At $t=0$ (ground contact): speed $= 0$ — the point instantaneously stops as it touches the ground.
+At $t=\pi$ (top): speed $= 2R$ — the point moves fastest at the top of the arch.
+At $t=2\pi$ (ground again): speed $= 0$ — another stopping point.
+
+**Arc length of one arch** ($t \in [0, 2\pi]$):
+$L = \int_0^{2\pi} 2R|\sin(t/2)|\,dt = 2R \cdot 2 \int_0^{\pi} \sin(u)\,du \cdot 2 = 8R$.
+
+The arch is exactly $8R$ long — 4 times the wheel's diameter and $4/\pi$ times the horizontal span $2\pi R$.
+
+![Cycloid — a point on a rolling wheel](graphs/0721/12C2/12c2d-cycloid.png)
+
+*Graph 12C2d: The cycloid traced by a point on a rolling wheel of radius R. Gray circles show the wheel at different positions. The red dots mark the rim point at each position. One arch spans from t=0 to t=2π.*
 
 ---
 
 ## Example 5: Arc Length — How Long Is the Curve?
+
+Velocity of a moving point: $\vec{r}{\,}'(t) = \frac{d\vec{r}}{dt}$. Its magnitude $|\vec{r}{\,}'(t)|$ is the **speed**.
+
+Arc length = integral of speed over time:
+$L = \int_{a}^{b} |\vec{r}{\,}'(t)| \, dt$.
+
+![Arc length visualized — integrating speed along the curve](graphs/0721/12C2/12c2f-arc-length-visual.png)
+
+*Graph 12C2f: Left — Velocity vectors (red arrows) along an ellipse. The speed $|\vec{r}'(t)|$ varies with position. Right — Approximating the curve with 8 line segments (red). As the number of segments grows, the total length converges to the exact arc length $\int |\vec{r}'(t)|\,dt$.*
+
+**Circle**: $\vec{r}(t) = (R\cos t, R\sin t)$, speed $= \sqrt{(-R\sin t)^2 + (R\cos t)^2} = R$.
+Arc length $= \int_0^{2\pi} R \, dt = 2\pi R$. The familiar formula emerges!
+
+**Helix**: $\vec{r}(t) = (\cos t, \sin t, t)$, speed $= \sqrt{\sin^2 t + \cos^2 t + 1} = \sqrt{2}$.
+Arc length for three turns $= \int_0^{6\pi} \sqrt{2} \, dt = 6\pi\sqrt{2}$.
 
 Velocity of a moving point: $\vec{r}{\,}'(t) = \frac{d\vec{r}}{dt}$. Its magnitude $|\vec{r}{\,}'(t)|$ is the **speed**.
 
@@ -107,9 +167,30 @@ A circle of radius $R$ extruded vertically by height $H$.
 **Torus** (doughnut): $\vec{r}(\theta, \phi) = ((R + r\cos\phi)\cos\theta,\; (R + r\cos\phi)\sin\theta,\; r\sin\phi)$.
 $\theta, \phi \in [0, 2\pi]$. $R$ = major radius (center of tube), $r$ = minor radius (thickness of tube).
 
-![Three classic parametric surfaces](graphs/12c2c-parametric-surfaces.png)
+![Three classic parametric surfaces](graphs/0721/12C2/12c2c-parametric-surfaces.png)
 
-*Graph 12C2c: Sphere (ρ=constant), cylinder (r=constant), and torus — each needs exactly two parameters to describe every point on its surface.*
+*Graph 12C2c: Sphere (ρ = constant), cylinder (r = constant), and torus (R + r cos φ) — each needs exactly two parameters to describe every point on its surface.*
+
+---
+
+## Example 6A: Surface Normals Visualized (🔗 9C)
+
+From 9C, we know the normal vector $\vec{n} = \vec{r}_u \times \vec{r}_v$ is perpendicular to the surface at every point. For a sphere of radius $R$:
+
+$\vec{r}(\theta, \phi) = (R\sin\phi\cos\theta,\; R\sin\phi\sin\theta,\; R\cos\phi)$.
+
+The tangent vectors:
+$\vec{r}_\theta = (-R\sin\phi\sin\theta,\; R\sin\phi\cos\theta,\; 0)$.
+$\vec{r}_\phi = (R\cos\phi\cos\theta,\; R\cos\phi\sin\theta,\; -R\sin\phi)$.
+
+The normal:
+$\vec{n} = \vec{r}_\theta \times \vec{r}_\phi = R^2\sin\phi\;(\sin\phi\cos\theta,\; \sin\phi\sin\theta,\; \cos\phi) = R^2\sin\phi \cdot \hat{r}$.
+
+The result points **radially outward** — confirming that the normal to a sphere points away from the center.
+
+![Surface normals on a hemisphere](graphs/0721/12C2/12c2g-surface-normals.png)
+
+*Graph 12C2g: Tangent vectors $\vec{r}_u$ (green) and $\vec{r}_v$ (orange) and their cross product $\vec{n} = \vec{r}_u \times \vec{r}_v$ (red) shown at several points on a hemisphere. The normal always points radially outward.*
 
 ---
 
@@ -230,13 +311,47 @@ Find the normal vector to the sphere $\vec{r}(\theta, \phi) = (R\sin\phi\cos\the
 
 A curve is given by $\vec{r}(t) = (t\cos t,\; t\sin t,\; t)$ for $t \in [0, 4\pi]$. This is a **conical spiral** — it spirals outward as it climbs. Find its arc length between $t = 0$ and $t = 4\pi$.
 
-→ Reference: **Example 3, 5**
+→ Reference: **Example 3B, 5**
 
 > Solutions: [Solutions](solutions/12C2-solutions.md#practice-6)
 
 ---
 
-## Basic Algebra Drill — Parametric Curves (10 Problems)
+## Practice 7: Cycloid Speed (🔗 9B)
+
+For the cycloid $\vec{r}(t) = (R(t - \sin t),\; R(1 - \cos t))$, find the speed at $t = \pi/2$ and $t = \pi$. Explain why the speed is zero at $t = 0$.
+
+→ Reference: **Example 4B**
+
+> Solutions: [Solutions](solutions/12C2-solutions.md#practice-7)
+
+---
+
+## Practice 8: Surface Area of a Sphere (🔗 9C)
+
+Use the parametric form of the sphere from Example 6A to compute its surface area:
+$S = \iint |\vec{r}_\theta \times \vec{r}_\phi| \, d\theta\,d\phi$.
+
+→ Reference: **Example 6A**, **Surface Normals** interlude
+
+> Solutions: [Solutions](solutions/12C2-solutions.md#practice-8)
+
+---
+
+## Practice 9: Bézier Curve as a Matrix (🔗 12C1)
+
+The cubic Bézier basis can be written in matrix form. Show that:
+$\vec{r}(t) = \begin{pmatrix} t^3 & t^2 & t & 1 \end{pmatrix}
+\begin{pmatrix} -1 & 3 & -3 & 1 \\ 3 & -6 & 3 & 0 \\ -3 & 3 & 0 & 0 \\ 1 & 0 & 0 & 0 \end{pmatrix}
+\begin{pmatrix} \vec{P}_0 \\ \vec{P}_1 \\ \vec{P}_2 \\ \vec{P}_3 \end{pmatrix}$.
+
+→ Reference: **Example 4**, **12C1 Example 1**
+
+> Solutions: [Solutions](solutions/12C2-solutions.md#practice-9)
+
+---
+
+## Basic Algebra Drill — Parametric Curves (12 Problems)
 
 > Pure computation.
 
@@ -259,6 +374,10 @@ A curve is given by $\vec{r}(t) = (t\cos t,\; t\sin t,\; t)$ for $t \in [0, 4\pi
 **D9.** Write the linear Bézier (straight line) from $(3, 1, 8)$ to $(7, 5, 2)$.
 
 **D10.** A curve is given by $\vec{r}(t) = (5\cos t,\; 5\sin t,\; 0)$. What shape is it? What is the speed?
+
+**D11.** (🔗 9B) Parametrize the parabola $y = x^2$ as a parametric curve. Eliminate $t$ to verify.
+
+**D12.** Find the speed of the conical spiral $\vec{r}(t) = (t\cos t,\; t\sin t,\; t)$ at $t = \pi$.
 
 > Solutions: [Solutions](solutions/12C2-solutions.md#basic-drill)
 
@@ -287,6 +406,10 @@ A curve is given by $\vec{r}(t) = (t\cos t,\; t\sin t,\; t)$ for $t \in [0, 4\pi
 **A9.** For the helix $\vec{r}(t) = (R\cos t,\; R\sin t,\; ct)$, compute the curvature $\kappa = \frac{|\vec{r}{\,}' \times \vec{r}{\,}''|}{|\vec{r}{\,}'|^3}$.
 
 **A10.** Two lines are given parametrically: $\vec{r}_1(t) = (1, 2, 3) + t(1, 0, -1)$ and $\vec{r}_2(s) = (4, 1, 2) + s(2, 1, 1)$. Determine if they intersect, and if so, find the intersection point.
+
+**A11.** (🔗 9C, 12C1) The torus surface from Example 6 has parameters $(\theta, \phi)$. Compute the tangent vectors $\vec{r}_\theta$ and $\vec{r}_\phi$ and their cross product. What is $|\vec{r}_\theta \times \vec{r}_\phi|$? This is the area element for the torus.
+
+**A12.** (🔗 9C) The intersection of the sphere $x^2+y^2+z^2=4$ and the plane $z=1$ is a circle. Parametrize this circle in 3D. (Hint: substitute $z=1$, then parametrize the resulting circle in the $xy$-plane.)
 
 > Solutions: [Solutions](solutions/12C2-solutions.md#advanced-drill)
 
