@@ -16,7 +16,9 @@ $A = \displaystyle \int_a^b |f(x)|\,dx$. Split where $f$ crosses the axis.
 
 $\displaystyle \int_0^{2\pi} \sin x\,dx = 0$ (cancels!). Area = $\displaystyle 2\int_0^\pi \sin x\,dx = 4$.
 
-![Area between curves](graphs/17a-between-curves.png)
+![Area between curves](graphs/0721/17A/17a-area-between-curves.png)
+
+*Graph 17A-1: Left — Area between $y=x$ (top) and $y=x^2$ (bottom) from $x=0$ to $x=1$: $A = \int_0^1 (x-x^2)\,dx = 1/6$. Right — Area with respect to $y$: $A = \int_{-1}^2 [(y+2)-y^2]\,dy = 9/2$.*
 
 ---
 
@@ -37,6 +39,10 @@ Area between $y=\sin x$ and $y=\cos x$ from $x=0$ to $x=\pi/2$.
 Curves cross at $x=\pi/4$. $\sin x > \cos x$ on $[\pi/4,\pi/2]$, $\cos x > \sin x$ on $[0,\pi/4]$.
 
 $A = \displaystyle \int_0^{\pi/4}(\cos x-\sin x)dx + \int_{\pi/4}^{\pi/2}(\sin x-\cos x)dx = 2\sqrt{2}-2$.
+
+![Trigonometric area](graphs/0721/17A/17a-trig-area.png)
+
+*Graph 17A-2: Area between $\sin x$ (blue) and $\cos x$ (red) on $[0,\pi/2]$. The curves cross at $x=\pi/4$. Two separate integrals are needed: $\cos x > \sin x$ on $[0,\pi/4]$ (red shading), $\sin x > \cos x$ on $[\pi/4,\pi/2]$ (blue shading). Total area $= 2\sqrt{2}-2$.*
 
 ---
 
@@ -66,11 +72,9 @@ $V = \pi \displaystyle \int_a^b [R(x)]^2\,dx$.
 Rotate $y=\sqrt{x}$ about $x$-axis from $x=0$ to $x=4$:
 $V = \pi\int_0^4 (\sqrt{x})^2\,dx = \pi\int_0^4 x\,dx = \pi\left[\frac{x^2}{2}\right]_0^4 = 8\pi$.
 
-![Solid of revolution](graphs/17b-solid-revolution.png)
+![Disk method — $y=\sqrt{x}$ rotated about $x$-axis](graphs/0721/17A/17a-disk-method.png)
 
-![Disk method — y=√x rotated about x-axis](graphs/17a-disk-method-3d.png)
-
-*Graph 17A-1: ⬢ 3D — the solid of revolution formed by rotating y=√x around the x-axis. Wireframe disks show circular cross-sections at sampled x-positions. Each disk has radius R(x)=√x and area π[R(x)]²=πx. ⬡ 2D — cross-sectional view: the curve y=√x (top) and y=−√x (bottom) enclose the region. A sample disk at x=2 has radius √2 and area 2π. ⬝ 1D — [R(x)]² = x (blue, shaded area) and the accumulating volume V(x) = πx²/2 (red dashed). The total volume V(4) = 8π is the area under π[R(x)]² from 0 to 4.*
+*Graph 17A-3: Left — The region under $y=\sqrt{x}$ on $[0,4]$ with a sample disk of radius $R(x)=\sqrt{x}$ at $x=2$. Right — Accumulated volume $V(x)=\pi x^2/2$ from $0$ to $4$, showing $V(4)=8\pi$.*
 
 ---
 
@@ -81,9 +85,9 @@ $V = \pi \displaystyle \int_a^b [(R_{\text{outer}})^2 - (R_{\text{inner}})^2]\,d
 Region between $y=x$ and $y=x^2$ rotated about $x$-axis:
 $V = \pi\int_0^1 (x^2-(x^2)^2)dx = \pi\int_0^1 (x^2-x^4)dx = \frac{2\pi}{15}$.
 
-![Washer method — hollow solid between two curves](graphs/17a-washer-method-3d.png)
+![Washer method — hollow solid](graphs/0721/17A/17a-washer-method.png)
 
-*Graph 17A-2: ⬢ 3D — the hollow solid formed by rotating the region between y=x (outer, blue) and y=x² (inner, red) around the x-axis. Each cross-section is a washer: outer radius R=x, inner radius r=x². ⬡ 2D — the region between y=x and y=x² on [0,1]. When rotated, the outer curve sweeps a solid paraboloid; the inner curve carves out a hollow core. ⬝ 1D — R² = x² (blue) and r² = x⁴ (red). The washer area at each x is π(R²−r²) = π(x²−x⁴) (purple shaded region). Integrate from 0 to 1 to get V = 2π/15.*
+*Graph 17A-4: The region between $y=x$ (outer) and $y=x^2$ (inner) rotated about the $x$-axis. At each $x$, the outer radius is $R=x$, the inner radius is $r=x^2$, and the washer area is $\pi(R^2-r^2)=\pi(x^2-x^4)$. Integrating gives $V=2\pi/15$.*
 
 ---
 
@@ -101,9 +105,23 @@ $V = 2\pi \displaystyle \int_a^b x\cdot h(x)\,dx$ where $h(x)$ is the height of 
 Rotate $y=x^2$, $x\in[0,2]$ about $y$-axis:
 $V = 2\pi\int_0^2 x\cdot x^2\,dx = 2\pi\int_0^2 x^3\,dx = 2\pi\left[\frac{x^4}{4}\right]_0^2 = 8\pi$.
 
-![Shell method — cylindrical shells about y-axis](graphs/17a-shell-method-3d.png)
+![Shell method — cylindrical shells about $y$-axis](graphs/0721/17A/17a-shell-method.png)
 
-*Graph 17A-3: ⬢ 3D — nested cylindrical shells formed by rotating vertical strips of the region under y=x² about the y-axis. Each shell at radius x has height h(x)=x² and circumference 2πx. ⬡ 2D — the region under y=x² with a sample shell at x=1.5 highlighted. The shell's height is x²=2.25, its circumference is 2π(1.5)≈9.42, and its unwrapped area is 2πx·h(x). ⬝ 1D — the shell integrand x·h(x) = x³ (green, shaded) and the accumulating volume V(x) = 2πx⁴/4 (red dashed). Total volume V(2) = 2π·16/4 = 8π — matching the answer.*
+*Graph 17A-5: Left — The region under $y=x^2$ on $[0,2]$ with a sample shell at $x=1.5$ of height $x^2$ and circumference $2\pi x$. Right — The shell integrand $x\cdot h(x)=x^3$ (green, shaded), whose area gives $V=8\pi$.*
+
+---
+
+## Example 10: Choosing the Right Method
+
+| Method | Formula | When to use |
+|:------|:--------|:-----------|
+| **Disk** (about $x$-axis) | $V=\pi\int R(x)^2\,dx$ | Single curve, no hole |
+| **Washer** (about $x$-axis) | $V=\pi\int(R^2-r^2)\,dx$ | Two curves, hollow solid |
+| **Shell** (about $y$-axis) | $V=2\pi\int x\cdot h(x)\,dx$ | Rotating about $y$, $x\,dx$ is convenient |
+
+![Volume methods comparison — disk, washer, shell](graphs/0721/17A/17a-revolution-summary.png)
+
+*Graph 17A-6: Three volume methods compared side by side. Left — Disk method (single curve, no hole). Middle — Washer method (two curves, hollow). Right — Shell method (about $y$-axis using cylindrical shells).*
 
 ---
 
@@ -150,7 +168,31 @@ $y=x^2$, $x\in[0,2]$ rotated about $y$-axis. Shell method.
 
 ---
 
-## Basic Algebra Drill — Area & Volume (10 Problems)
+## Practice 5: Trigonometric Area (🔗 12C2)
+
+Find the area between $y=\sin^2 x$ and $y=\cos^2 x$ on $[0,\pi/2]$.
+
+→ Solutions: [Solutions](solutions/17A-solutions.md#practice-5)
+
+---
+
+## Practice 6: Real Battle (🔗 9B, 9C)
+
+Find the volume of a sphere of radius $R$ using the disk method (rotate $y=\sqrt{R^2-x^2}$ about $x$-axis). Verify your answer gives $V=\frac{4}{3}\pi R^3$.
+
+→ Solutions: [Solutions](solutions/17A-solutions.md#practice-6)
+
+---
+
+## Practice 7: Washer with Shifted Axis (🔗 12C1)
+
+The region between $y=\sqrt{x}$ and $y=x^2$ on $[0,1]$ is rotated about $y=2$. Set up the volume integral.
+
+→ Solutions: [Solutions](solutions/17A-solutions.md#practice-7)
+
+---
+
+## Basic Algebra Drill — Area & Volume (12 Problems)
 
 **D1.** Find area between $y=x$ and $x$-axis from $x=0$ to $x=4$.
 
@@ -171,6 +213,10 @@ $y=x^2$, $x\in[0,2]$ rotated about $y$-axis. Shell method.
 **D9.** Find area between $y=\sin x$ and $x$-axis from $x=0$ to $x=2\pi$.
 
 **D10.** Rotate region under $y=1/x$, $x\in[1,2]$ about $x$-axis.
+
+**D11.** (🔗 9C) Find the volume of a cone of radius $R$ and height $H$ by rotating $y=\frac{R}{H}x$ about $x$-axis.
+
+**D12.** (🔗 12C2) Rotate the region under $y=\cos x$, $x\in[0,\pi/2]$ about $x$-axis.
 
 > Solutions: [Solutions](solutions/17A-solutions.md#basic-drill)
 

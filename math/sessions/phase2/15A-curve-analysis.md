@@ -34,6 +34,10 @@ Let the tangent point be $(a, a^2)$. Slope $=2a$. Line: $y-a^2=2a(x-a)$.
 Through $(0,-1)$: $-1-a^2=2a(0-a)=-2a^2 \to a^2=1$. $a=\pm1$.
 Tangents: $y=2x-1$ and $y=-2x-1$.
 
+![Tangent and Normal Lines](graphs/0721/15A/15a-tangent-normal.png)
+
+*Graph 15A-1: Left — Tangent and normal lines to $f(x)=x^2$ at $x=3$. The tangent slope $f'(3)=6$; the normal is perpendicular with slope $-1/6$. Right — Two tangents to $y=x^2$ through $(0,-1)$: $y=2x-1$ and $y=-2x-1$, with tangency at $x=\pm1$.*
+
 ---
 
 ## Part B: Mean Value Theorem (MVT)
@@ -46,13 +50,91 @@ If $f$ is continuous on $[a,b]$ and differentiable on $(a,b)$, there exists $c\i
 
 $f(x)=x^2$ on $[1,4]$: average slope $=\frac{16-1}{3}=5$. $f'(x)=2x=5 \to x=2.5$. ✓
 
-![MVT — secant and tangent parallelism](graphs/15a-mvt-geometry.png)
+![MVT — secant and tangent parallelism](graphs/0721/15A/15a-mvt-geometry.png)
 
-*Graph 15A-1: ⬢ 3D — the function f(x)=x² as a space curve with the secant line (red, from x=1 to x=4) and the tangent line (green, at c=2.5). The tangent is parallel to the secant — exactly what MVT guarantees. ⬡ 2D — classic MVT visualization: secant through (1,1) and (4,16) with slope 5, tangent at c=2.5 with the same slope. ⬝ 1D — the derivative f'(x)=2x (blue) compared to the average slope=5 (red dashed). They intersect exactly at c=2.5.*
+*Graph 15A-2: Mean Value Theorem for $f(x)=x^2$ on $[1,4]$. The secant line (red dashed) through $(1,1)$ and $(4,16)$ has slope $5$. The MVT guarantees some $c\in(1,4)$ where $f'(c)$ equals this average slope. Here $c=2.5$ gives $f'(2.5)=5$, and the tangent (green) is parallel to the secant.*
 
 ---
 
 ## Part C: Increasing, Decreasing, and Extrema
+
+---
+
+## Example 5: First Derivative Sign Test
+
+$f'>0$ → increasing. $f'<0$ → decreasing.
+
+$f(x)=x^3-3x$: $f'(x)=3x^2-3=3(x-1)(x+1)$.
+Sign chart: $(-\infty,-1)$: $f'>0$ (up). $(-1,1)$: $f'<0$ (down). $(1,\infty)$: $f'>0$ (up).
+
+![First derivative sign test](graphs/0721/15A/15a-first-derivative-test.png)
+
+*Graph 15A-3: Left — $f(x)=x^3-3x$ with local maximum at $(-1,2)$ and local minimum at $(1,-2)$. Right — $f'(x)=3x^2-3$ with green regions ($f'>0$, increasing) and red regions ($f'<0$, decreasing). The sign changes at $x=\pm1$ classify the extrema.*
+
+---
+
+## Example 6: Critical Points and Local Extrema
+
+Critical points: $f'=0$ or $f'$ undefined. Test sign change of $f'$ to classify.
+
+$f(x)=x^3-3x$: critical at $x=\pm1$.
+$x=-1$: $f'$ goes + → − → **local max** at $(-1,2)$.
+$x=1$: $f'$ goes − → + → **local min** at $(1,-2)$.
+
+---
+
+## Example 7: $f'=0$ but No Extremum — Inflection Points
+
+$f(x)=x^3$: $f'(0)=0$, but $f'$ does NOT change sign — always positive. No extremum at $x=0$. Instead, this is an **inflection point** where curvature changes.
+
+---
+
+## Example 8: Second Derivative Test
+
+$f'(a)=0$: if $f''(a)>0$ → local min; $f''(a)<0$ → local max; $f''(a)=0$ → inconclusive.
+
+$f(x)=x^3-3x$: $f''(x)=6x$. $f''(-1)=-6<0$ → max. $f''(1)=6>0$ → min. ✓
+
+---
+
+## Part D: Concavity and Inflection Points
+
+---
+
+## Example 9: Second Derivative Sign
+
+$f''>0$: concave up (cup shape). $f''<0$: concave down (cap shape). $f''=0$ or undefined: possible inflection.
+
+$f(x)=x^3-3x$: $f''(x)=6x$. $x<0$: concave down. $x>0$: concave up. Inflection at $(0,0)$.
+
+![Concavity and inflection points](graphs/0721/15A/15a-concavity-inflection.png)
+
+*Graph 15A-4: Left — $f(x)=x^2$ (concave up, $f''>0$) vs $g(x)=-x^2$ (concave down, $f''<0$). Right — $f(x)=x^3$: $f'(0)=0$ but no extremum — this is an inflection point where curvature changes from down to up.*
+
+![Cubic analysis — $f$, $f'$, $f''$ together](graphs/0721/15A/15a-cubic-analysis.png)
+
+*Graph 15A-5: $f(x)=x^3-3x^2$ (left), $f'(x)=3x^2-6x$ (middle), and $f''(x)=6x-6$ (right). The critical points at $x=0$ (max) and $x=2$ (min) are where $f'=0$. The inflection point at $x=1$ is where $f''=0$ and $f''$ changes sign. Together, these three functions tell the complete story of the curve.*
+
+---
+
+## Part E: The 7-Step Curve Sketch
+
+---
+
+## Example 10: Complete Graph Analysis
+
+$f(x)=\frac{x^2}{x-1}$.
+
+① **Domain**: $x\neq1$.
+② **Intercepts**: $(0,0)$.
+③ **Asymptotes**: vertical $x=1$. Slant: divide → $y=x+1+\frac{1}{x-1}$, asymptote $y=x+1$.
+④ **$f'$**: $f'(x)=\frac{x(x-2)}{(x-1)^2}$. Critical at $x=0,2$. $x=0$: max $(0,0)$. $x=2$: min $(2,4)$.
+⑤ **$f''$**: $f''(x)=\frac{2}{(x-1)^3}$. Never 0. $x<1$: concave down. $x>1$: concave up.
+⑥ **Sketch**: left branch (below slant, concave down, peak at origin), right branch (min at $(2,4)$, concave up, hugging slant).
+
+![Complete 7-step curve sketch](graphs/0721/15A/15a-complete-sketch.png)
+
+*Graph 15A-6: Left — $f(x)=x^2/(x-1)$ with vertical asymptote $x=1$ (red dashed), slant asymptote $y=x+1$ (green dashed), local maximum at $(0,0)$, and local minimum at $(2,4)$. Right — $f'(x)$ and $f''(x)$ sign analysis confirming extremum classification.*
 
 ---
 
@@ -164,15 +246,47 @@ Sketch $f(x)=x^3-3x^2$ using domain, intercepts, $f'$, $f''$.
 
 ---
 
-## Practice 4: Real Battle
+## Practice 4: Tangent from External Point (🔗 9B)
 
-$f(x)=\frac{x^2-1}{x^2+1}$. Find all asymptotes, extrema, inflection points. Sketch.
+Find the equations of both tangent lines to $y=x^3$ that pass through $(0,0)$. (Hint: the tangency point is NOT at $x=0$ — use the method from Example 3.)
 
 → Solutions: [Solutions](solutions/15A-solutions.md#practice-4)
 
 ---
 
-## Basic Algebra Drill — Curve Analysis (10 Problems)
+## Practice 5: MVT Application (🔗 12C1)
+
+Apply the MVT to $f(x)=e^x$ on $[0,1]$. Find the value of $c$ guaranteed by the theorem, and verify it satisfies $f'(c)=f'(c)$.
+
+→ Solutions: [Solutions](solutions/15A-solutions.md#practice-5)
+
+---
+
+## Practice 6: Real Battle
+
+$f(x)=\frac{x^2-1}{x^2+1}$. Find all asymptotes, extrema, inflection points. Sketch.
+
+→ Solutions: [Solutions](solutions/15A-solutions.md#practice-6)
+
+---
+
+## Practice 7: First Derivative Analysis (🔗 12C1)
+
+For $f(x)=x^4-4x^3+4x^2$, find all critical points and classify each using the first derivative test. What happens at $x=0$ and $x=2$? (Hint: both have $f'=0$ but behave differently.)
+
+→ Solutions: [Solutions](solutions/15A-solutions.md#practice-7)
+
+---
+
+## Practice 8: Real Battle — Complete Sketch
+
+$f(x)=\frac{x^3}{x^2-1}$. Find domain, intercepts, asymptotes, $f'$, $f''$, and sketch.
+
+→ Solutions: [Solutions](solutions/15A-solutions.md#practice-8)
+
+---
+
+## Basic Algebra Drill — Curve Analysis (12 Problems)
 
 **D1.** Find the tangent line to $f(x)=x^2+2x$ at $x=1$.
 
@@ -194,9 +308,9 @@ $f(x)=\frac{x^2-1}{x^2+1}$. Find all asymptotes, extrema, inflection points. Ske
 
 **D10.** Find all vertical asymptotes of $f(x)=\frac{x}{x^2-9}$.
 
-> Solutions: [Solutions](solutions/15A-solutions.md#basic-drill)
+**D11.** (🔗 9A2) For $f(x)=|x^2-4|$, find all points where $f$ is not differentiable.
 
----
+**D12.** (🔗 12C1) Find the tangent line to $f(x)=\sin x$ at $x=\pi/4$. Write in point-slope form.
 
 ## Advanced Algebra Drill — Curve Analysis (10 Problems)
 

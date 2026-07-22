@@ -19,9 +19,9 @@ $f'(x)=\frac{3}{2}\sqrt{x}$, $1+[f']^2 = 1+\frac{9}{4}x$.
 $L = \int_0^4 \sqrt{1+\frac{9}{4}x}\,dx$. $u=1+\frac{9}{4}x$, $du=\frac{9}{4}dx$.
 $L = \frac{4}{9}\int_1^{10} u^{1/2}du = \frac{8}{27}(10^{3/2}-1) \approx 8.63$.
 
-![Arc length — polygonal approximation converging to the curve](graphs/17b-arc-length-approx.png)
+![Arc length formula and approximation](graphs/0721/17B/17b-arc-length-formula.png)
 
-*Graph 17B-1: ⬢ 3D — the curve y=x^(3/2) (black) with polygonal approximations using n=2,4,8,16 segments (stacked by color). As n increases, the total polygon length converges to the true arc length. ⬡ 2D — the curve with a 6-segment approximation. Each segment length ΔL = √(Δx²+Δy²) = √(1+(Δy/Δx)²)·Δx. In the limit, ΔL→ds = √(1+(dy/dx)²)·dx. ⬝ 1D — the integrand √(1+(f')²) = √(1+2.25x) for y=x^(3/2) (blue, shaded). The arc length L ≈ 8.63 is the area under this curve from x=0 to x=4.*
+*Graph 17B-1: Left — $y=x^{3/2}$ with a 6-segment polygonal approximation (red). Each segment length $\Delta L = \sqrt{\Delta x^2 + \Delta y^2}$ approximates the curve. As the number of segments $n\to\infty$, the total approaches the true arc length. Right — The integrand $\sqrt{1+(f')^2} = \sqrt{1+2.25x}$ (shaded). The arc length $L\approx8.63$ is the area under this curve.*
 
 ---
 
@@ -62,9 +62,9 @@ Rotate $y=\sqrt{x}$ from $x=0$ to $x=4$: $f'=\frac{1}{2\sqrt{x}}$, $1+(f')^2=1+\
 $S = 2\pi\int_0^4\sqrt{x}\sqrt{\frac{4x+1}{4x}}dx = 2\pi\int_0^4\frac{\sqrt{4x+1}}{2}dx = \pi\int_0^4\sqrt{4x+1}\,dx$.
 $u=4x+1$: $S = \pi\cdot\frac{1}{6}(17^{3/2}-1) \approx 36.18$.
 
-![Surface of revolution — band elements and integrand](graphs/17b-surface-revolution.png)
+![Surface of revolution](graphs/0721/17B/17b-surface-revolution.png)
 
-*Graph 17B-2: ⬢ 3D — the surface formed by rotating y=√x around the x-axis. The blue surface shows the full paraboloid; red rings mark individual surface area bands. ⬡ 2D — the generating curve y=√x with a highlighted band at x=2. Each band has radius y, slant width ds = √(1+(y')²)dx, and area dS = 2πy·ds. The total surface is the sum of all bands. ⬝ 1D — the integrand 2πy√(1+(y')²) (red, shaded). The surface area S ≈ 36.2 is the area under this curve from x=0 to x=4.*
+*Graph 17B-2: The surface formed by rotating $y=\sqrt{x}$ about the $x$-axis. Red rings highlight individual surface area bands. Each band at position $x$ has radius $y=\sqrt{x}$, slant width $ds=\sqrt{1+(y')^2}\,dx$, and area $dS=2\pi y\cdot ds$.*
 
 ---
 
@@ -78,17 +78,29 @@ Rotate $y=\sqrt{R^2-x^2}$, $x\in[-R,R]$ about $x$-axis: $S=4\pi R^2$. ✓
 
 ---
 
+## Part C: Improper Integrals
+
+---
+
 ## Example 7: Infinite Interval
 
 $\displaystyle \int_1^\infty \frac{1}{x^2}\,dx = \lim_{b\to\infty}\int_1^b x^{-2}dx = \lim_{b\to\infty}\left[-\frac{1}{x}\right]_1^b = \lim_{b\to\infty}(-\frac{1}{b}+1) = 1$. **Converges.**
 
 $\displaystyle \int_1^\infty \frac{1}{x}\,dx = \lim_{b\to\infty}[\ln b - 0] = \infty$. **Diverges.**
 
+![Improper integrals — infinite intervals](graphs/0721/17B/17b-improper-infinite.png)
+
+*Graph 17B-3: Left — $\int_1^\infty 1/x^2\,dx$ converges (finite area = 1) because $p=2>1$. The tail hugs the axis tightly. Right — $\int_1^\infty 1/x\,dx$ diverges (infinite area) because $p=1$. The tail is too thick to sum to a finite value.*
+
 ---
 
 ## Example 8: Unbounded Integrand
 
 $\displaystyle \int_0^1 \frac{1}{\sqrt{x}}\,dx = \lim_{a\to0^+}\int_a^1 x^{-1/2}dx = \lim_{a\to0^+}[2\sqrt{x}]_a^1 = 2$. **Converges** (finite area despite infinite height).
+
+![Improper integrals — unbounded integrands](graphs/0721/17B/17b-improper-unbounded.png)
+
+*Graph 17B-4: Left — $\int_0^1 1/\sqrt{x}\,dx$ converges ($p=1/2<1$). The area is finite despite the function blowing up at $x=0$. Right — $\int_0^1 1/x^2\,dx$ diverges ($p=2>1$). The singularity is too strong for the area to converge.*
 
 ---
 
@@ -98,15 +110,31 @@ $\displaystyle \int_1^\infty \frac{1}{x^p}\,dx$ converges if $p>1$, diverges if 
 
 $\displaystyle \int_0^1 \frac{1}{x^p}\,dx$ converges if $p<1$, diverges if $p\geq1$.
 
-![Improper integrals — p-test and convergence](graphs/17b-improper-integrals.png)
+![$p$-test for improper integrals](graphs/0721/17B/17b-p-test.png)
 
-*Graph 17B-3: ⬢ 3D — the area under 1/x² from x=1 to ∞. Although the region extends infinitely far to the right, the total area is exactly 1 — finite! The height 1/x² decays fast enough that the cumulative area converges. ⬡ 2D — comparison of 1/x² (green, converges, p=2>1) vs 1/x (red, diverges, p=1). The key insight: 1/x² hugs the x-axis tightly enough for finite total area; 1/x does not. ⬝ 1D — the p-test map: ∫₁^∞ 1/x^p dx converges to 1/(p−1) for p>1 (blue curve) and diverges for p≤1 (red zone). The boundary p=1 is the harmonic series threshold — infinitesimally above it, convergence; at or below, divergence.*
+*Graph 17B-5: The $p$-test visualized. For $\int_1^\infty 1/x^p\,dx$, convergence occurs when $p>1$ (blue region, finite value $1/(p-1)$). The boundary at $p=1$ (red dashed) is where convergence tips into divergence. Just above $p=1$, convergence; at $p=1$ or below, divergence.*
 
 ---
 
 ## Example 10: Exponential and Trig Improper Integrals
 
 $\int_0^\infty e^{-x}\,dx = 1$ (converges). $\int_0^\infty e^{-x}\sin x\,dx = \frac{1}{2}$ (integration by parts + limit).
+
+---
+
+## Example 11: Gabriel's Horn — Finite Volume, Infinite Surface
+
+Rotate $y=1/x$, $x\in[1,\infty)$ about the $x$-axis.
+
+**Volume**: $V = \pi\int_1^\infty (1/x)^2\,dx = \pi\int_1^\infty x^{-2}\,dx = \pi(1) = \pi$ (finite!).
+
+**Surface area**: $S = 2\pi\int_1^\infty (1/x)\sqrt{1+(-1/x^2)^2}\,dx \geq 2\pi\int_1^\infty 1/x\,dx = \infty$ (diverges!).
+
+**Paradox**: You can fill the horn with $\pi$ units of paint, but you can't paint its surface!
+
+![Gabriel's Horn](graphs/0721/17B/17b-gabriels-horn.png)
+
+*Graph 17B-6: Gabriel's Horn — the surface formed by rotating $y=1/x$ for $x\ge1$ about the $x$-axis. Its volume converges to $\pi$ (you can fill it), but its surface area diverges (you can't paint it). This paradox illustrates the subtle difference between $1/x^2$ (convergent, used for volume) and $1/x$ (divergent, used for surface area).*
 
 ---
 
@@ -153,7 +181,31 @@ $\displaystyle \int_0^1 \ln x\,dx$. Improper at $x=0$.
 
 ---
 
-## Basic Algebra Drill — Arc Length & Improper Integrals (10 Problems)
+## Practice 5: Parametric Arc Length (🔗 12C2)
+
+Find the arc length of one arch of the cycloid: $x=t-\sin t$, $y=1-\cos t$, $t\in[0,2\pi]$.
+
+→ Solutions: [Solutions](solutions/17B-solutions.md#practice-5)
+
+---
+
+## Practice 6: Gabriel's Horn (🔗 12B2)
+
+Verify that rotating $y=1/x$, $x\in[1,\infty)$ about the $x$-axis gives finite volume $\pi$ but infinite surface area.
+
+→ Solutions: [Solutions](solutions/17B-solutions.md#practice-6)
+
+---
+
+## Practice 7: Real Battle (🔗 12C2)
+
+Find the surface area when the parametric curve $x=t^2$, $y=t$, $t\in[0,2]$ is rotated about the $x$-axis. (Use $S=2\pi\int y\sqrt{(dx/dt)^2+(dy/dt)^2}\,dt$.)
+
+→ Solutions: [Solutions](solutions/17B-solutions.md#practice-7)
+
+---
+
+## Basic Algebra Drill — Arc Length & Improper Integrals (12 Problems)
 
 **D1.** Find arc length of $y=2x$ from $x=0$ to $x=3$.
 
@@ -174,6 +226,10 @@ $\displaystyle \int_0^1 \ln x\,dx$. Improper at $x=0$.
 **D9.** $\int_0^\infty e^{-2x}\,dx$. Improper.
 
 **D10.** Rotate $y=\sqrt{4-x^2}$, $x\in[-2,2]$ about $x$-axis. Surface area (sphere check).
+
+**D11.** (🔗 12C2) Arc length of the helix $x=\cos t$, $y=\sin t$, $z=t$, $t\in[0,2\pi]$.
+
+**D12.** (🔗 12B2) $\int_1^\infty \frac{dx}{x^{1.01}}$ — does it converge or diverge?
 
 > Solutions: [Solutions](solutions/17B-solutions.md#basic-drill)
 
@@ -200,6 +256,10 @@ $\displaystyle \int_0^1 \ln x\,dx$. Improper at $x=0$.
 **A9.** $\int_0^\infty \frac{\arctan x}{1+x^2}\,dx$. $u$-sub, then improper.
 
 **A10.** Prove $\int_0^\infty \frac{\sin x}{x}\,dx$ converges (but do not evaluate — this is the Dirichlet integral, value $\pi/2$).
+
+**A11.** (🔗 12C2, 17A) Find the surface area of the paraboloid formed by rotating $y=x^2$ from $x=0$ to $x=2$ about the $y$-axis.
+
+**A12.** (🔗 9C, 12C2) The curve $y=\ln x$ from $x=1$ to $x=e$ is rotated about the $y$-axis. Find the surface area. (Hint: express $x=e^y$ for $y$-integration.)
 
 > Solutions: [Solutions](solutions/17B-solutions.md#advanced-drill)
 

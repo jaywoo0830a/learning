@@ -28,11 +28,9 @@ A box is made from a 12×12 sheet by cutting squares of side $x$ from each corne
 ③ $V'=0$ at $x=2$ or $x=6$. $x=6$ is boundary. $x=2$ → $V=2\cdot8^2=128$.
 ④ $V''(2)<0$ → maximum. **Max volume = 128 cubic units.**
 
-![Optimization example](graphs/15b-optimization.png)
+![Box volume optimization](graphs/0721/15B/15b-box-optimization.png)
 
-![Box volume optimization — V(x) surface and analysis](graphs/15b-box-optimization.png)
-
-*Graph 15B-1: ⬢ 3D — the box (at optimal cut x=2) shown alongside the volume curve V(x)=x(12−2x)². The red dot marks the maximum at x=2, V=128. ⬡ 2D — the volume function V(x) with the maximum clearly marked. The domain is (0,6) since x cannot exceed half the sheet width. ⬝ 1D — the derivative V'(x) sign chart: positive (green, V increasing) for x<2, zero at x=2 (critical point), negative (red, V decreasing) for x>2. The sign change + → − confirms a local maximum.*
+*Graph 15B-1: Left — Volume function $V(x)=x(12-2x)^2$ with maximum at $x=2$, $V=128$. Right — $V'(x)$ sign chart: positive ($V$ increasing) for $x<2$, negative ($V$ decreasing) for $x>2$. The sign change + → − confirms a local maximum.*
 
 ---
 
@@ -44,6 +42,10 @@ Find the point on $y=\sqrt{x}$ closest to $(2,0)$.
 ② $D'(x)=2x-3=0 \to x=1.5$. Minimum.
 ③ Closest point: $(1.5,\sqrt{1.5})$.
 
+![Distance minimization](graphs/0721/15B/15b-distance-minimization.png)
+
+*Graph 15B-2: The curve $y=\sqrt{x}$ and the closest point to $(2,0)$ at $(1.5,\sqrt{1.5})$. The distance function $D(x)=\sqrt{(x-2)^2+(\sqrt{x})^2}$ is minimized by solving $D'(x)=0$.*
+
 ---
 
 ## Example 4: Trigonometric Optimization
@@ -51,6 +53,10 @@ Find the point on $y=\sqrt{x}$ closest to $(2,0)$.
 A rain gutter is made by bending a 30cm sheet into an isosceles trapezoid with angle $\theta$. Maximize cross-sectional area.
 
 Area $=30h\sin\theta + h^2\sin\theta\cos\theta$ where $h=10\cos\theta$. Reduce to function of $\theta$, differentiate, find $\theta=60^\circ$ gives maximum.
+
+![Trigonometric optimization](graphs/0721/15B/15b-trig-optimization.png)
+
+*Graph 15B-3: Cross-sectional area of a rain gutter as a function of bend angle $\theta$. The maximum occurs at $\theta=60^\circ$, giving the largest water-carrying capacity.*
 
 ---
 
@@ -82,9 +88,9 @@ A 5m ladder leans against a wall. The bottom slides away at 1 m/s. How fast does
 ② $2x\frac{dx}{dt}+2y\frac{dy}{dt}=0 \to \frac{dy}{dt}=-\frac{x}{y}\frac{dx}{dt}$.
 ③ At $x=3$, $y=4$, $\frac{dx}{dt}=1$: $\frac{dy}{dt}=-\frac{3}{4}$ m/s (falling at 0.75 m/s).
 
-![Ladder related rates — sliding geometry](graphs/15b-ladder-rates.png)
+![Ladder related rates](graphs/0721/15B/15b-ladder-rates.png)
 
-*Graph 15B-2: ⬢ 3D — the ladder at successive time instants, sliding down as the bottom moves right at 1 m/s. The trajectory of top and bottom form a quarter-circle in the (x,y,t) space. ⬡ 2D — the geometric setup at the instant x=3, y=4. The Pythagorean relation x²+y²=25 is differentiated to 2x·dx/dt + 2y·dy/dt = 0. Bottom slides right (red arrow, +1 m/s), top slides down (green arrow, −3/4 m/s). ⬝ 1D — dy/dt as a function of x: as the bottom moves farther from the wall, the top accelerates downward. At x=3, dy/dt = −0.75 m/s. As x→5 (ladder nearly flat), dy/dt → −∞.*
+*Graph 15B-4: Left — The 5m ladder at the instant $x=3$, $y=4$. Bottom slides right at $dx/dt=1$ m/s (red), top falls at $dy/dt=-0.75$ m/s (green) from $2x\,dx/dt+2y\,dy/dt=0$. Right — $dy/dt$ as function of $x$: the top accelerates as the bottom slides out.*
 
 ---
 
@@ -96,9 +102,9 @@ Water pours into a conical tank (radius 2m, height 5m) at 3 m³/min. How fast do
 ② $V=\frac{1}{3}\pi(0.4h)^2 h=\frac{0.16}{3}\pi h^3$.
 ③ $\frac{dV}{dt}=0.16\pi h^2\frac{dh}{dt}=3$. At $h=1$: $\frac{dh}{dt}=\frac{3}{0.16\pi}\approx 5.97$ m/min.
 
-![Conical tank — water filling rate](graphs/15b-conical-tank.png)
+![Conical tank](graphs/0721/15B/15b-conical-tank.png)
 
-*Graph 15B-3: ⬢ 3D — the conical tank (R=2m, H=5m) with water filled to height h=1m (blue). The water surface is a disk of radius r=0.4m. ⬡ 2D — cross-section showing similar triangles: r/h = R/H = 2/5, so r = 0.4h. This relation collapses V from two variables (r,h) to one (h). ⬝ 1D — dh/dt as a function of water height h. The rise rate is fastest when the tank is nearly empty (h small, dh/dt ~ 1/h²) and slows dramatically as it fills. At h=1m, dh/dt ≈ 5.97 m/min; at h=4m, dh/dt ≈ 0.37 m/min.*
+*Graph 15B-5: Left — Cross-section of conical tank with similar triangles $r/h = R/H = 2/5$. Water level at $h=1$m. Right — $dh/dt$ as function of $h$: rise rate slows as tank fills ($dh/dt \propto 1/h^2$).*
 
 ---
 
@@ -118,13 +124,17 @@ A spotlight 100m from a straight wall rotates at 2 rad/min. How fast does the li
 ① $x=100\tan\theta$. ② $\frac{dx}{dt}=100\sec^2\theta\frac{d\theta}{dt}$.
 ③ At $\theta=45^\circ$, $\sec^2 45^\circ=2$, $\frac{d\theta}{dt}=2$: $\frac{dx}{dt}=100\cdot2\cdot2=400$ m/min.
 
+![Related rates overview — three classic patterns](graphs/0721/15B/15b-related-rates-overview.png)
+
+*Graph 15B-6: Three classic related rates patterns. Left — Pythagorean: $x^2+y^2=L^2$ (ladder). Middle — Similar triangles: $r/h=R/H$ (tank). Right — Trigonometric: $x=d\tan\theta$ (spotlight). Each pattern reduces two variables to one via a geometric constraint.*
+
 ---
 
 ## What We Just Did
 
 ```
 (1) Optimization: express quantity as f(one variable), set f'=0, verify with f''.
-(2) Common patterns: box volume, distance minimization, revenue/cost.
+(2) Common patterns: box volume, distance minimization, trigonometric optimization.
 (3) Related rates: write relationship, differentiate w.r.t. t, plug in.
 (4) Key shapes: ladder (Pythagorean), tank (similar triangles), rotating beam (trig).
 ```
@@ -163,7 +173,31 @@ Two cars: car A goes north at 60 km/h, car B goes east at 80 km/h. Both start fr
 
 ---
 
-## Basic Algebra Drill — Optimization & Related Rates (10 Problems)
+## Practice 5: Distance Minimization (🔗 9B, 12C1)
+
+Find the point on the line $y=2x+1$ that is closest to the origin. Solve two ways: (a) distance minimization, (b) perpendicular line through origin.
+
+→ Solutions: [Solutions](solutions/15B-solutions.md#practice-5)
+
+---
+
+## Practice 6: Related Rates — Volume (🔗 17A)
+
+A spherical snowball melts at a rate proportional to its surface area. If the radius decreases from 10cm to 9cm in 30 minutes, how long until it's completely melted?
+
+→ Solutions: [Solutions](solutions/15B-solutions.md#practice-6)
+
+---
+
+## Practice 7: Exponential Optimization (🔗 12B1)
+
+A population grows as $P(t)=1000e^{0.03t}$. The rate of resource consumption is $R(t)=P(t)\cdot C(t)$ where $C(t)=50e^{-0.01t}$ is per-capita consumption. Find when $R(t)$ is maximized.
+
+→ Solutions: [Solutions](solutions/15B-solutions.md#practice-7)
+
+---
+
+## Basic Algebra Drill — Optimization & Related Rates (12 Problems)
 
 **D1.** Find the maximum of $f(x)=-x^2+6x-5$.
 
@@ -178,6 +212,16 @@ Two cars: car A goes north at 60 km/h, car B goes east at 80 km/h. Both start fr
 **D6.** Find the point on $y=x^2$ closest to $(0,1)$.
 
 **D7.** A 10m ladder: bottom slides at 2 m/s. Find $\frac{dy}{dt}$ when bottom is 6m from wall.
+
+**D8.** Maximize $f(x)=x(10-x)$ on $[0,10]$.
+
+**D9.** Water fills a cylindrical tank (radius 3m) at 5 m³/min. Find $\frac{dh}{dt}$.
+
+**D10.** $y=\sqrt{x}$. If $\frac{dx}{dt}=4$, find $\frac{dy}{dt}$ when $x=9$.
+
+**D11.** (🔗 12B1, 15A) Maximize $f(x)=x e^{-x}$ on $[0,\infty)$.
+
+**D12.** (🔗 9B) A rectangle is inscribed in a circle of radius 5. Maximize its area.
 
 **D8.** Maximize $f(x)=x(10-x)$ on $[0,10]$.
 
@@ -210,6 +254,10 @@ Two cars: car A goes north at 60 km/h, car B goes east at 80 km/h. Both start fr
 **A9.** Oil spills in a circle. The radius grows at 0.5 km/h. When radius is 10 km, how fast is the area growing?
 
 **A10.** A cone (radius r, height h) is inscribed in a sphere of radius R. Maximize the volume of the cone.
+
+**A11.** (🔗 17A) A water tank has the shape of a hemisphere of radius 2m. Water pours in at 1 m³/min. Find $dh/dt$ when the depth is 1m. (Hint: $V = \pi h^2(R-h/3)$ for a spherical cap.)
+
+**A12.** (🔗 12B1) A company's profit is $P(x)=1000\ln(x+1)-5x$. Find the production level $x$ that maximizes profit.
 
 > Solutions: [Solutions](solutions/15B-solutions.md#advanced-drill)
 
