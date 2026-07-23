@@ -1,6 +1,6 @@
 # Session 19B: First-Order Solution Methods
 
-**Phase 2 — Classical Techniques | 60 min**
+**Phase 2 — Classical Techniques | 65 min**
 
 *Prerequisites: 19A (ODE modeling), 16A/B (integration techniques)*
 
@@ -34,7 +34,7 @@ Multiply ODE by $\mu$: $\frac{d}{dx}(\mu y) = \mu Q$. Integrate: $y = \frac{1}{\
 
 **Why it works**: $\mu' = \mu P$, so $(\mu y)' = \mu y' + \mu' y = \mu(y'+Py) = \mu Q$.
 
-![Integrating factor — 3D $\mu y$ surface, 2D slope field, 1D product rule](graphs/19b-integrating-factor.png)
+![Integrating factor — 3D $\mu y$ surface, 2D slope field, 1D product rule](graphs/0721/19B/integrating-factor.png)
 
 *Graph 19B: 3D — the surface $\mu y$ for $y' + 2xy = x$ with $\mu = e^{x^2}$. Multiplying by $\mu$ turns the left side into an exact derivative. 2D — slope field with solution curves $y = 0.5 + Ce^{-x^2}$. The red line $y=0.5$ is the equilibrium ($C=0$). 1D — the product rule in action: $(\mu y)'$ (orange) exactly equals $\mu Q = xe^{x^2}$ (red dashed).*
 
@@ -74,11 +74,59 @@ $y' = y(1-y)$: equilibria at $y=0,1$. $y=0$ unstable (small positive pushes away
 
 ---
 
+## Example 8: Interval of Validity — Where Does the Solution Actually Work?
+
+When you solve an ODE, the solution may only be valid on a **specific interval**. The general solution formula might suggest a wider domain, but the actual solution with initial conditions might blow up at finite $x$.
+
+$y' = y^2$, $y(0)=1$. Separate: $\int y^{-2}dy = \int dx$ → $-\frac{1}{y} = x + C$. With $y(0)=1$: $-1 = C$.
+
+$-\frac{1}{y} = x - 1$ → $y = \frac{1}{1-x}$.
+
+**This solution is only valid for $x < 1$.** At $x=1$, $y\to\infty$ (vertical asymptote). The solution doesn't "stop" at $x=1$ — it blows up.
+
+**Why this matters**: The formula $y=1/(1-x)$ exists for all $x\neq1$, but the initial condition at $x=0$ only determines the solution on $(-\infty, 1)$. If you started at $x=2$ with $y(2)=-1$, you'd get a different branch.
+
+**Interval of validity** = the largest interval containing the initial point where the solution exists and is well-defined.
+
+$y' = \frac{1}{y}$, $y(0)=2$. Separate: $y\,dy = dx$ → $\frac{y^2}{2} = x + C$. With $y(0)=2$: $2 = C$.
+
+$y^2 = 2x + 4$ → $y = \sqrt{2x+4}$. Valid for $x > -2$. At $x=-2$, $y=0$, and the ODE $y'=1/y$ blows up.
+
+> **🔗 Bridge to 15A (Domain Analysis)**: In 15A, you find the domain of a function before analyzing it. The interval of validity is the same idea — the solution of an ODE is only meaningful where it stays finite and differentiable. Just as $\sqrt{x}$ is only defined for $x\ge0$, the solution $y=1/(1-x)$ is only defined for $x<1$ (with that initial condition).
+
+---
+
+## Example 9: Bernoulli Application — Logistic with Harvesting
+
+A fish population grows logistically ($k=0.3$, $L=5000$) but is harvested at a constant rate $H=200$ fish per year.
+
+$\frac{dP}{dt} = 0.3P\left(1-\frac{P}{5000}\right) - 200 = 0.3P - 0.00006P^2 - 200$.
+
+This is a **Bernoulli equation** with $n=2$: $P' - 0.3P = -0.00006P^2 - 200$. Wait — the constant $200$ makes it not purely Bernoulli. But rewrite as:
+
+$\frac{dP}{dt} = -0.00006(P^2 - 5000P + 3,\!333,\!333)$
+
+Find equilibria: $P^2 - 5000P + 3,\!333,\!333 = 0$.
+
+$P = \frac{5000 \pm \sqrt{25\times10^6 - 13.33\times10^6}}{2} = \frac{5000 \pm \sqrt{11.67\times10^6}}{2} \approx \frac{5000 \pm 3416}{2}$.
+
+$P_1 \approx 4208$ (stable), $P_2 \approx 792$ (unstable — extinction threshold).
+
+**Interpretation**: If the population drops below 792, harvesting exceeds growth → extinction. Above 4208, the population self-regulates at the carrying capacity minus harvesting losses.
+
+> **🔗 Bridge to Phase Line (19A, Example 9)**: Draw the phase line for this harvesting model: $f(P)$ is a downward-opening parabola. Two equilibria — the smaller one is unstable (threshold), the larger one is stable. This is a **saddle-node bifurcation** in disguise: if $H$ exceeds the maximum sustainable yield, both equilibria disappear and extinction is inevitable.
+
+---
+
 ## Common Mistakes
 
 ### Mistake 1: Forgetting the absolute value in $\int \frac{dy}{y} = \ln|y|$
 ### Mistake 2: Not putting ODE in standard form before identifying $P(x)$
 ### Mistake 3: Losing the $+C$ — it's always there for indefinite integration
+
+### Mistake 4: Forgetting the interval of validity
+
+**Wrong**: Solving $y'=y^2$, $y(0)=1$ and writing $y=1/(1-x)$ without noting it blows up at $x=1$. **Right**: Always check where the solution becomes undefined — the interval of validity contains the initial point and excludes singularities.
 
 ---
 
@@ -106,7 +154,23 @@ Solve: $y' - \frac{2}{x}y = x^3$, $x>0$.
 
 ---
 
-## Basic Algebra Drill — First-Order Methods (10 Problems)
+## Practice 4
+
+Find the interval of validity for $y' = y^2$, $y(0) = \frac{1}{2}$. At what $x$ does the solution blow up?
+
+→ Solutions: [Solutions](solutions/19B-solutions.md#practice-4)
+
+---
+
+## Practice 5
+
+A population satisfies $P' = 0.2P(1-P/1000) - 50$ (harvesting constant rate 50). Find equilibria and determine which is stable. (🔗 19A)
+
+→ Solutions: [Solutions](solutions/19B-solutions.md#practice-5)
+
+---
+
+## Basic Algebra Drill — First-Order Methods (12 Problems)
 
 **D1.** Solve $dy/dx = 2xy$. Separable.
 
@@ -128,11 +192,15 @@ Solve: $y' - \frac{2}{x}y = x^3$, $x>0$.
 
 **D10.** Solve $y' = \frac{y}{x}$, $x>0$.
 
+**D11.** Find the interval of validity for $y' = y^3$, $y(0)=1$.
+
+**D12.** Solve $y' = \frac{x}{y}$, $y(0)=2$. Where does the solution become vertical?
+
 > Solutions: [Solutions](solutions/19B-solutions.md#basic-drill)
 
 ---
 
-## Advanced Algebra Drill — First-Order Methods (10 Problems)
+## Advanced Algebra Drill — First-Order Methods (12 Problems)
 
 **A1.** Solve $dy/dx = (x+y)^2$ using substitution $u=x+y$.
 
@@ -154,6 +222,10 @@ Solve: $y' - \frac{2}{x}y = x^3$, $x>0$.
 
 **A10.** Show that every solution of $y' = y(1-y)$ approaches 1 as $t\to\infty$ (except $y\equiv0$).
 
+**A11.** A logistic population ($L=2000$, $k=0.4$) is harvested at a constant rate $H$. Find the maximum $H$ such that a stable positive equilibrium exists. What does this imply for fishery management? (🔗 19A)
+
+**A12.** Solve $y' = \frac{y}{1+x^2}$ and find the explicit interval of validity for $y(0)=1$.
+
 > Solutions: [Solutions](solutions/19B-solutions.md#advanced-drill)
 
 ---
@@ -171,6 +243,8 @@ Solve: $y' - \frac{2}{x}y = x^3$, $x>0$.
 | $y \equiv 0$ | "y is identically zero" | zero everywhere — the trivial equilibrium solution |
 | $\lim_{t\to\infty}$ | "limit as t goes to infinity" | long-term behavior of the solution |
 | equilibrium | "equilibrium" / "steady state" | constant solution where y'=0 — no change over time |
+| interval of validity | "interval of validity" | largest interval containing $x_0$ where solution exists |
+| blow-up / singularity | "blow-up" / "finite-time singularity" | solution → ±∞ at finite $x$ (e.g., $y=1/(1-x)$) |
 | separable / linear | "separable" / "linear" | ODE classification — determines solution method |
 
 
@@ -186,3 +260,5 @@ Solve: $y' - \frac{2}{x}y = x^3$, $x>0$.
 | constant solution where y'=0 | equilibrium / steady state | $f(y)=0$ |
 | nearby solutions converge to it | stable equilibrium | (attractor) |
 | nearby solutions move away | unstable equilibrium | (repellor) |
+| largest interval where solution exists | interval of validity | contains $x_0$, excludes singularities |
+| logistic with constant removal | harvesting model | $P' = kP(1-P/L) - H$ |

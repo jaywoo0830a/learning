@@ -24,7 +24,7 @@ A **second-order** scalar ODE became a **first-order** system in 2D: $\dot{\vec{
 
 **Why do this?** Because every classical mechanics problem, every circuit, every reaction network reduces to $\dot{\vec{x}} = A\vec{x}$ (or its nonlinear cousin). Master this form and you master all of them.
 
-![State space of a harmonic oscillator](graphs/19e-harmonic-oscillator-state-space.png)
+![State space of a harmonic oscillator](graphs/0721/19E/harmonic-oscillator-state-space.png)
 
 *Graph 19E-1: The harmonic oscillator in state space $(x, \dot{x})$. Each point is a complete description of the system at one instant. The trajectory is an ellipse — position and velocity trade off, conserving energy $E = \frac{1}{2}kx^2 + \frac{1}{2}m\dot{x}^2$. The arrows show the direction of motion (clockwise).*
 
@@ -91,9 +91,13 @@ General solution (real form): $\vec{x}(t) = c_1\begin{pmatrix} \cos t \\ -\sin t
 
 Trajectories are **ellipses** — pure oscillation, no growth or decay. The eigenvalues being purely imaginary ($\pm i\omega$) means the system is a **center**.
 
-![Center — pure oscillation in phase space](graphs/19e-center-phase-portrait.png)
+![Center — pure oscillation in phase space](graphs/0721/19E/center-phase-portrait.png)
 
 *Graph 19E-2: ⬢ 3D view of the harmonic oscillator's state space $(x, \dot{x}, t)$. The trajectory spirals up the time axis as a helix. ⬡ 2D projection onto the $(x, \dot{x})$ plane — a closed ellipse (center). ⬝ 1D time trace $x(t)$ — pure cosine. Three views of the same motion.*
+
+> **🔗 Bridge to 12A1 (Complex Numbers)**: In 12A1, you learned that multiplying by $i$ rotates by $90^\circ$, and $e^{i\theta}$ is a rotation matrix. Complex eigenvalues $\lambda = \alpha \pm i\beta$ in ODEs are the same idea: the real part $\alpha$ scales (growth/decay), the imaginary part $\beta$ rotates. The rotation matrix $\begin{pmatrix}\cos\beta t & -\sin\beta t \\ \sin\beta t & \cos\beta t\end{pmatrix}$ from 12C1 is exactly what $e^{i\beta t}$ does — and it's hiding inside the solution $e^{\alpha t}\cos(\beta t)$. Complex numbers, rotation matrices, and oscillatory ODE solutions are three languages for the same geometry.
+>
+> **🔗 Bridge to 12C2 (Parametric Curves)**: The trajectory $\vec{x}(t) = e^{\alpha t}(c_1\cos\beta t + c_2\sin\beta t)$ in the phase plane is itself a **parametric curve** (12C2). As $t$ varies, the point $(x_1(t), x_2(t))$ traces a spiral — just like the parametric curves you drew in 12C2. The difference: in 12C2 you chose the curve; here the ODE chooses it for you.
 
 ---
 
@@ -139,9 +143,13 @@ Eigenvalues: $\lambda = \frac{\tau \pm \sqrt{\tau^2 - 4\Delta}}{2}$. The discrim
 - $\Delta > 0$, $\tau^2 < 4\Delta$: **Spiral** (complex conjugate)
 - $\Delta > 0$, $\tau = 0$: **Center** (purely imaginary)
 
-![Phase portrait zoo — all six types](graphs/19e-phase-portrait-zoo.png)
+![Phase portrait zoo — all six types](graphs/0721/19E/phase-portrait-zoo.png)
 
 *Graph 19E-3: ⬢ 3D view — each portrait is a slice of the $(x_1, x_2, t)$ space. ⬡ 2D $(x_1, x_2)$ phase planes for all six types. ⬝ 1D time traces $x_1(t)$ beneath each — saddle (diverges), node (monotone), spiral (oscillatory decay). The eigenvalue pair dictates everything.*
+
+> **🔗 Bridge to 12C1 (Geometric Transformations)**: The matrix $A$ in $\dot{\vec{x}} = A\vec{x}$ is a **linear transformation** (12C1). Solving the system means finding the transformation $e^{At}$ that maps initial conditions to future states. Just as 12C1 decomposed transformations into rotation, scaling, and reflection, the eigenvalue decomposition $A = PDP^{-1}$ decomposes the dynamics into independent 1D behaviors along eigen-directions. Rotation in phase space = complex eigenvalues = the rotation matrices from 12C1.
+>
+> **🔗 Bridge to 12C3 (Coordinate Systems)**: Diagonalizing $A$ by computing $P^{-1}AP = D$ is a **change of coordinates** (12C3). The columns of $P$ are the eigenvectors — they form a new basis aligned with the system's natural motions. In this new coordinate system $\vec{y} = P^{-1}\vec{x}$, the system decouples: $\dot{y}_1 = \lambda_1 y_1$, $\dot{y}_2 = \lambda_2 y_2$. Each coordinate evolves independently. This is exactly the insight of 12C3: **choose the right coordinates and the problem simplifies.**
 
 ---
 
@@ -178,7 +186,7 @@ $\tau = 0$, $\Delta = g/L > 0$ → **Center**. Small oscillations, period $2\pi\
 System: $\dot{\vec{y}} \approx \begin{pmatrix} 0 & 1 \\ g/L & 0 \end{pmatrix}\vec{y}$.
 $\Delta = -g/L < 0$ → **Saddle**. Any tiny push sends it falling away.
 
-![Pendulum phase portrait — center and saddle](graphs/19e-pendulum-phase-portrait.png)
+![Pendulum phase portrait — center and saddle](graphs/0721/19E/pendulum-phase-portrait.png)
 
 *Graph 19E-4: ⬢ 3D energy surface of the pendulum $E = \frac{1}{2}\dot{\theta}^2 - \frac{g}{L}\cos\theta$. ⬡ 2D phase portrait: centers at $(2n\pi, 0)$ (stable hanging), saddles at $((2n+1)\pi, 0)$ (unstable inverted). The separatrix (red curve) divides oscillatory from whirling motion. ⬝ 1D potential $U(\theta) = -\cos\theta$ with equilibrium points marked.*
 
@@ -395,6 +403,9 @@ Step 4: For nonlinear: find equilibria (F(x*)=0). Compute Jacobian J at x*.
 | $\vec{x}^*$ | "x star" / "equilibrium point" | F(x*) = 0 — system at rest |
 | saddle / node / spiral / center | "saddle" / "node" / "spiral" / "center" | six canonical 2D phase portraits determined by eigenvalues |
 | Hartman-Grobman | "Hartman-Grobman theorem" | near equilibrium, nonlinear phase portrait ≈ linearized portrait |
+| $e^{At}$ | "e to the A t" / "matrix exponential" | solution operator — maps initial state to state at time t |
+| $P^{-1}AP = D$ | "P inverse A P equals D" | diagonalization = coordinate change (🔗 12C3) to eigenbasis |
+| rotation in phase plane | complex eigenvalues (🔗 12A1, 12C1) | $\lambda = \alpha \pm i\beta$ → spiral or center |
 
 
 ---
@@ -405,7 +416,7 @@ Step 4: For nonlinear: find equilibria (F(x*)=0). Compute Jacobian J at x*.
 |:---:|:---:|:---:|
 | vector of positions and velocities | state vector | $\vec{x} = (x_1, \ldots, x_n)^\mathsf{T}$ |
 | first-order matrix ODE | linear dynamical system | $\dot{\vec{x}} = A\vec{x}$ |
-| growth/decay + oscillation rate | eigenvalue | $\lambda = \alpha \pm i\beta$ |
+| growth/decay + oscillation rate | eigenvalue | $\lambda = \alpha \pm i\beta$ (🔗 12A1: complex = rotation + scaling) |
 | direction of pure exponential motion | eigenvector | $\vec{v}$ |
 | 2D plot of $(x_1, x_2)$ trajectories | phase portrait | (physics/math) |
 | sum of diagonal = sum of eigenvalues | trace | $\tau = \text{tr}(A)$ |
@@ -413,3 +424,4 @@ Step 4: For nonlinear: find equilibria (F(x*)=0). Compute Jacobian J at x*.
 | Jacobian at equilibrium | linearization matrix | $J = \partial\vec{F}/\partial\vec{x}|_{\vec{x}^*}$ |
 | parameter value where stability changes | bifurcation point | (physics/chemistry) |
 | independent vibrational patterns | normal modes | (physics/chemistry) |
+| coordinate change to eigenbasis | diagonalization (🔗 12C3) | $A = PDP^{-1}$ |

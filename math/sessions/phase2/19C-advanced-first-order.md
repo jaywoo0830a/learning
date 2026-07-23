@@ -1,6 +1,6 @@
 # Session 19C: Advanced First-Order — Substitutions and Exact Equations
 
-**Phase 2 — Classical Techniques | 55 min**
+**Phase 2 — Classical Techniques | 60 min**
 
 *Prerequisites: 19B (separable & linear), 14B (implicit differentiation)*
 
@@ -42,7 +42,7 @@ $\phi = \int M\,dx = x^2+xy + h(y)$. $\frac{\partial\phi}{\partial y} = x + h'(y
 
 $\phi(x,y) = x^2+xy+y^2 = C$.
 
-![Exact ODE — 3D potential surface, 2D vector field + level curves, 1D slice](graphs/19c-exact-ode-potential.png)
+![Exact ODE — 3D potential surface, 2D vector field + level curves, 1D slice](graphs/0721/19C/exact-ode-potential.png)
 
 *Graph 19C: 3D — the potential surface $\phi(x,y) = x^2 + xy + y^2$. Solutions are level curves of this surface (red ellipses at constant height). 2D — the vector field $\nabla\phi = \langle 2x+y, x+2y\rangle$ is everywhere perpendicular to the level curves. The ODE $(2x+y)dx + (x+2y)dy = 0$ says "walk perpendicular to the gradient" — i.e., stay on a level curve. 1D — a slice along $y=x$ shows the potential minimum at the origin — all solution ellipses surround this point.*
 
@@ -78,11 +78,57 @@ Separable: $2y\,dy = -x\,dx$. $y^2 = -\frac{x^2}{2} + K$. Ellipses orthogonal to
 
 ---
 
-## Example 6: Riccati Equation (Preview)
+## Example 6: Riccati Equation — From Preview to Full Solution (🔗 12C3)
 
-$y' = P(x)y^2 + Q(x)y + R(x)$. If one solution $y_1$ is known, substitute $y = y_1 + \frac{1}{v}$ reduces to linear in $v$.
+$y' = P(x)y^2 + Q(x)y + R(x)$. If one solution $y_1$ is known, substitute $y = y_1 + \frac{1}{v}$ reduces to **linear** in $v$.
 
-> **Up to here**: Homogeneous → $v=y/x$. Bernoulli → $v=y^{1-n}$. Exact → $\phi(x,y)=C$. Non-exact → find $\mu$. Orthogonal trajectories: flip slope to $-1/$slope.
+**Why this works**: The substitution $y = y_1 + 1/v$ transforms the nonlinear Riccati into $v' + (Q+2Py_1)v = -P$, which is linear first-order.
+
+**Example**: $y' = y^2 - \frac{2}{x^2}$, given $y_1 = \frac{1}{x}$ is a solution.
+
+Verify: $y_1' = -\frac{1}{x^2}$. RHS: $y_1^2 - \frac{2}{x^2} = \frac{1}{x^2} - \frac{2}{x^2} = -\frac{1}{x^2}$. ✓
+
+Substitute $y = \frac{1}{x} + \frac{1}{v}$:
+
+$y' = -\frac{1}{x^2} - \frac{v'}{v^2}$. Plug into ODE:
+
+$-\frac{1}{x^2} - \frac{v'}{v^2} = \left(\frac{1}{x} + \frac{1}{v}\right)^2 - \frac{2}{x^2} = \frac{1}{x^2} + \frac{2}{xv} + \frac{1}{v^2} - \frac{2}{x^2}$.
+
+Simplify: $-\frac{1}{x^2} - \frac{v'}{v^2} = -\frac{1}{x^2} + \frac{2}{xv} + \frac{1}{v^2}$.
+
+Cancel $-\frac{1}{x^2}$: $-\frac{v'}{v^2} = \frac{2}{xv} + \frac{1}{v^2}$.
+
+Multiply by $v^2$: $-v' = \frac{2v}{x} + 1$. Rearrange: $v' + \frac{2}{x}v = -1$.
+
+**Linear!** $\mu = e^{\int 2/x\,dx} = x^2$. $(x^2 v)' = -x^2$. $x^2 v = -\frac{x^3}{3} + C$.
+
+$v = -\frac{x}{3} + \frac{C}{x^2}$. Then $y = \frac{1}{x} + \frac{1}{-\frac{x}{3} + \frac{C}{x^2}} = \frac{1}{x} + \frac{x^2}{C - \frac{x^3}{3}}$.
+
+> **🔗 Bridge to 12C3 (Coordinate Transformations)**: Every substitution in ODEs is a **coordinate transformation**:
+>
+> - $v = y/x$ (homogeneous) → rotates/stretches the coordinate system so the ODE separates.
+> - $v = y^{1-n}$ (Bernoulli) → maps nonlinear $y^n$ to linear space.
+> - $y = y_1 + 1/v$ (Riccati) → an **inversion** transformation that linearizes the quadratic nonlinearity.
+>
+> This is the same idea as 12C3: choose the right coordinate system, and the problem simplifies. Just as polar coordinates turn $x^2+y^2=R^2$ into $r=R$, the Riccati substitution $y = y_1 + 1/v$ turns $y' = y^2 + \cdots$ into $v' + \cdots = 0$ (linear). **The art of solving ODEs IS the art of finding the right coordinate system.**
+
+---
+
+## Example 7: Clairaut's Equation — A Curve and All Its Tangents
+
+$y = xy' + f(y')$. Differentiate both sides:
+
+$y' = y' + xy'' + f'(y')y''$. Cancel $y'$: $0 = y''(x + f'(y'))$.
+
+**Case 1**: $y'' = 0$ → $y' = c$ (constant). General solution: $y = cx + f(c)$ — a family of straight lines.
+
+**Case 2**: $x + f'(y') = 0$ → $x = -f'(y')$, $y = -y' f'(y') + f(y')$ — the **singular solution** (envelope of the lines).
+
+$y = xy' + (y')^2$. $f(t)=t^2$.
+
+General: $y = cx + c^2$ (lines). Singular: $x = -2y'$, $y = -2(y')^2 + (y')^2 = -(y')^2$. Eliminate $y'$: $y = -\frac{x^2}{4}$ — a parabola that is tangent to every line $y=cx+c^2$.
+
+> **Up to here**: Homogeneous → $v=y/x$. Bernoulli → $v=y^{1-n}$. Exact → $\phi(x,y)=C$. Non-exact → find $\mu$. Orthogonal trajectories: flip slope to $-1/$slope. Riccati → known $y_1$ + $1/v$ substitution → linear. Clairaut → $y=cx+f(c)$ (general) + envelope (singular). Every substitution is a coordinate transformation (🔗 12C3).
 
 ---
 
@@ -110,7 +156,15 @@ Solve: $(2xy+1)dx + (x^2+3y^2)dy = 0$. Test for exactness.
 
 ---
 
-## Basic Algebra Drill — Advanced First-Order (10 Problems)
+## Practice 4
+
+Solve the Riccati equation $y' = y^2 - \frac{2}{x^2}$ using the known solution $y_1 = 1/x$.
+
+→ Solutions: [Solutions](solutions/19C-solutions.md#practice-4)
+
+---
+
+## Basic Algebra Drill — Advanced First-Order (12 Problems)
 
 **D1.** Solve $dy/dx = (y/x)^2 + y/x$. Homogeneous.
 
@@ -132,11 +186,15 @@ Solve: $(2xy+1)dx + (x^2+3y^2)dy = 0$. Test for exactness.
 
 **D10.** Classify: $y' = x+y$ — separable? linear? homogeneous? exact?
 
+**D11.** Solve the Riccati $y' = y^2 + \frac{1}{x^2} - \frac{1}{x}$ given $y_1 = 1/x$. (🔗 12C3)
+
+**D12.** Find the general solution of Clairaut $y = xy' - (y')^2$. Also find the singular solution.
+
 > Solutions: [Solutions](solutions/19C-solutions.md#basic-drill)
 
 ---
 
-## Advanced Algebra Drill — Advanced First-Order (10 Problems)
+## Advanced Algebra Drill — Advanced First-Order (12 Problems)
 
 **A1.** Solve $x\frac{dy}{dx} = y + \sqrt{x^2-y^2}$. Homogeneous, use $y=x\sin\theta$.
 
@@ -158,6 +216,10 @@ Solve: $(2xy+1)dx + (x^2+3y^2)dy = 0$. Test for exactness.
 
 **A10.** Find curves such that every tangent line passes through the origin. Set up ODE and solve.
 
+**A11.** Solve the Riccati $y' = y^2 - \frac{2y}{x} - \frac{1}{x^2}$ by first guessing a solution of the form $y_1 = a/x$.
+
+**A12.** Show that orthogonal trajectories of the family of parabolas $y = Cx^2$ are ellipses $x^2 + 2y^2 = K$. (🔗 12C3: which coordinate system makes this easier?)
+
 > Solutions: [Solutions](solutions/19C-solutions.md#advanced-drill)
 
 ---
@@ -177,6 +239,8 @@ Solve: $(2xy+1)dx + (x^2+3y^2)dy = 0$. Test for exactness.
 | $\mu(x)$, $\mu(y)$ | "mu of x" / "integrating factor" | factor making a non-exact ODE exact |
 | orthogonal trajectories | "orthogonal trajectories" | curves intersecting a given family at right angles |
 | Riccati | "Riccati" / "ree-CAH-tee" | y' = P y² + Q y + R — nonlinear, needs one known solution |
+| $y = y_1 + 1/v$ | "y equals y one plus one over v" | Riccati substitution — linearizes via inversion |
+| Clairaut | "Clairaut" / "clair-OH" | y = x y' + f(y') — general solution = lines, singular = envelope |
 
 
 ---
@@ -191,3 +255,4 @@ Solve: $(2xy+1)dx + (x^2+3y^2)dy = 0$. Test for exactness.
 | function whose gradient gives (M,N) | potential / scalar function | $\phi(x,y)$ s.t. $\nabla\phi=\langle M,N\rangle$ |
 | multiply to make exact | integrating factor (exact) | $\mu(x)$ or $\mu(y)$ |
 | curves intersecting at right angles | orthogonal trajectories | slope → −1/slope |
+| substitution changes coordinates | coordinate transformation (🔗 12C3) | $v=y/x$, $v=y^{1-n}$, $y=y_1+1/v$ |
