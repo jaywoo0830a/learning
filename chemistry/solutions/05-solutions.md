@@ -256,45 +256,54 @@ $$\boxed{\text{(a) 27.4 g is correct. (b) The 55.0 g student used mole ratio 1:2
 
 ### A5
 
-**(a)** $N_2 + 3H_2 \to 2NH_3$.
+Balanced: $N_2 + 3H_2 \to 2NH_3$.
 
-**(b)** **Problem:** "In the Haber process, nitrogen gas reacts with hydrogen gas to produce ammonia. If a reactor starts with 50.0 g of $N_2$ and excess $H_2$, what mass of $NH_3$ can be produced?"
+(a) Molar mass $N_2 = 2 \times 14.01 = 28.02$ g/mol.
+mol $N_2 = 50.0 \div 28.02 = 1.7844$ mol.
+From equation: $1$ mol $N_2 \to 2$ mol $NH_3$.
+mol $NH_3 = 1.7844 \times 2 = 3.5688$ mol.
+Molar mass $NH_3 = 14.01 + 3(1.008) = 17.034$ g/mol.
+g $NH_3 = 3.5688 \times 17.034 = 60.79$ g.
 
-**(c)** Solution:
-mol $N_2$ = 50.0 g ÷ 28.02 g/mol = 1.7844 mol.
-mol $NH_3$ = 1.7844 mol × 2 = 3.5688 mol.
-g $NH_3$ = 3.5688 mol × 17.034 g/mol = 60.79 g.
+$$\boxed{60.8 \text{ g } NH_3}\quad\text{(3 sig figs, limited by 50.0)}$$
 
-$$\boxed{60.8 \text{ g } NH_3}\quad\text{(3 sig figs)}$$
+(b) From equation: $1$ mol $N_2$ uses $3$ mol $H_2$.
+mol $H_2 = 1.7844 \times 3 = 5.3532$ mol.
+Molar mass $H_2 = 2 \times 1.008 = 2.016$ g/mol.
+g $H_2 = 5.3532 \times 2.016 = 10.79$ g.
 
-**(d)** Part 2: mol $H_2$ = 1.7844 mol $N_2$ × 3 = 5.3532 mol $H_2$.
-g $H_2$ = 5.3532 mol × 2.016 g/mol = 10.79 g.
+$$\boxed{10.8 \text{ g } H_2 \text{ consumed}}$$
 
-$$\boxed{10.8 \text{ g } H_2 \text{ consumed}}\quad\text{(3 sig figs)}$$
-
-Conservation check: 50.0 g $N_2$ + 10.8 g $H_2$ = 60.8 g $NH_3$. ✓
+(c) **Conservation check:**
+Reactants: $50.0 \text{ g } N_2 + 10.79 \text{ g } H_2 = 60.79$ g.
+Product: $60.79$ g $NH_3$. ✓ Mass is conserved.
 
 ---
 
 ### A6
 
-**Problem:** "Ethanol ($C_2H_5OH$) burns in oxygen: $C_2H_5OH + 3O_2 \to 2CO_2 + 3H_2O$. If 25.0 g of ethanol is burned in excess oxygen, calculate the mass of both $CO_2$ and $H_2O$ produced."
+(a) Combustion: $C_2H_5OH + O_2 \to CO_2 + H_2O$.
+Balance C: $C_2H_5OH + O_2 \to 2CO_2 + H_2O$.
+Balance H: $C_2H_5OH + O_2 \to 2CO_2 + 3H_2O$.
+Balance O: Right: $2\times2 + 3\times1 = 7$ O. Left: $1$ (from ethanol) + $2$ (per $O_2$) = need $6$ more → $3$ $O_2$.
 
-Solution:
-Molar mass $C_2H_5OH$ = 2(12.01) + 6(1.008) + 16.00 = 46.068 g/mol.
-mol ethanol = 25.0 g ÷ 46.068 g/mol = 0.54268 mol.
+$$C_2H_5OH + 3O_2 \to 2CO_2 + 3H_2O$$
 
-**$CO_2$:**
-mol $CO_2$ = 0.54268 × 2 = 1.0854 mol.
-g $CO_2$ = 1.0854 mol × 44.01 g/mol = 47.77 g.
+(b) Molar mass $C_2H_5OH = 2(12.01) + 6(1.008) + 16.00 = 46.068$ g/mol.
+mol ethanol = $25.0 \div 46.068 = 0.54268$ mol.
 
-**$H_2O$:**
-mol $H_2O$ = 0.54268 × 3 = 1.6280 mol.
-g $H_2O$ = 1.6280 mol × 18.016 g/mol = 29.33 g.
+$CO_2$: mol = $0.54268 \times 2 = 1.0854$ mol. g = $1.0854 \times 44.01 = 47.77$ g.
+$H_2O$: mol = $0.54268 \times 3 = 1.6280$ mol. g = $1.6280 \times 18.016 = 29.33$ g.
 
 $$\boxed{47.8 \text{ g } CO_2 \text{ and } 29.3 \text{ g } H_2O}\quad\text{(3 sig figs)}$$
 
-Pitfall note: The $O_2$ coefficient (3) is a common source of confusion. Students sometimes use the $O_2$ coefficient instead of $CO_2$ or $H_2O$ coefficients when finding those products. The $O_2$ is the REACTANT — you need the PRODUCT coefficients.
+(c) **The $O_2$ coefficient trap:**
+A student who uses $O_2$ coefficient (3) instead of product coefficients:
+- For $CO_2$: mol $CO_2 = 0.54268 \times 3 = 1.6280$ mol (wrong — should be ×2).
+g $CO_2 = 1.6280 \times 44.01 = 71.65$ g (off by 50%).
+- For $H_2O$: mol $H_2O = 0.54268 \times 3 = 1.6280$ mol (coincidentally same as correct for $H_2O$ since its coefficient IS 3).
+
+The trap: the $O_2$ coefficient (3) happens to equal the $H_2O$ coefficient (3) in this case, so $H_2O$ comes out correct but $CO_2$ (coefficient 2) does not. Never assume — use the product's OWN coefficient.
 
 ---
 

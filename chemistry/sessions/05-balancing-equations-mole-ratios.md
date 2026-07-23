@@ -2,7 +2,7 @@
 
 > **Topic:** From a pile of one substance to a pile of another — the mole ratio is the bridge.
 > **Time:** 150 minutes
-> **Big Fat Notebook:** Chapter 7
+> **Big Fat Notebook:** Chapter 20
 
 ---
 
@@ -489,9 +489,9 @@ Copy this. Every mass–mass stoichiometry problem follows these three steps. Th
 
 **A4.** (Reverse engineering) A student calculates that burning 10.0 g of $CH_4$ produces 55.0 g of $CO_2$. Their partner gets 27.4 g. (a) Which answer is correct? (b) What mistake did the wrong student make? (c) Show the full correct calculation with the balanced equation.
 
-**A5.** (Constructive) A classic exam problem: "Nitrogen gas reacts with hydrogen gas to form ammonia." (a) Write and balance the equation. (b) Write a problem where the student must find grams of $NH_3$ from 50.0 g of $N_2$. (c) Solve it. (d) Add a second part: find the mass of $H_2$ consumed.
+**A5.** (Haber process — ammonia synthesis) In the Haber process, nitrogen gas reacts with hydrogen gas to produce ammonia: $N_2 + 3H_2 \to 2NH_3$. A reactor starts with 50.0 g of $N_2$ and excess $H_2$. (a) How many grams of $NH_3$ can be produced? (b) How many grams of $H_2$ are consumed? (c) Verify conservation of mass: does the sum of reactants equal the mass of product?
 
-**A6.** (Constructive) Write a problem where a student must balance a combustion reaction of an alcohol (e.g., $C_2H_5OH$) and then calculate both products' masses from a given mass of alcohol. Solve it. Include a common pitfall in the solution notes.
+**A6.** (Alcohol combustion — multiple products) Ethanol ($C_2H_5OH$) is a common biofuel. (a) Write the balanced equation for the complete combustion of ethanol. (Hint: $C_2H_5OH + O_2 \to CO_2 + H_2O$ — balance C first, then H, then O.) (b) If 25.0 g of ethanol is burned in excess oxygen, calculate the masses of $CO_2$ and $H_2O$ produced. (c) A student mistakenly uses the $O_2$ coefficient instead of the $CO_2$ coefficient when finding moles of $CO_2$. What masses would they incorrectly calculate for $CO_2$ and $H_2O$?
 
 **A7.** (Table-based) Four reactions and their balanced equations:
 
@@ -516,15 +516,31 @@ For each reaction, 100.0 g of the first reactant is consumed. (a) Calculate gram
 
 You can now balance combustion reactions by inspection, extract mole ratios, and run the full gram → mole → mole → gram chain without hesitation. 50.0 g of propane → 150. g $CO_2$ + 81.7 g $H_2O$. You proved it with numbers.
 
-Read **Chapter 7** of *Everything You Need to Ace Chemistry in One Big Fat Notebook*.
+Read **Chapter 20** of *Everything You Need to Ace Chemistry in One Big Fat Notebook*.
 
 You've solved 20 problems — from balancing $H_2 + O_2$ to reverse-engineering a hydrocarbon's molecular formula from combustion data. The concepts — what a balanced equation actually says about atom counts, why mole ratios work, how stoichiometry connects the lab to the equation — will lock into place.
+
+> **Note:** Chapter 20 is titled "Chemical Reactions". It covers how to write and balance equations — you now know how to balance combustion, synthesis, decomposition, and single/double displacement reactions. Read it to reinforce the patterns.
 
 > Solutions: [solutions/05-solutions.md](../solutions/05-solutions.md)
 
 ---
 
-## 📝 Key Terms — Quick Reference
+## � Connecting the Dots — Session 05 → Future Sessions
+
+Balancing equations and mass-mass stoichiometry are the **core engine of quantitative chemistry**:
+
+- **Session 06** (Limiting Reagent): Same chain, but now with TWO reactants competing.
+- **Session 07** (Solution Stoichiometry): Same chain, but starting concentration × volume instead of grams.
+- **Session 08** (Titration): Same chain, applied to acid-base neutralization.
+- **Sessions 17–18** (Gas Stoichiometry): Same chain, but moles of gas → volume via $PV = nRT$.
+- **Session 20** (Calorimetry): Same chain, but now tracking energy alongside mass.
+
+> **The $\text{g A} \to \text{mol A} \to \text{mol B} \to \text{g B}$ chain is the single most important calculation pattern in chemistry.** Everything else is a variation.
+
+---
+
+## �📝 Key Terms — Quick Reference
 
 | Term | What it means |
 |------|---------------|

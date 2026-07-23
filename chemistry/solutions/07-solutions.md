@@ -175,40 +175,54 @@ $$\boxed{0.450 \text{ M is correct. The 0.045 M student forgot to divide by the 
 
 ### A5
 
-**Example problem:** 50.0 mL of 0.200 M $AgNO_3$ is mixed with 30.0 mL of 0.300 M $Na_2CrO_4$.
-$2AgNO_3 + Na_2CrO_4 \to Ag_2CrO_4\downarrow + 2NaNO_3$.
-(a) Mass of $Ag_2CrO_4$ precipitate? (b) $[NO_3^-]$ in final solution?
+$2AgNO_3 + Na_2CrO_4 \to Ag_2CrO_4\downarrow + 2NaNO_3$
 
-**Solution:**
 mol $AgNO_3 = 0.200 \times 0.0500 = 0.01000$ mol.
 mol $Na_2CrO_4 = 0.300 \times 0.0300 = 0.00900$ mol.
 
-Divide: $AgNO_3 = 0.01000/2 = 0.00500$, $Na_2CrO_4 = 0.00900/1 = 0.00900$.
-$AgNO_3$ is limiting.
+Divide by coefficients:
+$AgNO_3$ ratio = $0.01000 / 2 = 0.00500$
+$Na_2CrO_4$ ratio = $0.00900 / 1 = 0.00900$
+$0.00500 < 0.00900$ → **$AgNO_3$ is limiting.**
 
 (a) mol $Ag_2CrO_4 = 0.01000 \times (1/2) = 0.00500$ mol.
 Molar mass $Ag_2CrO_4 = 2(107.87) + 52.00 + 4(16.00) = 331.74$ g/mol.
-g = $0.00500 \times 331.74 = 1.6587$ g.
+mass = $0.00500 \times 331.74 = 1.6587$ g.
 
-(b) $NO_3^-$ is a spectator ion. mol $NO_3^- = 0.01000$ mol (all from $AgNO_3$).
-Total $V = 80.0$ mL = $0.0800$ L.
+$$\boxed{1.66 \text{ g } Ag_2CrO_4}\quad\text{(3 sig figs)}$$
+
+(b) $NO_3^-$ comes from $AgNO_3$ — each $AgNO_3$ releases one $NO_3^-$.
+mol $NO_3^- = 0.01000$ mol.
+Total volume = $50.0 + 30.0 = 80.0$ mL = $0.0800$ L.
 $[NO_3^-] = 0.01000 / 0.0800 = 0.125$ M.
 
-$$\boxed{\text{(a) } 1.66 \text{ g } Ag_2CrO_4 \qquad \text{(b) } 0.125 \text{ M } NO_3^-}$$
+$$\boxed{0.125 \text{ M } NO_3^-}$$
+
+(c) **Spectator ions:**
+- $NO_3^-$: from $AgNO_3$, stays in solution → $0.125$ M (calculated above).
+- $Na^+$: from $Na_2CrO_4$, stays in solution. mol $Na^+ = 2 \times 0.00900 = 0.0180$ mol.
+$[Na^+] = 0.0180 / 0.0800 = 0.225$ M.
+
+$$\boxed{[NO_3^-] = 0.125\text{ M}, \quad [Na^+] = 0.225\text{ M}}$$
 
 ---
 
 ### A6
 
-**Example problem:** 50.0 mL of 2.00 M NaCl is diluted to 200.0 mL. Then 50.0 mL of that solution is diluted to 250.0 mL. Final $[NaCl]$?
+(a) First dilution: $M_2 = \dfrac{M_1 V_1}{V_2} = \dfrac{2.00 \times 50.0}{200.0} = 0.500$ M.
 
-**Solution:**
-First dilution: $M_2 = \dfrac{2.00 \times 50.0}{200.0} = 0.500$ M.
-Second dilution: $M_3 = \dfrac{0.500 \times 50.0}{250.0} = 0.100$ M.
+$$\boxed{0.500 \text{ M}}$$
 
-Wait — the problem asks for exactly 0.0100 M. Let me adjust: Start with 1.00 M, dilute 25.0 mL to 250.0 mL → 0.100 M. Then take 25.0 mL of that and dilute to 250.0 mL → 0.0100 M.
+(b) Second dilution: $M_3 = \dfrac{M_2 V_2}{V_3} = \dfrac{0.500 \times 50.0}{250.0} = 0.100$ M.
 
-$$\boxed{0.0100 \text{ M (two sequential 10× dilutions)}}$$
+$$\boxed{0.100 \text{ M}}$$
+
+(c) To go from $2.00$ M to $0.100$ M in one step:
+Dilution factor = $2.00 / 0.100 = 20$.
+So: dilute 1 volume of stock to a total of 20 volumes, e.g., 25.0 mL stock → 500.0 mL total.
+Check: $M_2 = \dfrac{2.00 \times 25.0}{500.0} = 0.100$ M. ✓
+
+$$\boxed{\text{Dilute 1:20 — e.g., 25 mL of 2.00 M to 500 mL total}}$$
 
 ---
 

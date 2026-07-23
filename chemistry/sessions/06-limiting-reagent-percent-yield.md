@@ -2,7 +2,7 @@
 
 > **Topic:** When two reactants compete, which one runs out — and how much product can you really make?
 > **Time:** 150 minutes
-> **Big Fat Notebook:** Chapter 7
+> **Big Fat Notebook:** Chapter 21
 
 ---
 
@@ -401,9 +401,9 @@ Copy this. Never guess the limiting reagent by grams again.
 
 **A4.** (Reverse engineering) A student reacts 15.0 g $N_2$ with excess $H_2$ and collects 16.2 g $NH_3$. They claim the percent yield is 88.9%. Are they right? Show the calculation and diagnose any error.
 
-**A5.** (Constructive) Design a limiting reagent problem where the reactants have the SAME mass but one is limiting and the other is in excess. The answer should NOT be obvious from the masses alone. Solve it.
+**A5.** (Same mass — different LR) $2H_2 + O_2 \to 2H_2O$. 10.0 g of $H_2$ and 10.0 g of $O_2$ are reacted. (a) Convert both to moles. (b) Divide each by its coefficient to find the LR. (c) What is the theoretical yield of $H_2O$ in grams? (d) Both reactants had the same mass — why wasn't the LR obvious from the masses alone? Explain.
 
-**A6.** (Constructive) Write a problem where the percent yield is exactly 75.0%. The theoretical yield should be a nice round number. Solve it and verify.
+**A6.** (Percent yield from given data) Magnesium burns in oxygen: $2Mg + O_2 \to 2MgO$. A student starts with 48.62 g of Mg (exactly 2.000 mol) and excess $O_2$. After the reaction, they collect 60.47 g of $MgO$. (a) Calculate the theoretical yield of $MgO$ from 2.000 mol of Mg. (b) Calculate the percent yield. (c) If the percent yield were 100%, what mass of $MgO$ would they have collected? (d) List two possible reasons the actual yield might be less than the theoretical.
 
 **A7.** (Table-based) Three reactions with given amounts:
 
@@ -427,15 +427,31 @@ For each: (a) LR, (b) theoretical yield in grams, (c) excess reagent remaining i
 
 You can now identify the limiting reagent by two methods, calculate theoretical yield, judge percent yield, and find how much excess is left over — at exam speed.
 
-Read **Chapter 7** of *Everything You Need to Ace Chemistry in One Big Fat Notebook*.
+Read **Chapter 21** of *Everything You Need to Ace Chemistry in One Big Fat Notebook*.
 
 You've solved 20 problems, from simple LR identification to reverse-engineering mixture composition from precipitate mass. Limiting reagent problems are now procedural, not puzzling.
+
+> **Note:** Chapter 21 is titled "Chemical Calculations". It covers mole ratios, mass-mass problems, limiting reagents, and percent yield — everything you've mastered in this session. Read it to see how the BFN explains the concepts behind the calculations.
 
 > Solutions: [solutions/06-solutions.md](../solutions/06-solutions.md)
 
 ---
 
-## 📝 Key Terms — Quick Reference
+## � Connecting the Dots — Session 06 → Future Sessions
+
+Limiting reagent and percent yield are where **theory meets reality in the lab**:
+
+- **Session 07** (Solution Stoichiometry): Same LR logic, but reactants come from solutions.
+- **Session 08** (Titration): The titrant is always in excess until the endpoint — a controlled LR problem.
+- **Session 19** (Solubility): $K_{sp}$ and precipitation involve LR concepts.
+- **Session 24** (Equilibrium): ICE tables are LR analysis extended to reversible reactions.
+- **Session 28** (Thermodynamics): Percent yield connects to efficiency and spontaneity.
+
+> **In the real world, reactions never use perfectly matched amounts. One reactant always runs out first. Limiting reagent analysis is how chemists plan syntheses and minimize waste.**
+
+---
+
+## �📝 Key Terms — Quick Reference
 
 | Term | What it means |
 |------|---------------|

@@ -168,31 +168,50 @@ $$\boxed{\text{(a) } 3.34 \times 10^{23} \text{ is correct. (b) Partner likely u
 
 ### A5
 
-**Example problem:** "A weather balloon contains 200.0 g of helium gas. How many helium atoms are in the balloon?"
+$N_2$ gas — diatomic. Molar mass $N_2 = 2 \times 14.01 = 28.02$ g/mol.
 
-Solution:
-Molar mass He = 4.003 g/mol (monatomic — He is NOT diatomic; it's a noble gas, exists as single atoms).
-mol He = 200.0 g ÷ 4.003 g/mol = 49.963 mol.
-atoms He = 49.963 mol × (6.022 × 10²³ atoms/mol) = 3.009 × 10²⁵ atoms.
+(a) mol $N_2 = 250.0 \text{ g} \div 28.02 \text{ g/mol} = 8.9222$ mol.
 
-$$\boxed{3.009 \times 10^{25} \text{ He atoms}}\quad\text{(4 sig figs)}$$
+$$\boxed{8.922 \text{ mol } N_2}\quad\text{(4 sig figs)}$$
 
-Trap note: Helium is monatomic (He, not $He_2$). If a student mistakenly used $He_2$ (molar mass = 8.006 g/mol), they'd get half the correct number of atoms.
+(b) $N_2$ molecules = $8.9222 \text{ mol} \times 6.022 \times 10^{23} \text{ molecules/mol} = 5.373 \times 10^{24}$ molecules.
+
+$$\boxed{5.373 \times 10^{24} \text{ } N_2 \text{ molecules}}$$
+
+(c) Each $N_2$ molecule has 2 N atoms → N atoms = $2 \times 5.373 \times 10^{24} = 1.075 \times 10^{25}$ atoms.
+
+$$\boxed{1.075 \times 10^{25} \text{ N atoms}}$$
+
+(d) **The trap:** If a student uses 14.01 g/mol (atomic mass of N, not molecular mass of $N_2$):
+- mol = $250.0 \div 14.01 = 17.844$ mol (double the correct value)
+- molecules = $17.844 \times N_A = 1.074 \times 10^{25}$ (double — but this claims there are MORE $N_2$ molecules than actually exist)
+
+The error: Nitrogen gas exists as $N_2$ molecules, not N atoms. Using the atomic mass gives twice the actual number of moles of $N_2$. Always identify the chemical form of the substance before looking up its molar mass.
 
 ---
 
 ### A6
 
-**Example problem:** "A sample of methane ($CH_4$) contains exactly $3.011 \times 10^{23}$ molecules. What is the mass of the sample in grams?"
+$O_3$ = ozone. Molar mass = $3 \times 16.00 = 48.00$ g/mol.
 
-Solution:
-$3.011 \times 10^{23}$ is exactly half of Avogadro's number → 0.5000 mol $CH_4$.
-Molar mass $CH_4$ = 12.01 + 4(1.008) = 16.042 g/mol.
-mass = 0.5000 mol × 16.042 g/mol = 8.021 g.
+(a) $6.022 \times 10^{22}$ molecules is exactly $\frac{1}{10}$ of Avogadro's number.
+mol $O_3 = 6.022 \times 10^{22} \div 6.022 \times 10^{23} = 0.1000$ mol.
 
-$$\boxed{8.021 \text{ g } CH_4}\quad\text{(4 sig figs)}$$
+$$\boxed{0.1000 \text{ mol } O_3}$$
 
-Significance: $3.011 \times 10^{23} = N_A/2$, so this is exactly half a mole — a favorite trick on multiple-choice exams.
+(b) mass = $0.1000 \text{ mol} \times 48.00 \text{ g/mol} = 4.800$ g.
+
+$$\boxed{4.800 \text{ g } O_3}$$
+
+(c) Each $O_3$ molecule has 3 O atoms.
+O atoms = $6.022 \times 10^{22} \times 3 = 1.807 \times 10^{23}$ atoms.
+
+$$\boxed{1.807 \times 10^{23} \text{ O atoms}}$$
+
+(d) If the same NUMBER of molecules were $O_2$ (molar mass = 32.00 g/mol):
+mass = $0.1000 \text{ mol} \times 32.00 \text{ g/mol} = 3.200$ g.
+
+Yes, the mass is different! Same number of molecules = same moles = different mass because $O_3$ and $O_2$ have different molar masses. $4.800$ g of $O_3$ vs. $3.200$ g of $O_2$ — $O_3$ is 50% heavier per molecule.
 
 ---
 

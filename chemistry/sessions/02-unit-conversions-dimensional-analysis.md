@@ -2,7 +2,7 @@
 
 > **Topic:** Moving between units without getting lost. The chain method.
 > **Time:** 150 minutes
-> **Big Fat Notebook:** Chapters 1–2
+> **Big Fat Notebook:** Chapter 4
 
 ---
 
@@ -290,9 +290,9 @@ Copy this. This is the procedure behind every unit conversion you will ever do i
 
 **A4.** (Reverse engineering) A student converts 45.0 m/s to km/h by writing: $45.0 \times (1 \text{ km}/1000 \text{ m}) \times (3600 \text{ s}/1 \text{ h}) = 162 \text{ km/h}$. Is this correct? If yes, explain why the 3600 went on top. If no, find the mistake.
 
-**A5.** (Constructive) Write an exam problem that requires exactly 3 conversion steps and ends with a mass in kilograms. Use at least one English→metric conversion. Solve it with full dimensional analysis.
+**A5.** (Multi-step — English to metric to mass) A recipe calls for 3.00 cups of milk. Convert this to kilograms. Given: 1 cup = 236.6 mL, density of milk = 1.03 g/mL. (a) Show the complete dimensional analysis chain: cups $\to$ mL $\to$ g $\to$ kg. (b) What is the mass of the milk in kg with correct sig figs? (c) If the recipe uses 3.0 cups (2 sig figs), how does the answer change?
 
-**A6.** (Constructive) Write a problem where a student who forgets to cube the conversion factor gets an answer that is off by a factor of exactly 1,000,000. Solve both the wrong way and the right way.
+**A6.** (Cubed conversion trap) A fish tank is a cube with edge 2.00 m. (a) Calculate its volume in m³. (b) Convert the volume to cm³. (c) A student forgets to cube the conversion factor and writes: $8.00\text{ m}^3 \times (100\text{ cm}/1\text{ m}) = 800.\text{ cm}^3$. What did they do wrong? What is the correct answer in cm³ — and how many times larger is it than the wrong answer?
 
 **A7.** (Table-based) A shipping manifest lists the following items:
 
@@ -316,15 +316,32 @@ Calculate the total mass in kg. ($1 \text{ kg} = 1000 \text{ g}$)
 
 You can now convert any unit to any other unit using dimensional analysis — at exam speed.
 
-Read **Chapters 1–2** of *Everything You Need to Ace Chemistry in One Big Fat Notebook*.
+Read **Chapter 4** of *Everything You Need to Ace Chemistry in One Big Fat Notebook*.
 
 The concepts — why unit cancellation works, how density bridges mass and volume, why squared conversions are the #1 trap — will lock into place. You've solved 20 problems harder than anything the book asks.
+
+> **Note:** Chapter 4 is all about measurement and unit conversions. The book walks through metric prefixes, dimensional analysis, and temperature conversions — all of which you can now do at exam speed.
 
 > Solutions: [solutions/02-solutions.md](../solutions/02-solutions.md)
 
 ---
 
-## 📝 Key Terms — Quick Reference
+## � Connecting the Dots — Session 02 → Future Sessions
+
+Dimensional analysis is the **engine behind every stoichiometry calculation**:
+
+- **Session 03** (Density): Density itself is a conversion factor between mass and volume.
+- **Session 04** (The Mole): Molar mass is a conversion factor between grams and moles.
+- **Session 05** (Stoichiometry): The mole ratio is a conversion factor between substances.
+- **Session 06** (Limiting Reagent): Finding excess remaining is a dimensional analysis chain.
+- **Session 07** (Molarity): Concentration (mol/L) is a conversion factor between volume and moles.
+- **Session 08** (Titration): $M_a V_a = M_b V_b$ is dimensional analysis with an extra proton-counting step.
+
+> **Every chemistry calculation is just a chain of conversion factors.** Master the chain now, and every future topic becomes a variation on the same theme.
+
+---
+
+## �📝 Key Terms — Quick Reference
 
 | Term | What it means |
 |------|---------------|

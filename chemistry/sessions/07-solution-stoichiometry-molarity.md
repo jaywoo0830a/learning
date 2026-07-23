@@ -2,7 +2,7 @@
 
 > **Topic:** When reactions happen in water, concentration is the new mass.
 > **Time:** 150 minutes
-> **Big Fat Notebook:** Chapters 8, 10
+> **Big Fat Notebook:** Chapters 25–27
 
 ---
 
@@ -365,9 +365,9 @@ Copy this. The only new piece is the first arrow: mL → L → mol.
 
 **A4.** (Reverse engineering) A student dilutes a solution and calculates the new concentration as 0.045 M. Their partner gets 0.450 M — exactly 10× different. The original was 25.0 mL of 1.80 M diluted to 100.0 mL. Who is right? What mistake did the other make?
 
-**A5.** (Constructive) Design a problem where two solutions are mixed, a precipitate forms, and the student must find both the mass of precipitate and the concentration of one ion remaining in solution. Solve it.
+**A5.** (Precipitation + ion concentration) 50.0 mL of 0.200 M $AgNO_3$ is mixed with 30.0 mL of 0.300 M $Na_2CrO_4$. The reaction is: $2AgNO_3 + Na_2CrO_4 \to Ag_2CrO_4\downarrow + 2NaNO_3$. (a) Find the LR and mass of $Ag_2CrO_4$ precipitate formed. (b) What is the concentration of $NO_3^-$ in the final solution (assume additive volumes)? (c) Identify the spectator ions and calculate their final concentrations.
 
-**A6.** (Constructive) Write a problem involving serial dilution (dilute, then dilute again). The final concentration should be exactly 0.0100 M. Solve it.
+**A6.** (Serial dilution chain) A stock solution of NaCl is 2.00 M. (a) 50.0 mL of this stock is diluted to 200.0 mL. What is the new concentration? (b) 50.0 mL of the diluted solution is then further diluted to 250.0 mL. What is the final concentration? (c) What single dilution factor (e.g., "dilute 1:40") would achieve the same final concentration from the stock in one step?
 
 **A7.** (Table-based) Four solutions are prepared:
 
@@ -392,15 +392,31 @@ Copy this. The only new piece is the first arrow: mL → L → mol.
 
 You can now convert between concentration, volume, and moles; handle dilution; perform solution stoichiometry with limiting reagents; and calculate ion concentrations — at exam speed.
 
-Read **Chapters 8 and 10** of *Everything You Need to Ace Chemistry in One Big Fat Notebook*.
+Read **Chapters 25–27** of *Everything You Need to Ace Chemistry in One Big Fat Notebook*.
 
 You've solved 20 problems, from simple molarity to finding the percent purity of an impure sample. Solutions are no longer mysterious — they're just moles dissolved in liters.
+
+> **Note:** Chapter 25 introduces solutions and solubility. Chapter 26 covers concentration and molarity — your main weapon. Chapter 27 is about solution stoichiometry and dilution. Read them to connect the conceptual "why" to the procedural "how" you've already mastered.
 
 > Solutions: [solutions/07-solutions.md](../solutions/07-solutions.md)
 
 ---
 
-## 📝 Key Terms — Quick Reference
+## � Connecting the Dots — Session 07 → Future Sessions
+
+Solution stoichiometry is where **chemistry becomes practical — most lab reactions happen in solution**:
+
+- **Session 08** (Titration): The most direct application — titrations ARE solution stoichiometry.
+- **Session 19** (Colligative Properties): Molarity and molality determine boiling point elevation and freezing point depression.
+- **Session 22** (Kinetics): Reaction rates depend on concentrations in solution.
+- **Session 24** (Equilibrium): $K_c$ uses molar concentrations directly.
+- **Session 26** (Acid-Base pH): $[H^+]$ in mol/L is the foundation of pH calculations.
+
+> **Solutions are where most real chemistry happens. If you can convert between concentration, volume, and moles — and handle dilutions — you can work in any chemistry lab.**
+
+---
+
+## �📝 Key Terms — Quick Reference
 
 | Term | What it means |
 |------|---------------|

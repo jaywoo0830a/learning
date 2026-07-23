@@ -2,7 +2,7 @@
 
 > **Topic:** Learning to speak the language of measurement precision.
 > **Time:** 120 minutes
-> **Big Fat Notebook:** Chapters 1–2
+> **Big Fat Notebook:** Chapters 1–5
 
 ---
 
@@ -265,9 +265,9 @@ Copy this. You will use it for every problem in the drills.
 
 **A4.** (Reverse engineering) A student divides 15.0 by 3.00 and gets 5.000. Their partner says it should be 5.00. Who is right? Show the correct calculation and explain the mistake.
 
-**A5.** (Constructive) Write an exam problem where the answer has exactly 3 sig figs and requires a multiplication followed by an addition. Solve it.
+**A5.** (Mixed operations — which rule when?) A student measures a rectangular sheet of paper: length = 27.94 cm, width = 21.0 cm. (a) Calculate the perimeter ($P = 2L + 2W$) — which rounding rule applies here (+/− or ×/÷)? Why? (b) Calculate the area ($A = L \times W$) — which rule applies? (c) Give both answers with correct sig figs/decimal places.
 
-**A6.** (Constructive) Write a problem where a student would get the wrong answer by using the ×/÷ rule when they should use the +/− rule. Show both the wrong and right solutions.
+**A6.** (Trap — rounding too early in multi-step) A student finds the density of an irregular object. Mass = 15.27 g. Water displacement: initial volume = 25.0 mL, final volume = 32.5 mL. (a) Find the volume (subtraction — which rule?). (b) Find the density (division — which rule?). (c) A second student calculates the volume correctly but rounds it to 1 decimal place BEFORE dividing into the mass. What do they get for the density — and why is it wrong?
 
 **A7.** (Data table) Three students each measure the mass of a 10.00 g standard weight five times:
 
@@ -291,15 +291,30 @@ Which student is precise but not accurate? Which is accurate but not precise? Wh
 
 You can now count sig figs, round correctly after ×/÷ and +/−, write scientific notation, and distinguish precision from accuracy — at exam speed.
 
-Read **Chapters 1–2** of *Everything You Need to Ace Chemistry in One Big Fat Notebook*.
+Read **Chapters 1–5** of *Everything You Need to Ace Chemistry in One Big Fat Notebook*.
 
 The concepts — why measurements have uncertainty, how sig figs communicate that uncertainty, why precision ≠ accuracy — will lock into place. You've solved 20 problems harder than anything the book asks.
+
+> **Note:** Chapter 1 introduces lab reports and measurement. Chapter 2 covers the SI system (meter, kilogram, second). Chapter 3 explains how to read lab equipment. Chapter 4 is about measurement and data analysis — sig figs live here. Chapter 5 covers lab safety. You already know how to DO all the math in these chapters — read them to understand WHY.
 
 > Solutions: [solutions/01-solutions.md](../solutions/01-solutions.md)
 
 ---
 
-## 📝 Key Terms — Quick Reference
+## � Connecting the Dots — Session 01 → Future Sessions
+
+Sig figs and scientific notation are the **grammar of every calculation** in chemistry. Every session from here on uses these rules:
+
+- **Session 02** (Unit Conversions): Every conversion factor answer is rounded to the correct sig figs.
+- **Session 03** (Density, Empirical Formulas): Density calculations, percent composition — all rounded by sig fig rules.
+- **Session 04** (The Mole): Molar mass calculations use the sig figs from the periodic table.
+- **Sessions 05–07** (Stoichiometry): Every mass-mass problem ends with a sig fig check.
+
+> **If you master sig figs now, every future calculation will be automatically correct.** If you skip sig figs now, every future answer will be slightly wrong.
+
+---
+
+## �📝 Key Terms — Quick Reference
 
 | Term | What it means |
 |------|---------------|

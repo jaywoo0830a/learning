@@ -67,8 +67,8 @@ Phase 8: SYNTHESIS
 | 3. Atomic Theory & Electron Config | Ch 9–10 | **10–11** | ❌ |
 | 4. Elements & Periodic Table | Ch 11–13 | **11–13** | ❌ |
 | 5. Bonding & VSEPR Theory | Ch 14–16 | **14–16** | ❌ |
-| 6. Chemical Compounds | Ch 17–19 | **04–05** (mole, composition, naming) | 🔄 Partial |
-| 7. Chemical Reactions & Calculations | Ch 20–21 | **05–08** | 🔄 Partial |
+| 6. Chemical Compounds | Ch 17–19 | **04–05, 08** (mole, composition, naming) | 🔄 Partial |
+| 7. Chemical Reactions & Calculations | Ch 20–21 | **05–08** | ✅ Complete |
 | 8. Gases | Ch 22–24 | **17–18** | ❌ |
 | 9. Solutions & Solubility | Ch 25–27 | **07–08, 19** | 🔄 Partial |
 | 10. Acids & Bases | Ch 28–31 | **24–26** | ❌ |

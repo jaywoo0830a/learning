@@ -246,27 +246,48 @@ $$\boxed{88.9\% \text{ is correct (rounding variation). Theoretical } = 18.2 \te
 
 ### A5
 
-**Example problem:** $2H_2 + O_2 \to 2H_2O$. 10.0 g $H_2$ and 10.0 g $O_2$.
+$2H_2 + O_2 \to 2H_2O$. 10.0 g $H_2$ and 10.0 g $O_2$.
 
-mol $H_2 = 10.0 \div 2.016 = 4.9603$ mol. mol $O_2 = 10.0 \div 32.00 = 0.3125$ mol.
+(a) Molar mass $H_2 = 2.016$ g/mol, $O_2 = 32.00$ g/mol.
+mol $H_2 = 10.0 \div 2.016 = 4.9603$ mol.
+mol $O_2 = 10.0 \div 32.00 = 0.31250$ mol.
 
-Divide: $H_2 = 4.9603/2 = 2.480$, $O_2 = 0.3125/1 = 0.3125$.
+(b) Divide by coefficients:
+$H_2$ ratio = $4.9603 / 2 = 2.4802$
+$O_2$ ratio = $0.31250 / 1 = 0.31250$
+$0.31250 < 2.4802$ → **$O_2$ is limiting.**
 
-$0.3125 < 2.480 \;\to\;$ $O_2$ is limiting despite equal masses.
+(c) From $O_2$: mol $H_2O = 0.31250 \times 2 = 0.62500$ mol.
+g $H_2O = 0.62500 \times 18.016 = 11.260$ g.
 
-From $O_2$: mol $H_2O = 0.3125 \times 2 = 0.6250$ mol. g $H_2O = 0.6250 \times 18.016 = 11.26$ g.
+$$\boxed{11.3 \text{ g } H_2O}\quad\text{(3 sig figs)}$$
 
-$$\boxed{O_2 \text{ is limiting. Equal masses (10.0 g each), but } O_2 \text{ runs out first. } 11.3 \text{ g } H_2O.}$$
+(d) **Why mass alone doesn't determine the LR:**
+10.0 g of $H_2$ is $4.96$ mol, but 10.0 g of $O_2$ is only $0.313$ mol. $O_2$ has a much higher molar mass (32.00 vs 2.016 g/mol), so the same mass gives far fewer moles. The LR depends on **moles relative to coefficients**, not grams. Equal masses never tell you the LR — you must always convert to moles first.
 
 ---
 
 ### A6
 
-**Example problem:** $2Mg + O_2 \to 2MgO$. 48.62 g Mg reacts with excess $O_2$. Theoretical yield = 80.62 g. Actual yield = 60.47 g. Find percent yield.
+$2Mg + O_2 \to 2MgO$. 48.62 g Mg = 2.000 mol Mg (since 48.62 ÷ 24.31 = 2.000). Excess $O_2$.
 
-$\% = 60.47/80.62 \times 100\% = 75.00\%$. ✓
+(a) Molar mass $MgO = 24.31 + 16.00 = 40.31$ g/mol.
+From equation: $2$ mol Mg → $2$ mol MgO (1:1 ratio).
+mol $MgO = 2.000$ mol.
+Theoretical yield = $2.000 \times 40.31 = 80.62$ g.
 
-$$\boxed{75.0\% \text{ yield (designed: actual = } \frac{3}{4} \times \text{theoretical).}}$$
+$$\boxed{80.62 \text{ g } MgO \text{ (theoretical)}}$$
+
+(b) Percent yield = $\dfrac{60.47}{80.62} \times 100\% = 75.00\%$.
+
+$$\boxed{75.0\% \text{ yield}}$$
+
+(c) If 100% yield: they would have collected the full theoretical yield = $80.62$ g $MgO$.
+
+(d) **Reasons for lower actual yield:**
+1. Some $MgO$ powder was lost during transfer (mechanical loss).
+2. The reaction may not have gone to completion (some unreacted Mg remained).
+3. Some product may have reacted further or been contaminated.
 
 ---
 

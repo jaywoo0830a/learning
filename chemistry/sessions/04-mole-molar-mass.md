@@ -2,7 +2,7 @@
 
 > **Topic:** The bridge between the visible world (grams) and the invisible world (atoms).
 > **Time:** 150 minutes
-> **Big Fat Notebook:** Chapter 6
+> **Big Fat Notebook:** Chapter 18
 
 ---
 
@@ -409,9 +409,9 @@ Copy this. The mole is the central hub — every road from grams to particles pa
 
 **A4.** (Reverse engineering) A student calculates that 10.0 g of $H_2O$ contains $3.34 \times 10^{23}$ molecules. Their lab partner, rechecking, gets $5.56 \times 10^{23}$ molecules. One is wrong. (a) Which one? (b) What mistake did the wrong student make? (c) Show the correct calculation.
 
-**A5.** (Constructive) Write an exam problem that requires converting grams → moles → number of atoms, where the substance is a diatomic gas. Solve it. Include a note on why using the monatomic molar mass would give the wrong answer.
+**A5.** (Diatomic gas focus) A 250.0 g sample of nitrogen gas ($N_2$) is used to fill a tire. (a) How many moles of $N_2$ are in the tire? (b) How many $N_2$ molecules are in the tire? (c) How many nitrogen atoms are in the tire? (d) A student mistakenly uses 14.01 g/mol (the atomic mass of N) instead of 28.02 g/mol. What moles and molecule counts would they get, and why are they wrong?
 
-**A6.** (Constructive) Write a problem where the answer is exactly $3.011 \times 10^{23}$ molecules. (Hint: this is exactly 0.500 mol.) Solve it and show why this number is significant.
+**A6.** (Avogadro shortcut) A sample of ozone gas ($O_3$) contains exactly $6.022 \times 10^{22}$ molecules. (a) How many moles of $O_3$ is this? (b) What is the mass of the sample? (c) How many oxygen atoms does it contain? (d) If the same number of molecules were $O_2$ instead of $O_3$, would the mass be different? Prove it with a calculation.
 
 **A7.** (Data table) A student measures five samples:
 
@@ -437,15 +437,32 @@ For each sample: (a) Calculate moles. (b) Which two samples contain the same num
 
 You can now convert between grams, moles, and number of particles in your sleep. 10.0 g of helium vs. calcium? You proved helium wins — by a factor of 10. The mole is no longer an abstraction; it's the road you travel from the balance to the atom.
 
-Read **Chapter 6** of *Everything You Need to Ace Chemistry in One Big Fat Notebook*.
+Read **Chapter 18** of *Everything You Need to Ace Chemistry in One Big Fat Notebook*.
 
 You've solved 20 problems, from "how many moles in 25.0 g of NaCl" to "how many iron atoms in one hemoglobin molecule." The concepts — what a mole actually means, why Avogadro's number exists, how molar mass connects the periodic table to the lab bench — will lock into place.
+
+> **Note:** Chapter 18 is titled "The Mole". It explains Avogadro's number, molar mass, and mole conversions at a conceptual level. You already know how to execute every calculation in it — read it to understand WHY the mole is the central unit of chemistry.
 
 > Solutions: [solutions/04-solutions.md](../solutions/04-solutions.md)
 
 ---
 
-## 📝 Key Terms — Quick Reference
+## � Connecting the Dots — Session 04 → Future Sessions
+
+The mole is the **central hub of all stoichiometry** — every road passes through it:
+
+- **Session 05** (Balancing Equations): The mole ratio is how you convert between different substances.
+- **Session 06** (Limiting Reagent): You compare moles (not grams) to find the limiting reagent.
+- **Session 07** (Molarity): Concentration is moles per liter — without moles, molarity means nothing.
+- **Session 08** (Titration): The titrant delivers a known number of moles.
+- **Sessions 17–18** (Gases): $PV = nRT$ uses moles ($n$).
+- **Session 20** (Calorimetry): $q = n\Delta H$ uses moles.
+
+> **The mole is the chemist's dozen — except it's $6.022 \times 10^{23}$ instead of 12.** If you can convert between grams, moles, and particles, you have unlocked 80% of general chemistry.
+
+---
+
+## �📝 Key Terms — Quick Reference
 
 | Term | What it means |
 |------|---------------|

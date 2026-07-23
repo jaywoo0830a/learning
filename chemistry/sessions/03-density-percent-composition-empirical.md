@@ -2,7 +2,7 @@
 
 > **Topic:** Using numbers to identify substances and determine chemical formulas.
 > **Time:** 150 minutes
-> **Big Fat Notebook:** Chapters 3, 6
+> **Big Fat Notebook:** Chapters 3, 6, 19
 
 ---
 
@@ -357,9 +357,9 @@ Calculate density for each trial with correct sig figs. Then calculate the avera
 
 **A4.** (Reverse engineering) A student calculates the empirical formula of a compound from: C = 40.0%, H = 6.7%, O = 53.3%. Their answer is $C_3H_6O_3$. Their partner says the empirical formula is $CH_2O$. Who is right? Explain the mistake.
 
-**A5.** (Constructive) Write an exam problem where a compound's empirical formula and molecular formula are the SAME. (Hint: the molar mass must equal the empirical formula mass.) Solve it.
+**A5.** (Empirical = molecular — identity check) A compound is 39.34% Na and 60.66% Cl by mass. Its molar mass is found to be 58.44 g/mol. (a) Find the empirical formula. (b) Find the molecular formula. (c) Are they the same? Explain why this happens. (d) What is the name of this compound?
 
-**A6.** (Constructive) Write a problem where the "divide by smallest" step gives a ratio ending in .33 or .67 (requiring multiplication by 3). Solve it and show why multiplication by 3 is needed.
+**A6.** (Ratio ending in .33 — multiply by 3) A compound is 72.36% Fe and 27.64% O by mass. (a) Assume 100.0 g and convert each mass to moles. (b) Divide both mole values by the smaller one. (c) The ratio should end in .33 — what whole-number multiplier do you need? (d) Write the empirical formula and name the compound.
 
 **A7.** (Data table) Four unknown metals are tested:
 
@@ -384,15 +384,30 @@ Known densities: magnesium (1.74), aluminum (2.70), zinc (7.13), copper (8.96), 
 
 You can now calculate density to identify unknown substances, derive mass percent from formulas, and determine empirical and molecular formulas from percent composition — at exam speed.
 
-Read **Chapters 3 and 6** of *Everything You Need to Ace Chemistry in One Big Fat Notebook*.
+Read **Chapters 3, 6, and 19** of *Everything You Need to Ace Chemistry in One Big Fat Notebook*.
 
 The concepts — what density means physically, how percent composition connects to formulas, why the mole is central — will lock into place. You've solved 20 problems harder than anything the book asks.
+
+> **Note:** Chapter 3 covers density and physical properties. Chapter 6 introduces mass, elements, and compounds. Chapter 19 teaches how to find percent composition from formulas — you've already done all the heavy lifting.
 
 > Solutions: [solutions/03-solutions.md](../solutions/03-solutions.md)
 
 ---
 
-## 📝 Key Terms — Quick Reference
+## � Connecting the Dots — Session 03 → Future Sessions
+
+Density, percent composition, and empirical formulas are **the bridge from pure numbers to chemical identity**:
+
+- **Session 04** (The Mole): Empirical formula calculations use moles extensively — you've already done the mole conversions here.
+- **Session 05** (Stoichiometry): Mass percent from a formula is needed for reverse-engineering combustion products.
+- **Session 08** (Titration): Percent purity calculations use the same logic as percent composition.
+- **Session 09** (Classification of Matter): Density is a characteristic property used to identify pure substances.
+
+> **The empirical formula is the first time you use numbers to determine WHAT a substance is.** From here on, you're not just calculating numbers — you're identifying unknowns.
+
+---
+
+## �📝 Key Terms — Quick Reference
 
 | Term | What it means |
 |------|---------------|
