@@ -1,6 +1,6 @@
 # Session 23A: Limits and Continuity in $\mathbb{R}^2$
 
-**Phase 2 — Proof Bridge | 45 min**
+**Phase 2 — Proof Bridge | 50 min**
 
 *In 1D, you approach from left or right. In 2D, you can approach along infinitely many curves. This makes limits in the plane both richer and more treacherous. Master the two-path test and the polar squeeze.*
 
@@ -33,7 +33,9 @@ $f(x,y)=y-x^2$: parabolas $y=x^2+c$ shifting vertically.
 
 **How to read them**: Tight curves = steep. Sparse curves = flat. Topographic maps work exactly this way.
 
-![Level curves of z=x²−y² — saddle](graphs/9c1-level-curves-saddle.png)
+![Level curves of z=x²−y² — 2D contour](graphs/0721/23A/level-curves-2d.png)
+
+![Level curves of z=x²−y² — 3D saddle surface](graphs/0721/23A/level-curves-3d.png)
 
 ---
 
@@ -61,7 +63,7 @@ The δ-window is a **punctured disk**. The distance is Euclidean.
 
 ---
 
-## Example 5: The Two-Path Test — Proving a Limit Does NOT Exist
+## Example 5: The Two-Path Test — Proving a Limit Does NOT Exist (🔗 12C2)
 
 **$f(x,y)=\frac{xy}{x^2+y^2}$ at $(0,0)$**.
 
@@ -76,13 +78,19 @@ Two different paths → two different limits. **The limit does not exist.**
 3. $y=mx$ (straight lines through origin)
 4. $y=x^2$ or $x=y^2$ (curved paths — needed for harder cases)
 
-![Two paths, two limits — the limit does not exist](graphs/23a-path-limit.png)
+> **🔗 Bridge to 12C2 (Parametric Curves)**: Every path you test is a **parametric curve** $\vec{r}(t) = (t, g(t))$. The $x$-axis is $\vec{r}(t)=(t,0)$. The line $y=x$ is $\vec{r}(t)=(t,t)$. The parabola $y=x^2$ is $\vec{r}(t)=(t,t^2)$. In 12C2, you learned to parameterize any curve — now you're using that skill to test limits. The limit exists only if ALL parametric paths (infinitely many) give the same result. This is why 2D limits are richer than 1D limits: in 1D you only have two directions (left/right), but in 2D you have infinitely many curves.
+
+![Two paths, two limits — 3D surface view](graphs/0721/23A/path-limit-3d.png)
+
+![Two paths, two limits — 2D contour with paths](graphs/0721/23A/path-limit-2d.png)
+
+![Two paths, two limits — 1D function values](graphs/0721/23A/path-limit-1d.png)
 
 *Graph 23A: $f(x,y)=xy/(x^2+y^2)$. Along the x-axis (blue path, y=0), the limit is 0. Along y=x (red path), the limit is 1/2. Since they disagree, the two-sided limit does not exist. The surface has a "rip" at the origin.*
 
 ---
 
-## Example 6: The Polar Squeeze — Proving a Limit EXISTS
+## Example 6: The Polar Squeeze — Proving a Limit EXISTS (🔗 12C3)
 
 **$f(x,y)=\frac{x^3}{x^2+y^2}$ at $(0,0)$**.
 
@@ -94,7 +102,13 @@ As $(x,y)\to(0,0)$, $r\to 0$. $|f| = r|\cos^3\theta| \leq r \to 0$.
 
 Squeeze theorem: the limit = 0, **regardless of direction**. All paths collapse.
 
-![Polar squeeze — r dominates, limit = 0](graphs/23a-polar-squeeze.png)
+> **🔗 Bridge to 12C3 (Coordinate Systems)**: Converting $(x,y)$ to $(r,\theta)$ is a **coordinate transformation** — exactly the idea from 12C3. The polar coordinate system matches the circular symmetry of the problem, making the limit obvious. This is the core lesson of 12C3: **choose the right coordinates and the problem simplifies**. The limit $x^3/(x^2+y^2)$ looks complicated in Cartesian but becomes trivial in polar because $r$ factors out cleanly.
+
+![Polar squeeze — 3D surface](graphs/0721/23A/polar-squeeze-3d.png)
+
+![Polar squeeze — 2D level curves with polar circles](graphs/0721/23A/polar-squeeze-2d.png)
+
+![Polar squeeze — 1D magnitude bound](graphs/0721/23A/polar-squeeze-1d.png)
 
 *Graph 23A: $f(x,y)=x^3/(x^2+y^2)$ shown as a surface. Converting to polar gives $r\cos^3\theta$. As $r\to 0$, the height approaches zero uniformly from all directions — the surface is continuous at the origin.*
 
@@ -180,7 +194,13 @@ Is $f(x,y)=\begin{cases} \frac{x^4}{x^4+y^2}, & (x,y)\neq(0,0) \\ 0, & (0,0) \en
 
 ---
 
-## Basic Drill (10)
+## Practice 5: Real Battle — Parametric Paths (🔗 12C2)
+
+Use the parametric path $\vec{r}(t) = (t, t^3)$ to test $\lim_{(x,y)\to(0,0)} \frac{x^2 y}{x^4 + y^2}$. Compare with straight-line paths $y=mx$. What does this tell you about the reliability of straight-line tests?
+
+---
+
+## Basic Drill (12)
 
 **D1.** Domain of $f(x,y)=\frac{1}{x-y}$. Sketch.
 **D2.** Domain of $f(x,y)=\sqrt{x-2y}$. Sketch.
@@ -192,10 +212,12 @@ Is $f(x,y)=\begin{cases} \frac{x^4}{x^4+y^2}, & (x,y)\neq(0,0) \\ 0, & (0,0) \en
 **D8.** Convert $f(x,y)=\frac{x^2+y^2}{x^2-y^2}$ to polar. Does the limit at $(0,0)$ exist?
 **D9.** If $\lim_{(x,y)\to(0,0)} f(x,y)=L$ along $y=mx$ for every $m$, must the limit exist?
 **D10.** Define continuity at $(a,b)$ in ε-δ symbols.
+**D11.** Parameterize the path $y=x^2$ as $\vec{r}(t)$. (🔗 12C2)
+**D12.** Express $\lim_{(x,y)\to(0,0)} \frac{x^3+y^3}{x^2+y^2}$ in polar. Does the limit exist?
 
 ---
 
-## Advanced Drill (10)
+## Advanced Drill (12)
 
 **A1.** Prove $\lim_{(x,y)\to(0,0)} (2x+3y)=0$ using ε-δ. Give δ in terms of ε.
 **A2.** Show $\lim_{(x,y)\to(0,0)} \frac{x^4}{x^4+y^2}$ DNE. (Hint: $y=x^2$ gives $1/2$, $y=0$ gives 1.)
@@ -207,6 +229,8 @@ Is $f(x,y)=\begin{cases} \frac{x^4}{x^4+y^2}, & (x,y)\neq(0,0) \\ 0, & (0,0) \en
 **A8.** Prove: if $\lim f = L_1$ and $\lim f = L_2$ in $\mathbb{R}^2$, then $L_1=L_2$ (uniqueness).
 **A9.** The function $f(x,y)=\frac{xy}{\sqrt{x^2+y^2}}$ — does the limit at $(0,0)$ exist? (Polar.)
 **A10.** (Proof reading) "Along $y=0$, $f=0$. Along $x=0$, $f=0$. Along $y=x$, $f=1/2$. So limit DNE." Is the conclusion correct? What if the third path ALSO gave 0?
+**A11.** Use the parametric path $\vec{r}(t)=(t^2, t^3)$ to test $\lim_{(x,y)\to(0,0)} \frac{x^3y}{x^6+y^2}$. (🔗 12C2)
+**A12.** Prove: $\lim_{(x,y)\to(0,0)} \frac{(x^2+y^2)^2}{x^4+y^4}$ DNE by testing paths $y=0$ and $y=x$. Then convert to polar — what does the polar form reveal? (🔗 12C3)
 
 > Solutions: [Solutions](solutions/23A-solutions.md)
 
@@ -246,6 +270,6 @@ Step 3: Continuity: limit = f(a,b). Check piecewise definitions at origin.
 | surface over the plane | function of two variables | $z=f(x,y)$ |
 | horizontal slice | level curve / contour | $f(x,y)=c$ |
 | limit in the plane | limit in $\mathbb{R}^2$ | $\lim_{(x,y)\to(a,b)} f(x,y)$ |
-| approach along a curve | path | $y=g(x)$ or polar |
-| convert to polar | polar coordinates | $x=r\cos\theta$, $y=r\sin\theta$ |
+| approach along a curve | path | $y=g(x)$ or polar (🔗 12C2: parametric curve) |
+| convert to polar | polar coordinates | $x=r\cos\theta$, $y=r\sin\theta$ (🔗 12C3: coordinate transformation) |
 | limit exists from all directions | limit exists | uniform in $\theta$ |

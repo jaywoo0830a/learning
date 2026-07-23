@@ -1,6 +1,6 @@
 # Session 24B: Optimization and Lagrange Multipliers
 
-**Phase 2 — Proof Bridge | 45 min**
+**Phase 2 — Proof Bridge | 50 min**
 
 *Find peaks, valleys, and saddle points on surfaces. Then add a constraint — a fence the optimum must lie on. Lagrange multipliers solve this elegantly: at the optimum, the gradient of the objective is parallel to the gradient of the constraint.*
 
@@ -34,7 +34,7 @@ Critical points: $(0,0)$ and $(1,1)$. Need a test to classify them.
 
 ---
 
-## Example 3: The Second Derivative Test in 2D
+## Example 3: The Second Derivative Test in 2D (🔗 12A2)
 
 Compute $D(a,b) = f_{xx}(a,b) \cdot f_{yy}(a,b) - [f_{xy}(a,b)]^2$.
 
@@ -50,7 +50,13 @@ For $f(x,y)=x^3-3xy+y^3$: $f_{xx}=6x$, $f_{yy}=6y$, $f_{xy}=-3$.
 At $(0,0)$: $D=0-9=-9<0$ → **Saddle**.
 At $(1,1)$: $D=36-9=27>0$, $f_{xx}=6>0$ → **Local minimum**.
 
-![Critical points: min, saddle, max](graphs/24-critical-points.png)
+> **🔗 Bridge to 12A2 (Hessian Matrix)**: The discriminant $D = f_{xx}f_{yy} - (f_{xy})^2$ is actually the **determinant of the Hessian matrix** $H = \begin{pmatrix} f_{xx} & f_{xy} \\ f_{xy} & f_{yy} \end{pmatrix}$. Just as the determinant of a $2\times2$ matrix (12A2) measures area scaling, $\det H$ measures the bending of the surface. The sign of $\det H$ tells you whether the surface curves the same way in all directions ($\det H>0$) or opposite ways ($\det H<0$, saddle). The eigenvalues of $H$ (🔗 12C1) give the principal curvatures — the maximum and minimum bending at the point. When both eigenvalues are positive, it's a minimum; both negative, maximum; mixed signs, saddle.
+
+![Critical point — local minimum](graphs/0721/24B/crit-min.png)
+
+![Critical point — saddle](graphs/0721/24B/crit-saddle.png)
+
+![Critical point — local maximum](graphs/0721/24B/crit-max.png)
 
 *Graph 24: Three critical point types. Min (D>0, f_xx>0): bowl. Saddle (D<0): curves up one way, down the other. Max (D>0, f_xx<0): hill.*
 
@@ -84,7 +90,7 @@ Together with $g(x,y)=c$, you have **3 equations for 3 unknowns** $(x,y,\lambda)
 
 ---
 
-## Example 6: Classic — Maximum Area Given Fixed Perimeter
+## Example 6: Classic — Maximum Area Given Fixed Perimeter (🔗 12C3)
 
 Maximize area $f(x,y)=xy$ subject to perimeter $2x+2y=16$ → $g(x,y)=x+y=8$.
 
@@ -94,7 +100,15 @@ $\langle y, x \rangle = \lambda \langle 1, 1 \rangle$ → $y=\lambda$, $x=\lambd
 
 With $x+y=8$: $x=y=4$. Max area = 16. **The square is optimal.**
 
-![Lagrange multiplier geometry](graphs/24b-lagrange-geometry.png)
+> **🔗 Bridge to 12C3 (Coordinate Systems)**: The constraint $x+y=8$ is simplest in the original coordinates $(x,y)$. But what if the constraint were a rotated ellipse? Then you'd rotate coordinates (🔗 12C1) to align with the ellipse's axes — exactly the 12C3 idea that choosing the right coordinates simplifies the problem. Lagrange multipliers work in ANY coordinate system: $\nabla_{new} f = \lambda \nabla_{new} g$ holds regardless of how you parametrize the space.
+
+![Lagrange — 3D surface with constraint](graphs/0721/24B/lagrange-3d.png)
+
+![Lagrange — 2D contour with gradient vectors](graphs/0721/24B/lagrange-2d.png)
+
+![Lagrange — 1D objective along constraint](graphs/0721/24B/lagrange-1d.png)
+
+![Lagrange — shadow price](graphs/0721/24B/lagrange-lambda.png)
 
 *Graph 24B: Maximizing $f(x,y)=xy$ (red level curves) subject to $x+y=8$ (blue constraint line). The optimum occurs where a level curve of $f$ is tangent to the constraint — equivalently, where $\nabla f$ (red arrow) is parallel to $\nabla g$ (blue arrow). At $(4,4)$, $\nabla f=\langle 4,4\rangle = 4\langle 1,1\rangle = \lambda\nabla g$.*
 
@@ -180,7 +194,7 @@ Profit: $P(x,y)=30x+40y-2x^2-y^2-xy$. Constraint: $x+2y \leq 10$. (a) Unconstrai
 
 ---
 
-## Basic Drill (10)
+## Basic Drill (12)
 
 **D1.** Find critical points: $f(x,y)=x^2+xy+y^2$.
 **D2.** Find critical points: $f(x,y)=xy-2x-3y$.
@@ -192,10 +206,12 @@ Profit: $P(x,y)=30x+40y-2x^2-y^2-xy$. Constraint: $x+2y \leq 10$. (a) Unconstrai
 **D8.** Does $f(x,y)=x^2+y^2$ have a saddle point? Why/why not?
 **D9.** Find all points where $\nabla f = \vec{0}$ for $f(x,y)=x^3-3xy^2$.
 **D10.** Write the three Lagrange equations for max $xyz$ subject to $x^2+y^2+z^2=1$.
+**D11.** Compute the Hessian matrix $H$ for $f(x,y)=x^3-3xy+y^3$ at $(1,1)$. Compute $\det H$ and verify $D = \det H$. (🔗 12A2)
+**D12.** Rewrite the constraint $x+y=8$ in polar coordinates. Can you use Lagrange in polar? What changes? (🔗 12C3)
 
 ---
 
-## Advanced Drill (10)
+## Advanced Drill (12)
 
 **A1.** Find and classify ALL critical points of $f(x,y)=x^4+y^4-4xy+1$.
 **A2.** Prove the second derivative test for $f(x,y)=ax^2+2bxy+cy^2$. (Complete the square.)
@@ -207,6 +223,8 @@ Profit: $P(x,y)=30x+40y-2x^2-y^2-xy$. Constraint: $x+2y \leq 10$. (a) Unconstrai
 **A8.** Show that for a linear function $f(x,y)=ax+by$ with linear constraint $cx+dy=e$, the Lagrange multiplier $\lambda$ is constant regardless of the constraint value.
 **A9.** (Proof reading) "Setting $\nabla f=\lambda\nabla g$ always finds the maximum." Critique: what about minima? How do you tell max vs min?
 **A10.** Cobb-Douglas: maximize $P(L,K)=L^{1/3}K^{2/3}$ subject to $2L+3K=18$. Solve and interpret $\lambda$.
+**A11.** Find the eigenvalues of the Hessian $H$ for $f(x,y)=x^2+3xy+y^2$ at $(0,0)$. What do the signs tell you? (🔗 12A2, 12C1)
+**A12.** A constraint $x^2+xy+y^2=1$ is an ellipse rotated relative to the axes. Suggest a coordinate transformation (🔗 12C3) to simplify this constraint. (Hint: rotate by $45^\circ$.)
 
 > Solutions: [Solutions](solutions/24B-solutions.md)
 
@@ -246,6 +264,7 @@ Step 3: Global extrema on closed region = interior pts + boundary.
 |:---:|:---:|:---:|
 | both partials vanish | critical point | $\nabla f = \vec{0}$ |
 | test for min/max/saddle | second derivative test | $D = f_{xx}f_{yy} - f_{xy}^2$ |
-| matrix of second partials | Hessian | $\begin{bmatrix} f_{xx}&f_{xy}\\ f_{yx}&f_{yy} \end{bmatrix}$ |
+| matrix of second partials | Hessian | $\begin{bmatrix} f_{xx}&f_{xy}\\ f_{yx}&f_{yy} \end{bmatrix}$ (🔗 12A2: determinant = D) |
 | constrained optimization | Lagrange multiplier method | $\nabla f = \lambda \nabla g$ |
 | value of relaxing constraint | shadow price | $\lambda$ |
+| principal curvatures | Hessian eigenvalues (🔗 12C1) | eigenvectors give axes of min/max curvature |

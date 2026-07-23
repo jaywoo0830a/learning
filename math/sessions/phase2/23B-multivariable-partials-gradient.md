@@ -1,6 +1,6 @@
 # Session 23B: Partial Derivatives and the Gradient
 
-**Phase 2 — Proof Bridge | 45 min**
+**Phase 2 — Proof Bridge | 50 min**
 
 *Differentiate one variable at a time. Hold the others fixed. The gradient vector points uphill — always perpendicular to level curves. The tangent plane is the best flat approximation to a surface at a point.*
 
@@ -26,13 +26,15 @@ $f_y = x^3 + 2y$ (treat $x$ as constant; $x^3y \to x^3$).
 
 ---
 
-## Example 2: Geometric Meaning — Slope of a Slice
+## Example 2: Geometric Meaning — Slope of a Slice (🔗 12C2)
 
 $f_x(a,b)$ = slope of the curve you get by slicing the surface with the vertical plane $y=b$. Walking east.
 
 $f_y(a,b)$ = slope from slicing with $x=a$. Walking north.
 
 On a mountain: $f_x$ = east-west steepness. $f_y$ = north-south steepness. The **gradient** combines them into the steepest direction.
+
+> **🔗 Bridge to 12C2 (Parametric Curves)**: The slice at $y=b$ is a **parametric curve** $\vec{r}(x) = (x, b, f(x,b))$. Its tangent vector is $\vec{r}\,'(x) = \langle 1, 0, f_x(x,b) \rangle$. The slope $f_x$ is the vertical-to-horizontal ratio of this tangent — exactly the same tangent concept you learned in 12C2. Similarly, $f_{xx}$ measures how this tangent changes (curvature of the parametric curve).
 
 ---
 
@@ -53,7 +55,7 @@ $f_y=2x^3y+e^x\cos y$, $f_{yx}=6x^2y+e^x\cos y$. ✓
 
 ---
 
-## Example 4: Definition of the Gradient
+## Example 4: Definition of the Gradient (🔗 12A2)
 
 $\nabla f(a,b) = \langle f_x(a,b), f_y(a,b) \rangle$.
 
@@ -65,7 +67,13 @@ $f(x,y)=x^2+y^2$: $\nabla f = \langle 2x, 2y \rangle$. At $(1,2)$: $\nabla f = \
 3. $\nabla f$ is **perpendicular** to level curves of $f$.
 4. $|\nabla f|$ = the **maximum rate of change**.
 
-![Gradient vectors perpendicular to level curves](graphs/23b-gradient-contour.png)
+> **🔗 Bridge to 12A2 (Vectors)**: The gradient $\nabla f$ is a **vector** — the same kind of object you studied in 12A2. The directional derivative $D_{\vec{u}}f = \nabla f \cdot \vec{u}$ is the **dot product** (12A2). The magnitude $|\nabla f|$ is the **norm** of a vector. Every vector operation from 12A2 applies: $\nabla f$ can be scaled, added to other gradients, and decomposed into components.
+
+![Gradient — 3D surface with gradient arrows](graphs/0721/23B/gradient-3d.png)
+
+![Gradient — 2D contour with gradient vectors](graphs/0721/23B/gradient-2d.png)
+
+![Gradient — 1D directional derivative as dot product](graphs/0721/23B/gradient-1d.png)
 
 *Graph 23B: Gradient vectors (red arrows) of $f(x,y)=x^2+y^2$ overlaid on level curves (blue circles). Every gradient vector points radially outward — perpendicular to the circular level curves — and its length $|\nabla f|=2r$ increases with distance from the origin.*
 
@@ -96,7 +104,9 @@ Equivalently: $z - f(a,b) = \nabla f(a,b) \cdot \langle x-a, y-b \rangle$.
 $f(x,y)=x^2+y^2$ at $(1,2)$: $f(1,2)=5$, $\nabla f=\langle 2,4\rangle$.
 Tangent plane: $z = 5 + 2(x-1) + 4(y-2) = 2x + 4y - 5$.
 
-![Tangent plane touching the surface](graphs/23-tangent-plane.png)
+![Tangent plane — 3D surface and plane](graphs/0721/23B/tangent-plane-3d.png)
+
+![Tangent plane — 2D zoom near tangent point](graphs/0721/23B/tangent-plane-2d.png)
 
 *Graph 23: The tangent plane (orange) to $z=x^2+y^2$ at $(1,2,5)$. The gradient $\nabla f(1,2)=\langle 2,4\rangle$ (green arrow) points in the steepest direction. The plane touches the surface at exactly one point.*
 
@@ -108,6 +118,8 @@ Estimate $f(1.1, 1.9)$ for $f(x,y)=x^2+y^2$ using the tangent plane at $(1,2)$.
 
 Plane: $z=2x+4y-5$. At $(1.1, 1.9)$: $z=2(1.1)+4(1.9)-5=2.2+7.6-5=4.8$.
 Actual: $(1.1)^2+(1.9)^2=1.21+3.61=4.82$. Error = 0.02. Good approximation close to the point.
+
+> **🔗 Bridge to 12A2 (Hessian Matrix)**: The second derivative test uses $D = f_{xx}f_{yy} - (f_{xy})^2$, which is the **determinant of the Hessian matrix** $H = \begin{pmatrix} f_{xx} & f_{xy} \\ f_{xy} & f_{yy} \end{pmatrix}$ (Session 24B). This matrix is a linear transformation (12A2) acting on the tangent plane's slope changes. Its eigenvalues tell you the principal curvatures — just as 12A2 taught you that matrices encode geometric transformations, the Hessian encodes how the surface bends away from the tangent plane.
 
 > **Up to here**: $f_x$, $f_y$ = differentiate one variable, hold others. Clairaut: $f_{xy}=f_{yx}$. $\nabla f=\langle f_x,f_y\rangle$ = steepest ascent, $\perp$ level curves. $D_{\vec{u}}f=\nabla f\cdot\vec{u}$ (unit $\vec{u}$). Tangent plane = $z=f(a,b)+\nabla f(a,b)\cdot\langle x-a,y-b\rangle$.
 
@@ -165,7 +177,7 @@ A hiker at $(1,2)$ on $z=10-x^2-2y^2$ (hundreds of meters). (a) Walking east —
 
 ---
 
-## Basic Drill (10)
+## Basic Drill (12)
 
 **D1.** $f_x$, $f_y$ for $f(x,y)=x^4y-3x^2+y^5$.
 **D2.** $f_x$, $f_y$ for $f(x,y)=e^{xy}\sin(x+y)$.
@@ -177,10 +189,12 @@ A hiker at $(1,2)$ on $z=10-x^2-2y^2$ (hundreds of meters). (a) Walking east —
 **D8.** Does $f(x,y)=|x|+|y|$ have partial derivatives at $(0,0)$?
 **D9.** Compute $f_{xy}$ and $f_{yx}$ for $f(x,y)=x^2\sin y$. Are they equal?
 **D10.** If $\nabla f(3,4)=\langle 6,8\rangle$, in which direction is $f$ decreasing fastest?
+**D11.** Write the parametric curve for the slice $y=2$ of $f(x,y)=x^2+y^2$. Find its tangent vector at $x=1$. (🔗 12C2)
+**D12.** Compute $\nabla f \cdot \vec{u}$ for $f(x,y)=x^2y$, $\vec{u}=\langle 3/5,4/5\rangle$ — identify this as a dot product (🔗 12A2).
 
 ---
 
-## Advanced Drill (10)
+## Advanced Drill (12)
 
 **A1.** Use limit definition to compute $f_x(0,0)$ for $f(x,y)=\begin{cases} \frac{x^3}{x^2+y^2}, & (x,y)\neq(0,0) \\ 0, & (0,0) \end{cases}$.
 **A2.** Prove $\nabla(fg) = f\nabla g + g\nabla f$ (componentwise product rule).
@@ -192,6 +206,8 @@ A hiker at $(1,2)$ on $z=10-x^2-2y^2$ (hundreds of meters). (a) Walking east —
 **A8.** Show $f(x,y)=x^2+y^2$ satisfies $|\nabla f(1,2)|=2\sqrt{5}$. Verify this equals the max directional derivative.
 **A9.** If $f_x=f_y=0$ everywhere, prove $f$ is constant. (Use MVT along paths.)
 **A10.** (Proof reading) "$\nabla f(a,b)=\langle 0,0\rangle$ means $f$ has a local max or min." Critique — what about saddles?
+**A11.** Write the Hessian matrix $H$ for $f(x,y)=x^3-3xy+y^3$ at $(1,1)$. Compute $\det H$ and verify $D = \det H$. (🔗 12A2)
+**A12.** The parametric curve $\vec{r}(t) = (t, 2t, f(t,2t))$ lies on $z=f(x,y)$. Find its tangent vector at $t=1$ in terms of $f_x,f_y$. (🔗 12C2)
 
 > Solutions: [Solutions](solutions/23B-solutions.md)
 
@@ -231,7 +247,7 @@ Step 3: Clairaut: f_{xy}=f_{yx} when continuous.
 |:---:|:---:|:---:|
 | differentiate x, freeze y | partial derivative w.r.t. $x$ | $f_x = \partial f/\partial x$ |
 | mixed partials commute | Clairaut's theorem | $f_{xy}=f_{yx}$ |
-| vector of partials | gradient | $\nabla f = \langle f_x, f_y \rangle$ |
-| slope in direction $\vec{u}$ | directional derivative | $D_{\vec{u}}f = \nabla f \cdot \vec{u}$ |
+| vector of partials | gradient | $\nabla f = \langle f_x, f_y \rangle$ (🔗 12A2: vector, dot product) |
+| slope in direction $\vec{u}$ | directional derivative | $D_{\vec{u}}f = \nabla f \cdot \vec{u}$ (🔗 12A2: dot product) |
 | best flat approximation | tangent plane | $z = f(a,b) + \nabla f(a,b)\cdot\langle x-a,y-b\rangle$ |
 | steepest ascent direction | $\nabla f$ direction | max rate = $\vert\nabla f\vert$ |

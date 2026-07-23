@@ -1,6 +1,6 @@
 # Session 25B: Triple Integrals and Coordinate Systems
 
-**Phase 2 — Proof Bridge | 45 min**
+**Phase 2 — Proof Bridge | 55 min**
 
 *Polar, cylindrical, spherical — the right coordinate system turns an impossible integral into a trivial one. Each system has a Jacobian: the "stretch factor" for area or volume elements. Master these three and you can integrate over any symmetric shape.*
 
@@ -41,7 +41,7 @@ $A = \int_0^{\pi/2} \int_0^{\sin 2\theta} r\,dr\,d\theta = \int_0^{\pi/2} \frac{
 
 ---
 
-## Part B: Cylindrical Coordinates — $r, \theta, z$
+## Part B: Cylindrical Coordinates — $r, \theta, z$ (🔗 12C3)
 
 ---
 
@@ -54,6 +54,8 @@ $x=r\cos\theta$, $y=r\sin\theta$, $z=z$.
 
 Volume bounded by $x^2+y^2=1$, $z=0$, and $z=4-x^2-y^2$:
 $V = \int_0^{2\pi} \int_0^1 \int_0^{4-r^2} r\,dz\,dr\,d\theta = 2\pi \int_0^1 r(4-r^2)\,dr = 2\pi[2r^2-\frac{r^4}{4}]_0^1 = 2\pi(2-\frac{1}{4}) = \frac{7\pi}{2}$.
+
+> **🔗 Bridge to 12C3 (Cylindrical Coordinates)**: Cylindrical coordinates $(r,\theta,z)$ are exactly the polar coordinates from 12C3 with a $z$ axis added. In 12C3 Example 3, you saw that a cylinder is $r=R$ in cylindrical — the simplest possible description. The triple integral $\iiint f\,dV = \iiint f\cdot r\,dr\,d\theta\,dz$ is the 3D version of the same idea: use the coordinate system that matches the symmetry.
 
 ---
 
@@ -69,7 +71,7 @@ Outer ($\theta$): $18 \cdot 2\pi = 36\pi$.
 
 ---
 
-## Part C: Spherical Coordinates — $\rho, \phi, \theta$
+## Part C: Spherical Coordinates — $\rho, \phi, \theta$ (🔗 12C3)
 
 ---
 
@@ -84,6 +86,8 @@ $\rho \geq 0$ (distance from origin). $\phi \in [0,\pi]$ (angle from positive $z
 Volume of sphere radius $R$:
 $V = \int_0^{2\pi} \int_0^\pi \int_0^R \rho^2\sin\phi\,d\rho\,d\phi\,d\theta = 2\pi \cdot [-\cos\phi]_0^\pi \cdot [\frac{\rho^3}{3}]_0^R = 2\pi \cdot 2 \cdot \frac{R^3}{3} = \frac{4}{3}\pi R^3$.
 
+> **🔗 Bridge to 12C3 (Spherical Coordinates)**: Spherical coordinates $(\rho,\phi,\theta)$ are the third coordinate system from 12C3 Example 3. In 12C3, you saw that a sphere is $\rho=R$ — the simplest description. Here you're integrating over that sphere. The Jacobian $\rho^2\sin\phi$ is the **volume scaling factor** of the coordinate transformation — the 3D analogue of the area scaling $r$ in polar. The 12C3 lesson holds: match the coordinate system to the symmetry of the problem.
+
 ---
 
 ## Example 7: Volume Inside a Sphere and Above a Cone
@@ -94,13 +98,17 @@ In spherical: sphere is $\rho=3$. Cone $z=\sqrt{x^2+y^2}$ → $\rho\cos\phi = \r
 
 $V = \int_0^{2\pi} \int_0^{\pi/4} \int_0^3 \rho^2\sin\phi\,d\rho\,d\phi\,d\theta = 2\pi \cdot [-\cos\phi]_0^{\pi/4} \cdot 9 = 18\pi(1-\frac{\sqrt{2}}{2}) = 9\pi(2-\sqrt{2})$.
 
-![Spherical coordinates and volume element](graphs/25b-spherical-breakdown.png)
+![Spherical — 3D coordinate system](graphs/0721/25B/spherical-3d.png)
+
+![Spherical — Jacobian factor rho²](graphs/0721/25B/spherical-jacobian-rho.png)
+
+![Spherical — Jacobian factor sin phi](graphs/0721/25B/spherical-jacobian-phi.png)
 
 *Graph 25B: Spherical coordinates $(\rho,\phi,\theta)$. The volume element $dV=\rho^2\sin\phi\,d\rho\,d\phi\,d\theta$ is the product of: radial thickness $d\rho$, polar arc $\rho\,d\phi$, and azimuthal arc $\rho\sin\phi\,d\theta$. Multiplying all three gives $\rho^2\sin\phi\,d\rho\,d\phi\,d\theta$.*
 
 ---
 
-## Part D: The General Jacobian
+## Part D: The General Jacobian (🔗 12C1)
 
 ---
 
@@ -111,6 +119,8 @@ For $(x,y) \leftrightarrow (u,v)$: $dA = \left|\frac{\partial(x,y)}{\partial(u,v
 **Polar revisited**: $x=r\cos\theta$, $y=r\sin\theta$. Jacobian = $\cos\theta(r\cos\theta) - (-r\sin\theta)(\sin\theta) = r$. ✓
 
 **Spherical revisited**: $x=\rho\sin\phi\cos\theta$, $y=\rho\sin\phi\sin\theta$, $z=\rho\cos\phi$. Jacobian $= \rho^2\sin\phi$. ✓
+
+> **🔗 Bridge to 12C1 (Geometric Transformations)**: The Jacobian matrix $J$ is a **linear transformation** (12C1). Its columns are the images of the basis vectors: $\langle x_u, y_u \rangle$ shows how a step in $u$ moves the point; $\langle x_v, y_v \rangle$ shows how a step in $v$ moves the point. These two vectors span a parallelogram whose area is $|\det J|$ — exactly the determinant's geometric meaning from 12A2. The Jacobian determinant IS the local area scaling factor of the coordinate transformation, just as the determinant of a $2\times2$ matrix in 12A2 gave the area scaling of a linear transformation. The only difference: the Jacobian varies from point to point (for nonlinear transformations like polar), while a linear transformation has a constant determinant.
 
 ---
 
@@ -136,7 +146,11 @@ Integral = $\int_0^2\int_0^2 u^2 \cdot v \cdot \frac{1}{2}\,du\,dv = \frac{1}{2}
 >
 > In 3D, the same logic applies: $dV = |\det J|\,du\,dv\,dw$ where $J$ is now $3\times3$ and $|\det J|$ is the volume of the parallelepiped spanned by its three columns.
 
-![Jacobian matrix — 3D grid mapping, 2D parallelogram, 1D det(J)](graphs/25b-jacobian-matrix.png)
+![Jacobian — 3D grid mapping](graphs/0721/25B/jacobian-3d.png)
+
+![Jacobian — 2D area scaling](graphs/0721/25B/jacobian-2d.png)
+
+![Jacobian — 1D determinant comparison](graphs/0721/25B/jacobian-1d.png)
 
 *Graph 25B-2: 3D — a regular grid in $(u,v)$ space maps to a deformed grid in $(x,y)$ space via $(x,y) = (u+v, u-v)$. A small square in $(u,v)$ (red, bottom plane) becomes a parallelogram in $(x,y)$ (red, top plane). 2D — the two column vectors of $J = \begin{pmatrix}1&1\\1&-1\end{pmatrix}$ span a parallelogram whose area $|\det J| = 2$ is exactly the scaling factor. 1D — $\det J$ as a function of position: for polar, $\det J = r$ grows linearly (purple); for the linear mapping above, $\det J = -2$ is constant (red dashed); for spherical at fixed $\phi$, $\det J \propto \rho^2$ (green).*
 
@@ -193,7 +207,7 @@ Compute $\iint_D e^{(x+y)/(x-y)}\,dA$ over the trapezoid bounded by $x+y=1$, $x+
 
 ---
 
-## Basic Drill (10)
+## Basic Drill (12)
 
 **D1.** Convert $\int_0^1\int_0^{\sqrt{1-x^2}} (x^2+y^2)\,dy\,dx$ to polar (write limits, don't evaluate).
 **D2.** $\int_0^{2\pi}\int_0^1 r^2\cdot r\,dr\,d\theta$ in polar. Evaluate.
@@ -205,10 +219,12 @@ Compute $\iint_D e^{(x+y)/(x-y)}\,dA$ over the trapezoid bounded by $x+y=1$, $x+
 **D8.** $\int_0^{2\pi}\int_0^\pi \sin\phi\,d\phi\,d\theta$ — evaluate.
 **D9.** Convert $z=\sqrt{x^2+y^2}$ to spherical. What is $\phi$ on this cone?
 **D10.** What is the polar Jacobian? Explain in words why it's $r$, not 1.
+**D11.** In cylindrical coordinates, a cylinder is $r=R$. What is it in Cartesian? Which description is simpler? (🔗 12C3)
+**D12.** The Jacobian matrix for polar is $J = \begin{pmatrix} \cos\theta & -r\sin\theta \\ \sin\theta & r\cos\theta \end{pmatrix}$. Compute $\det J$. This is a linear transformation (🔗 12C1) at each point $(r,\theta)$.
 
 ---
 
-## Advanced Drill (10)
+## Advanced Drill (12)
 
 **A1.** Use polar to compute $\iint_D \frac{1}{x^2+y^2}\,dA$ over the annulus $1 \leq x^2+y^2 \leq 4$.
 **A2.** Volume of the "ice cream cone": sphere $\rho=2\cos\phi$ inside. Set up in spherical.
@@ -220,6 +236,8 @@ Compute $\iint_D e^{(x+y)/(x-y)}\,dA$ over the trapezoid bounded by $x+y=1$, $x+
 **A8.** Find the mass of a sphere $x^2+y^2+z^2 \leq R^2$ with density $\delta(x,y,z)=\sqrt{x^2+y^2+z^2}$.
 **A9.** (Proof reading) "$\int_0^{2\pi}\int_0^\pi\int_0^R \rho^2\,d\rho\,d\phi\,d\theta = \frac{4}{3}\pi R^3$." What's missing?
 **A10.** Derive the volume of an $n$-dimensional ball of radius $R$ for $n=3$ (spherical), and state the formula for general $n$. (The general formula involves the Gamma function.)
+**A11.** The transformation $u=x+y$, $v=x-y$ (from Example 9) is a **linear transformation** (🔗 12C1). Write its Jacobian matrix $J$ and compute $\det J$. Explain geometrically why $|\det J| = 1/2$ means area is halved.
+**A12.** A cone $z=\sqrt{x^2+y^2}$ in Cartesian becomes $\phi=\pi/4$ in spherical (🔗 12C3). Set up the volume integral inside the sphere $\rho=3$ and above this cone. Which coordinate system made this problem solvable?
 
 > Solutions: [Solutions](solutions/25B-solutions.md)
 
@@ -257,7 +275,7 @@ Step 3: General Jacobian = |∂(x,y)/∂(u,v)|. Transform region + integrand + a
 
 | What we call it | Math term | Notation |
 |:---:|:---:|:---:|
-| polar area stretch factor | polar Jacobian | $dA = r\,dr\,d\theta$ |
-| cylindrical volume element | cylindrical Jacobian | $dV = r\,dr\,d\theta\,dz$ |
-| spherical volume element | spherical Jacobian | $dV = \rho^2\sin\phi\,d\rho\,d\phi\,d\theta$ |
-| general transformation determinant | Jacobian determinant | $\left\vert\frac{\partial(x,y)}{\partial(u,v)}\right\vert$ |
+| polar area stretch factor | polar Jacobian | $dA = r\,dr\,d\theta$ (🔗 12C3: coordinate transformation) |
+| cylindrical volume element | cylindrical Jacobian | $dV = r\,dr\,d\theta\,dz$ (🔗 12C3) |
+| spherical volume element | spherical Jacobian | $dV = \rho^2\sin\phi\,d\rho\,d\phi\,d\theta$ (🔗 12C3) |
+| general transformation determinant | Jacobian determinant | $\left\vert\frac{\partial(x,y)}{\partial(u,v)}\right\vert$ (🔗 12C1: det = area scaling) |

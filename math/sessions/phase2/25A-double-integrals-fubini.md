@@ -1,6 +1,6 @@
 # Session 25A: Double Integrals — Volume Under a Surface
 
-**Phase 2 — Proof Bridge | 45 min**
+**Phase 2 — Proof Bridge | 50 min**
 
 *Integrate over a 2D region to get volume. Fubini's theorem lets you compute it as two nested single integrals. When one order looks impossible, sketch the region and swap.*
 
@@ -33,7 +33,7 @@ $= \int_0^2 (x^3 + \frac{x^2}{2})\,dx = \left[\frac{x^4}{4} + \frac{x^3}{6}\righ
 
 ---
 
-## Example 3: Swapping the Order — When One Direction Is Impossible
+## Example 3: Swapping the Order — When One Direction Is Impossible (🔗 12C2, 12C3)
 
 $\int_0^1 \int_y^1 e^{x^2}\,dx\,dy$. The inner integral $\int_y^1 e^{x^2}\,dx$ has no elementary antiderivative.
 
@@ -47,7 +47,17 @@ Substitute $u=x^2$, $du=2x\,dx$: $\frac{1}{2}\int_0^1 e^u\,du = \frac{e-1}{2}$.
 
 **ALWAYS sketch the region before swapping.** The limits are the tricky part.
 
-![Fubini swap — same region, two orders](graphs/25a-fubini-swap.png)
+> **🔗 Bridge to 12C2 (Parametric Curves)**: The region boundaries — lines $y=0$, $x=1$, $y=x$ — are all **parametric curves** (12C2). The line $y=x$ is $\vec{r}(t)=(t,t)$; the vertical line $x=1$ is $\vec{r}(t)=(1,t)$. Describing a region means identifying which parametric curves bound it.
+>
+> **🔗 Bridge to 12C3 (Coordinate Perspectives)**: Swapping integration order from $dy\,dx$ to $dx\,dy$ is like changing your **coordinate perspective** (12C3). Type I (vertical strips) is one coordinate view; Type II (horizontal strips) is another. Both describe the same region, just as polar and Cartesian describe the same points. The art is choosing the view that makes the integral solvable.
+
+![Fubini — 3D volume under surface](graphs/0721/25A/fubini-3d.png)
+
+![Fubini — Type I: vertical strips](graphs/0721/25A/fubini-type1.png)
+
+![Fubini — Type II: horizontal strips](graphs/0721/25A/fubini-type2.png)
+
+![Fubini — 1D after inner integral](graphs/0721/25A/fubini-1d.png)
 
 *Graph 25A: The triangular region described two ways. Left — dy dx: for each x, y runs from 0 to x. Right — dx dy: for each y, x runs from y to 1. Both describe the same set of points. Swapping the order turned an impossible integral into an easy one.*
 
@@ -123,7 +133,7 @@ A pond's region $D$: bounded by $y=x^2$ and $y=4$. Depth $d(x,y)=4-y$ meters. Fi
 
 ---
 
-## Basic Drill (10)
+## Basic Drill (12)
 
 **D1.** $\int_0^1\int_0^2 (xy+1)\,dy\,dx$.
 **D2.** $\int_0^2\int_0^x (x+y)\,dy\,dx$.
@@ -135,10 +145,12 @@ A pond's region $D$: bounded by $y=x^2$ and $y=4$. Depth $d(x,y)=4-y$ meters. Fi
 **D8.** $\iint_D x\,dA$, $D$: $0\leq x\leq 1$, $0\leq y\leq x^2$.
 **D9.** Why can't you directly integrate $\int_0^1\int_0^1 e^{y^2}\,dy\,dx$? What order should you use?
 **D10.** Average value of $f(x,y)=xy$ on $[0,1]\times[0,1]$.
+**D11.** Parameterize the boundary of the triangle with vertices $(0,0),(2,0),(0,1)$ as three parametric curves. (🔗 12C2)
+**D12.** The region bounded by $y=x^2$ and $y=2x$: describe as Type I ($dy\,dx$) and Type II ($dx\,dy$). Which perspective (🔗 12C3) gives simpler limits?
 
 ---
 
-## Advanced Drill (10)
+## Advanced Drill (12)
 
 **A1.** $\iint_D e^{y/x}\,dA$, $D$: triangle bounded by $y=0$, $x=1$, $y=x$. (One order is much easier.)
 **A2.** $\iint_D \sin(y^2)\,dA$, $D$: triangle $(0,0),(1,0),(1,1)$. Swap to evaluate.
@@ -150,6 +162,8 @@ A pond's region $D$: bounded by $y=x^2$ and $y=4$. Depth $d(x,y)=4-y$ meters. Fi
 **A8.** Set up the double integral for the volume of a tetrahedron with vertices $(0,0,0),(a,0,0),(0,b,0),(0,0,c)$.
 **A9.** (Proof reading) "$\int_0^1\int_0^1 \frac{x-y}{(x+y)^3}\,dy\,dx = 0$ by symmetry." Is it? Evaluate both iterated orders — they differ! (Fubini requires absolute integrability.)
 **A10.** Prove: $\iint_D f(x)g(y)\,dA = (\int_a^b f(x)\,dx)(\int_c^d g(y)\,dy)$ when $D=[a,b]\times[c,d]$.
+**A11.** The region $D$ is bounded by the parametric curve $\vec{r}(t) = (t^2, t^3)$, $t\in[0,1]$, and the $x$-axis. Set up the double integral of $f(x,y)=x$ over $D$. (🔗 12C2)
+**A12.** Describe the disk $x^2+y^2\leq 1$ in both Type I and Type II forms. Which coordinate perspective (🔗 12C3) would make integration easier, and why?
 
 > Solutions: [Solutions](solutions/25A-solutions.md)
 
@@ -187,5 +201,5 @@ Step 3: When stuck, swap order. Redescribe the bounding curves.
 |:---:|:---:|:---:|
 | integral over a 2D region | double integral | $\iint_D f\,dA$ |
 | compute as two 1D integrals | iterated integral / Fubini | $\int\int f\,dy\,dx$ |
-| vertical strip description | Type I region | $g_1(x)\leq y\leq g_2(x)$ |
-| horizontal strip description | Type II region | $h_1(y)\leq x\leq h_2(y)$ |
+| vertical strip description | Type I region | $g_1(x)\leq y\leq g_2(x)$ (🔗 12C2: bounded by parametric curves) |
+| horizontal strip description | Type II region | $h_1(y)\leq x\leq h_2(y)$ (🔗 12C3: different coordinate perspective) |

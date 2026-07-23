@@ -1,6 +1,6 @@
 # Session 24A: The Multivariable Chain Rule and Implicit Differentiation
 
-**Phase 2 — Proof Bridge | 45 min**
+**Phase 2 — Proof Bridge | 50 min**
 
 *Rates of change propagate through connected variables like current through wires. The multivariable chain rule traces every path from input to output. Implicit differentiation generalizes: $\frac{dy}{dx} = -\frac{F_x}{F_y}$ is just the start.*
 
@@ -12,7 +12,7 @@
 
 ---
 
-## Example 1: $z$ Changes Through $x(t)$ and $y(t)$
+## Example 1: $z$ Changes Through $x(t)$ and $y(t)$ (🔗 12C2)
 
 If $z=f(x,y)$ and $(x,y)$ moves along $(x(t), y(t))$, then:
 
@@ -24,6 +24,8 @@ $z=x^2+y^2$, $x=\cos t$, $y=\sin t$ (unit circle).
 $\frac{dz}{dt} = 2x(-\sin t) + 2y(\cos t) = -2\cos t\sin t + 2\sin t\cos t = 0$.
 
 $z=x^2+y^2=1$ constant on this path — derivative confirms.
+
+> **🔗 Bridge to 12C2 (Parametric Curves)**: The path $\vec{r}(t) = (x(t), y(t))$ is a **parametric curve** from 12C2. Its velocity $\vec{r}\,'(t) = \langle x'(t), y'(t) \rangle$ is the tangent vector. The chain rule says $\frac{dz}{dt} = \nabla f \cdot \vec{r}\,'(t)$ — the rate of change of $z$ along the path is the dot product of the gradient with the tangent vector. This is exactly the directional derivative formula $D_{\vec{u}}f = \nabla f \cdot \vec{u}$ from 23B, where $\vec{u}$ is the direction of motion at each instant.
 
 ---
 
@@ -54,13 +56,19 @@ $z=x^2y$, $x=u+v$, $y=uv$.
 $\frac{\partial z}{\partial u} = 2xy \cdot 1 + x^2 \cdot v = 2uv(u+v) + (u+v)^2v$.
 $\frac{\partial z}{\partial v} = 2xy \cdot 1 + x^2 \cdot u = 2uv(u+v) + (u+v)^2u$.
 
-![Chain rule tree diagram](graphs/24a-chain-rule-tree.png)
+![Chain rule — 3D parametric path on surface](graphs/0721/24A/chain-path-3d.png)
+
+![Chain rule — 2D path with tangent vectors](graphs/0721/24A/chain-path-2d.png)
+
+![Chain rule — tree diagram](graphs/0721/24A/chain-tree.png)
+
+![Chain rule — dz/dt along the path](graphs/0721/24A/chain-dzdt.png)
 
 *Graph 24A: The tree diagram for $z=f(x,y)$ with $x=g(u,v)$, $y=h(u,v)$. Each path from $z$ to a leaf variable contributes one product term. Sum all paths to get the partial derivative. Red path = $\partial z/\partial u$ via $x$. Blue path = via $y$.*
 
 ---
 
-## Example 4: Polar Laplacian — A Classic Chain Rule Application
+## Example 4: Polar Laplacian — A Classic Chain Rule Application (🔗 12C3)
 
 $f(x,y) \to f(r,\theta)$ via $x=r\cos\theta$, $y=r\sin\theta$. Express $f_{xx}+f_{yy}$ in polar.
 
@@ -71,6 +79,8 @@ After a second differentiation and algebra (not shown — but classic exercise):
 $f_{xx}+f_{yy} = f_{rr} + \frac{1}{r}f_r + \frac{1}{r^2}f_{\theta\theta}$.
 
 This is how you solve Laplace's equation on a disk.
+
+> **🔗 Bridge to 12C3 (Coordinate Systems)**: Converting the Laplacian from Cartesian to polar is a **coordinate transformation** — the core idea of 12C3. The expression $f_{xx}+f_{yy}$ in Cartesian becomes $f_{rr} + \frac{1}{r}f_r + \frac{1}{r^2}f_{\theta\theta}$ in polar. This is exactly the same principle as 12C3 Example 3A: the same physical quantity looks different in different coordinate systems. The chain rule is the machinery that converts between them.
 
 ---
 
@@ -104,7 +114,11 @@ $\nabla F \cdot \langle x-x_0, y-y_0, z-z_0 \rangle = 0$, where $\nabla F = \lan
 For the sphere $x^2+y^2+z^2=14$ at $(1,2,3)$: $\nabla F = \langle 2,4,6 \rangle$.
 Tangent plane: $2(x-1)+4(y-2)+6(z-3)=0$ → $x+2y+3z=14$.
 
-![Implicit surface tangent plane](graphs/24a-implicit-surface.png)
+![Implicit surface — 3D sphere with tangent plane](graphs/0721/24A/implicit-3d.png)
+
+![Implicit surface — 2D level curve](graphs/0721/24A/implicit-2d.png)
+
+![Implicit surface — 1D implicit differentiation](graphs/0721/24A/implicit-1d.png)
 
 *Graph 24A: The sphere $x^2+y^2+z^2=14$ with tangent plane at $(1,2,3)$. The normal vector $\nabla F(1,2,3)=\langle 2,4,6\rangle$ is perpendicular to the tangent plane. This generalizes the 2D implicit formula: gradient of the defining function gives the normal.*
 
@@ -172,7 +186,7 @@ The ideal gas law: $PV=nRT$ ($n,R$ constant). Find $\partial V/\partial T$ (pres
 
 ---
 
-## Basic Drill (10)
+## Basic Drill (12)
 
 **D1.** $z=x^2+y^2$, $x=e^t$, $y=e^{-t}$. Find $dz/dt$.
 **D2.** $w=xy+yz$, $x=t$, $y=t^2$, $z=t^3$. Find $dw/dt$ at $t=1$.
@@ -184,10 +198,12 @@ The ideal gas law: $PV=nRT$ ($n,R$ constant). Find $\partial V/\partial T$ (pres
 **D8.** $z=x^y$, $x=e^t$, $y=t$. Find $dz/dt$ at $t=1$.
 **D9.** Why is $\frac{dz}{dt}$ written with $d$ not $\partial$ when $x,y$ depend only on $t$?
 **D10.** $x^2z+yz^2=5$. Find $\partial z/\partial x$ at $(1,1,2)$.
+**D11.** Parameterize the chain rule path: if $\vec{r}(t) = (t^2, \sin t)$, find $\vec{r}\,'(t)$ and $dz/dt$ for $z=x^2+y^2$. (🔗 12C2)
+**D12.** Write the polar Laplacian $f_{rr} + \frac{1}{r}f_r + \frac{1}{r^2}f_{\theta\theta}$ for $f(r,\theta)=r^2$. Simplify and compare to $f_{xx}+f_{yy}$ for $f(x,y)=x^2+y^2$. (🔗 12C3)
 
 ---
 
-## Advanced Drill (10)
+## Advanced Drill (12)
 
 **A1.** Prove the single-path chain rule from the definition of the derivative: $dz = f_x dx + f_y dy$, divide by $dt$.
 **A2.** $u=f(x,y)$, $x=r\cos\theta$, $y=r\sin\theta$. Show $u_x^2+u_y^2 = u_r^2 + \frac{1}{r^2}u_\theta^2$.
@@ -199,6 +215,8 @@ The ideal gas law: $PV=nRT$ ($n,R$ constant). Find $\partial V/\partial T$ (pres
 **A8.** For $z=f(x,y)$, $x=u\cos v$, $y=u\sin v$, express the Laplacian $z_{xx}+z_{yy}$ in terms of $u,v$.
 **A9.** (Proof reading) "$dz/dt = f_x dx/dt + f_y dy/dt$ always works." Critique: what conditions on $f$ are needed?
 **A10.** Chain rule for $n$ variables: state the general formula for $\partial w/\partial t_i$ when $w=f(x_1,\ldots,x_m)$ and each $x_j=g_j(t_1,\ldots,t_n)$. Draw the tree for $m=3$, $n=2$.
+**A11.** Interpret $dz/dt = \nabla f \cdot \vec{r}\,'(t)$ geometrically: if $\vec{r}\,'(t)$ is the tangent to a parametric curve (🔗 12C2), what does the sign of $dz/dt$ tell you about motion relative to level curves of $f$?
+**A12.** Derive $f_{xx}+f_{yy}$ in polar coordinates step-by-step for $f(r,\theta)=r^n\cos(n\theta)$. Show it satisfies Laplace's equation. (🔗 12C3)
 
 > Solutions: [Solutions](solutions/24A-solutions.md)
 
@@ -223,9 +241,10 @@ Step 2: Implicit — 2D curve: dy/dx = −F_x/F_y.
 | $\nabla F$ | "grad F" / "del F" | gradient of F(x,y,z) — normal vector to level surface |
 | $\frac{dy}{dx} = -\frac{F_x}{F_y}$ | "d y d x equals negative F sub x over F sub y" | implicit differentiation formula for F(x,y)=0 |
 | $\frac{\partial z}{\partial x} = -\frac{F_x}{F_z}$ | "partial z partial x equals negative F_x over F_z" | implicit partial for surface F(x,y,z)=0 |
-| $J$ | "J" / "Jacobian" | matrix of all first-order partial derivatives — chain rule = matrix multiplication |
+| $J$ | "J" / "Jacobian" | matrix of all first-order partial derivatives — chain rule = matrix multiplication (🔗 12A2) |
 | tree diagram | "tree diagram" | visual dependency graph — sum over all paths from output to input |
 | $\nabla F \cdot \langle x-x_0, y-y_0, z-z_0 \rangle = 0$ | "grad F dot displacement vector equals zero" | tangent plane to implicit surface — gradient is normal vector |
+| $\vec{r}(t)$ | "r of t" / "parametric path" | parametric curve (🔗 12C2) — chain rule gives dz/dt along it |
 
 
 ---
@@ -239,3 +258,4 @@ Step 2: Implicit — 2D curve: dy/dx = −F_x/F_y.
 | dependency diagram | tree diagram | $z \to (x,y) \to (u,v)$ |
 | find slope of implicit curve | implicit differentiation | $\frac{dy}{dx} = -\frac{F_x}{F_y}$ |
 | find partial of implicit surface | implicit partial | $\frac{\partial z}{\partial x} = -\frac{F_x}{F_z}$ |
+| coordinate change via chain rule | coordinate transformation (🔗 12C3) | e.g., polar Laplacian conversion |
