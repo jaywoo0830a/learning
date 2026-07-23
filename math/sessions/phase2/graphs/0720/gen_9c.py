@@ -158,57 +158,75 @@ def fig_plane_intercept():
     fig = plt.figure(figsize=(11, 9))
     ax = fig.add_subplot(111, projection='3d')
     # Plane: 2x+3y-z=6  => z = 2x+3y-6
-    x = np.linspace(0, 5, 30); y = np.linspace(0, 4, 30)
+    # High-resolution mesh for smooth rendering
+    x = np.linspace(0, 5, 80); y = np.linspace(0, 4, 80)
     X, Y = np.meshgrid(x, y)
     Z = 2*X + 3*Y - 6
-    Z = np.clip(Z, -7, 5)
-    ax.plot_surface(X, Y, Z, alpha=0.4, color='lightblue')
+    # Only show plane where it's within the visible z-range
+    plane = np.ones_like(Z)
+    plane[(Z < -7) | (Z > 5)] = np.nan
+    ax.plot_surface(X, Y, plane * Z, rstride=1, cstride=1, alpha=0.5, 
+                    color='#87CEEB', shade=True, antialiased=True, edgecolor='none')
     # Intercepts
-    ax.plot([3],[0],[0],'ro',markersize=10)
-    ax.plot([0],[2],[0],'go',markersize=10)
-    ax.plot([0],[0],[-6],'mo',markersize=10)
-    ax.text(3.3,0,0.5,'(3,0,0)',fontsize=10,color='red')
-    ax.text(0,2.3,0.5,'(0,2,0)',fontsize=10,color='green')
-    ax.text(0,0.3,-6,'(0,0,−6)',fontsize=10,color='magenta')
+    ax.plot([3],[0],[0],'ro',markersize=12, zorder=10)
+    ax.plot([0],[2],[0],'go',markersize=12, zorder=10)
+    ax.plot([0],[0],[-6],'mo',markersize=12, zorder=10)
+    # Label intercepts with nice offset
+    ax.text(3.3,-0.2,-0.3,'(3,0,0)',fontsize=11,color='red',fontweight='bold')
+    ax.text(-0.3,2.3,-0.3,'(0,2,0)',fontsize=11,color='green',fontweight='bold')
+    ax.text(-0.3,0.3,-6.3,'(0,0,−6)',fontsize=11,color='magenta',fontweight='bold')
     # Normal vector
-    ax.quiver(1,1,-1, 2,3,-1, color='darkred', lw=3, arrow_length_ratio=0.15)
-    ax.text(2,3,-2,'n=(2,3,−1)',fontsize=11,color='darkred',fontweight='bold')
+    ax.quiver(1,1,-1, 2,3,-1, color='darkred', lw=3, arrow_length_ratio=0.2)
+    ax.text(2.2,3.2,-2.2,'$\\vec{n}=(2,3,-1)$',fontsize=11,color='darkred',fontweight='bold')
     # Axes
-    ax.quiver(0,0,0, 6,0,0, color='gray', arrow_length_ratio=0.05, lw=0.8)
-    ax.quiver(0,0,0, 0,5,0, color='gray', arrow_length_ratio=0.05, lw=0.8)
-    ax.quiver(0,0,0, 0,0,5, color='gray', arrow_length_ratio=0.05, lw=0.8)
+    ax.quiver(0,0,0, 6,0,0, color='gray', arrow_length_ratio=0.05, lw=1)
+    ax.quiver(0,0,0, 0,5,0, color='gray', arrow_length_ratio=0.05, lw=1)
+    ax.quiver(0,0,0, 0,0,5, color='gray', arrow_length_ratio=0.05, lw=1)
+    ax.text(5.8,0,0,'x',fontsize=12); ax.text(0,5.3,0,'y',fontsize=12); ax.text(0,0,5.5,'z',fontsize=12)
     ax.set_xlim(0,5.5); ax.set_ylim(0,5); ax.set_zlim(-7,1)
-    ax.set_xlabel('X'); ax.set_ylabel('Y'); ax.set_zlabel('Z')
-    ax.set_title('Plane: 2x+3y−z=6\nIntercepts + Normal Vector', fontsize=13, fontweight='bold')
-    ax.view_init(elev=20, azim=-55)
+    ax.set_xlabel(''); ax.set_ylabel(''); ax.set_zlabel('')
+    ax.set_title('Plane: $2x+3y-z=6$ — Intercepts + Normal Vector', fontsize=13, fontweight='bold')
+    ax.view_init(elev=22, azim=-55)
+    ax.xaxis.pane.fill = False; ax.yaxis.pane.fill = False; ax.zaxis.pane.fill = False
+    ax.xaxis.pane.set_edgecolor('w'); ax.yaxis.pane.set_edgecolor('w'); ax.zaxis.pane.set_edgecolor('w')
     save('9c-plane-intercept.png')
 
 # ============================================================
 # 9c-plane-normal.png
 # ============================================================
 def fig_plane_normal():
-    fig = plt.figure(figsize=(10, 9))
+    fig = plt.figure(figsize=(11, 9))
     ax = fig.add_subplot(111, projection='3d')
-    x = np.linspace(-1, 5, 30); y = np.linspace(-1, 5, 30)
+    x = np.linspace(-1, 5, 80); y = np.linspace(-1, 5, 80)
     X, Y = np.meshgrid(x, y)
     Z = 2*X + 3*Y - 6
-    Z = np.clip(Z, -8, 6)
-    ax.plot_surface(X, Y, Z, alpha=0.3, color='lightblue')
-    # Normal vector at several points
+    plane = np.ones_like(Z)
+    plane[(Z < -8) | (Z > 6)] = np.nan
+    ax.plot_surface(X, Y, plane * Z, rstride=1, cstride=1, alpha=0.35, 
+                    color='#87CEEB', shade=True, antialiased=True, edgecolor='none')
+    # Normal vectors at three points on the plane
     pts = [(1,1,-1),(3,0,0),(0,2,0)]
     for px,py,pz in pts:
-        ax.quiver(px,py,pz, 2,3,-1, color='darkred', lw=2, arrow_length_ratio=0.2, alpha=0.7)
-    # Lines in the plane
-    for t in np.linspace(0,4,5):
-        ax.plot([t, t+1], [0, -0.667], [-6+2*t, -6+2*(t+1)-0.667*3], 'k-', lw=1, alpha=0.5)
-    ax.quiver(0,0,0, 6,0,0, color='gray', arrow_length_ratio=0.05, lw=0.8)
-    ax.quiver(0,0,0, 0,5,0, color='gray', arrow_length_ratio=0.05, lw=0.8)
-    ax.quiver(0,0,-6, 0,0,3, color='gray', arrow_length_ratio=0.05, lw=0.8)
-    ax.text(3,3,-3,'n=(2,3,−1)\n⊥ to every direction\nin the plane',fontsize=11,ha='center',
-            bbox=dict(boxstyle='round',facecolor='wheat',alpha=0.8))
+        ax.quiver(px,py,pz, 2,3,-1, color='#8B0000', lw=2.5, arrow_length_ratio=0.25, alpha=0.8)
+    # Lines in the plane (showing vectors perpendicular to normal)
+    for t in np.linspace(0,3.5,4):
+        ax.plot([t, t+1.5], [0, 0], [-6+2*t, -6+2*(t+1.5)], 'k-', lw=1.5, alpha=0.4)
+    for t in np.linspace(0,3,4):
+        ax.plot([t, t], [0, 1.5], [-6+2*t, -6+2*t+1.5*-3], 'k-', lw=1.5, alpha=0.4)
+    # Axes
+    ax.quiver(0,0,0, 5,0,0, color='gray', arrow_length_ratio=0.05, lw=1)
+    ax.quiver(0,0,0, 0,5,0, color='gray', arrow_length_ratio=0.05, lw=1)
+    ax.quiver(0,0,-6, 0,0,3, color='gray', arrow_length_ratio=0.05, lw=1)
+    ax.text(5.2,0,0,'x',fontsize=12); ax.text(0,5.3,0,'y',fontsize=12)
+    # Annotation
+    ax.text(2, 3.5, -2, '$\\vec{n}=(2,3,-1)$\n$\\perp$ to every direction in the plane', 
+            fontsize=11, ha='center',
+            bbox=dict(boxstyle='round',facecolor='#FFE4B5',alpha=0.85,edgecolor='#D2691E'))
     ax.set_xlim(-0.5,5.5); ax.set_ylim(-0.5,5); ax.set_zlim(-7,2)
-    ax.set_title('Normal Vector ⊥ to Plane', fontsize=13, fontweight='bold')
-    ax.view_init(elev=15, azim=-50)
+    ax.set_title('Normal Vector $\\perp$ to Plane', fontsize=13, fontweight='bold')
+    ax.view_init(elev=18, azim=-50)
+    ax.xaxis.pane.fill = False; ax.yaxis.pane.fill = False; ax.zaxis.pane.fill = False
+    ax.xaxis.pane.set_edgecolor('w'); ax.yaxis.pane.set_edgecolor('w'); ax.zaxis.pane.set_edgecolor('w')
     save('9c-plane-normal.png')
 
 # ============================================================
@@ -221,22 +239,28 @@ def fig_step_plane():
               'Step 3: Plane 6x+3y+2z=6\nx/1+y/2+z/3=1']
     for i in range(3):
         ax = fig.add_subplot(1, 3, i+1, projection='3d')
-        ax.plot([1],[0],[0],'ro',markersize=8)
-        ax.plot([0],[2],[0],'go',markersize=8)
-        ax.plot([0],[0],[3],'mo',markersize=8)
+        ax.plot([1],[0],[0],'ro',markersize=10)
+        ax.plot([0],[2],[0],'go',markersize=10)
+        ax.plot([0],[0],[3],'mo',markersize=10)
+        ax.text(1,0,0.3,'A',fontsize=11,color='red',fontweight='bold')
+        ax.text(0,2,0.3,'B',fontsize=11,color='green',fontweight='bold')
+        ax.text(0,0,3.3,'C',fontsize=11,color='magenta',fontweight='bold')
         ax.quiver(0,0,0, 5,0,0, color='gray', arrow_length_ratio=0.05, lw=0.5)
         ax.quiver(0,0,0, 0,4,0, color='gray', arrow_length_ratio=0.05, lw=0.5)
         ax.quiver(0,0,0, 0,0,5, color='gray', arrow_length_ratio=0.05, lw=0.5)
         if i >= 1:
-            ax.quiver(1,0,0, -1,2,0, color='orange', lw=2)
-            ax.quiver(1,0,0, -1,0,3, color='orange', lw=2)
-            ax.quiver(1,0,0, 6,3,2, color='darkred', lw=3, arrow_length_ratio=0.1)
-            ax.text(5,2,1.5,'n=(6,3,2)',fontsize=9,color='darkred')
+            ax.quiver(1,0,0, -1,2,0, color='orange', lw=2.5, arrow_length_ratio=0.2)
+            ax.quiver(1,0,0, -1,0,3, color='orange', lw=2.5, arrow_length_ratio=0.2)
+            ax.quiver(1,0,0, 6,3,2, color='darkred', lw=3.5, arrow_length_ratio=0.2)
+            ax.text(4,1.5,1.5,'$\\vec{n}=(6,3,2)$',fontsize=9,color='darkred',fontweight='bold')
+            ax.text(1.5,1.5,1,'$\\vec{AB}$',fontsize=8,color='orange')
+            ax.text(1.5,0.5,2,'$\\vec{AC}$',fontsize=8,color='orange')
         if i == 2:
-            xx,yy = np.meshgrid(np.linspace(0,1.2,15), np.linspace(0,2.2,15))
+            xx,yy = np.meshgrid(np.linspace(0,1.5,40), np.linspace(0,2.5,40))
             zz = (6-6*xx-3*yy)/2
             zz[zz<0] = np.nan
-            ax.plot_surface(xx, yy, zz, alpha=0.4, color='lightblue')
+            zz[zz>4] = np.nan
+            ax.plot_surface(xx, yy, zz, alpha=0.45, color='#87CEEB', shade=True, edgecolor='none')
         ax.set_title(titles[i], fontweight='bold', fontsize=10)
         ax.set_xlim(-0.2,5); ax.set_ylim(-0.2,4); ax.set_zlim(-0.2,5)
         ax.set_xlabel('X'); ax.set_ylabel('Y'); ax.set_zlabel('Z')
@@ -248,30 +272,49 @@ def fig_step_plane():
 # 9c-point-plane-distance.png
 # ============================================================
 def fig_point_plane_distance():
-    fig = plt.figure(figsize=(10, 9))
+    fig = plt.figure(figsize=(11, 9))
     ax = fig.add_subplot(111, projection='3d')
-    xx,yy = np.meshgrid(np.linspace(-1,4,20), np.linspace(-1,4,20))
-    zz = (6-2*xx-3*yy)/1
-    zz = np.clip(zz, -1, 8)
-    ax.plot_surface(xx, yy, zz, alpha=0.3, color='lightblue')
+    # Plane: 2x+3y+z=6 → z = 6-2x-3y
+    # Use a domain that shows the relevant portion
+    xx,yy = np.meshgrid(np.linspace(-0.5,4,60), np.linspace(-0.5,4,60))
+    zz = 6 - 2*xx - 3*yy
+    # Mask out extreme values to keep a clean visible region
+    zz_masked = zz.copy()
+    zz_masked[(zz < -0.5) | (zz > 7)] = np.nan
+    ax.plot_surface(xx, yy, zz_masked, alpha=0.35, color='#87CEEB', 
+                    shade=True, antialiased=True, edgecolor='none')
     # Point P(1,2,3)
-    ax.plot([1],[2],[3],'ro',markersize=10,zorder=5)
-    ax.text(1.3,2.3,3.5,'P(1,2,3)',fontsize=11,color='red',fontweight='bold')
-    # Perpendicular line
-    # Foot: solve param
+    ax.plot([1],[2],[3],'ro',markersize=12, zorder=10)
+    ax.text(1.3,2.3,3.5,'$P(1,2,3)$',fontsize=12,color='red',fontweight='bold')
+    # Foot of perpendicular
     n = np.array([2,3,1])
     p0 = np.array([1,2,3])
     d_const = 6
-    t = (d_const - np.dot(n, p0)) / np.dot(n, n)
-    foot = p0 + t*n
-    ax.plot([1,foot[0]],[2,foot[1]],[3,foot[2]],'r--',lw=2.5)
-    ax.plot([foot[0]],[foot[1]],[foot[2]],'go',markersize=8)
-    ax.text(foot[0]+0.2,foot[1]+0.2,foot[2],f'D=5/√14≈1.336',fontsize=10,color='red')
-    ax.quiver(1,1,-1, 2,3,1, color='purple', lw=2, arrow_length_ratio=0.2)
-    ax.set_xlim(-0.5,4); ax.set_ylim(-0.5,4); ax.set_zlim(-1,6)
-    ax.set_xlabel('X'); ax.set_ylabel('Y'); ax.set_zlabel('Z')
-    ax.set_title('Point-to-Plane Distance\n$2x+3y+z=6$, D=5/√14', fontsize=13, fontweight='bold')
-    ax.view_init(elev=20, azim=-55)
+    t_val = (d_const - np.dot(n, p0)) / np.dot(n, n)
+    foot = p0 + t_val * n
+    # Perpendicular line (dashed, thick)  
+    ax.plot([1,foot[0]],[2,foot[1]],[3,foot[2]],'r--',lw=3)
+    ax.plot([foot[0]],[foot[1]],[foot[2]],'go',markersize=12, zorder=10)
+    # Distance label
+    mid = (p0 + foot) / 2
+    ax.text(mid[0]+0.1, mid[1]+0.1, mid[2], '$d = \\frac{5}{\\sqrt{14}} \\approx 1.336$', 
+            fontsize=11, color='red', fontweight='bold',
+            bbox=dict(boxstyle='round',facecolor='white',alpha=0.7,edgecolor='red'))
+    # Normal vector
+    ax.quiver(foot[0],foot[1],foot[2], 2,3,1, color='purple', lw=2.5, arrow_length_ratio=0.2,
+             label='$\\vec{n}=(2,3,1)$')
+    ax.legend(fontsize=10, loc='upper right')
+    # Axes
+    ax.quiver(0,0,0, 5,0,0, color='gray', arrow_length_ratio=0.05, lw=0.8)
+    ax.quiver(0,0,0, 0,5,0, color='gray', arrow_length_ratio=0.05, lw=0.8)
+    ax.quiver(0,0,0, 0,0,5, color='gray', arrow_length_ratio=0.05, lw=0.8)
+    ax.text(5.2,0,0,'x',fontsize=12); ax.text(0,5.3,0,'y',fontsize=12); ax.text(0,0,5.5,'z',fontsize=12)
+    ax.set_xlim(-0.5,4.5); ax.set_ylim(-0.5,4.5); ax.set_zlim(-0.5,6)
+    ax.set_title('Point-to-Plane Distance: $D = \\frac{|2x_0+3y_0+z_0-6|}{\\sqrt{2^2+3^2+1^2}}$', 
+                fontsize=12, fontweight='bold')
+    ax.view_init(elev=22, azim=-55)
+    ax.xaxis.pane.fill = False; ax.yaxis.pane.fill = False; ax.zaxis.pane.fill = False
+    ax.xaxis.pane.set_edgecolor('w'); ax.yaxis.pane.set_edgecolor('w'); ax.zaxis.pane.set_edgecolor('w')
     save('9c-point-plane-distance.png')
 
 # ============================================================
