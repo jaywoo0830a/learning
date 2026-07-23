@@ -16,7 +16,7 @@ A **series** $\sum_{n=1}^\infty a_n$ is the limit of **partial sums** $S_N = \su
 
 If $\lim_{N\to\infty} S_N = S$ (finite), the series **converges** to $S$. Otherwise it **diverges**.
 
-**Divergence Test**: If $\lim a_n \neq 0$, the series diverges. But $\lim a_n = 0$ does NOT guarantee convergence — the harmonic series $\sum 1/n$ proves this.
+**Divergence Test** (🔗 13C): If $\lim a_n \neq 0$, the series diverges. But $\lim a_n = 0$ does NOT guarantee convergence — the harmonic series $\sum 1/n$ proves this.
 
 ---
 
@@ -24,18 +24,20 @@ If $\lim_{N\to\infty} S_N = S$ (finite), the series **converges** to $S$. Otherw
 
 ---
 
-## Example 2: Geometric Series
+## Example 2: Geometric Series (🔗 12B1)
 
 $\displaystyle \sum_{n=0}^\infty ar^n = \frac{a}{1-r}$ **if and only if** $|r| < 1$. Diverges if $|r| \ge 1$.
 
 $\sum_{n=0}^\infty \frac{2}{3^n} = \frac{2}{1-1/3} = 3$.
 $\sum_{n=1}^\infty 5\left(-\frac{1}{2}\right)^n = \frac{5(-1/2)}{1-(-1/2)} = -\frac{5}{3}$.
 
-![Geometric series partial sums](graphs/18a1-geometric-series.png)
+![Geometric series — convergence vs divergence](graphs/0721/18A/18a-geometric-series.png)
+
+*Graph 18A-1: Left — Convergent geometric series $\sum (0.5)^n$: terms shrink, partial sums approach $S_\infty=2$. Right — Divergent geometric series $\sum (1.2)^n$: terms grow, partial sums diverge to infinity.*
 
 ---
 
-## Example 3: Telescoping Series
+## Example 3: Telescoping Series (🔗 12B2)
 
 Terms cancel in pairs — only first and last survive.
 
@@ -45,7 +47,7 @@ $S_N = (1-\frac{1}{2})+(\frac{1}{2}-\frac{1}{3})+\cdots+(\frac{1}{N}-\frac{1}{N+
 
 ---
 
-## Example 4: $p$-Series
+## Example 4: $p$-Series (🔗 12B2, 17B)
 
 $\displaystyle \sum_{n=1}^\infty \frac{1}{n^p}$ converges $\iff p > 1$.
 
@@ -53,7 +55,9 @@ $p=1$: harmonic series — **diverges** (very slowly).
 $p=2$: $\sum 1/n^2 = \pi^2/6 \approx 1.645$ — **converges**.
 $p=1/2$: $\sum 1/\sqrt{n}$ — **diverges**.
 
-![p-series and integral test](graphs/18a2-p-series.png)
+![p-series and integral test](graphs/0721/18A/18a-p-series.png)
+
+*Graph 18A-2: Left — Partial sums of $\sum 1/n^p$ for $p=2$ (converges), $p=1$ (diverges), $p=1/2$ (diverges). Right — Integral test: $\sum 1/n^2$ converges because $\int_1^\infty 1/x^2\,dx$ converges.*
 
 ---
 
@@ -63,7 +67,7 @@ $p=1/2$: $\sum 1/\sqrt{n}$ — **diverges**.
 
 ---
 
-## Example 5: Integral Test
+## Example 5: Integral Test (🔗 17B)
 
 If $f(x)$ is positive, continuous, decreasing: $\sum f(n)$ and $\int_1^\infty f(x)dx$ **both converge or both diverge**.
 
@@ -89,11 +93,17 @@ $\sum \frac{n^2+1}{n^3+5}$: choose $b_n = 1/n$ (harmonic). $\lim \frac{a_n}{b_n}
 
 ---
 
-## Example 8: Ratio Test
+## Example 8: Ratio Test (🔗 12B1)
+
+The ratio test generalizes the geometric series intuition: a series converges if, eventually, each term is at most $r<1$ times the previous term.
 
 $\displaystyle \lim_{n\to\infty} \left|\frac{a_{n+1}}{a_n}\right| = \rho$.
 
 $\rho < 1$ → converges absolutely. $\rho > 1$ → diverges. $\rho = 1$ → inconclusive.
+
+![Ratio test visualization](graphs/0721/18A/18a-ratio-test.png)
+
+*Graph 18A-4: Left — $\sum n!/n^n$: the ratio $a_{n+1}/a_n$ converges to $1/e < 1$, so the series converges. Right — $\sum n!/2^n$: the ratio grows without bound ($> 1$), so the series diverges.*
 
 $\sum \frac{2^n}{n!}$: $\rho = \lim \frac{2^{n+1}/(n+1)!}{2^n/n!} = \lim \frac{2}{n+1} = 0 < 1$ → converges.
 
@@ -112,6 +122,10 @@ $\sum \left(\frac{n}{2n+1}\right)^n$: $\rho = \lim \frac{n}{2n+1} = \frac{1}{2} 
 ## Example 10: Alternating Series Test
 
 If $a_n > 0$, $a_n$ decreasing, and $\lim a_n = 0$: $\sum (-1)^{n+1}a_n$ converges.
+
+![Alternating series — conditional convergence](graphs/0721/18A/18a-alternating-series.png)
+
+*Graph 18A-3: Left — Alternating harmonic series $\sum (-1)^{n+1}/n$ converges to $\ln 2$. Terms alternate sign and shrink to zero; partial sums converge in a zigzag pattern. Right — Comparison of $\sum 1/n$ (divergent) vs $\sum (-1)^{n+1}/n$ (convergent conditional): the absolute series diverges while the alternating series converges.*
 
 **Error bound**: $|S - S_N| \le a_{N+1}$. The error after $N$ terms is at most the first omitted term.
 
@@ -187,7 +201,19 @@ Determine convergence: $\displaystyle \sum_{n=1}^\infty \frac{(-1)^{n+1}}{\sqrt{
 
 ---
 
-## Basic Algebra Drill — Series Convergence (10 Problems)
+## Practice 5: Real Battle (🔗 12B2, 17B)
+
+$\displaystyle \sum_{n=2}^\infty \frac{1}{n(\ln n)^p}$. For which $p$ does this converge? Use the integral test. Connect to the $p$-test from 17B and the harmonic series from 12B2.
+
+---
+
+## Practice 6: Real Battle — Strategy Challenge (🔗 18B, 17B)
+
+Determine convergence of $\displaystyle \sum_{n=1}^\infty \frac{n!}{n^n}$. Use the ratio test. Then use the comparison test to show $\frac{n!}{n^n} \leq \frac{1}{2^n}$ for $n\geq 4$. Which approach is simpler? Connect to the $p$-test from 17B.
+
+---
+
+## Basic Algebra Drill — Series Convergence (12 Problems)
 
 **D1.** $\sum_{n=0}^\infty \left(\frac{2}{5}\right)^n$. Sum if convergent.
 
@@ -209,11 +235,15 @@ Determine convergence: $\displaystyle \sum_{n=1}^\infty \frac{(-1)^{n+1}}{\sqrt{
 
 **D10.** Root test on $\sum_{n=1}^\infty \left(1+\frac{1}{n}\right)^{-n^2}$.
 
+**D11.** $\sum_{n=1}^\infty \frac{n^{10}}{10^n}$. Ratio test — which dominates, polynomial or exponential?
+
+**D12.** $\sum_{n=1}^\infty \frac{n\cos(n\pi)}{n^3+1}$. Determine absolute vs conditional convergence.
+
 > Solutions: [Solutions](solutions/18A-solutions.md#basic-drill)
 
 ---
 
-## Advanced Algebra Drill — Series Convergence (10 Problems)
+## Advanced Algebra Drill — Series Convergence (12 Problems)
 
 **A1.** Determine convergence of $\sum_{n=2}^\infty \frac{1}{n(\ln n)^2}$. Integral test.
 
@@ -234,6 +264,10 @@ Determine convergence: $\displaystyle \sum_{n=1}^\infty \frac{(-1)^{n+1}}{\sqrt{
 **A9.** $\sum_{n=1}^\infty \frac{\ln n}{n^2}$. Compare to $\sum 1/n^{1.5}$.
 
 **A10.** True or false: if $\sum a_n$ converges, then $\sum a_n^2$ converges. Counterexample: $a_n=(-1)^n/\sqrt{n}$.
+
+**A11.** Determine convergence of $\sum_{n=1}^\infty \frac{\sqrt{n}}{\sqrt{n^3+1}}$ using limit comparison with $1/n^p$.
+
+**A12.** (🔗 17B) $\sum_{n=2}^\infty \frac{\ln n}{n(\ln n)^2-1}$. Integral test — use $u=\ln n$ substitution.
 
 > Solutions: [Solutions](solutions/18A-solutions.md#advanced-drill)
 

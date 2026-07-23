@@ -14,9 +14,9 @@ $a$ = center. The series is a **function of $x$**. Question: for which $x$ does 
 
 ---
 
-## Example 2: Radius of Convergence
+## Example 2: Radius of Convergence (🔗 18A)
 
-Use the **Ratio Test** (or Root Test) on the terms:
+Use the **Ratio Test** (or Root Test) from 18A on the terms:
 
 $\displaystyle \lim_{n\to\infty}\left|\frac{c_{n+1}(x-a)^{n+1}}{c_n(x-a)^n}\right| = |x-a|\lim_{n\to\infty}\left|\frac{c_{n+1}}{c_n}\right| < 1$.
 
@@ -28,7 +28,11 @@ $\sum_{n=0}^\infty n!\,x^n$: $R = \lim \frac{n!}{(n+1)!} = \lim \frac{1}{n+1} = 
 
 $\sum_{n=0}^\infty x^n$: $R = 1$. Converges for $|x|<1$, diverges for $|x|>1$. At $x=\pm1$: check separately (both diverge).
 
-![Radius of convergence on number line](graphs/18b1-radius-convergence.png)
+**Connection to geometric series** (🔗 12B1): This is the geometric series $\sum r^n$ with $r=x$. The radius $R=1$ comes directly from the geometric condition $|r|<1$.
+
+![Radius and interval of convergence](graphs/0721/18B/18b-radius-convergence.png)
+
+*Graph 18B-1: Top-left — Three cases of radius of convergence. Top-right — Partial sums $S_N(x)$ of $\sum x^n$ converging to $1/(1-x)$ on $(-1,1)$. Bottom-left — Endpoint behavior of $\sum x^n/n$. Bottom-right — Interval of convergence reference.*
 
 ---
 
@@ -42,9 +46,9 @@ For $\sum \frac{x^n}{n^2}$: $R=1$. At $x=\pm1$: $\sum 1/n^2$ converges.
 
 ---
 
-## Example 4: Differentiation and Integration Term-by-Term
+## Example 4: Differentiation and Integration Term-by-Term (🔗 14A, 16A)
 
-Within the radius of convergence, you can differentiate and integrate a power series **term by term**:
+Within the radius of convergence, you can differentiate and integrate a power series **term by term** (🔗 14A for differentiation rules, 16A for FTC):
 
 $\frac{d}{dx}\sum c_n(x-a)^n = \sum n c_n(x-a)^{n-1}$.
 $\int \sum c_n(x-a)^n dx = C + \sum \frac{c_n}{n+1}(x-a)^{n+1}$.
@@ -53,7 +57,13 @@ $\int \sum c_n(x-a)^n dx = C + \sum \frac{c_n}{n+1}(x-a)^{n+1}$.
 
 ---
 
-## Example 5: Building New Series from $\frac{1}{1-x}$
+![Building series from geometric](graphs/0721/18B/18b-building-series.png)
+
+*Graph 18B-2: Three key series built from $1/(1-x)$. Left — $1/(1+x)$ by substituting $x\to -x$. Middle — $\ln(1+x)$ by integrating $1/(1+x)$. Right — $\arctan x$ by integrating $1/(1+x^2)$. All converge on $(-1,1)$ and partial sums approach the true function.*
+
+## Example 5: Building New Series from $\frac{1}{1-x}$ (🔗 12B1, 12C1)
+
+The geometric series $\sum x^n$ from 12B1 is the foundation. By substituting, differentiating, and integrating, we build many series — similar to how 12C1 builds transformations from basic matrices.
 
 $\frac{1}{1-x} = \sum_{n=0}^\infty x^n$, $|x|<1$.
 
@@ -99,7 +109,19 @@ Differentiate $\sum_{n=0}^\infty \frac{x^n}{n!}$ term-by-term. What do you notic
 
 ---
 
-## Basic Algebra Drill — Power Series (10 Problems)
+## Practice 4: Real Battle (🔗 12B1, 18A)
+
+Find the interval of convergence for $\sum_{n=1}^\infty \frac{(x-1)^n}{n\cdot 3^n}$. Check both endpoints. Connect to the geometric series (12B1) and ratio test (18A).
+
+---
+
+## Practice 5: Real Battle — Series for $\pi$ (🔗 18C)
+
+Use the series for $\arctan x$ to find a series for $\pi$. Hint: $\arctan 1 = \pi/4$. How many terms are needed to estimate $\pi$ to 3 decimal places? Connect to alternating series error bound.
+
+---
+
+## Basic Algebra Drill — Power Series (12 Problems)
 
 **D1.** Find $R$ for $\sum_{n=0}^\infty \frac{x^n}{2^n}$.
 
@@ -121,11 +143,15 @@ Differentiate $\sum_{n=0}^\infty \frac{x^n}{n!}$ term-by-term. What do you notic
 
 **D10.** Find $R$ for $\sum_{n=0}^\infty \frac{(2n)!}{(n!)^2}x^n$. Use ratio test.
 
+**D11.** Find a power series for $\frac{x}{(1-x)^2}$ by differentiating $\frac{1}{1-x}$.
+
+**D12.** Evaluate $\sum_{n=0}^\infty \frac{(-1)^n}{2^n}$ by recognizing it as a geometric series.
+
 > Solutions: [Solutions](solutions/18B-solutions.md#basic-drill)
 
 ---
 
-## Advanced Algebra Drill — Power Series (10 Problems)
+## Advanced Algebra Drill — Power Series (12 Problems)
 
 **A1.** Find the interval for $\sum_{n=1}^\infty \frac{n(x+3)^n}{4^n}$. Be careful with endpoints.
 
@@ -146,6 +172,10 @@ Differentiate $\sum_{n=0}^\infty \frac{x^n}{n!}$ term-by-term. What do you notic
 **A9.** Find the radius for $\sum_{n=0}^\infty \binom{2n}{n}x^n$ using the ratio test.
 
 **A10.** Cauchy product: multiply the series for $e^x$ by itself. Show the result is the series for $e^{2x}$.
+
+**A11.** (🔗 18A) Find the radius and interval of convergence for $\sum_{n=1}^\infty \frac{(3x-1)^n}{n\cdot 2^n}$. (Hint: rewrite as $\sum \frac{3^n}{n\cdot 2^n}(x-1/3)^n$.)
+
+**A12.** Find a power series for $\ln\left(\frac{1+x}{1-x}\right)$ by combining the series for $\ln(1+x)$ and $\ln(1-x)$. What is its interval of convergence?
 
 > Solutions: [Solutions](solutions/18B-solutions.md#advanced-drill)
 
