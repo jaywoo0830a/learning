@@ -316,11 +316,13 @@ Calculate the total mass in kg. ($1 \text{ kg} = 1000 \text{ g}$)
 
 You can now convert any unit to any other unit using dimensional analysis — at exam speed.
 
-Read **Chapter 4** of *Everything You Need to Ace Chemistry in One Big Fat Notebook*.
+Read **Chapter 4** of *Everything You Need to Ace Chemistry in One Big Fat Notebook* — or open the reference summary:
+
+> 📖 **[BFN Reference — Chapter 4: Measurement & Data Analysis](../ref/BFN-REFERENCE.md#chapter-4-measurement--data-analysis)**
 
 The concepts — why unit cancellation works, how density bridges mass and volume, why squared conversions are the #1 trap — will lock into place. You've solved 20 problems harder than anything the book asks.
 
-> **Note:** Chapter 4 is all about measurement and unit conversions. The book walks through metric prefixes, dimensional analysis, and temperature conversions — all of which you can now do at exam speed.
+> **Chapter 4** covers metric prefixes, dimensional analysis, temperature conversions, and the chain method — all of which you can now do at exam speed.
 
 > Solutions: [solutions/02-solutions.md](../solutions/02-solutions.md)
 

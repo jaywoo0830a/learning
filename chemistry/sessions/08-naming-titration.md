@@ -716,13 +716,17 @@ For each acid: (a) Calculate moles of NaOH used. (b) Calculate moles of acid. (c
 
 You can now name ionic compounds (with and without transition metals), covalent compounds, acids, and bases — and perform acid-base titrations with monoprotic, diprotic, and triprotic acids at exam speed.
 
-Read **Chapters 17 and 31** of *Everything You Need to Ace Chemistry in One Big Fat Notebook*.
+Read **Chapters 17 and 31** of *Everything You Need to Ace Chemistry in One Big Fat Notebook* — or open the reference summary:
 
-> **Chapter 17** is titled "Chemical Compound Naming." It covers the rules for naming ionic compounds (including transition metals and polyatomic ions), covalent compounds (with Greek prefixes), and acids. You now know all the rules — read it to see the examples written out conceptually.
+> 📖 **[BFN Reference — Unit 3: Chemical Compounds / Unit 6: Acids & Bases](../ref/BFN-REFERENCE.md#unit-3--chemical-compounds-chapters-17-19)**
 >
-> **Chapter 31** is about acid-base titrations. It covers the procedure, indicators (phenolphthalein turns pink in base!), and how to calculate unknown concentrations. You've solved problems harder than any in the chapter — read it to understand the lab technique behind the numbers.
+> 📖 **[BFN Reference — Chapter 31: Acid-Base Titrations](../ref/BFN-REFERENCE.md#chapter-31-acid-base-titrations)**
 
-You've solved 20 problems, from simple naming to determining the purity of an impure sample by titration. Naming and titration are two of the most practical skills in all of chemistry — you'll use them in every lab from now on.
+> **Chapter 17** — naming ionic compounds (including transition metals & polyatomic ions), covalent compounds (Greek prefixes), and acids. You know all the rules.
+>
+> **Chapter 31** — titration procedure, indicators (phenolphthalein turns pink in base!), calculating unknown concentrations. You've solved harder problems than any in the chapter.
+
+Naming and titration are two of the most practical skills in all of chemistry — you'll use them in every lab from now on.
 
 > Solutions: [solutions/08-solutions.md](../solutions/08-solutions.md)
 

@@ -392,11 +392,13 @@ Copy this. The only new piece is the first arrow: mL → L → mol.
 
 You can now convert between concentration, volume, and moles; handle dilution; perform solution stoichiometry with limiting reagents; and calculate ion concentrations — at exam speed.
 
-Read **Chapters 25–27** of *Everything You Need to Ace Chemistry in One Big Fat Notebook*.
+Read **Chapters 25–27** of *Everything You Need to Ace Chemistry in One Big Fat Notebook* — or open the reference summary:
+
+> 📖 **[BFN Reference — Unit 5: Solutions (Chapters 25-27)](../ref/BFN-REFERENCE.md#unit-5--solutions-chapters-25-27)**
 
 You've solved 20 problems, from simple molarity to finding the percent purity of an impure sample. Solutions are no longer mysterious — they're just moles dissolved in liters.
 
-> **Note:** Chapter 25 introduces solutions and solubility. Chapter 26 covers concentration and molarity — your main weapon. Chapter 27 is about solution stoichiometry and dilution. Read them to connect the conceptual "why" to the procedural "how" you've already mastered.
+> **Chapter 25** — solutions & solubility. **Chapter 26** — molarity, dilution, ion concentrations. **Chapter 27** — solution stoichiometry. Read them to connect the "why" to the "how" you've already mastered.
 
 > Solutions: [solutions/07-solutions.md](../solutions/07-solutions.md)
 

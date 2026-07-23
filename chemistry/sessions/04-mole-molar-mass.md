@@ -437,11 +437,13 @@ For each sample: (a) Calculate moles. (b) Which two samples contain the same num
 
 You can now convert between grams, moles, and number of particles in your sleep. 10.0 g of helium vs. calcium? You proved helium wins — by a factor of 10. The mole is no longer an abstraction; it's the road you travel from the balance to the atom.
 
-Read **Chapter 18** of *Everything You Need to Ace Chemistry in One Big Fat Notebook*.
+Read **Chapter 18** of *Everything You Need to Ace Chemistry in One Big Fat Notebook* — or open the reference summary:
+
+> 📖 **[BFN Reference — Chapter 18: The Mole](../ref/BFN-REFERENCE.md#chapter-18-the-mole)**
 
 You've solved 20 problems, from "how many moles in 25.0 g of NaCl" to "how many iron atoms in one hemoglobin molecule." The concepts — what a mole actually means, why Avogadro's number exists, how molar mass connects the periodic table to the lab bench — will lock into place.
 
-> **Note:** Chapter 18 is titled "The Mole". It explains Avogadro's number, molar mass, and mole conversions at a conceptual level. You already know how to execute every calculation in it — read it to understand WHY the mole is the central unit of chemistry.
+> **Chapter 18** explains Avogadro's number, molar mass, and the mole map at a conceptual level. You already know how to DO every calculation — read it to understand WHY the mole is central.
 
 > Solutions: [solutions/04-solutions.md](../solutions/04-solutions.md)
 

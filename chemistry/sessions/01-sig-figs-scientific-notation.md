@@ -291,11 +291,13 @@ Which student is precise but not accurate? Which is accurate but not precise? Wh
 
 You can now count sig figs, round correctly after ×/÷ and +/−, write scientific notation, and distinguish precision from accuracy — at exam speed.
 
-Read **Chapters 1–5** of *Everything You Need to Ace Chemistry in One Big Fat Notebook*.
+Read **Chapters 1–5** of *Everything You Need to Ace Chemistry in One Big Fat Notebook* — or open the reference summary:
+
+> 📖 **[BFN Reference — Unit 1: Basics of Chemistry](../ref/BFN-REFERENCE.md#unit-1--basics-of-chemistry-chapters-1-5)**
 
 The concepts — why measurements have uncertainty, how sig figs communicate that uncertainty, why precision ≠ accuracy — will lock into place. You've solved 20 problems harder than anything the book asks.
 
-> **Note:** Chapter 1 introduces lab reports and measurement. Chapter 2 covers the SI system (meter, kilogram, second). Chapter 3 explains how to read lab equipment. Chapter 4 is about measurement and data analysis — sig figs live here. Chapter 5 covers lab safety. You already know how to DO all the math in these chapters — read them to understand WHY.
+> **What's in each chapter:** Chapter 1 — lab reports & scientific method. Chapter 2 — SI system (meter, kilogram, second, Kelvin). Chapter 3 — lab equipment & density. Chapter 4 — measurement, sig figs, unit conversions (your main chapter). Chapter 5 — lab safety rules.
 
 > Solutions: [solutions/01-solutions.md](../solutions/01-solutions.md)
 

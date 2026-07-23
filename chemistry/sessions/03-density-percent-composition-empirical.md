@@ -384,11 +384,13 @@ Known densities: magnesium (1.74), aluminum (2.70), zinc (7.13), copper (8.96), 
 
 You can now calculate density to identify unknown substances, derive mass percent from formulas, and determine empirical and molecular formulas from percent composition — at exam speed.
 
-Read **Chapters 3, 6, and 19** of *Everything You Need to Ace Chemistry in One Big Fat Notebook*.
+Read **Chapters 3, 6, and 19** of *Everything You Need to Ace Chemistry in One Big Fat Notebook* — or open the reference summary:
+
+> 📖 **[BFN Reference — Unit 2: All About Matter / Chapter 19: Percent Composition](../ref/BFN-REFERENCE.md#unit-2--all-about-matter-chapters-3-6)**
 
 The concepts — what density means physically, how percent composition connects to formulas, why the mole is central — will lock into place. You've solved 20 problems harder than anything the book asks.
 
-> **Note:** Chapter 3 covers density and physical properties. Chapter 6 introduces mass, elements, and compounds. Chapter 19 teaches how to find percent composition from formulas — you've already done all the heavy lifting.
+> **Chapter 3** — density & physical properties. **Chapter 6** — elements, compounds, mixtures, states of matter. **Chapter 19** — percent composition from formulas (you've already done the heavy lifting).
 
 > Solutions: [solutions/03-solutions.md](../solutions/03-solutions.md)
 

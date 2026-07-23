@@ -427,11 +427,13 @@ For each: (a) LR, (b) theoretical yield in grams, (c) excess reagent remaining i
 
 You can now identify the limiting reagent by two methods, calculate theoretical yield, judge percent yield, and find how much excess is left over — at exam speed.
 
-Read **Chapter 21** of *Everything You Need to Ace Chemistry in One Big Fat Notebook*.
+Read **Chapter 21** of *Everything You Need to Ace Chemistry in One Big Fat Notebook* — or open the reference summary:
+
+> 📖 **[BFN Reference — Chapter 21: Chemical Calculations](../ref/BFN-REFERENCE.md#chapter-21-chemical-calculations-stoichiometry)**
 
 You've solved 20 problems, from simple LR identification to reverse-engineering mixture composition from precipitate mass. Limiting reagent problems are now procedural, not puzzling.
 
-> **Note:** Chapter 21 is titled "Chemical Calculations". It covers mole ratios, mass-mass problems, limiting reagents, and percent yield — everything you've mastered in this session. Read it to see how the BFN explains the concepts behind the calculations.
+> **Chapter 21** covers mole ratios, mass-mass problems, limiting reagents, and percent yield — everything you've mastered. Read it to see the concepts behind the calculations.
 
 > Solutions: [solutions/06-solutions.md](../solutions/06-solutions.md)
 

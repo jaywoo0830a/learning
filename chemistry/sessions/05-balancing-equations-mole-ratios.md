@@ -516,11 +516,13 @@ For each reaction, 100.0 g of the first reactant is consumed. (a) Calculate gram
 
 You can now balance combustion reactions by inspection, extract mole ratios, and run the full gram → mole → mole → gram chain without hesitation. 50.0 g of propane → 150. g $CO_2$ + 81.7 g $H_2O$. You proved it with numbers.
 
-Read **Chapter 20** of *Everything You Need to Ace Chemistry in One Big Fat Notebook*.
+Read **Chapter 20** of *Everything You Need to Ace Chemistry in One Big Fat Notebook* — or open the reference summary:
+
+> 📖 **[BFN Reference — Chapter 20: Balancing Chemical Equations](../ref/BFN-REFERENCE.md#chapter-20-balancing-chemical-equations)**
 
 You've solved 20 problems — from balancing $H_2 + O_2$ to reverse-engineering a hydrocarbon's molecular formula from combustion data. The concepts — what a balanced equation actually says about atom counts, why mole ratios work, how stoichiometry connects the lab to the equation — will lock into place.
 
-> **Note:** Chapter 20 is titled "Chemical Reactions". It covers how to write and balance equations — you now know how to balance combustion, synthesis, decomposition, and single/double displacement reactions. Read it to reinforce the patterns.
+> **Chapter 20** covers writing and balancing equations (synthesis, decomposition, displacement, combustion). You now know how to balance them all — read it to reinforce the patterns.
 
 > Solutions: [solutions/05-solutions.md](../solutions/05-solutions.md)
 
