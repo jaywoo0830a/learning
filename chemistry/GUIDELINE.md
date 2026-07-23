@@ -1,13 +1,29 @@
-# Chemistry Session Writing Guidelines v2
+# Chemistry Session Writing Guidelines v3
 
-> **"Problems first, concepts later."** Every session opens with a calculation the learner cannot yet do. By the end, they can do 20 of them — and walk into any Honors Chemistry exam ready.
-> v2: 10 Basic Drills + 10 Advanced Drills per session. Total 400 problems across the curriculum. Exam-level fluency is the goal.
+> **"Problems first, concepts later."** Every session opens with a calculation the learner cannot yet do. By the end, they can do 20+ of them — and walk into any chemistry exam (Honors, AP, or beyond) ready.
+>
+> **v3 Scope:** 40 sessions × 20 drills = **800 problems** across the full curriculum — Big Fat Notebook 100% + AP Chemistry + Organic Chemistry Foundations + Inorganic Chemistry Foundations + Bridge to Oxtoby.
+>
+> **v3 Structure:** 8 Phases — macroscopic numbers → macroscopic reactions → microscopic structure → microscopic energetics → macro from micro → organic → inorganic → Oxtoby synthesis.
+>
+> **v3 Learning Mode Progression:**
+>
+> ```
+> Phase 1-2: CALCULATION FIRST  →  "Do the math. Concepts will follow."
+> Phase 3-5: CONCEPT + CALC     →  "Calculate, then interpret what the number means."
+> Phase 6-7: MEMORIZE + REASON  →  "Learn the patterns, then reason from structure to property."
+> Phase 8:   SYNTHESIS          →  "Integrate everything — calculate, reason, and explain from first principles."
+> ```
+>
+> **In early phases, if you can't calculate it, you haven't learned it.**
+>
+> **In later phases, if you can't explain why it happens, you haven't learned it.**
 
 ---
 
 ## 0. 🔥 Essential Element for Every Session — The Opening Problem
 
-> **No session begins with definitions. Every session begins with a calculation that looks impossible.**
+> **No session begins with definitions. Every session begins with a calculation that looks impossible (Phases 1-5) or a structure/prediction that looks impossible (Phases 6-8).**
 
 ### Mandatory Pattern: impossible problem → worked pattern → extracted procedure → 10 Basic Drills → 10 Advanced Drills → concept
 
@@ -23,13 +39,14 @@
 3. **Contain exactly one thing the learner doesn't yet know how to do.** Not two. Not zero.
 4. **End with a concrete answer.** A number with units.
 
-### What This Pattern Trains
+### Opening Problem Adaptation by Phase:
 
-- **The reflex: "I see this kind of problem → I use this template."**
-- **The speed: 10 Basic Drills make the template so fast it's unconscious.**
-- **The resilience: 10 Advanced Drills mean no exam question surprises you.**
-- **The confidence: "I walked in unable to do this. Now I can do 20 of them, including ones harder than the exam."**
-- **The separation: calculation skill first, conceptual understanding second (from the book).**
+| Phase | Learning Mode | Opening Problem Style | Example |
+|:-----:|:-------------:|----------------------|---------|
+| **1–2** (Calculation) | **Calculate first** | Pure number problem. "Calculate X." | "How many mL is 12.5 gallons?" |
+| **3–5** (Concept + Calc) | **Calculate then interpret** | Hybrid: structural reasoning + number. | "Write the electron configuration for Fe. Why does $Fe^{3+}$ exist but not $Fe^{4+}$?" |
+| **6–7** (Organic/Inorganic) | **Memorize + Reason** | Structural prediction + mechanism. | "Draw both enantiomers. Which is optically active?" |
+| **8** (Oxtoby Bridge) | **Synthesize** | Multi-concept integration. | "Identify the unknown metal M using gas stoichiometry, solid-state density, and redox." |
 
 ---
 
@@ -45,6 +62,27 @@
 - **Basic Drills (10)**: Repetition for speed. Slight variations. The goal is to make the template so automatic you could do it half-asleep.
 - **Advanced Drills (10)**: Exam-style problems. Multi-step integration. Trap-laden. Time-pressured. The goal is to face any exam question and think "I've seen harder."
 - **Concept last**: After the drills, say: "Now read Chapter X of the Big Fat Notebook. You already know how to do every calculation in it."
+
+### Adaptation for Conceptual Sessions (Phases 3+):
+
+In later phases where conceptual understanding matters as much as calculation, adapt the pattern:
+
+```
+[Open with a predictive problem] → [Work through structure→property reasoning] → [Extract the reasoning template] → [10 Basic: apply the rule to new cases] → [10 Advanced: integrate with calculations + exceptions]
+```
+
+But even here: **lead with a number or a structure that the learner must figure out**, not a definition.
+
+### Learning Mode Shift Across Phases:
+
+| Phase | Primary Mode | Secondary Mode | What Success Looks Like |
+|:-----:|:------------:|:--------------:|------------------------|
+| 1–2 | **Calculate** | Recognize patterns | The learner does 20 calculations correctly and fluently. No need to explain "why" yet. |
+| 3–5 | **Calculate + Interpret** | Reason from structure | The learner calculates a value AND says "this means..." in physical terms. |
+| 6–7 | **Memorize + Reason** | Draw + predict | The learner draws a structure or mechanism and predicts properties without calculation. |
+| 8 | **Synthesize** | Integrate + explain | The learner solves problems that require recalling facts from multiple domains and connecting them. |
+
+> **Key insight:** In Phases 1–2, a student who can calculate but can't explain has succeeded. In Phases 6–7, a student who can explain but can't draw a mechanism has failed. The bar shifts.
 
 ---
 
@@ -81,6 +119,15 @@ Do not cram multiple operations into one line. Each line does exactly one thing.
 |-----|------|
 | "50.0 g $CaCO_3$ × 1 mol/100.09 g × 1 mol $CO_2$/1 mol $CaCO_3$ × 44.01 g/mol = 22.0 g $CO_2$" | "Step 1: mol $CaCO_3$ = 50.0 g ÷ 100.09 g/mol = 0.4996 mol. Step 2: mol $CO_2$ = 0.4996 mol (1:1 ratio). Step 3: g $CO_2$ = 0.4996 mol × 44.01 g/mol = 22.0 g." |
 
+### 2-4. Phase-Specific Adaptations
+
+| Phase | Additional Rule |
+|:-----:|-----------------|
+| **3–5** (Atomic/Orgo) | Structure drawings must accompany every reasoning step. A Lewis structure is not optional decoration — it's the evidence. |
+| **6** (Organic) | Every reaction must show curved-arrow mechanisms, not just products. Mechanisms are the "calculations" of organic chemistry. |
+| **7** (Inorganic) | Crystal field splitting diagrams and unit cell drawings are required visualization tools. |
+| **8** (Oxtoby) | Every multi-concept problem must explicitly show which sub-problem is being solved at each step. |
+
 ---
 
 ## 3. Problem-First Session Structure
@@ -93,7 +140,16 @@ Do not cram multiple operations into one line. Each line does exactly one thing.
 | **What We Just Did** | 10% | Extract the 3-step procedure. Name it. Box it. This is what the learner copies into their mental template. |
 | **Basic Drills (10)** | 22% | Direct application. Repetition breeds speed. Every problem looks like the worked examples with minor variations. The learner should finish all 10 smoothly — if they struggle, they redo the worked examples. |
 | **Advanced Drills (10)** | 25% | Exam-level problems. Multi-step. Combined with earlier sessions. Traps embedded. At least 2 constructive (generate-your-own). At least 2 timed ("solve in under 3 minutes"). The last 2 are harder than any worked example. |
-| **Read This Chapter** | 5% | Link to the Big Fat Notebook chapter. "You now know how to DO every calculation in this chapter — at exam speed. Read it to understand WHY." |
+| **Read This Chapter** | 5% | Link to the Big Fat Notebook chapter (Phase 1–5) or the corresponding text (Phase 6–8). "You now know how to DO every calculation in this chapter — at exam speed. Read it to understand WHY." |
+
+### Drill Count Adaptation by Phase:
+
+| Phase | Basic Drills | Advanced Drills | Total |
+|:-----:|:-----------:|:---------------:|:-----:|
+| 1–2 (Calculation) | 10 | 10 | 20 |
+| 3–5 (Concept + Calc) | 8 calc + 2 concept | 10 | 20 |
+| 6–7 (Organic/Inorganic) | 6 structure + 4 mechanism | 10 | 20 |
+| 8 (Oxtoby Bridge) | 5 single-concept + 5 multi-concept | 10 | 20 |
 
 ---
 
@@ -115,25 +171,32 @@ Copy this. You will use it for every problem in the drill.
 
 ### Examples of Good 3-Step Extractions:
 
-**Mole Conversion (Session 04)**
+**Mole Conversion (Phase 2)**
 ```
 Step 1: Find the molar mass from the periodic table (g/mol).
 Step 2: Divide given grams by molar mass → moles.
 Step 3: Multiply moles by Avogadro's number → particles.
 ```
 
-**ICE Table (Session 15)**
+**ICE Table (Phase 5)**
 ```
 Step 1: Write Initial concentrations for all species.
 Step 2: Write Change row using −x, +x with coefficients.
 Step 3: Write Equilibrium row, plug into K expression, solve for x.
 ```
 
-**Gas Stoichiometry (Session 12)**
+**VSEPR Geometry (Phase 3)**
 ```
-Step 1: Convert given mass to moles using molar mass.
-Step 2: Use mole ratio from balanced equation → moles of target gas.
-Step 3: Convert moles of gas to volume using PV = nRT.
+Step 1: Draw Lewis structure. Count electron domains (bonds + lone pairs).
+Step 2: Assign electron-domain geometry based on domain count.
+Step 3: Assign molecular geometry based on arrangement of ATOMS (not lone pairs).
+```
+
+**$S_N2$ Mechanism (Phase 6)**
+```
+Step 1: Identify the nucleophile (Nu⁻) and the electrophilic carbon (C—X).
+Step 2: Show the backside attack: Nu⁻ approaches from opposite the leaving group.
+Step 3: Show inversion of configuration (Walden inversion) as leaving group departs.
 ```
 
 ---
@@ -158,33 +221,36 @@ Here is the right way:
 Spot the difference: [One line highlighting the critical difference.]
 ```
 
-### Where to place the Trap:
-- After the 3rd or 4th worked example, when the learner is starting to feel "I get this."
-- The trap must be **plausible** — a real mistake that real students make.
-- The wrong answer must be **obviously wrong** once explained (e.g., pH = 8.5 for an acid, volume = 0.0003 L for a gas tank).
+### Trap Catalog (expanded for v3):
 
-### Trap Catalog (per topic):
-
-| Session | The Trap |
-|---------|----------|
-| Sig figs | Rounding intermediate steps instead of only at the end |
-| Unit conversions | Squaring/cubing the conversion factor when converting area/volume |
-| Mole conversions | Using the wrong molar mass (diatomic gases: $O_2$ not O) |
-| Stoichiometry | Using the mole ratio before converting to moles |
-| Limiting reagent | Picking the reagent with fewer grams instead of fewer moles available per coefficient |
-| Gas laws | Using Celsius instead of Kelvin |
-| Ideal gas law | Using the wrong $R$ value for the given units |
-| Molarity | Forgetting to convert mL to L |
-| Titration | Using $M_aV_a = M_bV_b$ for diprotic acids without adjusting |
-| Calorimetry | Forgetting the sign of $\Delta H$ (exothermic = negative) |
-| Hess's Law | Forgetting to flip the sign when flipping the equation |
-| Equilibrium | Dropping $x$ when the approximation ($x \ll$ initial) is invalid |
-| pH of weak acid | Using pH = $-\log[\text{acid}]$ for a weak acid (that's for strong acids only) |
-| Buffer | Using moles instead of concentrations in Henderson-Hasselbalch (it works, but understand why) |
-| $K_{sp}$ | Forgetting the stoichiometric coefficient in the ICE table for $A_2B$ type salts |
-| Redox balancing | Adding $H_2O$ and $H^+$ before balancing atoms other than O and H |
-| Nernst equation | Using $\log Q$ with $\ln Q$ constant or vice versa |
-| Half-life | Using the straight fraction instead of $(1/2)^n$ for multiple half-lives |
+| Phase | Session | The Trap |
+|:-----:|---------|----------|
+| 1 | Sig figs | Rounding intermediate steps instead of only at the end |
+| 1 | Unit conversions | Squaring/cubing the conversion factor when converting area/volume |
+| 2 | Mole conversions | Using the wrong molar mass (diatomic gases: $O_2$ not O) |
+| 2 | Stoichiometry | Using the mole ratio before converting to moles |
+| 2 | Limiting reagent | Picking the reagent with fewer grams instead of fewer moles per coefficient |
+| 2 | Molarity | Forgetting to convert mL to L |
+| 2 | Titration | Using $M_aV_a = M_bV_b$ for diprotic acids without adjusting |
+| 3 | Electron config | Violating Hund's rule when filling degenerate orbitals |
+| 3 | VSEPR | Counting a double bond as "2 domains" instead of 1 domain |
+| 3 | Bond polarity | Confusing molecular polarity with bond polarity ($CO_2$ is nonpolar despite polar bonds) |
+| 4 | Gas laws | Using Celsius instead of Kelvin |
+| 4 | Ideal gas law | Using the wrong $R$ value for the given units |
+| 4 | Calorimetry | Forgetting the sign of $\Delta H$ (exothermic = negative) |
+| 4 | Hess's Law | Forgetting to flip the sign when flipping the equation |
+| 4 | Kinetics | Confusing reaction order with stoichiometric coefficient |
+| 5 | Equilibrium | Dropping $x$ when the approximation ($x \ll$ initial) is invalid |
+| 5 | pH of weak acid | Using pH = $-\log[\text{acid}]$ for a weak acid (that's for strong acids only) |
+| 5 | Buffer | Using moles instead of concentrations in Henderson-Hasselbalch |
+| 5 | $K_{sp}$ | Forgetting the stoichiometric coefficient in the ICE table for $A_2B$ type salts |
+| 5 | Redox balancing | Adding $H_2O$ and $H^+$ before balancing atoms other than O and H |
+| 5 | Nernst equation | Using $\log Q$ with $\ln Q$ constant or vice versa |
+| 5 | Nuclear decay | Using the straight fraction instead of $(1/2)^n$ for multiple half-lives |
+| 6 | Organic | Adding $Br_2$ to an alkene and getting substitution instead of addition |
+| 6 | Stereochem | Confusing $R/S$ with $+/−$ optical rotation |
+| 7 | Coordination | Forgetting that water is a stronger ligand than chloride in the spectrochemical series |
+| 8 | Synthesis | Solving a sub-problem but using the wrong intermediate value in the next step |
 
 ---
 
@@ -234,11 +300,11 @@ Basic Drills exist for fluency. Advanced Drills exist for transfer. If an Advanc
 
 ### 7-1. Explicit Keystroke Mentality
 
-In the first 3 sessions, show what the calculator should display at each step. After that, only show intermediate values.
+In Phase 1 sessions, show what the calculator should display at each step. After that, only show intermediate values.
 
 ```
-Session 01–03:  50.0 ÷ 18.02 = [2.775804...] → keep all digits → round at end to 2.78
-Session 04+:    50.0 g ÷ 18.02 g/mol = 2.7758 mol (keep on calculator: 2.775804661...)
+Phase 1:  50.0 ÷ 18.02 = [2.775804...] → keep all digits → round at end to 2.78
+Phase 2+: 50.0 g ÷ 18.02 g/mol = 2.7758 mol (keep on calculator: 2.775804661...)
 ```
 
 ### 7-2. Intermediate Values: Keep, Don't Round
@@ -247,7 +313,7 @@ Every session reinforces: "The number on your calculator screen has 10+ digits. 
 
 ### 7-3. Scientific Notation on the Calculator
 
-Dedicate 10 minutes in Session 01 to: how to enter $6.022 \times 10^{23}$, how to read $1.2E-5$, and the difference between "×10^" and "EXP/EE" keys.
+Dedicate time in Session 01 to: how to enter $6.022 \times 10^{23}$, how to read $1.2E-5$, and the difference between "×10^" and "EXP/EE" keys.
 
 ---
 
@@ -262,6 +328,8 @@ Dedicate 10 minutes in Session 01 to: how to enter $6.022 \times 10^{23}$, how t
 | "Apply the gas law" | "Plug into $PV=nRT$ and solve for the missing piece" |
 | "Determine the limiting reagent" | "Compare available moles to the mole ratio from the equation" |
 | "Find pH" | "Take $-\log[H^+]$" |
+| "Determine geometry" | "Count electron domains → assign domain geometry → assign molecular geometry" |
+| "Show the mechanism" | "Draw curved arrows from lone pair/bond to electrophilic center" |
 
 ### 8-2. Condition First, Action Second
 
@@ -298,84 +366,96 @@ Celebrate when the calculation works cleanly. This is emotional reinforcement.
 | $PV = nRT$ | "The pressure times the volume equals the number of moles times the temperature times a constant. If you squeeze the gas (decrease $V$), the pressure rises." |
 | $M_1V_1 = M_2V_2$ | "The moles of solute before dilution equals the moles after. You're just spreading the same amount of stuff through more water." |
 | $\Delta H^\circ_\text{rxn} = \sum n\Delta H^\circ_f\text{(products)} - \sum n\Delta H^\circ_f\text{(reactants)}$ | "The heat of a reaction is the total heat-content of everything you make, minus the total heat-content of everything you started with." |
-
-### 9-2. Constants with Their Full Titles and Units (First Appearance Only)
-
-- $R = 0.08206$ L·atm/mol·K (the gas constant)
-- $N_A = 6.022 \times 10^{23}$ particles/mol (Avogadro's number)
-- $K_w = 1.0 \times 10^{-14}$ at 25°C (the ion-product constant of water)
-- $F = 96,485$ C/mol e$^-$ (Faraday's constant)
-
-After first appearance, use the symbol alone.
+| $rate = k[A]^m[B]^n$ | "The reaction rate depends on how concentrated each reactant is, raised to some power that we find by experiment — not from the balanced equation." |
+| $K_a = \frac{[H^+][A^-]}{[HA]}$ | "At equilibrium, the ratio of dissociated to undissociated acid is constant. A larger $K_a$ means a stronger acid — it wants to give away its proton." |
 
 ---
 
-## 10. Solutions Separation
+## 10. Phase-Specific Writing Guidelines
 
-Solutions are placed in `solutions/0X-solutions.md`. Each session file links to them:
+### 10-1. Phase 1–2: Pure Calculation (Learning Mode: Calculate First)
 
-```markdown
-> Solutions: [solutions/04-solutions.md](solutions/04-solutions.md)
-```
+- Every number has a unit. Every step has an explanation.
+- Show calculator keystrokes for the first 3 sessions.
+- Trap section is mandatory in every session.
+- "Now Read" links to Big Fat Notebook chapters.
+- **Memorization needed:** metric prefixes, sig fig rules, conversion factors, density formula, molar mass concept.
+- **Reasoning expected:** which operation to use (× or ÷), which rule applies (+/− vs ×/÷).
+- **If the learner can do all 20 drills correctly, the session succeeded — even if they can't explain atomic theory.**
 
-Within the solutions file, answers are organized clearly:
+### 10-2. Phase 3–5: Concept + Calculation (Learning Mode: Calculate + Interpret)
 
-```markdown
-### Basic Drill Solutions (B1–B10)
+- Structure drawings are mandatory (Lewis, VSEPR, orbital diagrams).
+- Calculation is still central, but every answer must be interpreted: "What does this number mean physically?"
+- "Now Read" links to Big Fat Notebook + supplementary AP resources.
+- **Memorization needed:** quantum numbers, electron configuration order, periodic trends, VSEPR shapes, IMF types.
+- **Reasoning expected:** "A larger atomic radius means...", "This molecule is polar because...", "Higher boiling point implies stronger IMFs because..."
+- **The bar:** Learner must BOTH calculate correctly AND explain the physical meaning.
 
-#### B1
-[fully worked solution with all units and intermediate values]
-[Final answer: **12.2 g** (3 sig figs)]
+### 10-3. Phase 6: Organic Chemistry (Learning Mode: Memorize + Reason)
 
-#### B2
-...
+- Every reaction mechanism must show curved arrows.
+- Stereochemistry (dash/wedge, $R/S$) is required in all structure drawings.
+- IUPAC nomenclature is taught systematically, not as memorization.
+- "Now Read" links to Clayden or equivalent organic text.
+- **Memorization needed:** functional group names and structures, IUPAC rules, pKa trends, common reaction types, NMR/IR absorption ranges.
+- **Reasoning expected:** "This reaction goes by $S_N2$ because the carbon is primary and the nucleophile is strong." "The IR peak at 1715 cm⁻¹ tells us there's a carbonyl."
+- **The bar:** Learner must draw correct mechanisms and predict products — calculation is minimal.
 
-### Advanced Drill Solutions (A1–A10)
+### 10-4. Phase 7: Inorganic Chemistry (Learning Mode: Memorize + Reason)
 
-#### A1
-[fully worked solution with all units and intermediate values]
-[Final answer: **0.0347 M** (3 sig figs)]
+- Crystal field splitting diagrams are required for coordination chemistry.
+- Unit cell drawings are required for solid-state problems.
+- Trends are explained using fundamental principles (CFT, periodic trends, ionic radii).
+- "Now Read" links to Housecroft or equivalent inorganic text.
+- **Memorization needed:** coordination numbers and geometries, spectrochemical series, common ligand names, crystal structures, ionic radii trends.
+- **Reasoning expected:** "$[Co(NH_3)_6]^{3+}$ is low-spin because $NH_3$ is a strong field ligand." "The FCC structure has 4 atoms per unit cell, so density = ..."
+- **The bar:** Learner must draw splitting diagrams and explain magnetic/color properties from electronic structure.
 
-#### A2
-...
-```
+### 10-5. Phase 8: Bridge to Oxtoby (Learning Mode: Synthesize)
 
-**Answer key format**: Every solution ends with the final answer in bold, with units and sig figs noted. The learner can check their answer in 2 seconds before diving into the full solution.
-
----
-
-## 11. The "Now Read" Section
-
-Every session ends with:
-
-```markdown
-## Now Read
-
-You can now do every calculation in **Chapter X: [Title]** of *Everything You Need to Ace Chemistry in One Big Fat Notebook* — at exam speed.
-
-Read it. The concepts will make sense immediately — because your hands already know the math. And you've solved 20 problems harder than anything the book asks.
-```
-
-This is NOT optional. It closes the loop: calculation → concept.
-
----
-
-## 12. Periodic Table as Constant Companion
-
-Every session assumes the learner has a periodic table open. The first 3 sessions explicitly say "Look at your periodic table. Find [element]." After that, references become brief: "Molar mass of $NaCl$ = 22.99 + 35.45 = 58.44 g/mol."
+- Every problem explicitly states which sub-problem is being solved.
+- Problems explicitly connect macroscopic measurement → microscopic explanation.
+- No single-concept drills — every problem integrates at least 2 topics.
+- "Now Read" links to Oxtoby chapters.
+- **Memorization needed:** cumulative — everything from Phases 1–7.
+- **Reasoning expected:** multi-step inference — "I know the gas volume and conditions → I can find moles → I can find molar mass → I can identify the element."
+- **The bar:** Learner must fluidly recall and connect concepts across all prior phases, choosing the right tool for each sub-problem without prompting.
 
 ---
 
-## 13. Meta-Principle: The Calculator Is the Laboratory — and Volume Is the Armor
+## 11. Session Generation Checklist
 
-In Honors Chemistry, understanding begins with numerical results. The pattern across numbers reveals the chemical principle. This is not "plug-and-chug" — it is **inductive discovery** through calculation.
+Before marking a session as complete, verify:
 
-The learner who calculates pH for 20 weak acids at varying concentrations doesn't need to be told "weak acids partially dissociate." They have seen it — the pH is always higher (less acidic) than a strong acid at the same concentration. The concept is now their own discovery.
+- [ ] Opening problem is a calculation (or structural prediction), not a definition
+- [ ] Opening problem becomes solvable by the end of the session
+- [ ] 5–8 worked examples showing the pattern
+- [ ] Common Trap section after 3rd or 4th example
+- [ ] "What We Just Did" — exactly 3 steps extracted
+- [ ] 10 Basic Drills covering varied applications
+- [ ] 10 Advanced Drills (multi-step, traps, constructive, timed)
+- [ ] "Now Read" section with correct chapter references
+- [ ] Key Terms section
+- [ ] Units on every number in worked examples
+- [ ] Sig figs handled correctly in every answer
+- [ ] At least one "wrong way" demonstration
+- [ ] Phase-appropriate adaptations applied
 
-**Why 20 drills per session?** Because 6 problems build familiarity. 20 problems build armor. An Honors Chemistry exam will throw variations, traps, time pressure, and multi-topic integration at you. The learner who has solved 10 Basic + 10 Advanced problems in every topic does not panic. They recognize the pattern. They execute the template. They finish with time to check.
+---
 
-```
-Numbers → Pattern → Procedure → 10 Basic (automate) → 10 Advanced (armor) → THEN Concept (from the book)
-```
+## 12. Reference Mapping
 
-**400 problems total. Walk into any Honors Chemistry exam knowing you've solved harder.**
+| Phase | Primary Reference | Secondary Reference |
+|:-----:|------------------|-------------------|
+| 1 | BFN Ch 1–5 | — |
+| 2 | BFN Ch 17–21 | — |
+| 3 | BFN Ch 6–16 | AP Chemistry CED |
+| 4 | BFN Ch 22–27, 34–36 | AP Chemistry CED |
+| 5 | BFN Ch 28–33 | AP Chemistry CED |
+| 6 | Clayden *Organic Chemistry* | — |
+| 7 | Housecroft *Inorganic Chemistry* | — |
+| 8 | Oxtoby *Principles of Modern Chemistry* | All above |
+
+> BFN = *Everything You Need to Ace Chemistry in One Big Fat Notebook*
+> CED = Course & Exam Description
