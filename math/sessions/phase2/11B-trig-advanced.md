@@ -41,7 +41,7 @@ $\cos(A-B) = \cos A\cos B + \sin A\sin B$
 $\tan(A+B) = \frac{\tan A + \tan B}{1 - \tan A\tan B}$
 $\tan(A-B) = \frac{\tan A - \tan B}{1 + \tan A\tan B}$
 
-![Sum formulas via Euler — rotation on the unit circle](graphs/11b1-sum-formula-geometric.png)
+![Sum formulas via Euler — rotation on the unit circle](graphs/0728/11B/11b1-sum-formula-geometric.png)
 
 > **Geometric insight**: $e^{i(A+B)} = e^{iA}e^{iB}$. Expanding $(\cos A + i\sin A)(\cos B + i\sin B)$ and matching real/imaginary parts gives all four sin/cos formulas at once — no memorization needed.
 
@@ -124,7 +124,7 @@ Result: $5\sin(x + \phi)$.
 
 **Why this matters**: $a\sin x + b\cos x$ appears in physics (superposition of waves), engineering (AC circuits), and differential equations. Reducing it to one wave makes amplitude and phase obvious.
 
-![Harmonic addition — phasor triangle](graphs/11b2-harmonic-addition.png)
+![Harmonic addition — phasor triangle](graphs/0728/11B/11b2-harmonic-addition.png)
 
 > **Geometric insight**: $(a, b)$ is a point in the plane. $R$ = distance from origin, $\phi$ = angle from positive $x$-axis. The expression is the projection of a rotating vector — a pure sine wave of amplitude $R$, shifted by $\phi$.
 
@@ -161,7 +161,7 @@ $\cos A - \cos B = -2\sin\frac{A+B}{2}\sin\frac{A-B}{2}$
 **Simplify $\sin 75^\circ + \sin 15^\circ$:**
 $= 2\sin 45^\circ\cos 30^\circ = 2\cdot\frac{\sqrt{2}}{2}\cdot\frac{\sqrt{3}}{2} = \frac{\sqrt{6}}{2}$.
 
-![Sum-to-product — beat patterns](graphs/11b3-sum-product-waves.png)
+![Sum-to-product — beat patterns](graphs/0728/11B/11b3-sum-product-waves.png)
 
 > **Geometric insight**: When $A \approx B$, $\sin A + \sin B$ produces a "beat" — a fast oscillation inside a slow envelope. The sum-to-product formula reveals the envelope ($2\cos\frac{A-B}{2}$) explicitly.
 
@@ -202,6 +202,63 @@ $\sin^3\theta = \frac{3\sin\theta - \sin 3\theta}{4}$. $\cos^3\theta = \frac{3\c
 
 > **Up to here**: Sum/difference (6 formulas). Double/half/triple angle. Harmonic addition: $a\sin x + b\cos x \to R\sin(x+\phi)$. Product↔sum. Power-reduction. These tools are for simplifying, solving, and proving.
 
+![Trigonometric identity family tree — how all identities connect](graphs/0728/11B/11b11-identity-family-tree.png)
+
+> **At a glance**: Every trigonometric identity flows from Euler's formula $e^{i\theta} = \cos\theta + i\sin\theta$. Sum formulas come from $e^{i(A+B)} = e^{iA}e^{iB}$. Double/half-angle and power-reduction are special cases of sum formulas. Harmonic addition is geometry on the phasor plane. Product↔sum identities restate the sum formulas in reverse. Chebyshev polynomials and Weierstrass substitution are deeper applications of the same core relationships.
+
+---
+
+## Quick Derivation Guide — Rebuild Any Formula in Seconds
+
+> **When you forget a trig formula, don't panic — derive it from just ONE formula you remember.**
+
+### Anchor: Know This One Formula by Heart
+
+$$\cos(A-B) = \cos A\cos B + \sin A\sin B$$
+
+From this single formula, you can rebuild everything:
+
+| Want | Derivation |
+|:---:|---|
+| $\cos(A+B)$ | Replace $B \to -B$: $\cos(A-(-B)) = \cos A\cos(-B) + \sin A\sin(-B) = \cos A\cos B - \sin A\sin B$ |
+| $\sin(A+B)$ | Use $\sin\theta = \cos(\frac{\pi}{2} - \theta)$: $\sin(A+B) = \cos(\frac{\pi}{2} - A - B) = \cos((\frac{\pi}{2} - A) - B) = \cos(\frac{\pi}{2} - A)\cos B + \sin(\frac{\pi}{2} - A)\sin B = \sin A\cos B + \cos A\sin B$ |
+| $\sin(A-B)$ | Replace $B \to -B$ in $\sin(A+B)$: $\sin A\cos(-B) + \cos A\sin(-B) = \sin A\cos B - \cos A\sin B$ |
+| $\tan(A\pm B)$ | $\frac{\sin(A\pm B)}{\cos(A\pm B)}$, divide numerator and denominator by $\cos A\cos B$ |
+| $\sin 2\theta$ | Set $B=A$ in $\sin(A+B)$: $\sin 2\theta = 2\sin\theta\cos\theta$ |
+| $\cos 2\theta$ | Set $B=A$ in $\cos(A+B)$: $\cos 2\theta = \cos^2\theta - \sin^2\theta = 2\cos^2\theta - 1 = 1 - 2\sin^2\theta$ |
+| $\sin^2\theta$ | Solve $\cos 2\theta = 1 - 2\sin^2\theta$: $\sin^2\theta = \frac{1 - \cos 2\theta}{2}$ |
+| $\cos^2\theta$ | Solve $\cos 2\theta = 2\cos^2\theta - 1$: $\cos^2\theta = \frac{1 + \cos 2\theta}{2}$ |
+
+### Euler's Method (Even Faster)
+
+If you know $e^{i\theta} = \cos\theta + i\sin\theta$:
+
+$$e^{i(A+B)} = e^{iA}e^{iB} \implies \cos(A+B) + i\sin(A+B) = (\cos A + i\sin A)(\cos B + i\sin B)$$
+
+Multiply out and match real/imaginary parts → **both** $\cos(A+B)$ and $\sin(A+B)$ at once. No memorization needed.
+
+### Unit Circle Mnemonics
+
+| Forget | Remember |
+|:---:|---|
+| Sign of $\cos(A+B)$ | Cosine is "co-" (cooperative): signs **change**: $\cos(A+B) = \cos A\cos B {\color{red}{-}} \sin A\sin B$ |
+| Sign of $\sin(A+B)$ | Sine is "same": signs **stay**: $\sin(A+B) = \sin A\cos B {\color{red}{+}} \cos A\sin B$ |
+| Product-to-sum | $\sin A\cos B = \frac{1}{2}[\sin(A+B) + \sin(A-B)]$ — the "sine-cosine" pair keeps sine |
+| Sum-to-product | $\sin A + \sin B = 2\sin\frac{A+B}{2}\cos\frac{A-B}{2}$ — average angle $\to$ sine, half-difference $\to$ cosine |
+
+### The 30-Second Workflow
+
+```
+Forgot a formula?
+├── Remember cos(A−B) = cosA cosB + sinA sinB?
+│   └── Derive everything from it (table above)
+├── Remember Euler's formula e^(iθ) = cosθ + i sinθ?
+│   └── Multiply e^(iA) e^(iB) and match parts
+└── Remember nothing?
+    └── Draw a unit circle. Pick an angle. Read cos = x, sin = y.
+        The Pythagorean identity cos²θ + sin²θ = 1 is always there.
+```
+
 ---
 
 ## Part B: Trigonometric Equations and Inequalities
@@ -227,7 +284,7 @@ $\sin^3\theta = \frac{3\sin\theta - \sin 3\theta}{4}$. $\cos^3\theta = \frac{3\c
 (1) Base: $\arctan 1 = \frac{\pi}{4}$. Tangent negative in QII and QIV: $\frac{3\pi}{4}$, $\frac{7\pi}{4}$.
 (2) Period of tan is $\pi$ → general: $x = \frac{3\pi}{4} + n\pi$.
 
-![Trig equations — solutions repeat every period](graphs/11b4-trig-equation-solutions.png)
+![Trig equations — solutions repeat every period](graphs/0728/11B/11b4-trig-equation-solutions.png)
 
 **Method — Any basic trig equation in 3 steps:**
 
@@ -367,7 +424,7 @@ $t = 1$ → $\tan\frac{x}{2} = 1$ → $x = \frac{\pi}{2} + 2n\pi$.
 (3) $t = 2+\sqrt{3}$ → $\tan\frac{x}{2} = 2+\sqrt{3}$ → $\frac{x}{2} = \frac{5\pi}{12}$ → $x = \frac{5\pi}{6}$.
 $t = 2-\sqrt{3}$ → $\frac{x}{2} = \frac{\pi}{12}$ → $x = \frac{\pi}{6}$.
 
-![Weierstrass substitution — stereographic projection](graphs/11b5-weierstrass-substitution.png)
+![Weierstrass substitution — stereographic projection](graphs/0728/11B/11b5-weierstrass-substitution.png)
 
 > **Geometric insight**: $t = \tan\frac{x}{2}$ maps the unit circle (minus $(-1,0)$) one-to-one onto the real line. A line from $(-1,0)$ through $(\cos x,\sin x)$ hits the $y$-axis at $(0,t)$. This is stereographic projection.
 
@@ -410,7 +467,7 @@ $t = 2-\sqrt{3}$ → $\frac{x}{2} = \frac{\pi}{12}$ → $x = \frac{\pi}{6}$.
 (3) $x \in (\frac{\pi}{4}, \frac{\pi}{2}) \cup (\frac{5\pi}{4}, \frac{3\pi}{2})$.
 General: $x \in (\frac{\pi}{4} + n\pi, \frac{\pi}{2} + n\pi)$.
 
-![Trigonometric inequalities on the unit circle](graphs/11b6-trig-inequalities.png)
+![Trigonometric inequalities on the unit circle](graphs/0728/11B/11b6-trig-inequalities.png)
 
 ---
 
@@ -472,6 +529,10 @@ $c^2 = 25+49-2(5)(7)\frac{1}{2} = 74-35 = 39$ → $c = \sqrt{39}$.
 $\frac{1}{2}ab\sin C$ (two sides + included angle). $a=5, b=8, C=30^\circ$ → $\frac{1}{2}\cdot5\cdot8\cdot\frac{1}{2} = 10$.
 Heron: $s = \frac{a+b+c}{2}$, $\text{Area} = \sqrt{s(s-a)(s-b)(s-c)}$.
 
+![Law of Sines and Law of Cosines — geometric interpretation](graphs/0728/11B/11b12-law-of-sines-cosines.png)
+
+> **Visual summary**: The Law of Sines relates each side to the sine of its opposite angle via the circumdiameter $2R$. The Law of Cosines extends Pythagoras by the adjustment term $-2ab\cos C$ — when $C = 90^\circ$, it reduces to $c^2 = a^2 + b^2$.
+
 > 💡 **Pro tip — The ambiguous SSA case**: Given two sides and a non-included angle, always check if $\sin B = \frac{b\sin A}{a} \leq 1$. If $\sin B = 1$, exactly one right triangle. If $\sin B < 1$, there may be two triangles ($B$ acute or obtuse) or one ($B$ must be acute because $a \geq b$). Draw it — don't guess.
 
 > **Up to here**: 6 equation types (basic, quadratic, mixed-angle, mixed-function, Weierstrass, inverse trig) + inequalities + triangles. Each type has a clear 3-step method.
@@ -495,7 +556,7 @@ Equate with $\cos(A+B) + i\sin(A+B)$ → both sum formulas at once.
 **Compute $\cos 3\theta$ via De Moivre**: Expand $(\cos\theta + i\sin\theta)^3 = \cos^3\theta + 3i\cos^2\theta\sin\theta - 3\cos\theta\sin^2\theta - i\sin^3\theta$.
 Real part: $\cos^3\theta - 3\cos\theta(1-\cos^2\theta) = 4\cos^3\theta - 3\cos\theta = \cos 3\theta$.
 
-![Euler's formula — complex plane](graphs/11b7-euler-formula-complex.png)
+![Euler's formula — complex plane](graphs/0728/11B/11b7-euler-formula-complex.png)
 
 > **Geometric insight**: Multiplication by $e^{i\theta}$ rotates a complex number by $\theta$. Euler's formula turns trig into exponent arithmetic.
 
@@ -512,7 +573,7 @@ Recurrence: $T_{n+1}(x) = 2xT_n(x) - T_{n-1}(x)$.
 **Solve $\cos 3\theta = \frac{1}{2}$ via Chebyshev**: $x = \cos\theta$, $T_3(x) = 4x^3-3x = \frac{1}{2}$ → $8x^3-6x-1=0$.
 Roots: $x = \cos\frac{\pi}{9}, \cos\frac{7\pi}{9}, \cos\frac{13\pi}{9}$.
 
-![Chebyshev polynomials T₁–T₅](graphs/11b8-chebyshev-polynomials.png)
+![Chebyshev polynomials T₁–T₅](graphs/0728/11B/11b8-chebyshev-polynomials.png)
 
 > **Geometric insight**: Chebyshev polynomials oscillate between $-1$ and $1$ with $n+1$ equally spaced extrema on $[-1,1]$. This equal-ripple property makes them optimal for approximation theory.
 
@@ -532,7 +593,7 @@ Set $x = 2\sqrt{-\frac{p}{3}}\cos\theta$ where $\cos 3\theta = \frac{3q}{2p}\sqr
 (3) $3\theta = \frac{\pi}{3}, \frac{7\pi}{3}, \frac{13\pi}{3}$ → $\theta = \frac{\pi}{9}, \frac{7\pi}{9}, \frac{13\pi}{9}$.
 Roots: $2\cos\frac{\pi}{9} \approx 1.879$, $2\cos\frac{7\pi}{9} \approx -1.532$, $2\cos\frac{13\pi}{9} \approx -0.347$.
 
-![Cubic solved via trigonometry](graphs/11b9-cubic-trigonometric.png)
+![Cubic solved via trigonometry](graphs/0728/11B/11b9-cubic-trigonometric.png)
 
 > **Geometric insight**: The identity $4\cos^3\theta - 3\cos\theta = \cos 3\theta$ turns the cubic into $\cos 3\theta = c$. The three roots come from three angles in $[0, \pi]$ whose triple has the same cosine.
 
@@ -594,7 +655,7 @@ $f(x) = \frac{4}{\pi}(\sin x + \frac{\sin 3x}{3} + \frac{\sin 5x}{5} + \cdots)$.
 The identities from Part A make computing $a_n$, $b_n$ possible:
 $a_n = \frac{1}{\pi}\int_{-\pi}^{\pi} f(x)\cos nx\,dx$. $b_n = \frac{1}{\pi}\int_{-\pi}^{\pi} f(x)\sin nx\,dx$.
 
-![Fourier series — square wave approximation](graphs/11b10-fourier-series.png)
+![Fourier series — square wave approximation](graphs/0728/11B/11b10-fourier-series.png)
 
 > **Geometric insight**: Fourier's discovery (1807): ANY periodic wave is built from pure sines and cosines. The identities from this session are the alphabet; Fourier series is the language.
 

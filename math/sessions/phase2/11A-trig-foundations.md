@@ -24,7 +24,7 @@ $360^\circ = 2\pi \text{ rad}$. $180^\circ = \pi \text{ rad}$. $90^\circ = \frac
 Degrees: $s = \frac{\pi r \theta}{180^\circ}$ — messy. Radians: $s = r\theta$ — clean.
 This simplicity is why calculus *only* works in radians. $\frac{d}{dx}\sin x = \cos x$ is true only when $x$ is in radians.
 
-![Arc length = radius defines 1 radian](graphs/11a1-radian-definition.png)
+![Arc length = radius defines 1 radian](graphs/0728/11A/11a1-radian-definition.png)
 
 > **Geometric insight**: 1 radian ≈ 57.3°. An angle of 1 radian cuts off an arc exactly as long as the radius. This is the natural unit of angle — no arbitrary "360" involved. The number 360 comes from ancient Babylonian astronomy (close to 365 days/year). Radians come from the geometry of the circle itself.
 
@@ -55,7 +55,7 @@ $\frac{7\pi}{3} \to \frac{7\pi}{3} \times \frac{180^\circ}{\pi} = 420^\circ$ (on
 To get $120^\circ$: $120^\circ = 2 \times 60^\circ = 2 \times \frac{\pi}{3} = \frac{2\pi}{3}$.
 To get $210^\circ$: $210^\circ = 180^\circ + 30^\circ = \pi + \frac{\pi}{6} = \frac{7\pi}{6}$.
 
-![Degrees and radians on the same circle](graphs/11a2-degree-radian-circle.png)
+![Degrees and radians on the same circle](graphs/0728/11A/11a2-degree-radian-circle.png)
 
 > **Geometric insight**: Thinking in radians means thinking in multiples of $\pi$. A quarter-turn is $\pi/2$, not 90. A half-turn is $\pi$, not 180. This rewires your brain to see angles as *distances along the circle*, not arbitrary numbers.
 
@@ -85,7 +85,7 @@ $\theta = \frac{3\pi}{2}$: ray hits $(0, -1)$. So $\cos\frac{3\pi}{2} = 0$, $\si
 
 **The Pythagorean identity drops out immediately**: $x^2 + y^2 = 1$ (every point on the unit circle satisfies this). Since $x = \cos\theta$ and $y = \sin\theta$: $\cos^2\theta + \sin^2\theta = 1$.
 
-![Unit circle with (cos θ, sin θ) as coordinates](graphs/11a3-unit-circle-cos-sin.png)
+![Unit circle with (cos θ, sin θ) as coordinates](graphs/0728/11A/11a3-unit-circle-cos-sin.png)
 
 > **Geometric insight**: The unit circle turns trigonometry into coordinate geometry. $\cos\theta$ is just the horizontal position, $\sin\theta$ is the vertical position. Every trig fact about $\sin$ and $\cos$ is a fact about where a point lies on a circle.
 
@@ -112,7 +112,7 @@ $\sin\frac{\pi}{3} = \frac{\sqrt{3}}{2}$, $\cos\frac{\pi}{3} = \frac{1}{2}$.
 
 **Pattern to memorize**: $\sin$ goes $0, \frac{1}{2}, \frac{\sqrt{2}}{2}, \frac{\sqrt{3}}{2}, 1$ (the $\frac{\sqrt{n}}{2}$ pattern for $n=0,1,2,3,4$). $\cos$ is the same list read backwards.
 
-![Special angles on the unit circle with exact coordinates](graphs/11a4-special-angles-unit-circle.png)
+![Special angles on the unit circle with exact coordinates](graphs/0728/11A/11a4-special-angles-unit-circle.png)
 
 > **Geometric insight**: Every angle that is a multiple of $\frac{\pi}{6}$ or $\frac{\pi}{4}$ has an exact coordinate expressible with square roots. These 16 points (4 quadrants × 4 angles each) are your reference grid. All other trig values flow from them via symmetry.
 
@@ -142,7 +142,7 @@ $\sin\frac{7\pi}{4} = -\frac{\sqrt{2}}{2}$, $\cos\frac{7\pi}{4} = +\frac{\sqrt{2
 $\theta = \frac{4\pi}{3}$ (240°, QIII). Reference angle = $\frac{4\pi}{3} - \pi = \frac{\pi}{3}$.
 $\sin\frac{4\pi}{3} = -\frac{\sqrt{3}}{2}$, $\cos\frac{4\pi}{3} = -\frac{1}{2}$.
 
-![Reference angles and ASTC sign chart on unit circle](graphs/11a5-reference-angles-astc.png)
+![Reference angles and ASTC sign chart on unit circle](graphs/0728/11A/11a5-reference-angles-astc.png)
 
 > **Geometric insight**: Every angle outside QI is just a QI angle reflected across an axis. The reflection determines the sign. The reference angle determines the magnitude.
 
@@ -182,9 +182,13 @@ Unroll the unit circle. As $\theta$ increases, the $y$-coordinate ($\sin\theta$)
 - $\cos\theta = \sin(\theta + \frac{\pi}{2})$ — the cosine wave is the sine wave shifted left by $\frac{\pi}{2}$.
 - **Symmetry**: $\cos(-\theta) = \cos\theta$ (even — symmetric about $y$-axis).
 
-![sin and cos waves over two periods, with unit circle alignment](graphs/11a6-sin-cos-graphs.png)
+![sin and cos waves over two periods, with unit circle alignment](graphs/0728/11A/11a6-sin-cos-graphs.png)
 
 > **Geometric insight**: Watch a point move around the unit circle at constant speed. Plot its $y$-coordinate against time — that's $\sin t$. Plot its $x$-coordinate against time — that's $\cos t$. The two waves are the same shape, just $\frac{\pi}{2}$ out of phase.
+
+![Unwrapping the unit circle — how sine and cosine waves are born from circular motion](graphs/0728/11A/11a15-unit-circle-to-sine-unwrap.png)
+
+> **Additional insight — Unwrapping the circle**: The animation above shows a point $P(\theta)$ rotating around the unit circle. Its $y$-coordinate is $\sin\theta$. If you "unwind" the circle's circumference onto a horizontal $\theta$-axis and plot the $y$-coordinate at each position, the sine wave emerges naturally. This is why $\sin$ and $\cos$ have period $2\pi$ — one full trip around the circle returns to the starting point.
 
 ---
 
@@ -205,7 +209,7 @@ $\tan\frac{\pi}{4} = \frac{\sqrt{2}/2}{\sqrt{2}/2} = 1$. $\tan\frac{\pi}{3} = \f
 - **Domain**: all real numbers except $\frac{\pi}{2} + n\pi$. **Range**: all real numbers.
 - **Symmetry**: $\tan(-\theta) = -\tan\theta$ (odd).
 
-![tan graph with asymptotes and unit circle geometric interpretation](graphs/11a7-tan-graph.png)
+![tan graph with asymptotes and unit circle geometric interpretation](graphs/0728/11A/11a7-tan-graph.png)
 
 > **Geometric insight**: $\tan\theta$ is the slope. As the ray gets nearly vertical, the slope explodes to infinity — hence the asymptotes. Every $\pi$ radians you're back to the same slope (a line and its extension 180° later have the same slope), so the period is $\pi$.
 
@@ -236,11 +240,13 @@ $\csc\theta = \frac{1}{\sin\theta}$. $\sec\theta = \frac{1}{\cos\theta}$. $\cot\
 - $\csc\theta \cdot \sin\theta = 1$. $\sec\theta \cdot \cos\theta = 1$. $\cot\theta \cdot \tan\theta = 1$.
 - Pythagorean variants: $1 + \tan^2\theta = \sec^2\theta$. $1 + \cot^2\theta = \csc^2\theta$.
 
-![csc, sec, cot graphs with asymptotes — all six functions overlaid](graphs/11a8-csc-sec-cot-graphs.png)
+![csc, sec, cot graphs with asymptotes — all six functions overlaid](graphs/0728/11A/11a8-csc-sec-cot-graphs.png)
 
 > **Geometric insight on the unit circle**: Draw the tangent line at $(0,1)$ (horizontal). The ray extended hits it at $(\cot\theta, 1)$. Draw the tangent line at $(1,0)$ (vertical). The ray hits it at $(1, \tan\theta)$. Draw the tangent at the point itself — the $x$-intercept of that tangent line relates to $\csc\theta$ and $\sec\theta$. All six functions come from the same diagram.
 
-![All six trig functions on one unit circle diagram](graphs/11a9-six-functions-unit-circle.png)
+![sin, cos, tan on the unit circle](graphs/0728/11A/11a9-sin-cos-tan.png)
+
+![csc, sec, cot on the unit circle](graphs/0728/11A/11a9-csc-sec-cot.png)
 
 **Method — Sketching csc, sec, cot from their reciprocals in 3 steps:**
 
@@ -291,7 +297,7 @@ Given $y = A\sin(B\theta - C) + D$ (and same form for $\cos$):
 
 (5) $y = \frac{1}{2}\tan(2\theta + \frac{\pi}{4}) - 1$. Shift down by 1. Midline (the "center" of the S) moves from $y=0$ to $y=-1$. Zero-crossings become crossings at $y=-1$.
 
-![Step-by-step transformation of a sine wave — amplitude, period, phase, vertical shift](graphs/11a10-trig-transformations.png)
+![Step-by-step transformation of a sine wave — amplitude, period, phase, vertical shift](graphs/0728/11A/11a10-trig-transformations.png)
 
 > **Geometric insight**: $A$ stretches the circle's radius vertically. $B$ changes how fast the point spins around the circle. $C$ changes where you start. $D$ raises or lowers the center of the circle.
 
@@ -316,7 +322,7 @@ $\arcsin\frac{\sqrt{2}}{2} = \frac{\pi}{4}$. $\arcsin(-\frac{\sqrt{3}}{2}) = -\f
 
 **Graph**: Take the graph of $y = \sin\theta$ on $[-\frac{\pi}{2}, \frac{\pi}{2}]$, flip it across the line $y = x$. The result is a curve that rises from $(-1, -\frac{\pi}{2})$ to $(1, \frac{\pi}{2})$, steepest at the ends, flattest at the origin.
 
-![arcsin graph — mirror of sin across y=x, with restricted domain highlighted](graphs/11a11-arcsin-graph.png)
+![arcsin graph — mirror of sin across y=x, with restricted domain highlighted](graphs/0728/11A/11a11-arcsin-graph.png)
 
 > **Geometric insight**: $\arcsin x$ answers "at what angle (between $-\frac{\pi}{2}$ and $\frac{\pi}{2}$) is the $y$-coordinate on the unit circle equal to $x$?" The restriction to $[-\frac{\pi}{2}, \frac{\pi}{2}]$ picks the *right half* of the unit circle — where every horizontal line hits the circle exactly once.
 
@@ -335,7 +341,7 @@ $\arccos\frac{\sqrt{2}}{2} = \frac{\pi}{4}$. $\arccos(-\frac{\sqrt{3}}{2}) = \fr
 
 **Key relationship**: $\arcsin x + \arccos x = \frac{\pi}{2}$ for all $x \in [-1, 1]$. The two angles are complementary.
 
-![arccos graph — mirror of cos across y=x, with restricted domain highlighted](graphs/11a12-arccos-graph.png)
+![arccos graph — mirror of cos across y=x, with restricted domain highlighted](graphs/0728/11A/11a12-arccos-graph.png)
 
 > **Geometric insight**: $\arccos x$ answers "at what angle (between $0$ and $\pi$) is the $x$-coordinate on the unit circle equal to $x$?" The restriction to $[0, \pi]$ picks the *top half* of the unit circle.
 
@@ -352,7 +358,7 @@ As $x \to \infty$, $\arctan x \to \frac{\pi}{2}$ (but never reaches it). As $x \
 
 **Graph**: S-shaped curve with horizontal asymptotes at $y = \frac{\pi}{2}$ and $y = -\frac{\pi}{2}$. Passes through $(0,0)$. Steepest at the origin, flattening toward the asymptotes.
 
-![arctan graph with horizontal asymptotes at ±π/2](graphs/11a13-arctan-graph.png)
+![arctan graph with horizontal asymptotes at ±π/2](graphs/0728/11A/11a13-arctan-graph.png)
 
 > **Geometric insight**: $\arctan x$ answers "at what angle (between $-\frac{\pi}{2}$ and $\frac{\pi}{2}$) does the ray have slope $x$?" The restriction to $(-\frac{\pi}{2}, \frac{\pi}{2})$ picks the *right half* of the unit circle, excluding the vertical position where slope is undefined.
 
@@ -392,7 +398,15 @@ Given something like $\cos(\arcsin x)$ or $\tan(\arccos x)$, you are answering: 
 
 **Walkthrough 5 — $\tan(\arcsin x)$ as a formula:** (1) Triangle: opposite = $x$, hypotenuse = 1. (2) Adjacent = $\sqrt{1 - x^2}$. (3) $\tan\theta = \frac{x}{\sqrt{1 - x^2}}$.
 
-![Composition arcsin(sin x) — sawtooth pattern explained](graphs/11a14-arcsin-composition.png)
+![cos(arcsin(3/5)) — right triangle method](graphs/0728/11A/11a16-cos-arcsin.png)
+
+![tan(arccos(-5/13)) — right triangle method](graphs/0728/11A/11a16-tan-arccos.png)
+
+![sin(arctan(3/4)) — right triangle method](graphs/0728/11A/11a16-sin-arctan.png)
+
+> **Visual shortcut**: For any composition $\text{trig}(\text{inverse-trig}(x))$, draw the triangle from the inverse function, label the known two sides, compute the third with Pythagoras, then read the target trig ratio directly. The triangle method replaces algebraic manipulation with geometry.
+
+![Composition arcsin(sin x) — sawtooth pattern explained](graphs/0728/11A/11a14-arcsin-composition.png)
 
 > **Geometric insight**: $\arcsin(\sin\theta)$ produces a "sawtooth" wave — it bounces $\theta$ back into $[-\frac{\pi}{2}, \frac{\pi}{2}]$. Think of folding the number line like an accordion into that interval. $\sin(\arcsin x)$ is just the identity on $[-1,1]$. $\cos(\arcsin x)$ draws a right triangle and uses Pythagoras.
 
