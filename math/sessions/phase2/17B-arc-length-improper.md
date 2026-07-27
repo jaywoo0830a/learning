@@ -205,7 +205,7 @@ Find the surface area when the parametric curve $x=t^2$, $y=t$, $t\in[0,2]$ is r
 
 ---
 
-## Basic Algebra Drill — Arc Length & Improper Integrals (12 Problems)
+## Basic Drills
 
 **D1.** Find arc length of $y=2x$ from $x=0$ to $x=3$.
 
@@ -235,7 +235,7 @@ Find the surface area when the parametric curve $x=t^2$, $y=t$, $t\in[0,2]$ is r
 
 ---
 
-## Advanced Algebra Drill — Arc Length & Improper Integrals (10 Problems)
+## Advanced Drills
 
 **A1.** Find the arc length of $y=\ln(\sec x)$ from $x=0$ to $x=\pi/3$.
 

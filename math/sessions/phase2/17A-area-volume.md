@@ -192,7 +192,7 @@ The region between $y=\sqrt{x}$ and $y=x^2$ on $[0,1]$ is rotated about $y=2$. S
 
 ---
 
-## Basic Algebra Drill — Area & Volume (12 Problems)
+## Basic Drills
 
 **D1.** Find area between $y=x$ and $x$-axis from $x=0$ to $x=4$.
 
@@ -222,7 +222,7 @@ The region between $y=\sqrt{x}$ and $y=x^2$ on $[0,1]$ is rotated about $y=2$. S
 
 ---
 
-## Advanced Algebra Drill — Area & Volume (10 Problems)
+## Advanced Drills
 
 **A1.** Find the area between $y=x^3$ and $y=x$ (all intersection regions).
 

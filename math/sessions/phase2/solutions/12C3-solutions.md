@@ -264,7 +264,7 @@ So the arc length is $2\pi$, which equals the circumference of a circle of radiu
 
 ---
 
-## Basic Algebra Drill — Coordinate Systems (12 Problems)
+## Basic Drills
 
 ### D1. Convert the polar point $(r=4, \theta=60^\circ)$ to Cartesian coordinates.
 
@@ -376,7 +376,7 @@ A circle of radius $2$ centered at $(2, 0)$.
 
 ---
 
-## Advanced Algebra Drill — Coordinate Systems (12 Problems)
+## Advanced Drills
 
 ### A1. Find the equation of a torus in Cartesian coordinates by eliminating the parameters from $\vec{r}(\theta, \phi)$.
 

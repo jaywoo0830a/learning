@@ -369,7 +369,7 @@ Prove that the product of all $n$th roots of unity (for $n \geq 2$) is $(-1)^{n-
 
 ---
 
-## Basic Algebra Drill — Complex Numbers (15 Problems)
+## Basic Drills
 
 > Pure calculation + geometric insight. Build fluency with $i$, polar form, and the matrix connection.
 
@@ -407,7 +407,7 @@ Prove that the product of all $n$th roots of unity (for $n \geq 2$) is $(-1)^{n-
 
 ---
 
-## Advanced Algebra Drill — Complex Numbers (15 Problems)
+## Advanced Drills
 
 > Multi-step. Connect polar form, Euler, De Moivre, matrices, and geometry.
 

@@ -164,7 +164,7 @@ Solve the Riccati equation $y' = y^2 - \frac{2}{x^2}$ using the known solution $
 
 ---
 
-## Basic Algebra Drill — Advanced First-Order (12 Problems)
+## Basic Drills
 
 **D1.** Solve $dy/dx = (y/x)^2 + y/x$. Homogeneous.
 
@@ -194,7 +194,7 @@ Solve the Riccati equation $y' = y^2 - \frac{2}{x^2}$ using the known solution $
 
 ---
 
-## Advanced Algebra Drill — Advanced First-Order (12 Problems)
+## Advanced Drills
 
 **A1.** Solve $x\frac{dy}{dx} = y + \sqrt{x^2-y^2}$. Homogeneous, use $y=x\sin\theta$.
 

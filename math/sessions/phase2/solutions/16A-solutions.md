@@ -108,7 +108,7 @@ Total area = $8$.
 
 ---
 
-## Basic Algebra Drill — Integration Fundamentals
+## Basic Drills
 
 ### D1. $\int x^5\,dx$
 
@@ -218,7 +218,7 @@ $\int_{-1}^2 (x^2-2x)\,dx = F(2) - F(-1) = -\frac{4}{3} - \left(-\frac{4}{3}\rig
 
 ---
 
-## Advanced Algebra Drill — Integration Fundamentals
+## Advanced Drills
 
 ### A1. $\int x^2\sqrt{x^3+1}\,dx$
 

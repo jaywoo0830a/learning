@@ -282,7 +282,7 @@ $\displaystyle \lim_{x\to\infty}\frac{e^x + x^{100}}{2^x + x!}$. Use the growth 
 
 ---
 
-## Basic Algebra Drill — Limits at Infinity (10 Problems)
+## Basic Drills
 
 > Pure computation. Identify the form and evaluate.
 
@@ -310,7 +310,7 @@ $\displaystyle \lim_{x\to\infty}\frac{e^x + x^{100}}{2^x + x!}$. Use the growth 
 
 ---
 
-## Advanced Algebra Drill — Limits at Infinity (10 Problems)
+## Advanced Drills
 
 > Multi-step reasoning required.
 

@@ -167,7 +167,7 @@ Invent an inequality whose solution is $x \in (-2,-1] \cup [1,3) \cup (3,\infty)
 
 ---
 
-## Basic Algebra Drill — Advanced Inequalities (10 Problems)
+## Basic Drills
 
 **D1.** Solve $|x+2| < 6$.
 
@@ -193,7 +193,7 @@ Invent an inequality whose solution is $x \in (-2,-1] \cup [1,3) \cup (3,\infty)
 
 ---
 
-## Advanced Algebra Drill — Advanced Inequalities (10 Problems)
+## Advanced Drills
 
 **A1.** Solve $||x-2|-3| \leq 1$. Nested absolute values.
 

@@ -286,7 +286,7 @@ $f(x)=\frac{x^3}{x^2-1}$. Find domain, intercepts, asymptotes, $f'$, $f''$, and 
 
 ---
 
-## Basic Algebra Drill — Curve Analysis (12 Problems)
+## Basic Drills
 
 **D1.** Find the tangent line to $f(x)=x^2+2x$ at $x=1$.
 
@@ -312,7 +312,7 @@ $f(x)=\frac{x^3}{x^2-1}$. Find domain, intercepts, asymptotes, $f'$, $f''$, and 
 
 **D12.** (🔗 12C1) Find the tangent line to $f(x)=\sin x$ at $x=\pi/4$. Write in point-slope form.
 
-## Advanced Algebra Drill — Curve Analysis (10 Problems)
+## Advanced Drills
 
 **A1.** Prove that $f(x)=x^3+ax+b$ has exactly one inflection point and find it.
 

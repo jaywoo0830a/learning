@@ -136,7 +136,7 @@ How many terms of the Maclaurin series for $e^x$ are needed to approximate $e$ (
 
 ---
 
-## Basic Algebra Drill — Taylor Series (12 Problems)
+## Basic Drills
 
 **D1.** Write the Maclaurin series for $e^{-x}$ (first 4 terms).
 
@@ -166,7 +166,7 @@ How many terms of the Maclaurin series for $e^x$ are needed to approximate $e$ (
 
 ---
 
-## Advanced Algebra Drill — Taylor Series (12 Problems)
+## Advanced Drills
 
 **A1.** Find the Maclaurin series for $\sinh x = \frac{e^x-e^{-x}}{2}$.
 

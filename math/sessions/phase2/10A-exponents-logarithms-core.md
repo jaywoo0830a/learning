@@ -470,7 +470,7 @@ $25^x + 5^{x+1} - 6 = 0$. Unify to base 5, then use $t = 5^x$.
 
 ---
 
-## Basic Algebra Drill — Exponents and Logs (10 Problems)
+## Basic Drills
 
 > Pure calculation. Build speed and fluency.
 
@@ -498,7 +498,7 @@ $25^x + 5^{x+1} - 6 = 0$. Unify to base 5, then use $t = 5^x$.
 
 ---
 
-## Advanced Algebra Drill — Exponents and Logs (10 Problems)
+## Advanced Drills
 
 > Multi-step equation solving. Each problem requires choosing the right weapon.
 

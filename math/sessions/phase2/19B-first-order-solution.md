@@ -170,7 +170,7 @@ A population satisfies $P' = 0.2P(1-P/1000) - 50$ (harvesting constant rate 50).
 
 ---
 
-## Basic Algebra Drill — First-Order Methods (12 Problems)
+## Basic Drills
 
 **D1.** Solve $dy/dx = 2xy$. Separable.
 
@@ -200,7 +200,7 @@ A population satisfies $P' = 0.2P(1-P/1000) - 50$ (harvesting constant rate 50).
 
 ---
 
-## Advanced Algebra Drill — First-Order Methods (12 Problems)
+## Advanced Drills
 
 **A1.** Solve $dy/dx = (x+y)^2$ using substitution $u=x+y$.
 

@@ -316,7 +316,7 @@ A function $f$ satisfies $|f(x)-f(y)| \leq (x-y)^2$ for all real $x,y$. Prove: (
 
 ---
 
-## Basic Algebra Drill — Continuity and Derivatives (10 Problems)
+## Basic Drills
 
 > ε-δ continuity proofs, derivative by definition, basic rule proofs.
 
@@ -344,7 +344,7 @@ A function $f$ satisfies $|f(x)-f(y)| \leq (x-y)^2$ for all real $x,y$. Prove: (
 
 ---
 
-## Advanced Algebra Drill — Continuity and Derivatives (10 Problems)
+## Advanced Drills
 
 > Rigorous proofs, counterexamples, and deeper connections.
 

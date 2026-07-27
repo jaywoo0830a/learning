@@ -136,7 +136,7 @@ Create a system of two equations whose only solutions are $(1,2)$ and $(3,-1)$. 
 
 ---
 
-## Basic Algebra Drill — Partial Fractions & Systems (10 Problems)
+## Basic Drills
 
 **D1.** Decompose $\frac{4}{(x-1)(x+3)}$.
 
@@ -162,7 +162,7 @@ Create a system of two equations whose only solutions are $(1,2)$ and $(3,-1)$. 
 
 ---
 
-## Advanced Algebra Drill — Partial Fractions & Systems (10 Problems)
+## Advanced Drills
 
 **A1.** Decompose $\frac{x^3+1}{x(x-1)^2}$.
 

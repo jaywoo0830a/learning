@@ -403,7 +403,7 @@ $x=2t-t^2$, $y=3t^2-t^3$. Find $\frac{dy}{dx}$ at $t=1$ and the equation of the 
 
 ---
 
-## Basic Algebra Drill — Advanced Differentiation (10 Problems)
+## Basic Drills
 
 > Identify the structure. Apply the matching procedure.
 
@@ -431,7 +431,7 @@ $x=2t-t^2$, $y=3t^2-t^3$. Find $\frac{dy}{dx}$ at $t=1$ and the equation of the 
 
 ---
 
-## Advanced Algebra Drill — Advanced Differentiation (10 Problems)
+## Advanced Drills
 
 > Combine techniques. Prove identities. Handle edge cases.
 

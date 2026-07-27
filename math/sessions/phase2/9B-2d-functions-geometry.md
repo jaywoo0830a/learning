@@ -653,7 +653,7 @@ A hyperbola has asymptotes $y = \pm\frac{4}{3}x$ and passes through $(5, 0)$. Fi
 
 ---
 
-## Basic Algebra Drill — 2D Geometry (15 Problems)
+## Basic Drills
 
 > Pure computation + 5 geometry-insight problems (marked ◆).
 
@@ -691,7 +691,7 @@ A hyperbola has asymptotes $y = \pm\frac{4}{3}x$ and passes through $(5, 0)$. Fi
 
 ---
 
-## Advanced Algebra Drill — 2D Geometry (15 Problems)
+## Advanced Drills
 
 > Multi-step geometric reasoning + 5 geometry-insight problems (marked ◆).
 

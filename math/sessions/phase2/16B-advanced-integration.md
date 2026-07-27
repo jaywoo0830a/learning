@@ -425,7 +425,7 @@ A classmate sees $\int \frac{x}{\sqrt{1-x^2}}\,dx$ and says: "Trig sub! $\sqrt{1
 
 ---
 
-## Basic Algebra Drill — Advanced Integration (10 Problems)
+## Basic Drills
 
 > Identify the technique from the decision tree. Execute the procedure.
 
@@ -453,7 +453,7 @@ A classmate sees $\int \frac{x}{\sqrt{1-x^2}}\,dx$ and says: "Trig sub! $\sqrt{1
 
 ---
 
-## Advanced Algebra Drill — Advanced Integration (10 Problems)
+## Advanced Drills
 
 > Multi-step. May combine techniques.
 

@@ -251,7 +251,7 @@ A mass-spring system ($m=1$, $k=4$) is driven by $F(t) = 2\cos(2t)$.
 
 ---
 
-## Basic Algebra Drill — Higher Order & Numerical (12 Problems)
+## Basic Drills
 
 **D1.** Solve $y''+y'-6y=0$.
 
@@ -281,7 +281,7 @@ A mass-spring system ($m=1$, $k=4$) is driven by $F(t) = 2\cos(2t)$.
 
 ---
 
-## Advanced Algebra Drill — Higher Order & Numerical (12 Problems)
+## Advanced Drills
 
 **A1.** Solve $y''-2y'+5y=0$, $y(0)=1$, $y'(0)=3$.
 

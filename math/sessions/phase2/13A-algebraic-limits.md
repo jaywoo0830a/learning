@@ -333,7 +333,7 @@ $f(x) = \begin{cases} \frac{\sin x}{x}, & x < 0 \\ e^x, & x \geq 0 \end{cases}$.
 
 ---
 
-## Basic Algebra Drill — Algebraic Limits (10 Problems)
+## Basic Drills
 
 > Pure computation. Identify the form and apply the right weapon.
 
@@ -361,7 +361,7 @@ $f(x) = \begin{cases} \frac{\sin x}{x}, & x < 0 \\ e^x, & x \geq 0 \end{cases}$.
 
 ---
 
-## Advanced Algebra Drill — Algebraic Limits (10 Problems)
+## Advanced Drills
 
 > Multi-step. Requires choosing the right weapon from several options.
 

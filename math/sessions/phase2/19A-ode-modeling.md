@@ -205,7 +205,7 @@ A population doubles every 3 hours.
 
 ---
 
-## Basic Algebra Drill — ODE Modeling (12 Problems)
+## Basic Drills
 
 **D1.** Solve $y'=3y$, $y(0)=5$.
 
@@ -235,7 +235,7 @@ A population doubles every 3 hours.
 
 ---
 
-## Advanced Algebra Drill — ODE Modeling (12 Problems)
+## Advanced Drills
 
 **A1.** Carbon-14 half-life 5730 years. A fossil has 15% original C-14. How old?
 

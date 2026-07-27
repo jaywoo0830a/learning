@@ -418,7 +418,7 @@ Draw the graph. Mark all boundary dots as filled or empty. Check continuity at e
 
 ---
 
-## Basic Algebra Drill — Graph Drawing (10 Problems)
+## Basic Drills
 
 > Pure computation. Domain, asymptotes, intercepts.
 
@@ -446,7 +446,7 @@ Draw the graph. Mark all boundary dots as filled or empty. Check continuity at e
 
 ---
 
-## Advanced Algebra Drill — Graph Drawing (10 Problems)
+## Advanced Drills
 
 > Multi-step. Draw, then reason.
 

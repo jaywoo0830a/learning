@@ -140,7 +140,7 @@ The prompt says "the distance from the origin to either asymptote (they are the 
 
 ---
 
-## Basic Algebra Drill — 2D Geometry (15 Problems)
+## Basic Drills
 
 ---
 
@@ -304,7 +304,7 @@ When $x = 1$: $y = m(0) + 1 = 1$, independent of $m$.
 
 ---
 
-## Advanced Algebra Drill — 2D Geometry (15 Problems)
+## Advanced Drills
 
 ---
 

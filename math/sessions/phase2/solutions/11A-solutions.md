@@ -187,7 +187,7 @@ Slope = $\tan\frac{\pi}{6} = \frac{\sqrt{3}}{3}$.
 
 ---
 
-## Basic Algebra Drill — Solutions
+## Basic Drills
 
 **D1.** $210^\circ \times \frac{\pi}{180^\circ} = \frac{210\pi}{180} = \frac{7\pi}{6}$.
 
@@ -212,7 +212,7 @@ Slope = $\tan\frac{\pi}{6} = \frac{\sqrt{3}}{3}$.
 
 ---
 
-## Advanced Algebra Drill — Solutions
+## Advanced Drills
 
 ### A1 — Graph $y = 2\csc(\theta - \frac{\pi}{4})$ on $[0, 2\pi]$
 

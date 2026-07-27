@@ -346,7 +346,7 @@ The polar curve $r = 2\cos\theta$ is a circle. Convert to Cartesian and find its
 
 ---
 
-## Basic Algebra Drill — Coordinate Systems (12 Problems)
+## Basic Drills
 
 > Direct computation.
 
@@ -378,7 +378,7 @@ The polar curve $r = 2\cos\theta$ is a circle. Convert to Cartesian and find its
 
 ---
 
-## Advanced Algebra Drill — Coordinate Systems (12 Problems)
+## Advanced Drills
 
 > Multi-step geometric reasoning.
 

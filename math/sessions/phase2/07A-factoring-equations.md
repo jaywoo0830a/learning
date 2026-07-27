@@ -177,7 +177,7 @@ Create a cubic equation whose roots are 2, −3, and 5. Write it in expanded for
 
 ---
 
-## Basic Algebra Drill — Factoring & Equations (10 Problems)
+## Basic Drills
 
 **D1.** Factor $x^2+8x+15$.
 
@@ -203,7 +203,7 @@ Create a cubic equation whose roots are 2, −3, and 5. Write it in expanded for
 
 ---
 
-## Advanced Algebra Drill — Factoring & Equations (10 Problems)
+## Advanced Drills
 
 **A1.** Factor $x^4+x^2+1$ as $(x^2+x+1)(x^2-x+1)$ by adding/subtracting $x^2$.
 

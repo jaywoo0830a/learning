@@ -651,7 +651,7 @@ On the same set of axes $[0, 2\pi]$, sketch $\sin\theta$, $\cos\theta$, and $\ta
 
 ---
 
-## Basic Algebra Drill — Radians and Values (10 Problems)
+## Basic Drills
 
 > Pure fluency. Build instant recall of special angles and values.
 
@@ -679,7 +679,7 @@ On the same set of axes $[0, 2\pi]$, sketch $\sin\theta$, $\cos\theta$, and $\ta
 
 ---
 
-## Advanced Algebra Drill — Graphs, Inverses, and Composition (10 Problems)
+## Advanced Drills
 
 > Multi-step. Each problem chains 2–3 skills from 11A. Covers graph transformations, inverse evaluation, and composition.
 

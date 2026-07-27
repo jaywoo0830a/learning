@@ -351,7 +351,7 @@ $\vec{r}(t) = \begin{pmatrix} t^3 & t^2 & t & 1 \end{pmatrix}
 
 ---
 
-## Basic Algebra Drill — Parametric Curves (12 Problems)
+## Basic Drills
 
 > Pure computation.
 
@@ -383,7 +383,7 @@ $\vec{r}(t) = \begin{pmatrix} t^3 & t^2 & t & 1 \end{pmatrix}
 
 ---
 
-## Advanced Algebra Drill — Parametric Curves (10 Problems)
+## Advanced Drills
 
 > Multi-step geometric reasoning.
 

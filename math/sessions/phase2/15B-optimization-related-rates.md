@@ -197,7 +197,7 @@ A population grows as $P(t)=1000e^{0.03t}$. The rate of resource consumption is 
 
 ---
 
-## Basic Algebra Drill — Optimization & Related Rates (12 Problems)
+## Basic Drills
 
 **D1.** Find the maximum of $f(x)=-x^2+6x-5$.
 
@@ -233,7 +233,7 @@ A population grows as $P(t)=1000e^{0.03t}$. The rate of resource consumption is 
 
 ---
 
-## Advanced Algebra Drill — Optimization & Related Rates (10 Problems)
+## Advanced Drills
 
 **A1.** A wire of length L is cut into two pieces: one forms a circle, the other a square. How should you cut to minimize total area?
 

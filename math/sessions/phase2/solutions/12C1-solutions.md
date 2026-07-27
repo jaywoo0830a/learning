@@ -196,7 +196,7 @@ The matrix $A$ could be $A = \begin{pmatrix} 5 & 0 \\ 0 & 3 \end{pmatrix}$, whic
 
 ---
 
-## Basic Algebra Drill — Transformations (12 Problems)
+## Basic Drills
 
 ### D1. Multiply: $\begin{pmatrix} \cos 30^\circ & -\sin 30^\circ \\ \sin 30^\circ & \cos 30^\circ \end{pmatrix}\begin{pmatrix} 2 \\ 0 \end{pmatrix}$. Give exact coordinates.
 
@@ -301,7 +301,7 @@ Area after transformation = $|\det| \times$ original area = $6 \times 4 = 24$.
 
 ---
 
-## Advanced Algebra Drill — Transformations (12 Problems)
+## Advanced Drills
 
 ### A1. Find the eigenvalues of the reflection matrix $F_\alpha = \begin{pmatrix} \cos 2\alpha & \sin 2\alpha \\ \sin 2\alpha & -\cos 2\alpha \end{pmatrix}$. Interpret them geometrically.
 

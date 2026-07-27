@@ -116,7 +116,7 @@ Volume = $\frac{1}{6} \times \text{(product of intercept lengths)} = \frac{1}{6}
 
 ---
 
-## Basic Algebra Drill — 3D Geometry (15 Problems)
+## Basic Drills
 
 ---
 
@@ -255,7 +255,7 @@ For $\varepsilon < 0$: Rewrite $z^2 - (x^2 + y^2) = |\varepsilon|$, or $-\frac{x
 
 ---
 
-## Advanced Algebra Drill — 3D Geometry (15 Problems)
+## Advanced Drills
 
 ---
 

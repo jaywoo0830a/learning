@@ -162,7 +162,7 @@ For a clearer problem: $f(t) = \frac{4}{\pi}(\sin t + \frac{1}{3}\sin 3t + \frac
 
 ---
 
-## Basic Algebra Drill — Solutions
+## Basic Drills
 
 **D1.** $\sin 75^\circ = \sin(45^\circ+30^\circ) = \frac{\sqrt{2}}{2}\cdot\frac{\sqrt{3}}{2} + \frac{\sqrt{2}}{2}\cdot\frac{1}{2} = \frac{\sqrt{6}+\sqrt{2}}{4}$.
 
@@ -190,7 +190,7 @@ $b = 8 \cdot \frac{\sin 60^\circ}{\sin 40^\circ} = 8 \cdot \frac{\sqrt{3}/2}{\si
 
 ---
 
-## Advanced Algebra Drill — Solutions
+## Advanced Drills
 
 ### A1
 

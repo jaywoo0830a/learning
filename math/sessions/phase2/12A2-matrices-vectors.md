@@ -439,7 +439,7 @@ A $3 \times 3$ matrix $M$ has column vectors $\vec{v}_1 = (2,0,0)$, $\vec{v}_2 =
 
 ---
 
-## Basic Algebra Drill — Matrices and Vectors (15 Problems)
+## Basic Drills
 
 > Pure calculation + geometric fusion. Build fluency with fundamental operations.
 
@@ -477,7 +477,7 @@ A $3 \times 3$ matrix $M$ has column vectors $\vec{v}_1 = (2,0,0)$, $\vec{v}_2 =
 
 ---
 
-## Advanced Algebra Drill — Matrices and Vectors (15 Problems)
+## Advanced Drills
 
 > Multi-step. Connect matrices to transformations and vectors to geometry. Includes geometric fusion problems.
 

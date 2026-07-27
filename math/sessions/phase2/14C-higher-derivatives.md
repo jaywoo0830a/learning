@@ -359,7 +359,7 @@ $f(x)=x^3-3x^2-9x+5$. (a) Find all $x$ where $f'(x)=0$ (critical points). (b) Fi
 
 ---
 
-## Basic Algebra Drill — Higher Derivatives (10 Problems)
+## Basic Drills
 
 > Differentiate repeatedly. Spot the pattern for $n$-th derivatives.
 
@@ -387,7 +387,7 @@ $f(x)=x^3-3x^2-9x+5$. (a) Find all $x$ where $f'(x)=0$ (critical points). (b) Fi
 
 ---
 
-## Advanced Algebra Drill — Higher Derivatives (10 Problems)
+## Advanced Drills
 
 > Patterns, proofs, implicit, and Leibniz.
 

@@ -193,7 +193,7 @@ $\vec{r}(t) = \begin{pmatrix} t^3 & t^2 & t & 1 \end{pmatrix}
 
 ---
 
-## Basic Algebra Drill — Parametric Curves (12 Problems)
+## Basic Drills
 
 ### D1. A line segment goes from $(1, 2)$ to $(4, 6)$. Write the parametric form $\vec{r}(t)$ for $t \in [0, 1]$.
 
@@ -303,7 +303,7 @@ At $t = \pi$: speed $= \sqrt{\pi^2 + 2}$.
 
 ---
 
-## Advanced Algebra Drill — Parametric Curves (10 Problems)
+## Advanced Drills
 
 ### A1. Find the arc length of the parabola $\vec{r}(t) = (t,\; t^2)$ from $t = 0$ to $t = 1$.
 

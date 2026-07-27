@@ -294,7 +294,7 @@ A student computes $\int_{-2}^2 x^3\,dx = [\frac{x^4}{4}]_{-2}^2 = 4-4 = 0$ and 
 
 ---
 
-## Basic Algebra Drill — Integration Fundamentals (10 Problems)
+## Basic Drills
 
 > Run the prescribed procedure. Show your $u$, $du$, and (for definite) new bounds.
 
@@ -322,7 +322,7 @@ A student computes $\int_{-2}^2 x^3\,dx = [\frac{x^4}{4}]_{-2}^2 = 4-4 = 0$ and 
 
 ---
 
-## Advanced Algebra Drill — Integration Fundamentals (10 Problems)
+## Advanced Drills
 
 > Multi-step. Choose $u$. Handle constants. Use FTC creatively.
 

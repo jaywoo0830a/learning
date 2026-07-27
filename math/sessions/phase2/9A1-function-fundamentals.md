@@ -765,7 +765,7 @@ A function $f$ is odd, increasing on $(-\infty, 0)$, and decreasing on $(0, \inf
 
 ---
 
-## Basic Algebra Drill — Function Fundamentals (10 Problems)
+## Basic Drills
 
 > Pure computation. Evaluate, domain, composition, inverse, symmetry, transformations.
 
@@ -793,7 +793,7 @@ A function $f$ is odd, increasing on $(-\infty, 0)$, and decreasing on $(0, \inf
 
 ---
 
-## Advanced Algebra Drill — Function Fundamentals (10 Problems)
+## Advanced Drills
 
 > Multi-step reasoning. Build, analyze, prove.
 

@@ -162,7 +162,7 @@ Design a rational inequality whose solution is $(-3,-1) \cup [2,\infty)$. Write 
 
 ---
 
-## Basic Algebra Drill — Inequalities (10 Problems)
+## Basic Drills
 
 **D1.** Solve $2x-7 < 3$.
 
@@ -188,7 +188,7 @@ Design a rational inequality whose solution is $(-3,-1) \cup [2,\infty)$. Write 
 
 ---
 
-## Advanced Algebra Drill — Inequalities (10 Problems)
+## Advanced Drills
 
 **A1.** Solve $\frac{x^2-3x+2}{x^2+x-6} \geq 0$. Factor both, careful with holes.
 

@@ -823,7 +823,7 @@ Using Euler's formula, derive $\sin 4\theta$ and $\cos 4\theta$ by expanding $(\
 
 ---
 
-## Basic Algebra Drill — Identities and Equations (10 Problems)
+## Basic Drills
 
 > Pure fluency. Instant recall and rapid computation.
 
@@ -851,7 +851,7 @@ Using Euler's formula, derive $\sin 4\theta$ and $\cos 4\theta$ by expanding $(\
 
 ---
 
-## Advanced Algebra Drill — Multi-Step Problems (10 Problems)
+## Advanced Drills
 
 > Chains 2–3 techniques. Covers all identities, equation types, and college-level material.
 

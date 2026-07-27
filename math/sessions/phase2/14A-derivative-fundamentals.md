@@ -253,7 +253,7 @@ Find the tangent line to $f(x)=x^2+\ln x$ at $x=1$. Write your answer in $y=mx+b
 
 ---
 
-## Basic Algebra Drill — Derivative Fundamentals (10 Problems)
+## Basic Drills
 
 > Run the 3-step procedure: split, pull constants, match dictionary.
 
@@ -281,7 +281,7 @@ Find the tangent line to $f(x)=x^2+\ln x$ at $x=1$. Write your answer in $y=mx+b
 
 ---
 
-## Advanced Algebra Drill — Derivative Fundamentals (10 Problems)
+## Advanced Drills
 
 > Prove, connect, and extend the basic rules.
 

@@ -329,7 +329,7 @@ A student claims: "$\lim_{x \to 0} \frac{x}{|x|}$ exists because the left and ri
 
 ---
 
-## Basic Algebra Drill — ε-δ and ε-N (10 Problems)
+## Basic Drills
 
 > Find δ or N. Prove simple limits.
 
@@ -357,7 +357,7 @@ A student claims: "$\lim_{x \to 0} \frac{x}{|x|}$ exists because the left and ri
 
 ---
 
-## Advanced Algebra Drill — ε-δ and ε-N (10 Problems)
+## Advanced Drills
 
 > Rigorous proofs, counterexamples, and limit law derivations.
 

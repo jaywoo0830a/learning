@@ -335,7 +335,7 @@ Prove that the equation $2^x = x^2$ has exactly three real solutions. (Hint: Let
 
 ---
 
-## Basic Algebra Drill — MVT, FTC, Taylor (10 Problems)
+## Basic Drills
 
 > Apply the theorems. Verify conditions, find the guaranteed point, bound errors.
 
@@ -363,7 +363,7 @@ Prove that the equation $2^x = x^2$ has exactly three real solutions. (Hint: Let
 
 ---
 
-## Advanced Algebra Drill — MVT, FTC, Taylor (10 Problems)
+## Advanced Drills
 
 > Prove, extend, and connect the big theorems.
 

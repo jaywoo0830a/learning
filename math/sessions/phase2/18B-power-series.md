@@ -121,7 +121,7 @@ Use the series for $\arctan x$ to find a series for $\pi$. Hint: $\arctan 1 = \p
 
 ---
 
-## Basic Algebra Drill — Power Series (12 Problems)
+## Basic Drills
 
 **D1.** Find $R$ for $\sum_{n=0}^\infty \frac{x^n}{2^n}$.
 
@@ -151,7 +151,7 @@ Use the series for $\arctan x$ to find a series for $\pi$. Hint: $\arctan 1 = \p
 
 ---
 
-## Advanced Algebra Drill — Power Series (12 Problems)
+## Advanced Drills
 
 **A1.** Find the interval for $\sum_{n=1}^\infty \frac{n(x+3)^n}{4^n}$. Be careful with endpoints.
 

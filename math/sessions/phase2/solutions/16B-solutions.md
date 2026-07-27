@@ -121,7 +121,7 @@ A $u$-sub would fail because there's no $x\,dx$ to match $du$ for $u=1-x^2$. Tri
 
 ---
 
-## Basic Algebra Drill — Advanced Integration
+## Basic Drills
 
 ### D1. $\int x\cos x\,dx$
 
@@ -284,7 +284,7 @@ $= -\frac{1}{2} \cdot \frac{u^{1/2}}{1/2} + C = -u^{1/2} + C = -\sqrt{1-x^2} + C
 
 ---
 
-## Advanced Algebra Drill — Advanced Integration
+## Advanced Drills
 
 ### A1. $\int e^x\cos x\,dx$
 

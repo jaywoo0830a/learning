@@ -849,7 +849,7 @@ A plane passes through the three points $(1,0,0)$, $(0,2,0)$, $(0,0,3)$. Find it
 
 ---
 
-## Basic Algebra Drill — 3D Geometry (15 Problems)
+## Basic Drills
 
 > Pure computation + 5 geometry-insight problems (marked ◆).
 
@@ -887,7 +887,7 @@ A plane passes through the three points $(1,0,0)$, $(0,2,0)$, $(0,0,3)$. Find it
 
 ---
 
-## Advanced Algebra Drill — 3D Geometry (15 Problems)
+## Advanced Drills
 
 > Multi-step geometric reasoning + 5 geometry-insight problems (marked ◆).
 

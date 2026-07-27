@@ -257,7 +257,7 @@ Therefore $\sum_{k=1}^{\infty} \frac{1}{k}$ diverges. ✓
 
 ---
 
-## Basic Algebra Drill — Advanced Sequences (12 Problems)
+## Basic Drills
 
 ### D1. Compute $\sum_{k=1}^{30} \frac{1}{k(k+1)}$.
 
@@ -379,7 +379,7 @@ The product converges to $0$ as $n \to \infty$.
 
 ---
 
-## Advanced Algebra Drill — Advanced Sequences (12 Problems)
+## Advanced Drills
 
 ### A1. Solve the recurrence $a_{n+2} = 5a_{n+1} - 6a_n$, $a_1 = 1$, $a_2 = 2$. Find $a_{10}$.
 

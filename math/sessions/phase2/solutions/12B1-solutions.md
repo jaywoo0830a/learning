@@ -188,7 +188,7 @@ $S_\infty = \frac{1/3}{1-1/3} = \frac{1/3}{2/3} = \frac12$ ✓.
 
 ---
 
-## Basic Algebra Drill — Sequences and Series (12 Problems)
+## Basic Drills
 
 ### D1. Find the 15th term of the arithmetic sequence: $4, 10, 16, 22, \dots$
 
@@ -304,7 +304,7 @@ Alternatively: arithmetic with $a_1 = 1$, $a_{12} = 34$, $S_{12} = \frac{12(1+34
 
 ---
 
-## Advanced Algebra Drill — Sequences and Series (12 Problems)
+## Advanced Drills
 
 ### A1. The sum of an infinite geometric series is 12, and the second term is 3. Find the first term and the common ratio.
 

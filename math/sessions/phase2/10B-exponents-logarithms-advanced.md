@@ -462,7 +462,7 @@ How many digits does $50!$ have? Use Stirling's approximation.
 
 ---
 
-## Advanced Algebra Drill — Exponents and Logs (10 Problems)
+## Advanced Drills
 
 > Intensive computation. These target the intermediate steps most students skip. Work each one fully.
 
@@ -490,7 +490,7 @@ How many digits does $50!$ have? Use Stirling's approximation.
 
 ---
 
-## Basic Algebra Drill — Applications and Advanced (10 Problems)
+## Basic Drills
 
 > Pure computation with real-world and advanced techniques.
 

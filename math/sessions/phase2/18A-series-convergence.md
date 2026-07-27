@@ -213,7 +213,7 @@ Determine convergence of $\displaystyle \sum_{n=1}^\infty \frac{n!}{n^n}$. Use t
 
 ---
 
-## Basic Algebra Drill — Series Convergence (12 Problems)
+## Basic Drills
 
 **D1.** $\sum_{n=0}^\infty \left(\frac{2}{5}\right)^n$. Sum if convergent.
 
@@ -243,7 +243,7 @@ Determine convergence of $\displaystyle \sum_{n=1}^\infty \frac{n!}{n^n}$. Use t
 
 ---
 
-## Advanced Algebra Drill — Series Convergence (12 Problems)
+## Advanced Drills
 
 **A1.** Determine convergence of $\sum_{n=2}^\infty \frac{1}{n(\ln n)^2}$. Integral test.
 

@@ -333,7 +333,7 @@ The ellipse $\frac{x^2}{25} + \frac{y^2}{9} = 1$ (from 9B) can be obtained by ap
 
 ---
 
-## Basic Algebra Drill — Transformations (12 Problems)
+## Basic Drills
 
 > Pure matrix computation.
 
@@ -361,7 +361,7 @@ The ellipse $\frac{x^2}{25} + \frac{y^2}{9} = 1$ (from 9B) can be obtained by ap
 
 ---
 
-## Advanced Algebra Drill — Transformations (12 Problems)
+## Advanced Drills
 
 > Multi-step geometric reasoning.
 

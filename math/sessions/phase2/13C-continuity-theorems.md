@@ -288,7 +288,7 @@ $f(x) = \begin{cases} \frac{\sin x}{x}, & x<0 \\ 1, & x=0 \\ \frac{e^x-1}{x}, & 
 
 ---
 
-## Basic Algebra Drill — Continuity & Theorems (10 Problems)
+## Basic Drills
 
 > Computation and classification.
 
@@ -316,7 +316,7 @@ $f(x) = \begin{cases} \frac{\sin x}{x}, & x<0 \\ 1, & x=0 \\ \frac{e^x-1}{x}, & 
 
 ---
 
-## Advanced Algebra Drill — Continuity & Theorems (10 Problems)
+## Advanced Drills
 
 > Multi-step reasoning and proof techniques.
 

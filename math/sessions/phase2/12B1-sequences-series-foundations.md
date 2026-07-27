@@ -443,7 +443,7 @@ Using the unit square subdivision (like Graph 12B1c), show that $\frac13 + \frac
 
 ---
 
-## Basic Algebra Drill — Sequences and Series (12 Problems)
+## Basic Drills
 
 > Pure calculation. Master the fundamental formulas through repetition.
 
@@ -475,7 +475,7 @@ Using the unit square subdivision (like Graph 12B1c), show that $\frac13 + \frac
 
 ---
 
-## Advanced Algebra Drill — Sequences and Series (12 Problems)
+## Advanced Drills
 
 > Multi-step. Chain concepts across the full toolkit.
 

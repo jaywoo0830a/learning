@@ -607,7 +607,7 @@ Compare each group to $\frac12$.
 
 ---
 
-## Basic Algebra Drill — Advanced Sequences (12 Problems)
+## Basic Drills
 
 > Pure calculation. Master the techniques through repetition.
 
@@ -639,7 +639,7 @@ Compare each group to $\frac12$.
 
 ---
 
-## Advanced Algebra Drill — Advanced Sequences (12 Problems)
+## Advanced Drills
 
 > Multi-step. Chain concepts across the full toolkit.
 
