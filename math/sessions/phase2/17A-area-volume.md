@@ -1,144 +1,204 @@
-# Session 17A: Area and Volume — Between Curves and Solids of Revolution
+# Session 17A: Area and Volume — Geometry Meets Integration
 
 **Phase 2 — Classical Techniques | 75 min**
 
-*Prerequisites: 16A (FTC & u-sub), 09B (2D geometry), 09C (3D geometry)*
+*Prerequisites: 16A (FTC & u-sub), 12A2 (matrices & vectors), 12C1 (geometric transformations), 12C2 (parametric curves), 9C (3D geometry)*
+
+> Integration computes area and volume. But when geometry — vectors, transformations, parametric curves, and coordinate systems — enters the picture, the same formulas unlock a much richer world. This session fuses calculus with the spatial reasoning you've already built.
 
 ---
 
-## Part A: Area Between Curves
+## Part A: Area Between Curves — Beyond $y=f(x)$
 
 ---
 
-## Example 1: Area Between $y=f(x)$ and $x$-Axis
+## Example 1: Area Between $y=x^2$ and $y=x$ — The Classic
 
-$A = \displaystyle \int_a^b |f(x)|\,dx$. Split where $f$ crosses the axis.
+$A = \displaystyle \int_0^1 (x - x^2)\,dx = \left[\frac{x^2}{2} - \frac{x^3}{3}\right]_0^1 = \frac{1}{6}$.
 
-$\displaystyle \int_0^{2\pi} \sin x\,dx = 0$ (cancels!). Area = $\displaystyle 2\int_0^\pi \sin x\,dx = 4$.
+Intersections: $x^2 = x \to x(x-1)=0 \to x=0,1$.
 
-![Area between curves](graphs/0721/17A/17a-area-between-curves.png)
+![Area between y=x and y=x²](graphs/0728/17A/01-area-between-curves.png)
 
-*Graph 17A-1: Left — Area between $y=x$ (top) and $y=x^2$ (bottom) from $x=0$ to $x=1$: $A = \int_0^1 (x-x^2)\,dx = 1/6$. Right — Area with respect to $y$: $A = \int_{-1}^2 [(y+2)-y^2]\,dy = 9/2$.*
-
----
-
-## Example 2: Area Between Two Curves
-
-$A = \displaystyle \int_a^b [f(x)-g(x)]\,dx$ where $f$ is the **top** function, $g$ is the **bottom**.
-
-Find the area between $y=x^2$ and $y=x$ from $x=0$ to $x=1$.
-
-$A = \displaystyle \int_0^1 (x-x^2)\,dx = \left[\frac{x^2}{2}-\frac{x^3}{3}\right]_0^1 = \frac{1}{2}-\frac{1}{3} = \frac{1}{6}$.
+> **Key principle**: Area = $\int_a^b$ [top − bottom]. Always find intersections first.
 
 ---
 
-## Example 3: Trigonometric Area
+## Example 2: Area in Polar Coordinates — Rotational Symmetry (🔗 12C3)
 
-Area between $y=\sin x$ and $y=\cos x$ from $x=0$ to $x=\pi/2$.
+When a region has radial symmetry, polar integration simplifies everything.
 
-Curves cross at $x=\pi/4$. $\sin x > \cos x$ on $[\pi/4,\pi/2]$, $\cos x > \sin x$ on $[0,\pi/4]$.
+$A = \displaystyle \frac{1}{2}\int_{\theta_1}^{\theta_2} r^2\,d\theta$.
 
-$A = \displaystyle \int_0^{\pi/4}(\cos x-\sin x)dx + \int_{\pi/4}^{\pi/2}(\sin x-\cos x)dx = 2\sqrt{2}-2$.
+**One petal of $r = \sin(2\theta)$** (4-petal rose): A petal forms when $r \ge 0$, i.e., $\sin(2\theta) \ge 0 \to \theta \in [0, \pi/2]$.
 
-![Trigonometric area](graphs/0721/17A/17a-trig-area.png)
+$A_{\text{petal}} = \frac{1}{2}\int_0^{\pi/2} \sin^2(2\theta)\,d\theta = \frac{1}{2}\int_0^{\pi/2} \frac{1-\cos(4\theta)}{2}\,d\theta = \frac{1}{4}\left[\theta - \frac{\sin(4\theta)}{4}\right]_0^{\pi/2} = \frac{\pi}{8}$.
 
-*Graph 17A-2: Area between $\sin x$ (blue) and $\cos x$ (red) on $[0,\pi/2]$. The curves cross at $x=\pi/4$. Two separate integrals are needed: $\cos x > \sin x$ on $[0,\pi/4]$ (red shading), $\sin x > \cos x$ on $[\pi/4,\pi/2]$ (blue shading). Total area $= 2\sqrt{2}-2$.*
+> **Why polar?** $r=\sin(2\theta)$ is a single trig function in polar. In Cartesian: $(x^2+y^2)^{3/2} = 2xy$. Choose the coordinate system matching the symmetry.
 
----
-
-## Example 4: Exponential and Log Area
-
-Area between $y=e^x$ and $y=\ln x$? These are inverses — the region is symmetric. Use the fact that $e^x$ and $\ln x$ are reflections across $y=x$.
+![Polar rose r=sin(2θ) — one petal area = π/8](graphs/0728/17A/02-polar-rose.png)
 
 ---
 
-## Example 5: Area with Respect to $y$-Axis
+## Example 3: Area via Parametric Curves (🔗 12C2)
 
-$A = \displaystyle \int_c^d [\text{right}(y)-\text{left}(y)]\,dy$.
+For a parametric curve $(x(t), y(t))$, area under the curve:
 
-Area between $x=y^2$ and $x=y+2$. Solve: $y^2=y+2 \to y^2-y-2=0 \to y=-1,2$.
-$A = \displaystyle \int_{-1}^2 [(y+2)-y^2]\,dy = \left[\frac{y^2}{2}+2y-\frac{y^3}{3}\right]_{-1}^2 = \frac{9}{2}$.
+$A = \displaystyle \int_{t_1}^{t_2} y(t)\,x'(t)\,dt$.
+
+**Area of ellipse** $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$:
+Parametrize: $x = a\cos t$, $y = b\sin t$, $t \in [0, 2\pi]$, upper half $t \in [0, \pi]$.
+
+$x'(t) = -a\sin t$.
+$A_{\text{upper}} = \int_0^\pi (b\sin t)(-a\sin t)\,dt = -ab\int_0^\pi \sin^2 t\,dt = -ab \cdot \frac{\pi}{2}$.
+
+Taking absolute value: $A_{\text{total}} = 2 \cdot \frac{ab\pi}{2} = \pi ab$. ✓ (When $a=b=R$, gives $\pi R^2$.)
+
+![Ellipse area via parametric: A=πab](graphs/0728/17A/10-parametric-ellipse-area.png)
+
+---
+
+## Example 4: Triangle Area via Cross Product — 3D Geometry (🔗 9C, 12A2)
+
+Triangle with vertices $A, B, C$ in 3D: $A = \frac{1}{2}|\vec{AB} \times \vec{AC}|$.
+
+**Example**: $A(1,0,2)$, $B(4,1,6)$, $C(2,5,0)$.
+$\vec{AB} = (3, 1, 4)$, $\vec{AC} = (1, 5, -2)$.
+$\vec{AB} \times \vec{AC} = (-22, 10, 14)$, $|\vec{AB} \times \vec{AC}| = \sqrt{780} = 2\sqrt{195}$.
+$A = \sqrt{195}$.
+
+> **Key insight**: Cross product magnitude IS parallelogram area. Half = triangle area. No integration needed — pure vector geometry.
+
+![Triangle area via cross product in 3D](graphs/0728/17A/03-triangle-cross-product.png)
+
+---
+
+## Example 5: Area Between Inverse Curves — Reflection Symmetry (🔗 12C1)
+
+Area between $y=e^x$ and $y=\ln x$ on $[0,1]$. These are inverses — reflections across $y=x$.
+
+On $[0,1]$: $e^x \ge 0$ and $\ln x \le 0$, so $e^x$ is above $\ln x$.
+
+$A = \int_0^1 (e^x - \ln x)\,dx$. Antiderivative: $\int e^x dx = e^x$, $\int \ln x\,dx = x\ln x - x$.
+
+So $F(x) = e^x - x\ln x + x$. Evaluate:
+- At $x=1$: $F(1) = e^1 - 1\cdot 0 + 1 = e + 1$.
+- At $x \to 0^+$: $e^0 = 1$, $\lim_{x\to 0^+}x\ln x = 0$, so $F(0^+) = 1 - 0 + 0 = 1$.
+
+$A = (e+1) - 1 = e$.
+
+> **Matrix connection**: Reflection across $y=x$ is $\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$. Inverse functions are reflections — a geometric fact encoded as a matrix.
 
 ---
 
 ## Part B: Volumes of Revolution
 
----
-
-## Example 6: Disk Method — Rotate About $x$-Axis
-
-$V = \pi \displaystyle \int_a^b [R(x)]^2\,dx$.
-
-Rotate $y=\sqrt{x}$ about $x$-axis from $x=0$ to $x=4$:
-$V = \pi\int_0^4 (\sqrt{x})^2\,dx = \pi\int_0^4 x\,dx = \pi\left[\frac{x^2}{2}\right]_0^4 = 8\pi$.
-
-![Disk method — $y=\sqrt{x}$ rotated about $x$-axis](graphs/0721/17A/17a-disk-method.png)
-
-*Graph 17A-3: Left — The region under $y=\sqrt{x}$ on $[0,4]$ with a sample disk of radius $R(x)=\sqrt{x}$ at $x=2$. Right — Accumulated volume $V(x)=\pi x^2/2$ from $0$ to $4$, showing $V(4)=8\pi$.*
+![Disk, washer, and shell methods compared](graphs/0728/17A/04-volume-methods.png)
 
 ---
 
-## Example 7: Washer Method — Hollow Solid
+## Example 6: Disk Method — Rotate $y=\sqrt{x}$ About $x$-Axis
 
-$V = \pi \displaystyle \int_a^b [(R_{\text{outer}})^2 - (R_{\text{inner}})^2]\,dx$.
-
-Region between $y=x$ and $y=x^2$ rotated about $x$-axis:
-$V = \pi\int_0^1 (x^2-(x^2)^2)dx = \pi\int_0^1 (x^2-x^4)dx = \frac{2\pi}{15}$.
-
-![Washer method — hollow solid](graphs/0721/17A/17a-washer-method.png)
-
-*Graph 17A-4: The region between $y=x$ (outer) and $y=x^2$ (inner) rotated about the $x$-axis. At each $x$, the outer radius is $R=x$, the inner radius is $r=x^2$, and the washer area is $\pi(R^2-r^2)=\pi(x^2-x^4)$. Integrating gives $V=2\pi/15$.*
+$V = \pi \displaystyle \int_0^4 (\sqrt{x})^2\,dx = \pi\int_0^4 x\,dx = 8\pi$.
 
 ---
 
-## Example 8: Trig and Exponential Solids
+## Example 7: Washer with Shifted Axis — Translation Geometry (🔗 12C1)
 
-Rotate $y=\sin x$, $x\in[0,\pi]$ about $x$-axis:
-$V = \pi\int_0^\pi \sin^2 x\,dx = \pi\int_0^\pi \frac{1-\cos2x}{2}dx = \frac{\pi^2}{2}$.
+Region between $y=\sqrt{x}$ and $y=x^2$ on $[0,1]$ rotated about $y=2$.
+
+On $[0,1]$: $\sqrt{x} \ge x^2$, so the region lies **below** both curves relative to $y=2$.
+
+The axis $y=2$ is above the region. The washer's outer edge comes from the curve **farthest** from $y=2$, which is $y=x^2$ (lower → greater distance). The inner edge comes from $y=\sqrt{x}$ (closer to $y=2$).
+
+Outer radius: $R_{\text{outer}} = 2 - x^2$ (distance from $y=2$ down to $y=x^2$).
+Inner radius: $R_{\text{inner}} = 2 - \sqrt{x}$ (distance from $y=2$ down to $y=\sqrt{x}$).
+
+> **Rule for shifted axis**: For rotation about $y = c$, the radius to a curve $y = f(x)$ is $|c - f(x)|$. The outer radius uses the curve farther from $c$.
+
+$V = \pi\int_0^1 [(2-x^2)^2 - (2-\sqrt{x})^2]\,dx$
+$= \pi\int_0^1 (-4x^2 + x^4 + 4\sqrt{x} - x)\,dx = \pi\left[-\frac{4}{3}x^3 + \frac{x^5}{5} + \frac{8}{3}x^{3/2} - \frac{x^2}{2}\right]_0^1$
+$= \pi\left(-\frac{4}{3} + \frac{1}{5} + \frac{8}{3} - \frac{1}{2}\right) = \frac{31\pi}{30}$.
+
+![Washer method with shifted axis y=2](graphs/0728/17A/05-washer-shifted-axis.png)
 
 ---
 
-## Example 9: Shell Method — Rotate About $y$-Axis
+## Example 8: Sphere Volume Derivation — $V = \frac{4}{3}\pi R^3$ (🔗 9C)
 
-$V = 2\pi \displaystyle \int_a^b x\cdot h(x)\,dx$ where $h(x)$ is the height of the shell.
+Rotate $y = \sqrt{R^2 - x^2}$ about $x$-axis:
 
-Rotate $y=x^2$, $x\in[0,2]$ about $y$-axis:
-$V = 2\pi\int_0^2 x\cdot x^2\,dx = 2\pi\int_0^2 x^3\,dx = 2\pi\left[\frac{x^4}{4}\right]_0^2 = 8\pi$.
+$V = \pi\int_{-R}^R (R^2 - x^2)\,dx = \pi\left[R^2 x - \frac{x^3}{3}\right]_{-R}^R = \frac{4}{3}\pi R^3$. ✓
 
-![Shell method — cylindrical shells about $y$-axis](graphs/0721/17A/17a-shell-method.png)
+> In spherical coordinates ($\rho=R$), the same result via triple integral — coordinate symmetry.
 
-*Graph 17A-5: Left — The region under $y=x^2$ on $[0,2]$ with a sample shell at $x=1.5$ of height $x^2$ and circumference $2\pi x$. Right — The shell integrand $x\cdot h(x)=x^3$ (green, shaded), whose area gives $V=8\pi$.*
+![Sphere volume derivation via disk method](graphs/0728/17A/06-sphere-volume.png)
 
 ---
 
-## Example 10: Choosing the Right Method
+## Example 9: Shell Method — Rotate $y=x^2$ About $y$-Axis
 
-| Method | Formula | When to use |
-|:------|:--------|:-----------|
-| **Disk** (about $x$-axis) | $V=\pi\int R(x)^2\,dx$ | Single curve, no hole |
-| **Washer** (about $x$-axis) | $V=\pi\int(R^2-r^2)\,dx$ | Two curves, hollow solid |
-| **Shell** (about $y$-axis) | $V=2\pi\int x\cdot h(x)\,dx$ | Rotating about $y$, $x\,dx$ is convenient |
+$V = 2\pi \displaystyle \int_0^2 x \cdot x^2\,dx = 2\pi\left[\frac{x^4}{4}\right]_0^2 = 8\pi$.
 
-![Volume methods comparison — disk, washer, shell](graphs/0721/17A/17a-revolution-summary.png)
+> Each shell: circumference $2\pi x$, height $h(x)=x^2$, thickness $dx$.
 
-*Graph 17A-6: Three volume methods compared side by side. Left — Disk method (single curve, no hole). Middle — Washer method (two curves, hollow). Right — Shell method (about $y$-axis using cylindrical shells).*
+---
+
+## Example 10: Volume of a Torus — Rotation + Translation (🔗 12C1, 12C2)
+
+Rotate circle $(x-R)^2 + y^2 = r^2$ ($R > r$) about $y$-axis.
+
+**Shell method**: $h(x) = 2\sqrt{r^2 - (x-R)^2}$, $x \in [R-r, R+r]$.
+$V = 2\pi\int_{R-r}^{R+r} x \cdot 2\sqrt{r^2-(x-R)^2}\,dx$.
+
+Sub $u = x-R$: $V = 4\pi\int_{-r}^r (u+R)\sqrt{r^2-u^2}\,du = 4\pi R \cdot \frac{\pi r^2}{2} = 2\pi^2 R r^2$.
+
+> **Pappus's Centroid Theorem**: $V = (\text{area}) \times (\text{distance centroid travels}) = (\pi r^2) \times (2\pi R) = 2\pi^2 R r^2$.
+
+![Torus volume: shell method and Pappus theorem](graphs/0728/17A/07-torus.png)
+
+---
+
+## Example 11: Volume via Cross-Sections — General Shapes
+
+Base: region bounded by $y=x^2$ and $y=1$. Cross-sections ⟂ $y$-axis are equilateral triangles. At height $y$: base width $=2\sqrt{y}$, side $s=2\sqrt{y}$, triangle area $= \frac{\sqrt{3}}{4}s^2 = \sqrt{3}y$.
+
+$V = \int_0^1 \sqrt{3}y\,dy = \frac{\sqrt{3}}{2}$.
+
+> The disk method is the special case where cross-sections are circles. Any shape works: $V = \int A(y)\,dy$.
+
+![Volume by cross-sections: equilateral triangles](graphs/0728/17A/09-cross-section-volume.png)
+
+---
+
+## Example 12: Area via Determinant — Matrix Transformations (🔗 12A2)
+
+Matrix $M = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$ maps the unit square → parallelogram of area $|\det(M)| = |ad-bc|$.
+
+The triangle under $y=mx$ on $[0,1]$ (area $m/2$), after transformation by $M$, has area $\frac{m}{2} \cdot |\det(M)|$.
+
+> The determinant IS the area scaling factor. Integration over the transformed region gives the same result.
+
+![Determinant = area scaling factor](graphs/0728/17A/08-determinant-area.png)
 
 ---
 
 ## What We Just Did
 
 ```
-(1) Area between curves: top - bottom, integrated over intersection interval.
-(2) Disk method (x-axis): V = π∫R² dx.
-(3) Washer method (hollow): V = π∫(R_outer² - R_inner²) dx.
-(4) Shell method (y-axis): V = 2π∫x·h(x) dx.
+(1) Area between curves. Polar area = ½∫r²dθ. Parametric area = ∫y(t)x'(t)dt.
+(2) Triangle area via cross product: ½|AB × AC| — no integration needed.
+(3) Disk/washer/shell methods. Shifted axis → adjust radii.
+(4) Torus: shell method + symmetry → 2π²Rr² (Pappus shortcut).
+(5) Cross-sections: V = ∫A(y)dy for any shape.
+(6) Determinant = area scaling factor for matrix transformations.
 ```
 
 ---
 
 ## Practice 1
 
-Find the area between $y=x^2$ and $y=2x+3$.
+Find the area enclosed by the cardioid $r = 1 + \cos\theta$. ($\theta \in [0, 2\pi]$, use symmetry.)
 
 → Solutions: [Solutions](solutions/17A-solutions.md#practice-1)
 
@@ -146,15 +206,15 @@ Find the area between $y=x^2$ and $y=2x+3$.
 
 ## Practice 2
 
-Rotate $y=x^2$, $x\in[0,1]$ about $x$-axis. Find the volume (disk method).
+Find the area of the triangle with vertices $P(2,1,3)$, $Q(5,4,7)$, $R(1,6,2)$ using the cross product. Verify using Heron's formula.
 
 → Solutions: [Solutions](solutions/17A-solutions.md#practice-2)
 
 ---
 
-## Practice 3
+## Practice 3 (🔗 12C2)
 
-Region between $y=x^2$ and $y=x$ rotated about $x$-axis. Washer method.
+Ellipse $\frac{x^2}{9} + \frac{y^2}{4} = 1$ rotated about $x$-axis. Find the ellipsoid volume.
 
 → Solutions: [Solutions](solutions/17A-solutions.md#practice-3)
 
@@ -162,31 +222,31 @@ Region between $y=x^2$ and $y=x$ rotated about $x$-axis. Washer method.
 
 ## Practice 4
 
-$y=x^2$, $x\in[0,2]$ rotated about $y$-axis. Shell method.
+Region between $y = x^2$ and $y = \sqrt{x}$ rotated about $y = -1$. Washer method.
 
 → Solutions: [Solutions](solutions/17A-solutions.md#practice-4)
 
 ---
 
-## Practice 5: Trigonometric Area (🔗 12C2)
+## Practice 5: Real Battle (🔗 12C3)
 
-Find the area between $y=\sin^2 x$ and $y=\cos^2 x$ on $[0,\pi/2]$.
+Archimedean spiral $r = \theta$ from $\theta = 0$ to $2\pi$ encloses a region with the $x$-axis. Find its area using polar integration.
 
 → Solutions: [Solutions](solutions/17A-solutions.md#practice-5)
 
 ---
 
-## Practice 6: Real Battle (🔗 9B, 9C)
+## Practice 6: Real Battle (🔗 12C1, 12A2)
 
-Find the volume of a sphere of radius $R$ using the disk method (rotate $y=\sqrt{R^2-x^2}$ about $x$-axis). Verify your answer gives $V=\frac{4}{3}\pi R^3$.
+Unit square $[0,1] \times [0,1]$ transformed by $M = \begin{pmatrix} 3 & 1 \\ 1 & 2 \end{pmatrix}$. Find the parallelogram area (a) via determinant, (b) via cross product of adjacent sides.
 
 → Solutions: [Solutions](solutions/17A-solutions.md#practice-6)
 
 ---
 
-## Practice 7: Washer with Shifted Axis (🔗 12C1)
+## Practice 7: Real Battle (🔗 12C2, 9C)
 
-The region between $y=\sqrt{x}$ and $y=x^2$ on $[0,1]$ is rotated about $y=2$. Set up the volume integral.
+Torus: $R=5$, $r=2$. (a) Volume via shell method. (b) Verify via Pappus: $V = (\text{area}) \times (\text{distance centroid travels})$.
 
 → Solutions: [Solutions](solutions/17A-solutions.md#practice-7)
 
@@ -194,29 +254,35 @@ The region between $y=\sqrt{x}$ and $y=x^2$ on $[0,1]$ is rotated about $y=2$. S
 
 ## Basic Drills
 
-**D1.** Find area between $y=x$ and $x$-axis from $x=0$ to $x=4$.
+**D1.** Find the area between $y = 2x$ and $y = x^2$ from $x=0$ to $x=2$.
 
-**D2.** Find area between $y=x^2$ and $y=4$.
+**D2.** Rotate $y = 3x$, $x \in [0,2]$ about the $x$-axis. (Disk method.)
 
-**D3.** Rotate $y=2x$, $x\in[0,3]$ about $x$-axis. Disk method.
+**D3.** Region between $y = x$ and $y = x^3$ on $[0,1]$ rotated about $x$-axis. (Washer.)
 
-**D4.** Rotate $y=\sqrt{x}$, $x\in[0,1]$ about $x$-axis.
+**D4.** Rotate $y = x^2$, $x \in [0,3]$ about the $y$-axis. (Shell method.)
 
-**D5.** Region between $y=2$ and $y=x$ from $x=0$ to $x=2$ rotated about $x$-axis. Washer.
+**D5.** Find the area of one petal of the polar rose $r = \sin(3\theta)$.
 
-**D6.** Rotate $y=x$, $x\in[0,4]$ about $y$-axis. Shell method.
+**D6.** Region under $y = e^x$, $x \in [0, \ln 3]$, rotated about $x$-axis. Find the volume.
 
-**D7.** Find area between $x=y^2$ and $x=4$ using $y$-integration.
+**D7.** Region between $y = 4$ and $y = x^2$ rotated about $y = 4$. (Washer with shifted axis.)
 
-**D8.** Rotate $y=e^x$, $x\in[0,\ln2]$ about $x$-axis.
+**D8.** (🔗 12A2) Parallelogram with vertices $(0,0)$, $(3,1)$, $(4,5)$, $(1,4)$. Find area (a) via cross product, (b) via determinant of side-vector matrix.
 
-**D9.** Find area between $y=\sin x$ and $x$-axis from $x=0$ to $x=2\pi$.
+**D9.** (🔗 9C) Cone of radius $R$, height $H$: rotate $y = \frac{R}{H}x$, $x \in [0,H]$ about $x$-axis. Derive $V = \frac{1}{3}\pi R^2 H$.
 
-**D10.** Rotate region under $y=1/x$, $x\in[1,2]$ about $x$-axis.
+**D10.** (🔗 12C3) Find the area inside both $r = 1$ and $r = 2\sin\theta$. Sketch first.
 
-**D11.** (🔗 9C) Find the volume of a cone of radius $R$ and height $H$ by rotating $y=\frac{R}{H}x$ about $x$-axis.
+**D11.** Base: region bounded by $y = \sqrt{x}$, $y=0$, $x=4$. Cross-sections ⟂ $x$-axis are squares. Find the volume.
 
-**D12.** (🔗 12C2) Rotate the region under $y=\cos x$, $x\in[0,\pi/2]$ about $x$-axis.
+**D12.** (🔗 12C2) Use parametric area formula to verify ellipse area = $\pi ab$.
+
+**D13.** (🔗 12C1) Region under $y = \sin x$, $x \in [0,\pi]$, rotated about $y = 1$. Set up (do not evaluate) the volume integral.
+
+**D14.** Sphere of radius $R$ with cylindrical hole of radius $r$ drilled through center (napkin ring). Set up the washer integral. The result depends only on the ring's height, not on $R$ and $r$ individually — verify.
+
+**D15.** (🔗 12A2, 12C1) Parabola $y = x^2$ on $[0,2]$ rotated about $y$-axis. Show shell method and disk method ($x=\sqrt{y}$) give the same volume.
 
 > Solutions: [Solutions](solutions/17A-solutions.md#basic-drill)
 
@@ -224,25 +290,25 @@ The region between $y=\sqrt{x}$ and $y=x^2$ on $[0,1]$ is rotated about $y=2$. S
 
 ## Advanced Drills
 
-**A1.** Find the area between $y=x^3$ and $y=x$ (all intersection regions).
+**A1.** Find the area common to the two circles $r = 2\cos\theta$ and $r = 2\sin\theta$.
 
-**A2.** Rotate the circle $x^2+y^2=R^2$ about $x$-axis. Derive the sphere volume formula $V=\frac{4}{3}\pi R^3$.
+**A2.** (🔗 9C) Derive the volume of a spherical cap of height $h$ from a sphere of radius $R$: $V = \frac{\pi h^2}{3}(3R - h)$.
 
-**A3.** A hole of radius $r$ is drilled through the center of a sphere of radius $R$. Find the remaining volume.
+**A3.** (🔗 12C2) Cycloid $x = a(t - \sin t)$, $y = a(1 - \cos t)$, $t \in [0, 2\pi]$, encloses a region with the $x$-axis. Find its area. (Answer: $3\pi a^2$ — 3× the generating circle's area!)
 
-**A4.** Region between $y=\sqrt{x}$ and $y=x^2$ rotated about $y=2$. Washer with shifted axis.
+**A4.** (🔗 12C1, 12A2) Transformation $T(\vec{x}) = M\vec{x}$ with $M = \begin{pmatrix} 2 & 1 \\ 0 & 3 \end{pmatrix}$ applied to the region bounded by $y=x^2$ and $y=x$ on $[0,1]$. Find the transformed area (a) via $\det(M)$, (b) via direct integration of transformed boundaries.
 
-**A5.** Find the volume when $y=\sin x$, $x\in[0,\pi]$ is rotated about $y=-1$.
+**A5.** (🔗 12C2) Lemniscate $r^2 = a^2\cos(2\theta)$ (figure-eight). Find its total area.
 
-**A6.** Use shells to find the volume of a cone of radius $R$ and height $H$.
+**A6.** Torus via washer method (cut horizontally). Show the integral simplifies to $2\pi^2 R r^2$.
 
-**A7.** The region bounded by $y=x^2$ and $y=4$ is rotated about $x=3$. Shell method.
+**A7.** Region inside cardioid $r = 1 + \cos\theta$ and outside $r = 1$ rotated about $x$-axis. Set up the polar volume integral.
 
-**A8.** Find the area of the region common to the circles $x^2+y^2=1$ and $(x-1)^2+y^2=1$.
+**A8.** (🔗 12B2, 9C) Base: infinite region under $y = e^{-x}$ for $x \ge 0$. Cross-sections ⟂ $x$-axis are semicircles. Find the volume.
 
-**A9.** Rotate $y=\ln x$, $x\in[1,e]$ about $y$-axis. Shell method.
+**A9.** Unit disk $x^2 + y^2 \le 1$ transformed by $M = \begin{pmatrix} 4 & 2 \\ 1 & 3 \end{pmatrix}$. Image is an ellipse. Find its area and semi-axis lengths (eigenvalues of $M^T M$).
 
-**A10.** A torus is formed by rotating $(x-R)^2+y^2=r^2$ about $y$-axis. Find its volume.
+**A10.** (🔗 12C3) Solid bounded by paraboloid $z = x^2 + y^2$ and plane $z = 4$. Find volume via (a) disk method in $z$, (b) cylindrical coordinates.
 
 > Solutions: [Solutions](solutions/17A-solutions.md#advanced-drill)
 
@@ -252,23 +318,24 @@ The region between $y=\sqrt{x}$ and $y=x^2$ on $[0,1]$ is rotated about $y=2$. S
 
 | Symbol | Reads as | Meaning |
 |:---:|:---:|------|
-| $\int_a^b [f(x)-g(x)]\,dx$ | "integral from a to b of f of x minus g of x d x" | area between curves — top minus bottom |
-| disk method | "disk method" | $V = \pi\int R(x)^2\,dx$ — rotate region about axis, solid disk cross-sections |
-| washer method | "washer method" | $V = \pi\int (R^2 - r^2)\,dx$ — hollow solid, outer radius R, inner radius r |
-| shell method | "shell method" | $V = 2\pi\int x\,h(x)\,dx$ — cylindrical shells, integrate parallel to axis |
-| $\pi$ | "pi" | appears in volume formulas — area of circle = πr² |
-| cross-section | "cross-section" | slice perpendicular to axis — basis for volume integration |
-| solid of revolution | "solid of revolution" | 3D shape formed by rotating a 2D region around an axis |
-| $x$-axis / $y$-axis rotation | "rotation about the x-axis" / "y-axis" | axis of revolution determines disk/washer/shell choice |
-| $\Delta x$, $\Delta y$ | "delta x" / "delta y" | thickness of slice — becomes dx or dy in the limit |
+| $\int_a^b [f-g]\,dx$ | "integral a to b of f minus g d x" | area between curves — top minus bottom |
+| $\frac{1}{2}\int r^2\,d\theta$ | "one-half integral r squared d theta" | area in polar coordinates |
+| $\int y(t)\,x'(t)\,dt$ | "integral y of t times x prime of t d t" | area under parametric curve |
+| $\frac{1}{2}|\vec{AB}\times\vec{AC}|$ | "half magnitude AB cross AC" | triangle area via cross product |
+| $\det(M)$ | "determinant of M" | area (2D) / volume (3D) scaling factor |
+| $2\pi^2 R r^2$ | "two pi squared R r squared" | volume of a torus |
+| $\pi ab$ | "pi a b" | area of an ellipse |
 
 ---
 
 ## Today's Procedure
 
 ```
-Step 1: Area between curves = ∫(top - bottom)dx or ∫(right - left)dy.
-Step 2: Disk about x-axis: V = π∫R(x)² dx.
-Step 3: Washer (hollow): V = π∫(R² - r²) dx.
-Step 4: Shell about y-axis: V = 2π∫x·h(x) dx.
+Step 1: Area = ∫(top − bottom). Find intersections first.
+Step 2: Polar area = ½∫r²dθ. Use symmetry.
+Step 3: Parametric area = ∫y(t)x'(t)dt. Sign = orientation.
+Step 4: Cross product area = ½|AB × AC| for triangles.
+Step 5: Volume: disk (π∫R²), washer (π∫(R²−r²)), shell (2π∫x·h).
+Step 6: Shifted axis → adjust all radii by translation distance.
+Step 7: Cross-sections: V = ∫A(s)ds for any shape.
 ```
