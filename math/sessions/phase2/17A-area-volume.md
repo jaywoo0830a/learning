@@ -67,7 +67,7 @@ $\vec{AB} = (3, 1, 4)$, $\vec{AC} = (1, 5, -2)$.
 $\vec{AB} \times \vec{AC} = (-22, 10, 14)$, $|\vec{AB} \times \vec{AC}| = \sqrt{780} = 2\sqrt{195}$.
 $A = \sqrt{195}$.
 
-> **Key insight**: Cross product magnitude IS parallelogram area. Half = triangle area. No integration needed — pure vector geometry.
+> **Key insight**: For shapes with straight edges (triangles, parallelograms), geometry alone gives the area — no integration needed. The cross product is the 3D version of "base × height." But when boundaries are curved, integration becomes essential — that's what the rest of this session is about.
 
 ![Triangle area via cross product in 3D](graphs/0728/17A/03-triangle-cross-product.png)
 
@@ -87,7 +87,7 @@ So $F(x) = e^x - x\ln x + x$. Evaluate:
 
 $A = (e+1) - 1 = e$.
 
-> **Matrix connection**: Reflection across $y=x$ is $\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$. Inverse functions are reflections — a geometric fact encoded as a matrix.
+> **Geometric note**: Since $e^x$ and $\ln x$ are reflections of each other across $y=x$, the area between them on $[0,1]$ equals the area between $\ln x$ and the line $y=x$, plus the area between $e^x$ and $y=x$ — a symmetry that can simplify some calculations.
 
 ---
 
@@ -171,13 +171,13 @@ $V = \int_0^1 \sqrt{3}y\,dy = \frac{\sqrt{3}}{2}$.
 
 ---
 
-## Example 12: Area via Determinant — Matrix Transformations (🔗 12A2)
+## Example 12: Area Scaling Under Linear Transformations
 
-Matrix $M = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$ maps the unit square → parallelogram of area $|\det(M)| = |ad-bc|$.
+A linear transformation stretches space uniformly. The factor by which it scales area is called the **determinant**: for $M = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$, every region's area is multiplied by $|\det(M)| = |ad-bc|$.
 
-The triangle under $y=mx$ on $[0,1]$ (area $m/2$), after transformation by $M$, has area $\frac{m}{2} \cdot |\det(M)|$.
+**Example**: The triangle under $y=2x$ on $[0,1]$ has area $1$. After applying $M = \begin{pmatrix} 3 & 0 \\ 0 & 2 \end{pmatrix}$ (stretch $x$ by 3, $y$ by 2), the triangle's area becomes $1 \cdot |3 \cdot 2 - 0| = 6$.
 
-> The determinant IS the area scaling factor. Integration over the transformed region gives the same result.
+> This is why the substitution rule ($u$-sub) has a "$du = g'(x)dx$" factor — it's the 1D version of the same area-scaling principle.
 
 ![Determinant = area scaling factor](graphs/0728/17A/08-determinant-area.png)
 
@@ -306,7 +306,7 @@ Torus: $R=5$, $r=2$. (a) Volume via shell method. (b) Verify via Pappus: $V = (\
 
 **A8.** (🔗 12B2, 9C) Base: infinite region under $y = e^{-x}$ for $x \ge 0$. Cross-sections ⟂ $x$-axis are semicircles. Find the volume.
 
-**A9.** Unit disk $x^2 + y^2 \le 1$ transformed by $M = \begin{pmatrix} 4 & 2 \\ 1 & 3 \end{pmatrix}$. Image is an ellipse. Find its area and semi-axis lengths (eigenvalues of $M^T M$).
+**A9.** Unit disk $x^2 + y^2 \le 1$ transformed by $M = \begin{pmatrix} 4 & 2 \\ 1 & 3 \end{pmatrix}$. The image is an ellipse. Find its area. (Hint: the area of the image = $|\det(M)|$ times the area of the original disk.)
 
 **A10.** (🔗 12C3) Solid bounded by paraboloid $z = x^2 + y^2$ and plane $z = 4$. Find volume via (a) disk method in $z$, (b) cylindrical coordinates.
 

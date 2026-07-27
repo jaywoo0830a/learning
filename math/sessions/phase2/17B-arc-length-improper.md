@@ -200,18 +200,28 @@ Rotate $y = 1/x$, $x \in [1, \infty)$ about $x$-axis.
 
 ---
 
-## Example 12: Improper Integral via Matrix Determinant — Gaussian Integral (🔗 12A2)
+## Example 12: The Gaussian Integral — A Famous Improper Integral
 
 $\displaystyle \int_{-\infty}^\infty e^{-x^2}\,dx = \sqrt{\pi}$.
 
-**Why this matters**: The Gaussian integral is the foundation of probability (normal distribution). The proof uses a 2D trick: square the integral and convert to polar coordinates.
+**Why this matters**: This integral is the foundation of the normal distribution in probability and statistics. Its value $\sqrt{\pi}$ is one of the most famous constants in mathematics.
 
-$I = \int_{-\infty}^\infty e^{-x^2}\,dx$, so $I^2 = \int_{-\infty}^\infty\int_{-\infty}^\infty e^{-(x^2+y^2)}\,dx\,dy$.
+**Proof sketch — the polar coordinate trick**:
 
-Switch to polar: $x^2+y^2 = r^2$, $dx\,dy = r\,dr\,d\theta$ (the Jacobian determinant!).
-$I^2 = \int_0^{2\pi}\int_0^\infty e^{-r^2} r\,dr\,d\theta = 2\pi \cdot \left[-\frac{1}{2}e^{-r^2}\right]_0^\infty = 2\pi \cdot \frac{1}{2} = \pi$. So $I = \sqrt{\pi}$.
+Let $I = \int_{-\infty}^\infty e^{-x^2}\,dx$. Square it:
+$I^2 = \left(\int_{-\infty}^\infty e^{-x^2}\,dx\right)\left(\int_{-\infty}^\infty e^{-y^2}\,dy\right) = \int_{-\infty}^\infty\int_{-\infty}^\infty e^{-(x^2+y^2)}\,dx\,dy$.
 
-> **Matrix connection**: The Jacobian $r$ in $dx\,dy = r\,dr\,d\theta$ is $\det(J)$ where $J = \begin{pmatrix} \cos\theta & -r\sin\theta \\ \sin\theta & r\cos\theta \end{pmatrix}$. The determinant of the coordinate transformation matrix IS the area scaling factor — exactly as in 12A2.
+This is a double integral over the entire $xy$-plane. The integrand $e^{-(x^2+y^2)} = e^{-r^2}$ depends only on distance $r$ from the origin — it has circular symmetry. Switching to polar coordinates $(r, \theta)$:
+
+$I^2 = \int_0^{2\pi}\int_0^\infty e^{-r^2} \cdot r\,dr\,d\theta$.
+
+The extra factor $r$ comes from the area element in polar coordinates: a small polar rectangle $dr \times d\theta$ has area $r\,dr\,d\theta$ (wider at larger $r$).
+
+$I^2 = \int_0^{2\pi} d\theta \cdot \int_0^\infty r e^{-r^2}\,dr = 2\pi \cdot \left[-\frac{1}{2}e^{-r^2}\right]_0^\infty = 2\pi \cdot \frac{1}{2} = \pi$.
+
+Therefore $I = \sqrt{\pi}$. ✓
+
+> **Note**: The $r\,dr\,d\theta$ substitution is the 2D analog of $u$-substitution. In both cases, changing variables requires adjusting the "width" of the integration element — $du = g'(x)dx$ in 1D becomes $r\,dr\,d\theta$ in polar coordinates.
 
 ![Gaussian integral: the polar coordinate proof](graphs/0728/17B/08-gaussian-integral.png)
 
@@ -227,7 +237,7 @@ $I^2 = \int_0^{2\pi}\int_0^\infty e^{-r^2} r\,dr\,d\theta = 2\pi \cdot \left[-\f
 (5) Improper integrals: replace ∞/singularity with limit.
 (6) p-test: ∫₁∞ 1/x^p converges iff p>1. ∫₀¹ 1/x^p converges iff p<1.
 (7) Gabriel's Horn: finite volume, infinite surface — not a contradiction.
-(8) Gaussian integral via polar Jacobian → √π.
+(8) Gaussian integral via polar coordinate trick → √π.
 ```
 
 ---
@@ -282,7 +292,7 @@ Verify: rotating $y=1/x$, $x \in [1,\infty)$ about $x$-axis gives volume $\pi$ (
 
 ## Practice 7: Real Battle (🔗 12C3, 12A2)
 
-The Gaussian integral: sketch the proof that $\int_{-\infty}^\infty e^{-x^2}\,dx = \sqrt{\pi}$ by squaring and switching to polar coordinates. Identify the Jacobian determinant in the coordinate change.
+The Gaussian integral: sketch the proof that $\int_{-\infty}^\infty e^{-x^2}\,dx = \sqrt{\pi}$ by squaring and switching to polar coordinates. Explain where the extra factor of $r$ comes from in $dx\,dy = r\,dr\,d\theta$.
 
 → Solutions: [Solutions](solutions/17B-solutions.md#practice-7)
 
@@ -334,7 +344,7 @@ The Gaussian integral: sketch the proof that $\int_{-\infty}^\infty e^{-x^2}\,dx
 
 **A4.** Arc length of $y = \frac{x^2}{4} - \frac{\ln x}{2}$ from $x=1$ to $x=e$. (Hint: the expression under the root becomes a perfect square.)
 
-**A5.** (🔗 12A2, 12C3) Prove $\int_{-\infty}^\infty e^{-x^2}\,dx = \sqrt{\pi}$ using the polar coordinate trick. Explain how the Jacobian determinant $r$ emerges.
+**A5.** Prove $\int_{-\infty}^\infty e^{-x^2}\,dx = \sqrt{\pi}$ using the polar coordinate trick. Explain why switching to polar coordinates introduces the factor $r$ in $r\,dr\,d\theta$.
 
 **A6.** Surface area when $y = e^{-x}$, $x \in [0,\infty)$ is rotated about $x$-axis. Does it converge? Compare with Gabriel's Horn.
 

@@ -20,7 +20,7 @@ $f(x) = x^2$ at $x=3$: $f(3)=9$, $f'(3)=6$. Tangent: $y = 6x - 9$.
 
 ![Tangent and normal lines to f(x)=x² at x=3](graphs/0728/15A/01-tangent-normal.png)
 
-> **Matrix view (🔗 12A2)**: The tangent line is the 1st-order Taylor approximation — a linear function $L(x) = f(a) + f'(a)(x-a)$. In higher dimensions, this becomes the Jacobian matrix $J_f(a)$ acting on vectors. The tangent line is the 1D special case: a $1 \times 1$ matrix $[f'(a)]$.
+> **Why "linear approximation"?** The tangent line $L(x) = f(a) + f'(a)(x-a)$ is the best straight-line fit to the curve at $x=a$. Among all lines through $(a, f(a))$, it minimizes the error as $x \to a$. This same idea — approximate a curved thing by a flat thing — is the foundation of all calculus.
 
 ---
 
@@ -155,11 +155,13 @@ $x<0$: $f''<0$ (concave down ∩). $x>0$: $f''>0$ (concave up ∪). Inflection a
 
 ---
 
-## Example 12: Curvature via Vector Derivatives (🔗 12C2, 12A2)
+## Example 12: Curvature — How Fast the Curve Bends
 
-For a parametric curve, curvature measures how fast the unit tangent turns:
+Curvature $\kappa$ measures how sharply a curve turns at a point. For a graph $y=f(x)$, it generalizes the second derivative:
 
-$\kappa = \frac{|\vec{r}{\,}' \times \vec{r}{\,}''|}{|\vec{r}{\,}'|^3}$ (3D) or $\kappa = \frac{|x'y'' - y'x''|}{((x')^2+(y')^2)^{3/2}}$ (2D).
+$$\kappa = \frac{|f''(x)|}{(1+[f'(x)]^2)^{3/2}}.$$
+
+For a parametric curve $(x(t), y(t))$, the equivalent formula is $\kappa = \frac{|x'y'' - y'x''|}{((x')^2+(y')^2)^{3/2}}$.
 
 **Circle of radius $R$**: $\vec{r}(t) = (R\cos t, R\sin t)$.
 $\vec{r}{\,}' = (-R\sin t, R\cos t)$, $|\vec{r}{\,}'| = R$.
@@ -167,11 +169,7 @@ $\vec{r}{\,}'' = (-R\cos t, -R\sin t)$.
 $|x'y'' - y'x''| = |(-R\sin t)(-R\sin t) - (R\cos t)(-R\cos t)| = |R^2\sin^2 t + R^2\cos^2 t| = R^2$.
 $\kappa = \frac{R^2}{R^3} = \frac{1}{R}$. ✓
 
-> A circle has constant curvature $1/R$ — the bigger the circle, the gentler the curve. For a line, $\kappa = 0$ (no turning).
-
-**Connecting to $y=f(x)$ graphs**: Parametrize the graph as $\vec{r}(x) = (x, f(x))$. Then $\vec{r}{\,}' = (1, f')$ and $\vec{r}{\,}'' = (0, f'')$. Plug into the 2D curvature formula:
-$$\kappa = \frac{|x'y'' - y'x''|}{((x')^2+(y')^2)^{3/2}} = \frac{|1 \cdot f'' - f' \cdot 0|}{(1+(f')^2)^{3/2}} = \frac{|f''|}{(1+(f')^2)^{3/2}}.$$
-When the slope is small ($f' \approx 0$), $\kappa \approx |f''|$ — the second derivative directly approximates curvature. When the curve is steep, the denominator $(1+(f')^2)^{3/2}$ adjusts for the slant.
+> A circle has constant curvature $1/R$. A line has $\kappa = 0$ (no turning). When the slope is small ($f' \approx 0$), $\kappa \approx |f''|$ — the second derivative directly approximates curvature. When the curve is steep, the denominator $(1+(f')^2)^{3/2}$ corrects for the slant: a steep curve covers more $x$-distance per unit of arc length, so the same change in slope produces less actual bending.
 
 ![Curvature: circle (κ=1/R) vs line (κ=0)](graphs/0728/15A/06-curvature.png)
 
@@ -330,7 +328,7 @@ $f(x) = \frac{x^3}{x^2-1}$. Domain, intercepts, asymptotes, $f'$, $f''$, sketch.
 
 **D13.** (🔗 12C2) For $\vec{r}(t) = (t, t^2)$, find $\vec{v}(t)$, $|\vec{v}(t)|$, and the curvature at $t=1$.
 
-**D14.** (🔗 12A2) The tangent line to $f$ at $a$ is the 1st-order Taylor polynomial. For $f(x)=\sqrt{x}$ at $a=4$, find $L(x)$. Use it to approximate $\sqrt{4.1}$ and compare with the true value.
+**D14.** The tangent line to $f$ at $a$ is the 1st-order Taylor polynomial. For $f(x)=\sqrt{x}$ at $a=4$, find $L(x)$. Use it to approximate $\sqrt{4.1}$ and compare with the true value.
 
 **D15.** $f(x) = x^3 + ax + b$. Find $a, b$ so that $f$ has a local max at $(-1, 2)$ and a local min at $(1, -2)$. (This is a cubic with specified extrema.)
 
@@ -360,9 +358,9 @@ $f(x) = \frac{x^3}{x^2-1}$. Domain, intercepts, asymptotes, $f'$, $f''$, sketch.
 
 **A10.** Find the tangent to $f(x) = \ln x$ that passes through the origin. (This is the "tangent from external point" problem.)
 
-**A11.** (🔗 12A2, 12C2) For the curve $\vec{r}(t) = (e^t\cos t,\; e^t\sin t)$ (logarithmic spiral): find the angle between the position vector and the velocity vector. Show it's constant — a defining property of the logarithmic spiral.
+**A11.** For the logarithmic spiral $\vec{r}(t) = (e^t\cos t,\; e^t\sin t)$: find the angle between the position vector and the velocity vector. Show it's constant — a defining property of this curve.
 
-**A12.** (🔗 12C1) A cubic $f(x) = ax^3 + bx^2 + cx + d$ has a point of inflection at $x=0$. Show this forces $b=0$. Then find $a,c,d$ so the function has a local max at $(-1, 2)$ and passes through $(2, 0)$.
+**A12.** A cubic $f(x) = ax^3 + bx^2 + cx + d$ has an inflection point at $x=0$. Show this forces $b=0$. Then find $a,c,d$ so the function has a local max at $(-1, 2)$ and passes through $(2, 0)$.
 
 > Solutions: [Solutions](solutions/15A-solutions.md#advanced-drill)
 

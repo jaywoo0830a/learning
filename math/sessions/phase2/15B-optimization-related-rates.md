@@ -43,7 +43,7 @@ $D(x) = (x-2)^2 + (\sqrt{x} - 0)^2 = x^2 - 4x + 4 + x = x^2 - 3x + 4$.
 $D'(x) = 2x - 3 = 0 \to x = 1.5$. $D''(x) = 2 > 0$ → minimum.
 Closest point: $(1.5, \sqrt{1.5})$.
 
-**Method 2 — Normal line through the point (🔗 12A2, 9B)**:
+**Method 2 — Normal line through the point (🔗 9B)**:
 At tangency, the line from the point to the curve is perpendicular to the tangent. Slope of curve at $(a, \sqrt{a})$: $f'(a) = 1/(2\sqrt{a})$.
 Normal slope = $-2\sqrt{a}$. Line through $(2,0)$ with this slope:
 $\frac{\sqrt{a} - 0}{a - 2} = -2\sqrt{a} \to \sqrt{a} = -2\sqrt{a}(a-2) \to 1 = -2(a-2) \to a = 1.5$. ✓
@@ -95,7 +95,7 @@ $A_{\max} = R\sqrt{2} \cdot R/\sqrt{2} = R^2$.
 
 Notice: at the maximum, width = $2 \times$ height — the optimal rectangle is **wider than it is tall**.
 
-> **Key**: When the objective involves a square root, maximizing the square is often simpler — same critical points, easier derivative. The geometry (a rectangle touching a curve) is a Lagrange multiplier problem in disguise: the optimal rectangle touches the semicircle where the rectangle's diagonal is perpendicular to the curve's tangent.
+> **Key**: When the objective involves a square root, maximizing the square is often simpler — same critical points, easier derivative. Notice the optimal rectangle has width exactly twice its height — a ratio that emerges from the balance between growing width and shrinking height as $x$ increases.
 
 ![Rectangle inscribed in a semicircle — max area = R²](graphs/0728/15B/03-rectangle-semicircle.png)
 
@@ -188,30 +188,19 @@ $\frac{ds}{dt} = \frac{160 \cdot 80 + 120 \cdot 60}{200} = \frac{12800 + 7200}{2
 
 ---
 
-## Example 12: Optimization in 3D — Point to Plane Distance (🔗 9C, 12C3)
+## Example 12: Optimization in 3D — Point to Plane Distance (🔗 9C)
 
 Find the point on the plane $2x + y - z = 4$ closest to the origin.
 
-**Method 1 — Minimize squared distance**:
-$D = x^2 + y^2 + z^2$ subject to $z = 2x + y - 4$.
+The normal vector to the plane is $\vec{n} = (2, 1, -1)$ — it points straight out of the plane. The shortest path from the origin to the plane runs along this normal direction.
 
-$D(x,y) = x^2 + y^2 + (2x+y-4)^2 = x^2 + y^2 + 4x^2 + y^2 + 16 + 4xy - 16x - 8y$.
-$= 5x^2 + 2y^2 + 4xy - 16x - 8y + 16$.
+So the closest point lies on the line $\vec{r}(t) = t(2, 1, -1) = (2t, t, -t)$ through the origin parallel to $\vec{n}$.
 
-$\frac{\partial D}{\partial x} = 10x + 4y - 16 = 0$.
-$\frac{\partial D}{\partial y} = 4y + 4x - 8 = 0 \to x + y = 2 \to y = 2 - x$.
+Find where this line hits the plane: $2(2t) + t - (-t) = 4 \to 4t + t + t = 4 \to 6t = 4 \to t = \frac{2}{3}$.
 
-Substitute: $10x + 4(2-x) - 16 = 0 \to 10x + 8 - 4x - 16 = 0 \to 6x = 8 \to x = \frac{4}{3}$.
-$y = 2 - \frac{4}{3} = \frac{2}{3}$, $z = 2(\frac{4}{3}) + \frac{2}{3} - 4 = \frac{8}{3} + \frac{2}{3} - \frac{12}{3} = -\frac{2}{3}$.
+Closest point: $(\frac{4}{3}, \frac{2}{3}, -\frac{2}{3})$. Shortest distance = $|\vec{n}| \cdot t = \sqrt{6} \cdot \frac{2}{3} = \frac{2\sqrt{6}}{3}$.
 
-Closest point: $(\frac{4}{3}, \frac{2}{3}, -\frac{2}{3})$.
-
-**Method 2 — Normal line from origin (🔗 9C)**:
-The normal vector to the plane is $\vec{n} = (2, 1, -1)$. The line from the origin perpendicular to the plane is $\vec{r}(t) = t(2, 1, -1) = (2t, t, -t)$.
-Intersect with plane: $2(2t) + t - (-t) = 4 \to 4t + t + t = 4 \to 6t = 4 \to t = \frac{2}{3}$.
-Closest point: $(\frac{4}{3}, \frac{2}{3}, -\frac{2}{3})$. ✓ Distance = $\frac{4}{\sqrt{6}}$.
-
-> **Geometric harmony**: The shortest distance from a point to a plane is along the normal vector. This is the 3D generalization of the point-to-line distance. The dot product $\vec{n} \cdot \vec{x} = d$ encodes the plane; the normal direction solves the optimization in one step.
+> **Geometric insight**: The shortest distance from a point to a plane is always along the normal direction — just as the shortest distance to a line is perpendicular, and the shortest distance to a curve is along its normal. This is a recurring pattern: perpendicular = shortest path.
 
 ![Shortest distance to plane: along normal vector](graphs/0728/15B/08-plane-distance-3d.png)
 
@@ -344,7 +333,7 @@ Find the point on the plane $x + 2y + 3z = 6$ closest to the origin. Use (a) Lag
 
 **D14.** (🔗 9C) A box with a square base and open top must have volume 32 m³. Minimize surface area.
 
-**D15.** (🔗 12A2) The position of a particle is $\vec{r}(t) = (t^2, t^3)$. Find the rate of change of its distance from the origin at $t=2$. (Use $s = |\vec{r}|$, differentiate $s^2 = \vec{r}\cdot\vec{r}$.)
+**D15.** The position of a particle is given by $(x(t), y(t)) = (t^2, t^3)$. Find the rate of change of its distance from the origin at $t=2$. (Hint: let $s = \sqrt{x^2+y^2}$, then differentiate $s^2 = x^2+y^2$ with respect to $t$.)
 
 > Solutions: [Solutions](solutions/15B-solutions.md#basic-drill)
 
@@ -366,7 +355,7 @@ Find the point on the plane $x + 2y + 3z = 6$ closest to the origin. Use (a) Lag
 
 **A7.** A man 2 m tall walks away from a 6 m lamppost at 1.5 m/s. How fast does (a) the tip of his shadow move, (b) his shadow lengthen? (Use similar triangles.)
 
-**A8.** (🔗 12C2) Find the point on the ellipse $x^2/4 + y^2/9 = 1$ farthest from $(1, 0)$.
+**A8.** Find the point on the ellipse $x^2/4 + y^2/9 = 1$ farthest from $(1, 0)$. (Parametrize the ellipse to turn this into a single-variable optimization.)
 
 **A9.** Oil spills in a circle. Radius grows at 0.5 km/h. When $r=10$ km, how fast is the area growing? Also: if thickness is constant, how fast is volume growing if the thickness is 1 mm?
 
