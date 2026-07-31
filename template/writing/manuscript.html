@@ -18,24 +18,24 @@
 
     .hai-page {
       background: #ffffff;
-      padding: 10pt 12pt 8pt 12pt;
+      padding: 4pt 8pt 2pt 8pt;
     }
 
     /* ── 헤더 ───────────────────────────────────────────────────── */
     .ms-header {
       font-family: "Nanum Pen Script", cursive;
-      font-size: 8pt;
+      font-size: 7.5pt;
       color: #999;
       display: flex;
-      gap: 8pt;
-      margin-bottom: 6pt;
+      gap: 6pt;
+      margin-bottom: 3pt;
       align-items: center;
     }
     .ms-header .label { color: #bbb; }
     .ms-header .field {
-      border-bottom: 0.4pt solid #e0c0c0;
-      min-width: 60pt;
-      padding: 0 3pt;
+      border-bottom: 0.3pt solid #e0c0c0;
+      min-width: 55pt;
+      padding: 0 2pt;
       color: #777;
     }
 
@@ -43,10 +43,10 @@
     .manuscript-grid {
       display: grid;
       grid-template-columns: repeat(20, 1fr);
-      grid-template-rows: repeat(22, 1fr);
-      border: 1pt solid #d4a0a0;
+      grid-template-rows: repeat(35, 1fr);
+      border: 0.8pt solid #d4a0a0;
       width: 100%;
-      aspect-ratio: 20 / 22;
+      min-height: 510pt;
     }
     .manuscript-grid .cell {
       border: 0.3pt solid #e8c8c8;
@@ -79,13 +79,13 @@
     .ms-footer {
       text-align: right;
       font-family: "Nanum Pen Script", cursive;
-      font-size: 7pt;
-      color: #ccc;
-      margin-top: 4pt;
+      font-size: 6pt;
+      color: #ddd;
+      margin-top: 1.5pt;
     }
 
     @media print {
-      .hai-page { padding: 8pt 10pt 6pt 10pt; }
+      .hai-page { padding: 3pt 6pt 1pt 6pt; }
     }
   </style>
 </head>
@@ -100,16 +100,16 @@
     <span class="label">날짜</span><span class="field" style="min-width:60pt;">&nbsp;</span>
   </div>
 
-  <!-- 원고지 그리드: 20열 × 22행 = 440칸 -->
+  <!-- 원고지 그리드: 20열 × 35행 = 700칸 -->
   <div class="manuscript-grid" id="grid"></div>
 
-  <p class="ms-footer">20×22 · 440자</p>
+  <p class="ms-footer">20×35 · 700자</p>
 
 </section>
 
 <script>
   const grid = document.getElementById('grid');
-  for (let i = 0; i < 20 * 22; i++) {
+  for (let i = 0; i < 20 * 35; i++) {
     const cell = document.createElement('div');
     cell.className = 'cell';
     const v = document.createElement('div');
