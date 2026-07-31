@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Today's Diary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Hand:wght@400..700&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/htmlasitis@0.1.0/htmlasitis.css">
+  <style>
+    :root {
+      --hai-font-body: "Edu VIC WA NT Hand", cursive;
+      --hai-font-mono: "Edu VIC WA NT Hand", monospace;
+      --hai-font-size-body: 11pt;
+      --hai-line-height-body: 1.7;
+    }
+
+    .hai-page {
+      background: #ffffff;
+      padding-top: 14pt;
+    }
+
+    .hai-page h1 {
+      font-family: "Edu VIC WA NT Hand", cursive;
+      font-size: 18pt;
+      font-weight: 500;
+      margin: 0 0 8pt 0;
+      padding-bottom: 4pt;
+      border-bottom: 1pt solid #ddd;
+      color: #444;
+      text-align: center;
+      letter-spacing: 0.5pt;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-family: "Edu VIC WA NT Hand", cursive;
+      font-size: 9pt;
+      font-weight: 400;
+      color: #bbb;
+      margin-bottom: 10pt;
+    }
+
+    .hairline { border: none; border-top: 0.3pt solid #e8e8e8; margin: 8pt 0; }
+
+    .row { display: flex; gap: 8pt; }
+    .c1 { flex: 1; } .c2 { flex: 2; } .c3 { flex: 3; }
+
+    /* ── Date / Weather / Mood header ───────────────────────────── */
+    .diary-header {
+      display: flex;
+      align-items: center;
+      gap: 5pt;
+      font-family: "Edu VIC WA NT Hand", cursive;
+      font-size: 11pt;
+      font-weight: 500;
+      color: #555;
+      margin-bottom: 8pt;
+    }
+    .diary-header .label {
+      color: #aaa;
+      font-size: 9pt;
+      margin-right: 2pt;
+      font-weight: 400;
+    }
+    .diary-header .value {
+      border-bottom: 0.6pt solid #ccc;
+      min-width: 60pt;
+      padding: 0 4pt;
+    }
+
+    /* ── Mood picker ────────────────────────────────────────────── */
+    .mood-row {
+      display: flex;
+      gap: 5pt;
+      flex-wrap: wrap;
+      margin-bottom: 10pt;
+    }
+    .mood-item {
+      font-family: "Edu VIC WA NT Hand", cursive;
+      font-size: 9.5pt;
+      color: #999;
+      padding: 2pt 7pt;
+      border: 0.5pt solid #ddd;
+      border-radius: 10pt;
+      background: #fafafa;
+      font-weight: 400;
+    }
+
+    /* ── Section titles ─────────────────────────────────────────── */
+    .section-title {
+      font-family: "Edu VIC WA NT Hand", cursive;
+      font-size: 13pt;
+      font-weight: 500;
+      color: #555;
+      margin: 10pt 0 4pt 0;
+      padding-left: 5pt;
+      border-left: 2.5pt solid #bbb;
+    }
+
+    .writing-block {
+      min-height: 70pt;
+      padding: 4pt 6pt;
+      font-family: "Edu VIC WA NT Hand", cursive;
+      font-size: 11pt;
+      font-weight: 400;
+      line-height: 1.7;
+      color: #444;
+    }
+
+    /* ── Growth prompt ──────────────────────────────────────────── */
+    .growth-prompt {
+      font-family: "Edu VIC WA NT Hand", cursive;
+      font-size: 9pt;
+      font-weight: 400;
+      color: #bbb;
+      margin-bottom: 2pt;
+    }
+
+    /* ── Numbered list ──────────────────────────────────────────── */
+    .num-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      counter-reset: item;
+    }
+    .num-list li {
+      font-family: "Edu VIC WA NT Hand", cursive;
+      font-size: 11pt;
+      font-weight: 400;
+      color: #555;
+      padding: 2pt 0;
+      display: flex;
+      align-items: baseline;
+      gap: 5pt;
+    }
+    .num-list li::before {
+      counter-increment: item;
+      content: counter(item) ".";
+      font-size: 9pt;
+      color: #bbb;
+      min-width: 12pt;
+    }
+
+    /* ── Footer ─────────────────────────────────────────────────── */
+    .footer-note {
+      text-align: right;
+      font-family: "Edu VIC WA NT Hand", cursive;
+      font-size: 9pt;
+      font-weight: 400;
+      color: #ccc;
+      margin-top: 10pt;
+    }
+
+    .pl {
+      border-bottom: 0.4pt solid #e8e8e8;
+      min-height: 19pt;
+      margin: 1pt 0;
+    }
+
+    /* ── Extension page ─────────────────────────────────────────── */
+    .ext-badge {
+      display: inline-block;
+      font-family: "Edu VIC WA NT Hand", cursive;
+      font-size: 8pt;
+      font-weight: 400;
+      color: #bbb;
+      border: 0.4pt solid #ddd;
+      padding: 1pt 8pt;
+      border-radius: 3pt;
+      margin-bottom: 6pt;
+    }
+
+    /* ── Print page breaks ──────────────────────────────────────── */
+    @media print {
+      .hai-page + .hai-page {
+        page-break-before: always;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ================================================================ -->
+<!-- Page 1: Today's Growth Diary — complete in one sheet             -->
+<!-- ================================================================ -->
+<section class="hai-page">
+  <h1>✽ Today's Growth Diary ✽</h1>
+  <p class="subtitle">One sheet is a complete diary. Print extra sheets only when you need more room.</p>
+
+  <!-- Date / Weather / Mood -->
+  <div class="diary-header">
+    <span class="label">Date</span>
+    <span class="value" style="min-width:100pt;">&nbsp;</span>
+    <span class="label">Weather</span>
+    <span class="value" style="min-width:55pt;">&nbsp;</span>
+    <span class="label">Mood</span>
+    <span class="value" style="min-width:55pt;">&nbsp;</span>
+  </div>
+
+  <div class="mood-row">
+    <span class="mood-item">😊 Happy</span>
+    <span class="mood-item">😌 Calm</span>
+    <span class="mood-item">💪 Proud</span>
+    <span class="mood-item">😢 Sad</span>
+    <span class="mood-item">😰 Anxious</span>
+    <span class="mood-item">🤔 Pensive</span>
+    <span class="mood-item">🎉 Excited</span>
+    <span class="mood-item">🙏 Grateful</span>
+    <span class="mood-item">😴 Tired</span>
+    <span class="mood-item">🔥 Angry</span>
+  </div>
+
+  <hr class="hairline">
+
+  <!-- 1. What I learned -->
+  <div class="section-title">What I learned today</div>
+  <p class="growth-prompt">A fact, a skill, a piece of wisdom, or something about yourself.</p>
+  <div class="writing-block">
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+  </div>
+
+  <!-- 2. Small wins -->
+  <div class="section-title">Today's small wins</div>
+  <p class="growth-prompt">Even the tiniest victories count. What did you get done today?</p>
+  <div class="writing-block">
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+  </div>
+
+  <!-- 3. Challenges & how I handled them -->
+  <div class="section-title">Challenges I faced — and how I handled them</div>
+  <p class="growth-prompt">Acknowledge the hard moments. Reflect on the choices you made.</p>
+  <div class="writing-block">
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+  </div>
+
+  <!-- 4. Gratitude -->
+  <div class="section-title">Three things I'm grateful for today</div>
+  <div class="writing-block">
+    <ul class="num-list">
+      <li><span style="min-width:220pt; display:inline-block;">&nbsp;</span></li>
+      <li><span style="min-width:220pt; display:inline-block;">&nbsp;</span></li>
+      <li><span style="min-width:220pt; display:inline-block;">&nbsp;</span></li>
+    </ul>
+  </div>
+
+  <!-- 5. Tomorrow -->
+  <div class="section-title">Tomorrow: one thing I'll do better</div>
+  <p class="growth-prompt">Just 1% better is enough. Pick one concrete action.</p>
+  <div class="writing-block" style="min-height:35pt;">
+    <div class="pl"></div>
+  </div>
+
+  <div class="footer-note">— you grew a little more today — &nbsp; ☐ 1/1</div>
+</section>
+
+<!-- ================================================================ -->
+<!-- Page 2+: Extension — print as many copies as you need            -->
+<!-- ================================================================ -->
+<section class="hai-page">
+  <span class="ext-badge">☐ continued</span>
+  <h1>✽ Today's Diary — continued ✽</h1>
+  <p class="subtitle">More room for thoughts that didn't fit on the first page.</p>
+
+  <!-- Date reference -->
+  <div class="diary-header">
+    <span class="label">Date</span>
+    <span class="value" style="min-width:100pt;">&nbsp;</span>
+    <span class="label">Time</span>
+    <span class="value" style="min-width:70pt;">&nbsp;</span>
+  </div>
+
+  <hr class="hairline">
+
+  <!-- Free writing space — generous -->
+  <div class="section-title">What else is on my mind</div>
+  <div class="writing-block" style="min-height:200pt;">
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+  </div>
+
+  <!-- Deeper reflection prompts (optional) -->
+  <div class="section-title">Deeper reflections — pick any that speak to you</div>
+  <div class="writing-block" style="min-height:60pt; font-size:10pt; color:#888;">
+    · What emotion moved me today, and why?<br>
+    · If I gave today a score out of 10, what would it be? Why?<br>
+    · Right now, what is my deepest wish?
+  </div>
+
+  <div class="footer-note">— print this page as many times as you need —</div>
+</section>
+
+</body>
+</html>

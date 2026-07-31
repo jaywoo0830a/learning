@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오늘의 일기</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Hand:wght@400..700&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/htmlasitis@0.1.0/htmlasitis.css">
+  <style>
+    :root {
+      --hai-font-body: "Nanum Pen Script", cursive;
+      --hai-font-mono: "Nanum Pen Script", monospace;
+      --hai-font-size-body: 11pt;
+      --hai-line-height-body: 1.7;
+    }
+
+    .hai-page {
+      background: #ffffff;
+      padding-top: 14pt;
+    }
+
+    .hai-page h1 {
+      font-family: "Nanum Pen Script", cursive;
+      font-size: 16pt;
+      font-weight: 400;
+      margin: 0 0 8pt 0;
+      padding-bottom: 4pt;
+      border-bottom: 1pt solid #ddd;
+      color: #444;
+      text-align: center;
+      letter-spacing: 1pt;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-family: "Nanum Pen Script", cursive;
+      font-size: 8.5pt;
+      color: #bbb;
+      margin-bottom: 10pt;
+    }
+
+    .hairline { border: none; border-top: 0.3pt solid #e8e8e8; margin: 8pt 0; }
+
+    .row { display: flex; gap: 8pt; }
+    .c1 { flex: 1; } .c2 { flex: 2; } .c3 { flex: 3; }
+
+    /* ── 날짜 / 날씨 / 기분 헤더 ────────────────────────────────── */
+    .diary-header {
+      display: flex;
+      align-items: center;
+      gap: 5pt;
+      font-family: "Nanum Pen Script", cursive;
+      font-size: 10.5pt;
+      color: #555;
+      margin-bottom: 8pt;
+    }
+    .diary-header .label {
+      color: #aaa;
+      font-size: 9pt;
+      margin-right: 2pt;
+    }
+    .diary-header .value {
+      border-bottom: 0.6pt solid #ccc;
+      min-width: 60pt;
+      padding: 0 4pt;
+    }
+
+    /* ── 기분 ───────────────────────────────────────────────────── */
+    .mood-row {
+      display: flex;
+      gap: 5pt;
+      flex-wrap: wrap;
+      margin-bottom: 10pt;
+    }
+    .mood-item {
+      font-family: "Nanum Pen Script", cursive;
+      font-size: 9pt;
+      color: #999;
+      padding: 2pt 7pt;
+      border: 0.5pt solid #ddd;
+      border-radius: 10pt;
+      background: #fafafa;
+    }
+
+    /* ── 섹션 제목 ───────────────────────────────────────────────── */
+    .section-title {
+      font-family: "Nanum Pen Script", cursive;
+      font-size: 12pt;
+      color: #555;
+      margin: 10pt 0 4pt 0;
+      padding-left: 5pt;
+      border-left: 2.5pt solid #bbb;
+    }
+
+    .writing-block {
+      min-height: 70pt;
+      padding: 4pt 6pt;
+      font-family: "Nanum Pen Script", cursive;
+      font-size: 11pt;
+      line-height: 1.7;
+      color: #444;
+    }
+
+    /* ── 성장 질문 ───────────────────────────────────────────────── */
+    .growth-prompt {
+      font-family: "Nanum Pen Script", cursive;
+      font-size: 9pt;
+      color: #bbb;
+      margin-bottom: 2pt;
+      font-style: normal;
+    }
+
+    /* ── 번호 리스트 ────────────────────────────────────────────── */
+    .num-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      counter-reset: item;
+    }
+    .num-list li {
+      font-family: "Nanum Pen Script", cursive;
+      font-size: 10.5pt;
+      color: #555;
+      padding: 2pt 0;
+      display: flex;
+      align-items: baseline;
+      gap: 5pt;
+    }
+    .num-list li::before {
+      counter-increment: item;
+      content: counter(item) ".";
+      font-size: 9pt;
+      color: #bbb;
+      min-width: 12pt;
+    }
+
+    /* ── 하단 ───────────────────────────────────────────────────── */
+    .footer-note {
+      text-align: right;
+      font-family: "Nanum Pen Script", cursive;
+      font-size: 8.5pt;
+      color: #ccc;
+      margin-top: 10pt;
+    }
+
+    .pl {
+      border-bottom: 0.4pt solid #e8e8e8;
+      min-height: 19pt;
+      margin: 1pt 0;
+    }
+
+    /* ── 연장 페이지 ─────────────────────────────────────────────── */
+    .ext-badge {
+      display: inline-block;
+      font-family: "Nanum Pen Script", cursive;
+      font-size: 7.5pt;
+      color: #bbb;
+      border: 0.4pt solid #ddd;
+      padding: 1pt 8pt;
+      border-radius: 3pt;
+      margin-bottom: 6pt;
+    }
+
+    /* ── 인쇄 시 페이지 나눔 ─────────────────────────────────────── */
+    @media print {
+      .hai-page + .hai-page {
+        page-break-before: always;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ================================================================ -->
+<!-- 1쪽: 오늘의 성장 일기 — 이 한 장으로 하루 일기 완결             -->
+<!-- ================================================================ -->
+<section class="hai-page">
+  <h1>✽ 오늘의 성장 일기 ✽</h1>
+  <p class="subtitle">이 한 장이면 오늘 하루 일기는 충분합니다. 더 쓰고 싶다면 뒷장을 인쇄하세요.</p>
+
+  <!-- 날짜 / 날씨 / 기분 -->
+  <div class="diary-header">
+    <span class="label">날짜</span>
+    <span class="value" style="min-width:90pt;">&nbsp;</span>
+    <span class="label">날씨</span>
+    <span class="value" style="min-width:50pt;">&nbsp;</span>
+    <span class="label">기분</span>
+    <span class="value" style="min-width:50pt;">&nbsp;</span>
+  </div>
+
+  <div class="mood-row">
+    <span class="mood-item">😊 기쁨</span>
+    <span class="mood-item">😌 평온</span>
+    <span class="mood-item">💪 뿌듯</span>
+    <span class="mood-item">😢 슬픔</span>
+    <span class="mood-item">😰 불안</span>
+    <span class="mood-item">🤔 고민</span>
+    <span class="mood-item">🎉 설렘</span>
+    <span class="mood-item">🙏 감사</span>
+    <span class="mood-item">😴 피곤</span>
+    <span class="mood-item">🔥 분노</span>
+  </div>
+
+  <hr class="hairline">
+
+  <!-- 1. 오늘 배운 것 -->
+  <div class="section-title">오늘 내가 배운 것</div>
+  <p class="growth-prompt">사실, 기술, 지혜, 나에 대한 깨달음 — 무엇이든 좋습니다.</p>
+  <div class="writing-block">
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+  </div>
+
+  <!-- 2. 오늘의 작은 성취 -->
+  <div class="section-title">오늘의 작은 성취</div>
+  <p class="growth-prompt">아주 작은 일도 괜찮아요. 오늘 내가 해낸 것을 적어보세요.</p>
+  <div class="writing-block">
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+  </div>
+
+  <!-- 3. 마주한 어려움과 대처 -->
+  <div class="section-title">오늘 마주한 어려움, 그리고 내가 대처한 방법</div>
+  <p class="growth-prompt">힘들었던 순간을 인정하고, 그 속에서 내가 선택한 행동을 돌아봅니다.</p>
+  <div class="writing-block">
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+  </div>
+
+  <!-- 4. 감사한 일 -->
+  <div class="section-title">오늘 감사한 일 세 가지</div>
+  <div class="writing-block">
+    <ul class="num-list">
+      <li><span style="min-width:200pt; display:inline-block;">&nbsp;</span></li>
+      <li><span style="min-width:200pt; display:inline-block;">&nbsp;</span></li>
+      <li><span style="min-width:200pt; display:inline-block;">&nbsp;</span></li>
+    </ul>
+  </div>
+
+  <!-- 5. 내일의 실천 -->
+  <div class="section-title">내일, 한 가지 더 나아질 것</div>
+  <p class="growth-prompt">오늘보다 1%만 더 나아져도 충분합니다. 구체적인 실천 하나를 정하세요.</p>
+  <div class="writing-block" style="min-height:35pt;">
+    <div class="pl"></div>
+  </div>
+
+  <div class="footer-note">— 오늘도 성장한 나에게 — &nbsp; ☐ 1/1</div>
+</section>
+
+<!-- ================================================================ -->
+<!-- 2쪽부터: 연장 페이지 — 필요한 만큼 여러 장 인쇄 가능             -->
+<!-- ================================================================ -->
+<section class="hai-page">
+  <span class="ext-badge">☐ 이어서 쓰기</span>
+  <h1>✽ 오늘의 일기 — 이어서 ✽</h1>
+  <p class="subtitle">앞 장에서 다 하지 못한 이야기, 더 깊은 생각, 자유롭게 펼쳐보세요.</p>
+
+  <!-- 날짜 참조 -->
+  <div class="diary-header">
+    <span class="label">날짜</span>
+    <span class="value" style="min-width:90pt;">&nbsp;</span>
+    <span class="label">이어서 쓴 시간</span>
+    <span class="value" style="min-width:60pt;">&nbsp;</span>
+  </div>
+
+  <hr class="hairline">
+
+  <!-- 자유 글쓰기 공간 — 넉넉하게 -->
+  <div class="section-title">더 쓰고 싶은 이야기</div>
+  <div class="writing-block" style="min-height:200pt;">
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+  </div>
+
+  <!-- 추가 성찰 질문 (선택) -->
+  <div class="section-title">더 깊이 돌아보기 — 생각나면 골라서</div>
+  <div class="writing-block" style="min-height:60pt; font-size:9.5pt; color:#888;">
+    · 오늘 나를 움직인 감정은 무엇이고, 왜였을까?<br>
+    · 오늘의 나에게 점수를 준다면? 그 이유는?<br>
+    · 지금 이 순간, 가장 간절한 바람은?
+  </div>
+
+  <div class="footer-note">— 필요한 만큼 이 페이지를 더 인쇄하세요 —</div>
+</section>
+
+</body>
+</html>
