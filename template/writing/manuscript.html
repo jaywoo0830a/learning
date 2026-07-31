@@ -21,53 +21,29 @@
       padding: 4pt 6pt 2pt 6pt;
     }
 
-    /* ── 헤더 ───────────────────────────────────────────────────── */
-    .ms-header {
-      font-family: "Nanum Pen Script", cursive;
-      font-size: 7.5pt;
-      color: #999;
-      display: flex;
-      gap: 6pt;
-      margin-bottom: 3pt;
-      align-items: center;
-    }
-    .ms-header .label { color: #bbb; }
-    .ms-header .field {
-      border-bottom: 0.3pt solid #ccc;
-      min-width: 55pt;
-      padding: 0 2pt;
-      color: #777;
-    }
-
-    /* ── 원고지 그리드 — CSS Grid + border만 사용 ───────────────── */
+    /* ── 원고지 그리드 — 20열 정사각형 칸 ──────────────────────── */
     .manuscript-grid {
       display: grid;
       grid-template-columns: repeat(20, 1fr);
-      grid-template-rows: repeat(35, 1fr);
+      grid-template-rows: repeat(28, 1fr);
       border: 1pt solid #999;
       width: 100%;
-      min-height: 510pt;
+      aspect-ratio: 20 / 28;
     }
     .manuscript-grid .cell {
-      border-right: 0.4pt solid #ccc;
-      border-bottom: 0.4pt solid #ccc;
+      aspect-ratio: 1;
+      position: relative;
     }
-    /* 20번째 열마다 오른쪽 테두리 제거 (마지막 열) */
-    .manuscript-grid .cell:nth-child(20n) {
-      border-right: none;
-    }
-    /* 681번째부터는 아래쪽 테두리 제거 (마지막 행: 20×34+1 = 681) */
-    .manuscript-grid .cell:nth-child(n+681) {
-      border-bottom: none;
-    }
-
-    /* ── 하단 ───────────────────────────────────────────────────── */
-    .ms-footer {
-      text-align: right;
-      font-family: "Nanum Pen Script", cursive;
-      font-size: 6pt;
+    /* 정사각형 칸 중앙에 십자 가이드 (원고지 특유의 표시) */
+    .manuscript-grid .cell::before {
+      content: "+";
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 5pt;
       color: #ddd;
-      margin-top: 1.5pt;
+      line-height: 1;
+      pointer-events: none;
     }
 
     @media print {
@@ -79,25 +55,35 @@
 
 <section class="hai-page">
 
-  <!-- 원고지 헤더 -->
-  <div class="ms-header">
-    <span class="label">제목</span><span class="field" style="min-width:140pt;">&nbsp;</span>
-    <span class="label">소속 / 이름</span><span class="field" style="min-width:90pt;">&nbsp;</span>
-    <span class="label">날짜</span><span class="field" style="min-width:60pt;">&nbsp;</span>
-  </div>
-
-  <!-- 원고지 그리드: 20열 × 35행 = 700칸 -->
   <div class="manuscript-grid" id="grid"></div>
-
-  <p class="ms-footer">20×35 · 700자</p>
 
 </section>
 
 <script>
+  const COLS = 20;
+  const ROWS = 28;
+  const TOTAL = COLS * ROWS;
+
+  // ── 굵기 설정 (원하는 대로 바꾸세요) ──────────────────────────
+  const INNER = '0.4pt solid #ccc'; // 내부선
+
   const grid = document.getElementById('grid');
-  for (let i = 0; i < 20 * 35; i++) {
+
+  for (let i = 0; i < TOTAL; i++) {
+    const row = Math.floor(i / COLS);
+    const col = i % COLS;
+
     const cell = document.createElement('div');
-    cell.className = 'cell';
+
+    // BT: 첫 행이면 grid 외곽선이 덮으므로 생략
+    cell.style.borderTop    = (row === 0)        ? 'none' : INNER;
+    // BB: 마지막 행이면 grid 외곽선이 덮으므로 생략
+    cell.style.borderBottom = (row === ROWS - 1) ? 'none' : INNER;
+    // BL: 첫 열이면 grid 외곽선이 덮으므로 생략
+    cell.style.borderLeft   = (col === 0)        ? 'none' : INNER;
+    // BR: 마지막 열이면 grid 외곽선이 덮으므로 생략
+    cell.style.borderRight  = (col === COLS - 1) ? 'none' : INNER;
+
     grid.appendChild(cell);
   }
 </script>
