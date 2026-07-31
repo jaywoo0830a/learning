@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>자유 글쓰기</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Hand:wght@400..700&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/htmlasitis@0.1.0/htmlasitis.css">
+  <style>
+    :root {
+      --hai-font-body: "Nanum Pen Script", cursive;
+      --hai-font-mono: "Nanum Pen Script", monospace;
+      --hai-font-size-body: 11pt;
+      --hai-line-height-body: 1.7;
+    }
+
+    .hai-page {
+      background: #ffffff;
+      padding-top: 14pt;
+    }
+
+    .hai-page h1 {
+      font-family: "Nanum Pen Script", cursive;
+      font-size: 16pt;
+      font-weight: 400;
+      margin: 0 0 6pt 0;
+      padding-bottom: 4pt;
+      border-bottom: 1pt solid #ddd;
+      color: #444;
+      text-align: center;
+      letter-spacing: 1pt;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-family: "Nanum Pen Script", cursive;
+      font-size: 8.5pt;
+      color: #bbb;
+      margin-bottom: 10pt;
+    }
+
+    .hairline { border: none; border-top: 0.3pt solid #e8e8e8; margin: 8pt 0; }
+
+    .row { display: flex; gap: 8pt; }
+    .c1 { flex: 1; } .c2 { flex: 2; } .c3 { flex: 3; }
+
+    /* ── 헤더 ───────────────────────────────────────────────────── */
+    .write-header {
+      display: flex;
+      align-items: center;
+      gap: 5pt;
+      font-family: "Nanum Pen Script", cursive;
+      font-size: 10.5pt;
+      color: #555;
+      margin-bottom: 6pt;
+      flex-wrap: wrap;
+    }
+    .write-header .label {
+      color: #aaa;
+      font-size: 9pt;
+      margin-right: 2pt;
+    }
+    .write-header .value {
+      border-bottom: 0.6pt solid #ccc;
+      min-width: 60pt;
+      padding: 0 4pt;
+    }
+
+    /* ── 타이머 프리셋 ──────────────────────────────────────────── */
+    .timer-row {
+      display: flex;
+      gap: 4pt;
+      flex-wrap: wrap;
+      margin-bottom: 8pt;
+    }
+    .timer-chip {
+      font-family: "Nanum Pen Script", cursive;
+      font-size: 8.5pt;
+      color: #999;
+      padding: 2pt 8pt;
+      border: 0.5pt solid #ddd;
+      border-radius: 10pt;
+      background: #fafafa;
+    }
+
+    /* ── 글감 ───────────────────────────────────────────────────── */
+    .prompt-grid {
+      display: flex;
+      gap: 4pt;
+      flex-wrap: wrap;
+      margin-bottom: 8pt;
+    }
+    .prompt-chip {
+      font-family: "Nanum Pen Script", cursive;
+      font-size: 8pt;
+      color: #999;
+      padding: 2pt 7pt;
+      border: 0.5pt solid #eee;
+      border-radius: 3pt;
+      background: #fafafa;
+    }
+
+    /* ── 섹션 제목 ───────────────────────────────────────────────── */
+    .section-title {
+      font-family: "Nanum Pen Script", cursive;
+      font-size: 12pt;
+      color: #555;
+      margin: 10pt 0 4pt 0;
+      padding-left: 5pt;
+      border-left: 2.5pt solid #bbb;
+    }
+
+    .writing-block {
+      padding: 4pt 6pt;
+      font-family: "Nanum Pen Script", cursive;
+      font-size: 11pt;
+      line-height: 1.7;
+      color: #444;
+    }
+
+    .growth-prompt {
+      font-family: "Nanum Pen Script", cursive;
+      font-size: 9pt;
+      color: #bbb;
+      margin-bottom: 2pt;
+    }
+
+    /* ── 연장 페이지 ─────────────────────────────────────────────── */
+    .ext-badge {
+      display: inline-block;
+      font-family: "Nanum Pen Script", cursive;
+      font-size: 7.5pt;
+      color: #bbb;
+      border: 0.4pt solid #ddd;
+      padding: 1pt 8pt;
+      border-radius: 3pt;
+      margin-bottom: 6pt;
+    }
+
+    /* ── 하단 ───────────────────────────────────────────────────── */
+    .footer-note {
+      text-align: right;
+      font-family: "Nanum Pen Script", cursive;
+      font-size: 8.5pt;
+      color: #ccc;
+      margin-top: 10pt;
+    }
+
+    .pl {
+      border-bottom: 0.4pt solid #e8e8e8;
+      min-height: 19pt;
+      margin: 1pt 0;
+    }
+
+    @media print {
+      .hai-page + .hai-page {
+        page-break-before: always;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ================================================================ -->
+<!-- 1쪽: 자유 글쓰기                                                  -->
+<!-- ================================================================ -->
+<section class="hai-page">
+  <h1>✽ 자유 글쓰기 ✽</h1>
+  <p class="subtitle">멈추지 말고, 고치지 말고, 그냥 써 내려가세요. 생각의 속도로.</p>
+
+  <!-- 날짜 / 타이머 / 주제 -->
+  <div class="write-header">
+    <span class="label">날짜</span>
+    <span class="value" style="min-width:85pt;">&nbsp;</span>
+    <span class="label">글감</span>
+    <span class="value" style="min-width:120pt;">&nbsp;</span>
+  </div>
+
+  <!-- 타이머 -->
+  <div class="timer-row">
+    <span class="timer-chip">⌛ 5분</span>
+    <span class="timer-chip">⌛ 10분</span>
+    <span class="timer-chip">⌛ 15분</span>
+    <span class="timer-chip">⌛ 20분</span>
+    <span class="timer-chip">⌛ 30분</span>
+  </div>
+
+  <!-- 글감 아이디어 -->
+  <div class="prompt-grid">
+    <span class="prompt-chip">지금 내 손에 닿는 것</span>
+    <span class="prompt-chip">창밖 풍경</span>
+    <span class="prompt-chip">가장 좋아하는 냄새</span>
+    <span class="prompt-chip">10년 전 오늘</span>
+    <span class="prompt-chip">내가 두려워하는 것</span>
+    <span class="prompt-chip">완벽한 하루</span>
+    <span class="prompt-chip">내 이름에 얽힌 이야기</span>
+    <span class="prompt-chip">다시 태어난다면</span>
+    <span class="prompt-chip">지금 듣고 있는 소리</span>
+    <span class="prompt-chip">내 인생의 전환점</span>
+    <span class="prompt-chip">요즘 빠진 것</span>
+    <span class="prompt-chip">만약 내일이 없다면</span>
+    <span class="prompt-chip">어릴 적 비밀 장소</span>
+    <span class="prompt-chip">오늘 가장 웃긴 순간</span>
+    <span class="prompt-chip">나를 살게 하는 것</span>
+    <span class="prompt-chip">처음 만난 그날</span>
+  </div>
+
+  <hr class="hairline">
+
+  <!-- 글쓰기 공간 -->
+  <div class="section-title">써 내려가기</div>
+  <p class="growth-prompt">문법, 맞춤법, 논리 — 아무것도 신경 쓰지 마세요. 생각의 흐름을 그대로.</p>
+  <div class="writing-block" style="min-height:280pt;">
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+  </div>
+
+  <div class="footer-note">— 멈추지 않고 썼다면, 이미 성공입니다 —</div>
+</section>
+
+<!-- ================================================================ -->
+<!-- 2쪽부터: 연장 페이지 — 계속 쓰고 싶을 때                          -->
+<!-- ================================================================ -->
+<section class="hai-page">
+  <span class="ext-badge">☐ 이어서 쓰기</span>
+  <h1>✽ 자유 글쓰기 — 이어서 ✽</h1>
+  <p class="subtitle">앞 장에서 멈춘 곳부터, 계속 써 내려가세요.</p>
+
+  <div class="write-header">
+    <span class="label">날짜</span>
+    <span class="value" style="min-width:85pt;">&nbsp;</span>
+    <span class="label">글감</span>
+    <span class="value" style="min-width:120pt;">&nbsp;</span>
+  </div>
+
+  <hr class="hairline">
+
+  <div class="writing-block" style="min-height:320pt;">
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+    <div class="pl"></div>
+  </div>
+
+  <div class="footer-note">— 필요한 만큼 이 페이지를 더 인쇄하세요 —</div>
+</section>
+
+</body>
+</html>
