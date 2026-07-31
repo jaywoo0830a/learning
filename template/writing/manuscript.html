@@ -18,7 +18,7 @@
 
     .hai-page {
       background: #ffffff;
-      padding: 4pt 8pt 2pt 8pt;
+      padding: 4pt 6pt 2pt 6pt;
     }
 
     /* ── 헤더 ───────────────────────────────────────────────────── */
@@ -33,46 +33,32 @@
     }
     .ms-header .label { color: #bbb; }
     .ms-header .field {
-      border-bottom: 0.3pt solid #e0c0c0;
+      border-bottom: 0.3pt solid #ccc;
       min-width: 55pt;
       padding: 0 2pt;
       color: #777;
     }
 
-    /* ── 원고지 그리드 ──────────────────────────────────────────── */
+    /* ── 원고지 그리드 — CSS Grid + border만 사용 ───────────────── */
     .manuscript-grid {
       display: grid;
       grid-template-columns: repeat(20, 1fr);
       grid-template-rows: repeat(35, 1fr);
-      border: 0.8pt solid #d4a0a0;
+      border: 1pt solid #999;
       width: 100%;
       min-height: 510pt;
     }
     .manuscript-grid .cell {
-      border: 0.3pt solid #e8c8c8;
-      position: relative;
+      border-right: 0.4pt solid #ccc;
+      border-bottom: 0.4pt solid #ccc;
     }
-    /* 중앙 십자 점 — 원고지 특유의 느낌 */
-    .manuscript-grid .cell::before {
-      content: "";
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 2pt; height: 2pt;
-      background: #f0d8d8;
-      border-radius: 50%;
+    /* 20번째 열마다 오른쪽 테두리 제거 (마지막 열) */
+    .manuscript-grid .cell:nth-child(20n) {
+      border-right: none;
     }
-    .manuscript-grid .cell::after {
-      content: "";
-      position: absolute;
-      top: 50%; left: 0; right: 0;
-      border-top: 0.15pt dotted #f0d8d8;
-    }
-    /* 세로 십자선도 추가 */
-    .cell-inner-v {
-      position: absolute;
-      left: 50%; top: 0; bottom: 0;
-      border-left: 0.15pt dotted #f0d8d8;
+    /* 681번째부터는 아래쪽 테두리 제거 (마지막 행: 20×34+1 = 681) */
+    .manuscript-grid .cell:nth-child(n+681) {
+      border-bottom: none;
     }
 
     /* ── 하단 ───────────────────────────────────────────────────── */
@@ -112,9 +98,6 @@
   for (let i = 0; i < 20 * 35; i++) {
     const cell = document.createElement('div');
     cell.className = 'cell';
-    const v = document.createElement('div');
-    v.className = 'cell-inner-v';
-    cell.appendChild(v);
     grid.appendChild(cell);
   }
 </script>
