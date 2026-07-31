@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>원고지</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/htmlasitis@0.1.0/htmlasitis.css">
+  <style>
+    :root {
+      --hai-font-body: "Nanum Pen Script", cursive;
+      --hai-font-mono: "Nanum Pen Script", monospace;
+      --hai-font-size-body: 9pt;
+      --hai-line-height-body: 1.3;
+    }
+
+    .hai-page {
+      background: #ffffff;
+      padding: 10pt 12pt 8pt 12pt;
+    }
+
+    /* ── 헤더 ───────────────────────────────────────────────────── */
+    .ms-header {
+      font-family: "Nanum Pen Script", cursive;
+      font-size: 8pt;
+      color: #999;
+      display: flex;
+      gap: 8pt;
+      margin-bottom: 6pt;
+      align-items: center;
+    }
+    .ms-header .label { color: #bbb; }
+    .ms-header .field {
+      border-bottom: 0.4pt solid #e0c0c0;
+      min-width: 60pt;
+      padding: 0 3pt;
+      color: #777;
+    }
+
+    /* ── 원고지 그리드 ──────────────────────────────────────────── */
+    .manuscript-grid {
+      display: grid;
+      grid-template-columns: repeat(20, 1fr);
+      grid-template-rows: repeat(22, 1fr);
+      border: 1pt solid #d4a0a0;
+      width: 100%;
+      aspect-ratio: 20 / 22;
+    }
+    .manuscript-grid .cell {
+      border: 0.3pt solid #e8c8c8;
+      position: relative;
+    }
+    /* 중앙 십자 점 — 원고지 특유의 느낌 */
+    .manuscript-grid .cell::before {
+      content: "";
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 2pt; height: 2pt;
+      background: #f0d8d8;
+      border-radius: 50%;
+    }
+    .manuscript-grid .cell::after {
+      content: "";
+      position: absolute;
+      top: 50%; left: 0; right: 0;
+      border-top: 0.15pt dotted #f0d8d8;
+    }
+    /* 세로 십자선도 추가 */
+    .cell-inner-v {
+      position: absolute;
+      left: 50%; top: 0; bottom: 0;
+      border-left: 0.15pt dotted #f0d8d8;
+    }
+
+    /* ── 하단 ───────────────────────────────────────────────────── */
+    .ms-footer {
+      text-align: right;
+      font-family: "Nanum Pen Script", cursive;
+      font-size: 7pt;
+      color: #ccc;
+      margin-top: 4pt;
+    }
+
+    @media print {
+      .hai-page { padding: 8pt 10pt 6pt 10pt; }
+    }
+  </style>
+</head>
+<body>
+
+<section class="hai-page">
+
+  <!-- 원고지 헤더 -->
+  <div class="ms-header">
+    <span class="label">제목</span><span class="field" style="min-width:140pt;">&nbsp;</span>
+    <span class="label">소속 / 이름</span><span class="field" style="min-width:90pt;">&nbsp;</span>
+    <span class="label">날짜</span><span class="field" style="min-width:60pt;">&nbsp;</span>
+  </div>
+
+  <!-- 원고지 그리드: 20열 × 22행 = 440칸 -->
+  <div class="manuscript-grid" id="grid"></div>
+
+  <p class="ms-footer">20×22 · 440자</p>
+
+</section>
+
+<script>
+  const grid = document.getElementById('grid');
+  for (let i = 0; i < 20 * 22; i++) {
+    const cell = document.createElement('div');
+    cell.className = 'cell';
+    const v = document.createElement('div');
+    v.className = 'cell-inner-v';
+    cell.appendChild(v);
+    grid.appendChild(cell);
+  }
+</script>
+
+</body>
+</html>
