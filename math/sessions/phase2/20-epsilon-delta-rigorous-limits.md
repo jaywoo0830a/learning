@@ -177,7 +177,38 @@ Choose $\delta$ from the $f$-limit with tolerance $\varepsilon/|c|$.
 
 ---
 
-## Example 10: The Squeeze Theorem — Proof and Application
+## Example 10: The Product Law — $\lim (f \cdot g) = \lim f \cdot \lim g$
+
+**Claim**: If $\lim_{x \to a} f(x) = L$ and $\lim_{x \to a} g(x) = M$, then $\lim_{x \to a} [f(x)g(x)] = LM$.
+
+This one needs a small preliminary fact first.
+
+**Lemma — convergent functions are locally bounded**: If $f(x) \to L$ as $x \to a$, then there exist $\delta_0 > 0$ and a constant $C > 0$ with $|f(x)| \leq C$ for all $0 < |x-a| < \delta_0$.
+
+*Proof*: Apply the definition with $\varepsilon = 1$: some $\delta_0$ makes $|f(x)-L| < 1$. By the triangle inequality, $|f(x)| \leq |f(x)-L| + |L| < 1 + |L| =: C$. ✓
+
+**Proof of the product law**:
+
+Add and subtract the cross term $f(x)M$ — the same trick that later proves the product rule in Session 21:
+
+$|f(x)g(x) - LM| = |f(x)g(x) - f(x)M \;+\; f(x)M - LM|$
+$\leq |f(x)|\cdot|g(x)-M| \;+\; |M|\cdot|f(x)-L|$ (triangle inequality).
+
+Given $\varepsilon > 0$:
+- choose $\delta_1$ so that $|f(x)-L| < \frac{\varepsilon}{2(C+1)}$,
+- choose $\delta_2$ so that $|g(x)-M| < \frac{\varepsilon}{2(|M|+1)}$.
+
+Let $\delta = \min(\delta_0, \delta_1, \delta_2)$. For $0 < |x-a| < \delta$:
+
+$|f(x)g(x)-LM| < C\cdot\frac{\varepsilon}{2(C+1)} + |M|\cdot\frac{\varepsilon}{2(|M|+1)} < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon$. Done.
+
+**Why the $+1$'s in the denominators?** They keep the fractions safe when $C = 0$ or $M = 0$ — no division by zero.
+
+**Why this law matters here**: Session 21 proves "differentiable $\Rightarrow$ continuous" by multiplying two limits, and proves the product rule by multiplying limits too. Without the product law those proofs would float. Now the support chain is complete: sum, constant multiple, product, squeeze.
+
+---
+
+## Example 11: The Squeeze Theorem — Proof and Application
 
 **Statement**: If $g(x) \leq f(x) \leq h(x)$ near $a$ (except possibly at $a$) and $\lim_{x \to a} g(x) = \lim_{x \to a} h(x) = L$, then $\lim_{x \to a} f(x) = L$.
 
@@ -207,7 +238,7 @@ For $x \to 0^-$, use $\sin(-x)/(−x) = \sin x / x$ (even function symmetry).
 
 ---
 
-## Example 11: Counterexample — When the Limit Does Not Exist
+## Example 12: Counterexample — When the Limit Does Not Exist
 
 **$f(x) = \sin(1/x)$ near $x=0$**: As $x \to 0$, $1/x \to \infty$, and $\sin(1/x)$ oscillates between $-1$ and $1$ infinitely often. No single $L$ can satisfy the ε-δ definition.
 
@@ -217,7 +248,7 @@ Then $|f(x_1)-L| < 1/2$ and $|f(x_2)-L| < 1/2$ would imply $|1 - (-1)| \leq |1-L
 
 ---
 
-## Example 12: Infinite Limits — A Variant Definition
+## Example 13: Infinite Limits — A Variant Definition
 
 $\lim_{x \to a} f(x) = \infty$ means: $\forall M > 0,\; \exists \delta > 0,\; 0 < |x-a| < \delta \Rightarrow f(x) > M$.
 
@@ -227,7 +258,64 @@ Given any $M > 0$, choose $\delta = 1/M$. If $0 < x < \delta$, then $\frac{1}{x}
 
 This is NOT the same as "the limit exists and equals infinity" — infinity is not a number. The notation means "grows without bound."
 
-> **Up to here**: ε-δ: $\forall\varepsilon>0,\exists\delta>0, 0<|x-a|<\delta\Rightarrow|f(x)-L|<\varepsilon$. The $0<$ excludes $x=a$. Linear: $\delta=\varepsilon/|m|$. Quadratic: bound the extra factor by restricting $\delta$ first. ε-N: $\forall\varepsilon>0,\exists N, n\geq N\Rightarrow|a_n-L|<\varepsilon$. Limit laws: sum, constant multiple, squeeze. Uniqueness of limits. Non-existence: oscillation counterexample.
+> **Up to here**: ε-δ: $\forall\varepsilon>0,\exists\delta>0, 0<|x-a|<\delta\Rightarrow|f(x)-L|<\varepsilon$. The $0<$ excludes $x=a$. Linear: $\delta=\varepsilon/|m|$. Quadratic: bound the extra factor by restricting $\delta$ first. ε-N: $\forall\varepsilon>0,\exists N, n\geq N\Rightarrow|a_n-L|<\varepsilon$. Limit laws: sum, constant multiple, **product (locally-bounded lemma + cross-term trick)**, squeeze. Uniqueness of limits. Non-existence: oscillation counterexample. Infinite limits: ∀M ∃δ with f(x)>M (different definition, not a number).
+
+---
+
+## Part D: Proving Limits Fail — Negation and One-Sided Limits
+
+---
+
+## Example 14: Negating the ε-δ Definition — What "No Limit" Really Means
+
+Phase 1 (Session 02) gave you the machine: negating a $\forall\exists\forall$ sentence flips **every** quantifier and negates the innermost claim.
+
+The definition: $\lim_{x \to a} f(x) = L$ means
+
+$$\forall \varepsilon > 0,\; \exists \delta > 0,\; \forall x\;\big(0 < |x-a| < \delta \Rightarrow |f(x)-L| < \varepsilon\big).$$
+
+**Negate it step by step** (each arrow is a Phase 1 rule):
+
+$\neg\Big(\forall\varepsilon\;\exists\delta\;\forall x\,(P \Rightarrow Q)\Big)$
+$= \exists\varepsilon\;\neg\Big(\exists\delta\;\forall x\,(P \Rightarrow Q)\Big)$  [¬∀ ≡ ∃¬]
+$= \exists\varepsilon\;\forall\delta\;\neg\Big(\forall x\,(P \Rightarrow Q)\Big)$  [¬∃ ≡ ∀¬]
+$= \exists\varepsilon\;\forall\delta\;\exists x\,\neg(P \Rightarrow Q)$  [¬∀ ≡ ∃¬]
+$= \exists\varepsilon\;\forall\delta\;\exists x\,(P \land \neg Q)$  [¬(P⇒Q) ≡ P∧¬Q — Phase 1 Session 01]
+
+So **"$\lim_{x \to a} f(x) = L$" fails** exactly when:
+
+$$\exists \varepsilon > 0,\; \forall \delta > 0,\; \exists x\;\big(0 < |x-a| < \delta \;\land\; |f(x)-L| \geq \varepsilon\big).$$
+
+**Plain English**: There is a tolerance $\varepsilon$ such that, no matter how small you make the window $\delta$, you can always find an $x$ inside the window that lands **outside** the tolerance band.
+
+**Worked example — $f(x) = \sin(1/x)$ at $a=0$ (every candidate $L$ fails)**:
+
+Take $\varepsilon = 1/2$. Given ANY $\delta > 0$, choose $n$ large enough that both $\frac{1}{2n\pi + \pi/2} < \delta$ and $\frac{1}{2n\pi + 3\pi/2} < \delta$. Then $x_1 = \frac{1}{2n\pi+\pi/2}$ gives $\sin(1/x_1) = 1$, and $x_2 = \frac{1}{2n\pi+3\pi/2}$ gives $\sin(1/x_2) = -1$ — both inside $0 < x < \delta$, yet $2$ apart. They cannot both lie within $1/2$ of any single $L$: $2 = |1-(-1)| \leq |1-L| + |L-(-1)| < 1$, impossible. So the negation holds for every $L$ — **no limit exists**. (This restates Example 12 in the language of the negation.)
+
+> **Insight**: The negation turns "prove the limit doesn't exist" into a **two-player game** (Phase 1's quantifier order made literal): the challenger picks $\varepsilon$, you pick $\delta$, the challenger picks $x$ — and wins if $|f(x)-L| \geq \varepsilon$. "No limit" means the challenger has a winning strategy against every $L$.
+
+---
+
+## Example 15: One-Sided ε-δ Definitions
+
+**Right-hand limit** $\lim_{x \to a^+} f(x) = L$: restrict the window to $x > a$.
+
+$$\forall \varepsilon > 0,\; \exists \delta > 0,\; \forall x\;\big(0 < x - a < \delta \Rightarrow |f(x)-L| < \varepsilon\big).$$
+
+**Left-hand limit** $\lim_{x \to a^-} f(x) = L$: restrict the window to $x < a$.
+
+$$\forall \varepsilon > 0,\; \exists \delta > 0,\; \forall x\;\big(0 < a - x < \delta \Rightarrow |f(x)-L| < \varepsilon\big).$$
+
+**Two-sided theorem**: $\lim_{x \to a} f(x) = L$ exists **iff** both one-sided limits exist and equal $L$. (Reason: the two half-windows $0 < x-a < \delta$ and $0 < a-x < \delta$ glue together into $0 < |x-a| < \delta$.)
+
+**Worked example — $f(x) = \frac{|x|}{x}$ at $a=0$**:
+
+- For $x > 0$: $\frac{|x|}{x} = 1$ identically, so $\lim_{x \to 0^+} \frac{|x|}{x} = 1$ (any $\delta$ works).
+- For $x < 0$: $\frac{|x|}{x} = -1$ identically, so $\lim_{x \to 0^-} \frac{|x|}{x} = -1$.
+
+Left $\neq$ right, so the **two-sided limit does not exist** — no ε-δ chase needed, the one-sided theorem settles it.
+
+> **Up to here**: Negating the definition (flip quantifiers; $P \Rightarrow Q$ becomes $P \land \neg Q$) gives the exact condition for "the limit fails." One-sided limits restrict the window to one side; the two-sided limit exists iff both sides exist and agree.
 
 ---
 
@@ -249,6 +337,12 @@ This is NOT the same as "the limit exists and equals infinity" — infinity is n
 
 **Wrong**: "Since $\sin x/x$ is between $\cos x$ and $1$, the limit is $1$." **Right**: You must first prove $\cos x < \sin x/x < 1$ for $x \in (0, \pi/2)$. The squeeze theorem is a consequence, not an assumption.
 
+### Mistake 5: Negating an implication incorrectly
+
+**Wrong**: When negating the limit definition, turning $P \Rightarrow Q$ into $\neg P \Rightarrow Q$ (or "$\neg P$" and keeping $Q$).
+
+**Right**: The negation of $P \Rightarrow Q$ is $P \land \neg Q$ (Phase 1, Session 01). So the limit fails when $\exists\varepsilon\,\forall\delta\,\exists x$ with $0<|x-a|<\delta$ AND $|f(x)-L|\geq\varepsilon$ — the window condition stays, only the conclusion flips.
+
 ---
 
 ## What We Just Did
@@ -262,10 +356,15 @@ This is NOT the same as "the limit exists and equals infinity" — infinity is n
     all terms are within ε of L. Solve |a_n-L|<ε for n.
 
 (3) Limit laws proved: sum law (split ε/2 each), constant multiple,
+    product law (locally-bounded lemma + cross-term trick),
     squeeze theorem (trap f between two functions with the same limit).
     Uniqueness: a limit, if it exists, is unique.
 
 (4) Non-existence: oscillation counterexample (sin(1/x) at 0).
+    Negation: flip quantifiers, P⇒Q becomes P∧¬Q — the exact condition
+    for "the limit fails."
+    One-sided limits: restrict the window to one side (0 < x−a < δ or
+    0 < a−x < δ); two-sided limit exists iff both sides exist and agree.
     Infinite limits: ∀M ∃δ with f(x)>M (different definition, not a number).
 ```
 
@@ -353,6 +452,10 @@ A student claims: "$\lim_{x \to 0} \frac{x}{|x|}$ exists because the left and ri
 
 **D10.** Prove: if $\lim_{x \to a} f(x) = L$, then $\lim_{x \to a} [f(x) - L] = 0$. (This is often used to simplify proofs.)
 
+**D11.** State the negation of "$\lim_{n \to \infty} a_n = L$" (the ε-N definition) in symbols, then in plain English.
+
+**D12.** Using the one-sided ε-δ definition, prove $\lim_{x \to 1^+} (3x-2) = 1$. Give δ in terms of ε.
+
 > Solutions: [Solutions](solutions/20-solutions.md#basic-drill)
 
 ---
@@ -381,6 +484,10 @@ A student claims: "$\lim_{x \to 0} \frac{x}{|x|}$ exists because the left and ri
 
 **A10.** The **Cauchy criterion** for sequences states: $a_n$ converges iff $\forall\varepsilon>0,\;\exists N,\;\forall m,n\geq N,\;|a_m-a_n|<\varepsilon$. Prove the forward direction: if $\lim a_n = L$, then the Cauchy condition holds. (Use $|a_m-a_n| \leq |a_m-L| + |L-a_n|$.)
 
+**A11.** Prove the product law for limits of functions from scratch, including the locally-bounded lemma. State exactly where you use the triangle inequality.
+
+**A12.** Prove that $\lim_{x \to 0} \frac{|x|}{x}$ does not exist by negating the two-sided ε-δ definition directly — find the $\varepsilon$, and for every $\delta$ the required $x$ values.
+
 > Solutions: [Solutions](solutions/20-solutions.md#advanced-drill)
 
 ---
@@ -395,8 +502,12 @@ Step 1: Memorize the ε-δ symbolic form: ∀ε>0 ∃δ>0 (0<|x-a|<δ ⇒ |f(x)-
 Step 2: ε-N for sequences: |a_n-L| < ε → solve for n > some function of ε.
         Choose N = ⌈that function⌉. Triangle inequality is your main tool.
 
-Step 3: Prove limit laws from the definition. Sum law: split ε/2. Squeeze:
-        trap between two functions. Uniqueness: contradiction with ε=|L-M|/3.
+Step 3: Prove limit laws from the definition. Sum law: split ε/2. Product law:
+        locally-bounded lemma + cross-term trick. Squeeze: trap between two
+        functions. Uniqueness: contradiction with ε=|L-M|/3.
+
+Step 4: To prove a limit FAILS: negate the definition (∃ε ∀δ ∃x with P∧¬Q),
+        or compare one-sided limits (left ≠ right ⇒ no two-sided limit).
 ```
 
 ---
@@ -417,6 +528,9 @@ Step 3: Prove limit laws from the definition. Sum law: split ε/2. Squeeze:
 | $\neg$ | "not" / "negation" | logical negation — flips truth value |
 | $N \in \mathbb{N}$ | "N in the natural numbers" | N is a natural number (1, 2, 3, ...) |
 | Cauchy criterion | "Cauchy criterion" | ∀ε ∃N ∀m,n≥N: |a_m−a_n|<ε — sequence converges iff Cauchy |
+| $\lim_{x \to a^+} f(x) = L$ | "limit as x approaches a from the right" | right-hand limit — only x > a is considered |
+| $\lim_{x \to a^-} f(x) = L$ | "limit as x approaches a from the left" | left-hand limit — only x < a is considered |
+| "the limit fails" (negation) | negation of the definition | ∃ε ∀δ ∃x with 0<|x−a|<δ and |f(x)−L|≥ε |
 
 
 ---
@@ -437,3 +551,7 @@ Step 3: Prove limit laws from the definition. Sum law: split ε/2. Squeeze:
 | grows without bound | infinite limit | $\lim f(x) = \infty$ |
 | sequence terms eventually close | convergence of a sequence | $a_n \to L$ |
 | fundamental inequality | triangle inequality | $\vert a+b\vert \leq \vert a\vert + \vert b\vert$ |
+| product law for limits | product law | $\lim(fg) = \lim f \cdot \lim g$ |
+| convergent ⇒ bounded nearby | local boundedness | $|f(x)| \leq C$ near $a$ |
+| limit from one side only | one-sided limit | $\lim_{x \to a^\pm} f(x)$ |
+| "no limit exists" condition | negation of the definition | $\exists\varepsilon\;\forall\delta\;\exists x\;(P \land \neg Q)$ |

@@ -111,6 +111,8 @@ Thus $F'(x) = f(x)$. The derivative of the accumulation function is the original
 
 **The physical meaning**: If $f(t)$ is your speed at time $t$, then $F(x)$ is the distance traveled from time $a$ to $x$. FTC Part 1 says: the rate of change of distance IS speed. Obvious in hindsight, profound in proof.
 
+> **Definition note**: The proof uses $\int_a^x f(t)\,dt$ as the "area under the curve" from Sessions 16A–B. The formal definition (Riemann sums) and the proof that continuous functions are integrable belong to Phase 3 (Session 26). FTC Part 1 is conditional on that: *if* the integral exists as an area, *then* its derivative is the integrand.
+
 ---
 
 ## Example 6: FTC Part 2 — The Evaluation Theorem
@@ -221,7 +223,7 @@ EVT (Session 21) → Rolle's Theorem → MVT → FTC Part 1 → FTC Part 2
                               Cauchy MVT → Taylor's Theorem
 ```
 
-Every "obvious" calculus fact traces back to the completeness of the real numbers (Session 05 — $\mathbb{R}$ has no gaps). EVT is where completeness enters calculus. From there, everything cascades.
+Every "obvious" calculus fact traces back to the **completeness of the real numbers** — the fact that $\mathbb{R}$ has no gaps (there is no largest real below $\sqrt{2}$, no first real above it). The formal completeness machinery (supremum property, Nested Interval Theorem, Bolzano-Weierstrass) is **Phase 3** material; Phase 2 assumes it as an axiom. EVT is where completeness first enters calculus — it supplies the maximum/minimum that Rolle's proof needs. From there everything cascades: EVT → Rolle → MVT → FTC → Taylor.
 
 ---
 
@@ -273,6 +275,10 @@ Every "obvious" calculus fact traces back to the completeness of the real number
 (4) Taylor's Theorem: f(x) = Taylor polynomial + remainder.
     Lagrange remainder: R_n = f^{(n+1)}(ξ)/(n+1)!·(x-a)^{n+1}.
     Error bounding: |R_n| ≤ (max|f^{(n+1)}|)/(n+1)!·|x-a|^{n+1}.
+
+(5) Completeness: EVT is the entry point of ℝ's completeness into calculus.
+    Nested intervals, Bolzano-Weierstrass, and the supremum property are
+    Phase 3; Phase 2 assumes them as axioms (Session 22, Example 12).
 ```
 
 ---

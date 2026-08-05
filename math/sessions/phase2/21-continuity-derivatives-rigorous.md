@@ -85,6 +85,8 @@ Polynomials, $\sin x$, $\cos x$, $e^x$, $\ln x$ (on $(0,\infty)$) are all contin
 4. Otherwise the crossing is in $[a_1, m_1]$. Set $a_2 = a_1$, $b_2 = m_1$.
 5. Repeat. The interval halves each time. The nested intervals shrink to a single point $c$. Continuity forces $f(c)=k$.
 
+> **Completeness note**: "The nested intervals shrink to a single point $c$" is the **Nested Interval Theorem** — a completeness fact about $\mathbb{R}$ (no gaps), proved in Phase 3. Phase 2 takes it as intuitively clear: intervals whose lengths $\to 0$ cannot avoid collapsing onto one point.
+
 **Application — root finding**: Prove $x^3 - x - 1 = 0$ has a solution in $[1, 2]$.
 $f(1) = -1 < 0$, $f(2) = 5 > 0$. By IVT, $f(c)=0$ for some $c \in (1,2)$. (This $c \approx 1.3247$ is the plastic constant — it exists even if we can't write it as a simple radical.)
 
@@ -104,6 +106,8 @@ $f(1) = -1 < 0$, $f(2) = 5 > 0$. By IVT, $f(c)=0$ for some $c \in (1,2)$. (This 
 - $f(x)=x^2$ on $[-1,2]$: min at $x=0$ ($f=0$), max at $x=2$ ($f=4$). Both attained.
 
 **Proof idea** (not exam-essential but good to know): Uses the Bolzano-Weierstrass theorem — every bounded sequence has a convergent subsequence. Take a sequence approaching the supremum, extract a convergent subsequence, continuity gives the max.
+
+> **Completeness note**: Bolzano-Weierstrass is a *completeness* fact — it says $\mathbb{R}$ has no gaps. Its proof belongs to Phase 3 (real analysis). Here EVT is taken as given; it is the one place in Phase 2 where completeness silently does the heavy lifting (see Session 22, Example 12).
 
 **Practical use**: In optimization (Session 15B), when you check endpoints AND critical points, EVT guarantees you'll find the absolute max/min on a closed interval.
 
@@ -217,6 +221,49 @@ Divide by $(x-a)$ and take the limit: $[\phi(g(a))] \cdot [\psi(a)] = f'(g(a)) \
 
 ---
 
+## Part D: Sequences and Continuity — The Missing Tools
+
+---
+
+## Example 13: The Sequential Criterion — Limits Through Sequences
+
+**Statement**: $\lim_{x \to a} f(x) = L$ iff for **every** sequence $x_n \to a$ with $x_n \neq a$, we have $f(x_n) \to L$.
+
+**Continuity version**: $f$ is continuous at $a$ iff for every sequence $x_n \to a$, $f(x_n) \to f(a)$.
+
+**Proof (limit version, both directions — Phase 1 templates):**
+
+*($\Rightarrow$, direct)*: Suppose $\lim_{x \to a} f = L$ and $x_n \to a$. Given $\varepsilon > 0$, the ε-δ definition supplies a $\delta > 0$. Since $x_n \to a$, there is $N$ with $n \geq N \Rightarrow |x_n - a| < \delta$. Then (because $x_n \neq a$) $|f(x_n) - L| < \varepsilon$. So $f(x_n) \to L$.
+
+*($\Leftarrow$, contrapositive)*: Suppose the ε-δ limit fails — the negation from Session 20, Example 14: $\exists \varepsilon > 0$ such that for every $\delta = 1/n$ there is an $x_n$ with $0 < |x_n - a| < 1/n$ and $|f(x_n)-L| \geq \varepsilon$. Then $x_n \to a$ but $f(x_n) \not\to L$ — a sequence witness to failure.
+
+**Use 1 — proving a limit with sequences**: $\lim_{x \to 0} x\sin(1/x) = 0$: for any $x_n \to 0$, $|x_n\sin(1/x_n)| \leq |x_n| \to 0$, so $x_n\sin(1/x_n) \to 0$ (squeeze on sequences).
+
+**Use 2 — proving discontinuity with sequences**: $f(x) = \begin{cases} 1, & x \geq 0 \\ 0, & x < 0 \end{cases}$ at $a=0$: take $x_n = 1/n \to 0$ → $f(x_n) = 1 \to 1$; take $y_n = -1/n \to 0$ → $f(y_n) = 0 \to 0$. Two sequences, different limits → no limit → not continuous. (The jump discontinuity of Example 3, proven cleanly.)
+
+> **Insight**: The sequential criterion is the bridge between Session 20's ε-N (sequences) and ε-δ (functions). Discontinuity proofs become "find two sequences with different limits" — often far easier than a direct ε-δ negation.
+
+---
+
+## Example 14: Continuity Closure — New Continuous Functions From Old
+
+**Theorem**: If $f$ and $g$ are continuous at $a$, then so are $f+g$, $fg$, and (if $g(a) \neq 0$) $f/g$. If $g$ is continuous at $a$ and $f$ is continuous at $g(a)$, then $f \circ g$ is continuous at $a$.
+
+**Proofs — one line each via the sequential criterion** (Example 13): for any $x_n \to a$,
+- $f(x_n) \to f(a)$ and $g(x_n) \to g(a)$ (continuity of $f$, $g$);
+- $(f+g)(x_n) = f(x_n)+g(x_n) \to f(a)+g(a)$ (sum law for sequences, Session 20);
+- $(fg)(x_n) \to f(a)g(a)$ (product law for sequences);
+- $(f/g)(x_n) \to f(a)/g(a)$ when $g(a) \neq 0$ (quotient law — $g(x_n) \neq 0$ eventually);
+- $(f \circ g)(x_n) = f(g(x_n)) \to f(g(a))$ (continuity of $f$ at $g(a)$).
+
+By the sequential criterion, each new function is continuous. ✓
+
+**Payoff — why "plug it in" always worked (Session 13A)**: Every polynomial is a sum of products of the constant function and $f(x)=x$ — so all polynomials are continuous on $\mathbb{R}$. Rational functions $P/Q$ are continuous wherever $Q \neq 0$. Compositions like $e^{\sin x}$ are continuous. This is the rigorous justification behind Example 4's assertion.
+
+> **Up to here**: Sequential criterion — continuity ⟺ every sequence works. Closure — sums, products, quotients ($g(a)\neq0$), and compositions of continuous functions are continuous. These two tools turn "polynomials are continuous" from an assertion into a proved fact.
+
+---
+
 ## Common Mistakes
 
 ### Mistake 1: Confusing the limit definition with the continuity definition
@@ -254,6 +301,14 @@ Divide by $(x-a)$ and take the limit: $[\phi(g(a))] \cdot [\psi(a)] = f'(g(a)) \
 
 (5) Derivative rules proved: sum (limit sum law), product (add-subtract trick),
     reciprocal (→quotient rule). Chain rule: Carathéodory linear approximation.
+
+(6) Sequential criterion: f continuous at a ⟺ every sequence x_n→a has
+    f(x_n)→f(a). Discontinuity proofs become "find two sequences with
+    different limits."
+
+(7) Continuity closure: sums, products, quotients (g(a)≠0), and
+    compositions of continuous functions are continuous.
+    → polynomials and rational functions are continuous on their domains.
 ```
 
 ---
@@ -340,6 +395,10 @@ A function $f$ satisfies $|f(x)-f(y)| \leq (x-y)^2$ for all real $x,y$. Prove: (
 
 **D10.** State the negation of "$f$ is continuous at $a$" in ε-δ symbols. Explain in plain English what it means for a function to be discontinuous.
 
+**D11.** Use the sequential criterion to prove that $f(x)=\sin(1/x)$ (with $f(0)=0$) is NOT continuous at $x=0$. (Choose two sequences $x_n, y_n \to 0$ with different $f$-limits.)
+
+**D12.** Prove that $f(x)=|x|$ is continuous at $x=0$ using the sequential criterion.
+
 > Solutions: [Solutions](solutions/21-solutions.md#basic-drill)
 
 ---
@@ -368,6 +427,10 @@ A function $f$ satisfies $|f(x)-f(y)| \leq (x-y)^2$ for all real $x,y$. Prove: (
 
 **A10.** (Proof reading) A student writes: "By IVT, since $f(0)=-1$ and $f(2)=3$, there exists $c$ with $f(c)=2$." Critique this reasoning: what unstated assumption is the student making? Write a fully rigorous IVT application for a specific $f$ of your choice.
 
+**A11.** Prove, using the sequential criterion, that if $g$ is continuous at $a$ and $g(a) \neq 0$, then $1/g$ is continuous at $a$. Then conclude $f/g$ is continuous wherever $g \neq 0$.
+
+**A12.** Prove the composition law: if $g$ is continuous at $a$ and $f$ is continuous at $g(a)$, then $f \circ g$ is continuous at $a$. Do it two ways — (i) via the sequential criterion, (ii) via ε-δ directly.
+
 > Solutions: [Solutions](solutions/21-solutions.md#advanced-drill)
 
 ---
@@ -386,6 +449,12 @@ Step 3: Prove derivative rules from the limit definition.
         Sum (limit sum law). Product (add-subtract trick).
         Reciprocal → Quotient. Chain rule (linear approximation).
         Power rule (induction + product rule).
+
+Step 4: Sequential criterion — continuity ⟺ all sequences work.
+        Closure — build new continuous functions from old
+        (sum / product / quotient / compose).
+        Completeness (nested intervals, Bolzano-Weierstrass) is Phase 3;
+        Phase 2 assumes it as an axiom.
 ```
 
 ---
@@ -404,6 +473,8 @@ Step 3: Prove derivative rules from the limit definition.
 | EVT | "E V T" / "Extreme Value Theorem" | continuous f on closed [a,b] attains max and min |
 | $C^0, C^1, C^2$ | "C zero, C one, C two" | C⁰=continuous, C¹=continuously differentiable, C²=second derivative continuous |
 | removable / jump / essential | "removable" / "jump" / "essential" | three discontinuity types: hole, step, infinite oscillation |
+| sequential criterion | "sequential criterion" | f continuous at a ⟺ every x_n→a has f(x_n)→f(a) |
+| continuity closure | "closure under arithmetic" | sums/products/quotients/compositions of continuous functions are continuous |
 
 
 ---
@@ -424,3 +495,6 @@ Step 3: Prove derivative rules from the limit definition.
 | derivative of reciprocal | reciprocal rule | $(1/g)' = -g'/g^2$ |
 | derivative of composition | chain rule | $(f\circ g)' = (f'\circ g) \cdot g'$ |
 | add-and-subtract proof technique | cross-term trick | $f(a+h)g(a+h)-f(a)g(a)$ |
+| sequence version of continuity | sequential criterion | $x_n \to a \Rightarrow f(x_n) \to f(a)$ |
+| new continuous functions from old | closure theorems | $f+g,\; fg,\; f/g,\; f\circ g$ |
+| nested intervals collapse to a point | Nested Interval Theorem | (Phase 3) |
