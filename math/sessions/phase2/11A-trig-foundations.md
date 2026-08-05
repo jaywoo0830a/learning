@@ -585,7 +585,8 @@ Given y = A·trig(B(θ − C)) + D:
     Even-odd: sin/tan/cot/csc are odd, cos/sec are even.
     Cofunction (π/2−θ): sin↔cos, tan↔cot, sec↔csc.
     Periodicity & shift: θ+2π repeats, θ+π flips sign, θ+π/2 swaps sin/cos, π−θ gives
-    the reference-angle reflection.```
+    the reference-angle reflection.
+```
 
 ---
 
