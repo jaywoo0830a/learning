@@ -86,6 +86,18 @@ $\tan 2\theta = \frac{2\tan\theta}{1-\tan^2\theta}$.
 $\cos\theta = 2\cos^2\frac{\theta}{2} - 1$ → $\cos^2\frac{\theta}{2} = \frac{1+\cos\theta}{2}$.
 $\sin^2\frac{\theta}{2} = \frac{1-\cos\theta}{2}$.
 
+**The explicit $\pm$ forms** (the sign depends on which quadrant $\frac{\theta}{2}$ lies in):
+
+$\sin\frac{\theta}{2} = \pm\sqrt{\frac{1-\cos\theta}{2}}$. $\cos\frac{\theta}{2} = \pm\sqrt{\frac{1+\cos\theta}{2}}$.
+
+**Tangent half-angle** — three equivalent forms, use whichever matches what you know:
+
+$\tan\frac{\theta}{2} = \frac{\sin\theta}{1+\cos\theta} = \frac{1-\cos\theta}{\sin\theta}$, and $\tan^2\frac{\theta}{2} = \frac{1-\cos\theta}{1+\cos\theta}$.
+
+**Double-angle in terms of $\tan\theta$** (handy when you only know $\tan\theta$):
+
+$\sin 2\theta = \frac{2\tan\theta}{1+\tan^2\theta}$. $\cos 2\theta = \frac{1-\tan^2\theta}{1+\tan^2\theta}$.
+
 **Find $\sin 15^\circ$ via half-angle of $30^\circ$:**
 
 $\sin^2 15^\circ = \frac{1 - \cos 30^\circ}{2} = \frac{1 - \sqrt{3}/2}{2} = \frac{2-\sqrt{3}}{4}$.
@@ -142,14 +154,18 @@ Result: $5\sin(x + \phi)$.
 
 ## Example 4: Product-to-Sum and Sum-to-Product
 
-**Product-to-sum — turn multiplication into addition:**
+**Product-to-sum — turn multiplication into addition (all four):**
 
 $\sin A\cos B = \frac{1}{2}[\sin(A+B) + \sin(A-B)]$
+$\cos A\sin B = \frac{1}{2}[\sin(A+B) - \sin(A-B)]$
 $\cos A\cos B = \frac{1}{2}[\cos(A+B) + \cos(A-B)]$
 $\sin A\sin B = \frac{1}{2}[\cos(A-B) - \cos(A+B)]$
 
 **Compute $\sin 75^\circ\cos 15^\circ$:**
 $= \frac{1}{2}[\sin 90^\circ + \sin 60^\circ] = \frac{1}{2}[1 + \frac{\sqrt{3}}{2}] = \frac{2+\sqrt{3}}{4}$.
+
+**Compute $\cos 75^\circ\sin 15^\circ$** (the fourth formula):
+$= \frac{1}{2}[\sin 90^\circ - \sin 60^\circ] = \frac{1}{2}[1 - \frac{\sqrt{3}}{2}] = \frac{2-\sqrt{3}}{4}$.
 
 **Sum-to-product — turn addition into multiplication:**
 
@@ -228,6 +244,7 @@ From this single formula, you can rebuild everything:
 | $\cos 2\theta$ | Set $B=A$ in $\cos(A+B)$: $\cos 2\theta = \cos^2\theta - \sin^2\theta = 2\cos^2\theta - 1 = 1 - 2\sin^2\theta$ |
 | $\sin^2\theta$ | Solve $\cos 2\theta = 1 - 2\sin^2\theta$: $\sin^2\theta = \frac{1 - \cos 2\theta}{2}$ |
 | $\cos^2\theta$ | Solve $\cos 2\theta = 2\cos^2\theta - 1$: $\cos^2\theta = \frac{1 + \cos 2\theta}{2}$ |
+| $\tan\frac{\theta}{2}$ | Divide $\sin\theta = 2\sin\frac{\theta}{2}\cos\frac{\theta}{2}$ by $1+\cos\theta = 2\cos^2\frac{\theta}{2}$: $\tan\frac{\theta}{2} = \frac{\sin\theta}{1+\cos\theta}$ |
 
 ### Euler's Method (Even Faster)
 
@@ -754,9 +771,12 @@ You encounter a trigonometric equation:
 Building on 11A (radians, unit circle, six graphs, inverse trig):
 
 (1) Identity toolkit (5 families):
-    Sum/difference (6 formulas). Double/half/triple angle.
+    Sum/difference (6 formulas). Double/half/triple angle — including tan half-angle
+    (tan(θ/2) = sinθ/(1+cosθ) = (1−cosθ)/sinθ), the ± half-angle forms, and the
+    tan-based double-angle forms.
     Harmonic addition: a sin x + b cos x → R sin(x+φ), R = √(a²+b²).
-    Product↔sum (6 formulas). Power-reduction: sin²θ = (1−cos 2θ)/2.
+    Product↔sum (8 formulas: 4 product-to-sum + 4 sum-to-product).
+    Power-reduction: sin²θ = (1−cos 2θ)/2.
 
 (2) Equation solving (6 types, each with 3-step method):
     Basic (Example 6). Quadratic/t-sub (7). Mixed-angle (8).

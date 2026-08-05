@@ -262,6 +262,36 @@ $\csc\theta = \frac{1}{\sin\theta}$. $\sec\theta = \frac{1}{\cos\theta}$. $\cot\
 
 ---
 
+### The Identity Toolkit — Formulas Every Trig Problem Relies On
+
+These identities appear constantly in later sessions (11B, 13A, calculus). Collect them all now:
+
+**Quotient identities** — how $\tan$/$\cot$ relate to $\sin$/$\cos$:
+
+$\tan\theta = \frac{\sin\theta}{\cos\theta}$. $\cot\theta = \frac{\cos\theta}{\sin\theta}$.
+
+**Even–Odd (negative-angle) identities** — which functions flip sign when the angle goes negative:
+
+$\sin(-\theta) = -\sin\theta$, $\csc(-\theta) = -\csc\theta$, $\tan(-\theta) = -\tan\theta$, $\cot(-\theta) = -\cot\theta$ (odd).
+$\cos(-\theta) = \cos\theta$, $\sec(-\theta) = \sec\theta$ (even).
+
+**Cofunction (complementary-angle) identities** — $\frac{\pi}{2}-\theta$ swaps a function with its "co-" partner:
+
+$\sin(\frac{\pi}{2}-\theta) = \cos\theta$, $\cos(\frac{\pi}{2}-\theta) = \sin\theta$.
+$\tan(\frac{\pi}{2}-\theta) = \cot\theta$, $\cot(\frac{\pi}{2}-\theta) = \tan\theta$.
+$\sec(\frac{\pi}{2}-\theta) = \csc\theta$, $\csc(\frac{\pi}{2}-\theta) = \sec\theta$.
+
+**Periodicity & shift identities** — how values repeat and reflect:
+
+Full period: $\sin(\theta+2\pi) = \sin\theta$, $\cos(\theta+2\pi) = \cos\theta$, $\tan(\theta+\pi) = \tan\theta$.
+Half-period flip: $\sin(\theta+\pi) = -\sin\theta$, $\cos(\theta+\pi) = -\cos\theta$.
+Quarter-turn: $\sin(\frac{\pi}{2}+\theta) = \cos\theta$, $\cos(\frac{\pi}{2}+\theta) = -\sin\theta$.
+Supplementary (why the reference-angle method works): $\sin(\pi-\theta) = \sin\theta$, $\cos(\pi-\theta) = -\cos\theta$, $\tan(\pi-\theta) = -\tan\theta$.
+
+> **Geometric insight**: All of these are read straight off the unit circle. Odd functions mirror through the origin; even functions mirror across the $y$-axis. The cofunction identities say the $x$-coordinate of $\frac{\pi}{2}-\theta$ is the $y$-coordinate of $\theta$. The shift identities rotate the reference point by one period, half-period, or quarter-turn.
+
+---
+
 ## Example 9: Transforming the Graphs — Stretch, Shift, Compress
 
 Given $y = A\sin(B\theta - C) + D$ (and same form for $\cos$):
@@ -550,7 +580,12 @@ Given y = A·trig(B(θ − C)) + D:
     sin(arcsin x) = x always (for x ∈ [-1,1]).
     Method for cos(arcsin x) etc.: (i) draw right triangle, label given ratio on two sides,
     (ii) find missing side with Pythagoras, (iii) read target function from triangle sides.
-```
+(7) Identity toolkit — four families that reappear everywhere:
+    Quotient: tan = sin/cos, cot = cos/sin.
+    Even-odd: sin/tan/cot/csc are odd, cos/sec are even.
+    Cofunction (π/2−θ): sin↔cos, tan↔cot, sec↔csc.
+    Periodicity & shift: θ+2π repeats, θ+π flips sign, θ+π/2 swaps sin/cos, π−θ gives
+    the reference-angle reflection.```
 
 ---
 
