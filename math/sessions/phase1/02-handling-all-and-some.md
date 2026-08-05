@@ -1,181 +1,371 @@
-# 세션 02: '모든'과 '어떤'을 기계적으로 처리하기
+# Session 02: Handling "All" and "Some" — Quantifiers
 
-**Phase 1 — 도구의 문법 | 45분**
+**Phase 1 — The Grammar of the Tools | 45 min**
 
----
-
-## 예시 1
-
-> "모든 자연수는 0보다 크다."
-
-자연수: 1, 2, 3, 4, 5, ...
-하나씩 넣어본다. 1 > 0 → 맞다. 2 > 0 → 맞다. 3 > 0 → 맞다.
-끝까지 가도 전부 맞다. → **맞다**.
+*Prerequisites: [01 — Judging the Truth of Sentences](01-judging-truth-of-sentences.md) (truth tables, negation)*
+*Prerequisite for: [03 — Three Proof Templates](03-three-proof-templates.md), [06 — Gödel's Incompleteness Theorem](06-godels-incompleteness-theorem.md)*
 
 ---
 
-## 예시 2
+## Part A: "All" and "Some" — Two Different Jobs
 
-> "모든 자연수는 짝수다."
-
-1을 넣는다 → 틀리다. 하나라도 틀리면 끝. → **틀리다**.
+A sentence like "it rains" gets a truth value from the world. A sentence like "all swans are white" needs something more: it ranges over **many objects at once**. The words "all" and "some" are the *quantifiers* that do this ranging. This session's job: decide such sentences mechanically.
 
 ---
 
-## 예시 3
+## Example 1: "All" — Test Every Single Object
 
-> "어떤 자연수는 7보다 크다."
+> "All natural numbers are greater than 0."
 
-8 > 7 → 맞다. **하나만 찾으면 끝**. → **맞다**.
+The range (domain) is the natural numbers: $1, 2, 3, 4, 5, \dots$
 
----
+Test them one by one:
+$1 > 0$ → true. $2 > 0$ → true. $3 > 0$ → true. Keep going — every natural number passes.
 
-## 예시 4
+→ **True.**
 
-> "어떤 자연수는 제곱이 2다."
+"All" demands a complete sweep. Every object in the domain must satisfy the property.
 
-$1^2=1$, $2^2=4$, $3^2=9$ ... 없다. 전부 틀리다. → **틀리다**.
-
----
-
-## 예시 5
-
-> "모든 실수 $x$에 대해 $x^2 > 0$ 이다."
-
-$x = 0$을 넣는다. $0^2 = 0$. 0은 0보다 크지 않다. → **틀리다**.
-"모든"을 부수려면 **반례 하나만** 찾으면 된다.
+![All objects in the domain satisfy the property](graphs/02a-all-some.png)
 
 ---
 
-## 예시 6: 부정 — 말 뒤집기
+## Example 2: "All" — One Failure Ends the Sweep
 
-> 원문장: "모든 새는 날 수 있다."
+> "All natural numbers are even."
 
-뒤집기: "모든 새는 날 수 없다"? 아니다. 펭귄만 못 날 뿐이다.
-옳은 뒤집기: **"어떤 새는 날 수 없다."**
+Test: $1$ is not even. **One counterexample is enough.**
 
-> 원문장: "어떤 사람은 천재다."
+→ **False.**
 
-뒤집기: **"모든 사람은 천재가 아니다."**
-
-규칙: "모든"의 부정은 "어떤 ~이 아니다". "어떤"의 부정은 "모든 ~이 아니다".
+> **Insight**: "All" is a very strict boss: one single bad object kills the whole claim. To *disprove* a "for all" claim, you only need to find **one** object that fails.
 
 ---
 
-## 예시 7: 순서가 바뀌면 뜻이 바뀐다
+## Example 3: "Some" — One Success Ends the Search
 
-> (가) "모든 사람에게는, 그 사람을 사랑하는 어떤 사람이 있다."
-> (나) "어떤 사람이 있어서, 모든 사람을 사랑한다."
+> "Some natural number is greater than 7."
 
-(가): 사람마다 자길 사랑해주는 누군가가 따로 있다.
-(나): 한 명이 모든 사람을 사랑한다 — 슈퍼맨.
+Test: $8 > 7$ → true. Found one. Stop searching.
 
-순서 하나 차이인데 뜻이 완전히 다르다.
+→ **True.**
 
----
-
-## 방금 우리가 한 일
-
-1. **범위를 먼저 정했다.** 자연수인지, 실수인지, 우리 반인지.
-2. **"모든"** — 범위 안의 전부를 넣어본다. 하나라도 틀리면 틀리다.
-3. **"어떤"** — 맞는 걸 하나만 찾으면 맞다. 전부 틀려야 틀리다.
-4. **부정** — "모든"은 "어떤 ~이 아니다"로, "어떤"은 "모든 ~이 아니다"로 뒤집는다.
-5. **순서** — $\forall$과 $\exists$가 겹치면 왼쪽부터 처리. 순서가 바뀌면 뜻이 바뀐다.
+> **Insight**: "Some" is the lazy boss: one good object settles it. To *disprove* a "there exists" claim, you must check every object and find none.
 
 ---
 
-## 자주 하는 실수: 부정할 때 "모든"을 "모든"으로 둔다
+## Example 4: "Some" — Nothing Matches
 
-원문장: "모든 학생이 합격했다"
-틀린 부정: "모든 학생이 불합격했다" — 반 전체가 불합격일 필요는 없다.
-옳은 부정: **"어떤 학생은 불합격했다"** — 한 명만 불합격이어도 원문장은 깨진다.
+> "Some natural number has square equal to 2."
 
----
+Test: $1^2=1$, $2^2=4$, $3^2=9$, … no natural number squares to 2.
 
-## 연습 1
-
-범위를 자연수로 한다.
-(a) "모든 $n$에 대해 $n+1 > n$"
-(b) "어떤 $n$에 대해 $n^2 = n$"
-각각 맞는지 판정하라.
-
-→ 따라하기: **예시 1, 3**
-
-> 풀이: [풀이집](solutions/02-solutions.md#연습-1)
+→ **False.**
 
 ---
 
-## 연습 2
+## Example 5: The Famous Counterexample Trap
 
-"'모든 실수 $x$에 대해 $x^2 \geq 0$'이 틀리다." 이 말을 부정하고, 원문장과 부정 중 무엇이 맞는지 말하라.
+> "For all real numbers $x$, $x^2 > 0$."
 
-→ 따라하기: **예시 6**
+Sweep the reals: $x=1$ → $1>0$ ✓, $x=-2$ → $4>0$ ✓ … but **$x=0$** → $0^2 = 0$, and $0$ is not greater than $0$.
 
-> 풀이: [풀이집](solutions/02-solutions.md#연습-2)
+→ **False.**
 
----
+> **Insight**: The counterexample can hide in plain sight. $0$ is a real number, so it is inside the domain, and it kills the claim. Watch for edge cases: $0$, $\pm 1$, negatives, empty ranges.
 
-## 연습 3
+**Method — Deciding a quantified sentence in 3 steps:**
 
-두 문장의 뜻을 풀어쓰고, 각각 맞는지 판정하라. 범위는 실수.
-(a) $\forall x \exists y \; (x \cdot y = 1)$
-(b) $\exists y \forall x \; (x \cdot y = 1)$
+(1) **Fix the domain first.** Which set are we sweeping? (natural numbers, reals, people in the class, …)
 
-→ 따라하기: **예시 7**
+(2) **Read the quantifier.** "All" → test every object; one failure → false. "Some" → find one success; none → false.
 
-> 풀이: [풀이집](solutions/02-solutions.md#연습-3)
+(3) **Test, and say which objects you checked.** Write the witness (for "some") or the counterexample (for "all").
 
----
-
-## 연습 4: 함정
-
-"'모든 $x$에 대해 $P(x)$'가 틀리면, '모든 $x$에 대해 ($P(x)$가 아니다)'는 맞다." 이 주장이 맞는가? 예를 들어 답하라.
-
-→ 따라하기: **예시 6**
-
-> 풀이: [풀이집](solutions/02-solutions.md#연습-4)
+> **Up to here**: "All" = complete sweep, killed by one counterexample. "Some" = single search, settled by one witness. Always fix the domain before testing.
 
 ---
 
-## 연습 5
-
-범위 = 자연수. "어떤 $n$에 대해 $n^2 - 4 = 0$" 의 부정을 만들고, 원문장과 부정문의 참거짓을 판정하라.
-
-→ 따라하기: **예시 6**
-
-> 풀이: [풀이집](solutions/02-solutions.md#연습-5)
+## Part B: Negating Quantifiers — Flip the Word AND the Statement
 
 ---
 
-## 연습 6: 실전
+## Example 6: "Not all" Does NOT Mean "None"
 
-범위 = {A, B, C} 세 사람. $R(x,y)$ = "$x$가 $y$를 존경한다".
-"모든 사람은, 자신을 존경하지 않는 어떤 사람이 있다"를 기호로 쓰고, 이 문장이 맞는 경우를 모두 표로 보여라.
+> Original: "All birds can fly."
 
-→ 따라하기: **예시 7**
+A tempting negation: "All birds cannot fly." **Wrong** — that claims penguins AND sparrows AND … all fail, which is much stronger than needed.
 
-> 풀이: [풀이집](solutions/02-solutions.md#연습-6)
+The correct negation: **"Some bird cannot fly."**
+
+One flightless bird (a penguin) destroys "all birds can fly." That is exactly what "some bird cannot fly" says.
+
+> Original: "Some person is a genius."
+
+The correct negation: **"Every person is not a genius"** (no person is a genius). One genius would make the original true, so to negate it you must rule out every genius.
+
+**The swap rule:**
+
+- "All $x$ satisfy $P(x)$" is negated by "Some $x$ does not satisfy $P(x)$."
+- "Some $x$ satisfies $P(x)$" is negated by "All $x$ fail $P(x)$."
+
+In symbols:
+
+$$\neg\big(\forall x\, P(x)\big) \;\equiv\; \exists x\, \neg P(x)$$
+$$\neg\big(\exists x\, P(x)\big) \;\equiv\; \forall x\, \neg P(x)$$
+
+![Negating quantifiers — the quantifier flips and the property is negated](graphs/02b-negation.png)
+
+> **Insight**: Negation pushes through the quantifier: $\forall$ flips to $\exists$, $\exists$ flips to $\forall$, and the negation lands inside on the property. This is the quantifier version of De Morgan (Session 01).
+
+**Method — Negating a quantified sentence in 3 steps:**
+
+(1) **Write the sentence in "quantifier + property" form.** "All birds can fly" → $\forall x\,(\text{canFly}(x))$.
+
+(2) **Flip the quantifier.** $\forall \leftrightarrow \exists$.
+
+(3) **Negate the property, not the quantifier words.** "can fly" → "cannot fly"; "is even" → "is not even".
 
 ---
 
-## 용어 정리
-
-지금까지 우리는 "모든", "어떤", "범위"만 썼다. **방법은 이미 다 배웠다.**
-
-| 우리가 써온 말 | 수학 용어 | 기호 |
-|:------------:|:--------:|:---:|
-| 모든 ~에 대해 | 전칭 양화사 | $\forall$ |
-| 어떤 ~가 존재하여 | 존재 양화사 | $\exists$ |
-| 대상의 범위 | 정의역 | domain |
-| $\neg\forall \equiv \exists\neg$ | 양화사 부정 | — |
+## Part C: Order Matters — Two Quantifiers
 
 ---
 
-## 오늘 배운 절차
+## Example 7: $\forall\exists$ vs $\exists\forall$ — Different Promises
+
+> (A) "For every person, there is someone who loves them."
+> (B) "There is a person who loves everyone."
+
+Two quantifiers, two orders — completely different meanings.
+
+**Sentence (A)** — $\forall x\, \exists y\, L(y, x)$: pick any person $x$; you can find a (possibly different) $y$ who loves $x$. Each person has their own admirer.
+
+**Sentence (B)** — $\exists y\, \forall x\, L(y, x)$: there is ONE person $y$ who loves every $x$ — a super-lover.
+
+In a class of 30, (A) is easy to satisfy: everyone has at least one friend. (B) demands one person who loves all 30 — a much taller order.
+
+![Order of quantifiers — for-every-there-exists vs there-exists-for-every](graphs/02c-order-swap.png)
+
+> **Insight**: Read quantifiers **left to right**. The leftmost quantifier picks first; the next one responds. Swapping the order changes who is allowed to depend on whom. (A) lets $y$ depend on $x$; (B) forces one $y$ to work for all $x$ at once.
+
+> **Up to here**: Two quantifiers = two promises. "All" is a sweep, "some" is a search. Negation flips the quantifier and negates the property. Order matters: read left to right.
+
+---
+
+## Common Mistakes
+
+### Mistake 1: Negating "all" as "all"
+
+**Wrong**: "All students passed" → "All students failed."
+
+**Right**: One failing student already breaks the original, so the negation is "**Some** student failed." Don't keep "all" when you negate.
+
+### Mistake 2: Forgetting the domain
+
+**Wrong**: "All numbers are positive" is judged without saying *which* numbers.
+
+**Right**: Fix the domain first. "All natural numbers" is false ($0$ isn't positive if $0\in\mathbb{N}$); "all positive reals" is trivially true. The same sentence can flip truth value with a different domain.
+
+### Mistake 3: Reading quantifiers right to left
+
+**Wrong**: $\forall x\,\exists y\,(x \cdot y = 1)$ read as "there is a $y$ that works for every $x$."
+
+**Right**: Read left to right. First pick $x$, *then* choose $y$ (which may depend on $x$). For reals: for each $x\neq 0$ pick $y=1/x$ — true. The swapped $\exists y\,\forall x\,(xy=1)$ — false (no single $y$ works for every $x$).
+
+---
+
+## What We Just Did
 
 ```
-1단계: 범위를 먼저 정한다.
-2단계: ∀ → 전부 넣어본다. 하나라도 틀리면 거짓.
-       ∃ → 맞는 걸 하나만 찾는다. 없으면 거짓.
-3단계: 부정은 ∀↔∃를 뒤집고 안쪽에 ¬를 붙인다.
+(1) Fix the domain. Everything is tested inside it.
+
+(2) "All" (∀) — sweep the whole domain. One failure → false.
+    "Some" (∃) — find one success. None → false.
+
+(3) Negation swaps quantifiers and negates the property:
+    ¬∀P ≡ ∃¬P.   ¬∃P ≡ ∀¬P.
+
+(4) Two quantifiers — read left to right. The first quantifier
+    picks, the second responds. Order changes the meaning.
 ```
+
+---
+
+## Decision Tree — A Quantified Sentence
+
+```
+You must decide a quantified sentence:
+├── (1) What is the domain? Write it down.
+├── (2) How many quantifiers?
+│   ├── One:
+│   │   ├── "All" → sweep. Found a counterexample? → False.
+│   │   │           Sweep clean? → True.
+│   │   └── "Some" → search. Found a witness? → True.
+│   │               None found → False.
+│   └── Two (or more): read left to right. Outer picks, inner responds.
+├── (3) Negating? Flip each quantifier (∀↔∃) and negate the property.
+└── (4) State your answer with the evidence:
+        the counterexample (for ∀) or the witness (for ∃).
+```
+
+---
+
+## Practice 1
+
+**Domain = natural numbers.** Decide:
+(a) "For all $n$, $n+1 > n$"
+(b) "For some $n$, $n^2 = n$"
+
+→ Reference: **Examples 1, 3**
+
+> Solutions: [Solutions](solutions/02-solutions.md#practice-1)
+
+---
+
+## Practice 2
+
+**"'For all real $x$, $x^2 \geq 0$' is false" — negate this claim correctly, then say which of the original and the negation is true.**
+
+→ Reference: **Example 6**
+
+> Solutions: [Solutions](solutions/02-solutions.md#practice-2)
+
+---
+
+## Practice 3
+
+**Domain = real numbers.** Write each sentence in words and decide it:
+(a) $\forall x\,\exists y\,(x \cdot y = 1)$
+(b) $\exists y\,\forall x\,(x \cdot y = 1)$
+
+→ Reference: **Example 7**
+
+> Solutions: [Solutions](solutions/02-solutions.md#practice-3)
+
+---
+
+## Practice 4: Trap
+
+**"If 'for all $x$, $P(x)$' is false, then 'for all $x$, (not $P(x)$)' is true."** Is this claim correct? Answer with an example.
+
+→ Reference: **Example 6**
+
+> Solutions: [Solutions](solutions/02-solutions.md#practice-4)
+
+---
+
+## Practice 5
+
+**Domain = natural numbers.** Negate "some $n$ satisfies $n^2 - 4 = 0$" and decide both the original and the negation.
+
+→ Reference: **Example 6**
+
+> Solutions: [Solutions](solutions/02-solutions.md#practice-5)
+
+---
+
+## Practice 6: Real Battle
+
+**Domain = {A, B, C}, three people. $R(x,y)$ = "$x$ respects $y$".** Write "every person has some person who does not respect them" in symbols, and show (with a small table) the situations where it is true.
+
+→ Reference: **Example 7**
+
+> Solutions: [Solutions](solutions/02-solutions.md#practice-6)
+
+---
+
+## Basic Drills
+
+> Identify the quantifier, fix the domain, decide.
+
+**D1.** Domain = natural numbers. "All $n$ satisfy $n \geq 0$."
+
+**D2.** Domain = natural numbers. "All $n$ are multiples of 3."
+
+**D3.** Domain = natural numbers. "Some $n$ is greater than 1000."
+
+**D4.** Domain = natural numbers. "Some $n$ has $n < 0$."
+
+**D5.** Domain = real numbers. "All $x$ satisfy $x^2 \geq 0$."
+
+**D6.** Domain = real numbers. "Some $x$ satisfies $x^2 = -1$."
+
+**D7.** Negate: "all students passed." Write it in English and in symbols.
+
+**D8.** Negate: "some planet is habitable."
+
+**D9.** Negate: $\forall x\,(x > 0)$ (domain = integers).
+
+**D10.** Negate: $\exists n\,(n \text{ is prime})$ (domain = natural numbers).
+
+> Solutions: [Solutions](solutions/02-solutions.md#basic-drill)
+
+---
+
+## Advanced Drills
+
+> Multi-step — nesting, negation, and order.
+
+**A1.** Domain = integers. Decide: $\forall x\,\exists y\,(x + y = 0)$.
+
+**A2.** Domain = integers. Decide: $\exists y\,\forall x\,(x + y = 0)$.
+
+**A3.** Domain = real numbers. Decide: $\forall x\,\exists y\,(x < y)$.
+
+**A4.** Domain = real numbers. Decide: $\exists y\,\forall x\,(x < y)$.
+
+**A5.** Negate the sentence "there exists a real $x$ such that for all real $y$, $x + y = 0$" — and decide the original.
+
+**A6.** Negate: "for every $\epsilon > 0$ there exists a $\delta > 0$ such that …" — just do the quantifier part: $\neg\big(\forall\epsilon\,\exists\delta\, P(\epsilon,\delta)\big)$.
+
+**A7.** Domain = natural numbers. Decide: $\forall n\,(n \text{ even} \lor n \text{ odd})$.
+
+**A8.** Domain = {1, 2, 3}. $P(x)$ = "$x$ is a factor of 6". Decide $\forall x\,P(x)$ and $\exists x\,P(x)$.
+
+**A9.** Write in symbols: "there is a largest natural number" and negate it. (Domain = natural numbers.)
+
+**A10.** Domain = all people. $L(x,y)$ = "$x$ likes $y$". Write $\forall x\,\exists y\,L(x,y)$ and $\exists y\,\forall x\,L(x,y)$ in English, and give a 3-person example where the first is true and the second is false.
+
+> Solutions: [Solutions](solutions/02-solutions.md#advanced-drill)
+
+---
+
+## Today's Procedure
+
+```
+Step 1: Fix the domain.
+Step 2: ∀ → sweep; one failure → false.
+        ∃ → search; one witness → true.
+Step 3: Negating? Swap ∀↔∃ and negate the property.
+        Multiple quantifiers? Read left to right.
+```
+
+---
+
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| $\forall x$ | "for all x" / "for every x" | the claim must hold for every object in the domain |
+| $\exists x$ | "there exists an x" | at least one object in the domain works |
+| $P(x)$ | "P of x" | a property that $x$ may or may not have |
+| $\forall x\,P(x)$ | "for all x, P of x" | sweep the domain, all must pass |
+| $\exists x\,P(x)$ | "there exists x with P of x" | one witness is enough |
+| domain | "domain" | the set of objects being quantified over |
+| counterexample | "counterexample" | one object that kills a "for all" claim |
+| witness | "witness" | one object that proves a "there exists" claim |
+
+---
+
+## Terminology
+
+| What we call it | Math term | Notation |
+|:---------------:|:---------:|:--------:|
+| "for all" | universal quantifier | $\forall$ |
+| "there exists" / "some" | existential quantifier | $\exists$ |
+| the set we sweep | domain | — |
+| one object that breaks "all" | counterexample | — |
+| one object that proves "some" | witness | — |
+| negation rule | quantifier negation | $\neg\forall \equiv \exists\neg$ |
+| "for every…there is…" | alternating quantifiers | $\forall\exists$ |

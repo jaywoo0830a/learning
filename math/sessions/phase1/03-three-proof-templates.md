@@ -1,187 +1,359 @@
-# 세션 03: 증명하는 세 가지 틀
+# Session 03: Three Proof Templates — Direct, Contrapositive, Contradiction
 
-**Phase 1 — 도구의 문법 | 60분**
+**Phase 1 — The Grammar of the Tools | 60 min**
 
----
-
-## 예시 1
-
-**증명할 것:** "$n$이 짝수이면 $n^2$도 짝수다."
-
-짝수는 $2 \times (\text{정수})$ 꼴이다. $n$이 짝수라고 해보자.
-
-$n = 2k$ ($k$는 정수)로 쓴다.
-$n^2 = (2k)^2 = 4k^2 = 2(2k^2)$.
-
-$2k^2$는 정수. 따라서 $n^2 = 2 \times (\text{정수})$ = 짝수다.
-
-**한 일:** "$n$이 짝수"라는 가정에서 출발해서, 한 걸음씩 "$n^2$이 짝수"까지 걸어갔다.
+*Prerequisites: [01 — Judging the Truth of Sentences](01-judging-truth-of-sentences.md) (implication, contrapositive), [02 — Handling "All" and "Some"](02-handling-all-and-some.md)*
+*Prerequisite for: [04 — The Domino Proof](04-domino-proof-for-all-natural-numbers.md)*
 
 ---
 
-## 예시 2
+## Part A: Direct Proof — Walk From Assumption to Conclusion
 
-**증명할 것:** "$n^2$이 짝수이면 $n$도 짝수다."
-
-예시 1을 뒤집은 거다. $n^2$이 짝수라는 걸 $n = \sqrt{\text{짝수}}$ 로 풀려니 막막하다.
-
-생각을 바꾼다: "$n$이 짝수가 아니면?" → "$n$이 홀수면 $n^2$도 홀수인가?"를 증명한다.
-
-$n$이 홀수라고 가정. $n = 2k+1$ ($k$는 정수).
-$n^2 = (2k+1)^2 = 4k^2 + 4k + 1 = 2(2k^2+2k) + 1$.
-
-$2k^2+2k$는 정수. $n^2 = 2 \times (\text{정수}) + 1$ = 홀수다.
-
-**증명한 것:** "$n$이 홀수이면 $n^2$이 홀수다."
-**그러면 자동으로:** "$n^2$이 짝수이면 $n$이 짝수다." — 앞뒤를 바꾸고 각각 부정하면 원래 문장과 같은 뜻이기 때문이다.
+A mathematical statement is usually an implication: "if $P$, then $Q$." The first and most natural proof template: **assume $P$ is true, and walk step by step to $Q$.**
 
 ---
 
-## 예시 3
+## Example 1: Direct Proof — Even Squared Is Even
 
-**증명할 것:** "$\sqrt{2}$는 분수로 나타낼 수 없다."
+**Prove: "If $n$ is even, then $n^2$ is even."**
 
-분수로 나타낼 수 있다고 **일단 가정**해보자.
+Every even number has the form $2 \times (\text{an integer})$. So:
 
-$\sqrt{2} = \frac{a}{b}$ ($a, b$는 정수, $b \neq 0$. 더 약분할 수 없는 분수 — $a$와 $b$는 서로소).
+(1) Assume $n$ is even. Write $n = 2k$ for some integer $k$.
 
-양변 제곱: $2 = \frac{a^2}{b^2}$ → $a^2 = 2b^2$.
+(2) Square both sides: $n^2 = (2k)^2 = 4k^2 = 2(2k^2)$.
 
-$a^2$가 짝수다. 예시 2에 따르면 "$n^2$이 짝수면 $n$도 짝수". 따라서 $a$도 짝수.
-$a = 2k$로 쓴다.
+(3) $2k^2$ is an integer, so $n^2 = 2 \times (\text{an integer})$ — by definition, even.
 
-$(2k)^2 = 2b^2$ → $4k^2 = 2b^2$ → $b^2 = 2k^2$.
-$b^2$가 짝수 → $b$도 짝수.
+**Done.** We started from "even" and reached "even squared" in three clean steps.
 
-$a$도 짝수, $b$도 짝수. **처음에 $a$와 $b$는 서로소라고 했다.** 둘 다 짝수면 약분된다. 모순이다.
+> **Insight**: Direct proof is a walk: assumption at the door, conclusion at the far wall, each step a legal move. The hardest part is choosing how to *write* the assumption. Here "even" became the concrete form $n = 2k$.
 
-처음 가정이 틀렸다. $\sqrt{2}$는 분수로 나타낼 수 **없다**.
+![Direct proof: assume P, step to Q](graphs/03a-templates.png)
 
 ---
 
-## 예시 4
+## Example 2: Direct Proof — The Product Trick
 
-**증명할 것:** "소수는 무한히 많다."
+**Prove: "For all integers $n$, $n^2 + n$ is even."** (No induction yet!)
 
-소수가 $k$개만 있다고 **일단 가정**: $p_1, p_2, \dots, p_k$가 전부.
+(1) Factor: $n^2 + n = n(n+1)$.
 
-전부 곱하고 1을 더한다: $N = p_1 \cdot p_2 \cdot \cdots \cdot p_k + 1$.
+(2) $n$ and $n+1$ are **consecutive integers** — one of them is even.
 
-$N$을 $p_1$로 나누면 $p_1(p_2 \cdots p_k)$는 나누어떨어지고 +1 → 나머지 1. $p_2$로 나눠도 나머지 1. 어떤 $p_i$로 나눠도 나머지 1.
+(3) The product of anything with an even number is even. → $n(n+1)$ is even.
 
-$N$은 어떤 $p_i$로도 나누어떨어지지 않는다 → $N$은 1과 자기 자신만 약수 → 소수다.
+**Done.** No cases, no induction — one clever factorization.
 
-그런데 $N$은 $p_1, \dots, p_k$보다 훨씬 크다. "$p_1, \dots, p_k$가 모든 소수"라는 가정과 모순.
-
-처음 가정이 틀렸다. 소수는 무한히 많다.
+> **Insight**: Sometimes the "walk" is a single rephrasing. "Two consecutive integers contain an even one" is a mini-lemma you can use without proof.
 
 ---
 
-## 방금 우리가 한 일: 증명의 세 틀
+## Part B: Proof by Contrapositive — Prove the Flip Instead
 
-| 틀 | 어떻게 했나 | 언제 쓰나 |
-|:---|------|------|
-| **직접** (예시 1) | $P$라고 가정하고 한 걸음씩 $Q$까지 | $P$에서 $Q$까지 길이 보일 때 |
-| **대우** (예시 2) | $\neg Q$라고 가정하고 $\neg P$까지 | $P$를 직접 다루기 어렵고 $\neg Q$가 더 쉬울 때 |
-| **귀류법** (예시 3, 4) | $P$와 $\neg Q$를 같이 가정해 모순을 만든다 | 직접도 대우도 안 될 때 |
+When the direct path from $P$ to $Q$ is blocked, swap the roles. From Session 01, $P \to Q \equiv \neg Q \to \neg P$. So **proving "if not $Q$ then not $P$" proves the original statement.**
 
 ---
 
-## 자주 하는 실수: 대우와 역을 혼동한다
+## Example 3: Contrapositive — Even Square Means Even
 
-"$P$이면 $Q$"를 뒤집은 게 "$Q$이면 $P$"라고 생각하는 사람이 많다. "$Q$이면 $P$"는 **역**이고, 원래 문장과 전혀 다르다.
+**Prove: "If $n^2$ is even, then $n$ is even."**
 
-"비가 오면($P$) 땅이 젖는다($Q$)"
-- 역: "땅이 젖으면 비가 온다" → 스프링클러 때문일 수도. **틀리다.**
-- 대우: "땅이 젖지 않으면 비가 오지 않았다" → **맞다.**
+Directly: $n^2$ even → $n = \sqrt{\text{even}}$ — stuck immediately. Try the contrapositive instead.
 
-대우는 $\neg Q \to \neg P$다. **앞뒤를 바꾸고 각각 부정한다.**
+The contrapositive is: **"If $n$ is NOT even, then $n^2$ is NOT even"** — i.e., if $n$ is odd, then $n^2$ is odd.
 
----
+(1) Assume $n$ is odd. Write $n = 2k+1$ for some integer $k$.
 
-## 연습 1
+(2) Square: $n^2 = (2k+1)^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) + 1$.
 
-"$n$이 홀수이면 $n^3$도 홀수다"를 예시 1과 같은 방식으로 증명하라.
+(3) $2k^2+2k$ is an integer, so $n^2 = 2(\text{int}) + 1$ — by definition, odd.
 
-→ 따라하기: **예시 1**
+We proved the contrapositive, so the original is true.
 
-> 풀이: [풀이집](solutions/03-solutions.md#연습-1)
+> **Insight**: Odd numbers are easier to write down ($2k+1$) than "the square root of an even number." When the conclusion $Q$ is hard to work with, negate everything and work with $\neg Q$ instead.
 
----
+![Contrapositive vs converse — only the contrapositive is equivalent](graphs/03b-contrapositive.png)
 
-## 연습 2
+**Method — Deciding between direct and contrapositive in 3 steps:**
 
-"$3n+2$가 짝수이면 $n$도 짝수다"를 예시 2와 같은 방식으로 증명하라.
+(1) **Try the direct path.** Assume $P$, take steps toward $Q$. If you reach it — done.
 
-→ 따라하기: **예시 2**
+(2) **Blocked? Check the contrapositive.** Is $\neg Q$ easier to assume than $P$? Odd/even and "not divisible" claims usually are.
 
-> 풀이: [풀이집](solutions/03-solutions.md#연습-2)
+(3) **Prove $\neg Q \to \neg P$ instead.** It proves the same statement. Never confuse this with the *converse* $Q \to P$, which is a different claim.
 
 ---
 
-## 연습 3
+## Part C: Proof by Contradiction — Assume the Opposite, Explode
 
-"$n^2$이 3의 배수이면 $n$도 3의 배수다." 어떤 틀을 쓸지 정하고 증명하라. 틀을 고른 이유도 한 줄로 쓰라.
-
-→ 따라하기: **예시 2**
-
-> 풀이: [풀이집](solutions/03-solutions.md#연습-3)
+Sometimes neither direction is walkable. The third template: **assume the statement is false, and derive something impossible.**
 
 ---
 
-## 연습 4: 함정
+## Example 4: Contradiction — $\sqrt{2}$ Is Not a Fraction
 
-"$n^2+n$은 모든 정수 $n$에 대해 짝수다"를 증명하라. 귀납법 없이, 예시 1 방식으로.
-(도움말: $n^2+n = n(n+1)$로 찢는다)
+**Prove: "$\sqrt{2}$ cannot be written as a fraction."**
 
-→ 따라하기: **예시 1**
+(1) **Assume the opposite**: $\sqrt{2} = \frac{a}{b}$ with integers $a, b$, $b \neq 0$, and the fraction fully reduced ($a, b$ have no common factor).
 
-> 풀이: [풀이집](solutions/03-solutions.md#연습-4)
+(2) Square both sides: $2 = \frac{a^2}{b^2}$ → $a^2 = 2b^2$. So $a^2$ is even.
 
----
+(3) By Example 3 (even square → even), $a$ is even. Write $a = 2k$.
 
-## 연습 5
+(4) Substitute: $(2k)^2 = 2b^2$ → $4k^2 = 2b^2$ → $b^2 = 2k^2$. So $b^2$ is even → $b$ is even.
 
-"$\sqrt{3}$은 분수로 나타낼 수 없다"를 예시 3과 같은 방식으로 증명하라.
+(5) **Contradiction**: $a$ and $b$ are both even, so the fraction $\frac{a}{b}$ is *not* fully reduced — but we assumed it was.
 
-→ 따라하기: **예시 3**
+The assumption must be false. **$\sqrt{2}$ is irrational.**
 
-> 풀이: [풀이집](solutions/03-solutions.md#연습-5)
-
----
-
-## 연습 6: 실전
-
-"유리수와 무리수의 합은 무리수다." 어떤 틀을 쓸지 정하고 증명하라.
-(도움말: $a$가 유리수, $b$가 무리수일 때 $a+b$가 유리수라고 가정하면, $b = (a+b) - a$도 유리수가 되어야 한다.)
-
-→ 따라하기: **예시 3, 4**
-
-> 풀이: [풀이집](solutions/03-solutions.md#연습-6)
+> **Insight**: Contradiction is a demolition job. You assume the target is false, follow the logic, and watch it collapse into an impossibility — here, "both $a$ and $b$ are even" vs. "the fraction is reduced." The contradiction marks the end.
 
 ---
 
-## 용어 정리
+## Example 5: Contradiction — There Are Infinitely Many Primes
 
-지금까지 우리는 "직접", "대우", "귀류법", "모순"만 썼다. **방법은 이미 다 배웠다.**
+**Prove: "There are infinitely many primes."**
 
-| 우리가 써온 말 | 수학 용어 | 기호 |
-|:------------:|:--------:|:---:|
-| $P$를 가정하고 $Q$로 간다 | 직접증명 | direct proof |
-| $\neg Q$를 가정하고 $\neg P$로 간다 | 대우증명 | proof by contrapositive |
-| $P$와 $\neg Q$를 가정해 모순을 만든다 | 귀류법 | proof by contradiction |
-| 말이 안 되는 결과 | 모순 | $\bot$ |
+(1) **Assume the opposite**: there are finitely many — say $p_1, p_2, \dots, p_k$ are ALL of them.
+
+(2) Build $N = p_1 \cdot p_2 \cdots p_k + 1$.
+
+(3) Divide $N$ by $p_1$: the product part divides evenly, the $+1$ leaves remainder 1. Same for $p_2, \dots, p_k$. So **no listed prime divides $N$.**
+
+(4) But every integer $>1$ has a prime factor (Session 04 proves this cleanly). $N$ must have a prime factor — which cannot be any of $p_1, \dots, p_k$. So there is a prime outside the list.
+
+(5) **Contradiction** with "$p_1, \dots, p_k$ are all the primes."
+
+The assumption is false. **There are infinitely many primes.**
+
+> **Insight**: Contradiction is the weapon of choice when the statement is a sweeping claim ("infinitely many", "cannot be written", "does not exist"). Negating a sweeping claim gives you a finite, concrete object to attack — here, the finite list of primes.
+
+![Proof by contradiction: assume the opposite, reach a contradiction](graphs/03c-contradiction.png)
+
+**Method — Proof by contradiction in 3 steps:**
+
+(1) **Assume the statement is false.** Write the negation concretely (a finite list, a fraction, an object that should not exist).
+
+(2) **Follow the logic** until you reach an impossibility: something contradicts itself, a known fact, or the assumption itself.
+
+(3) **Conclude the original statement is true**, because its negation collapsed.
+
+> **Up to here**: Three templates. Direct: $P \Rightarrow Q$. Contrapositive: $\neg Q \Rightarrow \neg P$. Contradiction: $P \land \neg Q \Rightarrow \bot$. Choose by what's easiest to assume.
 
 ---
 
-## 오늘 배운 절차
+## Common Mistakes
+
+### Mistake 1: Confusing contrapositive with converse
+
+**Wrong**: "If it rains ($P$), the ground is wet ($Q$)" — the reversal is "if the ground is wet, it rained."
+
+**Right**: That is the *converse* ($Q \to P$) and it is a different statement — a sprinkler could have done it. The *contrapositive* is "if the ground is NOT wet, it did NOT rain" ($\neg Q \to \neg P$), which is equivalent to the original. Swap AND negate both.
+
+### Mistake 2: "Proving" by assuming the conclusion
+
+**Wrong**: To prove "if $n^2$ even then $n$ even," start by assuming $n$ is even and deduce $n^2$ is even.
+
+**Right**: That proves the converse, which is not the same claim. Match your assumption to the statement's premise.
+
+### Mistake 3: Forgetting to state the contradiction
+
+**Wrong**: In the $\sqrt{2}$ proof, stopping after showing "$a$ and $b$ are both even."
+
+**Right**: Name the contradiction explicitly: "both even" vs. "fully reduced." The contradiction IS the proof's closing line.
+
+---
+
+## What We Just Did
 
 ```
-1단계: 증명할 문장을 P → Q 형태로 쓴다.
-2단계: 상황을 보고 틀을 고른다.
-       - P→Q 길이 보이면 직접
-       - ¬Q가 더 쉬우면 대우
-       - 둘 다 안 되면 귀류법
-3단계: 고른 틀에 따라 가정을 쓰고,
-       한 줄씩 Q, ¬P, 또는 모순까지 걸어간다.
+(1) Direct proof: assume P, walk to Q.
+    Write the assumption concretely (even → n = 2k).
+
+(2) Contrapositive: P→Q is the same as ¬Q→¬P.
+    If ¬Q is easier to assume, prove that instead.
+    Never confuse with the converse Q→P.
+
+(3) Contradiction: assume the statement is false,
+    follow the logic to an impossibility, conclude it's true.
+
+(4) Decision rule:
+    P→Q walkable  → direct.
+    ¬Q easier than P → contrapositive.
+    sweeping claim / "cannot" / "does not exist" → contradiction.
 ```
+
+---
+
+## Decision Tree — Choosing a Proof Template
+
+```
+You must prove "if P then Q" (or a claim that can be written as one):
+├── (1) Can I write P concretely and walk to Q?
+│       └── Yes → DIRECT PROOF. (Ex 1, 2)
+├── (2) Is ¬Q easier to assume than P?
+│       └── Yes → CONTRAPOSITIVE. Prove ¬Q → ¬P. (Ex 3)
+├── (3) Is the claim sweeping ("infinitely many",
+│       "cannot be written", "does not exist")?
+│       └── Yes → CONTRADICTION. Assume false, explode. (Ex 4, 5)
+└── (4) None obvious? Try contradiction — it always has
+         a concrete negation to start from.
+```
+
+---
+
+## Practice 1
+
+**Prove "if $n$ is odd, then $n^3$ is odd"** the same way as Example 1.
+
+→ Reference: **Example 1**
+
+> Solutions: [Solutions](solutions/03-solutions.md#practice-1)
+
+---
+
+## Practice 2
+
+**Prove "if $3n+2$ is even, then $n$ is even"** the way Example 3 does.
+
+→ Reference: **Example 3**
+
+> Solutions: [Solutions](solutions/03-solutions.md#practice-2)
+
+---
+
+## Practice 3
+
+**Prove "if $n^2$ is a multiple of 3, then $n$ is a multiple of 3."** Choose the template and justify the choice in one line.
+
+→ Reference: **Example 3**
+
+> Solutions: [Solutions](solutions/03-solutions.md#practice-3)
+
+---
+
+## Practice 4: Trap
+
+**Prove "$n^2+n$ is even for all integers $n$"** without induction, Example 2 style.
+(Hint: split $n^2+n = n(n+1)$.)
+
+→ Reference: **Example 2**
+
+> Solutions: [Solutions](solutions/03-solutions.md#practice-4)
+
+---
+
+## Practice 5
+
+**Prove "$\sqrt{3}$ cannot be written as a fraction"** the way Example 4 does.
+
+→ Reference: **Example 4**
+
+> Solutions: [Solutions](solutions/03-solutions.md#practice-5)
+
+---
+
+## Practice 6: Real Battle
+
+**Prove "the sum of a rational and an irrational number is irrational."** Choose the template and justify.
+(Hint: if $a$ is rational and $b$ is irrational and $a+b$ were rational, then $b = (a+b)-a$ would be rational.)
+
+→ Reference: **Examples 4, 5**
+
+> Solutions: [Solutions](solutions/03-solutions.md#practice-6)
+
+---
+
+## Basic Drills
+
+> Choose a template and execute.
+
+**D1.** Prove: if $n$ is even, then $3n$ is even. (Direct)
+
+**D2.** Prove: if $n$ is odd, then $n^2$ is odd. (Direct)
+
+**D3.** Prove: if $n^2$ is even, then $n$ is even. (Contrapositive)
+
+**D4.** Prove: if $5n+1$ is even, then $n$ is odd. (Contrapositive)
+
+**D5.** Prove: if $n$ is even, then $n^2$ is divisible by 4. (Direct)
+
+**D6.** Prove: the product of two even numbers is even. (Direct)
+
+**D7.** Prove: the sum of two odd numbers is even. (Direct)
+
+**D8.** Prove: $\sqrt{5}$ is irrational. (Contradiction)
+
+**D9.** Prove: there is no largest integer. (Contradiction)
+
+**D10.** Prove: if $a < b$, then $a < \frac{a+b}{2} < b$ — there's always a number strictly between. (Direct)
+
+> Solutions: [Solutions](solutions/03-solutions.md#basic-drill)
+
+---
+
+## Advanced Drills
+
+> Multi-step or template-judgment required.
+
+**A1.** Prove: if $n$ is odd, then $n^3$ is odd. Which template did you use and why?
+
+**A2.** Prove: if $n^2$ is a multiple of 5, then $n$ is a multiple of 5. (Mimic the multiple-of-3 argument.)
+
+**A3.** Prove: there are infinitely many primes congruent to … — no. Prove instead: for every integer $n \geq 1$, the number $n! + 1$ has a prime factor greater than $n$.
+
+**A4.** Prove: $\sqrt{6}$ is irrational. (Mimic $\sqrt{2}$/$\sqrt{3}$; you need the multiple-of-2-and-3 step.)
+
+**A5.** Prove: if $a$ and $b$ are odd, then $a^2 + b^2$ is even but not divisible by 4.
+
+**A6.** Prove: the difference of a rational and an irrational is irrational. (Adapt Practice 6.)
+
+**A7.** Prove: if $x$ is irrational, then $\frac{1}{x}$ is irrational (for $x \neq 0$).
+
+**A8.** Prove: $\sqrt{2} + \sqrt{3}$ is irrational. (Hint: suppose it's rational $r$; square; use A4.)
+
+**A9.** Prove: if $a$ divides $b$ and $b$ divides $c$, then $a$ divides $c$ ($a,b,c$ integers, $a \neq 0$). Direct proof with $b = ak$, $c = bl$.
+
+**A10.** Prove: among any 3 consecutive integers, exactly one is a multiple of 3. Then use it to prove $n^3 - n$ is divisible by 3 for all integers $n$.
+
+> Solutions: [Solutions](solutions/03-solutions.md#advanced-drill)
+
+---
+
+## Today's Procedure
+
+```
+Step 1: Write the claim as "if P then Q" (if possible).
+Step 2: Choose a template:
+        - P → Q walkable → direct.
+        - ¬Q easier to assume → contrapositive.
+        - sweeping / "cannot" → contradiction.
+Step 3: Write the assumption, take steps, reach
+        Q (direct), ¬P (contrapositive), or ⊥ (contradiction).
+```
+
+---
+
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| $P \to Q$ | "P implies Q" | if P is true, Q must be true |
+| $\neg Q \to \neg P$ | "not Q implies not P" | the contrapositive — equivalent to P→Q |
+| $Q \to P$ | "Q implies P" | the converse — NOT equivalent |
+| $\bot$ | "contradiction" | an impossible statement |
+| even / odd | "even" / "odd" | $2k$ / $2k+1$ form |
+| irrational | "irrational" | not expressible as a fraction |
+
+---
+
+## Terminology
+
+| What we call it | Math term | Notation |
+|:---------------:|:---------:|:--------:|
+| assume P, reach Q | direct proof | — |
+| prove ¬Q → ¬P | proof by contrapositive | $\neg Q \to \neg P$ |
+| assume false, reach ⊥ | proof by contradiction | $\to \bot$ |
+| impossible result | contradiction | $\bot$ |
+| reversing the arrow | converse | $Q \to P$ |

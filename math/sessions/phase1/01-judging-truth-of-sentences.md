@@ -1,233 +1,460 @@
-# 세션 01: 문장의 참과 거짓을 표로 판정하기
+# Session 01: Judging the Truth of Sentences — Truth Tables
 
-**Phase 1 — 도구의 문법 | 30분**
+**Phase 1 — The Grammar of the Tools | 30 min**
+
+*Prerequisites: none — the very first session*
+*Prerequisite for: [02 — Handling "All" and "Some"](02-handling-all-and-some.md), [03 — Three Proof Templates](03-three-proof-templates.md)*
 
 ---
 
-## 예시 1
+## Part A: The Five Connectors — What Each Word Does
 
-> "비가 온다. 그리고 바람이 분다."
+---
 
-비가 실제로 오는지, 바람이 실제로 부는지만 따진다. 네 가지 경우.
+## Example 1: "And" — True Only When Both Are True
 
-| 비가 온다 | 바람이 분다 | "비가 온다 그리고 바람이 분다" |
+> "It rains. AND the wind blows."
+
+Strip the sentence down to two smaller claims:
+- $A$ = "It rains."
+- $B$ = "The wind blows."
+
+The truth of the whole sentence depends only on the truths of $A$ and $B$. There are exactly **four combinations** — put them in the left columns, then fill the last column by rule.
+
+| $A$ | $B$ | "$A$ and $B$" |
 |:---:|:---:|:---:|
-| 맞다 | 맞다 | 맞다 |
-| 맞다 | 틀리다 | 틀리다 |
-| 틀리다 | 맞다 | 틀리다 |
-| 틀리다 | 틀리다 | 틀리다 |
+| T | T | T |
+| T | F | F |
+| F | T | F |
+| F | F | F |
 
-"그리고"는 **둘 다 맞을 때만** 맞다. 하나라도 틀리면 전체가 틀리다.
+"and" is true **only when both parts are true**. One false part poisons the whole sentence.
+
+> **Insight**: A table with 2 input claims has $2^2 = 4$ rows — every possible combination of T and F. There are no other cases. This is the entire grammar of logic: list the cases, fill each column by one fixed rule.
 
 ---
 
-## 예시 2
+## Example 2: "Or" — True When At Least One Is True
 
-> "비가 온다. 또는 바람이 분다."
+> "It rains. OR the wind blows."
 
-| 비가 온다 | 바람이 분다 | "비가 온다 또는 바람이 분다" |
+Same two claims, same four rows — but a different rule.
+
+| $A$ | $B$ | "$A$ or $B$" |
 |:---:|:---:|:---:|
-| 맞다 | 맞다 | 맞다 |
-| 맞다 | 틀리다 | 맞다 |
-| 틀리다 | 맞다 | 맞다 |
-| 틀리다 | 틀리다 | 틀리다 |
+| T | T | T |
+| T | F | T |
+| F | T | T |
+| F | F | F |
 
-"또는"은 **하나라도 맞으면** 맞다. 둘 다 틀릴 때만 틀리다.
+"or" is true **whenever at least one part is true**. It is false only when both parts are false.
+
+> **Insight**: The "or" of everyday life is often exclusive ("soup or salad"), but the mathematical "or" is *inclusive* — both can be true. The T-T row stays true.
 
 ---
 
-## 예시 3
+## Example 3: "If…then" — One Single Way to Break a Promise
 
-> "비가 오면, 우산을 쓴다."
+> "IF it rains, I carry an umbrella."
 
-| 비가 온다 | 우산을 쓴다 | "비가 오면 우산을 쓴다" |
+The rule that decides this sentence is about **breaking a promise**:
+- It rains and I carry the umbrella → promise kept. True.
+- It rains and I do NOT carry the umbrella → **promise broken. False.**
+- It does not rain (umbrella or not) → promise was never tested. True.
+
+| $A$ | $B$ | "if $A$ then $B$" |
 |:---:|:---:|:---:|
-| 맞다 | 맞다 | 맞다 |
-| 맞다 | 틀리다 | **틀리다** |
-| 틀리다 | 맞다 | 맞다 |
-| 틀리다 | 틀리다 | 맞다 |
+| T | T | T |
+| T | F | **F** |
+| F | T | T |
+| F | F | T |
 
-"이면"이 틀리는 경우는 딱 하나: **앞이 맞는데 뒤가 틀릴 때.** 비가 오는데 우산을 안 썼다 → 약속을 어겼다. 비가 안 오면 우산을 쓰든 말든 약속은 지켜진다.
+"if…then" is false in exactly one case: **$A$ true and $B$ false.** When the premise $A$ is false, the sentence is automatically true — no promise is being tested.
 
----
-
-## 예시 4
-
-> "비가 올 때만, 우산을 쓴다."
-
-| 비가 온다 | 우산을 쓴다 | "비가 올 때만 우산을 쓴다" |
-|:---:|:---:|:---:|
-| 맞다 | 맞다 | 맞다 |
-| 맞다 | 틀리다 | 틀리다 |
-| 틀리다 | 맞다 | **틀리다** |
-| 틀리다 | 틀리다 | 맞다 |
-
-"일 때만"은 **두 문장이 같을 때만** 맞다. 비가 안 오는데 우산을 쓰면 약속을 어긴 거다.
+> **Insight**: This is the least intuitive row of logic. "If it rains, I carry an umbrella" says nothing about what happens when it doesn't rain. A false premise cannot break the promise, so the sentence stays true.
 
 ---
 
-## 예시 5: 섞인 문장
+## Example 4: "Only if" / "if and only if" — Both Must Match
 
-> "비가 오거나 바람이 불면, 우산을 쓴다."
+> "I carry an umbrella ONLY IF it rains."
 
-| 비 | 바람 | 우산 | (비 또는 바람) | (비 또는 바람)이면 우산 |
-|:---:|:---:|:---:|:---:|:---:|
-| 맞다 | 맞다 | 맞다 | 맞다 | 맞다 |
-| 맞다 | 맞다 | 틀리다 | 맞다 | 틀리다 |
-| 맞다 | 틀리다 | 맞다 | 맞다 | 맞다 |
-| 맞다 | 틀리다 | 틀리다 | 맞다 | 틀리다 |
-| 틀리다 | 맞다 | 맞다 | 맞다 | 맞다 |
-| 틀리다 | 맞다 | 틀리다 | 맞다 | 틀리다 |
-| 틀리다 | 틀리다 | 맞다 | 틀리다 | 맞다 |
-| 틀리다 | 틀리다 | 틀리다 | 틀리다 | 맞다 |
+Compare with Example 3. This sentence promises: umbrella → rain. Now the third row flips:
 
-왼쪽 세 열에 모든 조합(2×2×2=8)을 적는다. "(비 또는 바람)"은 예시 2 규칙. 마지막 열은 예시 3 규칙. 마지막 열이 전부 맞는가? 아니다. 이 문장은 **항상 맞지 않는다**.
-
----
-
-## 예시 6: 똑같은 뜻, 다른 말로
-
-"(비가 온다 그리고 바람이 분다)가 아니다"를 표로 만든다.
-
-| 비 | 바람 | 비 그리고 바람 | (비 그리고 바람)가 아니다 |
+| $A$ | $B$ | "if $A$ then $B$" | "only if" |
 |:---:|:---:|:---:|:---:|
-| 맞다 | 맞다 | 맞다 | 틀리다 |
-| 맞다 | 틀리다 | 틀리다 | 맞다 |
-| 틀리다 | 맞다 | 틀리다 | 맞다 |
-| 틀리다 | 틀리다 | 틀리다 | 맞다 |
+| T | T | T | T |
+| T | F | F | F |
+| F | T | T | **F** |
+| F | F | T | T |
 
-이번에는 "(비가 아니다) 또는 (바람이 아니다)":
+"I carry an umbrella **if and only if** it rains" demands both directions: rain → umbrella AND umbrella → rain. It is true only when $A$ and $B$ **have the same truth value**.
 
-| 비 | 바람 | 비가 아니다 | 바람이 아니다 | (비가 아니다) 또는 (바람이 아니다) |
-|:---:|:---:|:---:|:---:|:---:|
-| 맞다 | 맞다 | 틀리다 | 틀리다 | 틀리다 |
-| 맞다 | 틀리다 | 틀리다 | 맞다 | 맞다 |
-| 틀리다 | 맞다 | 맞다 | 틀리다 | 맞다 |
-| 틀리다 | 틀리다 | 맞다 | 맞다 | 맞다 |
-
-두 표의 마지막 열이 **완전히 같다**. "(A 그리고 B)가 아니다"와 "(A가 아니다) 또는 (B가 아니다)"는 같은 뜻이다.
-
----
-
-## 예시 7: "아니다"가 두 번
-
-> "비가 오지 않는 것이 아니다."
-
-| 비가 온다 | 비가 아니다 | (비가 아니다)가 아니다 |
+| $A$ | $B$ | "$A$ iff $B$" |
 |:---:|:---:|:---:|
-| 맞다 | 틀리다 | 맞다 |
-| 틀리다 | 맞다 | 틀리다 |
+| T | T | T |
+| T | F | F |
+| F | T | F |
+| F | F | T |
 
-"아니다"를 두 번 붙이면 원래로 돌아온다.
-
----
-
-## 방금 우리가 한 일
-
-1. 문장을 "맞다", "틀리다"만 남기고 벗겨냈다.
-2. 가능한 모든 경우를 표 왼쪽에 적었다.
-3. 연결 방식("그리고", "또는", "이면", "일 때만", "아니다")마다 정해진 규칙으로 한 열씩 채웠다.
-4. 마지막 열이 전부 맞으면 항상 맞는 문장. 전부 틀리면 항상 틀리는 문장.
-5. 두 표의 마지막 열이 같으면 같은 뜻이다.
+> **Insight**: "if" is one direction; "iff" (if and only if) is both directions. The table for "iff" is true exactly when the two columns match — like an equality test.
 
 ---
 
-## 자주 하는 실수: "이면"과 "일 때만"을 헷갈린다
+## Example 5: "Not" — Flip the Value
 
-많은 사람이 "비가 오면 우산을 쓴다"와 "비가 올 때만 우산을 쓴다"를 같은 뜻이라고 생각한다. 표를 다시 보자.
+> "It does NOT rain."
 
-| 비 | 우산 | 이면 | 일때만 |
+The negation simply flips the truth value.
+
+| $A$ | "not $A$" |
+|:---:|:---:|
+| T | F |
+| F | T |
+
+> **Up to here**: Five connectors, five rules. "and" (both true), "or" (at least one true), "if…then" (false only on T→F), "iff" (both match), "not" (flip). Each rule fills one column. Combined sentences = build the table column by column.
+
+![The four main connectors side by side — and, or, if-then, iff](graphs/01a-connectives.png)
+
+---
+
+## Part B: Building Larger Tables — One Column at a Time
+
+---
+
+## Example 6: A Mixed Sentence — Three Claims, Eight Rows
+
+> "IF it rains or the wind blows, I carry an umbrella."
+
+This sentence has three claims ($A$ = rain, $B$ = wind, $C$ = umbrella), so the table has $2^3 = 8$ rows. Write all 8 combinations in the left three columns, then fill columns right to left.
+
+| $A$ | $B$ | $C$ | $A \lor B$ | $(A \lor B) \to C$ |
+|:---:|:---:|:---:|:---:|:---:|
+| T | T | T | T | T |
+| T | T | F | T | F |
+| T | F | T | T | T |
+| T | F | F | T | F |
+| F | T | T | T | T |
+| F | T | F | T | F |
+| F | F | T | F | T |
+| F | F | F | F | T |
+
+Column 4 uses the "or" rule (Example 2). Column 5 uses the "if…then" rule (Example 3) with column 4 as the premise.
+
+The last column is **not all T** — the sentence is not always true. In fact it is false whenever it rains or the wind blows but no umbrella appears.
+
+> **Insight**: Never jump to the last column. Build one column per connector, left to right. Each new column is produced by a rule you already know.
+
+**Method — Building any truth table in 3 steps:**
+
+(1) **Count the claims.** $n$ claims → $2^n$ rows. List every T/F combination in the left columns (flip the rightmost column fastest).
+
+(2) **Find the connectors from the inside out.** Locate the smallest pieces first: parentheses, then the connectors they feed into.
+
+(3) **Fill one column per connector, left to right.** Each column is a rule you know. The last column answers the question.
+
+---
+
+## Example 7: De Morgan — "Not (A and B)" Means the Same as "Not A or Not B"
+
+Two different sentences, two tables. Compare their last columns.
+
+**Sentence 1 — "NOT (it rains and the wind blows)":**
+
+| $A$ | $B$ | $A \land B$ | $\neg(A \land B)$ |
 |:---:|:---:|:---:|:---:|
-| 맞다 | 맞다 | 맞다 | 맞다 |
-| 맞다 | 틀리다 | 틀리다 | 틀리다 |
-| 틀리다 | 맞다 | **맞다** | **틀리다** |
+| T | T | T | F |
+| T | F | F | T |
+| F | T | F | T |
+| F | F | F | T |
 
-셋째 줄: 비가 안 오는데 우산을 썼다. "이면"은 약속 위반이 아니다 → 맞다. "일 때만"은 약속 위반 → 틀리다. 둘은 완전히 다르다.
+**Sentence 2 — "(NOT it rains) OR (NOT the wind blows)":**
 
----
+| $A$ | $B$ | $\neg A$ | $\neg B$ | $\neg A \lor \neg B$ |
+|:---:|:---:|:---:|:---:|:---:|
+| T | T | F | F | F |
+| T | F | F | T | T |
+| F | T | T | F | T |
+| F | F | T | T | T |
 
-## 연습 1
+The last columns are **identical**. The two sentences are *logically equivalent* — different words, same meaning.
 
-"'거짓말을 하면 혼난다' 그리고 '거짓말을 하지 않으면 혼나지 않는다'" — 이 문장이 항상 맞는지 표로 판정하라.
+$$\neg(A \land B) \;\equiv\; \neg A \lor \neg B$$
 
-→ 따라하기: **예시 3, 5**
+![De Morgan: not(A and B) equals (not A) or (not B)](graphs/01b-demorgan.png)
 
-> 풀이: [풀이집](solutions/01-solutions.md#연습-1)
-
----
-
-## 연습 2
-
-"'A이면 B'가 맞을 때, B가 맞으면 A도 반드시 맞다." 이 주장이 옳은지 표로 판정하라.
-
-→ 따라하기: **예시 3**
-
-> 풀이: [풀이집](solutions/01-solutions.md#연습-2)
+> **Insight**: Negation distributes over "and"/"or" by flipping the connector. "It is not true that it rains and blows" ⟺ "it doesn't rain or it doesn't blow." The same rule swaps $\land \leftrightarrow \lor$ under a negation.
 
 ---
 
-## 연습 3
+## Example 8: Double Negation — Two "Not"s Cancel
 
-"(A이면 B) 그리고 (B이면 A)" — 이 문장과 똑같은 결과를 내는 연결 방식은 무엇인지 표로 찾아보라.
+> "It is NOT true that it does NOT rain."
 
-→ 따라하기: **예시 4, 6**
+| $A$ | $\neg A$ | $\neg(\neg A)$ |
+|:---:|:---:|:---:|
+| T | F | T |
+| F | T | F |
 
-> 풀이: [풀이집](solutions/01-solutions.md#연습-3)
+Applying "not" twice brings you back to the start: $\neg(\neg A) \equiv A$.
 
----
-
-## 연습 4: 함정
-
-"(A 또는 B) 그리고 (A가 아니다)" — 이 문장이 맞는 경우는 언제인지 표에서 찾아보라.
-
-→ 따라하기: **예시 2, 6**
-
-> 풀이: [풀이집](solutions/01-solutions.md#연습-4)
+> **Up to here**: Big tables are built one column at a time. Two tables with identical last columns are the same sentence in disguise (logical equivalence). Double negation cancels. De Morgan is the swap rule for negation.
 
 ---
 
-## 연습 5
-
-"(A 그리고 B)이면 C"와 "(A이면 C) 또는 (B이면 C)". 두 표의 마지막 열을 비교하라. 같은 뜻인가?
-
-→ 따라하기: **예시 5, 6**
-
-> 풀이: [풀이집](solutions/01-solutions.md#연습-5)
+## Part C: Judging a Whole Sentence — Tautologies and Equivalences
 
 ---
 
-## 연습 6: 실전
+## Example 9: A Tautology — Always True, No Matter What
 
-"A가 맞으면 B도 맞다. B가 맞으면 C도 맞다." 이 두 문장이 모두 맞을 때, "A가 맞으면 C도 맞다"는 항상 맞는가? 표로 증명하라.
+> "It rains, OR it does not rain."
 
-→ 따라하기: **예시 3, 5**
+| $A$ | $\neg A$ | $A \lor \neg A$ |
+|:---:|:---:|:---:|
+| T | F | T |
+| F | T | T |
 
-> 풀이: [풀이집](solutions/01-solutions.md#연습-6)
+The last column is all T. This sentence is true in **every possible situation** — it carries no information. Such a sentence is a **tautology**. The mirror case, all F, is a **contradiction**.
 
----
+![Tautology A or not A — the last column is all true](graphs/01c-tautology.png)
 
-## 용어 정리
-
-지금까지 우리는 "맞다", "틀리다", "그리고", "또는", "이면", "일 때만", "아니다"만 썼다.
-**방법은 이미 다 배웠다.** 이제 수학 이름을 소개한다.
-
-| 우리가 써온 말 | 수학 용어 | 기호 |
-|:------------:|:--------:|:---:|
-| 맞다 / 틀리다 | 참 / 거짓 | T / F |
-| 아니다 | 부정 | $\neg$ |
-| 그리고 | 연언 | $\land$ |
-| 또는 | 선언 | $\lor$ |
-| 이면 | 함의 | $\to$ |
-| 일 때만 | 동치 | $\leftrightarrow$ |
-| 모든 줄이 참 | 항진식 | tautology |
-| 마지막 열이 같음 | 논리적 동치 | $\equiv$ |
+> **Insight**: A tautology is a sentence you never need to check again — no matter what the world does, it is true. The law of excluded middle ($A \lor \neg A$) is the simplest one.
 
 ---
 
-## 오늘 배운 절차
+## Example 10: Equivalence via Tables — Same Last Column
+
+Two sentences are **logically equivalent** ($\equiv$) when their truth tables have identical last columns. Compare "if $A$ then $B$" with "not $A$ or $B$":
+
+| $A$ | $B$ | $A \to B$ | $\neg A \lor B$ |
+|:---:|:---:|:---:|:---:|
+| T | T | T | T |
+| T | F | F | F |
+| F | T | T | T |
+| F | F | T | T |
+
+Same last column → **$A \to B \equiv \neg A \lor B$.** "If it rains, I carry an umbrella" means the same as "Either it doesn't rain, or I carry an umbrella."
+
+> **Insight**: This equivalence is the engine behind proof by contrapositive (Session 03). Because $A \to B$ means $\neg A \lor B$, swapping the negated conclusion and premise gives an equivalent promise.
+
+> **Up to here**: A table's last column tells you everything — all T (tautology), all F (contradiction), or matching another table (equivalence).
+
+---
+
+## Common Mistakes
+
+### Mistake 1: "If…then" equals "only if"
+
+**Wrong**: "If it rains, I carry an umbrella" and "I carry an umbrella only if it rains" sound the same.
+
+**Right**: They are different promises. "If $A$ then $B$" is false only on $A$=T, $B$=F. "Only if" is also false on $A$=F, $B$=T. Check the third row of Example 4 — the two tables differ.
+
+### Mistake 2: Confusing "or" with "either…or"
+
+**Wrong**: "It rains or the wind blows" excludes the case where both happen.
+
+**Right**: Mathematical "or" is inclusive. The T-T row is true. Only both-false makes it false.
+
+### Mistake 3: A false premise makes "if…then" false
+
+**Wrong**: "If $2=1$, then pigs fly" feels false because the premise is absurd.
+
+**Right**: A false premise makes the implication *vacuously true* (the F-T and F-F rows are both true; only T→F is false). Tables don't care about feelings.
+
+---
+
+## What We Just Did
 
 ```
-1단계: 연결 방식 5가지의 규칙을 표로 외운다.
-2단계: 왼쪽 열부터 하나씩, 정해진 규칙으로 채운다.
-3단계: 마지막 열이 전부 T → 항진식.
+(1) Strip a sentence down to its atomic claims. n claims → 2^n rows.
+
+(2) The five connectors, five rules:
+    and:  true only when both true.
+    or:   true when at least one true.
+    if→:  false only when true premise, false conclusion.
+    iff:  true when both sides match.
+    not:  flips the value.
+
+(3) Build big tables one column at a time, left to right.
+
+(4) Judge the last column:
+    all T       → tautology (always true).
+    all F       → contradiction (always false).
+    matches another table → logically equivalent.
 ```
+
+---
+
+## Decision Tree — Judging Any Sentence
+
+```
+You have a sentence made of claims:
+├── (1) Identify the atomic claims (A, B, C, ...).
+├── (2) How many? 1 → 2 rows. 2 → 4 rows. 3 → 8 rows.
+│       Write all T/F combinations in the left columns.
+├── (3) Read the connectors from the inside out (parentheses first).
+├── (4) Fill one column per connector with its rule.
+└── (5) Read the last column:
+    ├── all T → tautology. all F → contradiction.
+    └── compare with another table → equivalence?
+```
+
+---
+
+## Practice 1
+
+**"If I lie, I get punished" AND "if I do not lie, I do not get punished."** Decide with a truth table whether this whole sentence is always true.
+
+→ Reference: **Examples 3, 6**
+
+> Solutions: [Solutions](solutions/01-solutions.md#practice-1)
+
+---
+
+## Practice 2
+
+**When "$A$ implies $B$" is true, is it necessarily true that if $B$ is true then $A$ is true?** Test the claim with a table.
+
+→ Reference: **Example 3**
+
+> Solutions: [Solutions](solutions/01-solutions.md#practice-2)
+
+---
+
+## Practice 3
+
+**"(A implies B) and (B implies A)"** — find the single connector that produces the same last column.
+
+→ Reference: **Examples 4, 7**
+
+> Solutions: [Solutions](solutions/01-solutions.md#practice-3)
+
+---
+
+## Practice 4: Trap
+
+**"(A or B) and (not A)"** — find exactly the row(s) where this sentence is true.
+
+→ Reference: **Examples 2, 7**
+
+> Solutions: [Solutions](solutions/01-solutions.md#practice-4)
+
+---
+
+## Practice 5
+
+**"(A and B) implies C" vs "(A implies C) or (B implies C)".** Compare the two last columns. Are they equivalent?
+
+→ Reference: **Examples 6, 7**
+
+> Solutions: [Solutions](solutions/01-solutions.md#practice-5)
+
+---
+
+## Practice 6: Real Battle
+
+**"If $A$ is true then $B$ is true" and "if $B$ is true then $C$ is true"** are both true. Prove with a table that "if $A$ is true then $C$ is true" is always true.
+
+→ Reference: **Examples 3, 6**
+
+> Solutions: [Solutions](solutions/01-solutions.md#practice-6)
+
+---
+
+## Basic Drills
+
+> Pure computation — build the table, read the last column.
+
+**D1.** Build the table for $A \land B$.
+
+**D2.** Build the table for $A \lor B$.
+
+**D3.** Build the table for $A \to B$.
+
+**D4.** Build the table for $A \leftrightarrow B$.
+
+**D5.** Build the table for $\neg A$.
+
+**D6.** Build the table for $\neg(A \lor B)$ — then state its simpler equivalent.
+
+**D7.** Build the table for $\neg(A \land B)$ — then state its simpler equivalent.
+
+**D8.** Build the table for $A \lor \neg A$. What kind of sentence is it?
+
+**D9.** Build the table for $A \land \neg A$. What kind of sentence is it?
+
+**D10.** Build the table for $\neg(\neg A)$. What does it equal?
+
+> Solutions: [Solutions](solutions/01-solutions.md#basic-drill)
+
+---
+
+## Advanced Drills
+
+> Multi-step — several connectors, several columns.
+
+**A1.** Build the table for $(A \lor B) \land \neg(A \land B)$ — this is the "exclusive or." In which rows is it true?
+
+**A2.** Prove by table that $A \to B \equiv \neg B \to \neg A$ (the contrapositive).
+
+**A3.** Prove by table that $\neg(A \to B) \equiv A \land \neg B$.
+
+**A4.** Is $A \to (B \to C)$ equivalent to $(A \land B) \to C$? Decide with one table.
+
+**A5.** With three claims $A, B, C$, is $(A \lor B) \land C$ equivalent to $A \lor (B \land C)$?
+
+**A6.** Build the table for $(A \to B) \land (B \to A)$ and name the single-connector sentence it equals.
+
+**A7.** Build the table for $A \to (B \land C)$ and compare with $(A \to B) \land (A \to C)$.
+
+**A8.** A sentence built from $A$ and $B$ is true exactly in rows (T,F) and (F,T). Write it using only $\land$, $\lor$, $\neg$.
+
+**A9.** Prove by table that $A \leftrightarrow B \equiv (A \land B) \lor (\neg A \land \neg B)$.
+
+**A10.** Prove by table that $A \to B \equiv \neg A \lor B$, then show $A \to B \equiv A \to (A \land B)$.
+
+> Solutions: [Solutions](solutions/01-solutions.md#advanced-drill)
+
+---
+
+## Today's Procedure
+
+```
+Step 1: Count the claims → 2^n rows. Write every combination.
+Step 2: Fill columns one connector at a time, inside out.
+Step 3: Read the last column:
+        all T = tautology, all F = contradiction,
+        same as another table = equivalence.
+```
+
+---
+
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| $\neg A$ | "not A" | flips A's truth value |
+| $A \land B$ | "A and B" | true only when both true |
+| $A \lor B$ | "A or B" | true when at least one true |
+| $A \to B$ | "A implies B" / "if A then B" | false only on T→F |
+| $A \leftrightarrow B$ | "A iff B" | true when A and B match |
+| T / F | "true" / "false" | the two truth values |
+| $\equiv$ | "is equivalent to" | identical last columns |
+| tautology | "always true" | all-T last column |
+| contradiction | "always false" | all-F last column |
+
+---
+
+## Terminology
+
+| What we call it | Math term | Notation |
+|:---------------:|:---------:|:--------:|
+| "not" | negation | $\neg$ |
+| "and" | conjunction | $\land$ |
+| "or" | disjunction | $\lor$ |
+| "if…then" | implication | $\to$ |
+| "if and only if" | biconditional | $\leftrightarrow$ |
+| always true | tautology | — |
+| always false | contradiction | $\bot$ |
+| same meaning | logical equivalence | $\equiv$ |

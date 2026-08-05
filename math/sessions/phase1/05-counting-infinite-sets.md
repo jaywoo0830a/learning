@@ -1,191 +1,352 @@
-# 세션 05: 무한에도 크기가 있다 — 집합의 크기 재기
+# Session 05: Counting Infinite Sets — Sizes of Infinity
 
-**Phase 1 — 도구의 문법 | 90분**
+**Phase 1 — The Grammar of the Tools | 90 min**
 
----
-
-## 예시 1
-
-바구니에 사과 3개, 오렌지 3개. 어느 게 더 많을까?
-
-사과와 오렌지를 하나씩 짝지어본다. 🍎-🍊, 🍎-🍊, 🍎-🍊. 딱 맞는다. 개수가 같다.
-
-수를 세지 않고도 **짝짓기**만으로 크기를 비교할 수 있다.
+*Prerequisites: [01 — Judging the Truth of Sentences](01-judging-truth-of-sentences.md), [02 — Handling "All" and "Some"](02-handling-all-and-some.md) (quantifiers), [03 — Three Proof Templates](03-three-proof-templates.md) (contradiction)*
+*Prerequisite for: [06 — Gödel's Incompleteness Theorem](06-godels-incompleteness-theorem.md), Phase 3 (real analysis)*
 
 ---
 
-## 예시 2
+## Part A: Comparing Sizes Without Counting — Pairing
 
-자연수는 몇 개일까? 1, 2, 3, 4, 5, ... 무한히 많다.
-짝수는 몇 개일까? 2, 4, 6, 8, 10, ... 이것도 무한히 많다.
+---
 
-그런데 자연수와 짝수를 짝지어보자.
+## Example 1: The Pairing Test
 
-| 자연수 | 1 | 2 | 3 | 4 | 5 | ... |
+A basket holds 3 apples and 3 oranges. Which is more?
+
+Pair them one-to-one: 🍎–🍊, 🍎–🍊, 🍎–🍊. Perfect match — no leftovers on either side. **They have the same size.**
+
+We never counted "3." We just checked that a perfect pairing exists. That idea extends to infinite sets, where counting is impossible.
+
+> **Insight**: "Same size" = there exists a pairing that matches every element of one set to a different element of the other, with nothing left over on either side. This is the definition of a **bijection**.
+
+![Perfect pairing between two finite sets](graphs/05a-pairing.png)
+
+---
+
+## Example 2: Natural Numbers vs Even Numbers — Same Size!
+
+Both are infinite: $\mathbb{N} = \{1, 2, 3, 4, 5, \dots\}$ and the evens $\{2, 4, 6, 8, 10, \dots\}$.
+
+Pair them:
+
+| natural | 1 | 2 | 3 | 4 | 5 | … |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| 짝수 | 2 | 4 | 6 | 8 | 10 | ... |
+| even | 2 | 4 | 6 | 8 | 10 | … |
 
-$n \leftrightarrow 2n$ 으로 짝짓는다. **하나도 빠짐없이, 하나도 겹치지 않게** 짝지어진다.
+Rule: $n \leftrightarrow 2n$. Every natural number gets a partner, every even number is used exactly once.
 
-자연수와 짝수는 **크기가 같다**. 무한에서는 "부분이 전체와 같을 수 있다".
+**$\mathbb{N}$ and the evens have the same size** — even though the evens are only "half" of $\mathbb{N}$.
+
+> **Insight**: This is the moment infinity breaks finite intuition. A proper subset (evens ⊂ naturals) can be the same size as the whole set. "The part is smaller than the whole" is a finite-world rule only.
+
+![Bijection between naturals and even numbers](graphs/05a-pairing.png)
 
 ---
 
-## 예시 3
+## Example 3: Natural Numbers vs Integers — Same Size!
 
-자연수와 정수를 짝지어보자. 정수: ..., −3, −2, −1, 0, 1, 2, 3, ...
+Integers: $\dots, -3, -2, -1, 0, 1, 2, 3, \dots$ — they stretch in both directions, so "first integer" is unclear. The fix: **reorder them into a list.**
 
-| 자연수 | 1 | 2 | 3 | 4 | 5 | 6 | ... |
+| natural | 1 | 2 | 3 | 4 | 5 | 6 | 7 | … |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| 정수 | 0 | 1 | −1 | 2 | −2 | 3 | ... |
+| integer | 0 | 1 | −1 | 2 | −2 | 3 | −3 | … |
 
-규칙: 자연수 $n$에 대해, $n$이 홀수면 $(n-1)/2$, 짝수면 $-n/2$를 대응시킨다. 모든 정수가 빠짐없이 등장한다.
+Rule: odd $n \mapsto \frac{n-1}{2}$ (the nonnegatives), even $n \mapsto -\frac{n}{2}$ (the negatives). Every integer appears exactly once.
 
-자연수와 정수도 **크기가 같다**.
+**$\mathbb{N}$ and $\mathbb{Z}$ have the same size.**
 
----
-
-## 예시 4
-
-양의 유리수(분수)도 자연수와 짝지을 수 있다.
-
-분수를 분모-분자 순서로 늘어놓고, 약분되는 건 건너뛴다.
-
-| 순서 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | ... |
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| 분수 | 1/1 | 1/2 | 2/1 | 1/3 | 3/1 | 1/4 | 2/3 | ... |
-
-모든 양의 유리수가 어딘가에 등장한다. 자연수와 유리수도 **크기가 같다**.
+> **Insight**: An infinite set that can be laid out as a list — first element, second element, … — is *countable* in the technical sense. The ability to *list* is the real test of size.
 
 ---
 
-## 예시 5
+## Example 4: Natural Numbers vs Fractions — Same Size!
 
-그럼 모든 무한집합이 다 같은 크기일까? 아니다.
+Positive fractions: $\frac{1}{1}, \frac{1}{2}, \frac{2}{1}, \frac{1}{3}, \frac{3}{1}, \frac{1}{4}, \frac{2}{3}, \dots$
 
-0과 1 사이의 실수를 전부 나열할 수 있다고 가정해보자.
+Arrange all fractions in a grid by numerator and denominator, then **walk the diagonals**, skipping fractions that reduce (e.g., skip $\frac{2}{2}$ since $\frac{1}{1}$ is already listed).
 
-1번: 0.**3**20145...
-2번: 0.1**7**8932...
-3번: 0.94**1**667...
-4번: 0.702**0**81...
-...
+| order | 1 | 2 | 3 | 4 | 5 | 6 | 7 | … |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| fraction | $\frac{1}{1}$ | $\frac{1}{2}$ | $\frac{2}{1}$ | $\frac{1}{3}$ | $\frac{3}{1}$ | $\frac{1}{4}$ | $\frac{2}{3}$ | … |
 
-이제 **대각선**을 따라 내려간다: 첫째 줄 첫째 자리(3), 둘째 줄 둘째 자리(7), 셋째 줄 셋째 자리(1), 넷째 줄 넷째 자리(0)...
+Every positive fraction appears somewhere in the list.
 
-이 숫자들을 하나씩 바꾼다 (3→4, 7→8, 1→2, 0→1, ...). 그러면: 0.4821...
+**$\mathbb{N}$ and $\mathbb{Q}^+$ have the same size** — hence so do $\mathbb{N}$ and all of $\mathbb{Q}$.
 
-이 숫자는 **목록의 어디에도 없다**. 1번과는 첫째 자리가 다르고, 2번과는 둘째 자리가 다르고, $n$번과는 $n$째 자리가 다르다.
+![Enumerating the rationals by walking the diagonal grid](graphs/05b-rationals.png)
 
-**어떤 식으로 나열해도 빠지는 실수가 반드시 존재한다.** 0과 1 사이의 실수는 자연수보다 **더 크다**.
+> **Insight**: Fractions look "dense" — between any two there's another — yet they can be listed. Listing doesn't need closeness or order; it needs a systematic sweep that never misses anything. The diagonal walk is that sweep.
 
----
-
-## 예시 6: 크기 비교의 일반화
-
-"크기가 같다"는 **일대일로 완벽하게 짝지을 수 있다**는 뜻이다.
-
-- 자연수와 짝을 지을 수 있는 무한집합: 자연수, 정수, 유리수. 이 크기를 $\aleph_0$이라 부른다.
-- 자연수와 짝지을 수 없는 무한집합: 실수. 크기가 $\aleph_0$보다 크다.
+> **Up to here**: Pairing is the size test. Evens, integers, and fractions all pair perfectly with $\mathbb{N}$. They all have the same size, called $\aleph_0$. So far, every infinite set we've met has been $\aleph_0$ — is everything?
 
 ---
 
-## 방금 우리가 한 일
-
-1. 집합의 크기는 **원소를 세지 않고 짝짓기**로 비교한다.
-2. 두 집합 사이에 **일대일로 완벽한 짝짓기**가 있으면 크기가 같다.
-3. 자연수 ⇔ 정수 ⇔ 유리수 — 모두 같은 크기 ($\aleph_0$).
-4. 실수는 자연수와 짝지을 수 없다 — **대각선 논법**으로 증명.
-5. 무한에도 크기의 계층이 있다. $\aleph_0 < 2^{\aleph_0}$.
+## Part B: The Diagonal Argument — A Bigger Infinity
 
 ---
 
-## 자주 하는 실수: "무한은 다 똑같다"고 생각한다
+## Example 5: Real Numbers Are Bigger — Cantor's Diagonal
 
-무한이라고 다 같은 크기가 아니다. 자연수보다 실수가 **더 큰** 무한이다. 대각선 논법은 이걸 엄밀하게 증명하는 칼이다.
+**Claim: the real numbers in $(0,1)$ cannot be listed. Every list misses some real.**
 
----
+Assume a complete list exists:
 
-## 연습 1
+1st: 0.$\mathbf{3}$20145…
+2nd: 0.1$\mathbf{7}$8932…
+3rd: 0.94$\mathbf{1}$667…
+4th: 0.702$\mathbf{0}$81…
+…
 
-짝수 전체의 집합과 홀수 전체의 집합. 크기가 같은가? 짝짓기를 보여라.
+(1) **Walk the diagonal**: take the 1st digit of the 1st number (3), the 2nd digit of the 2nd (7), the 3rd digit of the 3rd (1), the 4th digit of the 4th (0), …
 
-→ 따라하기: **예시 2**
+(2) **Change every diagonal digit** (3→4, 7→8, 1→2, 0→1, …). Call the result $d = 0.4821\dots$
 
-> 풀이: [풀이집](solutions/05-solutions.md#연습-1)
+(3) **$d$ is not in the list.** It differs from the 1st number in digit 1, from the 2nd in digit 2, from the $n$th in digit $n$ — by construction.
 
----
+Every list fails; some real is always left out.
 
-## 연습 2
+![Cantor's diagonal argument — the new number differs from every row](graphs/05c-diagonal.png)
 
-자연수와 3의 배수 {3, 6, 9, 12, ...}. 크기가 같은가? 짝짓기를 보여라.
+> **Insight**: This is a proof by contradiction (Session 03) at its most famous. Assume the list, build a number that *differs from every listed number*, and watch the assumption die. The diagonal is the machine that guarantees the new number is new.
 
-→ 따라하기: **예시 2**
-
-> 풀이: [풀이집](solutions/05-solutions.md#연습-2)
-
----
-
-## 연습 3
-
-정수 전체와 유리수 전체 중 어느 쪽이 더 큰가? 이유를 대각선 논법 또는 짝짓기로 설명하라.
-
-→ 따라하기: **예시 3, 4**
-
-> 풀이: [풀이집](solutions/05-solutions.md#연습-3)
+> **Up to here**: $\mathbb{N}, \mathbb{Z}, \mathbb{Q}$ are all the same size ($\aleph_0$). The reals are strictly larger. Two sizes of infinity so far — and the reals' size is $2^{\aleph_0}$, which is bigger than $\aleph_0$.
 
 ---
 
-## 연습 4: 함정
-
-"자연수 집합과 정수 집합은 크기가 같다. 그런데 정수는 자연수를 포함한다. 모순 아닌가?" — 이 반문에 답하라.
-
-→ 따라하기: **예시 3**
-
-> 풀이: [풀이집](solutions/05-solutions.md#연습-4)
+## Part C: The Hierarchy — Powerset and Beyond
 
 ---
 
-## 연습 5
+## Example 6: Powersets Are Always Bigger
 
-자연수의 모든 부분집합으로 이루어진 집합(멱집합)의 크기는 자연수보다 크다는 걸 대각선 논법 스타일로 증명하라. (도움말: $\mathcal{P}(\mathbb{N})$의 원소들과 $\mathbb{N}$을 짝지었다고 가정하고, "자기 자신을 포함하지 않는 자연수"의 집합을 생각한다)
+For any set $S$, its **powerset** $\mathcal{P}(S)$ (all subsets of $S$) is strictly bigger than $S$. For finite $S$ with $|S| = m$: $|\mathcal{P}(S)| = 2^m$.
 
-→ 따라하기: **예시 5**
+- $S = \{1, 2, 3\}$: $|\mathcal{P}(S)| = 8 > 3$. ✓
+- $S = \mathbb{N}$: $|\mathcal{P}(\mathbb{N})| = 2^{\aleph_0}$, and $2^{\aleph_0} > \aleph_0$.
 
-> 풀이: [풀이집](solutions/05-solutions.md#연습-5)
+The diagonal argument generalizes: no matter how you try to pair subsets of $\mathbb{N}$ with natural numbers, the set "$n$ such that $n \notin f(n)$" is left out.
 
----
+> **Insight**: There is no largest infinity. $\aleph_0 < 2^{\aleph_0} < 2^{2^{\aleph_0}} < \cdots$ — an endless ladder. The diagonal argument is the tool that climbs each rung.
 
-## 연습 6: 실전
-
-$\mathbb{N} \times \mathbb{N}$ (자연수 순서쌍 전체)의 크기는 $\aleph_0$인가? 짝짓기 방법을 구체적으로 제시하라. (도움말: $(a,b)$를 2차원 격자로 그리고 대각선으로 훑는다)
-
-→ 따라하기: **예시 4**
-
-> 풀이: [풀이집](solutions/05-solutions.md#연습-6)
+![The hierarchy of infinities — the powerset is always bigger](graphs/05d-hierarchy.png)
 
 ---
 
-## 용어 정리
+## Common Mistakes
 
-지금까지 우리는 "짝짓기", "크기", "대각선"만 썼다. **방법은 이미 다 배웠다.**
+### Mistake 1: "All infinities are the same size"
 
-| 우리가 써온 말 | 수학 용어 | 기호 |
-|:------------:|:--------:|:---:|
-| 완벽하게 짝짓기 | 일대일대응 (전단사) | bijection |
-| 크기가 같다 | 농도가 같다 | $\lvert A\rvert = \lvert B\rvert$ |
-| 자연수와 짝지을 수 있는 크기 | 가산 무한 | $\aleph_0$ |
-| 자연수와 짝지을 수 없는 크기 | 비가산 | $\lvert\mathbb{R}\rvert = 2^{\aleph_0}$ |
-| 빠지는 수를 찾는 논법 | 대각선 논법 | Cantor's diagonal argument |
+**Wrong**: "Infinite is infinite; $\mathbb{N}$ and $\mathbb{R}$ must be the same."
+
+**Right**: $\mathbb{R}$ is strictly bigger than $\mathbb{N}$ — Cantor's diagonal argument proves any listing of the reals misses some number. There is a genuine hierarchy of infinities.
+
+### Mistake 2: Thinking "$\mathbb{Z}$ contains $\mathbb{N}$, so $\mathbb{Z}$ is bigger"
+
+**Wrong**: "$\mathbb{Z}$ has all of $\mathbb{N}$ inside plus negatives, so more elements."
+
+**Right**: Size is decided by the existence of a pairing, not by inclusion. $\mathbb{N} \leftrightarrow \mathbb{Z}$ pairs perfectly (Example 3). Infinite sets can equal their proper subsets — the defining difference between finite and infinite.
+
+### Mistake 3: "$\mathbb{Q}$ is dense, so it can't be listed"
+
+**Wrong**: "Between any two fractions there's another fraction, so listing is impossible."
+
+**Right**: Density is about order, not size. The diagonal-walk listing (Example 4) sweeps every fraction — density doesn't stop listing.
 
 ---
 
-## 오늘 배운 절차
+## What We Just Did
 
 ```
-1단계: 두 집합 사이에 일대일로 완벽한 짝짓기를 만든다.
-       성공 → 크기가 같다.
-2단계: 어떤 짝짓기를 시도해도 빠지는 원소가 있다면,
-       그 집합이 더 크다.
-3단계: 대각선 논법으로 "어떤 짝짓기도 실패함"을 증명한다.
+(1) Size = pairing. A perfect one-to-one matching (bijection)
+    means two sets have the same size — no counting needed.
+
+(2) N ↔ evens, N ↔ Z, N ↔ Q — all pair perfectly.
+    All have size ℵ₀ ("countably infinite").
+
+(3) Diagonal argument: any list of reals misses a real.
+    Proof by contradiction + the diagonal construction.
+    → |ℝ| > ℵ₀.
+
+(4) Powersets: |P(S)| > |S| always.
+    ℵ₀ < 2^ℵ₀ < 2^(2^ℵ₀) < ... — no largest infinity.
 ```
+
+---
+
+## Decision Tree — Comparing Two Sets
+
+```
+Are sets A and B the same size?
+├── (1) Can I write a one-to-one pairing rule?
+│       └── Yes → same size. (n ↔ 2n, diagonal walk, ...)
+├── (2) Can I LIST one of them?
+│       ├── Yes → it's countable (size ℵ₀ if infinite).
+│       └── No — any listing misses something →
+│           it's uncountable, strictly bigger.
+├── (3) To prove "B is bigger than A":
+│       assume a pairing/list exists,
+│       build the element that must be left out (diagonal),
+│       contradict the assumption.
+└── (4) Powerset shortcut: |P(S)| > |S| for any S.
+```
+
+---
+
+## Practice 1
+
+**Do the even numbers and the odd numbers have the same size?** Show the pairing.
+
+→ Reference: **Example 2**
+
+> Solutions: [Solutions](solutions/05-solutions.md#practice-1)
+
+---
+
+## Practice 2
+
+**Do the natural numbers and the multiples of 3 $\{3, 6, 9, 12, \dots\}$ have the same size?** Show the pairing.
+
+→ Reference: **Example 2**
+
+> Solutions: [Solutions](solutions/05-solutions.md#practice-2)
+
+---
+
+## Practice 3
+
+**Which is bigger: all integers or all fractions?** Explain with a pairing or the diagonal argument.
+
+→ Reference: **Examples 3, 4**
+
+> Solutions: [Solutions](solutions/05-solutions.md#practice-3)
+
+---
+
+## Practice 4: Trap
+
+**"$\mathbb{N}$ and $\mathbb{Z}$ have the same size, but $\mathbb{Z}$ contains $\mathbb{N}$. Isn't that a contradiction?"** Answer this objection.
+
+→ Reference: **Example 3**
+
+> Solutions: [Solutions](solutions/05-solutions.md#practice-4)
+
+---
+
+## Practice 5
+
+**Prove $|\mathcal{P}(\mathbb{N})| > |\mathbb{N}|$** in the style of the diagonal argument. (Hint: suppose $f: \mathbb{N} \to \mathcal{P}(\mathbb{N})$ is a bijection and consider the set of $n$ such that $n \notin f(n)$.)
+
+→ Reference: **Example 5**
+
+> Solutions: [Solutions](solutions/05-solutions.md#practice-5)
+
+---
+
+## Practice 6: Real Battle
+
+**Is $|\mathbb{N} \times \mathbb{N}|$ equal to $\aleph_0$?** Give an explicit pairing. (Hint: draw the pairs $(a,b)$ as a 2D grid and sweep the diagonals.)
+
+→ Reference: **Example 4**
+
+> Solutions: [Solutions](solutions/05-solutions.md#practice-6)
+
+---
+
+## Basic Drills
+
+> Decide the size, give the pairing.
+
+**D1.** Are the perfect squares $\{1, 4, 9, 16, \dots\}$ the same size as $\mathbb{N}$?
+
+**D2.** Are the powers of 2 $\{1, 2, 4, 8, \dots\}$ the same size as $\mathbb{N}$?
+
+**D3.** Are the integers $\geq 100$ the same size as $\mathbb{N}$?
+
+**D4.** Is the set $\{0, 1\}$-strings of finite length countable?
+
+**D5.** Is the set of all finite strings over $\{0,1\}$ countable?
+
+**D6.** Is $\mathbb{Z}$ countable? Give the pairing rule.
+
+**D7.** Is the set of all finite subsets of $\mathbb{N}$ countable? (One sentence of reasoning.)
+
+**D8.** Is $\mathbb{R}$ countable? Why not?
+
+**D9.** Are the numbers in $[0,1]$ and the numbers in $[0,2]$ the same size? (Pairing: $x \leftrightarrow 2x$.)
+
+**D10.** Is the empty set's powerset $\mathcal{P}(\emptyset)$ bigger than $\emptyset$? How many elements does it have?
+
+> Solutions: [Solutions](solutions/05-solutions.md#basic-drill)
+
+---
+
+## Advanced Drills
+
+> Multi-step — diagonal constructions and hierarchy.
+
+**A1.** Prove $|\mathbb{N} \times \mathbb{N}| = \aleph_0$ with an explicit formula (pairing $(a,b)$ with a natural number).
+
+**A2.** Prove that the set of all *finite* subsets of $\mathbb{N}$ is countable (map each subset to a natural number via binary encoding).
+
+**A3.** Prove that the set of all *infinite* binary strings is uncountable (diagonal argument on strings).
+
+**A4.** Show that $|(0,1)| = |\mathbb{R}|$ via the pairing $x \mapsto \tan(\pi x - \pi/2)$ (or another explicit bijection).
+
+**A5.** Show that $|(0,1)| = |(0,1) \times (0,1)|$ is hard to write down explicitly — but explain why $\mathbb{R}$ and $\mathbb{R}^2$ have the same cardinality using the diagonal-digit interleaving idea.
+
+**A6.** Prove that the set of all *sequences* of natural numbers is uncountable. (Hint: diagonal argument on sequences.)
+
+**A7.** Prove that there is no bijection between $S$ and $\mathcal{P}(S)$ — generalize the diagonal argument to any set $S$.
+
+**A8.** Is the set of all *polynomials with integer coefficients* countable? (Hint: finite degree + countable coefficients.)
+
+**A9.** The set of all *real* polynomials — countable or uncountable? Explain the difference from A8.
+
+**A10.** Prove $|\mathbb{R}| = |\mathcal{P}(\mathbb{N})|$ in idea form: each real's binary expansion is an infinite 0/1 string, i.e., a subset of $\mathbb{N}$ (positions of 1s). Handle the two-expansion ambiguity in one sentence.
+
+> Solutions: [Solutions](solutions/05-solutions.md#advanced-drill)
+
+---
+
+## Today's Procedure
+
+```
+Step 1: Same size? Build a perfect pairing (bijection).
+        One-to-one, nothing left over on either side.
+Step 2: Countable? Can you list it (first, second, ...)?
+        Yes → size ℵ₀. No → uncountable, bigger.
+Step 3: Prove "bigger"? Assume the pairing, construct the
+        left-out element with the diagonal, reach a contradiction.
+Step 4: Powersets always win: |P(S)| > |S|.
+```
+
+---
+
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| $\lvert A\rvert = \lvert B\rvert$ | "the size of A equals the size of B" | a perfect pairing exists |
+| bijection | "bijection" | one-to-one pairing, nothing left over |
+| $\aleph_0$ | "aleph null" | the size of $\mathbb{N}$ — countably infinite |
+| $2^{\aleph_0}$ | "two to the aleph null" | the size of $\mathbb{R}$ and $\mathcal{P}(\mathbb{N})$ |
+| $\mathcal{P}(S)$ | "the powerset of S" | the set of all subsets of S |
+| diagonal argument | "diagonal argument" | build an element that differs from every listed one |
+| countable | "countable" | can be listed / paired with $\mathbb{N}$ |
+| uncountable | "uncountable" | too many to list (e.g., $\mathbb{R}$) |
+
+---
+
+## Terminology
+
+| What we call it | Math term | Notation |
+|:---------------:|:---------:|:--------:|
+| perfect pairing | bijection | $A \cong B$ |
+| same size | equal cardinality | $\lvert A\rvert = \lvert B\rvert$ |
+| listable size | countably infinite | $\aleph_0$ |
+| unlistable size | uncountable | $2^{\aleph_0}$ |
+| the left-out number | Cantor's diagonal argument | — |
+| all subsets | powerset | $\mathcal{P}(S)$ |
+| size of a set | cardinality | $\lvert S\rvert$ |

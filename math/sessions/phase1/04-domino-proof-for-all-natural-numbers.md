@@ -1,210 +1,366 @@
-# 세션 04: 도미노로 모든 자연수를 증명하기
+# Session 04: The Domino Proof — Mathematical Induction
 
-**Phase 1 — 도구의 문법 | 45분**
+**Phase 1 — The Grammar of the Tools | 45 min**
 
----
-
-## 예시 1
-
-1부터 100까지 더하면? $1+2+\cdots+100 = 5050$.
-
-공식이 있다: $1+2+\cdots+n = \frac{n(n+1)}{2}$.
-$n=100$ 넣으면: $100 \times 101 \div 2 = 5050$. 딱 맞다.
-
-그런데 이 공식이 **모든 자연수 $n$에 대해** 맞다는 걸 어떻게 확신할까?
+*Prerequisites: [03 — Three Proof Templates](03-three-proof-templates.md) (direct proof), [01 — Judging the Truth of Sentences](01-judging-truth-of-sentences.md) ("for all" quantifier)*
+*Prerequisite for: [06 — Gödel's Incompleteness Theorem](06-godels-incompleteness-theorem.md), real analysis (Phase 3)*
 
 ---
 
-## 예시 2
-
-첫 번째 확인: $n=1$일 때 맞나?
-
-왼쪽: $1$. 오른쪽: $\frac{1 \times 2}{2} = 1$. 맞다.
+## Part A: The Problem — Infinitely Many Cases
 
 ---
 
-## 예시 3
+## Example 1: A Formula That Keeps Working
 
-$n=1$일 때 맞는 건 확인했다. 하지만 $n=2, 3, 4, \dots$ 무한히 많은 경우를 어떻게 다 확인할까?
+$1 + 2 + \cdots + 100 = 5050$. There is a formula:
 
-도미노를 생각해보자.
-- 첫 번째 도미노가 넘어진다 (예시 2: $n=1$).
-- **어떤 도미노가 넘어지면, 바로 다음 도미노도 반드시 넘어진다**는 걸 보이면 된다.
-- 그러면 첫 번째부터 시작해서 모든 도미노가 넘어진다.
+$$1 + 2 + \cdots + n = \frac{n(n+1)}{2}$$
 
----
+Plug in $n=100$: $\frac{100 \cdot 101}{2} = 5050$. It works.
 
-## 예시 4
-
-"$k$번째 도미노가 넘어지면 $k+1$번째도 넘어진다"를 확인하자.
-
-$n=k$일 때 공식이 맞다고 **가정**한다: $1+2+\cdots+k = \frac{k(k+1)}{2}$.
-
-이 가정을 이용해 $n=k+1$일 때도 맞는지 본다.
-
-$1+2+\cdots+k+(k+1) = \frac{k(k+1)}{2} + (k+1)$
-
-$= \frac{k(k+1) + 2(k+1)}{2} = \frac{(k+1)(k+2)}{2}$.
-
-이건 $\frac{n(n+1)}{2}$에 $n=k+1$을 넣은 것과 정확히 같다.
-
-$n=k$에서 맞으면 $n=k+1$에서도 맞는다. **도미노 연결 완료.**
+But the formula claims to hold for **every** natural number $n$ — infinitely many cases. Checking $n=1$, $n=2$, … one by one is impossible. How do we know it works for $n = 10^{100}$?
 
 ---
 
-## 예시 5
+## Example 2: The Base Case — Check the First Domino
 
-이제 모든 게 연결되었다:
-- $n=1$: 맞다 (예시 2)
-- $n=1$이 맞으니까 $n=2$도 맞다 (예시 4, $k=1$)
-- $n=2$가 맞으니까 $n=3$도 맞다 (예시 4, $k=2$)
-- ...
+First, check the smallest case.
 
-무한히 이어진다. 따라서 **모든 자연수 $n$에 대해** 공식이 맞다.
+**$n=1$**: left side $= 1$. Right side $= \frac{1 \cdot 2}{2} = 1$. They match. ✓
+
+One case verified — one domino standing at the start.
 
 ---
 
-## 예시 6: 다른 패턴
+## Example 3: The Domino Picture
 
-"모든 자연수 $n$에 대해 $n^3 - n$은 3의 배수다."
+One case isn't enough. The trick: prove a **chain rule** instead of infinitely many facts.
 
-$n=1$: $1-1=0 = 3 \times 0$ → 맞다.
+Imagine a line of dominoes.
+- The **first domino falls** (that's the base case, Example 2).
+- **If any domino falls, the next one falls too** (that's the chain rule we must prove).
 
-$n=k$일 때 맞다고 가정: $k^3 - k = 3m$ ($m$은 정수).
+Then every domino falls — first, second, third, … forever.
 
-$n=k+1$: $(k+1)^3 - (k+1) = k^3 + 3k^2 + 3k + 1 - k - 1$
-$= k^3 - k + 3k^2 + 3k$
-$= 3m + 3(k^2 + k)$ (가정 이용)
-$= 3(m + k^2 + k)$ → 3의 배수. 맞다.
+![The domino chain — base case + chain rule = all fall](graphs/04a-domino.png)
 
-$n=1$에서 맞고, $k \to k+1$ 연결도 됐다. **모든 $n$에 대해 맞다.**
-
----
-
-## 예시 7: 강한 귀납법
-
-때로는 $k$ 하나만 가정해서는 $k+1$을 증명할 수 없을 때가 있다. 그럴 땐 **앞의 모든 결과**를 가정한다.
-
-"2 이상의 모든 자연수는 소수의 곱으로 나타낼 수 있다."
-
-$n=2$: 2는 소수 → 맞다.
-
-$n \leq k$인 모든 자연수가 소수 곱으로 나타내진다고 가정.
-$n=k+1$을 본다.
-
-- $k+1$이 소수면 → 바로 맞다.
-- $k+1$이 합성수면 → $k+1 = a \times b$ ($2 \leq a, b \leq k$).
-  가정에 의해 $a$와 $b$는 각각 소수 곱으로 나타내진다.
-  따라서 $k+1$도 소수 곱으로 나타내진다.
-
-앞의 모든 결과를 써서 다음으로 넘어갔다. **모든 $n \geq 2$에 대해 맞다.**
+> **Insight**: We cannot push $10^{100}$ dominoes, but we can prove "falling is contagious." The base case provides the first push; the chain rule spreads it to infinity. Two facts, infinitely many consequences.
 
 ---
 
-## 방금 우리가 한 일
-
-수학적 귀납법은 도미노와 같다. 두 가지만 확인하면 된다:
-
-1. **기본 경우:** $n=1$일 때 맞다. (첫 도미노 넘어뜨리기)
-2. **귀납 단계:** $n=k$일 때 맞다고 가정하면 $n=k+1$일 때도 맞다. (도미노 연결)
-
-둘 다 확인되면 **모든 자연수에 대해** 맞다.
-
-강한 귀납법은 2번에서 "$n \leq k$인 모든 경우"를 가정하는 변형이다.
+## Part B: The Chain Rule — From $k$ to $k+1$
 
 ---
 
-## 자주 하는 실수: 기본 경우를 빼먹는다
+## Example 4: The Inductive Step for the Sum Formula
 
-귀납 단계만 증명하고 기본 경우를 확인하지 않는 실수.
+**Prove the chain rule: if the formula works for $n=k$, it works for $n=k+1$.**
 
-예: "$n = n+1$"이라는 틀린 명제를 생각해보자.
-$n=k$일 때 $k = k+1$이라고 가정. 양변에 1을 더하면 $k+1 = k+2$.
-$n=k+1$일 때도 성립하는 것처럼 보인다!
+(1) **Assume** (induction hypothesis): $1 + 2 + \cdots + k = \frac{k(k+1)}{2}$.
 
-하지만 $n=1$: $1 = 2$ → 틀리다. 기본 경우가 틀리면 도미노는 시작조차 못 한다.
+(2) **Add the next term** on both sides:
 
----
+$1 + 2 + \cdots + k + (k+1) = \frac{k(k+1)}{2} + (k+1)$
 
-## 연습 1
+(3) **Combine the fractions**:
 
-$1 + 3 + 5 + \cdots + (2n-1) = n^2$ 을 귀납법으로 증명하라. (홀수의 합은 $n^2$)
+$= \frac{k(k+1) + 2(k+1)}{2} = \frac{(k+1)(k+2)}{2}$
 
-→ 따라하기: **예시 4**
+(4) This is exactly $\frac{n(n+1)}{2}$ with $n = k+1$. ✓
 
-> 풀이: [풀이집](solutions/04-solutions.md#연습-1)
+**The chain rule is proved**: formula at $k$ ⇒ formula at $k+1$.
 
 ---
 
-## 연습 2
+## Example 5: Assembling the Proof
 
-"모든 자연수 $n$에 대해 $2^n > n$"을 귀납법으로 증명하라.
+Now connect everything:
 
-→ 따라하기: **예시 4, 5**
+- $n=1$: true (base case, Example 2).
+- $n=1$ true ⇒ $n=2$ true (chain rule with $k=1$).
+- $n=2$ true ⇒ $n=3$ true (chain rule with $k=2$).
+- $n=3$ true ⇒ $n=4$ true …
+- … and so on, forever.
 
-> 풀이: [풀이집](solutions/04-solutions.md#연습-2)
+**Conclusion: $1 + 2 + \cdots + n = \frac{n(n+1)}{2}$ for every natural number $n$.**
 
----
+> **Insight**: Induction is the infinite version of a chain of direct proofs. It packages "case 1 ⇒ case 2 ⇒ case 3 ⇒ …" into two checkable facts. This is the backbone of all of mathematics' infinite claims.
 
-## 연습 3
+**Method — Mathematical induction in 3 steps:**
 
-$1^2 + 2^2 + \cdots + n^2 = \frac{n(n+1)(2n+1)}{6}$ 을 귀납법으로 증명하라.
+(1) **Base case.** Verify the claim for $n=1$ (or the smallest allowed $n$).
 
-→ 따라하기: **예시 4**
+(2) **Inductive step.** Assume the claim for $n=k$ (the induction hypothesis). Using it, prove the claim for $n=k+1$. *Use the hypothesis — it's there to be used.*
 
-> 풀이: [풀이집](solutions/04-solutions.md#연습-3)
-
----
-
-## 연습 4: 함정
-
-"모든 자연수 $n$에 대해 $n < 100$"을 귀납법으로 증명하려고 한다. $n=k$일 때 $k<100$이면, $k+1<101$이지만 $k+1<100$은 보장되지 않는다. 어디서 귀납법이 실패했는지 설명하라.
-
-→ 따라하기: **예시 3, 4**
-
-> 풀이: [풀이집](solutions/04-solutions.md#연습-4)
+(3) **Conclude.** Base + chain ⇒ true for all $n$.
 
 ---
 
-## 연습 5
+## Example 6: Another Pattern — Multiples of 3
 
-피보나치 수열: $F_1=1, F_2=1, F_{n}=F_{n-1}+F_{n-2}$.
-"모든 $n \geq 1$에 대해 $F_n < 2^n$"을 강한 귀납법으로 증명하라.
+**Prove: for all $n$, $n^3 - n$ is a multiple of 3.**
 
-→ 따라하기: **예시 7**
+**Base case** ($n=1$): $1^3 - 1 = 0 = 3 \times 0$. ✓
 
-> 풀이: [풀이집](solutions/04-solutions.md#연습-5)
+**Inductive step** ($k \to k+1$):
+Assume $k^3 - k = 3m$ for some integer $m$ (induction hypothesis).
 
----
+$(k+1)^3 - (k+1) = k^3 + 3k^2 + 3k + 1 - k - 1$
+$= (k^3 - k) + 3k^2 + 3k$
+$= 3m + 3(k^2 + k)$ (using the hypothesis!)
+$= 3(m + k^2 + k)$. ✓ A multiple of 3.
 
-## 연습 6: 실전
+**Conclusion**: by induction, $n^3 - n$ is a multiple of 3 for all $n$.
 
-"모든 자연수 $n$에 대해, $n \times n$ 체스판을 L자 모양 타일로 덮을 수 있는가?" ($n=2^k$일 때만 생각한다)
-귀납법을 써서 증명하라. ($n=2$일 때는 어떻게 덮나? $2^k$ 크기를 $2^{k+1}$로 확장할 수 있나?)
+> **Insight**: The whole inductive step is: *carve out the $k$-case from the $(k+1)$-case, replace it with the hypothesis, and factor the leftover.* If you don't see "$k^3-k$" appear in $(k+1)^3-(k+1)$, look again — it's almost always hiding inside.
 
-→ 따라하기: **예시 6**
-
-> 풀이: [풀이집](solutions/04-solutions.md#연습-6)
-
----
-
-## 용어 정리
-
-지금까지 우리는 "기본 경우", "귀납 단계", "도미노"만 썼다. **방법은 이미 다 배웠다.**
-
-| 우리가 써온 말 | 수학 용어 | 기호 |
-|:------------:|:--------:|:---:|
-| 기본 경우 ($n=1$ 확인) | 기초 단계 | base case |
-| $k$일 때 맞다고 가정 | 귀납 가정 | induction hypothesis |
-| $k \to k+1$ 보이기 | 귀납 단계 | inductive step |
-| 앞의 모든 결과 가정 | 강한 귀납법 | strong induction |
+![Sum of odd numbers — each step adds an L-shaped piece](graphs/04b-sum-odds.png)
 
 ---
 
-## 오늘 배운 절차
+## Part C: Strong Induction — Assume All Previous Cases
+
+---
+
+## Example 7: When One Case Isn't Enough
+
+Sometimes $k+1$ depends not on case $k$ alone, but on earlier cases (like $k-1$, or all of them). Then assume **all** cases up to $k$.
+
+**Prove: every integer $n \geq 2$ is a product of primes.**
+
+**Base case** ($n=2$): 2 is prime — a "product" of one prime. ✓
+
+**Inductive step**: assume every integer from $2$ up to $k$ is a product of primes. Look at $n = k+1$.
+
+- If $k+1$ is prime → it's already a product of one prime. ✓
+- If $k+1$ is composite → $k+1 = a \times b$ with $2 \leq a, b \leq k$. By the (strong) hypothesis, $a$ and $b$ are each products of primes. Multiply those products → $k+1$ is a product of primes. ✓
+
+**Conclusion**: every integer $\geq 2$ is a product of primes.
+
+> **Insight**: For a composite $k+1 = a \times b$, we needed the factorization of both $a$ *and* $b$ — not just of $k$. Strong induction hands you the whole stack of previous cases, which is exactly what such "splitting" proofs need.
+
+![Strong induction — assume every case up to k](graphs/04c-strong-induction.png)
+
+**Method — Strong induction in 3 steps:**
+
+(1) **Base case(s).** Verify the smallest case(s) — sometimes you need two (e.g., Fibonacci needs $F_1$ and $F_2$).
+
+(2) **Strong inductive step.** Assume the claim for ALL cases $2, 3, \dots, k$. Prove it for $k+1$, using whichever previous cases you need.
+
+(3) **Conclude.** Holds for all $n \geq$ base.
+
+> **Up to here**: Induction = base case + chain rule. Strong induction = base case + "all previous cases" rule. Use strong induction when case $k+1$ splits into smaller pieces.
+
+---
+
+## Common Mistakes
+
+### Mistake 1: Skipping the base case
+
+**Wrong**: Prove only the inductive step and declare victory.
+
+**Right**: Without the base case, the dominoes never start. Example: the false claim "$n = n+1$" survives the inductive step — assuming $k = k+1$ gives $k+1 = k+2$ — but fails at $n=1$ ($1 \neq 2$). The chain is intact, the first domino never falls.
+
+### Mistake 2: Not using the induction hypothesis
+
+**Wrong**: In the $(k+1)$-case, plowing ahead with algebra and never substituting $1 + \cdots + k = \frac{k(k+1)}{2}$.
+
+**Right**: The hypothesis is the point. If your $(k+1)$-step doesn't invoke it, you're doing the same work for every case — not induction.
+
+### Mistake 3: Concluding "$n < 100$ for all $n$" by induction
+
+**Wrong**: "If $k < 100$, then $k+1 < 101$" — looks like a chain rule, so induction works?
+
+**Right**: The chain rule must prove $P(k) \Rightarrow P(k+1)$ where $P(n)$ is "$n<100$". At $k=99$, $P(99)$ is true but $P(100)$ is false — the link is broken. A broken link means the chain stops.
+
+---
+
+## What We Just Did
 
 ```
-1단계: n=1일 때 맞는지 확인한다 (첫 도미노).
-2단계: n=k일 때 맞다고 가정하고, n=k+1일 때도 맞음을 보인다 (연결).
-3단계: 둘 다 성공 → 모든 n에 대해 맞다.
+(1) Induction proves "for all n" with two facts:
+    Base case: P(1) true.   (first domino)
+    Chain rule: P(k) → P(k+1).   (domino link)
+
+(2) To run the chain rule:
+    - Write down P(k) (the hypothesis).
+    - Build the (k+1)-case and carve out the k-case inside it.
+    - Replace the k-case with the hypothesis.
+    - Factor / simplify to close the proof.
+
+(3) Strong induction: assume P(2), P(3), ..., P(k) all together.
+    Use it when case k+1 splits into smaller parts
+    (primes, Fibonacci, tiling).
 ```
+
+---
+
+## Decision Tree — Induction or Not?
+
+```
+You must prove "for all natural numbers n, P(n)":
+├── (1) Can you check the smallest case?
+│       └── No → induction can't start. Rethink.
+├── (2) Does P(k+1) follow from P(k) alone?
+│       ├── Yes → ORDINARY INDUCTION. (Ex 4, 6)
+│       └── No — it needs P(k−1) or earlier →
+│           STRONG INDUCTION. (Ex 7)
+├── (3) Does the claim split into pieces?
+│       └── Yes → strong induction, use all previous cases.
+└── (4) Is the claim actually false at some n?
+        └── Check small cases BEFORE proving. (Mistake 3)
+```
+
+---
+
+## Practice 1
+
+**Prove $1 + 3 + 5 + \cdots + (2n-1) = n^2$** (the sum of the first $n$ odd numbers) by induction.
+
+→ Reference: **Example 4**
+
+> Solutions: [Solutions](solutions/04-solutions.md#practice-1)
+
+---
+
+## Practice 2
+
+**Prove $2^n > n$ for all natural numbers $n$** by induction.
+
+→ Reference: **Examples 4, 5**
+
+> Solutions: [Solutions](solutions/04-solutions.md#practice-2)
+
+---
+
+## Practice 3
+
+**Prove $1^2 + 2^2 + \cdots + n^2 = \frac{n(n+1)(2n+1)}{6}$** by induction.
+
+→ Reference: **Example 4**
+
+> Solutions: [Solutions](solutions/04-solutions.md#practice-3)
+
+---
+
+## Practice 4: Trap
+
+**Someone tries to prove "$n < 100$ for all $n$" by induction.** They argue: if $k < 100$ then $k+1 < 101$ (true), so the chain rule "holds." Where does the induction fail?
+
+→ Reference: **Examples 3, 4**
+
+> Solutions: [Solutions](solutions/04-solutions.md#practice-4)
+
+---
+
+## Practice 5
+
+**Fibonacci: $F_1=1$, $F_2=1$, $F_n = F_{n-1}+F_{n-2}$.** Prove $F_n < 2^n$ for all $n \geq 1$ by strong induction.
+
+→ Reference: **Example 7**
+
+> Solutions: [Solutions](solutions/04-solutions.md#practice-5)
+
+---
+
+## Practice 6: Real Battle
+
+**A $2^k \times 2^k$ checkerboard with one square removed can be tiled by L-shaped trominoes.** Prove it by induction. (How do you tile a $2\times2$ board? How do you grow a $2^k$ tiling to a $2^{k+1}$ tiling?)
+
+→ Reference: **Example 6**
+
+> Solutions: [Solutions](solutions/04-solutions.md#practice-6)
+
+---
+
+## Basic Drills
+
+> Apply the 3-step induction template.
+
+**D1.** Prove $1 + 2 + \cdots + n = \frac{n(n+1)}{2}$ (base case + one chain step written out).
+
+**D2.** Prove $3 + 6 + 9 + \cdots + 3n = \frac{3n(n+1)}{2}$.
+
+**D3.** Prove $2 + 4 + 6 + \cdots + 2n = n(n+1)$.
+
+**D4.** Prove $1 + 2 + 4 + \cdots + 2^{n-1} = 2^n - 1$.
+
+**D5.** Prove $n < 2^n$ for all $n \geq 1$.
+
+**D6.** Prove $3^n \geq 2n + 1$ for all $n \geq 1$.
+
+**D7.** Prove $n^2 \geq n$ for all natural numbers $n$.
+
+**D8.** Prove $2n + 1 < 2^n$ for all $n \geq 3$ (start the base case at $n=3$!).
+
+**D9.** Prove that $n^3 - n$ is divisible by 6 for all $n \geq 1$. (Two divisibility claims, one induction.)
+
+**D10.** Prove $1 + 2 + \cdots + n = \frac{n(n+1)}{2}$ again, but this time note where the induction hypothesis is used.
+
+> Solutions: [Solutions](solutions/04-solutions.md#basic-drill)
+
+---
+
+## Advanced Drills
+
+> Strong induction, structural thinking, real problems.
+
+**A1.** Prove $F_n \geq 2^{n/2}$ for all $n \geq 6$ (Fibonacci). Hint: $F_{n+1} = F_n + F_{n-1} \geq 2^{n/2} + 2^{(n-1)/2} = 2^{(n-1)/2}(1+\sqrt{2}) > 2^{(n+1)/2}$.
+
+**A2.** Prove that every integer $n \geq 2$ has a prime factor (strong induction — the key lemma used in Example 5 of Session 03!).
+
+**A3.** Prove that a $2^n \times 2^n$ board minus one square is tiled by L-trominoes (the full version of Practice 6).
+
+**A4.** Prove that every amount of postage $\geq 8$ cents can be made with 3-cent and 5-cent stamps.
+
+**A5.** Prove $1^3 + 2^3 + \cdots + n^3 = \left(\frac{n(n+1)}{2}\right)^2$.
+
+**A6.** Prove $1 \cdot 2 + 2 \cdot 3 + \cdots + n(n+1) = \frac{n(n+1)(n+2)}{3}$.
+
+**A7.** Prove that a sequence defined by $a_1 = 2$, $a_{n+1} = a_n + 2n + 1$ satisfies $a_n = n^2 + 1$ for all $n$.
+
+**A8.** Prove that every natural number $n$ can be written as a sum of distinct powers of 2 (binary representation!) by strong induction.
+
+**A9.** Prove $\sum_{i=1}^{n} \frac{1}{i(i+1)} = \frac{n}{n+1}$ (telescoping — the inductive step is one line).
+
+**A10.** Prove that the Tower of Hanoi puzzle with $n$ disks needs exactly $2^n - 1$ moves (strong induction: moving $n$ disks = move $n-1$, move 1, move $n-1$ again).
+
+> Solutions: [Solutions](solutions/04-solutions.md#advanced-drill)
+
+---
+
+## Today's Procedure
+
+```
+Step 1: Base case — verify P(1) (or the smallest n).
+Step 2: Inductive step — assume P(k), prove P(k+1).
+        Carve the k-case out of the (k+1)-case, use the hypothesis.
+Step 3: Both done → P(n) holds for every natural number n.
+        (Strong version: assume P(2)...P(k) when the claim splits.)
+```
+
+---
+
+## How to Read These Symbols
+
+| Symbol | Reads as | Meaning |
+|:---:|:---:|------|
+| $P(n)$ | "P of n" | the claim being proved for the number n |
+| base case | "base case" | verifying P at the smallest n — the first domino |
+| induction hypothesis | "induction hypothesis" | assuming P(k) to build the chain |
+| inductive step | "inductive step" | proving P(k) ⇒ P(k+1) |
+| strong induction | "strong induction" | assuming P(2)…P(k) all at once |
+| $F_n$ | "F sub n" | the nth Fibonacci number |
+
+---
+
+## Terminology
+
+| What we call it | Math term | Notation |
+|:---------------:|:---------:|:--------:|
+| first domino | base case | $P(n_0)$ |
+| "suppose true for k" | induction hypothesis | $P(k)$ |
+| "then true for k+1" | inductive step | $P(k) \to P(k+1)$ |
+| all previous cases | strong induction | $P(2) \land \dots \land P(k)$ |
+| two-fact proof for all n | mathematical induction | — |
