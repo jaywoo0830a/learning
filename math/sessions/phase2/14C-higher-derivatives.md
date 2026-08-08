@@ -415,7 +415,7 @@ $f(x)=x^3-3x^2-9x+5$. (a) Find all $x$ where $f'(x)=0$ (critical points). (b) Fi
 
 **A9.** $f(x)=x^{x^x}$. Find $f'(x)$ using log-diff twice. Then find $f''(1)$. (Challenging — take $\ln$ twice.)
 
-**A10.** $f(x)=\frac{ax+b}{cx+d}$. Prove $f'''(x)=0$ for all $x \neq -d/c$. (Rewrite as $A + \frac{B}{cx+d}$ using division — then only one term to differentiate.)
+**A10.** $f(x)=\frac{ax+b}{cx+d}$. Find $f'''(x)$ for all $x \neq -d/c$. (Rewrite as $A + \frac{B}{cx+d}$ using division — then only one term to differentiate.)
 
 > Solutions: [Solutions](solutions/14C-solutions.md#advanced-drill)
 
