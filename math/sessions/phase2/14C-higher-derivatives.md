@@ -56,6 +56,8 @@ A car moving with $s(t) = t^3 - 6t^2 + 9t$ (meters, seconds):
 - At $t=1$: $v=0$ (stopped), $a=-6$ (decelerating — slowing down from positive direction).
 - At $t=3$: $v=0$ (stopped again), $a=6$ (accelerating — speeding up in positive direction).
 
+![Position, velocity, acceleration of the car](graphs/0808/14C/14c-motion.png)
+
 ---
 
 ## Part B: Pattern Recognition — The $n$-th Derivative
@@ -104,8 +106,10 @@ $f(x)=\sin x$:
 1. Divide $n$ by 4. Keep the **remainder** $r$ (0, 1, 2, or 3).
 2. Read the answer from the cycle: $r=0\to\sin x$, $r=1\to\cos x$, $r=2\to-\sin x$, $r=3\to-\cos x$.
 
-$f^{(100)}(\sin x)$: $100 \div 4 = 25$ remainder $0$. → $\sin x$. (Hundredth derivative returns to the start!)
-$f^{(57)}(\sin x)$: $57 \div 4 = 14$ remainder $1$. → $\cos x$.
+For $f(x)=\sin x$: $f^{(100)}(x)$: $100 \div 4 = 25$ remainder $0$. → $\sin x$. (Hundredth derivative returns to the start!)
+For $f(x)=\sin x$: $f^{(57)}(x)$: $57 \div 4 = 14$ remainder $1$. → $\cos x$.
+
+![Trig derivative cycle — sin → cos → -sin → -cos → sin](graphs/0808/14C/14c-trig-cycle.png)
 
 **For $\cos x$**: Same cycle offset: $r=0\to\cos x$, $r=1\to-\sin x$, $r=2\to-\cos x$, $r=3\to\sin x$.
 
@@ -228,6 +232,8 @@ $f''(x)=0$ at $x=0$.
 - $x<0$: $f''(x)<0$ (concave down).
 - $x>0$: $f''(x)>0$ (concave up).
 Sign changes → $(0,0)$ is an **inflection point**.
+
+![Concavity: f=x³-3x is concave down then up, inflection at 0](graphs/0808/14C/14c-concavity.png)
 
 $f(x)=x^4$: $f''(x)=12x^2$. $f''(0)=0$, but $f''(x) \geq 0$ everywhere (never changes sign). No inflection — it's always concave up.
 

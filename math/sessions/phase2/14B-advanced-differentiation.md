@@ -118,6 +118,8 @@ $\frac{d}{dx}\frac{3}{x^2}$: Rewrite as $3x^{-2}$. Power rule: $-6x^{-3} = -\fra
 
 **Memory**: "Derivative of outside × derivative of inside."
 
+![Chain rule — peel the onion from outside in](graphs/0808/14B/14b-chain-layers.png)
+
 ---
 
 ## Example 5: Basic Chain Rule — One Layer
@@ -206,6 +208,8 @@ $x^2 + y^2 = 25$. Find $\frac{dy}{dx}$.
 
 **Check**: At $(3,4)$ on the circle, slope = $-3/4$. The tangent is perpendicular to the radius (slope $4/3$). Product of slopes = $-1$ ✓.
 
+![Implicit differentiation: tangent to x²+y²=25 at (3,4)](graphs/0808/14B/14b-implicit-tangent.png)
+
 ---
 
 ## Example 9: Implicit with Product — $x$ and $y$ Multiplied
@@ -267,6 +271,8 @@ $y = (x^2+1)^{\sin x}$:
 $x=t^2$, $y=t^3$: $\frac{dy}{dx} = \frac{3t^2}{2t} = \frac{3t}{2}$.
 
 $x=\cos t$, $y=\sin t$ at $t=\pi/4$: $\frac{dy}{dx} = \frac{\cos t}{-\sin t} = -\cot t$. At $t=\pi/4$: $-1$.
+
+![Parametric derivative: tangent to a parametric curve](graphs/0808/14B/14b-parametric.png)
 
 ---
 
@@ -488,8 +494,8 @@ $x=2t-t^2$, $y=3t^2-t^3$. Find $\frac{dy}{dx}$ at $t=1$ and the equation of the 
 | $\frac{dy}{dx} = \frac{dy/dt}{dx/dt}$ | "d y d x equals d y d t over d x d t" | parametric derivative — chain rule with parameter t |
 | $\frac{d}{dx}[a^x] = a^x \ln a$ | "derivative of a to the x equals a to the x ln a" | exponential derivative for arbitrary base |
 | $\frac{d}{dx}[\log_a x] = \frac{1}{x\ln a}$ | "derivative of log base a of x" | logarithmic derivative for arbitrary base |
-| related rates | "related rates" | two quantities change with time — relate their rates via implicit differentiation w.r.t. t |
-| $\frac{dx}{dt}$ | "d x d t" / "rate of change of x with respect to time" | time derivative in related rates problems |
+| related rates | "related rates" | two quantities change with time — relate their rates via implicit differentiation w.r.t. t (Session 15B) |
+| $\frac{dx}{dt}$ | "d x d t" / "rate of change of x with respect to time" | time derivative in related rates problems (Session 15B) |
 
 ---
 

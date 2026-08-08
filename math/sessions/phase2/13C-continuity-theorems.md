@@ -36,6 +36,8 @@ At $x=1$: $\lim_{x\to1^-}f(x) = 0$, $\lim_{x\to1^+}f(x) = 1$. Left and right dis
 
 At $x=0$: $\lim_{x\to0^-} = -\infty$, $\lim_{x\to0^+} = +\infty$. The graph shoots off in opposite directions. Vertical asymptote.
 
+![Three types of discontinuity — removable, jump, infinite](graphs/0808/13C/13c-discontinuities.png)
+
 ---
 
 ## Example 3: Making a Piecewise Function Continuous
@@ -70,6 +72,8 @@ $\displaystyle \lim_{x\to 0}x^2\sin\frac{1}{x}$.
    $-x^2 \leq x^2\sin\frac{1}{x} \leq x^2$.
 ③ $\lim_{x\to0}(-x^2) = 0$ and $\lim_{x\to0}x^2 = 0$.
 ④ The function is squeezed to **0**.
+
+![Squeeze: x² sin(1/x) trapped between -x² and x²](graphs/0808/13C/13c-squeeze.png)
 
 ---
 
@@ -106,6 +110,8 @@ Most common use: prove $f(x)=0$ has a root.
 ② $f(1) = e + 1 - 4 \approx -0.28$ (negative). $f(2) = e^2 + 2 - 4 \approx 5.39$ (positive).
 ③ Continuous → root in $(1,2)$. ✅
 
+![IVT: x³-3x+1 must cross zero between x=0 and x=1](graphs/0808/13C/13c-ivt.png)
+
 ---
 
 ## Part D: Limits of Sequences — Convergence
@@ -132,8 +138,12 @@ A sequence that never decreases and stays below some ceiling **must converge** (
 
 ① First few terms: $a_1=1$, $a_2=\sqrt{3}\approx1.732$, $a_3=\sqrt{2+\sqrt{3}}\approx1.932$, $a_4\approx1.983$.
 ② The sequence is increasing and bounded above by 2. → Converges.
+   *Why bounded*: if $a_n < 2$, then $a_{n+1} = \sqrt{2+a_n} < \sqrt{4} = 2$.
+   *Why increasing*: $a_{n+1} \geq a_n$ iff $2+a_n \geq a_n^2$ iff $(a_n-2)(a_n+1) \leq 0$ — true since $1 \leq a_n \leq 2$.
 ③ If limit $L$ exists: $L = \sqrt{2+L}$ → $L^2 = 2+L$ → $L^2-L-2=0$ → $L=2$ (positive root).
 → **Limit = 2.**
+
+![Monotone bounded sequence a_{n+1}=√(2+a_n) converges to 2](graphs/0808/13C/13c-monotone-sequence.png)
 
 ---
 
@@ -367,7 +377,7 @@ Step 3: Sequences — treat n→∞ like x→∞.
 | continuous at $x=a$ | "continuous at x equals a" | limit = f(a) — no break, jump, or hole |
 | $\lim_{x\to a} f(x) = f(a)$ | "limit as x goes to a of f of x equals f of a" | continuity definition — three conditions in one |
 | IVT | "I V T" / "Intermediate Value Theorem" | continuous function on [a,b] hits every value between f(a) and f(b) |
-| EVT | "E V T" / "Extreme Value Theorem" | continuous function on closed [a,b] attains absolute max and min |
+| EVT | "E V T" / "Extreme Value Theorem" | continuous function on closed [a,b] attains absolute max and min (Session 21) |
 | $[a,b]$ | "closed interval a b" | includes endpoints — required for EVT |
 | $(a,b)$ | "open interval a b" | excludes endpoints — EVT does NOT apply here |
 | jump discontinuity | "jump discontinuity" | left and right limits exist but are different |

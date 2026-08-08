@@ -42,7 +42,7 @@ $\displaystyle \lim_{x\to 2}\frac{x^2-4}{x-2}$.
 
 In one line: $\frac{x^2-4}{x-2} = x+2 \xrightarrow{x\to2} 4$.
 
-![0/0 limit — a hole at x=2](graphs/13a-limit-hole.png)
+![0/0 limit — a hole at x=2](graphs/0808/13A/13a-factored-hole.png)
 
 *Graph 13A: $\frac{x^2-4}{x-2}$ has a hole at $(2,4)$. The limit asks "what height should the hole be filled to?" — the answer is 4.*
 
@@ -77,6 +77,8 @@ $\displaystyle \lim_{x\to 0}\frac{\sqrt{x+4}-2}{x}$.
 $\frac{(\sqrt{x+4}-2)(\sqrt{x+4}+2)}{x(\sqrt{x+4}+2)} = \frac{(x+4)-4}{x(\sqrt{x+4}+2)}$.
 ③ Numerator simplifies to $x$. Cancel with denominator $x$ → $\frac{1}{\sqrt{x+4}+2}$.
 ④ $x=0$: $\frac{1}{\sqrt{4}+2} = \frac{1}{4}$.
+
+![Conjugate: (√(x+4)-2)/x has a hole at (0, 1/4)](graphs/0808/13A/13a-conjugate-hole.png)
 
 ---
 
@@ -124,7 +126,7 @@ $\displaystyle \lim_{x\to 0}\frac{1-\cos x}{x^2}$.
 ① $1-\cos x = 2\sin^2\frac{x}{2}$.
 ② $\frac{2\sin^2\frac{x}{2}}{x^2} = 2\cdot\frac{\sin^2\frac{x}{2}}{(x/2)^2}\cdot\frac{1}{4} = \frac{1}{2}\cdot\left(\frac{\sin\frac{x}{2}}{x/2}\right)^2 \to \frac{1}{2}$.
 
-![sin x / x → 1](graphs/13c-sinx-over-x.png)
+![sin x / x → 1](graphs/0808/13A/13a-sinx-over-x.png)
 
 *Graph 13C: The function sin(x)/x. The hole at (0,1) is the limit — as x→0, the ratio approaches 1.*
 
@@ -161,11 +163,36 @@ $\displaystyle \lim_{x\to 0}\frac{a^x-1}{x} = \ln a$ (for $a>0$).
 
 ---
 
+## Example 6: Move the Limit to Zero — Substitute $t = x - a$
+
+All the weapons above are built around the limit point $0$. When the limit point is some other $a$, **shift the point to $0$**: put $t = x - a$. As $x \to a$, $t \to 0$, and $x = t + a$.
+
+$\displaystyle \lim_{x\to 1}\frac{\sin(x-1)}{x-1}$.
+
+① Let $t = x-1$ (so $t \to 0$). Then $x-1 = t$.
+② $\frac{\sin(x-1)}{x-1} = \frac{\sin t}{t} \to 1$.
+
+$\displaystyle \lim_{x\to 2}\frac{e^{x-2}-1}{x-2}$.
+
+① Let $t = x-2$ ($t \to 0$).
+② $\frac{e^{x-2}-1}{x-2} = \frac{e^t-1}{t} \to 1$.
+
+$\displaystyle \lim_{x\to \pi}\frac{1+\cos x}{(x-\pi)^2}$.
+
+① Let $t = x-\pi$ ($t \to 0$). Then $\cos x = \cos(t+\pi) = -\cos t$.
+② $\frac{1+\cos x}{(x-\pi)^2} = \frac{1-\cos t}{t^2} \to \frac{1}{2}$.
+
+![t-substitution: sin(x-1)/(x-1) has a hole at (1,1)](graphs/0808/13A/13a-t-substitution.png)
+
+> **Insight**: Every standard limit is stated at $0$. When the point is $a$, the substitution $t = x-a$ repackages the problem into the memorized form. This is the sixth weapon of the $\frac{0}{0}$ toolkit — now demonstrated, not just listed.
+
+---
+
 ## Part F: $0\cdot\infty$ — Convert to a Quotient
 
 ---
 
-## Example 6: Product of Zero and Infinity
+## Example 7: Product of Zero and Infinity
 
 $0\cdot\infty$ is another undecided race. Convert the product into a quotient to get $\frac{0}{0}$ or $\frac{\infty}{\infty}$, then use the weapons above.
 
@@ -188,7 +215,7 @@ $\displaystyle \lim_{x\to\infty} x\sin\frac{1}{x}$.
 
 ---
 
-## Example 7: Left and Right Must Agree
+## Example 8: Left and Right Must Agree
 
 $\displaystyle \lim_{x\to 2^+}\frac{1}{x-2}$ (from the right).
 
@@ -202,7 +229,7 @@ Two-sided limit: **does not exist** (left $\neq$ right).
 
 ---
 
-## Example 8: Absolute Value — Split into Cases
+## Example 9: Absolute Value — Split into Cases
 
 $\displaystyle \lim_{x\to 0}\frac{|x|}{x}$.
 
@@ -218,7 +245,7 @@ $\displaystyle \lim_{x\to 2}\frac{|x-2|}{x-2}$.
 
 ---
 
-## Example 9: Piecewise — Check Both Sides at the Boundary
+## Example 10: Piecewise — Check Both Sides at the Boundary
 
 $$
 f(x) = \begin{cases}
@@ -231,7 +258,7 @@ $\displaystyle \lim_{x\to 1^-}f(x) = 1+2 = 3$. $\displaystyle \lim_{x\to 1^+}f(x
 
 $3 \neq 1$ → **limit does not exist** at $x=1$.
 
-![One-sided limits — left ≠ right](graphs/13b-onesided.png)
+![One-sided limits — left ≠ right](graphs/0808/13A/13a-onesided.png)
 
 > **Up to here**: Direct substitution = first move. $\frac{0}{0}$: factor-cancel, conjugate, $\frac{\sin x}{x}\to1$, $\frac{e^x-1}{x}\to1$.
 > $0\cdot\infty$: convert to quotient. One-sided: check left and right separately. Absolute value: split cases.
@@ -247,10 +274,6 @@ $3 \neq 1$ → **limit does not exist** at $x=1$.
 ### Mistake 2: $\frac{\sin 5x}{x} \to 1$ without fixing
 
 **Wrong**. The argument must match: $\frac{\sin 5x}{x} = 5\cdot\frac{\sin 5x}{5x} \to 5$.
-
-### Mistake 3: $\sqrt{x^2} = x$ for $x \to -\infty$
-
-**Wrong** when $x$ is negative. $\sqrt{x^2} = |x|$. For $x<0$, $|x| = -x$.
 
 ---
 
@@ -327,7 +350,7 @@ $\displaystyle \lim_{x\to 0}\frac{e^{3x}-1}{\ln(1+2x)}$. Use two standard limits
 
 $f(x) = \begin{cases} \frac{\sin x}{x}, & x < 0 \\ e^x, & x \geq 0 \end{cases}$. Find left and right limits at $x=0$. Is $f$ continuous there?
 
-→ Reference: **Example 9**
+→ Reference: **Example 10**
 
 > Solutions: [Solutions](solutions/13A-solutions.md#practice-6)
 
@@ -399,6 +422,7 @@ Step 2: 0/0 → identify the structure:
     Radicals → multiply by conjugate.
     Trig → force sin(□)/□ → 1. Check that □ matches exactly.
     e^x, ln → force (e^□-1)/□ → 1 or ln(1+□)/□ → 1.
+    Limit at a ≠ 0? Substitute t = x−a to move the limit to 0.
 
 Step 3: 0·∞ → rewrite as a quotient (f·g = f/(1/g)).
     One-sided limits → check left and right separately.

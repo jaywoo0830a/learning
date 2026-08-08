@@ -31,7 +31,9 @@ $f(x)=x^2$ at $x=3$:
 
 $f'(a)$ = slope of the tangent line at $x=a$.
 
-![Tangent line derivative](graphs/14a-tangent.png)
+![Secant lines approaching the tangent — the limit definition](graphs/0808/14A/14a-secant-to-tangent.png)
+
+![Tangent line derivative](graphs/0808/14A/14a-tangent.png)
 
 ---
 
@@ -72,6 +74,14 @@ $f'(a)$ = slope of the tangent line at $x=a$.
 | $\sin x$ | $\cos x$ | $\sin \to \cos$ (no sign change) |
 | $\cos x$ | $-\sin x$ | $\cos \to -\sin$ (sign FLIPS) |
 | $\tan x$ | $\sec^2 x$ | Also equals $1/\cos^2 x$ |
+
+**The three reciprocals (extension — needed for Drill D7)**:
+
+| $f(x)$ | $f'(x)$ | Memory hook |
+|:---|:---|:---|
+| $\sec x$ | $\sec x\tan x$ | Keeps $\sec x$, appends $\tan x$ |
+| $\csc x$ | $-\csc x\cot x$ | Negative, keeps $\csc x$, appends $\cot x$ |
+| $\cot x$ | $-\csc^2 x$ | Like $\tan$'s $+\sec^2$, but negative |
 
 **Three-step procedure for any derivative**:
 1. **Split** at every $+$ or $-$: $(f \pm g)' = f' \pm g'$.
@@ -120,7 +130,7 @@ $\frac{d}{dx}2^x = 2^x\ln 2$. $\frac{d}{dx}\log_3 x = \frac{1}{x\ln 3}$.
 
 **The cycle**: $\sin \to \cos \to -\sin \to -\cos \to \sin$. Four derivatives return you to the start.
 
-![Derivative of sin is cos](graphs/14b-sin-derivative.png)
+![Derivative of sin is cos](graphs/0808/14A/14a-sin-derivative.png)
 
 ---
 
@@ -182,8 +192,9 @@ $f'(x)=0$ at $x=3$ and $x=-1$. These are the $x$-coordinates where the tangent i
 (1) Limit definition: f'(a) = lim_{h→0} [f(a+h)−f(a)]/h.
     Expand, cancel h, plug h=0.
 
-(2) Derivative dictionary (8 forms): xⁿ→nxⁿ⁻¹, eˣ→eˣ, ln x→1/x,
-    sin x→cos x, cos x→−sin x, tan x→sec²x.
+(2) Derivative dictionary: xⁿ→nxⁿ⁻¹, eˣ→eˣ, ln x→1/x,
+    sin x→cos x, cos x→−sin x, tan x→sec²x,
+    + reciprocals sec x→sec x tan x, csc x→−csc x cot x, cot x→−csc²x.
 
 (3) Three-step procedure for any derivative:
     Split at +/− → Pull constants out → Match each piece to the dictionary.
@@ -297,9 +308,9 @@ Find the tangent line to $f(x)=x^2+\ln x$ at $x=1$. Write your answer in $y=mx+b
 
 **A6.** Find all $x$ where $f(x)=x^3-6x^2+9x$ has horizontal tangent lines. Factor $f'(x)$.
 
-**A7.** Prove $\frac{d}{dx}\tan x = \sec^2 x$ using $\tan x = \frac{\sin x}{\cos x}$ and the quotient rule.
+**A7.** Prove $\frac{d}{dx}\tan x = \sec^2 x$ from the limit definition. (Hint: use the tangent addition formula $\tan(x+h)=\frac{\tan x+\tan h}{1-\tan x\tan h}$, then apply the 13A standard limits $\frac{\tan h}{h}\to 1$ and $\tan h\to 0$.)
 
-**A8.** Differentiate $f(x)=\ln(x^2)$ two ways: (a) $\ln(x^2)=2\ln x \to 2/x$. (b) Chain rule. Compare.
+**A8.** Find the tangent line to $f(x)=x^3$ at the point where it is parallel to the line $y=12x-1$. (Parallel lines have equal slopes: set $f'(a)=12$.)
 
 **A9.** A function satisfies $f'(x)=f(x)$ for all $x$ and $f(0)=3$. What is $f(x)$? (Which function equals its own derivative?)
 
@@ -318,6 +329,7 @@ Find the tangent line to $f(x)=x^2+\ln x$ at $x=1$. Write your answer in $y=mx+b
 | $a^x$ | Multiply by $\ln a$: $a^x\ln a$ |
 | $\ln x$ | Reciprocal: $1/x$ |
 | $\sin x$, $\cos x$, $\tan x$ | Dictionary: $\cos x$, $-\sin x$, $\sec^2 x$ |
+| $\sec x$, $\csc x$, $\cot x$ | Dictionary: $\sec x\tan x$, $-\csc x\cot x$, $-\csc^2 x$ |
 | Sum/difference of functions | Split at $+/-$, differentiate each |
 | Constant times a function | Pull the constant out |
 | Need slope at $x=a$ | Compute $f'(a)$ |

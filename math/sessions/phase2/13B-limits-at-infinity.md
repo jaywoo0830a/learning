@@ -57,7 +57,7 @@ $\displaystyle \lim_{x\to-\infty}\frac{\sqrt{4x^2+1}}{x}$.
 ② For $x\to-\infty$, $|x| = -x$.
 ③ So $\frac{\sqrt{4x^2+1}}{x} = \frac{-x\sqrt{4+1/x^2}}{x} = -\sqrt{4+1/x^2} \to -2$.
 
-![Horizontal asymptote — limit at infinity](graphs/13d-horizontal-asymptote.png)
+![Horizontal asymptote — limit at infinity](graphs/0808/13B/13b-horizontal-asymptote.png)
 
 *Graph 13D: As x→∞ or x→-∞, the graph of a rational function approaches its horizontal asymptote y = (ratio of leading coefficients). The limit from both sides gives the same value.*
 
@@ -187,6 +187,26 @@ $\displaystyle \lim_{n\to\infty}\left(\frac{n+3}{n-1}\right)^n$:
 
 ---
 
+## Example 10: Slant Asymptotes — When the Degrees Differ by One
+
+When deg(num) = deg(den) + 1, the rational function has **no horizontal asymptote** — instead it hugs a **slant (oblique) line** $y = mx+b$ found by polynomial division.
+
+**$f(x) = \frac{x^2+1}{x-1}$ as $x\to\pm\infty$.**
+
+① Polynomial division: $\frac{x^2+1}{x-1} = x + 1 + \frac{2}{x-1}$.
+② As $x\to\infty$: $\frac{2}{x-1}\to 0$, so $f(x) - (x+1) \to 0$ — the graph approaches the line $y = x+1$.
+③ Same for $x\to-\infty$. The slant asymptote is $y = x+1$.
+
+**The limit form** (an $\infty-\infty$ gap, Example 6 style):
+
+$\displaystyle \lim_{x\to\infty}\left[\frac{x^2+1}{x-1} - (x+1)\right] = \lim_{x\to\infty}\frac{2}{x-1} = 0$.
+
+![Slant asymptote: (x^2+1)/(x-1) approaches y=x+1](graphs/0808/13B/13b-slant-asymptote.png)
+
+> **Insight**: A slant asymptote is the "$\infty-\infty$" limit applied to the gap $f(x) - (mx+b)$. Divide first, then measure how far the graph is from the line. Degrees differing by exactly 1 → the gap $\to 0$; differing by more → the gap blows up.
+
+---
+
 ## Common Mistakes
 
 ### Mistake 1: Forgetting $\sqrt{x^2} = |x|$ when $x\to-\infty$
@@ -218,6 +238,26 @@ $\displaystyle \lim_{n\to\infty}\left(\frac{n+3}{n-1}\right)^n$:
 
 (5) e as a limit: (1+k/n)^n → e^k. (1+x)^{1/x} → e.
     Standard limits: lnn/n → 0, n^{1/n} → 1.
+```
+
+---
+
+## Decision Tree — Choosing the Weapon at Infinity
+
+```
+x → ∞ or x → −∞ (or denominator → 0 at a finite point):
+├── (A) x → ±∞:
+│   ├── Rational? → degree rule:
+│   │   deg(num) > deg(den)     → ±∞ (sign of leading terms)
+│   │   deg(num) = deg(den)     → ratio of leading coefficients
+│   │   deg(num) = deg(den)+1   → SLANT asymptote (divide)
+│   │   deg(num) < deg(den)     → 0
+│   ├── Radicals? → factor out x; √(x²) = |x| = −x when x < 0
+│   ├── ∞ − ∞? → conjugate (√A−√B) or common denominator
+│   ├── 1^∞? → (1 + k/n)^n → e^k
+│   └── Mixed growth (e^x, x^n, ln x, n!)? → hierarchy: n! ≫ e^x ≫ x^n ≫ ln x
+└── (B) x → finite a, denominator → 0 (numerator ≠ 0):
+    └── sign analysis: 0^+ → +∞, 0^− → −∞; left ≠ right → DNE
 ```
 
 ---
@@ -353,6 +393,7 @@ Step 3: Denominator→0 (numerator ≠ 0) → sign analysis.
 
 Step 4: Standard limits: (1+k/n)^n → e^k. n^{1/n} → 1. lnn/n → 0.
          Growth hierarchy: factorial ≫ exp ≫ poly ≫ log.
+         Slant asymptote: deg(num)=deg(den)+1 → divide, graph follows y=mx+b.
 ```
 
 ---
@@ -386,3 +427,4 @@ Step 4: Standard limits: (1+k/n)^n → e^k. n^{1/n} → 1. lnn/n → 0.
 | growth hierarchy | asymptotic growth rates | factorial $\gg$ exp $\gg$ poly $\gg$ log |
 | $e$ as a limit | Euler's limit definition | $(1+1/n)^n \to e$ |
 | indeterminate | indeterminate form | $\frac{\infty}{\infty}$, $\infty-\infty$ |
+| slant asymptote | oblique asymptote | $y=mx+b$ via polynomial division |
