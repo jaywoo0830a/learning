@@ -2,7 +2,7 @@
 
 **Phase 2 — Classical Techniques | 75 min**
 
-*Prerequisites: 16A (FTC & u-sub), 12A2 (matrices & vectors), 12C1 (geometric transformations), 12C2 (parametric curves), 9C (3D geometry)*
+*Prerequisites: 16A (FTC & u-sub), 16B (integration by parts & advanced integrals), 12A2 (matrices & vectors), 12C1 (geometric transformations), 12C2 (parametric curves), 9C (3D geometry)*
 
 > Integration computes area and volume. But when geometry — vectors, transformations, parametric curves, and coordinate systems — enters the picture, the same formulas unlock a much richer world. This session fuses calculus with the spatial reasoning you've already built.
 
@@ -18,7 +18,7 @@ $A = \displaystyle \int_0^1 (x - x^2)\,dx = \left[\frac{x^2}{2} - \frac{x^3}{3}\
 
 Intersections: $x^2 = x \to x(x-1)=0 \to x=0,1$.
 
-![Area between y=x and y=x²](graphs/0728/17A/01-area-between-curves.png)
+![Area between y=x and y=x²](graphs/0808/17A/17a-area-between-curves.png)
 
 > **Key principle**: Area = $\int_a^b$ [top − bottom]. Always find intersections first.
 
@@ -36,7 +36,7 @@ $A_{\text{petal}} = \frac{1}{2}\int_0^{\pi/2} \sin^2(2\theta)\,d\theta = \frac{1
 
 > **Why polar?** $r=\sin(2\theta)$ is a single trig function in polar. In Cartesian: $(x^2+y^2)^{3/2} = 2xy$. Choose the coordinate system matching the symmetry.
 
-![Polar rose r=sin(2θ) — one petal area = π/8](graphs/0728/17A/02-polar-rose.png)
+![Polar rose r=sin(2θ) — one petal area = π/8](graphs/0808/17A/17a-polar-rose.png)
 
 ---
 
@@ -54,7 +54,7 @@ $A_{\text{upper}} = \int_0^\pi (b\sin t)(-a\sin t)\,dt = -ab\int_0^\pi \sin^2 t\
 
 Taking absolute value: $A_{\text{total}} = 2 \cdot \frac{ab\pi}{2} = \pi ab$. ✓ (When $a=b=R$, gives $\pi R^2$.)
 
-![Ellipse area via parametric: A=πab](graphs/0728/17A/10-parametric-ellipse-area.png)
+![Ellipse area via parametric: A=πab](graphs/0808/17A/17a-parametric-ellipse.png)
 
 ---
 
@@ -69,7 +69,7 @@ $A = \sqrt{195}$.
 
 > **Key insight**: For shapes with straight edges (triangles, parallelograms), geometry alone gives the area — no integration needed. The cross product is the 3D version of "base × height." But when boundaries are curved, integration becomes essential — that's what the rest of this session is about.
 
-![Triangle area via cross product in 3D](graphs/0728/17A/03-triangle-cross-product.png)
+![Triangle area via cross product in 3D](graphs/0808/17A/17a-triangle-cross-product.png)
 
 ---
 
@@ -89,17 +89,44 @@ $A = (e+1) - 1 = e$.
 
 > **Geometric note**: Since $e^x$ and $\ln x$ are reflections of each other across $y=x$, the area between them on $[0,1]$ equals the area between $\ln x$ and the line $y=x$, plus the area between $e^x$ and $y=x$ — a symmetry that can simplify some calculations.
 
+![Lens between e^x and ln x on [0,1]: area = e](graphs/0808/17A/17a-inverse-curves.png)
+
 ---
 
 ## Part B: Volumes of Revolution
 
-![Disk, washer, and shell methods compared](graphs/0728/17A/04-volume-methods.png)
+> **The Slicing Principle (2D → 3D)**: Every volume method slices the solid into thin pieces and sums them. The method is decided by the slice direction:
+> - **Slice ⟂ rotation axis** → the slice is a **disk** (region touches the axis) or a **washer** (hole). Integrate along the axis: $V=\pi\int R^2\,d\ell$ or $\pi\int(R^2-r^2)\,d\ell$.
+> - **Slice ∥ rotation axis** → the slice is a **cylindrical shell**. Integrate perpendicular to the axis: $V=2\pi\int(\text{radius})(\text{height})\,d\ell$.
+> - **No rotation** → general cross-sections: $V = \int A(\text{position})\,d(\text{position})$.
+>
+> **"Axis ⟂ slice → disk/washer; axis ∥ slice → shell"** is the entire decision. Every example below is the same idea in a different coordinate — and each method has a $dx$ version and a $dy$ version.
+
+![Disk, washer, and shell methods compared](graphs/0808/17A/17a-volume-methods.png)
 
 ---
 
 ## Example 6: Disk Method — Rotate $y=\sqrt{x}$ About $x$-Axis
 
+Slice **perpendicular to the $x$-axis**: each slice is a disk of radius $\sqrt{x}$ and thickness $dx$.
+
 $V = \pi \displaystyle \int_0^4 (\sqrt{x})^2\,dx = \pi\int_0^4 x\,dx = 8\pi$.
+
+![The 3D solid: y=√x rotated about the x-axis](graphs/0808/17A/17a-solid-revolution.png)
+
+---
+
+## Example 6A: Disk with $dy$ — Rotate $y=x^2$ About the $y$-Axis
+
+The Slicing Principle works in both directions. Rotate $y=x^2$, $x\in[0,2]$, about the $y$-axis — this time slice **perpendicular to the $y$-axis**.
+
+At height $y$, the slice is a disk of radius $x=\sqrt{y}$ (solve $y=x^2$ for $x$) and thickness $dy$:
+
+$V = \pi\int_0^4 (\sqrt{y})^2\,dy = \pi\int_0^4 y\,dy = 8\pi$.
+
+**Cross-check**: Example 9 computes the SAME solid with shells and also gets $8\pi$. The method changed, the solid did not — pick whichever radius/height is simpler.
+
+![The 3D solid: y=x² rotated about the y-axis (disk with dy)](graphs/0808/17A/17a-solid-revolution-dy.png)
 
 ---
 
@@ -120,7 +147,23 @@ $V = \pi\int_0^1 [(2-x^2)^2 - (2-\sqrt{x})^2]\,dx$
 $= \pi\int_0^1 (-4x^2 + x^4 + 4\sqrt{x} - x)\,dx = \pi\left[-\frac{4}{3}x^3 + \frac{x^5}{5} + \frac{8}{3}x^{3/2} - \frac{x^2}{2}\right]_0^1$
 $= \pi\left(-\frac{4}{3} + \frac{1}{5} + \frac{8}{3} - \frac{1}{2}\right) = \frac{31\pi}{30}$.
 
-![Washer method with shifted axis y=2](graphs/0728/17A/05-washer-shifted-axis.png)
+![Washer method with shifted axis y=2](graphs/0808/17A/17a-washer-shifted-axis.png)
+
+---
+
+## Example 7A: Washer about a Vertical Axis — Rotate About $x=2$
+
+Same region (between $y=\sqrt{x}$ and $y=x^2$ on $[0,1]$), now rotated about the **vertical** axis $x=2$. Slice perpendicular to the $y$-axis.
+
+At height $y\in[0,1]$, the region spans $x$ from $y^2$ (on $y=x^2$) to $\sqrt{y}$ (on $y=\sqrt{x}$). Distances from $x=2$:
+- **Outer radius** (farther from the axis): $2 - y^2$ (because $y^2 \le \sqrt{y}$)
+- **Inner radius**: $2 - \sqrt{y}$
+
+> **Rule for a vertical shifted axis**: For rotation about $x = c$, the radius to a curve $x = g(y)$ is $|c - g(y)|$. The outer radius comes from the curve farther from $c$.
+
+$V = \pi\int_0^1 [(2-y^2)^2 - (2-\sqrt{y})^2]\,dy = \pi\left[-\frac{4}{3}y^3 + \frac{y^5}{5} + \frac{8}{3}y^{3/2} - \frac{y^2}{2}\right]_0^1 = \frac{31\pi}{30}$.
+
+**Why the same $31\pi/30$ as Example 7?** The region is symmetric under $x \leftrightarrow y$, and both axes sit at coordinate $2$ — rotating about $x=2$ is the mirror of rotating about $y=2$. Verify independently with shells: $V=2\pi\int_0^1(2-x)(\sqrt{x}-x^2)\,dx=\frac{31\pi}{30}$ ✓
 
 ---
 
@@ -132,7 +175,7 @@ $V = \pi\int_{-R}^R (R^2 - x^2)\,dx = \pi\left[R^2 x - \frac{x^3}{3}\right]_{-R}
 
 > In spherical coordinates ($\rho=R$), the same result via triple integral — coordinate symmetry.
 
-![Sphere volume derivation via disk method](graphs/0728/17A/06-sphere-volume.png)
+![Sphere volume derivation via disk method](graphs/0808/17A/17a-sphere-volume.png)
 
 ---
 
@@ -141,6 +184,38 @@ $V = \pi\int_{-R}^R (R^2 - x^2)\,dx = \pi\left[R^2 x - \frac{x^3}{3}\right]_{-R}
 $V = 2\pi \displaystyle \int_0^2 x \cdot x^2\,dx = 2\pi\left[\frac{x^4}{4}\right]_0^2 = 8\pi$.
 
 > Each shell: circumference $2\pi x$, height $h(x)=x^2$, thickness $dx$.
+
+---
+
+## Example 9A: Shell with $dy$ — Rotate $y=x^2$ About the $x$-Axis
+
+The shell version also has a second direction. Rotate the SAME region ($y=x^2$, $x\in[0,2]$) about the **$x$-axis**, slicing **parallel to the axis** (horizontal strips).
+
+At height $y\in[0,4]$, the horizontal strip spans $x$ from $\sqrt{y}$ to $2$ (the region reaches $x=2$). It sweeps a shell of:
+- radius $y$ (distance from the $x$-axis),
+- height $2-\sqrt{y}$,
+- thickness $dy$.
+
+$V = 2\pi\int_0^4 y\,(2-\sqrt{y})\,dy = 2\pi\left[y^2 - \frac{2}{5}y^{5/2}\right]_0^4 = 2\pi\left(16 - \frac{64}{5}\right) = \frac{32\pi}{5}$.
+
+**Cross-check with disks**: $V=\pi\int_0^2(x^2)^2\,dx = \pi\cdot\frac{32}{5}$ — same solid, same answer ✓
+
+> **Pattern to remember**: rotation about a horizontal axis → $dx$-disks or $dy$-shells; rotation about a vertical axis → $dy$-disks or $dx$-shells.
+
+---
+
+## Which Method? — The Two-Question Decision
+
+**Q1 — Slice direction**: perpendicular to the axis → disk/washer (integrate along the axis); parallel to the axis → shell (integrate perpendicular to the axis).
+
+**Q2 — Which integral is simpler?** Pick the method whose radius and height have the easiest expressions. When both apply, compute both to **cross-check** — every pair above agreed ($8\pi$, $8\pi$, $31\pi/30$, $32\pi/5$).
+
+| Rotation axis | ⟂-slice (disk/washer) | ∥-slice (shell) |
+|:---|:---|:---|
+| $x$-axis ($y=0$) | disk with $dx$: Ex 6, 8 | shell with $dy$: Ex 9A |
+| $y$-axis ($x=0$) | disk with $dy$: Ex 6A | shell with $dx$: Ex 9 |
+| horizontal $y=c$ | washer with $dx$: Ex 7 | shell with $dy$ |
+| vertical $x=c$ | washer with $dy$: Ex 7A | shell with $dx$ |
 
 ---
 
@@ -155,11 +230,13 @@ Sub $u = x-R$: $V = 4\pi\int_{-r}^r (u+R)\sqrt{r^2-u^2}\,du = 4\pi R \cdot \frac
 
 > **Pappus's Centroid Theorem**: $V = (\text{area}) \times (\text{distance centroid travels}) = (\pi r^2) \times (2\pi R) = 2\pi^2 R r^2$.
 
-![Torus volume: shell method and Pappus theorem](graphs/0728/17A/07-torus.png)
+![Torus volume: shell method and Pappus theorem](graphs/0808/17A/17a-torus.png)
 
 ---
 
 ## Example 11: Volume via Cross-Sections — General Shapes
+
+> **Reading the notation**: "cross-sections ⟂ $y$-axis" means **cut at a fixed height $y$** (a horizontal slice). In general: ⟂ $x$-axis = vertical slices at fixed $x$; ⟂ $y$-axis = horizontal slices at fixed $y$. The slice area $A(y)$ is then integrated over the position.
 
 Base: region bounded by $y=x^2$ and $y=1$. Cross-sections ⟂ $y$-axis are equilateral triangles. At height $y$: base width $=2\sqrt{y}$, side $s=2\sqrt{y}$, triangle area $= \frac{\sqrt{3}}{4}s^2 = \sqrt{3}y$.
 
@@ -167,7 +244,7 @@ $V = \int_0^1 \sqrt{3}y\,dy = \frac{\sqrt{3}}{2}$.
 
 > The disk method is the special case where cross-sections are circles. Any shape works: $V = \int A(y)\,dy$.
 
-![Volume by cross-sections: equilateral triangles](graphs/0728/17A/09-cross-section-volume.png)
+![Volume by cross-sections: equilateral triangles](graphs/0808/17A/17a-cross-section-volume.png)
 
 ---
 
@@ -179,7 +256,51 @@ A linear transformation stretches space uniformly. The factor by which it scales
 
 > This is why the substitution rule ($u$-sub) has a "$du = g'(x)dx$" factor — it's the 1D version of the same area-scaling principle.
 
-![Determinant = area scaling factor](graphs/0728/17A/08-determinant-area.png)
+![Determinant = area scaling factor](graphs/0808/17A/17a-determinant-area.png)
+
+---
+
+## Common Mistakes
+
+### Mistake 1: Integrating with guessed bounds — find intersections first
+
+**Wrong**: "The area between $y=x$ and $y=x^2$ is $\int_0^2 (x-x^2)\,dx$."
+
+**Why wrong**: The curves cross at $x=0$ and $x=1$, not at a guessed bound. Wrong bounds give a wrong (even negative) area.
+
+**Right**: Solve $f(x)=g(x)$ first. The intersections ARE the bounds.
+
+### Mistake 2: Disk method when the axis doesn't touch the region
+
+**Wrong**: Rotating the region between $y=\sqrt{x}$ and $y=x^2$ about $y=2$ with a single disk $\pi\int (2-\sqrt{x})^2\,dx$.
+
+**Why wrong**: The axis $y=2$ is OUTSIDE the region, so the solid has a hole. A single disk overfills it.
+
+**Right**: Use the washer method $\pi\int (R_{\text{outer}}^2 - R_{\text{inner}}^2)\,dx$.
+
+### Mistake 3: Wrong radius for a shifted axis
+
+**Wrong**: Using $f(x)$ as the radius when rotating about $y=c$.
+
+**Why wrong**: The radius is the distance from the axis to the curve: $|c-f(x)|$, not $f(x)$.
+
+**Right**: For rotation about $y=c$, the radius to curve $y=f(x)$ is $|c-f(x)|$. The outer radius comes from the farther curve.
+
+### Mistake 4: Negative parametric area
+
+**Wrong**: Reporting $\int_0^\pi (b\sin t)(-a\sin t)\,dt = -\frac{ab\pi}{2}$ as the area.
+
+**Why wrong**: $\int y\,x'\,dt$ carries a sign from orientation. Area is always positive.
+
+**Right**: Take the absolute value, or parametrize so $x'(t)\ge 0$.
+
+### Mistake 5: Forgetting the $\frac12$ in polar area
+
+**Wrong**: $A=\int_{\theta_1}^{\theta_2} r^2\,d\theta$.
+
+**Why wrong**: A polar sector has area $\frac12 r^2\Delta\theta$, so the integral carries a $\frac12$.
+
+**Right**: $A=\frac12\int r^2\,d\theta$. Also check where $r\ge 0$ to find the petal bounds.
 
 ---
 
@@ -188,9 +309,11 @@ A linear transformation stretches space uniformly. The factor by which it scales
 ```
 (1) Area between curves. Polar area = ½∫r²dθ. Parametric area = ∫y(t)x'(t)dt.
 (2) Triangle area via cross product: ½|AB × AC| — no integration needed.
-(3) Disk/washer/shell methods. Shifted axis → adjust radii.
+(3) Slicing Principle: ⟂ axis → disk/washer; ∥ axis → shell.
+    Every method has a dx and a dy version — cross-check them.
+    Shifted axis → radius = |c − f|, outer from the farther curve.
 (4) Torus: shell method + symmetry → 2π²Rr² (Pappus shortcut).
-(5) Cross-sections: V = ∫A(y)dy for any shape.
+(5) Cross-sections: V = ∫A(y)dy for any shape. "⟂ y-axis" = fixed-height slice.
 (6) Determinant = area scaling factor for matrix transformations.
 ```
 
@@ -284,6 +407,12 @@ Torus: $R=5$, $r=2$. (a) Volume via shell method. (b) Verify via Pappus: $V = (\
 
 **D15.** (🔗 12A2, 12C1) Parabola $y = x^2$ on $[0,2]$ rotated about $y$-axis. Show shell method and disk method ($x=\sqrt{y}$) give the same volume.
 
+**D16.** Rotate $y = \sqrt{x}$, $x \in [0,4]$, about the $y$-axis using the disk method with $dy$. (Solve $x = y^2$.)
+
+**D17.** Region between $y=x^2$ and $y=\sqrt{x}$ on $[0,1]$ rotated about $x=1$. Set up the washer integral with $dy$. (Radii: $1-y^2$ and $1-\sqrt{y}$.)
+
+**D18.** Region under $y=x$, $x \in [0,2]$, rotated about the $x$-axis using shells with $dy$. (Shell: radius $y$, height $2-y$.)
+
 > Solutions: [Solutions](solutions/17A-solutions.md#basic-drill)
 
 ---
@@ -335,7 +464,25 @@ Step 1: Area = ∫(top − bottom). Find intersections first.
 Step 2: Polar area = ½∫r²dθ. Use symmetry.
 Step 3: Parametric area = ∫y(t)x'(t)dt. Sign = orientation.
 Step 4: Cross product area = ½|AB × AC| for triangles.
-Step 5: Volume: disk (π∫R²), washer (π∫(R²−r²)), shell (2π∫x·h).
-Step 6: Shifted axis → adjust all radii by translation distance.
-Step 7: Cross-sections: V = ∫A(s)ds for any shape.
+Step 5: Pick the slice: ⟂ axis → disk/washer (π∫R², π∫(R²−r²)); ∥ axis → shell (2π∫radius·height).
+Step 6: Horizontal axis → dx-disks or dy-shells. Vertical axis → dy-disks or dx-shells.
+Step 7: Shifted axis → radius = |c − f|. Outer from the farther curve.
+Step 8: Cross-sections: V = ∫A(s)ds. "⟂ y-axis" = fixed-height slice.
 ```
+
+---
+
+## Terminology
+
+| What we call it | Math term | Notation / Explanation |
+|:-----------------:|:-----------------:|:----------------------:|
+| top minus bottom | area between curves | $\int_a^b [f(x)-g(x)]\,dx$ |
+| polar area | polar area | $\frac12\int r^2\,d\theta$ |
+| parametric area | parametric area | $\int y(t)\,x'(t)\,dt$ |
+| cross product area | vector area | $\frac12|\vec{AB}\times\vec{AC}|$ |
+| disk method | disk method | $V=\pi\int R^2\,dx$ |
+| washer method | washer method | $V=\pi\int (R^2-r^2)\,dx$ |
+| shell method | cylindrical shells | $V=2\pi\int x\cdot h(x)\,dx$ |
+| cross-section volume | volume by cross-sections | $V=\int A(s)\,ds$ |
+| area scaling factor | determinant | $|\det M|$ |
+| Pappus's theorem | Pappus's centroid theorem | $V=(\text{area})\times(\text{distance centroid travels})$ |

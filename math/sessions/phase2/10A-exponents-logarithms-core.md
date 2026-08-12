@@ -1,4 +1,4 @@
-# Session 10A: Exponents and Logarithms — Core Rules and Equations
+math/sessions/phase2/graphs/0808/10A# Session 10A: Exponents and Logarithms — Core Rules and Equations
 
 **Phase 2 — Classical Techniques | 80 min**
 
@@ -34,7 +34,9 @@ $\left(\frac{2}{3}\right)^{-2} = \left(\frac{3}{2}\right)^2 = \frac{9}{4}$. Flip
 - $a^m \div a^n = a^{m-n}$ (divide → subtract)
 - $(a^m)^n = a^{mn}$ (power of power → multiply)
 - $(ab)^n = a^n b^n$ (power of product → distribute)
+- $\left(\frac{a}{b}\right)^n = \frac{a^n}{b^n}$ (power of quotient → distribute)
 - $a^{-n} = \frac{1}{a^n}$ (negative → reciprocal)
+- $a^0 = 1$ ($a \neq 0$) (zero exponent → one)
 
 ---
 
@@ -58,19 +60,19 @@ $27^{-\frac{2}{3}} = \frac{1}{(\sqrt[3]{27})^2} = \frac{1}{3^2} = \frac{1}{9}$.
 
 Place your finger at 1. Each step to the right multiplies by 2. Going right: multiply by 2. Going left: divide by 2. The number line is not additive — it is multiplicative. Equal steps in $x$ mean equal multiplicative jumps.
 
-![Number line doubling](graphs/10e1-doubling-numberline.png)
+![Number line doubling](graphs/0808/10A/10a-doubling-numberline.png)
 
 **View 2 — Area Growth of a Square.**
 
 A square of side $s$ has area $s^2$. Double the side ($s \to 2s$): area quadruples ($s^2 \to 4s^2$). The exponent 2 captures the dimension: 2D objects scale as side$^2$. A cube of side $s$ scales as $s^3$.
 
-![Dimension scaling](graphs/10e2-dimension-scaling.png)
+![Dimension scaling](graphs/0808/10A/10a-dimension-scaling.png)
 
 **View 3 — The Graph as a Curve That Is Its Own Slope.**
 
 The slope (steepness) at any point on $y = e^x$ equals the height at that point. This unique property — being its own derivative — is why $e^x$ is the "natural" exponential.
 
-![Slope equals height](graphs/10e3-exp-slope-equals-height.png)
+![Slope equals height](graphs/0808/10A/10a-exp-slope-equals-height.png)
 
 ---
 
@@ -137,6 +139,12 @@ $\log_a 1 = 0$ (any base). $\log_a a = 1$.
 
 $\log_{10} 0.001 = -3$. $\log_2 0.5 = -1$.
 
+**Domain conditions (memorize)**: $\log_a b$ is defined only when
+- the base satisfies $a > 0$ and $a \neq 1$,
+- the argument satisfies $b > 0$.
+
+Every log equation and inequality you solve must respect these — they are where "check your answer" comes from.
+
 ---
 
 ## Example 8: Log Operations — Product Becomes Sum, Quotient Becomes Difference
@@ -169,7 +177,7 @@ Stretch the second piece horizontally by factor $1/a$ and vertically by factor $
 
 This geometric picture — log as area — unifies all three rules under one visual principle: **stretching and compressing area under a hyperbola.**
 
-![Log as area under 1/x](graphs/10f-log-as-area.png)
+![Log as area under 1/x](graphs/0808/10A/10a-log-as-area.png)
 
 ---
 
@@ -208,14 +216,14 @@ $y = \ln x$: passes through $(1,0)$. $x \to 0^+$ → $-\infty$. $x \to \infty$ �
 
 The two are symmetric across the line $y=x$. $(0,1)$ ↔ $(1,0)$, $(1,e)$ ↔ $(e,1)$.
 
-![Exponential and natural log](graphs/10b-exp-ln-inverse.png)
+![Exponential and natural log](graphs/0808/10A/10a-exp-ln-inverse.png)
 
 **Visual Comparison — A Race Between Functions:**
 
 Superimpose four curves on one set of axes to feel their personalities. At $x=10$: $x=10$, $x^2=100$, $2^x=1024$, $\ln x=2.30$.
 The exponential overtakes the quadratic at $x=4$ and never looks back. The log crawls.
 
-![Growth race: x vs x² vs 2ˣ vs ln x](graphs/10h-growth-race.png)
+![Growth race: x vs x² vs 2ˣ vs ln x](graphs/0808/10A/10a-growth-race.png)
 
 **The mirror principle**: Flip the graph of $y = 2^x$ over the line $y=x$. What you get is $y = \log_2 x$.
 Every point $(a, 2^a)$ becomes $(2^a, a)$. The roles of input and output swap.
@@ -512,7 +520,7 @@ $25^x + 5^{x+1} - 6 = 0$. Unify to base 5, then use $t = 5^x$.
 
 **A5.** Solve for $x$: $5^{2x} - 6 \cdot 5^{x} + 5 = 0$. Substitute $t = 5^x$.
 
-**A6.** Compute $\log_3 8 \cdot \log_4 9 \cdot \log_2 27$. Use change-of-base.
+**A6.** Compute $\log_2 3 \cdot \log_3 4 \cdot \log_4 8$. Chain the change-of-base formula: $\log_a b \cdot \log_b c = \log_a c$.
 
 **A7.** Solve the inequality: $\log_2(x^2 - 5x + 6) \leq 1$. Enforce arguments > 0.
 

@@ -16,9 +16,9 @@
 $n$ = number of compoundings per year. As $n \to \infty$, continuous compounding: $A = Pe^{rt}$.
 
 1,000,000 won, 5%, 3 years.
-Yearly ($n=1$): $100(1.05)^3 = 115.76$ ten-thousands.
-Quarterly ($n=4$): $100\left(1 + \frac{0.05}{4}\right)^{12} = 116.08$ ten-thousands.
-Continuous: $100 \cdot e^{0.15} = 116.18$ ten-thousands.
+Yearly ($n=1$): $1{,}000{,}000(1.05)^3 = 1{,}157{,}625$ won.
+Quarterly ($n=4$): $1{,}000{,}000\left(1 + \frac{0.05}{4}\right)^{12} = 1{,}160{,}755$ won.
+Continuous: $1{,}000{,}000 \cdot e^{0.15} = 1{,}161{,}834$ won.
 
 ---
 
@@ -58,7 +58,7 @@ Logarithmic $\log_2 x$: $x=1024$ → 10. $x=$1,000,000 → about 20. Sluggish.
 When data spans a huge range, use log scale:
 1, 10, 100, 1000 → on log scale: 0, 1, 2, 3 — evenly spaced.
 
-![Comparing log bases](graphs/10d-log-bases.png)
+![Comparing log bases](graphs/0808/10B/10b-log-bases.png)
 
 > **Up to here**: Compound interest, half-life, pH, dB, Richter — all applications of exponents and logs.
 > Log scales compress wide ranges.
@@ -72,9 +72,9 @@ A linear scale places 1, 2, 3, 4 at equal intervals. A log scale places 1, 10, 1
 **Why this matters**: On a linear scale, the difference between 1 and 2 looks the same as the difference between 1001 and 1002.
 On a log scale, 1 and 10 are as far apart as 1000 and 10000 — because both jumps are a factor of 10.
 
-![Linear scale](graphs/10g1-linear-scale.png)
+![Linear scale](graphs/0808/10B/10b-linear-scale.png)
 
-![Log scale](graphs/10g2-log-scale.png)
+![Log scale](graphs/0808/10B/10b-log-scale.png)
 
 The entire history of the universe fits on a log scale: from Planck length ($10^{-35}$ m) to the observable universe ($10^{26}$ m) — a range of $10^{61}$.
 Without log scales, we could not draw this on a single sheet of paper.
@@ -139,6 +139,8 @@ This is how machine learning libraries compute stable softmax and cross-entropy.
 ---
 
 ## Example 24: Logarithmic Differentiation — Tackle Messy Products and Powers
+
+> **Note**: This technique relies on implicit differentiation, which is taught properly in **Session 14B** (Example 10). Here we preview the idea — by the end of 14B it will be a routine tool.
 
 $y = x^x$. How to differentiate? Neither power rule (exponent not constant) nor exponential rule (base not constant) applies directly.
 
@@ -462,34 +464,6 @@ How many digits does $50!$ have? Use Stirling's approximation.
 
 ---
 
-## Advanced Drills
-
-> Intensive computation. These target the intermediate steps most students skip. Work each one fully.
-
-**A1.** Simplify $\frac{2^{n+3} - 2^{n+1}}{2^{n}}$. Express as an integer.
-
-**A2.** Solve for $x$: $3^{2x} \cdot 9^{1-x} = \frac{1}{27}$.
-
-**A3.** Simplify $\log_2 48 - \log_2 3$. Express as a rational number.
-
-**A4.** Compute $\log_2 5 \cdot \log_5 8 \cdot \log_8 3 \cdot \log_3 16$. (Hint: chain the change-of-base formula.)
-
-**A5.** Simplify $\frac{\log_3 16}{\log_9 4}$. Express as a rational number.
-
-**A6.** Write $\ln\!\left(\frac{e^3 \sqrt{e}}{e^{-2}}\right)$ as a single simplified number.
-
-**A7.** Solve $\log_2(x-3) + \log_2(x+1) = 3$. Check all arguments after solving.
-
-**A8.** Chain-simplify: $\log_3 2 \cdot \log_4 3 \cdot \log_5 4 \cdot \log_6 5 \cdot \log_7 6 \cdot \log_8 7$. Express as a rational number.
-
-**A9.** Solve: $x^{\log_5 x} = 25x$. Take $\log_5$ of both sides.
-
-**A10.** A bacteria culture doubles every 4 hours. Starting with 1000 cells, how many hours until it reaches 1,000,000? Use $N(t) = N_0 \cdot 2^{t/4}$.
-
-> Solutions: [Solutions](solutions/10B-solutions.md#advanced-drill)
-
----
-
 ## Basic Drills
 
 > Pure computation with real-world and advanced techniques.
@@ -515,6 +489,34 @@ How many digits does $50!$ have? Use Stirling's approximation.
 **D10.** Verify that $2^4 = 4^2$. Then find another pair $(x,y)$ with $x \neq y$ and $x^y = y^x$ by using the parametric form $x = t^{1/(t-1)}, y = t^{t/(t-1)}$ with $t=3$.
 
 > Solutions: [Solutions](solutions/10B-solutions.md#basic-drill)
+
+---
+
+## Advanced Drills
+
+> Intensive computation. These target the intermediate steps most students skip. Work each one fully.
+
+**A1.** Simplify $\frac{2^{n+3} - 2^{n+1}}{2^{n}}$. Express as an integer.
+
+**A2.** Solve for $x$: $3^{2x} \cdot 9^{x+1} = \frac{1}{27}$.
+
+**A3.** Simplify $\log_2 48 - \log_2 3$. Express as a rational number.
+
+**A4.** Compute $\log_2 5 \cdot \log_5 8 \cdot \log_8 3 \cdot \log_3 16$. (Hint: chain the change-of-base formula.)
+
+**A5.** Simplify $\frac{\log_3 16}{\log_9 4}$. Express as a rational number.
+
+**A6.** Write $\ln\!\left(\frac{e^3 \sqrt{e}}{e^{-2}}\right)$ as a single simplified number.
+
+**A7.** Solve $\log_2(x-3) + \log_2(x+1) = 3$. Check all arguments after solving.
+
+**A8.** Chain-simplify: $\log_3 2 \cdot \log_4 3 \cdot \log_5 4 \cdot \log_6 5 \cdot \log_7 6 \cdot \log_8 7$. Express as a rational number.
+
+**A9.** Solve: $x^{\log_5 x} = 25x$. Take $\log_5$ of both sides.
+
+**A10.** A bacteria culture doubles every 4 hours. Starting with 1000 cells, how many hours until it reaches 1,000,000? Use $N(t) = N_0 \cdot 2^{t/4}$.
+
+> Solutions: [Solutions](solutions/10B-solutions.md#advanced-drill)
 
 ---
 
