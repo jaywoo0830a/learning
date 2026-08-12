@@ -8,6 +8,8 @@
 
 ## Part A: Partial Fractions — Tearing Rational Expressions Apart
 
+> **Why this matters**: partial fractions exist to integrate rational functions (Session 16B). Each denominator type integrates to a known form — $\int\frac{1}{x-a}dx=\ln|x-a|$, $\int\frac{1}{(x-a)^2}dx=-\frac{1}{x-a}$, $\int\frac{1}{x^2+1}dx=\arctan x$ — so decomposing a rational function turns a hard integral into a sum of easy ones.
+
 ---
 
 ## Example 1: Distinct Linear Factors
@@ -40,6 +42,39 @@ Now decompose $\frac{3x}{(x-1)(x+1)} = \frac{3/2}{x-1} + \frac{3/2}{x+1}$.
 
 ---
 
+## Example 3A: Irreducible Quadratic Factor — $\frac{Ax+B}{x^2+px+q}$
+
+**$\frac{3x^2+2x+1}{(x-1)(x^2+1)}$**. The quadratic $x^2+1$ doesn't factor over the reals — its partial fraction needs a **linear numerator**:
+
+$\frac{3x^2+2x+1}{(x-1)(x^2+1)} = \frac{A}{x-1} + \frac{Bx+C}{x^2+1}$.
+
+Multiply through: $3x^2+2x+1 = A(x^2+1)+(Bx+C)(x-1)$.
+
+- $x=1$: $6 = 2A$ → $A=3$.
+- Compare coefficients: $(A+B)x^2 + (C-B)x + (A-C)$. So $A+B=3$, $C-B=2$, $A-C=1$. With $A=3$: $B=0$, $C=2$.
+
+$\frac{3x^2+2x+1}{(x-1)(x^2+1)} = \frac{3}{x-1} + \frac{2}{x^2+1}$.
+
+> **Why a linear numerator?** $\int\frac{Bx+C}{x^2+px+q}dx$ splits into a log part ($\int\frac{x}{x^2+1}dx$) plus an arctan part ($\int\frac{1}{x^2+1}dx$) — the linear numerator is what makes both pieces integrate cleanly.
+
+---
+
+## Example 3B: Repeated Quadratic Factor
+
+**$\frac{4x^3+8x^2+4x+3}{(x^2+1)^2}$**: the quadratic appears twice, so use both forms:
+
+$\frac{4x^3+8x^2+4x+3}{(x^2+1)^2} = \frac{Ax+B}{x^2+1} + \frac{Cx+D}{(x^2+1)^2}$.
+
+Multiply: $4x^3+8x^2+4x+3 = (Ax+B)(x^2+1)+Cx+D$.
+
+Compare coefficients: $A=4$, $B=8$, $A+C=4$ → $C=0$, $B+D=3$ → $D=-5$.
+
+$\frac{4x^3+8x^2+4x+3}{(x^2+1)^2} = \frac{4x+8}{x^2+1} - \frac{5}{(x^2+1)^2}$.
+
+> **The complete setup table**: each distinct linear factor $x-a$ → $\frac{A}{x-a}$; each repeated linear factor $(x-a)^m$ → $\frac{A_1}{x-a}+\cdots+\frac{A_m}{(x-a)^m}$; each irreducible quadratic $x^2+px+q$ → $\frac{Ax+B}{x^2+px+q}$; repeated quadratics stack like linear ones.
+
+---
+
 ## Part B: Systems of Equations
 
 ---
@@ -49,11 +84,15 @@ Now decompose $\frac{3x}{(x-1)(x+1)} = \frac{3/2}{x-1} + \frac{3/2}{x+1}$.
 $\begin{cases} 2x+y=7 \\ x^2+y^2=25 \end{cases}$. From first: $y=7-2x$. Plug:
 $x^2+(7-2x)^2=25$ → $5x^2-28x+24=0$ → $(5x-6)(x-4)=0$. Solutions: $(6/5, 23/5), (4,-1)$.
 
+![Substitution: line 2x+y=7 meets the circle x²+y²=25](graphs/0812/07B/07b-line-circle.png)
+
 ---
 
 ## Example 5: Elimination
 
 $\begin{cases} 3x+2y=8 \\ 2x-y=3 \end{cases}$. Multiply second by 2: $4x-2y=6$. Add: $7x=14$ → $x=2,y=1$.
+
+![Elimination: two lines meet at (2,1)](graphs/0812/07B/07b-elimination.png)
 
 ---
 
@@ -63,11 +102,37 @@ $\begin{cases} x+y+z=6 \\ 2x-y+z=3 \\ x+2y-z=3 \end{cases}$. Eliminate $z$ from 
 
 ---
 
+## Example 6A: Cramer's Rule — Determinants Decide (🔗 12A2)
+
+For $\begin{cases} ax+by=e \\ cx+dy=f \end{cases}$, the **determinant** $D=\det\begin{pmatrix}a&b\\c&d\end{pmatrix}=ad-bc$ decides everything:
+
+- $D\neq0$: a unique solution $x=\frac{ed-bf}{D}$, $y=\frac{af-ec}{D}$.
+- $D=0$: no solution OR infinitely many (the lines are parallel or identical).
+
+**Recompute Example 5**: $\begin{cases} 3x+2y=8 \\ 2x-y=3 \end{cases}$. $D=3(-1)-2(2)=-7$.
+$x=\frac{8(-1)-2(3)}{-7}=\frac{-14}{-7}=2$, $y=\frac{3(3)-8(2)}{-7}=\frac{-7}{-7}=1$. ✓ Same $(2,1)$ as elimination.
+
+> Determinants give a formula instead of a procedure — and they tell you up front whether a solution exists. This is the same $\det$ you use for area scaling in 12A2.
+
+---
+
+## Example 6B: No Solution vs. Infinite Solutions
+
+**$\begin{cases} x+y=3 \\ 2x+2y=7 \end{cases}$**: the second is $2\times$first with a different constant ($6\neq7$) → the lines are **parallel** → **no solution** (inconsistent).
+
+**$\begin{cases} x+y=3 \\ 2x+2y=6 \end{cases}$**: the second is exactly $2\times$first → the **same line** → **infinitely many** solutions: $(t, 3-t)$ for any $t$ (dependent).
+
+> **Test**: after elimination, a false statement like $0=1$ means no solution; a true identity like $0=0$ means infinitely many.
+
+![Inconsistent vs dependent systems](graphs/0812/07B/07b-consistent-inconsistent.png)
+
+---
+
 ## Example 7: Symmetric Systems
 
 $\begin{cases} x+y=5 \\ xy=6 \end{cases}$. $x,y$ are roots of $t^2-5t+6=0$ → $t=2,3$. Solutions: $(2,3),(3,2)$.
 
-![System of equations intersection](graphs/07b-system-intersection.png)
+![System of equations intersection](graphs/0812/07B/07b-system-intersection.png)
 
 > **Up to here**: Partial fractions = decompose rational functions. Distinct linear → A/(x−a). Repeated → A/(x−a) + B/(x−a)². Improper → divide first.
 > Systems: substitution or elimination. Symmetric → sum-and-product → quadratic.
@@ -77,13 +142,15 @@ $\begin{cases} x+y=5 \\ xy=6 \end{cases}$. $x,y$ are roots of $t^2-5t+6=0$ → $
 ## What We Just Did
 
 ```
-(1) Partial fractions: factor denominator fully. Set up with undetermined A,B,C…
-    Multiply through by denominator. Plug convenient x-values or compare coefficients.
+(1) Partial fractions: factor denominator fully. Set up the form from the factor types:
+    distinct linear → A/(x−a); repeated → stack powers; irreducible quadratic → (Ax+B)/….
+    Multiply through. Plug convenient x or compare coefficients.
     If degree(num) ≥ degree(den), divide first.
 
-(2) Systems of equations: substitution isolates one variable.
-    Elimination aligns coefficients and subtracts. Three variables → eliminate to 2×2.
+(2) Systems: substitution isolates one variable. Elimination aligns coefficients.
+    Three variables → eliminate to 2×2. Cramer: D=ad−bc; D≠0 unique, D=0 → 0 or ∞.
     Symmetric systems: use sum S and product P → roots of t²−St+P=0.
+    Purpose: partial fractions power integration in Session 16B.
 ```
 
 ---
@@ -182,7 +249,7 @@ Create a system of two equations whose only solutions are $(1,2)$ and $(3,-1)$. 
 
 **A9.** Decompose $\frac{x^4}{(x^2+1)^2}$. Division first, then partial fractions.
 
-**A10.** A system has exactly 4 solutions: $(\pm2,\pm3)$ and $(\pm3,\pm2)$. Find the system of equations.
+**A10.** A system has exactly 8 solutions: $(\pm2,\pm3)$ and $(\pm3,\pm2)$ (any sign combination). Find the system of equations. (Hint: think about $x^2+y^2$ and $x^2y^2$.)
 
 > Solutions: [Solutions](solutions/07B-solutions.md#advanced-drill)
 
@@ -192,10 +259,12 @@ Create a system of two equations whose only solutions are $(1,2)$ and $(3,-1)$. 
 
 ```
 Step 1: Partial fractions — factor the denominator completely.
-         Set up the form based on factor types. Solve for A,B,C…
+         Linear factor → A/(x−a). Repeated → A/(x−a)+B/(x−a)²+…
+         Irreducible quadratic → (Ax+B)/(x²+px+q), stacked if repeated.
          Improper rational function: divide polynomials first.
 Step 2: Systems — substitution: isolate one variable, plug into the other.
          Elimination: align coefficients, subtract to cancel one variable.
+         Cramer: compute D=ad−bc. D≠0 → unique; D=0 → parallel (0) or same line (∞).
 Step 3: Symmetric systems — rewrite in terms of S=x+y, P=xy.
          Then x,y are roots of t²−St+P=0.
 ```
