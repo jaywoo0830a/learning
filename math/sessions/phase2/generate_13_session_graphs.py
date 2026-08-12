@@ -253,8 +253,48 @@ def c_monotone():
     fig.tight_layout()
     save(fig, '13C', '13c-monotone-sequence.png')
 
+def a_complex_fraction_hole():
+    """(1/x - 1/3)/(x-3) = -1/(3x) with a hole at (3, -1/9)."""
+    fig, ax = plt.subplots(figsize=(8, 4.8)); g(ax)
+    x = np.linspace(-6, 6, 1200)
+    x = x[np.abs(x) > 1e-3]
+    y = -1.0/(3*x)
+    ax.plot(x, y, BLUE, lw=2.5, label=r'$y = -\frac{1}{3x}$')
+    ax.axhline(0, color='#888', lw=1.0)
+    ax.axvline(0, color='#888', lw=1.0, ls=':')
+    hole(ax, 3, -1/9)
+    ax.annotate('hole at $(3,-\\frac{1}{9})$\n$\\lim \\to -\\frac{1}{9}$', (3, -1/9),
+                xytext=(3.6, -0.42), fontsize=10, color=RED, fontweight='bold')
+    ax.set_xlim(-6, 6); ax.set_ylim(-1.2, 1.2)
+    ax.set_title(r'$\frac{\frac{1}{x}-\frac{1}{3}}{x-3} = -\frac{1}{3x}$' '\n'
+                 'combine & cancel — the hole is the limit', fontweight='bold')
+    ax.set_xlabel('$x$'); ax.set_ylabel('$y$')
+    ax.legend(fontsize=10, loc='upper left')
+    fig.tight_layout()
+    save(fig, '13A', '13a-complex-fraction-hole.png')
+
+def b_complex_fraction():
+    """Nested fraction at infinity: x(x+1)/((x-1)(2x+3)) with HA y=1/2."""
+    fig, ax = plt.subplots(figsize=(8.5, 5.2)); g(ax)
+    x = np.linspace(-8, 8, 3000)
+    x = x[(np.abs(x - 1) > 1e-3) & (np.abs(x + 1.5) > 1e-3)]
+    y = x*(x+1)/((x-1)*(2*x+3))
+    ax.plot(x, y, BLUE, lw=2.2, label=r'$y = \frac{x(x+1)}{(x-1)(2x+3)}$')
+    ax.axhline(0.5, color=GREEN, lw=1.6, ls='--', label=r'HA $y = \frac{1}{2}$')
+    ax.axvline(1, color='#999', lw=1.2, ls=':')
+    ax.axvline(-1.5, color='#999', lw=1.2, ls=':')
+    ax.annotate(r'$\to \frac{1}{2}$', (5.5, 0.66), fontsize=12, color=GREEN, fontweight='bold')
+    ax.set_xlim(-8, 8); ax.set_ylim(-6, 6)
+    ax.set_title(r'$\frac{\ \frac{x+1}{x-1}\ }{\ \frac{2x+3}{x}\ } = \frac{x(x+1)}{(x-1)(2x+3)}$' '\n'
+                 'flip & multiply, then the degree rule → $y=\\frac{1}{2}$', fontweight='bold')
+    ax.set_xlabel('$x$'); ax.set_ylabel('$y$')
+    ax.legend(fontsize=9, loc='upper right')
+    fig.tight_layout()
+    save(fig, '13B', '13b-complex-fraction.png')
+
 if __name__ == '__main__':
     a_limit_hole(); a_conjugate_hole(); a_t_substitution(); a_onesided(); a_sinx_over_x()
-    b_horizontal(); b_slant()
+    a_complex_fraction_hole()
+    b_horizontal(); b_slant(); b_complex_fraction()
     c_discontinuities(); c_squeeze(); c_ivt(); c_monotone()
-    print('All 11 graphs written to', BASE)
+    print('All 14 graphs written to', BASE)

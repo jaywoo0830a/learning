@@ -262,6 +262,80 @@ $3 \neq 1$ → **limit does not exist** at $x=1$.
 
 > **Up to here**: Direct substitution = first move. $\frac{0}{0}$: factor-cancel, conjugate, $\frac{\sin x}{x}\to1$, $\frac{e^x-1}{x}\to1$.
 > $0\cdot\infty$: convert to quotient. One-sided: check left and right separately. Absolute value: split cases.
+> Nested fractions: combine & flip, or multiply by the LCD.
+
+---
+
+## Part H: $\frac{0}{0}$ with Complex Fractions — The Nested-Fraction Toolkit
+
+---
+
+## Example 11: Fractions Inside Fractions — Three Algebraic Tricks
+
+When the numerator or denominator is **itself a fraction** (a *complex fraction*), the $\frac{0}{0}$ looks scary — but it is pure algebra. Three tricks untangle every nested fraction:
+
+**Trick 1 — The Big-Fraction (reciprocal) Rule**:
+$\displaystyle \frac{\ \frac{A}{B}\ }{\ \frac{C}{D}\ } = \frac{A}{B}\cdot\frac{D}{C} = \frac{AD}{BC}$.
+
+A fraction bar means "divide." Dividing by a fraction = multiplying by its **reciprocal**: flip the *bottom* fraction, then multiply.
+
+**Trick 2 — Combine, Then Flip** (the workhorse):
+Make the numerator (or denominator) into **one fraction** by putting its pieces over a common denominator. Then use Trick 1.
+
+**Trick 3 — Multiply by the LCD** (one shot):
+Multiply top and bottom by the **least common denominator of ALL the little fractions** inside. Every inner denominator disappears at once.
+
+**$\displaystyle \lim_{x\to 3}\frac{\ \frac{1}{x}-\frac{1}{3}\ }{x-3}$.**
+
+① $x=3$ → $\frac{0}{0}$: the numerator $\frac{1}{x}-\frac{1}{3}\to0$ and the denominator $x-3\to0$.
+
+② *Trick 2 (combine first)*: put the numerator over the common denominator $3x$:
+$\frac{1}{x}-\frac{1}{3} = \frac{3-x}{3x}$.
+
+③ Now the whole expression is a big fraction:
+$\frac{\ \frac{3-x}{3x}\ }{x-3} = \frac{3-x}{3x}\cdot\frac{1}{x-3}$.
+
+④ Since $3-x = -(x-3)$, cancel: $\frac{-(x-3)}{3x(x-3)} = -\frac{1}{3x}$.
+
+⑤ $x=3$: $-\frac{1}{3\cdot3} = -\frac{1}{9}$.
+
+*Trick 3 (multiply by LCD)* — same problem, one move: multiply top and bottom by $3x$:
+$\frac{(3x)\left(\frac{1}{x}-\frac{1}{3}\right)}{(3x)(x-3)} = \frac{3-x}{3x(x-3)} = -\frac{1}{3x} \to -\frac{1}{9}$. Same answer — the LCD route clears both little fractions in a single step.
+
+![Complex fraction: (1/x − 1/3)/(x−3) = −1/(3x) with a hole at (3, −1/9)](graphs/0808/13A/13a-complex-fraction-hole.png)
+
+*Graph 13E: after combining, $\frac{\frac{1}{x}-\frac{1}{3}}{x-3}$ collapses to the hyperbola $-\frac{1}{3x}$ with a hole at $\left(3,-\frac{1}{9}\right)$. The limit is the missing value $-\frac{1}{9}$.*
+
+---
+
+**$\displaystyle \lim_{x\to 0}\frac{\ \frac{1}{x+4}-\frac{1}{4}\ }{x}$.**
+
+① Combine the numerator over $4(x+4)$:
+$\frac{1}{x+4}-\frac{1}{4} = \frac{4-(x+4)}{4(x+4)} = \frac{-x}{4(x+4)}$.
+
+② Divide by $x$: $\frac{-x}{4(x+4)}\cdot\frac{1}{x} = -\frac{1}{4(x+4)}$ (the $x$'s cancel).
+
+③ $x=0$: $-\frac{1}{4\cdot4} = -\frac{1}{16}$.
+
+---
+
+**$\displaystyle \lim_{x\to 1}\frac{\ \frac{2}{x+1}-1\ }{x-1}$.**
+
+① $x=1$ → $\frac{0}{0}$ (the numerator is $\frac{2}{2}-1 = 0$).
+
+② Combine: $\frac{2}{x+1}-1 = \frac{2-(x+1)}{x+1} = \frac{1-x}{x+1} = \frac{-(x-1)}{x+1}$.
+
+③ Cancel $x-1$: $\frac{-(x-1)}{(x+1)(x-1)} = -\frac{1}{x+1} \to -\frac{1}{2}$.
+
+---
+
+**The general pattern** (memorize this one — it is the derivative of $1/x$ in disguise):
+
+$\displaystyle \lim_{x\to a}\frac{\ \frac{1}{x}-\frac{1}{a}\ }{x-a} = -\frac{1}{a^2}$.
+
+Proof: $\frac{1}{x}-\frac{1}{a} = \frac{a-x}{ax} = \frac{-(x-a)}{ax}$, so the expression becomes $\frac{-(x-a)}{ax(x-a)} = -\frac{1}{ax} \to -\frac{1}{a^2}$.
+
+> **Insight**: Nested fractions are NOT a new weapon — they are a disguise. Combine (Trick 2) or clear (Trick 3) to expose a $\frac{0}{0}$ you already know how to beat: factor, cancel, plug in. The pattern $\lim_{x\to a}\frac{\frac{1}{x}-\frac{1}{a}}{x-a} = -\frac{1}{a^2}$ is a preview of the derivative $\frac{d}{dx}\frac{1}{x} = -\frac{1}{x^2}$ (Session 14).
 
 ---
 
@@ -274,6 +348,10 @@ $3 \neq 1$ → **limit does not exist** at $x=1$.
 ### Mistake 2: $\frac{\sin 5x}{x} \to 1$ without fixing
 
 **Wrong**. The argument must match: $\frac{\sin 5x}{x} = 5\cdot\frac{\sin 5x}{5x} \to 5$.
+
+### Mistake 3: Canceling across a nested fraction
+
+**Wrong**: $\frac{\ \frac{1}{x}-\frac{1}{3}\ }{x-3} = \frac{\ \frac{1-1}{1-3}\ }{\ldots}$ (cancelling $x$'s everywhere). **Right**: combine the top FIRST — $\frac{1}{x}-\frac{1}{3} = \frac{3-x}{3x} = \frac{-(x-3)}{3x}$ — and only THEN cancel the genuine common factor $x-3$. The pieces inside a sum can never be cancelled individually.
 
 ---
 
@@ -288,10 +366,13 @@ $3 \neq 1$ → **limit does not exist** at $x=1$.
     sinx/x → 1, tanx/x → 1, (1-cosx)/x² → 1/2
     (e^x-1)/x → 1, ln(1+x)/x → 1
     Substitute t = x-a to move the limit to 0
+    Complex fractions: combine & flip (Trick 2) or multiply by LCD (Trick 3)
 
 (3) 0·∞ → rewrite as quotient → becomes 0/0 or ∞/∞
 
 (4) One-sided limits: check left and right. Absolute value: split cases.
+
+(5) Nested-fraction pattern: lim (1/x − 1/a)/(x−a) = −1/a²
 ```
 
 ---
@@ -380,6 +461,10 @@ $f(x) = \begin{cases} \frac{\sin x}{x}, & x < 0 \\ e^x, & x \geq 0 \end{cases}$.
 
 **D10.** $\displaystyle \lim_{x\to 0}\frac{\tan 2x}{x}$. Use tan = sin/cos.
 
+**D11.** $\displaystyle \lim_{x\to 4}\frac{\ \frac{1}{x}-\frac{1}{4}\ }{x-4}$. Combine the numerator, then cancel. (→ Example 11)
+
+**D12.** $\displaystyle \lim_{x\to 0}\frac{\ \frac{1}{x+1}-1\ }{x}$. Combine, cancel $x$, then plug in. (→ Example 11)
+
 > Solutions: [Solutions](solutions/13A-solutions.md#basic-drill)
 
 ---
@@ -408,6 +493,8 @@ $f(x) = \begin{cases} \frac{\sin x}{x}, & x < 0 \\ e^x, & x \geq 0 \end{cases}$.
 
 **A10.** $f(x) = \begin{cases} \frac{x^2-1}{x-1}, & x \neq 1 \\ k, & x=1 \end{cases}$. Find $k$ so $f$ is continuous at $x=1$.
 
+**A11.** $\displaystyle \lim_{x\to 3}\frac{\ \frac{x}{x-2}-3\ }{x-3}$. A fraction minus a constant — combine first, then cancel. (→ Example 11)
+
 > Solutions: [Solutions](solutions/13A-solutions.md#advanced-drill)
 
 ---
@@ -423,6 +510,9 @@ Step 2: 0/0 → identify the structure:
     Trig → force sin(□)/□ → 1. Check that □ matches exactly.
     e^x, ln → force (e^□-1)/□ → 1 or ln(1+□)/□ → 1.
     Limit at a ≠ 0? Substitute t = x−a to move the limit to 0.
+    Nested fractions (fraction inside numerator/denominator)?
+        Combine the pieces into one fraction, then flip & multiply,
+        OR multiply top & bottom by the LCD of all inner denominators.
 
 Step 3: 0·∞ → rewrite as a quotient (f·g = f/(1/g)).
     One-sided limits → check left and right separately.

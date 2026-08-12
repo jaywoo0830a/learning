@@ -121,6 +121,30 @@ $\lim_{x\to 0^+}\frac{e^x-1}{x} = 1$ (standard exponential limit).
 
 ---
 
+## Practice 7: Complex Fraction Meets Continuity
+
+**$f(x) = \begin{cases} \frac{\ \frac{1}{x}-\frac{1}{3}\ }{x-3}, & x \neq 3 \\ k, & x=3 \end{cases}$. Find $k$ so that $f$ is continuous at $x=3$.**
+
+① Continuity at $x=3$ requires $\lim_{x\to 3}f(x) = f(3) = k$. First compute the limit of the complex-fraction branch.
+
+② Plug in $x=3$: $\frac{0}{0}$. Combine the numerator over $3x$:
+$\frac{1}{x}-\frac{1}{3} = \frac{3-x}{3x} = \frac{-(x-3)}{3x}$.
+
+③ Divide by $x-3$ and cancel:
+$\frac{\ \frac{-(x-3)}{3x}\ }{x-3} = \frac{-(x-3)}{3x(x-3)} = -\frac{1}{3x}$.
+
+④ $\displaystyle \lim_{x\to 3}f(x) = -\frac{1}{3\cdot3} = -\frac{1}{9}$.
+
+⑤ Set $k = -\frac{1}{9}$.
+
+*(Matches the 13A general pattern $\lim_{x\to a}\frac{\frac{1}{x}-\frac{1}{a}}{x-a} = -\frac{1}{a^2}$ with $a=3$.)*
+
+> **Answer**: $k = -\frac{1}{9}$
+
+![Continuity restored: the hole of −1/(3x) at x=3 is filled by f(3) = −1/9](graphs/13C/p7-complex-continuity.png)
+
+---
+
 ## Basic Drills
 
 ### D1. Identify the type of discontinuity of $f(x)=\frac{1}{x-3}$ at $x=3$.

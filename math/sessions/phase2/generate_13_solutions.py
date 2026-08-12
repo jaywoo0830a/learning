@@ -410,8 +410,70 @@ def c6():
     fig.savefig(os.path.join(BASE, '13C', 'p6-three-piece.png'), bbox_inches='tight')
     plt.close(fig)
 
+def a_d11():
+    """D11: (1/x-1/4)/(x-4) = -1/(4x) with a hole at (4, -1/16)."""
+    fig, ax = plt.subplots(figsize=(9, 5.5)); g(ax)
+    x = np.linspace(-8, 8, 1200)
+    x = x[np.abs(x) > 1e-3]
+    y = -1.0/(4*x)
+    ax.plot(x, y, BLUE, lw=2.5, label=r'$y = -\frac{1}{4x}$')
+    ax.axhline(0, color='#999', lw=1.0, ls=':')
+    hole(ax, 4, -1/16)
+    ax.annotate('hole at $(4,-\\frac{1}{16})$', (4, -1/16), textcoords="offset points",
+                xytext=(14, 10), fontsize=10, color=RED, fontweight='bold')
+    ax.annotate(r'$\lim_{x\to4}\frac{\ \frac{1}{x}-\frac{1}{4}\ }{x-4} = -\frac{1}{16}$',
+                (-7.8, 0.30), fontsize=12, color=GREEN, fontweight='bold')
+    ax.set_xlim(-8, 8); ax.set_ylim(-0.6, 0.6)
+    ax.set_title('D11: Complex fraction — $\\frac{\\ \\frac{1}{x}-\\frac{1}{4}\\ }{x-4} \\to -\\frac{1}{16}$',
+                 fontweight='bold')
+    ax.set_xlabel('$x$'); ax.set_ylabel('$y$')
+    ax.legend(fontsize=10, loc='upper left')
+    fig.tight_layout()
+    fig.savefig(os.path.join(BASE, '13A', 'd11-complex-fraction.png'), bbox_inches='tight')
+    plt.close(fig)
+
+def b_d11():
+    """D11: (2x+1)(x+1)/x^2 with horizontal asymptote y=2."""
+    fig, ax = plt.subplots(figsize=(9, 5.5)); g(ax)
+    x = np.linspace(0.5, 30, 1200)
+    y = (2*x+1)*(x+1)/x**2
+    ax.plot(x, y, BLUE, lw=2.5, label=r'$y = \frac{(2x+1)(x+1)}{x^2}$')
+    ax.axhline(2, color=GREEN, lw=1.4, ls='--', label=r'$y=2$')
+    ax.annotate('horizontal asymptote $y=2$', (14, 2.14), fontsize=10,
+                color=GREEN, fontweight='bold')
+    ax.set_xlim(0.5, 30); ax.set_ylim(1.6, 3.6)
+    ax.set_title('D11: Complex fraction at infinity — $\\frac{\\ \\frac{2x+1}{x}\\ }{\\ \\frac{x}{x+1}\\ } \\to 2$',
+                 fontweight='bold')
+    ax.set_xlabel('$x$'); ax.set_ylabel('$y$')
+    ax.legend(fontsize=10)
+    fig.tight_layout()
+    fig.savefig(os.path.join(BASE, '13B', 'd11-complex-fraction.png'), bbox_inches='tight')
+    plt.close(fig)
+
+def c7():
+    """P7: (1/x-1/3)/(x-3) = -1/(3x), continuity restored by filling (3,-1/9)."""
+    fig, ax = plt.subplots(figsize=(9, 5.5)); g(ax)
+    x = np.linspace(-6, 6, 1200)
+    x = x[np.abs(x) > 1e-3]
+    y = -1.0/(3*x)
+    ax.plot(x, y, BLUE, lw=2.5, label=r'$y = -\frac{1}{3x}$')
+    ax.axhline(0, color='#999', lw=1.0, ls=':')
+    ax.plot([3], [-1/9], 'o', color=GREEN, ms=8, zorder=6,
+            label=r'$f(3) = -\frac{1}{9}$ (filled)')
+    ax.annotate(r'$k=-\frac{1}{9}$ fills the hole → continuous', (3, -1/9),
+                textcoords="offset points", xytext=(16, -20), fontsize=10,
+                color=GREEN, fontweight='bold')
+    ax.set_xlim(-6, 6); ax.set_ylim(-0.8, 0.8)
+    ax.set_title('Practice 7: $\\frac{\\ \\frac{1}{x}-\\frac{1}{3}\\ }{x-3}$ — continuity restored at $k=-\\frac{1}{9}$',
+                 fontweight='bold')
+    ax.set_xlabel('$x$'); ax.set_ylabel('$y$')
+    ax.legend(fontsize=10, loc='upper left')
+    fig.tight_layout()
+    fig.savefig(os.path.join(BASE, '13C', 'p7-complex-continuity.png'), bbox_inches='tight')
+    plt.close(fig)
+
 if __name__ == '__main__':
-    a1(); a2(); a3(); a4(); a5(); a6()
-    b1(); b2(); b3(); b4(); b5(); b6()
-    c1(); c2(); c3(); c4(); c5(); c6()
-    print('All 18 solution graphs written to', BASE)
+    a1(); a2(); a3(); a4(); a5(); a6(); a_d11()
+    b1(); b2(); b3(); b4(); b5(); b6(); b_d11()
+    c1(); c2(); c3(); c4(); c5(); c6(); c7()
+    print('All 21 solution graphs written to', BASE)

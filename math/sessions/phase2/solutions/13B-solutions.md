@@ -194,6 +194,22 @@ $n^{1/n}\to 1$.
 
 ---
 
+### D11. $\displaystyle \lim_{x\to\infty}\frac{\ \frac{2x+1}{x}\ }{\ \frac{x}{x+1}\ }$ — flip the bottom, then use the degree rule (→ Example 11).
+
+① Flip the denominator fraction and multiply:
+$\frac{2x+1}{x}\cdot\frac{x+1}{x}$.
+
+② Take each factor separately:
+$\frac{2x+1}{x} = 2+\frac{1}{x}\to 2$, and $\frac{x+1}{x} = 1+\frac{1}{x}\to 1$.
+
+③ Product: $2\cdot1 = 2$.
+
+> **Answer**: $2$
+
+![Complex fraction at infinity: (2x+1)(x+1)/x² approaches y = 2](graphs/13B/d11-complex-fraction.png)
+
+---
+
 ## Advanced Drills
 
 ### A1. $\displaystyle \lim_{x\to-\infty}\frac{\sqrt{9x^2+2}}{3x+1}$ — handle $\sqrt{x^2}=|x|$ carefully.
@@ -298,3 +314,17 @@ $\frac{n^2+1}{n^2} = 1+\frac{1}{n^2}$, so the limit is $\lim_{n\to\infty}\left(1
 $\frac{1-\cos x}{x\sin x} = \frac{1-\cos x}{x^2} \cdot \frac{x}{\sin x} \to \frac12 \cdot 1 = \frac12$.
 
 > **Answer**: $\frac12$
+
+---
+
+### A11. $\displaystyle \lim_{x\to\infty}\frac{\ \frac{1}{x+1}-\frac{1}{x}\ }{\ \frac{1}{x^2}\ }$ — combine the difference of reciprocals first (→ Example 11).
+
+① Combine the numerator over $x(x+1)$:
+$\frac{1}{x+1}-\frac{1}{x} = \frac{x-(x+1)}{x(x+1)} = \frac{-1}{x(x+1)}$.
+
+② Divide by $\frac{1}{x^2}$ (multiply by $x^2$):
+$\frac{-1}{x(x+1)}\cdot x^2 = -\frac{x}{x+1}$.
+
+③ As $x\to\infty$: $-\frac{x}{x+1} = -\frac{1}{1+1/x} \to -1$.
+
+> **Answer**: $-1$

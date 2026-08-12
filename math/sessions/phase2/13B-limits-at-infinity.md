@@ -207,6 +207,58 @@ $\displaystyle \lim_{x\to\infty}\left[\frac{x^2+1}{x-1} - (x+1)\right] = \lim_{x
 
 ---
 
+## Part G: Complex Fractions at Infinity — The Big-Fraction Rules
+
+---
+
+## Example 11: Nested Fractions as $x\to\infty$
+
+The three tricks from 13A (combine & flip, multiply by LCD) work here too — but now they feed into the **degree rule** instead of factor-cancel.
+
+**$\displaystyle \lim_{x\to\infty}\frac{\ \frac{x+1}{x-1}\ }{\ \frac{2x+3}{x}\ }$.**
+
+① Both the numerator and the denominator are themselves fractions. **Flip the bottom and multiply** (Trick 1):
+$\frac{x+1}{x-1}\cdot\frac{x}{2x+3}$.
+
+② Now each factor is a plain rational function. Take limits separately with the degree rule:
+$\frac{x+1}{x-1} \to \frac{1}{1} = 1$ and $\frac{x}{2x+3} \to \frac{1}{2}$.
+
+③ Product: $1\cdot\frac{1}{2} = \frac{1}{2}$.
+
+![Complex fraction at infinity: x(x+1)/((x−1)(2x+3)) approaches y = 1/2](graphs/0808/13B/13b-complex-fraction.png)
+
+*Graph 13G: the big fraction $\frac{\frac{x+1}{x-1}}{\frac{2x+3}{x}} = \frac{x(x+1)}{(x-1)(2x+3)}$ flattens out to the horizontal asymptote $y=\frac{1}{2}$.*
+
+---
+
+**$\displaystyle \lim_{x\to\infty}\frac{\ \frac{3}{x}-\frac{2}{x^2}\ }{2-\frac{5}{x}}$.**
+
+① Watch the inner fractions: the numerator $\frac{3}{x}-\frac{2}{x^2}\to0$, the denominator $2-\frac{5}{x}\to2$.
+② → $\frac{0}{2} = 0$. No flipping needed — the little fractions just vanish.
+
+---
+
+**$\displaystyle \lim_{x\to\infty}\frac{\ \frac{2x+1}{x}\ }{\ \frac{x}{x+1}\ }$.**
+
+① Flip and multiply: $\frac{2x+1}{x}\cdot\frac{x+1}{x}$.
+② $\frac{2x+1}{x} = 2+\frac{1}{x}\to2$; $\frac{x+1}{x} = 1+\frac{1}{x}\to1$.
+③ → $2\cdot1 = 2$.
+
+---
+
+**Real battle — a nested fraction meets the $e$ limit**:
+
+$\displaystyle \lim_{x\to\infty}\left(\frac{x+\frac{1}{x}}{x}\right)^x$.
+
+① Simplify the base FIRST: $\frac{x+1/x}{x} = 1 + \frac{1}{x^2}$.
+② $\left(1+\frac{1}{x^2}\right)^x = \left[\left(1+\frac{1}{x^2}\right)^{x^2}\right]^{1/x}$.
+③ The bracket $\to e$ (the standard $e$ limit with $n=x^2$), then raised to the power $\frac{1}{x}\to0$: $e^0 = 1$.
+→ **1**.
+
+> **Insight**: At infinity, a nested fraction is still a rational function in disguise. Flip-and-multiply turns it into a product of plain rational functions, and the degree rule finishes the job. If a power has a nested-fraction base, simplify the base FIRST — then hunt for the $e$ form $(1+k/n)^n\to e^k$.
+
+---
+
 ## Common Mistakes
 
 ### Mistake 1: Forgetting $\sqrt{x^2} = |x|$ when $x\to-\infty$
@@ -220,6 +272,10 @@ $\displaystyle \lim_{x\to\infty}\left[\frac{x^2+1}{x-1} - (x+1)\right] = \lim_{x
 ### Mistake 3: Claiming $\frac{1}{0} = \infty$ without checking signs
 
 **Wrong**. It could be $+\infty$, $-\infty$, or neither (if left and right differ).
+
+### Mistake 4: Forgetting to flip the denominator in a big fraction
+
+**Wrong**: $\frac{\ \frac{x+1}{x-1}\ }{\ \frac{2x+3}{x}\ } = \frac{x+1}{x-1}\cdot\frac{2x+3}{x}$ (kept the bottom as-is). **Right**: dividing by a fraction means multiplying by its **reciprocal**: $\frac{x+1}{x-1}\cdot\frac{x}{2x+3}\to\frac{1}{2}$. Flipping the wrong fraction changes the answer (here you would get $2$ instead of $\frac{1}{2}$).
 
 ---
 
@@ -238,6 +294,9 @@ $\displaystyle \lim_{x\to\infty}\left[\frac{x^2+1}{x-1} - (x+1)\right] = \lim_{x
 
 (5) e as a limit: (1+k/n)^n → e^k. (1+x)^{1/x} → e.
     Standard limits: lnn/n → 0, n^{1/n} → 1.
+
+(6) Complex fractions: flip the bottom & multiply → degree rule on each factor.
+    Inner fractions → 0 or → constant; simplify a power's base before hunting e.
 ```
 
 ---
@@ -346,6 +405,8 @@ $\displaystyle \lim_{x\to\infty}\frac{e^x + x^{100}}{2^x + x!}$. Use the growth 
 
 **D10.** $\displaystyle \lim_{n\to\infty}n^{1/n}$. Standard limit.
 
+**D11.** $\displaystyle \lim_{x\to\infty}\frac{\ \frac{2x+1}{x}\ }{\ \frac{x}{x+1}\ }$. Flip the bottom, then use the degree rule on each factor. (→ Example 11)
+
 > Solutions: [Solutions](solutions/13B-solutions.md#basic-drill)
 
 ---
@@ -373,6 +434,8 @@ $\displaystyle \lim_{x\to\infty}\frac{e^x + x^{100}}{2^x + x!}$. Use the growth 
 **A9.** $\displaystyle \lim_{n\to\infty}\left(\frac{n^2+1}{n^2}\right)^{n^2}$. Rewrite as $(1+\frac{1}{n^2})^{n^2}$.
 
 **A10.** $\displaystyle \lim_{x\to 0}\frac{1-\cos x}{x\sin x}$. Use $\frac{1-\cos x}{x^2}\to\frac{1}{2}$ and $\frac{\sin x}{x}\to1$.
+
+**A11.** $\displaystyle \lim_{x\to\infty}\frac{\ \frac{1}{x+1}-\frac{1}{x}\ }{\ \frac{1}{x^2}\ }$. Combine the difference of reciprocals first, then divide. (→ Example 11)
 
 > Solutions: [Solutions](solutions/13B-solutions.md#advanced-drill)
 

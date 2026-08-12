@@ -157,6 +157,31 @@ The limit satisfies $L = \cos L$ (no closed form, but $L \approx 0.7391$).
 
 ---
 
+## Example 10: Continuity with a Complex Fraction
+
+Nested fractions show up in piecewise functions too. To make the function continuous, compute the limit with the 13A tricks (combine & flip, or multiply by the LCD) and then set $k$ equal to that limit.
+
+**$f(x) = \begin{cases} \frac{\ \frac{1}{x}-\frac{1}{2}\ }{x-2}, & x \neq 2 \\ k, & x=2 \end{cases}$. Find $k$ for continuity at $x=2$.**
+
+① Combine the numerator: $\frac{1}{x}-\frac{1}{2} = \frac{2-x}{2x} = \frac{-(x-2)}{2x}$.
+② Divide by $x-2$ and cancel: $\frac{-(x-2)}{2x(x-2)} = -\frac{1}{2x}$.
+③ $\displaystyle \lim_{x\to2}f(x) = -\frac{1}{2\cdot2} = -\frac{1}{4}$.
+④ Continuity needs $f(2) = $ the limit → $k = -\frac{1}{4}$.
+
+*(Equivalently, the 13A general pattern $\lim_{x\to a}\frac{\frac{1}{x}-\frac{1}{a}}{x-a} = -\frac{1}{a^2}$ with $a=2$ gives $-\frac{1}{4}$ immediately.)*
+
+---
+
+**$g(x) = \begin{cases} \frac{x}{\ \frac{1}{x-1}+1\ }, & x \neq 1 \\ k, & x=1 \end{cases}$. Find $k$ for continuity at $x=1$.**
+
+① As $x\to1$, the denominator $\frac{1}{x-1}+1$ blows up (it goes to $\pm\infty$), while the numerator $x \to 1$.
+② A number divided by something huge → $0$: $\displaystyle \lim_{x\to1}g(x) = 0$.
+③ Set $k = 0$.
+
+> **Insight**: The three continuity conditions still apply unchanged — the only new step is that the limit must be extracted from a nested fraction FIRST. Combine & flip to turn $\frac{0}{0}$ into a cancellable form, evaluate, then match $k$.
+
+---
+
 ## Part E: The Ultimate Limit Decision Tree
 
 ```
@@ -168,6 +193,7 @@ You encounter a limit:
 │
 ├── ② Identify the indeterminate form:
 │   ├── 0/0 → factor-cancel / conjugate / sinx/x / (e^x-1)/x / ln(1+x)/x
+│   │         complex fraction → combine & flip, or multiply by the LCD
 │   ├── ∞/∞ → divide by highest power / growth hierarchy
 │   ├── ∞-∞ → rationalize or common denominator
 │   ├── 0·∞ → rewrite as quotient → becomes 0/0 or ∞/∞
@@ -190,6 +216,7 @@ You encounter a limit:
 | Problem | Form | Weapon | Answer |
 |:--------|:----:|:-------|:------:|
 | $\lim_{x\to3}\frac{x^2-9}{x-3}$ | $\frac{0}{0}$ | Factor-cancel | $6$ |
+| $\lim_{x\to3}\frac{\ \frac{1}{x}-\frac{1}{3}\ }{x-3}$ | $\frac{0}{0}$ | Combine & flip | $-\frac{1}{9}$ |
 | $\lim_{x\to0}\frac{\sin7x}{x}$ | $\frac{0}{0}$ | $\frac{\sin\square}{\square}\to1$ | $7$ |
 | $\lim_{x\to\infty}\frac{5x^3}{2x^3}$ | $\frac{\infty}{\infty}$ | Degree comparison | $\frac{5}{2}$ |
 | $\lim_{x\to\infty}(\sqrt{x^2+x}-x)$ | $\infty-\infty$ | Conjugate | $\frac{1}{2}$ |
@@ -201,6 +228,7 @@ You encounter a limit:
 > **Up to here**: Continuity = 3 conditions. Discontinuity types: hole, jump, infinite.
 > Sandwich = trap between two functions. IVT = continuous functions hit every intermediate value.
 > Sequences: monotone+bounded → convergent. Recursive: solve $L=f(L)$.
+> Complex fractions: simplify with combine & flip / LCD before checking the limit equals $f(a)$.
 
 ---
 
@@ -234,6 +262,9 @@ You encounter a limit:
     Recursive a_{n+1}=f(a_n): limit L satisfies L=f(L).
 
 (4) Decision tree: classify the form → pick the weapon → execute.
+
+(5) Complex fractions: combine & flip (or multiply by LCD) to expose a 0/0 you
+    can cancel — then the three continuity conditions apply as usual.
 ```
 
 ---
@@ -295,6 +326,16 @@ $f(x) = \begin{cases} \frac{\sin x}{x}, & x<0 \\ 1, & x=0 \\ \frac{e^x-1}{x}, & 
 → Reference: **Example 1, 13A Example 4,5**
 
 > Solutions: [Solutions](solutions/13C-solutions.md#practice-6)
+
+---
+
+## Practice 7: Complex Fraction Meets Continuity
+
+$f(x) = \begin{cases} \frac{\ \frac{1}{x}-\frac{1}{3}\ }{x-3}, & x \neq 3 \\ k, & x=3 \end{cases}$. Find $k$ so that $f$ is continuous at $x=3$.
+
+→ Reference: **Example 10, 13A Example 11**
+
+> Solutions: [Solutions](solutions/13C-solutions.md#practice-7)
 
 ---
 

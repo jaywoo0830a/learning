@@ -215,6 +215,37 @@ $\frac{\tan 2x}{x} = \frac{\sin 2x}{x\cos 2x} = 2 \cdot \frac{\sin 2x}{2x} \cdot
 
 ---
 
+### D11. $\displaystyle \lim_{x\to 4}\frac{\ \frac{1}{x}-\frac{1}{4}\ }{x-4}$ — combine the numerator first (→ Example 11).
+
+① Plug in $x=4$: $\frac{0}{0}$.
+
+② Combine the numerator over $4x$: $\frac{1}{x}-\frac{1}{4} = \frac{4-x}{4x} = \frac{-(x-4)}{4x}$.
+
+③ Divide by $x-4$ and cancel:
+$\frac{\frac{-(x-4)}{4x}}{x-4} = \frac{-(x-4)}{4x(x-4)} = -\frac{1}{4x}$.
+
+④ Plug in $x=4$: $-\frac{1}{4\cdot4} = -\frac{1}{16}$.
+
+> **Answer**: $-\frac{1}{16}$ (matches the general pattern $-\frac{1}{a^2}$ with $a=4$)
+
+![Complex fraction: (1/x − 1/4)/(x−4) = −1/(4x) with a hole at (4, −1/16)](graphs/13A/d11-complex-fraction.png)
+
+---
+
+### D12. $\displaystyle \lim_{x\to 0}\frac{\ \frac{1}{x+1}-1\ }{x}$ — combine, then cancel the $x$ (→ Example 11).
+
+① Plug in $x=0$: $\frac{0}{0}$.
+
+② Combine the numerator: $\frac{1}{x+1}-1 = \frac{1-(x+1)}{x+1} = \frac{-x}{x+1}$.
+
+③ Divide by $x$: $\frac{-x}{x+1}\cdot\frac{1}{x} = -\frac{1}{x+1}$.
+
+④ Plug in $x=0$: $-\frac{1}{0+1} = -1$.
+
+> **Answer**: $-1$
+
+---
+
 ## Advanced Drills
 
 ### A1. $\displaystyle \lim_{x\to 2}\frac{x^4-16}{x-2}$ — difference of squares twice.
@@ -312,3 +343,19 @@ $\lim_{x\to 1}\frac{x^2-1}{x-1} = \lim_{x\to 1}\frac{(x-1)(x+1)}{x-1} = \lim_{x\
 Set $k = 2$.
 
 > **Answer**: $k = 2$
+
+---
+
+### A11. $\displaystyle \lim_{x\to 3}\frac{\ \frac{x}{x-2}-3\ }{x-3}$ — a fraction minus a constant; combine first (→ Example 11).
+
+① Plug in $x=3$: numerator $\frac{3}{1}-3 = 0$, denominator $0$ → $\frac{0}{0}$.
+
+② Combine the numerator over $x-2$:
+$\frac{x}{x-2}-3 = \frac{x-3(x-2)}{x-2} = \frac{x-3x+6}{x-2} = \frac{6-2x}{x-2} = \frac{-2(x-3)}{x-2}$.
+
+③ Divide by $x-3$ and cancel:
+$\frac{\frac{-2(x-3)}{x-2}}{x-3} = \frac{-2(x-3)}{(x-2)(x-3)} = -\frac{2}{x-2}$.
+
+④ Plug in $x=3$: $-\frac{2}{3-2} = -2$.
+
+> **Answer**: $-2$
