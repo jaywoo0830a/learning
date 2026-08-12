@@ -19,11 +19,11 @@ $L = \displaystyle \int_a^b \sqrt{1 + [f'(x)]^2}\,dx$.
 For $y = x^{3/2}$ on $[0,4]$: $f'(x) = \frac{3}{2}\sqrt{x}$, $1+[f']^2 = 1+\frac{9}{4}x$.
 
 $L = \int_0^4 \sqrt{1+\frac{9}{4}x}\,dx$. Let $u=1+\frac{9}{4}x$, $du=\frac{9}{4}dx$:
-$L = \frac{4}{9}\int_1^{10} u^{1/2}\,du = \frac{8}{27}(10^{3/2}-1) \approx 8.63$.
+$L = \frac{4}{9}\int_1^{10} u^{1/2}\,du = \frac{8}{27}(10^{3/2}-1) \approx 9.07$.
 
 > **Geometric origin**: $\Delta L \approx \sqrt{(\Delta x)^2 + (\Delta y)^2}$. As $\Delta x \to 0$, this becomes $\sqrt{1+(dy/dx)^2}\,dx$ — the Pythagorean theorem at infinitesimal scale.
 
-![Arc length: Pythagorean approximation with segments](graphs/0728/17B/01-arc-length-pythagoras.png)
+![Arc length: Pythagorean approximation with segments](graphs/0808/17B/17b-arc-length-pythagoras.png)
 
 ---
 
@@ -40,7 +40,7 @@ $L = \int_0^{6\pi} \sqrt{2}\,dt = 6\pi\sqrt{2}$ for 3 full turns.
 
 > **Key**: Arc length = integral of speed. The velocity vector $\vec{r}{\,}'(t)$ encodes both direction and speed. Its magnitude is the instantaneous rate of distance accumulation.
 
-![Helix: r(t)=(cos t, sin t, t) — constant speed √2](graphs/0728/17B/02-helix-3d.png)
+![Helix: r(t)=(cos t, sin t, t) — constant speed √2](graphs/0808/17B/17b-helix-3d.png)
 
 ---
 
@@ -64,7 +64,7 @@ $L = \frac{1}{2}\left[2\pi\sqrt{1+4\pi^2} + \ln(2\pi+\sqrt{1+4\pi^2})\right] \ap
 
 > **Insight**: The spiral lengthens faster than a circle because the radius grows — each turn adds more distance than the previous one. This is unlike the helix, which has constant speed.
 
-![Cardioid r=1+cosθ: arc length L=8](graphs/0728/17B/09-polar-arc-length.png)
+![Archimedean spiral r=θ: arc length ≈ 21.26](graphs/0808/17B/17b-spiral-arc-length.png)
 
 ---
 
@@ -81,7 +81,7 @@ $L = \int_0^{2\pi} 2a\sin(t/2)\,dt = 2a \cdot 2\int_0^\pi \sin u\,du = 4a[-\cos 
 
 > One arch of the cycloid is exactly $8a$ — four times the diameter ($2a$) of the rolling circle. The wheel's rotating and translating motion combine in a remarkably clean result.
 
-![Cycloid: one arch arc length = 8a](graphs/0728/17B/03-cycloid.png)
+![Cycloid: one arch arc length = 8a](graphs/0808/17B/17b-cycloid.png)
 
 ---
 
@@ -103,7 +103,7 @@ $= 1 + t^2 + 1 = t^2 + 2$. $|\vec{r}{\,}'(t)| = \sqrt{t^2+2}$.
 
 The speed **grows** with $t$ — the spiral accelerates outward.
 
-![Conical spiral: r(t)=(t cos t, t sin t, t) — accelerating](graphs/0728/17B/10-conical-spiral.png)
+![Conical spiral: r(t)=(t cos t, t sin t, t) — accelerating](graphs/0808/17B/17b-conical-spiral.png)
 
 ---
 
@@ -119,7 +119,7 @@ Rotate $y = \sqrt{x}$ from $x=0$ to $x=4$:
 $f' = \frac{1}{2\sqrt{x}}$, $1+(f')^2 = 1 + \frac{1}{4x} = \frac{4x+1}{4x}$.
 $S = 2\pi\int_0^4 \sqrt{x}\sqrt{\frac{4x+1}{4x}}\,dx = \pi\int_0^4 \sqrt{4x+1}\,dx = \frac{\pi}{6}(17^{3/2}-1) \approx 36.18$.
 
-![Surface of revolution: y=√x rotated about x-axis](graphs/0728/17B/04-surface-revolution.png)
+![Surface of revolution: y=√x rotated about x-axis](graphs/0808/17B/17b-surface-revolution.png)
 
 ---
 
@@ -133,7 +133,7 @@ $S = 2\pi\int_{-R}^R \sqrt{R^2-x^2} \cdot \frac{R}{\sqrt{R^2-x^2}}\,dx = 2\pi R\
 
 > The integrand simplifies beautifully — the $\sqrt{R^2-x^2}$ cancels, leaving a constant. The sphere's surface area has this elegant property because the slant factor exactly compensates for the shrinking radius near the poles.
 
-![Sphere surface area: the classic derivation](graphs/0728/17B/05-sphere-surface-area.png)
+![Sphere surface area: the classic derivation](graphs/0808/17B/17b-sphere-surface-area.png)
 
 ---
 
@@ -152,7 +152,7 @@ Let $u = \cos t$, $du = -\sin t\,dt$: $S = 2\pi b\int_{-1}^1 \sqrt{a^2(1-u^2) + 
 
 With $e^2 = 1 - (b/a)^2$ (eccentricity): $S = 2\pi b^2 + \frac{2\pi ab}{e}\arcsin e$ (for a prolate spheroid).
 
-> When $a=b=R$ (sphere): $e=0$, and taking the limit gives $4\pi R^2$. ✓
+> When $a=b=R$ (sphere): $e=0$, and taking the limit gives $2\pi R^2 + 2\pi R^2 = 4\pi R^2$. ✓ (First term $2\pi b^2 = 2\pi R^2$; second term $\frac{2\pi ab}{e}\arcsin e \to 2\pi R^2$ since $\arcsin e \sim e$.)
 
 ---
 
@@ -178,7 +178,7 @@ $\displaystyle \int_0^1 \frac{1}{x^p}\,dx$: converges if $p < 1$, diverges if $p
 - $\int_0^1 \frac{1}{\sqrt{x}}\,dx = 2$ (converges, $p=1/2<1$ — finite area despite infinite height).
 - $\int_0^1 \frac{1}{x^2}\,dx = \infty$ (diverges, $p=2 \ge 1$ — singularity too strong).
 
-![p-test visualization: convergence vs divergence](graphs/0728/17B/07-p-test.png)
+![p-test visualization: convergence vs divergence](graphs/0808/17B/17b-p-test.png)
 
 > **Geometric intuition**: $\int_0^1 1/\sqrt{x}\,dx$ converges because the function is "thin enough" near 0. The area $2$ is exactly the area of a rectangle of width 1 and height 2 — the singularity compresses into a finite zone.
 
@@ -196,7 +196,7 @@ Rotate $y = 1/x$, $x \in [1, \infty)$ about $x$-axis.
 
 > This is **not** a contradiction — it reveals that volume and surface area measure fundamentally different things. Volume integrates $(1/x)^2 \sim 1/x^2$ (convergent $p=2$), while surface area integrates $(1/x) \cdot 1 \sim 1/x$ (divergent $p=1$).
 
-![Gabriel's Horn: finite volume, infinite surface area](graphs/0728/17B/06-gabriels-horn.png)
+![Gabriel's Horn: finite volume, infinite surface area](graphs/0808/17B/17b-gabriels-horn.png)
 
 ---
 
@@ -223,7 +223,51 @@ Therefore $I = \sqrt{\pi}$. ✓
 
 > **Note**: The $r\,dr\,d\theta$ substitution is the 2D analog of $u$-substitution. In both cases, changing variables requires adjusting the "width" of the integration element — $du = g'(x)dx$ in 1D becomes $r\,dr\,d\theta$ in polar coordinates.
 
-![Gaussian integral: the polar coordinate proof](graphs/0728/17B/08-gaussian-integral.png)
+![Gaussian integral: the polar coordinate proof](graphs/0808/17B/17b-gaussian-integral.png)
+
+---
+
+## Common Mistakes
+
+### Mistake 1: Integrating the function instead of the arc length element
+
+**Wrong**: "The length of $y=\sqrt{x}$ on $[0,4]$ is $\int_0^4\sqrt{x}\,dx$."
+
+**Why wrong**: That integral is the AREA under the curve, not its length. Length must account for horizontal AND vertical motion.
+
+**Right**: $L=\int_0^4\sqrt{1+(f')^2}\,dx = \int_0^4\sqrt{1+\frac{1}{4x}}\,dx$.
+
+### Mistake 2: Forgetting the slant factor in surface area
+
+**Wrong**: $S = 2\pi\int f(x)\,dx$ for rotation about the $x$-axis.
+
+**Why wrong**: The surface is slanted — a straight $dx$ slice underestimates it. The slant factor $\sqrt{1+(f')^2}$ must multiply.
+
+**Right**: $S = 2\pi\int f(x)\sqrt{1+(f')^2}\,dx$.
+
+### Mistake 3: Not simplifying under the square root first
+
+**Wrong**: Immediately brute-forcing $\sqrt{1+(f')^2}$ when it hides a perfect square.
+
+**Why wrong**: Many arc length integrals are designed so $1+(f')^2$ collapses to a perfect square (e.g. $y=\frac{x^2}{4}-\frac{\ln x}{2}$ gives $\frac{(x^2+1)^2}{4x^2}$).
+
+**Right**: Simplify the algebra under the root BEFORE integrating.
+
+### Mistake 4: Plugging in infinity without a limit
+
+**Wrong**: "$\int_1^\infty \frac{1}{x^2}\,dx = 1$ because $1/\infty=0$" — treating $\infty$ as a number.
+
+**Why wrong**: $\infty$ is not a number. Every improper integral is defined as a LIMIT.
+
+**Right**: $\int_1^\infty x^{-2}dx = \lim_{b\to\infty}\left[-\frac{1}{x}\right]_1^b = \lim_{b\to\infty}\left(1-\frac{1}{b}\right) = 1$.
+
+### Mistake 5: Swapping the two $p$-test directions
+
+**Wrong**: "$\int_1^\infty 1/x^p$ needs $p<1$" or "$\int_0^1 1/x^p$ needs $p>1$."
+
+**Why wrong**: The two endpoints behave oppositely. At infinity the tail must decay fast ($p>1$); at a singularity the spike must be weak ($p<1$).
+
+**Right**: $\int_1^\infty$: converges iff $p>1$. $\int_0^1$: converges iff $p<1$.
 
 ---
 
@@ -261,6 +305,8 @@ Find the arc length of the helix $\vec{r}(t) = (2\cos t, 2\sin t, 3t)$ for $t \i
 ## Practice 3 (🔗 12C3)
 
 Find the arc length of the cardioid $r = 1 + \cos\theta$ (the whole curve, $\theta \in [0, 2\pi]$, using symmetry). Simplify: $\sqrt{(dr/d\theta)^2 + r^2} = \sqrt{2+2\cos\theta} = 2|\cos(\theta/2)|$.
+
+![Cardioid r=1+cosθ: arc length L=8](graphs/0808/17B/17b-cardioid-arc-length.png)
 
 → Solutions: [Solutions](solutions/17B-solutions.md#practice-3)
 
@@ -390,3 +436,22 @@ Step 6: Gabriel's Horn = classic paradox: V finite, S infinite.
 | $p$-test | "p-test" | $\int_1^\infty 1/x^p$: converges iff $p>1$ |
 | Gabriel's Horn | "Gabriel's Horn" | $y=1/x$, $x\ge1$, finite $V$, infinite $S$ |
 | $\int_{-\infty}^\infty e^{-x^2}dx = \sqrt{\pi}$ | "Gaussian integral equals root pi" | fundamental probability integral |
+
+---
+
+## Terminology
+
+| What we call it | Math term | Notation / Explanation |
+|:-----------------:|:-----------------:|:----------------------:|
+| arc length | arc length | $L=\int\sqrt{1+(y')^2}\,dx=\int|\vec{r}{\,}'(t)|\,dt$ |
+| speed | speed (velocity magnitude) | $|\vec{r}{\,}'(t)|$ |
+| slant factor | arc length element | $ds=\sqrt{1+(f')^2}\,dx$ |
+| surface of revolution | surface area of revolution | $S=2\pi\int f\sqrt{1+(f')^2}\,dx$ |
+| improper integral | improper integral | $\lim_{b\to\infty}\int_a^b f$ or $\lim_{a\to c^+}\int_a^b f$ |
+| $p$-test (at infinity) | $p$-test | $\int_1^\infty 1/x^p$: converges iff $p>1$ |
+| $p$-test (at 0) | $p$-test (singularity) | $\int_0^1 1/x^p$: converges iff $p<1$ |
+| Gabriel's Horn | Gabriel's Horn / Torricelli's trumpet | $y=1/x$, $x\ge1$: $V=\pi$ finite, $S=\infty$ |
+| Gaussian integral | Gaussian integral | $\int_{-\infty}^\infty e^{-x^2}dx=\sqrt{\pi}$ |
+| prolate spheroid | prolate spheroid | ellipse rotated about its major axis |
+| spherical zone | spherical zone | $S=2\pi Rh$ (depends only on the zone's height) |
+| Dirichlet integral | Dirichlet integral | $\int_0^\infty \frac{\sin x}{x}\,dx=\frac{\pi}{2}$ |
