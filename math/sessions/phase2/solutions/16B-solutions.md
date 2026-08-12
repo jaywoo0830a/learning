@@ -284,6 +284,28 @@ $= -\frac{1}{2} \cdot \frac{u^{1/2}}{1/2} + C = -u^{1/2} + C = -\sqrt{1-x^2} + C
 
 ---
 
+### D11. $\int \frac{dx}{x^2+6x+13}$.
+
+Complete the square: $x^2+6x+13 = (x+3)^2+4$.
+
+Let $u=x+3$: $\int\frac{du}{u^2+4} = \frac{1}{2}\arctan\frac{u}{2}+C = \frac{1}{2}\arctan\frac{x+3}{2}+C$.
+
+> **Answer**: $\frac{1}{2}\arctan\frac{x+3}{2}+C$
+
+---
+
+### D12. $\int \sec x\,dx$.
+
+Multiply by $\frac{\sec x+\tan x}{\sec x+\tan x}$:
+
+$\int\sec x\,dx = \int\frac{\sec^2 x+\sec x\tan x}{\sec x+\tan x}\,dx$. With $u=\sec x+\tan x$ (the numerator is $du$):
+
+$= \ln|\sec x+\tan x| + C$.
+
+> **Answer**: $\ln|\sec x+\tan x|+C$
+
+---
+
 ## Advanced Drills
 
 ### A1. $\int e^x\cos x\,dx$

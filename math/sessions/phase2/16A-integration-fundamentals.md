@@ -50,6 +50,10 @@ $\int \frac{1}{x}\,dx = \ln|x| + C$.
 | $\sec^2 x$ | $\tan x + C$ |
 | $\frac{1}{1+x^2}$ | $\arctan x + C$ |
 | $\frac{1}{\sqrt{1-x^2}}$ | $\arcsin x + C$ |
+| $\sec x\tan x$ | $\sec x + C$ |
+| $\csc^2 x$ | $-\cot x + C$ |
+| $\csc x\cot x$ | $-\csc x + C$ |
+| $a^x$ | $\frac{a^x}{\ln a} + C$ |
 
 **Procedure for combined functions**:
 1. Split the integral at each $+$ or $-$ sign: $\int (f \pm g) = \int f \pm \int g$.
@@ -87,6 +91,8 @@ $\int_0^3 x^2\,dx$:
 
 **The constant cancels**: $\int_0^3 x^2\,dx = (\frac{27}{3}+C) - (0+C) = 9$. Use the simplest $C=0$.
 
+![FTC: area under f from a to b = F(b)−F(a)](graphs/0812/16A/16a-ftc-area.png)
+
 ---
 
 ## Example 5: When the Result Is Zero or Negative
@@ -97,7 +103,21 @@ $\int_0^{2\pi} \sin x\,dx = [-\cos x]_0^{2\pi} = (-1) - (-1) = 0$. The positive 
 
 **The definite integral = net signed area.** Parts above the $x$-axis count positive. Parts below count negative.
 
-![FTC area under sin x](graphs/16b-sin-area.png)
+![FTC area under sin x](graphs/0812/16A/16a-sin-area.png)
+
+---
+
+## Example 5A: Average Value — The Equal-Area Rectangle
+
+The **average value** of $f$ on $[a,b]$ is $\bar{f} = \frac{1}{b-a}\int_a^b f(x)\,dx$.
+
+**Why**: the region under $f$ can be reshaped into a rectangle of width $b-a$; its height is exactly $\bar f$ (equal area).
+
+$f(x)=x^2$ on $[0,3]$: $\bar f = \frac{1}{3}\int_0^3 x^2\,dx = \frac{1}{3}\cdot\frac{27}{3} = 3$.
+
+**Check**: the rectangle $3\times3$ has area $9$ — the same as $\int_0^3 x^2\,dx = 9$. ✓
+
+![Average value = height of the equal-area rectangle](graphs/0812/16A/16a-average-value.png)
 
 ---
 
@@ -239,10 +259,11 @@ After finishing a $u$-sub, run this checklist:
 
 ```
 (1) Antiderivative = reverse derivative. Power rule: ∫xⁿ = xⁿ⁺¹/(n+1) + C.
-    Special: ∫1/x = ln|x| + C. Dictionary of 8 standard forms.
+    Special: ∫1/x = ln|x| + C. Dictionary: 12 standard forms (incl. sec/csc/cot, aˣ).
 
 (2) FTC: ∫_a^b f = F(b)−F(a). Compute F (any antiderivative), plug bounds, subtract.
     FTC Part 1: d/dx ∫_a^x f(t)dt = f(x). With chain rule: f(g(x))·g'(x).
+    Average value: f̄ = (1/(b−a))∫_a^b f — the equal-area rectangle height.
 
 (3) u-Substitution: 5-step algorithm.
     Step 1: Choose u (use priority list).
@@ -318,6 +339,10 @@ A student computes $\int_{-2}^2 x^3\,dx = [\frac{x^4}{4}]_{-2}^2 = 4-4 = 0$ and 
 
 **D10.** $\int_{-1}^2 (x^2-2x)\,dx$. FTC — evaluate antiderivative at both bounds.
 
+**D11.** Find the average value of $f(x)=\sin x$ on $[0,\pi]$.
+
+**D12.** $\int \sec x\tan x\,dx$. Dictionary: $\sec x\tan x \to \sec x$.
+
 > Solutions: [Solutions](solutions/16A-solutions.md#basic-drill)
 
 ---
@@ -360,6 +385,7 @@ A student computes $\int_{-2}^2 x^3\,dx = [\frac{x^4}{4}]_{-2}^2 = 4-4 = 0$ and 
 | A function AND (roughly) its derivative multiplied | Run the 5-step $u$-sub algorithm |
 | A definite integral with $u$-sub | Change bounds to $u$-values; don't go back to $x$ |
 | $\frac{d}{dx}\int_a^x f(t)\,dt$ | FTC Part 1: answer is $f(x)$. With chain rule: $f(g(x))\cdot g'(x)$ |
+| The average value on $[a,b]$ | $\bar f = \frac{1}{b-a}\int_a^b f$ — reshape the area into a rectangle |
 
 ---
 

@@ -218,6 +218,22 @@ $\int_{-1}^2 (x^2-2x)\,dx = F(2) - F(-1) = -\frac{4}{3} - \left(-\frac{4}{3}\rig
 
 ---
 
+### D11. Average value of $f(x)=\sin x$ on $[0,\pi]$.
+
+$\bar f = \frac{1}{\pi}\int_0^\pi\sin x\,dx = \frac{1}{\pi}[-\cos x]_0^\pi = \frac{1}{\pi}(1+1) = \frac{2}{\pi}$.
+
+> **Answer**: $\frac{2}{\pi}$
+
+---
+
+### D12. $\int \sec x\tan x\,dx$.
+
+Dictionary: $\sec x\tan x \to \sec x$.
+
+> **Answer**: $\sec x + C$
+
+---
+
 ## Advanced Drills
 
 ### A1. $\int x^2\sqrt{x^3+1}\,dx$

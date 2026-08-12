@@ -22,7 +22,7 @@ Look at the integral. Ask:
 5. Is there √(a²±x²) or √(x²-a²)?                    →  Trigonometric SUBSTITUTION (16B-C)
 6. Is it a rational function P(x)/Q(x)?              →  PARTIAL FRACTIONS (16B-D)
 ```
-
+![Integration decision tree](graphs/0812/16B/16b-decision-tree.png)
 ---
 
 ## Part A: Integration by Parts — Undoing the Product Rule
@@ -115,6 +115,8 @@ $\int e^x\sin x\,dx$. Neither function simplifies when differentiated. The integ
 Simplify: $I = e^x\sin x - e^x\cos x - I$ → $2I = e^x(\sin x - \cos x)$ → $I = \frac{e^x}{2}(\sin x - \cos x) + C$.
 
 **Add $+C$ only when the integral is fully solved** — at the end.
+
+![Cycling pattern: parts twice, solve for I](graphs/0812/16B/16b-parts-cycle.png)
 
 ---
 
@@ -245,6 +247,10 @@ $\int \frac{dx}{\sqrt{x^2+1}}$. Form: $\sqrt{x^2+1}$ → $x=\tan\theta$, $a=1$.
 5. **Back-substitute**: Draw a right triangle with angle $\theta$, opposite = $x$, adjacent = $1$. Hypotenuse = $\sqrt{x^2+1}$. So $\sec\theta = \sqrt{x^2+1}$, $\tan\theta = x$.
 6. Answer: $\ln|x + \sqrt{x^2+1}| + C$.
 
+> **Where $\int\sec\theta\,d\theta$ comes from** (used in step 4): multiply by $\frac{\sec\theta+\tan\theta}{\sec\theta+\tan\theta}$:
+> $\int\sec\theta\,d\theta = \int\frac{\sec^2\theta+\sec\theta\tan\theta}{\sec\theta+\tan\theta}\,d\theta$.
+> With $u = \sec\theta+\tan\theta$ (whose derivative is exactly the numerator), this becomes $\int\frac{du}{u} = \ln|\sec\theta+\tan\theta| + C$.
+
 ---
 
 ## Example 14: The Right Triangle Method
@@ -256,6 +262,10 @@ $\int \frac{dx}{\sqrt{x^2+1}}$. Form: $\sqrt{x^2+1}$ → $x=\tan\theta$, $a=1$.
 | $x=a\sin\theta$ | Opp=$x$, Hyp=$a$ | $x/a$ | $\sqrt{a^2-x^2}/a$ | $x/\sqrt{a^2-x^2}$ | — |
 | $x=a\tan\theta$ | Opp=$x$, Adj=$a$ | $x/\sqrt{x^2+a^2}$ | $a/\sqrt{x^2+a^2}$ | $x/a$ | $\sqrt{x^2+a^2}/a$ |
 | $x=a\sec\theta$ | Hyp=$x$, Adj=$a$ | $\sqrt{x^2-a^2}/x$ | $a/x$ | $\sqrt{x^2-a^2}/a$ | $x/a$ |
+
+| $x=a\sin\theta$ | $x=a\tan\theta$ | $x=a\sec\theta$ |
+|:---:|:---:|:---:|
+| ![sin reference triangle](graphs/0812/16B/16b-trig-sub-sin.png) | ![tan reference triangle](graphs/0812/16B/16b-trig-sub-tan.png) | ![sec reference triangle](graphs/0812/16B/16b-trig-sub-sec.png) |
 
 ---
 
@@ -327,6 +337,23 @@ Clear: $1 = A(x^2+1) + (Bx+C)x = (A+B)x^2 + Cx + A$.
 Match: $A+B=0$, $C=0$, $A=1 \to B=-1$.
 
 Integrate: $\int (\frac{1}{x} - \frac{x}{x^2+1})\,dx = \ln|x| - \frac{1}{2}\ln(x^2+1) + C$.
+
+---
+
+## Example 19A: Completing the Square — Quadratic Denominators
+
+When the denominator is an irreducible quadratic WITH an $x$-term (not the clean form $x^2+a^2$), **complete the square** first:
+
+$x^2+bx+c = \left(x+\frac{b}{2}\right)^2 + \left(c-\frac{b^2}{4}\right)$.
+
+**$\int \frac{dx}{x^2+2x+5}$** (arctan form):
+$x^2+2x+5 = (x+1)^2+4$. Let $u=x+1$: $\int\frac{du}{u^2+2^2} = \frac{1}{2}\arctan\frac{u}{2}+C = \frac{1}{2}\arctan\frac{x+1}{2}+C$.
+
+**$\int \frac{dx}{\sqrt{8x-x^2}}$** (arcsin form):
+$8x-x^2 = 16-(x-4)^2$ — a perfect square minus a square. Let $u=x-4$:
+$\int\frac{du}{\sqrt{4^2-u^2}} = \arcsin\frac{u}{4}+C = \arcsin\frac{x-4}{4}+C$.
+
+> **When to reach for it**: denominator $x^2+bx+c$ with $b\neq0$ → arctan form; or a square-minus-square under a root → arcsin form.
 
 ---
 
@@ -449,6 +476,10 @@ A classmate sees $\int \frac{x}{\sqrt{1-x^2}}\,dx$ and says: "Trig sub! $\sqrt{1
 
 **D10.** $\int \frac{x}{\sqrt{1-x^2}}\,dx$. Decision: trig sub or $u$-sub? Choose the faster one.
 
+**D11.** $\int \frac{dx}{x^2+6x+13}$. Complete the square, then arctan.
+
+**D12.** $\int \sec x\,dx$. Multiply by $\frac{\sec x+\tan x}{\sec x+\tan x}$, substitute.
+
 > Solutions: [Solutions](solutions/16B-solutions.md#basic-drill)
 
 ---
@@ -494,6 +525,7 @@ A classmate sees $\int \frac{x}{\sqrt{1-x^2}}\,dx$ and says: "Trig sub! $\sqrt{1
 | $\sqrt{x^2-a^2}$ | **Trig sub**: $x = a\sec\theta$ |
 | $\frac{P(x)}{Q(x)}$, $Q$ factorable | **Partial fractions**: factor → template → solve → integrate |
 | $\frac{P(x)}{Q(x)}$, $\deg P \geq \deg Q$ | Long divide first, then partial fractions on remainder |
+| $x^2+bx+c$ with an $x$-term (or square-minus-square root) | Complete the square → arctan/arcsin form |
 
 ---
 
