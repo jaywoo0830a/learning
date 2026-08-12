@@ -288,6 +288,22 @@ The charge on Al (3+) becomes the subscript on O. The charge on O (2−) becomes
 
 > **Key rule:** Drop the "a" or "o" at the end of a prefix when the element name starts with a vowel. "monoxide" not "monooxide." "tetroxide" not "tetraoxide."
 
+**Hydrates — the one naming rule you're missing:**
+
+A **hydrate** is an ionic compound with water molecules trapped in its crystal. The dot means "with": $CuSO_4 \cdot 5H_2O$ is read "copper(II) sulfate **with** five waters."
+
+> **Name = [ionic compound name] + Greek prefix + "hydrate"** (no "water" or "aqua" in the name)
+
+| Formula | Name |
+|:-------:|:-----|
+| $CuSO_4 \cdot 5H_2O$ | copper(II) sulfate **pentahydrate** (penta- = 5) |
+| $MgSO_4 \cdot 7H_2O$ | magnesium sulfate **heptahydrate** (hepta- = 7 — Epsom salt) |
+| $Na_2CO_3 \cdot 10H_2O$ | sodium carbonate **decahydrate** (deca- = 10 — washing soda) |
+| $BaCl_2 \cdot 2H_2O$ | barium chloride **dihydrate** (di- = 2) |
+| $CaSO_4 \cdot 2H_2O$ | calcium sulfate **dihydrate** (gypsum) |
+
+> **Two-step recipe:** (1) name the ionic compound exactly as in Examples 1–4 (with a Roman numeral if the metal has multiple charges); (2) count the waters and attach the Greek prefix + "hydrate." The water molecules are NOT part of the compound's name — they're attached to it.
+
 ---
 
 ### Example 6 — Naming Acids
@@ -357,6 +373,21 @@ The charge on Al (3+) becomes the subscript on O. The charge on O (2−) becomes
 | $H_3PO_4$ | phosphoric acid | **triprotic** — three $H^+$ |
 | $H_2CO_3$ | carbonic acid | diprotic, $CO_2$ in water |
 | $HF$ | hydrofluoric acid | monoprotic, etches glass |
+
+**The oxyacid family — where "hypo-" and "per-" come from (memorize this!):**
+
+Chlorine forms a family of four oxyacids. The prefixes and suffixes tell you how many oxygen atoms each one has:
+
+| # of O | Anion | Acid | # of O vs. -ate |
+|:------:|:-----:|:----:|:---------------:|
+| 1 | $ClO^-$ (hypochlorite) | $HClO$ (hypochlorous acid) | **hypo-** = one FEWER O than -ite |
+| 2 | $ClO_2^-$ (chlorite) | $HClO_2$ (chlorous acid) | -ite → **-ous** |
+| 3 | $ClO_3^-$ (chlorate) | $HClO_3$ (chloric acid) | -ate → **-ic** |
+| 4 | $ClO_4^-$ (perchlorate) | $HClO_4$ (perchloric acid) | **per-** = one MORE O than -ate |
+
+> **The pattern:** adding an O moves you up the ladder — hypochlorite (1 O) → chlorite (2 O) → chlorate (3 O) → perchlorate (4 O). The names track the oxygen count: **hypo-** (fewest), no prefix, **per-** (most).
+>
+> This is why the strong-acid table lists **perchloric acid** — it has the most oxygens. More oxygens spread out the negative charge on the conjugate base ($ClO_4^-$), which is why $HClO_4$ is one of the strongest acids known.
 
 ---
 
@@ -675,6 +706,10 @@ Copy these. Naming and titration are among the most practical skills in chemistr
 
 **B10.** (Speed round — under 2 min) Name these five compounds: (a) $Fe(NO_3)_3$ (b) $(NH_4)_2CO_3$ (c) $P_2O_5$ (d) $H_2SO_3$ (e) $Al(OH)_3$
 
+**B11.** Name these hydrates: (a) $CuSO_4 \cdot 5H_2O$ (b) $MgSO_4 \cdot 7H_2O$ (c) $Na_2CO_3 \cdot 10H_2O$ (d) $CaCl_2 \cdot 2H_2O$
+
+**B12.** (Oxyacid family) (a) Write formulas for: hypochlorous acid, chlorous acid, chloric acid, perchloric acid. (b) Name: $HClO$, $HClO_2$, $HClO_3$, $HClO_4$. (c) Which one is a strong acid — and what structural feature makes it strong?
+
 ---
 
 ## Advanced Drills (A1–A10)
@@ -732,7 +767,7 @@ Naming and titration are two of the most practical skills in all of chemistry �
 
 ---
 
-## � Connecting the Dots — Session 08 → Future Sessions
+## 🔗 Connecting the Dots — Session 08 → Future Sessions
 
 Naming and titration are where **language meets measurement — you can now NAME what you're measuring and MEASURE what you're naming**:
 
@@ -747,7 +782,7 @@ Naming and titration are where **language meets measurement — you can now NAME
 
 ---
 
-## �📝 Key Terms — Quick Reference
+## 📝 Key Terms — Quick Reference
 
 | Term | What it means |
 |------|---------------|
@@ -771,3 +806,6 @@ Naming and titration are where **language meets measurement — you can now NAME
 | **percent purity** | (mass of pure substance / mass of sample) × 100% |
 | **indicator** | substance that changes color at the endpoint (phenolphthalein, methyl orange) |
 | **standard solution** | a solution of precisely known concentration (the titrant) |
+| **hydrate** | ionic compound with trapped water; name = compound name + prefix + "hydrate" ($CuSO_4 \cdot 5H_2O$ = pentahydrate) |
+| **hypo- / per-** | hypo- = one fewer O than -ite; per- = one more O than -ate ($HClO$ vs. $HClO_4$) |
+| **oxyacid ladder** | hypochlorous → chlorous → chloric → perchloric as oxygen count rises |

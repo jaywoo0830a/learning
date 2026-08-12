@@ -100,6 +100,44 @@ $$\boxed{1.08 \times 10^9 \text{ km/h}}\quad\text{(3 sig figs)}$$
 
 ---
 
+### B11
+
+(a) $\phantom{^\circ}\text{F} = \tfrac{9}{5}(25.0) + 32 = 45.0 + 32 = 77.0$
+
+25.0 has 1 decimal place; $\tfrac{9}{5}$ and 32 are exact → answer keeps 1 decimal place.
+
+$$\boxed{77.0\,^\circ\text{F}}$$
+
+(b) $K = 25.0 + 273.15 = 298.15 \to 298.2$ (1 decimal place from 25.0; 273.15 is an exact offset)
+
+$$\boxed{298.2\text{ K}}$$
+
+(c) $\phantom{^\circ}\text{C} = \tfrac{5}{9}(77 - 32) = \tfrac{5}{9}(45) = 25$
+
+77 has 0 decimal places → answer has 0 decimal places.
+
+$$\boxed{25\,^\circ\text{C}}$$
+
+---
+
+### B12
+
+(a) $\phantom{^\circ}\text{F} = \tfrac{9}{5}(60.0) + 32 = 108.0 + 32 = 140.0$
+
+$$\boxed{140.0\,^\circ\text{F}}$$
+
+(b) $K = 60.0 + 273.15 = 333.15 \to 333.2$ (1 decimal place)
+
+$$\boxed{333.2\text{ K}}$$
+
+(c) $150.\,^\circ\text{F} \to \phantom{^\circ}\text{C} = \tfrac{5}{9}(150 - 32) = \tfrac{5}{9}(118) = 65.6\,^\circ\text{C}$
+
+$65.6 > 60.0$ → the reaction is **too hot** by $65.6 - 60.0 = 5.6\,^\circ\text{C}$.
+
+$$\boxed{\text{Above } 60.0\,^\circ\text{C} \text{ by } 5.6\,^\circ\text{C}}$$
+
+---
+
 ## Advanced Drill Solutions (A1–A10)
 
 ### A1
@@ -293,35 +331,20 @@ $$\boxed{\text{Not enough — only } 13.6 \text{ kg instead of } 140. \text{ kg 
 
 ---
 
-### A5 (New)
+### A11
 
-(a) $3.00 \text{ cups} \times \dfrac{236.6 \text{ mL}}{1 \text{ cup}} \times \dfrac{1.03 \text{ g}}{1 \text{ mL}} \times \dfrac{1 \text{ kg}}{1000 \text{ g}}$
+(a) $K = 100.0 + 273.15 = 373.15 \to 373.2\text{ K}$ (1 decimal place)
 
-Unit cancellation: $\cancel{\text{cups}} \to \cancel{\text{mL}} \to \cancel{\text{g}} \to \text{kg}$ ✓
+$\phantom{^\circ}\text{F} = \tfrac{9}{5}(100.0) + 32 = 180.0 + 32 = 212.0\,^\circ\text{F}$
 
-(b) $3.00 \times 236.6 \times 1.03 \div 1000 = 0.731094$
-3.00 (3 sf) → answer has 3 sf.
+$$\boxed{373.2\text{ K} \quad \text{and} \quad 212.0\,^\circ\text{F}}$$
 
-$$\boxed{0.731 \text{ kg}}$$
+(b) $\phantom{^\circ}\text{C} = 298 - 273.15 = 24.85 \to 25\,^\circ\text{C}$ (0 decimal places, from 298)
 
-(c) If 3.0 cups (2 sf): $0.731094 \to 0.73$ kg (2 sf).
+$$\boxed{25\,^\circ\text{C}}$$
 
-$$\boxed{0.73 \text{ kg}}$$
+(c) **The mistake:** A temperature CHANGE in °C equals the same change in kelvin — the 273.15 offset cancels out. Adding 273.15 to a change (ΔT) is wrong; you only add it when converting an absolute temperature.
 
----
+(d) $\Delta T = 35.0 - 20.0 = 15.0\,^\circ\text{C} = 15.0\text{ K}$
 
-### A6 (New)
-
-(a) $V = (2.00)^3 = 8.00 \text{ m}^3$
-
-(b) $8.00 \text{ m}^3 \times \left(\dfrac{100 \text{ cm}}{1 \text{ m}}\right)^3 = 8.00 \times 10^6 \text{ cm}^3$
-
-(c) **The mistake:** The student used the linear conversion factor (100) instead of cubing it. Since $1 \text{ m}^3 = (100 \text{ cm})^3 = 1,000,000 \text{ cm}^3$, the correct conversion factor is $10^6$, not $100$.
-
-Correct answer: $8.00 \times 10^6 \text{ cm}^3$
-Wrong answer: $800 \text{ cm}^3$
-Ratio: $8.00 \times 10^6 / 800 = 10,000$ — the correct answer is 10,000 times larger.
-
-The rule: when the unit has an exponent (m³), the conversion factor gets the SAME exponent: $(100)^3 = 1,000,000$, not $100$.
-
-$$\boxed{\text{Correct: } 8.00 \times 10^6 \text{ cm}^3 \quad \text{Wrong: } 800 \text{ cm}^3 \quad \text{(10,000× difference)}}$$
+$$\boxed{15.0\text{ K}}$$

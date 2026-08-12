@@ -194,6 +194,57 @@ Stuck on where to start? Good. By the end of this session, you'll chain conversi
 
 ---
 
+### Example 9 — Temperature Conversions: °C ↔ °F ↔ K
+
+**Problem:** Convert (a) 25.0°C to °F, (b) 25.0°C to K, (c) 98.6°F to °C.
+
+**The three formulas (memorize these — they are NOT chains):**
+
+> $\boxed{\phantom{^\circ}\text{F} = \tfrac{9}{5}\phantom{^\circ}\text{C} + 32} \qquad \boxed{K = \phantom{^\circ}\text{C} + 273.15} \qquad \boxed{\phantom{^\circ}\text{C} = \tfrac{5}{9}(\phantom{^\circ}\text{F} - 32)}$
+
+**(a) °C → °F:**
+
+> $\phantom{^\circ}\text{F} = \tfrac{9}{5}(25.0) + 32 = 45.0 + 32 = \mathbf{77.0\,^\circ\text{F}}$
+>
+> **Sig figs:** $\tfrac{9}{5}$ and $32$ are **exact** (defined). $25.0$ has 1 decimal place → answer has 1 decimal place. **77.0°F**, not 77°F.
+
+**(b) °C → K:**
+
+> $K = 25.0 + 273.15 = 298.15 \to \mathbf{298.2\text{ K}}$
+>
+> $273.15$ is an exact offset, so the decimal-place rule applies: $25.0$ (1 dp) → **298.2 K**.
+
+**(c) °F → °C:**
+
+> $\phantom{^\circ}\text{C} = \tfrac{5}{9}(98.6 - 32) = \tfrac{5}{9}(66.6) = \mathbf{37.0\,^\circ\text{C}}$
+>
+> The subtraction $98.6 - 32 = 66.6$ follows the +/− rule (1 dp). $\tfrac{5}{9}$ is exact. → **37.0°C**.
+
+**Answer:** $\boxed{\text{(a) } 77.0\,^\circ\text{F} \qquad \text{(b) } 298.2\text{ K} \qquad \text{(c) } 37.0\,^\circ\text{C}}$
+
+> **Why no chain?** Temperature conversions are the ONE case in this session where you use formulas, not conversion fractions — because °F and K are offset scales, not proportional ones. (The $+32$ and $+273.15$ are the offsets.) The sig fig rule is the **+/− decimal-place rule**, because of those additive terms.
+
+---
+
+### Memorize This — Metric Prefixes & the King Henry Mnemonic
+
+| Prefix | Symbol | Factor | Prefix | Symbol | Factor |
+|:------:|:------:|:------:|:------:|:------:|:------:|
+| giga | G | $10^{9}$ | deci | d | $10^{-1}$ |
+| mega | M | $10^{6}$ | centi | c | $10^{-2}$ |
+| kilo | k | $10^{3}$ | milli | m | $10^{-3}$ |
+| hecto | h | $10^{2}$ | micro | $\mu$ | $10^{-6}$ |
+| deka | da | $10^{1}$ | nano | n | $10^{-9}$ |
+| **(base)** | — | $10^{0}$ | pico | p | $10^{-12}$ |
+
+> **"King Henry Died By Drinking Chocolate Milk"** → **K**ilo, **H**ecto, **D**eka, **B**ase (gram/liter/meter), **D**eci, **C**enti, **M**illi.
+>
+> Moving down the table, each step is ×10; moving up is ÷10. So $1\text{ km} = 10^3\text{ m}$, $1\text{ cm} = 10^{-2}\text{ m}$, and $1\text{ kg} = 10^3\text{ g} = 10^6\text{ mg}$.
+
+**Pressure units (memorize for gas problems):** $1\text{ atm} = 760\text{ mmHg} = 760\text{ torr} = 101.325\text{ kPa} \approx 14.7\text{ psi}$. These are regular conversion factors — they DO use the chain method.
+
+---
+
 ## ⚠️ THE TRAP — Forgetting to Square/Cube the Conversion Factor
 
 **The wrong way:**
@@ -236,6 +287,8 @@ Stuck on where to start? Good. By the end of this session, you'll chain conversi
 
 Copy this. This is the procedure behind every unit conversion you will ever do in chemistry.
 
+> **Exception — temperature.** °C ↔ °F ↔ K conversions use the three formulas above, NOT the chain. And because of the $+32$ / $+273.15$ terms, they follow the **+/− decimal-place** sig fig rule, not the ×/÷ sig fig rule. Everything else in chemistry follows the chain.
+
 ---
 
 ## 💡 Pro Tips — Calculator Shortcuts & Mental Checks
@@ -249,6 +302,8 @@ Copy this. This is the procedure behind every unit conversion you will ever do i
 **Tip 4 — km/h → m/s shortcut.** Divide by 3.6. $90.0 \div 3.6 = 25.0$ m/s. Reverse: m/s → km/h, multiply by 3.6. This saves 10 seconds on every speed conversion.
 
 **Tip 5 — Squared/cubed sanity check.** If you're converting cm² to m² and get a number bigger than what you started with, you forgot to square. 1 m² = 10,000 cm² — converting TO m² should give a MUCH smaller number. $15,000 \text{ cm}^2 = 1.5 \text{ m}^2$, not $150 \text{ m}^2$.
+
+**Tip 6 — Temperature shortcut pairs to memorize.** $0°\text{C} = 32°\text{F} = 273\text{ K}$ (freezing), $100°\text{C} = 212°\text{F} = 373\text{ K}$ (boiling), $25°\text{C} = 77°\text{F} = 298\text{ K}$ (room temperature). If your conversion lands near one of these, you're on track. Also: **a temperature CHANGE of 1°C = a change of 1 K** (the 273.15 cancels) — never add 273.15 to a ΔT.
 
 ---
 
@@ -275,6 +330,10 @@ Copy this. This is the procedure behind every unit conversion you will ever do i
 **B9.** (Two-part) Part 1: Convert 100.0 yards to meters (1 yd = 0.9144 m). Part 2: Convert that same distance to centimeters.
 
 **B10.** (Speed round — under 2 min) Convert $3.00 \times 10^8$ m/s (speed of light) to km/h. Use scientific notation.
+
+**B11.** Convert: (a) 25.0°C to °F (b) 25.0°C to K (c) 77°F to °C.
+
+**B12.** (Two-part) A lab protocol says "heat to 60.0°C." Your thermometer reads in °F. (a) Convert 60.0°C to °F. (b) Convert 60.0°C to K. (c) If your thermometer shows 150.°F, is that above or below 60.0°C — and by how many °C?
 
 ---
 
@@ -310,6 +369,8 @@ Calculate the total mass in kg. ($1 \text{ kg} = 1000 \text{ g}$)
 
 **A10.** (Exam boss) A NASA contractor mixes up units. They calculate a satellite's mass as 150. kg and report it to a partner who assumes the number is in pounds (lb). The partner uses 150. lb in calculations. (1 kg = 2.205 lb). (a) What mass in kg did the partner actually use? (b) If the satellite needs at least 140. kg of fuel and the partner loads fuel based on their incorrect mass at a ratio of 0.200 kg fuel per 1 kg satellite mass, how much fuel (in kg) do they actually load? (c) Is it enough? Show all work in a clear chain.
 
+**A11.** (Temperature traps — with Session 01) (a) Convert 100.0°C to K and to °F. (b) A gas law experiment runs at 298 K — convert to °C. (c) A student heats a sample from 20.0°C to 35.0°C and reports the temperature change as "ΔT = 15.0°C = 15.0 + 273 = 288 K." What is wrong? (d) What is the correct ΔT in kelvin?
+
 ---
 
 ## Now Read
@@ -328,7 +389,7 @@ The concepts — why unit cancellation works, how density bridges mass and volum
 
 ---
 
-## � Connecting the Dots — Session 02 → Future Sessions
+## 🔗 Connecting the Dots — Session 02 → Future Sessions
 
 Dimensional analysis is the **engine behind every stoichiometry calculation**:
 
@@ -343,7 +404,7 @@ Dimensional analysis is the **engine behind every stoichiometry calculation**:
 
 ---
 
-## �📝 Key Terms — Quick Reference
+## 📝 Key Terms — Quick Reference
 
 | Term | What it means |
 |------|---------------|
@@ -357,3 +418,8 @@ Dimensional analysis is the **engine behind every stoichiometry calculation**:
 | **want/have rule** | unit you WANT on top, unit you HAVE on bottom |
 | **exact numbers** | conversions like 1 min = 60 s have infinite sig figs — they never limit precision |
 | **density flip** | $m = \rho V$ or $V = m/\rho$ — the fraction flips based on what you're solving for |
+| **°C ↔ °F** | $\phantom{^\circ}\text{F} = \tfrac{9}{5}\phantom{^\circ}\text{C} + 32$ — formulas, not a chain; +/− decimal-place sig fig rule |
+| **°C ↔ K** | $K = \phantom{^\circ}\text{C} + 273.15$ — 273.15 is an exact offset |
+| **ΔT = ΔT(K)** | a 1°C change = a 1 K change — never add 273.15 to a temperature CHANGE |
+| **King Henry** | mnemonic for kilo–hecto–deka–base–deci–centi–milli |
+| **pressure units** | $1\text{ atm} = 760\text{ mmHg} = 760\text{ torr} = 101.325\text{ kPa} \approx 14.7\text{ psi}$ |

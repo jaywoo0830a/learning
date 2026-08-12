@@ -404,7 +404,7 @@ You've solved 20 problems, from simple molarity to finding the percent purity of
 
 ---
 
-## � Connecting the Dots — Session 07 → Future Sessions
+## 🔗 Connecting the Dots — Session 07 → Future Sessions
 
 Solution stoichiometry is where **chemistry becomes practical — most lab reactions happen in solution**:
 
@@ -418,7 +418,7 @@ Solution stoichiometry is where **chemistry becomes practical — most lab react
 
 ---
 
-## �📝 Key Terms — Quick Reference
+## 📝 Key Terms — Quick Reference
 
 | Term | What it means |
 |------|---------------|

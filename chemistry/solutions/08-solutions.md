@@ -128,6 +128,39 @@ $$\boxed{\text{(a) Iron(III) nitrate} \quad \text{(b) Ammonium carbonate} \quad 
 
 ---
 
+### B11
+
+Name = [ionic compound name] + Greek prefix + "hydrate":
+
+(a) $CuSO_4 \cdot 5H_2O$ — copper(II) sulfate **pentahydrate** (5 waters)
+(b) $MgSO_4 \cdot 7H_2O$ — magnesium sulfate **heptahydrate** (7 waters; Epsom salt)
+(c) $Na_2CO_3 \cdot 10H_2O$ — sodium carbonate **decahydrate** (10 waters; washing soda)
+(d) $CaCl_2 \cdot 2H_2O$ — calcium chloride **dihydrate** (2 waters)
+
+$$\boxed{\text{(a) Copper(II) sulfate pentahydrate} \quad \text{(b) Magnesium sulfate heptahydrate} \quad \text{(c) Sodium carbonate decahydrate} \quad \text{(d) Calcium chloride dihydrate}}$$
+
+---
+
+### B12
+
+(a) Formulas from names — hypochlorous acid has the FEWEST oxygens, perchloric the MOST:
+
+| Name | Formula |
+|:-----|:-------:|
+| hypochlorous acid | $HClO$ |
+| chlorous acid | $HClO_2$ |
+| chloric acid | $HClO_3$ |
+| perchloric acid | $HClO_4$ |
+
+(b) Names from formulas:
+$HClO$ = hypochlorous, $HClO_2$ = chlorous, $HClO_3$ = chloric, $HClO_4$ = perchloric
+
+(c) **$HClO_4$ (perchloric acid)** is the strong acid. Its conjugate base $ClO_4^-$ has four oxygens that spread out (delocalize) the negative charge, making the base very stable — so the acid readily gives up its $H^+$.
+
+$$\boxed{\text{(a) } HClO, HClO_2, HClO_3, HClO_4 \quad \text{(c) } HClO_4 \text{ — most oxygens stabilize the conjugate base}}$$
+
+---
+
 ## Advanced Drill Solutions (A1–A10)
 
 ### A1

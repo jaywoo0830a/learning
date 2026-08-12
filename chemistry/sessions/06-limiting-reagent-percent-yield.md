@@ -439,7 +439,7 @@ You've solved 20 problems, from simple LR identification to reverse-engineering 
 
 ---
 
-## � Connecting the Dots — Session 06 → Future Sessions
+## 🔗 Connecting the Dots — Session 06 → Future Sessions
 
 Limiting reagent and percent yield are where **theory meets reality in the lab**:
 
@@ -453,7 +453,7 @@ Limiting reagent and percent yield are where **theory meets reality in the lab**
 
 ---
 
-## �📝 Key Terms — Quick Reference
+## 📝 Key Terms — Quick Reference
 
 | Term | What it means |
 |------|---------------|

@@ -369,6 +369,8 @@ Copy this. The mole is the central hub — every road from grams to particles pa
 
 **Tip 5 — Calculator hygiene.** Keep all 10 digits on your calculator screen until the very last step. Rounding intermediate values (e.g., rounding mol from 2.7758 to 2.78 before multiplying by $N_A$) can shift your final answer by $10^{21}$ particles. Only round the final answer.
 
+**Tip 6 — 1 amu = 1 g/mol.** The number on the periodic table is BOTH the mass of one atom in atomic mass units AND the mass of one mole in grams. Carbon-12: 1 atom = 12 amu, 1 mol = 12 g. Same number, two different scales. This is not a coincidence — the mole was defined so that grams and amu line up perfectly. So when you read "55.85" for iron, you instantly know: 1 atom = 55.85 amu, 1 mol = 55.85 g.
+
 ---
 
 ## Basic Drills (B1–B10)
@@ -449,7 +451,7 @@ You've solved 20 problems, from "how many moles in 25.0 g of NaCl" to "how many 
 
 ---
 
-## � Connecting the Dots — Session 04 → Future Sessions
+## 🔗 Connecting the Dots — Session 04 → Future Sessions
 
 The mole is the **central hub of all stoichiometry** — every road passes through it:
 
@@ -464,7 +466,7 @@ The mole is the **central hub of all stoichiometry** — every road passes throu
 
 ---
 
-## �📝 Key Terms — Quick Reference
+## 📝 Key Terms — Quick Reference
 
 | Term | What it means |
 |------|---------------|

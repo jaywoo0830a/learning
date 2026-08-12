@@ -403,6 +403,40 @@ Session 06 will teach you what to do when NEITHER is in excess — and you must 
 
 ---
 
+### Example 9 — The Five Reaction-Type Patterns (How to Recognize & Balance Them)
+
+Balancing is easier when you know what kind of reaction you're looking at. **The type tells you the skeleton — you only fill in the coefficients.**
+
+| Type | Pattern | Example (balanced) | How to recognize it |
+|------|---------|--------------------|--------------------|
+| **Synthesis** | A + B → AB | $2Na + Cl_2 \to 2NaCl$ | Two (or more) reactants, ONE product |
+| **Decomposition** | AB → A + B | $2H_2O_2 \to 2H_2O + O_2$ | ONE reactant, two (or more) products |
+| **Single displacement** | A + BC → AC + B | $Zn + 2HCl \to ZnCl_2 + H_2$ | One element + one compound → new element + new compound |
+| **Double displacement** | AB + CD → AD + CB | $AgNO_3 + NaCl \to AgCl + NaNO_3$ | Two compounds swap partners; often makes a precipitate or water |
+| **Combustion** | $C_xH_y + O_2 \to CO_2 + H_2O$ | $C_3H_8 + 5O_2 \to 3CO_2 + 4H_2O$ | Hydrocarbon/compound + $O_2$ → $CO_2$ + $H_2O$ |
+
+**Worked mini-examples of the two types you haven't balanced yet:**
+
+**Decomposition — potassium chlorate:** $KClO_3 \to KCl + O_2$
+
+> Count: K (1 = 1) ✓, Cl (1 = 1) ✓, O: 3 on left, 2 on right ✗.
+>
+> LCM of 3 and 2 = 6 → $\mathbf{2}KClO_3 \to 2KCl + \mathbf{3}O_2$. Now O: 6 = 6 ✓. K and Cl still balance. ✓
+>
+> $\boxed{2KClO_3 \to 2KCl + 3O_2}$ — this is the decomposition used in labs to make oxygen.
+
+**Single displacement — zinc + hydrochloric acid:** $Zn + HCl \to ZnCl_2 + H_2$
+
+> Zn replaces H in HCl: Zn → $ZnCl_2$, H → $H_2$.
+>
+> Count: Cl: 1 on left, 2 on right → put 2 in front of HCl: $Zn + \mathbf{2}HCl \to ZnCl_2 + H_2$. Now H: 2 = 2 ✓. All balanced. ✓
+>
+> $\boxed{Zn + 2HCl \to ZnCl_2 + H_2}$ — single displacement produces hydrogen gas.
+
+> **Why this matters:** on an exam, the reaction type tells you what to expect. A synthesis must end with one product; a decomposition must start with one reactant. If your balanced equation doesn't match the pattern, you made a mistake.
+
+---
+
 ## What We Just Did — The Mass–Mass Stoichiometry Procedure
 
 ### Step 1: Convert grams of the given substance to moles.
@@ -528,7 +562,7 @@ You've solved 20 problems — from balancing $H_2 + O_2$ to reverse-engineering 
 
 ---
 
-## � Connecting the Dots — Session 05 → Future Sessions
+## 🔗 Connecting the Dots — Session 05 → Future Sessions
 
 Balancing equations and mass-mass stoichiometry are the **core engine of quantitative chemistry**:
 
@@ -542,7 +576,7 @@ Balancing equations and mass-mass stoichiometry are the **core engine of quantit
 
 ---
 
-## �📝 Key Terms — Quick Reference
+## 📝 Key Terms — Quick Reference
 
 | Term | What it means |
 |------|---------------|
@@ -556,3 +590,7 @@ Balancing equations and mass-mass stoichiometry are the **core engine of quantit
 | **excess** | "more than enough" — calculate from the other reagent |
 | **g → mol → mol → g** | the unbreakable chain — never skip the mole step |
 | **mass ratio ≠ mole ratio** | $2H_2 + O_2$: mole ratio 2:1, mass ratio ~1:8 — don't confuse them |
+| **synthesis** | A + B → AB — two reactants, one product |
+| **decomposition** | AB → A + B — one reactant, two products ($2KClO_3 \to 2KCl + 3O_2$) |
+| **single displacement** | A + BC → AC + B — element replaces element ($Zn + 2HCl \to ZnCl_2 + H_2$) |
+| **double displacement** | AB + CD → AD + CB — partners swap; often makes a precipitate or water |

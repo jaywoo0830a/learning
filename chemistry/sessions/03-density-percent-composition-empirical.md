@@ -242,6 +242,65 @@ This is the simplest whole-number ratio. The molecular formula could be $CH_2O$,
 
 ---
 
+### Example 9 — Mass of an Element in a Sample
+
+**Problem:** Ammonium nitrate ($NH_4NO_3$) is a common nitrogen fertilizer. How many grams of nitrogen — and of oxygen — are in a 50.0 g bag of pure $NH_4NO_3$?
+
+**Step 1:** Find the molar mass of the compound.
+
+> $$
+> \begin{aligned}
+> \text{N: } &2 \times 14.01 = 28.02 \text{ g/mol} \\
+> \text{H: } &4 \times 1.008 = 4.032 \text{ g/mol} \\
+> \text{O: } &3 \times 16.00 = 48.00 \text{ g/mol} \\ \hline
+> \text{Total: } &28.02 + 4.032 + 48.00 = 80.052 \text{ g/mol}
+> \end{aligned}
+> $$
+
+**Step 2:** Find the mass fraction of each element (this is the percent composition from Example 3, written as a decimal).
+
+> $\text{fraction N} = \dfrac{28.02}{80.052} = 0.3500 \qquad \text{fraction O} = \dfrac{48.00}{80.052} = 0.5996$
+
+**Step 3:** Multiply the sample mass by the fraction.
+
+> $\text{g N} = 50.0 \times 0.3500 = 17.5 \text{ g}$
+>
+> $\text{g O} = 50.0 \times 0.5996 = 30.0 \text{ g}$
+
+**Check:** $17.5 + 30.0 + (0.05037 \times 50.0 = 2.52 \text{ g H}) = 50.0 \text{ g}$ ✓
+
+**Answer:** $\boxed{17.5 \text{ g N}, \; 30.0 \text{ g O}}$ in a 50.0 g bag.
+
+> **The shortcut formula:** $\text{mass of element} = \text{sample mass} \times \dfrac{\text{element's mass in 1 mol}}{\text{molar mass}}$. This is how chemists figure out how much nitrogen is in a fertilizer, how much iron is in a supplement tablet, or how much calcium is in a serving of milk.
+
+---
+
+### Example 10 — Combustion Analysis (Empirical Formula from CO₂ & H₂O)
+
+**Problem:** A 1.500 g sample of a compound containing only C, H, and O burns in excess $O_2$, producing 2.198 g of $CO_2$ and 0.900 g of $H_2O$. Find the empirical formula.
+
+**Step 1:** Find the mass of C and H in the sample. All the carbon ends up in $CO_2$; all the hydrogen ends up in $H_2O$.
+
+> $\text{g C} = 2.198 \times \dfrac{12.01}{44.01} = 2.198 \times 0.2729 = 0.5999 \text{ g}$
+>
+> $\text{g H} = 0.900 \times \dfrac{2.016}{18.016} = 0.900 \times 0.1119 = 0.1007 \text{ g}$
+
+**Step 2:** Find the mass of O **by difference** (the sample had only C, H, O).
+
+> $\text{g O} = 1.500 - 0.5999 - 0.1007 = 0.7994 \text{ g}$
+
+**Step 3:** Convert all three masses to moles, divide by the smallest.
+
+> $\text{mol C} = 0.5999 / 12.01 = 0.04995 \qquad \text{mol H} = 0.1007 / 1.008 = 0.09990 \qquad \text{mol O} = 0.7994 / 16.00 = 0.04996$
+>
+> Divide by 0.04995: C : H : O = 1.00 : 2.00 : 1.00
+
+**Answer:** $\boxed{CH_2O}$ (empirical formula).
+
+> **Why this works:** combustion is a complete reaction — every C atom in the sample becomes one C atom in $CO_2$, every H atom becomes half an $H_2O$. Oxygen in the products comes partly from the sample and partly from the $O_2$ gas, so you can't measure it directly — you get it **by difference**.
+
+---
+
 ## ⚠️ THE TRAP — Forgetting to Divide by the Smallest
 
 **The wrong way:**
@@ -335,6 +394,10 @@ Copy this. This 3-step procedure works for every empirical formula problem you w
 
 **B10.** (Speed round — under 2 min) A ring has mass 12.5 g and raises the water level from 20.0 mL to 21.3 mL. (a) Calculate density. (b) Is it pure silver (10.5 g/cm³) or pure gold (19.3 g/cm³)?
 
+**B11.** How many grams of oxygen are in a 25.0 g sample of $CO_2$ (carbon dioxide)?
+
+**B12.** (Two-part) A 1.000 g sample of a compound containing only C, H, and O burns in excess $O_2$, producing 1.374 g of $CO_2$ and 1.125 g of $H_2O$. (a) Find the mass of C and H in the sample. (b) Find the mass of O by difference and determine the empirical formula.
+
 ---
 
 ## Advanced Drills (A1–A10)
@@ -374,7 +437,7 @@ Known densities: magnesium (1.74), aluminum (2.70), zinc (7.13), copper (8.96), 
 
 **A8.** (Timed — under 3 min) A compound contains only carbon, hydrogen, and oxygen. Combustion of 1.000 g of the compound produces 1.466 g of $CO_2$ and 0.600 g of $H_2O$. (a) Find the mass of C in the original sample (all C ends up in $CO_2$). (b) Find the mass of H (all H ends up in $H_2O$). (c) Find the mass of O by difference. (d) Determine the empirical formula.
 
-**A9.** (Hardest variation) A hydrated salt has the formula $MgSO_4 \cdot xH_2O$. When 5.00 g of the hydrate is heated, 2.44 g of water is driven off. (a) Find the mass of anhydrous $MgSO_4$ remaining. (b) Convert both masses to moles. (c) Find the ratio $x = \text{mol }H_2O / \text{mol }MgSO_4$. (d) Write the full formula of the hydrate.
+**A9.** (Hardest variation) A hydrated salt has the formula $MgSO_4 \cdot xH_2O$. When 5.00 g of the hydrate is heated, 2.56 g of water is driven off. (a) Find the mass of anhydrous $MgSO_4$ remaining. (b) Convert both masses to moles. (c) Find the ratio $x = \text{mol }H_2O / \text{mol }MgSO_4$. (d) Write the full formula of the hydrate.
 
 **A10.** (Exam boss) A 2.500 g sample of a compound containing only C, H, and O is burned in excess oxygen, producing 5.713 g $CO_2$ and 2.339 g $H_2O$. Separately, the molar mass is found to be 116.2 g/mol. (a) Determine the empirical formula. (b) Determine the molecular formula. (c) Calculate the mass percent of each element from the molecular formula and verify it matches the combustion data. Use correct sig figs throughout.
 
@@ -396,7 +459,7 @@ The concepts — what density means physically, how percent composition connects
 
 ---
 
-## � Connecting the Dots — Session 03 → Future Sessions
+## 🔗 Connecting the Dots — Session 03 → Future Sessions
 
 Density, percent composition, and empirical formulas are **the bridge from pure numbers to chemical identity**:
 
@@ -409,7 +472,7 @@ Density, percent composition, and empirical formulas are **the bridge from pure 
 
 ---
 
-## �📝 Key Terms — Quick Reference
+## 📝 Key Terms — Quick Reference
 
 | Term | What it means |
 |------|---------------|
@@ -423,3 +486,6 @@ Density, percent composition, and empirical formulas are **the bridge from pure 
 | **anhydrous** | the salt after water is driven off by heating |
 | **divide by smallest** | the critical step in empirical formulas — raw mole values are NOT subscripts |
 | **.5 → ×2, .33/.67 → ×3** | when the ratio isn't integer, multiply ALL numbers by 2 or 3 |
+| **mass of element in a sample** | $\text{sample mass} \times \dfrac{\text{element mass in 1 mol}}{\text{molar mass}}$ |
+| **combustion analysis** | burn the sample → measure $CO_2$ & $H_2O$ → C and H from products, O by difference |
+| **by difference** | $\text{g O} = \text{sample mass} - \text{g C} - \text{g H}$ — oxygen can't be measured directly in combustion |

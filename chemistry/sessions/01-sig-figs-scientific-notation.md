@@ -33,6 +33,14 @@ How many significant figures are in each measurement?
 | 2500. mL | **4** | The decimal point says: "All four digits were measured." |
 | $6.022 \times 10^{23}$ | **4** | Only the coefficient (6.022) determines sig figs. The exponent is exact. |
 
+> **Exact numbers have INFINITE sig figs.** Some numbers are not measured — they are exact:
+>
+> - **Counted objects:** 3 apples, 12 eggs, 5 trials. Counting is exact — "12 eggs" is not 12.0, it's exactly 12.
+> - **Defined conversions:** 1 min = 60 s, 1 L = 1000 mL, 1 kg = 1000 g, 100 cm = 1 m. These are definitions, not measurements.
+> - **Constants & formulas:** $\pi$, the $\frac{4}{3}$ and the exponent in $\frac{4}{3}\pi r^3$.
+>
+> Exact numbers **never limit** the sig figs of your answer. Only **measured** numbers (with uncertainty) do. In $12.3 \text{ cm} \times 3 \text{ (counted)} $, the answer keeps 3 sig figs from 12.3 — the 3 is exact.
+
 ---
 
 ### Example 2 — Multiplying and Dividing: Count Sig Figs
@@ -225,6 +233,8 @@ Copy this. You will use it for every problem in the drills.
 
 **Tip 5 — EE key doubles your exam speed.** On a timed test, typing `6.022 EE 23` instead of `6.022 × 10 ^ 23` saves 3–5 seconds per calculation. Over 20 problems, that's a full minute saved. Use the EE key every time.
 
+**Tip 6 — What about a trailing 5?** If the digit you're dropping is **exactly 5** (with nothing significant after it), the standard classroom rule is to **round up**: 2.35 → 2.4 (2 sig figs), 12.5 → 13 (2 sig figs). If it's 4 or less, round down; 6 or more, round up. Exams rarely hinge on this edge case — but rounding 2.35 down to 2.3 when everyone else rounds to 2.4 will cost you the point.
+
 ---
 
 ## Basic Drills (B1–B10)
@@ -303,7 +313,7 @@ The concepts — why measurements have uncertainty, how sig figs communicate tha
 
 ---
 
-## � Connecting the Dots — Session 01 → Future Sessions
+## 🔗 Connecting the Dots — Session 01 → Future Sessions
 
 Sig figs and scientific notation are the **grammar of every calculation** in chemistry. Every session from here on uses these rules:
 
@@ -316,7 +326,7 @@ Sig figs and scientific notation are the **grammar of every calculation** in che
 
 ---
 
-## �📝 Key Terms — Quick Reference
+## 📝 Key Terms — Quick Reference
 
 | Term | What it means |
 |------|---------------|

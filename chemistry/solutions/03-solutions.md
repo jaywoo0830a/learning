@@ -134,6 +134,41 @@ $$\boxed{9.6 \text{ g/cm}^3 \text{ — neither silver nor gold}}$$
 
 ---
 
+### B11
+
+Molar mass $CO_2 = 12.01 + 2(16.00) = 44.01$ g/mol.
+
+Oxygen fraction = $32.00 / 44.01 = 0.7271$.
+
+$\text{g O} = 25.0 \times 0.7271 = 18.18$ g
+
+(Or via moles: $25.0/44.01 = 0.5681$ mol $\times 2$ mol O/mol $\times 16.00 = 18.18$ g.)
+
+$$\boxed{18.2 \text{ g O}}\quad\text{(3 sig figs)}$$
+
+---
+
+### B12
+
+(a) All C → $CO_2$, all H → $H_2O$:
+
+$\text{g C} = 1.374 \times \dfrac{12.01}{44.01} = 1.374 \times 0.2729 = 0.3750$ g
+
+$\text{g H} = 1.125 \times \dfrac{2.016}{18.016} = 1.125 \times 0.1119 = 0.1259$ g
+
+(b) O by difference: $\text{g O} = 1.000 - 0.3750 - 0.1259 = 0.4991$ g
+
+Moles:
+$\text{mol C} = 0.3750/12.01 = 0.03122$
+$\text{mol H} = 0.1259/1.008 = 0.1249$
+$\text{mol O} = 0.4991/16.00 = 0.03119$
+
+Divide by smallest (0.03119): C : H : O = 1.00 : 4.00 : 1.00
+
+$$\boxed{CH_4O \text{ (methanol)}}$$
+
+---
+
 ## Advanced Drill Solutions (A1–A10)
 
 ### A1
@@ -283,51 +318,19 @@ $$\boxed{CH_2O \text{ (empirical)}}$$
 
 ### A9
 
-(a) Mass of anhydrous $MgSO_4 = 5.00 - 2.44 = 2.56$ g
+(a) Mass of anhydrous $MgSO_4 = 5.00 - 2.56 = 2.44$ g
 
 (b) Molar mass $MgSO_4 = 24.31 + 32.07 + 4(16.00) = 120.38$ g/mol.
-mol $MgSO_4 = 2.56 / 120.38 = 0.02127$ mol
+mol $MgSO_4 = 2.44 / 120.38 = 0.020269$ mol
 
 Molar mass $H_2O = 18.016$ g/mol.
-mol $H_2O = 2.44 / 18.016 = 0.1354$ mol
+mol $H_2O = 2.56 / 18.016 = 0.142096$ mol
 
-(c) Ratio $x = 0.1354 / 0.02127 = 6.37$
+(c) Ratio $x = \text{mol }H_2O / \text{mol }MgSO_4 = 0.142096 / 0.020269 = 7.01 \approx 7.00$
 
-Hmm, that's not a clean integer. Let me recalculate...
+(d) $x = 7$ → full formula: $MgSO_4 \cdot 7H_2O$ — **Epsom salt**.
 
-$5.00 - 2.44 = 2.56$ g $MgSO_4$ remaining.
-mol $MgSO_4 = 2.56 / 120.38 = 0.02127$ mol
-mol $H_2O = 2.44 / 18.016 = 0.1354$ mol
-$x = 0.1354 / 0.02127 = 6.37$
-
-This should be close to 7. $MgSO_4 \cdot 7H_2O$ is epsom salt.
-
-Let me recalculate with more precision:
-mol $MgSO_4 = 2.56 / 120.38 = 0.021266$
-mol $H_2O = 2.44 / 18.016 = 0.135435$
-$x = 0.135435 / 0.021266 = 6.37$
-
-Hmm, that's 6.37, not 7. Let me check the given numbers... The problem says 5.00 g hydrate, 2.44 g water driven off. 
-
-For $MgSO_4 \cdot 7H_2O$, molar mass = 120.38 + 7(18.016) = 246.49 g/mol.
-Water fraction = 7(18.016)/246.49 = 126.11/246.49 = 0.5116.
-Expected water mass from 5.00 g = 5.00 × 0.5116 = 2.558 g.
-But the problem says 2.44 g. That's a bit off. The experimental data gives x ≈ 6.37 which rounds to 6.
-
-Let me check $MgSO_4 \cdot 6H_2O$: 120.38 + 6(18.016) = 228.48 g/mol.
-Water fraction = 108.10/228.48 = 0.4731.
-Expected water = 5.00 × 0.4731 = 2.366 g.
-
-With 2.44 g water: x = 6.37, closest to 6. So the formula would be $MgSO_4 \cdot 6H_2O$.
-
-Actually wait, 5.00 and 2.44 both have 3 sig figs. Let me redo:
-mol $MgSO_4 = 2.56/120.38 = 0.021266$
-mol $H_2O = 2.44/18.016 = 0.13544$
-$x = 0.13544/0.021266 = 6.37$
-
-6.37 is close to 6 or 6.5. Given sig figs, this is closest to 6.
-
-$$\boxed{MgSO_4 \cdot 6H_2O}$$
+$$\boxed{MgSO_4 \cdot 7H_2O \text{ (Epsom salt)}}$$
 
 ---
 
@@ -360,48 +363,3 @@ MM = $6(12.01) + 12(1.008) + 2(16.00) = 116.16$ g/mol
 %O = $32.00/116.16 \times 100\% = 27.55\%$
 
 $$\boxed{C_3H_6O \text{ (empirical)}, \; C_6H_{12}O_2 \text{ (molecular)}}$$
-
----
-
-### A5 (New)
-
-**Problem:** A compound is 39.34% Na and 60.66% Cl by mass. Its molar mass is 58.44 g/mol.
-
-(a) Assume 100.0 g: Na = 39.34 g, Cl = 60.66 g.
-mol Na = $39.34/22.99 = 1.711$ mol
-mol Cl = $60.66/35.45 = 1.711$ mol
-Ratio = 1 : 1 → **NaCl** (empirical)
-
-(b) Empirical mass = $22.99 + 35.45 = 58.44$ g/mol.
-$n = 58.44 / 58.44 = 1.00$
-Molecular formula = **NaCl** (same as empirical)
-
-(c) **They are the same** because the molar mass equals the empirical formula mass ($n = 1$). This happens when the formula is already in its simplest form AND the molar mass matches.
-
-(d) **Sodium chloride** (table salt).
-
-$$\boxed{NaCl \text{ — sodium chloride}}$$
-
----
-
-### A6 (New)
-
-**Problem:** A compound is 72.36% Fe and 27.64% O by mass.
-
-(a) Assume 100.0 g: Fe = 72.36 g, O = 27.64 g.
-mol Fe = $72.36/55.85 = 1.296$ mol
-mol O = $27.64/16.00 = 1.728$ mol
-
-(b) Divide by the smaller (1.296):
-Fe: $1.296/1.296 = 1.00$
-O: $1.728/1.296 = 1.333...$
-
-(c) $1.333... = 4/3$. Multiply ALL numbers by 3:
-Fe: $1 \times 3 = 3$
-O: $\frac{4}{3} \times 3 = 4$
-
-**Why multiply by 3?** The ratio 1 : 1.333 means the true ratio is 1 : $4/3$. Multiplying by 3 clears the fraction: $3 : 4$. Rounding 1.333 to 1 would give $FeO$ (wüstite), which IS a real compound — but it's the WRONG one for this data.
-
-(d) Empirical formula = **$Fe_3O_4$** — magnetite (iron(II,III) oxide).
-
-$$\boxed{Fe_3O_4 \text{ (magnetite)}}$$
