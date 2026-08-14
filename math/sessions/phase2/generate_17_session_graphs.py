@@ -124,63 +124,77 @@ def triangle_cross_product():
     fig.tight_layout()
     save(fig, '17A', '17a-triangle-cross-product.png')
 
-def volume_methods():
-    """Comparison of disk, washer, shell methods."""
-    fig, axes = plt.subplots(1, 3, figsize=(11, 3.6))
-    for ax in axes:
-        g(ax); ax.set_xticks([]); ax.set_yticks([])
-        for s in ('top', 'right'):
-            ax.spines[s].set_visible(True); ax.spines[s].set_color('#ccc')
+def _method_card_ax():
+    """A clean axes for one method comparison card."""
+    fig, ax = plt.subplots(figsize=(5.8, 4.4))
+    g(ax); ax.set_xticks([]); ax.set_yticks([])
+    for s in ('top', 'right'):
+        ax.spines[s].set_visible(True); ax.spines[s].set_color('#ccc')
+    return fig, ax
 
-    # (a) disk
-    ax = axes[0]
+def volume_method_disk():
+    """Disk method comparison card: V = π∫R² dx (region touches the axis)."""
+    fig, ax = _method_card_ax()
     ax.add_patch(Rectangle((0.2, 0.15), 2.6, 0.05, color='#333'))
     xs = np.linspace(0.25, 2.75, 100)
     ax.fill_between(xs, 0.2, 0.2 + 1.5*np.sin((xs-0.25)/2.5*np.pi), color=BLUE, alpha=0.25)
-    ax.plot(xs, 0.2 + 1.5*np.sin((xs-0.25)/2.5*np.pi), BLUE, lw=2.0)
-    ax.add_patch(Circle((1.5, 0.2), 1.2, fill=True, facecolor=RED, alpha=0.3, edgecolor=RED, lw=1.8))
+    ax.plot(xs, 0.2 + 1.5*np.sin((xs-0.25)/2.5*np.pi), BLUE, lw=2.2)
+    ax.add_patch(Circle((1.5, 0.2), 1.2, fill=True, facecolor=RED, alpha=0.3,
+                        edgecolor=RED, lw=2.0))
     ax.annotate('', (2.7, 0.2), xytext=(2.7, 1.4),
                 arrowprops=dict(arrowstyle='->', color='#333', lw=1.4))
-    ax.text(1.5, -0.28, 'disk: $V=\\pi\\int R^2\\,dx$', ha='center', fontsize=9.5,
+    ax.text(1.5, -0.28, '$V=\\pi\\int R^2\\,dx$', ha='center', fontsize=11,
             color='#222', fontweight='bold')
-    ax.text(1.5, 1.75, '$R=f(x)$', ha='center', fontsize=9.5, color=RED, fontweight='bold')
-    ax.set_title('(a) Disk', fontsize=11, fontweight='bold')
-    ax.set_xlim(0, 3); ax.set_ylim(-0.45, 2.1)
+    ax.text(1.5, 1.78, '$R=f(x)$', ha='center', fontsize=11, color=RED, fontweight='bold')
+    ax.text(1.5, -0.55, 'when: region touches the axis (no hole)',
+            ha='center', fontsize=9, color='#555', fontweight='bold')
+    ax.set_title('Disk', fontsize=12, fontweight='bold')
+    ax.set_xlim(0, 3); ax.set_ylim(-0.7, 2.1)
+    fig.tight_layout()
+    save(fig, '17A', '17a-volume-method-disk.png')
 
-    # (b) washer
-    ax = axes[1]
+def volume_method_washer():
+    """Washer method comparison card: V = π∫(R²−r²) dx (hole appears)."""
+    fig, ax = _method_card_ax()
     ax.add_patch(Rectangle((0.2, 0.15), 2.6, 0.05, color='#333'))
-    ax.add_patch(Circle((1.5, 0.2), 1.3, fill=True, facecolor=RED, alpha=0.3, edgecolor=RED, lw=1.8))
-    ax.add_patch(Circle((1.5, 0.2), 0.6, fill=True, facecolor='white', edgecolor=GREEN, lw=1.8))
+    ax.add_patch(Circle((1.5, 0.2), 1.3, fill=True, facecolor=RED, alpha=0.3,
+                        edgecolor=RED, lw=2.0))
+    ax.add_patch(Circle((1.5, 0.2), 0.6, fill=True, facecolor='white', edgecolor=GREEN,
+                        lw=2.0))
     ax.annotate('', (1.5, 1.5), xytext=(1.5, 0.85),
                 arrowprops=dict(arrowstyle='->', color='#333', lw=1.4))
-    ax.text(1.5, -0.28, 'washer: $V=\\pi\\int(R^2-r^2)\\,dx$', ha='center', fontsize=9.5,
+    ax.text(1.5, -0.28, '$V=\\pi\\int(R^2-r^2)\\,dx$', ha='center', fontsize=11,
             color='#222', fontweight='bold')
-    ax.text(2.2, 1.15, '$R$', fontsize=10, color=RED, fontweight='bold')
-    ax.text(1.05, 0.62, '$r$', fontsize=10, color=GREEN, fontweight='bold')
-    ax.set_title('(b) Washer', fontsize=11, fontweight='bold')
-    ax.set_xlim(0, 3); ax.set_ylim(-0.45, 2.1)
+    ax.text(2.25, 1.15, '$R$', fontsize=11, color=RED, fontweight='bold')
+    ax.text(1.05, 0.62, '$r$', fontsize=11, color=GREEN, fontweight='bold')
+    ax.text(1.5, -0.55, 'when: axis outside the region (hole appears)',
+            ha='center', fontsize=9, color='#555', fontweight='bold')
+    ax.set_title('Washer', fontsize=12, fontweight='bold')
+    ax.set_xlim(0, 3); ax.set_ylim(-0.7, 2.1)
+    fig.tight_layout()
+    save(fig, '17A', '17a-volume-method-washer.png')
 
-    # (c) shell
-    ax = axes[2]
+def volume_method_shell():
+    """Shell method comparison card: V = 2π∫ x·h(x) dx (slice parallel to axis)."""
+    fig, ax = _method_card_ax()
     ax.add_patch(Rectangle((0.15, 0.2), 0.05, 2.6, color='#333'))
     xs = np.linspace(0.3, 2.9, 100)
     ax.fill_between(xs, 0.25, 0.25 + 1.3*np.sin((xs-0.3)/2.6*np.pi), color=BLUE, alpha=0.25)
-    ax.plot(xs, 0.25 + 1.3*np.sin((xs-0.3)/2.6*np.pi), BLUE, lw=2.0)
-    # vertical strip at x=1.5
-    ax.add_patch(Rectangle((1.5, 0.25), 0.08, 1.2, facecolor=RED, alpha=0.55, edgecolor=RED, lw=1.6))
+    ax.plot(xs, 0.25 + 1.3*np.sin((xs-0.3)/2.6*np.pi), BLUE, lw=2.2)
+    ax.add_patch(Rectangle((1.5, 0.25), 0.08, 1.2, facecolor=RED, alpha=0.55,
+                           edgecolor=RED, lw=1.6))
     ax.add_patch(Circle((0, 1.6), 1.5, fill=False, edgecolor=AMBER, lw=1.6, ls='--'))
     ax.annotate('', (0.3, 1.15), xytext=(0.15, 1.15),
                 arrowprops=dict(arrowstyle='->', color='#333', lw=1.4))
-    ax.text(1.5, -0.28, 'shell: $V=2\\pi\\int x\\,h(x)\\,dx$', ha='center', fontsize=9.5,
+    ax.text(1.5, -0.28, '$V=2\\pi\\int x\\,h(x)\\,dx$', ha='center', fontsize=11,
             color='#222', fontweight='bold')
-    ax.text(1.7, 1.0, '$h(x)$', fontsize=9.5, color=RED, fontweight='bold')
-    ax.set_title('(c) Shell', fontsize=11, fontweight='bold')
-    ax.set_xlim(0, 3); ax.set_ylim(-0.45, 2.1)
-
-    fig.suptitle('Volume of revolution: disk vs. washer vs. shell', fontweight='bold', fontsize=12)
-    fig.tight_layout(rect=[0, 0, 1, 0.95])
-    save(fig, '17A', '17a-volume-methods.png')
+    ax.text(1.7, 1.0, '$h(x)$', fontsize=11, color=RED, fontweight='bold')
+    ax.text(1.5, -0.55, 'when: slice runs parallel to the axis',
+            ha='center', fontsize=9, color='#555', fontweight='bold')
+    ax.set_title('Shell', fontsize=12, fontweight='bold')
+    ax.set_xlim(0, 3); ax.set_ylim(-0.7, 2.1)
+    fig.tight_layout()
+    save(fig, '17A', '17a-volume-method-shell.png')
 
 def washer_shifted_axis():
     """Region between y=√x and y=x² on [0,1] rotated about y=2."""
@@ -390,11 +404,275 @@ def solid_revolution_dy():
     fig.tight_layout()
     save(fig, '17A', '17a-solid-revolution-dy.png')
 
+# ─────────────────────── 5-scene walkthroughs ───────────────────────
+# Each scene is its OWN image (17a-<method>-sceneN.png), shown separately in
+# the markdown — one figure per scene keeps every step large and readable.
+
+def _scene_new(title, xlim, ylim, aspect=True, fs=(5.0, 4.0)):
+    """A fresh, self-contained scene figure with a title bar."""
+    fig, ax = plt.subplots(figsize=fs)
+    ax.axis('off')
+    ax.set_facecolor('#fafbfc')
+    for s in ax.spines.values():
+        s.set_visible(True); s.set_color('#cccccc')
+    ax.text(0.02, 0.97, title, transform=ax.transAxes, fontsize=11, color='#222',
+            fontweight='bold', va='top')
+    ax.set_xlim(*xlim); ax.set_ylim(*ylim)
+    if aspect:
+        ax.set_aspect('equal')
+    return fig, ax
+
+def _scene_caption(ax, text):
+    ax.text(0.5, -0.06, text, transform=ax.transAxes, fontsize=9, color='#333',
+            ha='center', va='top')
+
+def _scene_save(fig, name):
+    fig.tight_layout()
+    save(fig, '17A', name)
+
+def _disk3d(ax, cx, cy, R, dx, color, lw=2.0, alpha=0.35, foreshort=0.42):
+    """A short cylinder (disk) seen in perspective: front+back ellipses + edges."""
+    h = R * foreshort
+    back = Ellipse((cx - dx, cy), 2*R, 2*h, facecolor=color, alpha=alpha*0.45,
+                   edgecolor=color, lw=lw*0.7)
+    front = Ellipse((cx, cy), 2*R, 2*h, facecolor=color, alpha=alpha, edgecolor=color, lw=lw)
+    ax.add_patch(back); ax.add_patch(front)
+    ax.plot([cx - dx, cx], [cy + h, cy + h], color, lw=lw*0.8)
+    ax.plot([cx - dx, cx], [cy - h, cy - h], color, lw=lw*0.8)
+
+def disk_scenes():
+    """Disk method — 5 separate scene images. Rotate y=√x about the x-axis, x∈[0,4]."""
+
+    def curve(ax):
+        x = np.linspace(0, 4, 300)
+        ax.plot(x, np.sqrt(x), BLUE, lw=2.4)
+        ax.fill_between(x, 0, np.sqrt(x), color=BLUE, alpha=0.16)
+        ax.plot([-0.2, 4.35], [0, 0], '#333', lw=2.0)
+        ax.text(4.45, 0.15, 'axis', fontsize=9, color='#333')
+
+    # Scene 1 — When
+    fig, ax = _scene_new('Scene 1 — When: setup', (-0.5, 4.7), (-0.7, 2.7))
+    curve(ax)
+    ax.text(2.2, 2.3, 'Region sits ON the axis →\nno hole → solid disk',
+            ha='center', fontsize=10, color='#222', fontweight='bold')
+    _scene_caption(ax, 'WHEN: the region touches the rotation axis (no hole)')
+    _scene_save(fig, '17a-disk-scene1.png')
+
+    # Scene 2 — How: slice
+    fig, ax = _scene_new('Scene 2 — How: cut a slice', (-0.5, 4.7), (-0.7, 3.1))
+    curve(ax)
+    ax.add_patch(Rectangle((2.0, 0), 0.3, np.sqrt(2), facecolor=RED, alpha=0.6,
+                           edgecolor=RED, lw=1.6))
+    ax.annotate('width $dx$', (2.15, 0.08), xytext=(2.6, 0.7), fontsize=9.5, color=RED,
+                fontweight='bold', arrowprops=dict(arrowstyle='->', color=RED, lw=1.1))
+    ax.annotate('height $\\sqrt{x}$', (2.15, np.sqrt(2)), xytext=(2.85, 2.15), fontsize=9.5,
+                color=RED, fontweight='bold',
+                arrowprops=dict(arrowstyle='->', color=RED, lw=1.1))
+    _scene_caption(ax, 'HOW: slice ⟂ to the axis — thickness $dx$, height $\\sqrt{x}$')
+    _scene_save(fig, '17a-disk-scene2.png')
+
+    # Scene 3 — How: rotate
+    fig, ax = _scene_new('Scene 3 — How: rotate the slice', (0.3, 4.9), (-1.5, 2.3))
+    _disk3d(ax, 2.55, 0.3, np.sqrt(2), 0.4, RED)
+    ax.plot([2.55, 2.55 + np.sqrt(2)], [0.3, 0.3], '#333', lw=1.4)
+    ax.text(2.55 + np.sqrt(2)/2, 0.04, '$R=\\sqrt{x}$', fontsize=11, color='#222',
+            fontweight='bold', ha='center')
+    _scene_caption(ax, 'HOW: the strip sweeps a disk — radius $R=\\sqrt{x}$, thickness $dx$')
+    _scene_save(fig, '17a-disk-scene3.png')
+
+    # Scene 4 — Where: one disk
+    fig, ax = _scene_new('Scene 4 — Where: volume of ONE disk', (0.3, 4.9), (-1.9, 2.3))
+    _disk3d(ax, 2.55, 0.5, np.sqrt(2), 0.4, GREEN)
+    ax.plot([2.55, 2.55 + np.sqrt(2)], [0.5, 0.5], '#333', lw=1.4)
+    ax.text(2.55 + np.sqrt(2)/2, 0.22, '$R$', fontsize=11, color='#222', fontweight='bold',
+            ha='center')
+    ax.text(2.55, -0.75, '$dV = \\pi R^2\\,dx = \\pi(\\sqrt{x})^2\\,dx = \\pi x\\,dx$',
+            ha='center', fontsize=10, color='#222', fontweight='bold')
+    _scene_caption(ax, 'WHERE: one disk = (face area $\\pi R^2$) × thickness $dx$')
+    _scene_save(fig, '17a-disk-scene4.png')
+
+    # Scene 5 — Where: stack + integrate
+    fig, ax = _scene_new('Scene 5 — Where: stack them all', (-0.5, 4.7), (-2.5, 2.6))
+    x = np.linspace(0.2, 4, 200)
+    ax.fill_between(x, -np.sqrt(x), np.sqrt(x), color=BLUE, alpha=0.3)
+    ax.plot(x, np.sqrt(x), BLUE, lw=1.8)
+    ax.plot(x, -np.sqrt(x), BLUE, lw=1.8)
+    for xd in (0.7, 1.5, 2.3, 3.1, 3.9):
+        r = np.sqrt(xd)
+        ax.plot([xd, xd], [-r, r], RED, lw=1.1, alpha=0.75)
+    ax.plot([-0.2, 4.35], [0, 0], '#333', lw=1.8)
+    ax.text(2.4, -1.35, '$V = \\pi\\int_0^4 x\\,dx = 8\\pi$', ha='center', fontsize=11,
+            color='#222', fontweight='bold')
+    _scene_caption(ax, 'WHERE: add every disk $x\\in[0,4]$ → $V=\\int dV$')
+    _scene_save(fig, '17a-disk-scene5.png')
+
+def washer_scenes():
+    """Washer method — 5 separate scene images. Region between √x and x² about y=2."""
+
+    def region(ax):
+        x = np.linspace(0, 1, 250)
+        ax.plot(x, np.sqrt(x), BLUE, lw=2.4)
+        ax.plot(x, x**2, RED, lw=2.4)
+        ax.fill_between(x, x**2, np.sqrt(x), color=GREEN, alpha=0.22)
+        ax.axhline(2, color='#333', lw=1.8, ls='--')
+        ax.text(1.5, 2.08, 'axis $y=2$', fontsize=9, color='#333')
+
+    # Scene 1 — When
+    fig, ax = _scene_new('Scene 1 — When: setup', (-0.35, 1.7), (-0.55, 2.55))
+    region(ax)
+    ax.text(0.67, 1.35, 'Axis is OUTSIDE the region →\nspinning leaves a HOLE → washer',
+            ha='center', fontsize=9.5, color='#222', fontweight='bold')
+    _scene_caption(ax, 'WHEN: the axis does NOT touch the region (a hole appears)')
+    _scene_save(fig, '17a-washer-scene1.png')
+
+    # Scene 2 — How: slice
+    fig, ax = _scene_new('Scene 2 — How: cut a slice', (-0.35, 1.7), (-0.55, 2.55))
+    region(ax)
+    xs = 0.5
+    ax.add_patch(Rectangle((xs, xs**2), 0.12, np.sqrt(xs) - xs**2, facecolor=RED,
+                           alpha=0.6, edgecolor=RED, lw=1.6))
+    ax.plot([xs, xs], [xs**2, 2], color='#555', lw=1.1, ls=':')
+    ax.plot([xs, xs], [np.sqrt(xs), 2], color='#555', lw=1.1, ls=':')
+    ax.text(xs + 0.16, 1.78, '$R=2-x^2$', fontsize=9.5, color='#222', fontweight='bold')
+    ax.text(xs + 0.16, 1.22, '$r=2-\\sqrt{x}$', fontsize=9.5, color='#222', fontweight='bold')
+    _scene_caption(ax, 'HOW: slice ⟂ axis; radii = distance from axis to each curve')
+    _scene_save(fig, '17a-washer-scene2.png')
+
+    # Scene 3 — How: rotate
+    fig, ax = _scene_new('Scene 3 — How: rotate the slice', (0.5, 4.9), (-1.5, 2.6))
+    cx, cy, R, r = 2.7, 0.4, 1.5, 0.62
+    ax.add_patch(Circle((cx, cy), R, facecolor=RED, alpha=0.35, edgecolor=RED, lw=2.2))
+    ax.add_patch(Circle((cx, cy), r, facecolor='white', edgecolor=GREEN, lw=2.2))
+    ax.plot([cx, cx + R], [cy, cy], RED, lw=1.4)
+    ax.plot([cx, cx + r], [cy, cy], GREEN, lw=1.4)
+    ax.text(cx + R/2, cy - 0.28, '$R$', fontsize=11, color='#222', fontweight='bold',
+            ha='center')
+    ax.text(cx + r/2, cy - 0.28, '$r$', fontsize=11, color='#222', fontweight='bold',
+            ha='center')
+    ax.text(cx, cy + R + 0.32, 'the hole!', fontsize=10, color=GREEN, fontweight='bold',
+            ha='center')
+    _scene_caption(ax, 'HOW: the strip sweeps a washer — outer $R$, inner $r$ (hole)')
+    _scene_save(fig, '17a-washer-scene3.png')
+
+    # Scene 4 — Where: one washer
+    fig, ax = _scene_new('Scene 4 — Where: volume of ONE washer', (0.5, 4.9), (-1.8, 2.6))
+    cx, cy = 2.7, 0.6
+    ax.add_patch(Circle((cx, cy), R, facecolor=GREEN, alpha=0.3, edgecolor=GREEN, lw=2.2))
+    ax.add_patch(Circle((cx, cy), r, facecolor='white', edgecolor=GREEN, lw=2.2))
+    ax.text(cx, cy - R - 0.25, '$dV = \\pi(R^2-r^2)\\,dx$\n$= \\pi[(2-x^2)^2-(2-\\sqrt{x})^2]\\,dx$',
+            ha='center', fontsize=9.5, color='#222', fontweight='bold')
+    _scene_caption(ax, 'WHERE: washer = big disk $\\pi R^2$ − hole $\\pi r^2$; × $dx$')
+    _scene_save(fig, '17a-washer-scene4.png')
+
+    # Scene 5 — Where: stack + integrate
+    fig, ax = _scene_new('Scene 5 — Where: stack them all', (-0.35, 1.7), (-1.1, 4.7))
+    x = np.linspace(0, 1, 250)
+    ax.fill_between(x, x**2, np.sqrt(x), color=GREEN, alpha=0.3)
+    ax.fill_between(x, 4 - np.sqrt(x), 4 - x**2, color=GREEN, alpha=0.3)
+    ax.plot(x, x**2, BLUE, lw=1.6)
+    ax.plot(x, 4 - x**2, BLUE, lw=1.6)
+    ax.plot(x, np.sqrt(x), RED, lw=1.4, ls='--')
+    ax.plot(x, 4 - np.sqrt(x), RED, lw=1.4, ls='--')
+    ax.axhline(2, color='#333', lw=1.6, ls=':')
+    ax.text(1.5, 2.05, 'axis', fontsize=9, color='#333')
+    ax.text(0.5, -0.75, '$V = \\pi\\int_0^1[(2-x^2)^2-(2-\\sqrt{x})^2]\\,dx = \\frac{31\\pi}{30}$',
+            ha='center', fontsize=9.5, color='#222', fontweight='bold')
+    _scene_caption(ax, 'WHERE: every washer $x\\in[0,1]$ → $V=\\int dV$ (solid is hollow)')
+    _scene_save(fig, '17a-washer-scene5.png')
+
+def shell_scenes():
+    """Shell method — 5 separate scene images. Rotate y=x² about the y-axis, x∈[0,2]."""
+
+    def region(ax):
+        x = np.linspace(0, 2, 200)
+        ax.plot(x, x**2, BLUE, lw=2.4)
+        ax.fill_between(x, 0, x**2, color=BLUE, alpha=0.16)
+        ax.plot([0, 0], [-0.2, 4.4], '#333', lw=2.0)
+        ax.text(0.14, 4.15, 'axis', fontsize=9, color='#333')
+
+    # Scene 1 — When
+    fig, ax = _scene_new('Scene 1 — When: setup', (-0.6, 2.7), (-0.5, 4.7))
+    region(ax)
+    ax.text(1.3, 3.3, 'Natural slice runs PARALLEL\nto the axis → cylindrical shell',
+            ha='center', fontsize=9.5, color='#222', fontweight='bold')
+    _scene_caption(ax, 'WHEN: the slice runs ∥ to the rotation axis (no hole, no washer)')
+    _scene_save(fig, '17a-shell-scene1.png')
+
+    # Scene 2 — How: slice
+    fig, ax = _scene_new('Scene 2 — How: cut a slice', (-0.6, 2.7), (-0.5, 4.7))
+    region(ax)
+    xs = 1.2
+    ax.add_patch(Rectangle((xs, 0), 0.24, xs**2, facecolor=RED, alpha=0.6, edgecolor=RED,
+                           lw=1.6))
+    ax.annotate('width $dx$', (xs + 0.12, 0.1), xytext=(xs + 0.55, 0.55), fontsize=9.5,
+                color=RED, fontweight='bold',
+                arrowprops=dict(arrowstyle='->', color=RED, lw=1.1))
+    ax.annotate('height $x^2$', (xs + 0.24, xs**2), xytext=(1.95, 2.35), fontsize=9.5,
+                color=RED, fontweight='bold',
+                arrowprops=dict(arrowstyle='->', color=RED, lw=1.1))
+    ax.annotate('distance $x$', (xs, 0), xytext=(0.2, 1.15), fontsize=9.5, color='#333',
+                fontweight='bold', arrowprops=dict(arrowstyle='->', color='#333', lw=1.1))
+    _scene_caption(ax, 'HOW: vertical strip — height $x^2$, thickness $dx$, distance $x$')
+    _scene_save(fig, '17a-shell-scene2.png')
+
+    # Scene 3 — How: rotate
+    fig, ax = _scene_new('Scene 3 — How: rotate the slice', (0.7, 5.5), (-1.3, 3.0))
+    r, h, cx, cy = 1.2, 1.44, 2.7, 0.4
+    fs = 0.45
+    ax.add_patch(Ellipse((cx, cy), 2*r, 2*r*fs, facecolor=RED, alpha=0.35, edgecolor=RED,
+                         lw=2.0))
+    ax.add_patch(Ellipse((cx, cy + h), 2*r, 2*r*fs, facecolor='white', edgecolor=RED,
+                         lw=2.0))
+    ax.plot([cx - r, cx - r], [cy, cy + h], RED, lw=1.6)
+    ax.plot([cx + r, cx + r], [cy, cy + h], RED, lw=1.6)
+    ax.plot([cx, cx + r], [cy, cy], '#333', lw=1.4)
+    ax.text(cx + r/2, cy - 0.24, 'radius $r=x$', fontsize=10, color='#222', fontweight='bold',
+            ha='center')
+    ax.text(cx + r + 0.22, cy + h/2, 'height $h=x^2$', fontsize=10, color='#222',
+            fontweight='bold')
+    _scene_caption(ax, 'HOW: the strip sweeps a hollow cylinder — radius $x$, height $x^2$')
+    _scene_save(fig, '17a-shell-scene3.png')
+
+    # Scene 4 — Where: unroll
+    fig, ax = _scene_new('Scene 4 — Where: unroll the shell', (-0.6, 8.8), (-1.5, 2.4),
+                         aspect=False, fs=(5.8, 4.0))
+    w, h = 2*np.pi*1.2, 1.44
+    ax.add_patch(Rectangle((0.3, 0.5), w, h, facecolor=GREEN, alpha=0.3, edgecolor=GREEN,
+                           lw=2.2))
+    ax.add_patch(Rectangle((0.3 + w, 0.5), 0.12, h, facecolor=GREEN, alpha=0.5,
+                           edgecolor=GREEN, lw=1.4))
+    ax.annotate('length $2\\pi r = 2\\pi x$', (0.3, 0.55), xytext=(0.7, -0.3), fontsize=9.5,
+                color='#222', fontweight='bold')
+    ax.annotate('height $h = x^2$', (0.3, 0.5 + h), xytext=(-0.4, 1.4), fontsize=9.5,
+                color='#222', fontweight='bold')
+    ax.text(0.3 + w + 0.06, 0.5 + h/2, '$dx$', fontsize=9.5, color='#222', fontweight='bold')
+    ax.text((0.3 + 0.3 + w)/2, -1.1, '$dV = (2\\pi x)(x^2)(dx)$', ha='center', fontsize=10,
+            color='#222', fontweight='bold')
+    _scene_caption(ax, 'WHERE: cut open & flatten — length $2\\pi x$, height $x^2$, thickness $dx$')
+    _scene_save(fig, '17a-shell-scene4.png')
+
+    # Scene 5 — Where: stack + integrate
+    fig, ax = _scene_new('Scene 5 — Where: stack them all', (-2.6, 2.6), (-1.4, 4.6))
+    y = np.linspace(0, 4, 200)
+    ax.fill_betweenx(y, -np.sqrt(y), np.sqrt(y), color=BLUE, alpha=0.3)
+    ax.plot(np.sqrt(y), y, BLUE, lw=1.8)
+    ax.plot(-np.sqrt(y), y, BLUE, lw=1.8)
+    for yd in (0.6, 1.4, 2.2, 3.0, 3.8):
+        r = np.sqrt(yd)
+        ax.plot([-r, r], [yd, yd], RED, lw=1.1, alpha=0.75)
+    ax.plot([0, 0], [-0.2, 4.4], '#333', lw=1.8)
+    ax.text(0, -1.2, '$V = 2\\pi\\int_0^2 x\\cdot x^2\\,dx = 8\\pi$', ha='center', fontsize=10,
+            color='#222', fontweight='bold')
+    _scene_caption(ax, 'WHERE: every shell $x\\in[0,2]$ → $V=\\int dV$')
+    _scene_save(fig, '17a-shell-scene5.png')
+
 if __name__ == '__main__':
     for fn in (area_between_curves, polar_rose, parametric_ellipse, triangle_cross_product,
-               volume_methods, washer_shifted_axis, sphere_volume, torus,
+               volume_method_disk, volume_method_washer, volume_method_shell,
+               washer_shifted_axis, sphere_volume, torus,
                determinant_area, cross_section_volume, inverse_curves,
-               solid_revolution, solid_revolution_dy):
+               solid_revolution, solid_revolution_dy,
+               disk_scenes, washer_scenes, shell_scenes):
         fn()
         print('done:', fn.__name__)
     print('All 17A session graphs written under', BASE)

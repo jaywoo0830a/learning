@@ -102,11 +102,109 @@ $A = (e+1) - 1 = e$.
 >
 > **"Axis ⟂ slice → disk/washer; axis ∥ slice → shell"** is the entire decision. Every example below is the same idea in a different coordinate — and each method has a $dx$ version and a $dy$ version.
 
-![Disk, washer, and shell methods compared](graphs/0808/17A/17a-volume-methods.png)
+**Disk — the slice touches the axis (no hole):**
+
+![Disk method: V = π∫R² dx](graphs/0808/17A/17a-volume-method-disk.png)
+
+**Washer — the axis sits outside the region (a hole appears):**
+
+![Washer method: V = π∫(R²−r²) dx](graphs/0808/17A/17a-volume-method-washer.png)
+
+**Shell — the slice runs parallel to the axis:**
+
+![Shell method: V = 2π∫ x·h(x) dx](graphs/0808/17A/17a-volume-method-shell.png)
+
+---
+
+## Part B1: The Three Methods — Five Scenes Each
+
+Every method unfolds in the same five scenes. Read each method's five scenes **top to bottom** (each scene is its own image):
+
+- **Scene 1 answers WHEN** — the setup that forces this method (does the region touch the axis? does the slice run ⟂ or ∥ to it?).
+- **Scenes 2–3 answer HOW** — how the solid is sliced and how one slice rotates into the 3D building block.
+- **Scenes 4–5 answer WHERE** — where the volume of ONE piece comes from (Scene 4), and where integration accumulates all the pieces (Scene 5).
+
+The three methods use the *same five-scene rhythm*, so you can compare them scene by scene. The formula is never "just there" — it is assembled in Scene 4 and summed in Scene 5.
+
+### Disk Method — Five Scenes ($y=\sqrt{x}$ rotated about the $x$-axis)
+
+**Scene 1 — When: setup.** The region sits **on** the rotation axis. A slice has **no hole** → a solid **disk**.
+
+![Disk Scene 1 — when: the region sits on the axis](graphs/0808/17A/17a-disk-scene1.png)
+
+**Scene 2 — How: slice.** Cut a thin strip **⟂ to the axis**: thickness $dx$, height $\sqrt{x}$. Slices ⟂ axis → integrate along the axis.
+
+![Disk Scene 2 — how: slice perpendicular to the axis](graphs/0808/17A/17a-disk-scene2.png)
+
+**Scene 3 — How: rotate.** Spin the strip about the axis → a **disk**: radius $R=\sqrt{x}$, thickness $dx$.
+
+![Disk Scene 3 — how: the strip sweeps a disk](graphs/0808/17A/17a-disk-scene3.png)
+
+**Scene 4 — Where: one piece.** Disk volume = (face area $\pi R^2$) × (thickness $dx$): $dV=\pi(\sqrt{x})^2\,dx=\pi x\,dx$. The radius is the distance from the axis to the curve.
+
+![Disk Scene 4 — where: volume of one disk](graphs/0808/17A/17a-disk-scene4.png)
+
+**Scene 5 — Where: accumulate.** Stack every disk from $x=0$ to $x=4$: $V=\pi\int_0^4 x\,dx = 8\pi$.
+
+![Disk Scene 5 — where: integrate all disks](graphs/0808/17A/17a-disk-scene5.png)
+
+> **The formula, decoded**: $V=\pi\int R^2\,dx$ is nothing but Scene 4 ($dV=\pi R^2\,dx$) summed over Scene 5 ($\int$). Nothing is memorized — the disk's face area $\pi R^2$ and its thickness $dx$ are read straight off the picture.
+
+### Washer Method — Five Scenes (region between $\sqrt{x}$ and $x^2$ rotated about $y=2$)
+
+**Scene 1 — When: setup.** The axis $y=2$ is **outside** the region. The region does NOT touch the axis → spinning leaves a **hole** → a **washer**.
+
+![Washer Scene 1 — when: the axis is outside the region](graphs/0808/17A/17a-washer-scene1.png)
+
+**Scene 2 — How: slice.** Strip **⟂ to the axis** at $x$, from the bottom curve $y=x^2$ up to the top curve $y=\sqrt{x}$; thickness $dx$.
+
+![Washer Scene 2 — how: slice with both radii to the axis](graphs/0808/17A/17a-washer-scene2.png)
+
+**Scene 3 — How: rotate.** The strip sweeps a **washer (annulus)**. Outer radius $R$ comes from the curve **farthest** from the axis ($2-x^2$); inner radius $r$ from the nearer curve ($2-\sqrt{x}$).
+
+![Washer Scene 3 — how: the strip sweeps a washer with a hole](graphs/0808/17A/17a-washer-scene3.png)
+
+**Scene 4 — Where: one piece.** Washer volume = (annulus area $\pi(R^2-r^2)$) × ($dx$): $dV=\pi[(2-x^2)^2-(2-\sqrt{x})^2]\,dx$. Annulus = big disk minus the hole.
+
+![Washer Scene 4 — where: volume of one washer](graphs/0808/17A/17a-washer-scene4.png)
+
+**Scene 5 — Where: accumulate.** $V=\pi\int_0^1[(2-x^2)^2-(2-\sqrt{x})^2]\,dx = \frac{31\pi}{30}$. The side view shows the hollow cross-section.
+
+![Washer Scene 5 — where: integrate all washers (hollow solid)](graphs/0808/17A/17a-washer-scene5.png)
+
+> **When to expect a washer**: the axis is parallel to but **not on the boundary** of the region (a shifted axis, or a gap between region and axis). The disk becomes a washer exactly when a hole appears. The side view in Scene 5 shows the hole — the solid's cross-section is hollow.
+
+### Shell Method — Five Scenes ($y=x^2$ rotated about the $y$-axis)
+
+**Scene 1 — When: setup.** This time the natural strip runs **parallel to the axis** (a vertical strip at $x$). Slices ∥ axis → a **cylindrical shell**.
+
+![Shell Scene 1 — when: the slice runs parallel to the axis](graphs/0808/17A/17a-shell-scene1.png)
+
+**Scene 2 — How: slice.** Strip at distance $x$ from the axis: height $x^2$, thickness $dx$.
+
+![Shell Scene 2 — how: vertical strip with its distance from the axis](graphs/0808/17A/17a-shell-scene2.png)
+
+**Scene 3 — How: rotate.** The strip sweeps a **hollow cylinder (shell)**: radius $x$, height $x^2$, thickness $dx$.
+
+![Shell Scene 3 — how: the strip sweeps a hollow cylinder](graphs/0808/17A/17a-shell-scene3.png)
+
+**Scene 4 — Where: one piece.** **Unroll the shell** into a flat rectangle: length = circumference $2\pi x$, height $x^2$, thickness $dx$. So $dV=2\pi x\cdot x^2\,dx$. **THIS is where the $2\pi r$ comes from** — it is the length of the flattened rectangle.
+
+![Shell Scene 4 — where: unroll the shell into a rectangle](graphs/0808/17A/17a-shell-scene4.png)
+
+**Scene 5 — Where: accumulate.** $V=2\pi\int_0^2 x\cdot x^2\,dx = 8\pi$.
+
+![Shell Scene 5 — where: integrate all shells](graphs/0808/17A/17a-shell-scene5.png)
+
+> **Shell = unroll**: the whole method is "cut the cylinder open and flatten it." When the natural slice is parallel to the axis, shell is usually the simpler choice — and Scene 4 shows exactly why the formula has a $2\pi r$ in it.
+
+> **Reading the scenes together**: all three methods are the same film with a different frame at Scenes 3–4. Disk = the slice touches the axis (no hole). Washer = the slice has a hole. Shell = the slice is parallel to the axis and gets unrolled. **Scene 4 is always "volume of ONE piece"; Scene 5 is always "add them all up."** Once you can fill in those two frames, you can rebuild any of the three formulas from scratch.
 
 ---
 
 ## Example 6: Disk Method — Rotate $y=\sqrt{x}$ About $x$-Axis
+
+*(Follow Disk Scenes 1–5 above: the region sits on the axis → slice ⟂ axis → disk of radius $R=\sqrt{x}$ → $dV=\pi x\,dx$ → integrate.)*
 
 Slice **perpendicular to the $x$-axis**: each slice is a disk of radius $\sqrt{x}$ and thickness $dx$.
 
@@ -131,6 +229,8 @@ $V = \pi\int_0^4 (\sqrt{y})^2\,dy = \pi\int_0^4 y\,dy = 8\pi$.
 ---
 
 ## Example 7: Washer with Shifted Axis — Translation Geometry (🔗 12C1)
+
+*(Follow Washer Scenes 1–5 above: the axis sits outside the region → a hole appears → washer; the outer radius comes from the curve farthest from the axis.)*
 
 Region between $y=\sqrt{x}$ and $y=x^2$ on $[0,1]$ rotated about $y=2$.
 
@@ -180,6 +280,8 @@ $V = \pi\int_{-R}^R (R^2 - x^2)\,dx = \pi\left[R^2 x - \frac{x^3}{3}\right]_{-R}
 ---
 
 ## Example 9: Shell Method — Rotate $y=x^2$ About $y$-Axis
+
+*(Follow Shell Scenes 1–5 above: the strip runs parallel to the axis → unroll the shell → $dV=2\pi x\cdot x^2\,dx$ → integrate.)*
 
 $V = 2\pi \displaystyle \int_0^2 x \cdot x^2\,dx = 2\pi\left[\frac{x^4}{4}\right]_0^2 = 8\pi$.
 
@@ -312,6 +414,9 @@ A linear transformation stretches space uniformly. The factor by which it scales
 (3) Slicing Principle: ⟂ axis → disk/washer; ∥ axis → shell.
     Every method has a dx and a dy version — cross-check them.
     Shifted axis → radius = |c − f|, outer from the farther curve.
+    Five-scene flow per method: WHEN (setup) → HOW (slice, rotate)
+    → WHERE (one piece dV) → WHERE (integrate all pieces).
+    Disk = no hole; Washer = hole; Shell = parallel slice, unrolled.
 (4) Torus: shell method + symmetry → 2π²Rr² (Pappus shortcut).
 (5) Cross-sections: V = ∫A(y)dy for any shape. "⟂ y-axis" = fixed-height slice.
 (6) Determinant = area scaling factor for matrix transformations.
@@ -465,6 +570,8 @@ Step 2: Polar area = ½∫r²dθ. Use symmetry.
 Step 3: Parametric area = ∫y(t)x'(t)dt. Sign = orientation.
 Step 4: Cross product area = ½|AB × AC| for triangles.
 Step 5: Pick the slice: ⟂ axis → disk/washer (π∫R², π∫(R²−r²)); ∥ axis → shell (2π∫radius·height).
+Step 5b: Run the five scenes in your head: When (hole? parallel?)
+    → Slice → Rotate → dV of one piece → ∫ over all pieces.
 Step 6: Horizontal axis → dx-disks or dy-shells. Vertical axis → dy-disks or dx-shells.
 Step 7: Shifted axis → radius = |c − f|. Outer from the farther curve.
 Step 8: Cross-sections: V = ∫A(s)ds. "⟂ y-axis" = fixed-height slice.
