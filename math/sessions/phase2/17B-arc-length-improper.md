@@ -23,7 +23,27 @@ $L = \frac{4}{9}\int_1^{10} u^{1/2}\,du = \frac{8}{27}(10^{3/2}-1) \approx 9.07$
 
 > **Geometric origin**: $\Delta L \approx \sqrt{(\Delta x)^2 + (\Delta y)^2}$. As $\Delta x \to 0$, this becomes $\sqrt{1+(dy/dx)^2}\,dx$ — the Pythagorean theorem at infinitesimal scale.
 
-![Arc length: Pythagorean approximation with segments](graphs/0808/17B/17b-arc-length-pythagoras.png)
+**The five scenes — where $\sqrt{1+(f')^2}$ comes from:**
+
+**Scene 1 — When: what do we want?** We measure distance **along** the curve — not the straight chord (which is always shorter).
+
+![Arc length Scene 1 — when: the path vs the chord](graphs/0808/17B/17b-arclen-scene1.png)
+
+**Scene 2 — How: chop.** Replace the curve by many short straight segments; the polyline length approximates the curve.
+
+![Arc length Scene 2 — how: chop into small pieces](graphs/0808/17B/17b-arclen-scene2.png)
+
+**Scene 3 — How: one triangle.** Each segment is the hypotenuse of a tiny right triangle: $\Delta L=\sqrt{\Delta x^2+\Delta y^2}$.
+
+![Arc length Scene 3 — how: hypotenuse of a tiny triangle](graphs/0808/17B/17b-arclen-scene3.png)
+
+**Scene 4 — Where: the element.** Factor out $\Delta x$: $dL=\sqrt{1+(f'(x))^2}\,dx$ — **THIS is where the formula comes from**.
+
+![Arc length Scene 4 — where: the arc length element](graphs/0808/17B/17b-arclen-scene4.png)
+
+**Scene 5 — Where: sum them all.** $L=\int_0^4\sqrt{1+\frac{9}{4}x}\,dx \approx 9.07$.
+
+![Arc length Scene 5 — where: integrate the element](graphs/0808/17B/17b-arclen-scene5.png)
 
 ---
 
@@ -119,7 +139,27 @@ Rotate $y = \sqrt{x}$ from $x=0$ to $x=4$:
 $f' = \frac{1}{2\sqrt{x}}$, $1+(f')^2 = 1 + \frac{1}{4x} = \frac{4x+1}{4x}$.
 $S = 2\pi\int_0^4 \sqrt{x}\sqrt{\frac{4x+1}{4x}}\,dx = \pi\int_0^4 \sqrt{4x+1}\,dx = \frac{\pi}{6}(17^{3/2}-1) \approx 36.18$.
 
-![Surface of revolution: y=√x rotated about x-axis](graphs/0808/17B/17b-surface-revolution.png)
+**The five scenes — where the slant factor $\sqrt{1+(f')^2}$ comes from:**
+
+**Scene 1 — When: the skin.** Rotating the curve about the axis creates a solid; we want the area of its surface (the "skin").
+
+![Surface Scene 1 — when: the skin of the solid](graphs/0808/17B/17b-surface-scene1.png)
+
+**Scene 2 — How: a slanted slice.** A slice along the curve is *slanted*, so it sweeps a **conical band (frustum)** — not a flat cylinder.
+
+![Surface Scene 2 — how: a slanted slice](graphs/0808/17B/17b-surface-scene2.png)
+
+**Scene 3 — How: one band.** Each band has radius $f(x)$ and slant length $ds$ (the arc length element from Example 1).
+
+![Surface Scene 3 — how: one band](graphs/0808/17B/17b-surface-scene3.png)
+
+**Scene 4 — Where: the slant factor.** Lateral area = circumference × slant: $dS=2\pi f\,ds = 2\pi f\sqrt{1+(f')^2}\,dx$. Using $dx$ instead of $ds$ underestimates — **this is the #1 mistake**.
+
+![Surface Scene 4 — where: cylinder vs frustum](graphs/0808/17B/17b-surface-scene4.png)
+
+**Scene 5 — Where: sum them all.** $S=2\pi\int_0^4\sqrt{x}\sqrt{1+\frac{1}{4x}}\,dx = \frac{\pi}{6}(17^{3/2}-1)\approx 36.18$.
+
+![Surface Scene 5 — where: integrate every band](graphs/0808/17B/17b-surface-scene5.png)
 
 ---
 
@@ -178,7 +218,27 @@ $\displaystyle \int_0^1 \frac{1}{x^p}\,dx$: converges if $p < 1$, diverges if $p
 - $\int_0^1 \frac{1}{\sqrt{x}}\,dx = 2$ (converges, $p=1/2<1$ — finite area despite infinite height).
 - $\int_0^1 \frac{1}{x^2}\,dx = \infty$ (diverges, $p=2 \ge 1$ — singularity too strong).
 
-![p-test visualization: convergence vs divergence](graphs/0808/17B/17b-p-test.png)
+**The five scenes — why "replace ∞ with a limit":**
+
+**Scene 1 — When: the tail is infinite.** $\int_1^\infty \frac{1}{x^2}\,dx$ — the "area" extends forever. You cannot just "plug in $\infty$".
+
+![Improper Scene 1 — when: the infinite tail](graphs/0808/17B/17b-improper-scene1.png)
+
+**Scene 2 — How: cut at a finite $b$.** Chop the tail off: compute the finite area up to $b$ first.
+
+![Improper Scene 2 — how: cut at a finite b](graphs/0808/17B/17b-improper-scene2.png)
+
+**Scene 3 — How: evaluate.** $\int_1^b x^{-2}\,dx = 1-\frac{1}{b}$ — a finite number for every $b$.
+
+![Improper Scene 3 — how: evaluate the finite integral](graphs/0808/17B/17b-improper-scene3.png)
+
+**Scene 4 — Where: take the limit.** Let $b\to\infty$: $1-\frac{1}{b}\to 1$. The area **converges** to 1.
+
+![Improper Scene 4 — where: the limit as b→∞](graphs/0808/17B/17b-improper-scene4.png)
+
+**Scene 5 — Where: the p-test.** At infinity, $\int_1^\infty 1/x^p\,dx$ converges iff $p>1$: $p=2$ converges, $p=1$ (harmonic) diverges.
+
+![Improper Scene 5 — where: the p-test](graphs/0808/17B/17b-improper-scene5.png)
 
 > **Geometric intuition**: $\int_0^1 1/\sqrt{x}\,dx$ converges because the function is "thin enough" near 0. The area $2$ is exactly the area of a rectangle of width 1 and height 2 — the singularity compresses into a finite zone.
 
@@ -223,7 +283,27 @@ Therefore $I = \sqrt{\pi}$. ✓
 
 > **Note**: The $r\,dr\,d\theta$ substitution is the 2D analog of $u$-substitution. In both cases, changing variables requires adjusting the "width" of the integration element — $du = g'(x)dx$ in 1D becomes $r\,dr\,d\theta$ in polar coordinates.
 
-![Gaussian integral: the polar coordinate proof](graphs/0808/17B/17b-gaussian-integral.png)
+**The five scenes — the polar trick, step by step:**
+
+**Scene 1 — When: no elementary antiderivative.** $e^{-x^2}$ has no elementary antiderivative — so **square** the integral to make a 2D problem.
+
+![Gaussian Scene 1 — when: square the integral](graphs/0808/17B/17b-gaussian-scene1.png)
+
+**Scene 2 — How: square it.** $I^2=\iint_{\mathbb{R}^2}e^{-(x^2+y^2)}\,dx\,dy$ — the volume under the 2D bell.
+
+![Gaussian Scene 2 — how: the double integral](graphs/0808/17B/17b-gaussian-scene2.png)
+
+**Scene 3 — How: polar.** The integrand $e^{-r^2}$ depends only on distance → switch to polar coordinates.
+
+![Gaussian Scene 3 — how: circular symmetry → polar](graphs/0808/17B/17b-gaussian-scene3.png)
+
+**Scene 4 — Where: the extra $r$.** $dx\,dy = r\,dr\,d\theta$ — polar cells are wider far from the origin by the factor $r$.
+
+![Gaussian Scene 4 — where: the area element r dr dθ](graphs/0808/17B/17b-gaussian-scene4.png)
+
+**Scene 5 — Where: evaluate.** $I^2=2\pi\int_0^\infty r e^{-r^2}dr=\pi$ → $I=\sqrt{\pi}$.
+
+![Gaussian Scene 5 — where: the answer √π](graphs/0808/17B/17b-gaussian-scene5.png)
 
 ---
 
