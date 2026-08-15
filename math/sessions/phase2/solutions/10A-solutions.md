@@ -245,91 +245,116 @@ $5 + 0 - (-2) = 7$.
 
 ## Advanced Drills
 
-### A1. Solve $2^{x+2} + 2^x = 40$.
+### A1. Convert each into the form $e^{kx+b}$.
 
-$4\cdot 2^x + 2^x = 5\cdot 2^x = 40$ → $2^x = 8$ → $x=3$.
+(a) $2^x = e^{x\ln 2}$
 
-> **Answer**: $x=3$
+(b) $3^{2x+1} = e^{(2x+1)\ln 3}$
 
----
+(c) $10^{x-1} = e^{(x-1)\ln 10}$
 
-### A2. Solve $9^x - 3^{x+1} + 2 = 0$.
+(d) $\left(\frac12\right)^x = 2^{-x} = e^{-x\ln 2}$
 
-$t = 3^x$: $t^2 - 3t + 2 = 0$ → $(t-1)(t-2)=0$ → $t=1,2$ → $x=0, \log_3 2$.
-
-> **Answer**: $x=0$ or $x=\log_3 2$
+> **Answer**: (a) $e^{x\ln2}$ (b) $e^{(2x+1)\ln3}$ (c) $e^{(x-1)\ln10}$ (d) $e^{-x\ln2}$
 
 ---
 
-### A3. Solve $\log_4(x+3) + \log_4(x-3) = 2$.
+### A2. Double-check with two methods.
 
-Combine: $\log_4(x^2-9) = 2$ → $x^2-9 = 16$ → $x^2 = 25$ → $x = \pm 5$.
+(a) Method 1: $8^x\cdot 2^{1-3x} = 2^{3x}\cdot 2^{1-3x} = 2$. Method 2: $e^{3x\ln2}\cdot e^{(1-3x)\ln2} = e^{\ln2} = 2$. ✓
 
-Check arguments: $x>3$ needed. $x=5$ ✓, $x=-5$ ✗.
+(b) Method 1: $3^x\cdot5^x = 15^x$. Method 2: $e^{x\ln3}\cdot e^{x\ln5} = e^{x(\ln3+\ln5)} = e^{x\ln15} = 15^x$. ✓
 
-> **Answer**: $x=5$
+(c) Method 1: $\frac{4^{x+1}}{2^{2x-3}} = \frac{2^{2x+2}}{2^{2x-3}} = 2^5 = 32$. Method 2: $\frac{e^{(2x+2)\ln2}}{e^{(2x-3)\ln2}} = e^{5\ln2} = 32$. ✓
 
----
-
-### A4. Solve $\left(\frac13\right)^{2x-1} < \frac19$.
-
-$\frac19 = \left(\frac13\right)^2$. Base $<1$ → flip: $2x-1 > 2$ → $x > \frac32$.
-
-> **Answer**: $x > \frac32$
+> **Answer**: (a) $2$ (b) $15^x$ (c) $32$
 
 ---
 
-### A5. Solve $5^{2x} - 6\cdot 5^x + 5 = 0$.
+### A3. Cancellation identities.
 
-$t=5^x$: $t^2 - 6t + 5 = 0$ → $(t-1)(t-5)=0$ → $t=1,5$ → $x=0,1$.
+(a) $e^{\ln(x^2+1)} = x^2+1$ (argument $x^2+1>0$ always).
+
+(b) $\ln(e^{3x+1}) = 3x+1$.
+
+(c) $e^{2\ln x} = e^{\ln(x^2)} = x^2$ ($x>0$).
+
+(d) $e^{x\ln 2} = 2^x$.
+
+Equations: $e^{x\ln2}=8$ → $2^x = 8$ → $x=3$. $e^{x\ln3}=\frac19$ → $3^x = 3^{-2}$ → $x=-2$.
+
+> **Answer**: (a) $x^2+1$ (b) $3x+1$ (c) $x^2$ (d) $2^x$; then $x=3$ and $x=-2$
+
+---
+
+### A4. Log expansion.
+
+(a) $\ln\frac{x^2+1}{x-1} = \ln(x^2+1) - \ln(x-1)$
+
+(b) $\ln(x^3\sqrt{x+2}) = 3\ln x + \frac12\ln(x+2)$
+
+(c) $\ln(x^x) = x\ln x$
+
+(d) $\ln\frac{(x+1)^2}{e^x} = 2\ln(x+1) - x$
+
+Reverse: $\ln(x^2-1) = \ln(x-1) + \ln(x+1)$; $\ln(e^x\cdot 2^x) = x + x\ln 2 = x(1+\ln2)$.
+
+> **Answer**: (a) $\ln(x^2+1)-\ln(x-1)$ (b) $3\ln x+\frac12\ln(x+2)$ (c) $x\ln x$ (d) $2\ln(x+1)-x$; reverse: $\ln(x-1)+\ln(x+1)$, $x(1+\ln2)$
+
+---
+
+### A5. Solve $2^{2x+1} - 3\cdot2^{x+1} + 4 = 0$.
+
+$2\cdot 2^{2x} - 6\cdot 2^x + 4 = 0$. Divide by 2, let $t=2^x$: $t^2 - 3t + 2 = 0$ → $(t-1)(t-2)=0$ → $t=1,2$ (both $>0$ ✓) → $x=0,1$.
 
 > **Answer**: $x=0$ or $x=1$
 
 ---
 
-### A6. Compute $\log_2 3 \cdot \log_3 4 \cdot \log_4 8$.
+### A6. Solve $\log_2(x+1) - \log_4(x+3) = 1$.
 
-Chain the formula $\log_a b \cdot \log_b c = \log_a c$:
-$\log_2 3 \cdot \log_3 4 = \log_2 4 = 2$, then $\log_2 4 \cdot \log_4 8 = \log_2 8 = 3$.
+① Convert: $\log_4(x+3) = \frac12\log_2(x+3)$.
 
-> **Answer**: $3$
+② $\log_2(x+1) - \frac12\log_2(x+3) = 1$ → ×2: $\log_2\frac{(x+1)^2}{x+3} = 2$.
 
----
+③ $\frac{(x+1)^2}{x+3} = 4$ → $(x+1)^2 = 4(x+3)$ → $x^2 - 2x - 11 = 0$ → $x = 1\pm 2\sqrt3$.
 
-### A7. Solve $\log_2(x^2 - 5x + 6) \leq 1$.
+④ Arguments: $x>-1$. $1+2\sqrt3\approx4.46$ ✓; $1-2\sqrt3\approx-2.46$ ✗.
 
-① Remove log (base $>1$, keep sign): $x^2 - 5x + 6 \leq 2$ → $x^2 - 5x + 4 \leq 0$ → $(x-1)(x-4)\leq 0$ → $1 \leq x \leq 4$.
-
-② Arguments $>0$: $x^2-5x+6>0$ → $(x-2)(x-3)>0$ → $x<2$ or $x>3$.
-
-③ Intersect: $[1,2) \cup (3,4]$.
-
-> **Answer**: $[1,2) \cup (3,4]$
+> **Answer**: $x = 1+2\sqrt3$
 
 ---
 
-### A8. Solve $\ln(2x+1) - \ln(x-2) = 1$.
+### A7. Solve $\log_{\frac12}(x^2-3x) > -2$.
 
-① Combine: $\ln\frac{2x+1}{x-2} = 1$ → $\frac{2x+1}{x-2} = e$.
+① Base $\frac12<1$ → flip: $x^2-3x < (\frac12)^{-2} = 4$ → $x^2-3x-4<0$ → $(x-4)(x+1)<0$ → $-1<x<4$.
 
-② $2x+1 = e(x-2) = ex - 2e$ → $x(2-e) = -2e - 1$ → $x = \frac{2e+1}{e-2}$.
+② Arguments: $x^2-3x>0$ → $x(x-3)>0$ → $x<0$ or $x>3$.
 
-③ Check: $\frac{2e+1}{e-2} \approx \frac{6.436}{0.718} \approx 8.96 > 2$ ✓ (both arguments positive).
+③ Intersect: $(-1,0)\cup(3,4)$.
 
-> **Answer**: $x = \frac{2e+1}{e-2}$
-
----
-
-### A9. Solve $x^{\log_3 x} = 81$.
-
-Take $\log_3$: $(\log_3 x)^2 = 4$ → $\log_3 x = \pm 2$ → $x = 3^2 = 9$ or $x = 3^{-2} = \frac19$.
-
-> **Answer**: $x = 9$ or $x = \frac19$
+> **Answer**: $(-1,0)\cup(3,4)$
 
 ---
 
-### A10. Solve $e^{2x} - 5e^x + 6 = 0$.
+### A8. Solve $x^{\log_2 x} = 8x^2$.
 
-$t = e^x$: $t^2 - 5t + 6 = 0$ → $(t-2)(t-3)=0$ → $t=2,3$ → $x = \ln 2, \ln 3$.
+Take $\log_2$: $(\log_2 x)^2 = 3 + 2\log_2 x$. Let $t=\log_2 x$: $t^2-2t-3=0$ → $(t-3)(t+1)=0$ → $t=3,-1$ → $x=8,\frac12$.
 
-> **Answer**: $x = \ln 2$ or $x = \ln 3$
+> **Answer**: $x=8$ or $x=\frac12$
+
+---
+
+### A9. Solve $2^x\cdot3^x = 24$.
+
+$6^x = 24$ → $x = \log_6 24 = \frac{\ln24}{\ln6}$. Also $\log_6 24 = \log_6(6\cdot4) = 1 + \log_6 4$.
+
+> **Answer**: $x = \log_6 24 = 1 + \log_6 4$
+
+---
+
+### A10. Solve $3^{2x+1} - 4\cdot3^x + 1 = 0$.
+
+$3\cdot3^{2x} - 4\cdot3^x + 1 = 0$. Let $t=3^x$: $3t^2 - 4t + 1 = 0$ → $(3t-1)(t-1)=0$ → $t=\frac13,1$ (both $>0$ ✓) → $x=-1,0$.
+
+> **Answer**: $x=-1$ or $x=0$

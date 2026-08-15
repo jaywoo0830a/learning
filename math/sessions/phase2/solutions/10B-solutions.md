@@ -100,7 +100,7 @@ $\text{pH} = -\log[\text{H}^+] = 4.5$ → $[\text{H}^+] = 10^{-4.5} \approx 3.16
 
 ## Basic Drills
 
-### D1. $1000$ at 6% compounded quarterly for 2 years.
+### D1. \$1000 at 6% compounded quarterly for 2 years.
 
 $A = 1000\left(1+\frac{0.06}{4}\right)^{4\cdot 2} = 1000(1.015)^8 \approx 1000(1.12649) = 1126.49$.
 
@@ -189,88 +189,112 @@ Check: $(\sqrt3)^{3\sqrt3} = (3\sqrt3)^{\sqrt3}$ (both equal $3^{3\sqrt3/2}$) �
 
 ## Advanced Drills
 
-### A1. Simplify $\frac{2^{n+3} - 2^{n+1}}{2^n}$.
+### A1. Differentiate via e-form.
 
-Factor the numerator: $2^{n}(2^3 - 2) = 2^n(8-2) = 6\cdot 2^n$. Divide by $2^n$: $6$.
+$2^x = e^{x\ln2}$ → $f'(x) = e^{x\ln2}\cdot\ln2 = 2^x\ln2$.
 
-> **Answer**: $6$
+$3^{2x+1} = e^{(2x+1)\ln3}$ → $f'(x) = 3^{2x+1}\cdot 2\ln3$.
 
----
+$10^x = e^{x\ln10}$ → $f'(x) = 10^x\ln10$.
 
-### A2. Solve $3^{2x} \cdot 9^{x+1} = \frac{1}{27}$.
+General: $\frac{d}{dx}a^x = a^x\ln a$ (chain rule on $e^{x\ln a}$).
 
-Write in base 3: $3^{2x}\cdot 3^{2x+2} = 3^{-3}$ → $3^{4x+2} = 3^{-3}$.
-
-$4x+2 = -3$ → $x = -\frac54$.
-
-> **Answer**: $x = -\frac54$
+> **Answer**: (a) $2^x\ln2$ (b) $2\cdot3^{2x+1}\ln3$ (c) $10^x\ln10$
 
 ---
 
-### A3. Simplify $\log_2 48 - \log_2 3$.
+### A2. Log derivatives.
 
-$\log_2\frac{48}{3} = \log_2 16 = 4$.
+$\log_2 x = \frac{\ln x}{\ln2}$ → $g'(x) = \frac1{x\ln2}$.
 
-> **Answer**: $4$
+$\ln(x^2+1)$ → $g'(x) = \frac{2x}{x^2+1}$.
 
----
+$\log_3(2x+1) = \frac{\ln(2x+1)}{\ln3}$ → $g'(x) = \frac{2}{(2x+1)\ln3}$.
 
-### A4. Compute $\log_2 5 \cdot \log_5 8 \cdot \log_8 3 \cdot \log_3 16$.
-
-Chain: $\log_2 5\cdot\log_5 8 = \log_2 8 = 3$; $\log_8 3\cdot\log_3 16 = \log_8 16 = \frac43$. Product $= 3\cdot\frac43 = 4$.
-
-> **Answer**: $4$
+> **Answer**: (a) $\frac1{x\ln2}$ (b) $\frac{2x}{x^2+1}$ (c) $\frac2{(2x+1)\ln3}$
 
 ---
 
-### A5. Simplify $\frac{\log_3 16}{\log_9 4}$.
+### A3. Logarithmic differentiation.
 
-$\log_3 16 = \frac{4\ln 2}{\ln 3}$; $\log_9 4 = \frac{2\ln 2}{2\ln 3} = \frac{\ln 2}{\ln 3}$. Ratio $= 4$.
+(a) $\ln y = \sin x\ln x$ → $\frac{y'}{y} = \cos x\ln x + \frac{\sin x}{x}$ → $y' = x^{\sin x}\left(\cos x\ln x + \frac{\sin x}{x}\right)$.
 
-> **Answer**: $4$
+(b) $\ln y = (\ln x)^2$ → $\frac{y'}{y} = \frac{2\ln x}{x}$ → $y' = x^{\ln x}\cdot\frac{2\ln x}{x}$.
 
----
-
-### A6. Simplify $\ln\left(\frac{e^3 \sqrt{e}}{e^{-2}}\right)$.
-
-Exponent of $e$: $3 + \frac12 + 2 = \frac{11}{2}$. $\ln e^{11/2} = \frac{11}{2}$.
-
-> **Answer**: $\frac{11}{2}$
+> **Answer**: (a) $x^{\sin x}(\cos x\ln x + \frac{\sin x}{x})$ (b) $\frac{2x^{\ln x}\ln x}{x}$
 
 ---
 
-### A7. Solve $\log_2(x-3) + \log_2(x+1) = 3$.
+### A4. Integration preview.
 
-① Combine: $\log_2[(x-3)(x+1)] = 3$ → $(x-3)(x+1) = 8$ → $x^2 - 2x - 11 = 0$.
+(a) $\int 2^x\,dx = \frac{2^x}{\ln2} + C$ (since $2^x = e^{x\ln2}$).
 
-② $x = \frac{2 \pm \sqrt{4+44}}{2} = 1 \pm 2\sqrt3$.
+(b) $\int 3^{2x}\,dx = \frac{3^{2x}}{2\ln3} + C$.
 
-③ Arguments: $x-3>0$ → $x>3$. $1+2\sqrt3 \approx 4.46$ ✓; $1-2\sqrt3 \approx -2.46$ ✗.
+(c) $\int \frac1x\,dx = \ln x + C$ ($x>0$).
 
-> **Answer**: $x = 1 + 2\sqrt3$
+(d) $\int e^{3x}\,dx = \frac{e^{3x}}3 + C$.
 
----
-
-### A8. Chain-simplify $\log_3 2 \cdot \log_4 3 \cdot \log_5 4 \cdot \log_6 5 \cdot \log_7 6 \cdot \log_8 7$.
-
-Telescoping: $\log_3 2\cdot\log_4 3 = \log_4 2$, ... all the way to $\log_8 7\cdot\log_7 6 \cdots$ → net result $\log_8 2 = \frac13$.
-
-> **Answer**: $\frac13$
+> **Answer**: (a) $\frac{2^x}{\ln2}+C$ (b) $\frac{3^{2x}}{2\ln3}+C$ (c) $\ln x+C$ (d) $\frac{e^{3x}}3+C$
 
 ---
 
-### A9. Solve $x^{\log_5 x} = 25x$.
+### A5. Lambert W, real solves.
 
-Take $\log_5$: $(\log_5 x)^2 = 2 + \log_5 x$ → $t^2 - t - 2 = 0$ → $t = 2, -1$.
+(a) $x\cdot2^x = 5$: $2^x = e^{x\ln2}$ → $x e^{x\ln2} = 5$ → $(x\ln2)e^{x\ln2} = 5\ln2$. Set $u=x\ln2$: $u e^u = 5\ln2$ → $u = W(5\ln2)$ → $x = \frac{W(5\ln2)}{\ln2}$. $5\ln2\approx3.466$, $W(3.466)\approx1.125$ → $x\approx1.623$.
 
-$x = 5^2 = 25$ or $x = 5^{-1} = \frac15$.
+(b) $x^x = 7$: $\ln x\,e^{\ln x} = \ln7$ → $\ln x = W(\ln7)$ → $x = e^{W(\ln7)}$. $\ln7\approx1.946$, $W(1.946)\approx0.840$ → $x\approx2.316$.
 
-> **Answer**: $x = 25$ or $x = \frac15$
+> **Answer**: (a) $x=\frac{W(5\ln2)}{\ln2}\approx1.623$ (b) $x=e^{W(\ln7)}\approx2.316$
 
 ---
 
-### A10. Bacteria doubles every 4 hours; from 1000 to 1,000,000.
+### A6. Power tower.
 
-$1000\cdot 2^{t/4} = 1{,}000{,}000$ → $2^{t/4} = 1000$ → $t = 4\log_2 1000 = 4\cdot\frac{\ln 1000}{\ln 2} \approx 4\cdot 9.966 \approx 39.86$.
+If the limit is $L$, then $x^L = L$, so $x = L^{1/L}$.
 
-> **Answer**: about **40 hours**
+(a) $L=3$: $x^3 = 3$ → $x = 3^{1/3}$.
+
+(b) $L=2$: $x^2 = 2$ → $x = \sqrt2$. Check: $(\sqrt2)^2 = 2$ ✓.
+
+(c) $x=\sqrt2 = 4^{1/4}$ is an algebraic root of $x^4=4$, but the infinite tower converges only for $x\in[e^{-e}, e^{1/e}]\approx[0.0659,1.4447]$, and its maximum limit is $e\approx2.718$. Since $4>e$, the tower cannot converge to 4.
+
+> **Answer**: (a) $3^{1/3}$ (b) $\sqrt2$ (c) $4>e$ = maximum convergent limit
+
+---
+
+### A7. $\ln(1+x) \leq x$.
+
+(a) $\ln\left(1+\frac1n\right)^n = n\ln(1+\frac1n) \leq n\cdot\frac1n = 1$ → exponentiate: $\left(1+\frac1n\right)^n \leq e$.
+
+(b) $\ln(n+1) = \sum_{k=1}^n\ln\left(1+\frac1k\right) \leq \sum_{k=1}^n\frac1k = 1+\frac12+\cdots+\frac1n$.
+
+> **Answer**: (a) as above (b) as above
+
+---
+
+### A8. Stirling, 30!.
+
+$\log_{10}(30!) \approx \frac{30\ln30 - 30 + \frac12\ln(2\pi\cdot30)}{\ln10} = \frac{102.04 - 30 + 2.62}{2.3026} = \frac{74.66}{2.3026}\approx32.42$. Since $\log_{10}(30!)\in[32,33)$, $30!$ has **33 digits**.
+
+> **Answer**: 33 digits
+
+---
+
+### A9. Richter scale.
+
+$M = \log_{10}(A/A_0)$. If $A\to100A$: $M\to\log_{10}(100A/A_0) = M + \log_{10}100 = M+2$. Magnitude increases by **2**.
+
+$E\propto A^{3/2}$ → $\log_{10}E = \frac32\log_{10}A + \text{const}$. A magnitude increase of 1 means $\log_{10}A$ increases by 1 → $\log_{10}E$ increases by $\frac32$ → $E$ multiplies by $10^{3/2}\approx31.6$.
+
+> **Answer**: magnitude +2; energy × about 31.6
+
+---
+
+### A10. Growth rate.
+
+$N(t) = 200\cdot3^{t/5}$. Set $N=100{,}000$: $3^{t/5}=500$ → $t = 5\log_3 500 = 5\cdot\frac{\ln500}{\ln3} = 5\cdot\frac{6.2146}{1.0986}\approx28.3$ hours.
+
+e-form: $N(t) = 200e^{(t/5)\ln3}$ → $N'(t) = N(t)\cdot\frac{\ln3}{5}$. At $N=100{,}000$: $N' = 100{,}000\cdot\frac{1.0986}{5}\approx21{,}972$ cells/hour.
+
+> **Answer**: about 28.3 hours; growth rate ≈ 21,972 cells/hour

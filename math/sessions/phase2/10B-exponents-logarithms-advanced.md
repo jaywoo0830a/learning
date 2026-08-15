@@ -10,7 +10,7 @@
 
 ---
 
-## Example 17: Compound Interest and Continuous Compounding
+## Example 1: Compound Interest and Continuous Compounding
 
 **Ordinary compound interest**: $A = P\left(1 + \frac{r}{n}\right)^{nt}$.
 $n$ = number of compoundings per year. As $n \to \infty$, continuous compounding: $A = Pe^{rt}$.
@@ -22,7 +22,7 @@ Continuous: $1{,}000{,}000 \cdot e^{0.15} = 1{,}161{,}834$ won.
 
 ---
 
-## Example 18: Half-Life and Doubling Time
+## Example 2: Half-Life and Doubling Time
 
 **Half-life** $t_{1/2}$: time for quantity to halve.
 $N(t) = N_0 e^{-kt}$, $k = \frac{\ln 2}{t_{1/2}}$.
@@ -35,7 +35,7 @@ From 100g to 25g = 2 half-lives = 11460 years.
 
 ---
 
-## Example 19: pH, Decibels, Richter Scale — All Log Scales!
+## Example 3: pH, Decibels, Richter Scale — All Log Scales!
 
 **pH**: $\text{pH} = -\log[\text{H}^+]$.
 Neutral: $[\text{H}^+] = 10^{-7}$ → pH = 7.
@@ -50,10 +50,10 @@ Magnitude 5 → 6: amplitude ×10, energy ≈ ×32.
 
 ---
 
-## Example 20: Exponential Growth vs. Log Growth
+## Example 4: Exponential Growth vs. Log Growth
 
 Exponential $2^x$: $x=10$ → 1024. $x=20$ → about 1,000,000. Explosive.
-Logarithmic $\log_2 x$: $x=1024$ → 10. $x=$1,000,000 → about 20. Sluggish.
+Logarithmic $\log_2 x$: $x=1024$ → 10. $x = 1{,}000{,}000$ → about 20. Sluggish.
 
 When data spans a huge range, use log scale:
 1, 10, 100, 1000 → on log scale: 0, 1, 2, 3 — evenly spaced.
@@ -85,7 +85,7 @@ Without log scales, we could not draw this on a single sheet of paper.
 
 ---
 
-## Example 21: The Power Tower — Iterated Exponentiation (Tetration)
+## Example 5: The Power Tower — Iterated Exponentiation (Tetration)
 
 What is $x^{x^{x^{\cdot^{\cdot^{\cdot}}}}} = 2$? That is, an infinite stack of $x$ raised to $x$ raised to $x$...
 
@@ -102,7 +102,7 @@ So $x^2 = 2$ → $x = \sqrt{2}$.
 
 ---
 
-## Example 22: The Lambert $W$ Function — Solving $x e^x = k$
+## Example 6: The Lambert $W$ Function — Solving $x e^x = k$
 
 The equation $x e^x = 5$ cannot be solved with elementary functions. The Lambert $W$ function is defined as the inverse of $f(x) = x e^x$:
 $W(k)$ is the solution to $W e^W = k$.
@@ -125,7 +125,7 @@ $W(k)$ is the solution to $W e^W = k$.
 
 ---
 
-## Example 23: The Log-Sum-Exp Trick (Numerical Stability)
+## Example 7: The Log-Sum-Exp Trick (Numerical Stability)
 
 When computing $\ln(e^{1000} + e^{1001})$ directly, $e^{1000}$ overflows double-precision floats. The log-sum-exp trick:
 
@@ -138,7 +138,7 @@ This is how machine learning libraries compute stable softmax and cross-entropy.
 
 ---
 
-## Example 24: Logarithmic Differentiation — Tackle Messy Products and Powers
+## Example 8: Logarithmic Differentiation — Tackle Messy Products and Powers
 
 > **Note**: This technique relies on implicit differentiation, which is taught properly in **Session 14B** (Example 10). Here we preview the idea — by the end of 14B it will be a routine tool.
 
@@ -160,7 +160,7 @@ More generally, for $y = f(x)^{g(x)}$:
 
 ---
 
-## Example 25: The AM–GM Inequality via Logs (Jensen)
+## Example 9: The AM–GM Inequality via Logs (Jensen)
 
 For positive numbers $x_1, \ldots, x_n$, the arithmetic mean is at least the geometric mean:
 $\frac{x_1+\cdots+x_n}{n} \geq \sqrt[n]{x_1\cdots x_n}$.
@@ -175,7 +175,7 @@ By AM–GM on pairs: $\frac{a^2+b^2}{2} \geq ab$, $\frac{b^2+c^2}{2} \geq bc$, $
 
 ---
 
-## Example 26: The Inequality $\ln(1+x) \leq x$ for $x > -1$
+## Example 10: The Inequality $\ln(1+x) \leq x$ for $x > -1$
 
 From the graph of $\ln(1+x)$: it lies below its tangent line $y=x$ at $x=0$.
 This inequality is a workhorse of analysis.
@@ -190,7 +190,7 @@ This inequality is a workhorse of analysis.
 
 ---
 
-## Example 27: Benford's Law — Why 1 Appears Most Often as the First Digit
+## Example 11: Benford's Law — Why 1 Appears Most Often as the First Digit
 
 In many real-world datasets (populations, stock prices, physical constants), the first digit $d$ occurs with probability $P(d) = \log_{10}\!\left(1 + \frac{1}{d}\right)$.
 
@@ -202,7 +202,7 @@ This is used to detect **fraud**: people fabricating numbers tend to distribute 
 
 ---
 
-## Example 28: Solving $a^b = b^a$ Type Equations
+## Example 12: Solving $a^b = b^a$ Type Equations
 
 The equation $x^y = y^x$ for $x \neq y$ has nontrivial positive solutions. Take $\ln$:
 $y\ln x = x\ln y$ → $\frac{\ln x}{x} = \frac{\ln y}{y}$.
@@ -217,7 +217,7 @@ $f(t)$ increases on $(0, e]$, peaks at $t=e$ with $f(e)=1/e$, then decreases. Fo
 
 ---
 
-## Example 29: Stirling's Approximation — Factorials via Logs
+## Example 13: Stirling's Approximation — Factorials via Logs
 
 $\ln(n!) = \sum_{k=1}^n \ln k$. Approximate by an integral:
 $\ln(n!) \approx n\ln n - n + O(\ln n)$.
@@ -232,7 +232,7 @@ This log-integral technique is the only practical way to estimate huge factorial
 
 ---
 
-## Example 30: The Sophomore's Dream — When a Series Swaps Sum and Integral
+## Example 14: The Sophomore's Dream — When a Series Swaps Sum and Integral
 
 The identity $\int_0^1 x^{-x} dx = \sum_{n=1}^\infty n^{-n}$ connects integration and infinite series.
 Write $x^{-x} = e^{-x\ln x} = \sum_{n=0}^\infty \frac{(-x\ln x)^n}{n!}$.
@@ -279,7 +279,7 @@ You encounter an exponential or logarithmic equation:
 
 ---
 
-## Example 31: Decision Tree in Action — Classify Before Solving
+## Example 15: Decision Tree in Action — Classify Before Solving
 
 **Type 1 — Base unification**: $2^{x+2} = 4^{x-1}$ → $2^{x+2} = 2^{2x-2}$ → $x+2=2x-2$ → $x=4$.
 
@@ -328,7 +328,7 @@ You encounter an exponential or logarithmic inequality:
 
 ---
 
-## Example 32: Inequality Decision Tree in Action
+## Example 16: Inequality Decision Tree in Action
 
 **Base > 1 log inequality**: $\log_3(x^2-1) > \log_3(x+5)$.
 (1) Base > 1 → $x^2-1 > x+5$ AND both arguments > 0.
@@ -350,6 +350,78 @@ You encounter an exponential or logarithmic inequality:
 (2) $1 < \log_2 x < 2$ → $2^1 < x < 2^2$ → $2 < x < 4$.
 
 > **Up to here**: Decision trees unify all equation types (base unification, t-substitution, log-combine, Lambert W, power tower) and all inequality types (base direction, argument constraints, quadratic substitutions).
+
+---
+
+## Part D: Calculus Preview — Exponent/Log Manipulation
+
+> The Advanced drills preview the exponent/log manipulation techniques calculus needs (formally covered in sessions 14–16): differentiating $a^x$ and $\log_a x$ via the e-form, integrating $a^x$ and $1/x$, reading growth rates off exponential models, and manipulating log scales.
+
+---
+
+## Example 17: Differentiating $a^x$ and $\log_a x$ — via the e-form
+
+**Exponentials**: rewrite $a^x = e^{x\ln a}$, then apply the chain rule.
+$\frac{d}{dx}a^x = \frac{d}{dx}e^{x\ln a} = e^{x\ln a}\cdot\ln a = a^x\ln a$.
+
+$f(x) = 2^x$ → $f'(x) = 2^x\ln2$.
+$f(x) = 3^{2x+1}$ → $f'(x) = 3^{2x+1}\cdot 2\ln3$ (chain rule on the $2x+1$).
+$f(x) = 10^x$ → $f'(x) = 10^x\ln10$.
+
+**Logs**: rewrite $\log_a x = \frac{\ln x}{\ln a}$.
+$\frac{d}{dx}\log_a x = \frac{d}{dx}\frac{\ln x}{\ln a} = \frac{1}{x\ln a}$.
+
+$g(x) = \log_2 x$ → $g'(x) = \frac{1}{x\ln2}$.
+$g(x) = \ln(x^2+1)$ → $g'(x) = \frac{2x}{x^2+1}$.
+$g(x) = \log_3(2x+1)$ → $g'(x) = \frac{2}{(2x+1)\ln3}$.
+
+**The two formulas to keep**: $\frac{d}{dx}a^x = a^x\ln a$ and $\frac{d}{dx}\log_a x = \frac{1}{x\ln a}$.
+Setting $a=e$ gives the clean pair $\frac{d}{dx}e^x = e^x$ and $\frac{d}{dx}\ln x = \frac1x$ — this is why the e-form matters.
+
+---
+
+## Example 18: Integrating $a^x$ and $1/x$ — the e-form in reverse
+
+Differentiation told us $(a^x)' = a^x\ln a$, so integration runs it backwards:
+$\int a^x\,dx = \frac{a^x}{\ln a} + C$.
+
+$\int 2^x\,dx = \frac{2^x}{\ln2} + C$.
+$\int 3^{2x}\,dx = \frac{3^{2x}}{2\ln3} + C$ (since $3^{2x} = e^{2x\ln3}$ and $\int e^{kx}dx = \frac{e^{kx}}{k}$).
+$\int e^{3x}\,dx = \frac{e^{3x}}{3} + C$.
+
+**The one that ties back to 10A**: $\int \frac1x\,dx = \ln x + C$.
+In 10A we met the log as the area under $y=1/x$; this integral is exactly that area function. Every other base was easy through the e-form; this one is special because $(\ln x)' = 1/x$.
+
+---
+
+## Example 19: Growth Rate — the Derivative of an Exponential Model
+
+An exponential model $N(t) = N_0 a^{t/T}$ (multiplies by $a$ every $T$ units of time) in e-form:
+$N(t) = N_0 e^{(t/T)\ln a}$.
+
+Derivative: $N'(t) = N_0\cdot\frac{\ln a}{T}\cdot e^{(t/T)\ln a} = \frac{\ln a}{T}N(t)$.
+
+**Key insight**: the growth rate is *proportional to the current size* — $N' = kN$ with $k = \frac{\ln a}{T}$. That $k$ is the same growth/decay constant from Example 2.
+
+**Worked example**: a bacterium culture triples every 5 hours, starting from 200 cells.
+(1) Model: $N(t) = 200\cdot3^{t/5} = 200e^{(t/5)\ln3}$.
+(2) Time to reach 100,000: $3^{t/5} = 500$ → $t = 5\log_3 500 = 5\cdot\frac{\ln500}{\ln3} = 5\cdot\frac{6.2146}{1.0986}\approx28.3$ hours.
+(3) Growth rate at that instant: $N'(t) = \frac{\ln3}{5}N(t)$. At $N=100{,}000$: $N' = 100{,}000\cdot\frac{1.0986}{5}\approx21{,}972$ cells/hour.
+
+---
+
+## Example 20: Log Manipulation on a Log Scale — Richter Energy
+
+$M = \log_{10}(A/A_0)$: magnitude is the log of the amplitude ratio.
+
+**Amplitude × 100**: $M \to \log_{10}(100A/A_0) = M + \log_{10}100 = M+2$. Magnitude increases by 2.
+
+**Energy**: $E \propto A^{3/2}$. Take $\log_{10}$: $\log_{10}E = \frac32\log_{10}A + \text{const}$.
+A magnitude increase of 1 means $\log_{10}A$ increases by 1 → $\log_{10}E$ increases by $\frac32$ → $E$ multiplies by $10^{3/2}\approx31.6$.
+
+So magnitude 5 → 6 is 10× the amplitude but about 32× the energy — the $\frac32$ in front of the log is the whole story.
+
+> **Up to here**: calculus preview — $\frac{d}{dx}a^x=a^x\ln a$, $\frac{d}{dx}\log_a x=\frac{1}{x\ln a}$, $\int a^x dx=\frac{a^x}{\ln a}$, $\int\frac1x dx=\ln x$, and exponential growth rate $N'=\frac{\ln a}{T}N$.
 
 ---
 
@@ -405,7 +477,7 @@ You encounter an exponential or logarithmic inequality:
 A radioactive substance decays 8% per year. Starting with 500g, find when it falls below 100g.
 $500(0.92)^t < 100$. Take $\log$ of both sides.
 
-→ Reference: **Example 18**
+→ Reference: **Example 2**
 
 > Solutions: [Solutions](solutions/10B-solutions.md#practice-1)
 
@@ -416,7 +488,7 @@ $500(0.92)^t < 100$. Take $\log$ of both sides.
 $x \cdot 3^x = 9$. Use the Lambert $W$ technique:
 rewrite $3^x = e^{x\ln 3}$, multiply by $\ln 3$, match $u e^u$ form.
 
-→ Reference: **Example 22**
+→ Reference: **Example 6**
 
 > Solutions: [Solutions](solutions/10B-solutions.md#practice-2)
 
@@ -428,7 +500,7 @@ Show that the infinite power tower $x^{x^{x^{\cdot^{\cdot^{\cdot}}}}}$ converges
 Then solve $x^{x^{x^{\cdot^{\cdot^{\cdot}}}}} = y$ for $x$ in terms of $y$, and evaluate for $y = e$.
 Hint: if the limit is $L$, then $x^L = L$, so $x = L^{1/L}$.
 
-→ Reference: **Example 21**
+→ Reference: **Example 5**
 
 > Solutions: [Solutions](solutions/10B-solutions.md#practice-3)
 
@@ -438,7 +510,7 @@ Hint: if the limit is $L$, then $x^L = L$, so $x = L^{1/L}$.
 
 Use logarithmic differentiation to find $dy/dx$ for $y = (\sin x)^{\cos x}$.
 
-→ Reference: **Example 24**
+→ Reference: **Example 8**
 
 > Solutions: [Solutions](solutions/10B-solutions.md#practice-4)
 
@@ -448,7 +520,7 @@ Use logarithmic differentiation to find $dy/dx$ for $y = (\sin x)^{\cos x}$.
 
 The pH of a solution is 4.5. Find the hydrogen ion concentration $[\text{H}^+]$.
 
-→ Reference: **Example 19**
+→ Reference: **Example 3**
 
 > Solutions: [Solutions](solutions/10B-solutions.md#practice-5)
 
@@ -458,7 +530,7 @@ The pH of a solution is 4.5. Find the hydrogen ion concentration $[\text{H}^+]$.
 
 How many digits does $50!$ have? Use Stirling's approximation.
 
-→ Reference: **Example 29**
+→ Reference: **Example 13**
 
 > Solutions: [Solutions](solutions/10B-solutions.md#practice-6)
 
@@ -468,7 +540,7 @@ How many digits does $50!$ have? Use Stirling's approximation.
 
 > Pure computation with real-world and advanced techniques.
 
-**D1.** $1000 is invested at 6% annual interest compounded quarterly. Compute the amount after 2 years. Use $A = P(1 + r/n)^{nt}$.
+**D1.** \$1000 is invested at 6% annual interest compounded quarterly. Compute the amount after 2 years. Use $A = P(1 + r/n)^{nt}$.
 
 **D2.** A substance has half-life 10 hours. Find the decay constant $k$ (use $k = \ln 2 / t_{1/2}$). What fraction remains after 25 hours?
 
@@ -494,27 +566,27 @@ How many digits does $50!$ have? Use Stirling's approximation.
 
 ## Advanced Drills
 
-> Intensive computation. These target the intermediate steps most students skip. Work each one fully.
+> Advanced techniques + **calculus exponent/log manipulation**. Derivatives and integrals are formally covered in sessions 14–16; here we preview the exponent/log manipulation techniques calculus needs — e-form differentiation, log differentiation, and integration of $a^x$.
 
-**A1.** Simplify $\frac{2^{n+3} - 2^{n+1}}{2^{n}}$. Express as an integer.
+**A1.** (differentiate via e-form) Find $f'(x)$: (a) $f(x) = 2^x$, (b) $f(x) = 3^{2x+1}$, (c) $f(x) = 10^x$. Convert each to $e^{x\ln a}$ first, and derive the general formula $\frac{d}{dx}a^x = a^x \ln a$.
 
-**A2.** Solve for $x$: $3^{2x} \cdot 9^{x+1} = \frac{1}{27}$.
+**A2.** (log derivatives) Find $g'(x)$: (a) $g(x) = \log_2 x$, (b) $g(x) = \ln(x^2+1)$, (c) $g(x) = \log_3(2x+1)$. Use $\log_a x = \frac{\ln x}{\ln a}$.
 
-**A3.** Simplify $\log_2 48 - \log_2 3$. Express as a rational number.
+**A3.** (logarithmic differentiation, complete) Find $dy/dx$: (a) $y = x^{\sin x}$, (b) $y = x^{\ln x}$. Take $\ln$ of both sides and differentiate implicitly.
 
-**A4.** Compute $\log_2 5 \cdot \log_5 8 \cdot \log_8 3 \cdot \log_3 16$. (Hint: chain the change-of-base formula.)
+**A4.** (integration preview) Compute: (a) $\int 2^x\,dx$, (b) $\int 3^{2x}\,dx$, (c) $\int \frac{1}{x}\,dx$, (d) $\int e^{3x}\,dx$. Convert to e-form and use $\int e^{kx}\,dx = \frac{e^{kx}}{k}$.
 
-**A5.** Simplify $\frac{\log_3 16}{\log_9 4}$. Express as a rational number.
+**A5.** (Lambert W, real solves) Solve: (a) $x\cdot 2^x = 5$, (b) $x^x = 7$. Rearrange to $u e^u = k$, express via $W$, and give a numerical approximation.
 
-**A6.** Write $\ln\!\left(\frac{e^3 \sqrt{e}}{e^{-2}}\right)$ as a single simplified number.
+**A6.** (power tower) Solve: (a) $x^{x^{x^{\cdots}}} = 3$, (b) $x^{x^{x^{\cdots}}} = 2$. Then (c) explain why $x = \sqrt{2}$ can never make the tower converge to 4, using the convergence range $[e^{-e}, e^{1/e}]$.
 
-**A7.** Solve $\log_2(x-3) + \log_2(x+1) = 3$. Check all arguments after solving.
+**A7.** ($\ln(1+x) \leq x$) (a) Prove $\left(1+\frac{1}{n}\right)^n \leq e$ for every positive integer $n$. (b) Prove $\ln(n+1) \leq 1 + \frac12 + \cdots + \frac1n$.
 
-**A8.** Chain-simplify: $\log_3 2 \cdot \log_4 3 \cdot \log_5 4 \cdot \log_6 5 \cdot \log_7 6 \cdot \log_8 7$. Express as a rational number.
+**A8.** (Stirling) How many digits does $30!$ have? Compute $\log_{10}(30!) \approx \frac{30\ln 30 - 30 + \frac12\ln(2\pi\cdot 30)}{\ln 10}$.
 
-**A9.** Solve: $x^{\log_5 x} = 25x$. Take $\log_5$ of both sides.
+**A9.** (log scale + exponent/log manipulation) On the Richter scale $M = \log_{10}(A/A_0)$: by how much does $M$ increase when the amplitude rises by a factor of 100? If energy $E \propto A^{3/2}$, how many times larger is the energy for a magnitude increase of 1?
 
-**A10.** A bacteria culture doubles every 4 hours. Starting with 1000 cells, how many hours until it reaches 1,000,000? Use $N(t) = N_0 \cdot 2^{t/4}$.
+**A10.** (real battle — growth rate) A bacterium culture triples every 5 hours. Starting from 200 cells, find the time to reach 100,000, then find the growth rate (cells per hour) at that instant using the e-form derivative.
 
 > Solutions: [Solutions](solutions/10B-solutions.md#advanced-drill)
 

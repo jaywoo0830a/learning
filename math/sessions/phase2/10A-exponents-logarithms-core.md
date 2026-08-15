@@ -315,6 +315,72 @@ $x^{\log_3 x} = 9x$.
 
 ---
 
+## Part D: Calculus Preparation — The e-Form and Mixed Log Bases
+
+> The Advanced drills use two weapons that calculus will demand: ① the **e-form** — rewriting every $a^x$ as $e^{x\ln a}$; ② handling **different log bases inside one equation**.
+
+---
+
+## Example 17: The e-Form — Every Exponential Becomes $e^{\cdots}$
+
+Since $a = e^{\ln a}$, any exponential can be rewritten in base $e$:
+
+**The conversion**: $a^x = \left(e^{\ln a}\right)^x = e^{x\ln a}$.
+
+$2^x = e^{x\ln 2}$.
+$3^{2x+1} = e^{(2x+1)\ln 3}$.
+$10^{x-1} = e^{(x-1)\ln 10}$.
+$\left(\frac{1}{2}\right)^x = 2^{-x} = e^{-x\ln 2}$.
+
+**The cancellation identities** (going the other way):
+$e^{\ln x} = x$ (exponentiation undoes the log).
+$\ln(e^x) = x$ (the log undoes exponentiation).
+$e^{2\ln x} = e^{\ln(x^2)} = x^2$.
+$e^{x\ln 2} = 2^x$.
+
+**Why it matters**: calculus can differentiate and integrate base-$e$ exponentials directly, but not other bases. The e-form is the bridge that turns any $a^x$ into something calculus can handle. It also works when bases *cannot* be unified — e.g. $3^x\cdot5^x = e^{x\ln3}\cdot e^{x\ln5} = e^{x(\ln3+\ln5)} = 15^x$.
+
+---
+
+## Example 18: Dual Methods — Exponent Laws vs. the e-Form
+
+Whenever you simplify, check twice: once with exponent laws, once with the e-form. Both must agree.
+
+$8^x \cdot 2^{1-3x}$:
+(1) Exponent laws: $8^x\cdot2^{1-3x} = 2^{3x}\cdot2^{1-3x} = 2^1 = 2$.
+(2) e-form: $e^{3x\ln2}\cdot e^{(1-3x)\ln2} = e^{(3x+1-3x)\ln2} = e^{\ln2} = 2$. Same answer ✓.
+
+**Solving with the e-form**: $e^{x\ln2} = 8$ → (the e-form is just $2^x$ in disguise) $2^x = 8$ → $x = 3$.
+
+**When the bases can't be unified**: $2^x\cdot3^x = 24$.
+(1) $6^x = 24$ → $x = \log_6 24$.
+(2) Better: $\log_6 24 = \log_6(6\cdot4) = \log_6 6 + \log_6 4 = 1 + \log_6 4$.
+
+---
+
+## Example 19: Different Log Bases Inside One Equation
+
+Two different log bases in one equation: convert one base to the other.
+
+**The fractional-base rule**: $\log_{a^k} b = \frac{\ln b}{\ln a^k} = \frac{\ln b}{k\ln a} = \frac{1}{k}\log_a b$.
+
+$\log_4(x+3) = \frac{1}{2}\log_2(x+3)$. $\log_8 x = \frac{1}{3}\log_2 x$.
+
+**Example**: $\log_2(x+1) - \log_4(x+3) = 1$.
+(1) Convert: $\log_2(x+1) - \frac12\log_2(x+3) = 1$.
+(2) ×2: $2\log_2(x+1) - \log_2(x+3) = 2$ → $\log_2\frac{(x+1)^2}{x+3} = 2$.
+(3) $\frac{(x+1)^2}{x+3} = 4$ → $(x+1)^2 = 4(x+3)$ → $x^2 - 2x - 11 = 0$ → $x = 1\pm2\sqrt3$.
+(4) Arguments: $x+1>0$, $x+3>0$ → $x>-1$. Keep $x = 1+2\sqrt3$; discard $1-2\sqrt3 < -1$. ✓
+
+**Example**: $\log_2 x + \log_8 x = 4$.
+(1) $\log_2 x + \frac13\log_2 x = \frac43\log_2 x = 4$.
+(2) $\log_2 x = 3$ → $x = 8$.
+
+> **Up to here**: e-form $a^x = e^{x\ln a}$ + cancellation identities. Dual methods for self-checking.
+> Mixed log bases → fractional-base rule $\log_{a^k}b = \frac1k\log_a b$.
+
+---
+
 ## Common Mistakes
 
 ### Mistake 1: Tearing $\log(x+y)$ as $\log x + \log y$
@@ -508,27 +574,27 @@ $25^x + 5^{x+1} - 6 = 0$. Unify to base 5, then use $t = 5^x$.
 
 ## Advanced Drills
 
-> Multi-step equation solving. Each problem requires choosing the right weapon.
+> Core mastery + **calculus preparation**. Two new weapons: ① the **e-form conversion** — every $a^x$ becomes $e^{x\ln a}$ (the fundamental exponent manipulation calculus relies on); ② **log expansion/contraction** — the simplifying step you do *before* differentiating or integrating.
 
-**A1.** Solve for $x$: $2^{x+2} + 2^{x} = 40$. Factor out $2^x$.
+**A1.** (e-form) Convert each into the form $e^{kx+b}$: (a) $2^x$, (b) $3^{2x+1}$, (c) $10^{x-1}$, (d) $\left(\frac{1}{2}\right)^x$.
 
-**A2.** Solve for $x$: $9^{x} - 3^{x+1} + 2 = 0$. Let $t = 3^x$.
+**A2.** (double-check) Simplify each two ways — Method 1: exponent laws, Method 2: e-form — and confirm the answers agree: (a) $8^x \cdot 2^{1-3x}$, (b) $3^x \cdot 5^x$, (c) $\frac{4^{x+1}}{2^{2x-3}}$.
 
-**A3.** Solve for $x$: $\log_4(x+3) + \log_4(x-3) = 2$. Check arguments.
+**A3.** (cancellation identities) Simplify: (a) $e^{\ln(x^2+1)}$, (b) $\ln(e^{3x+1})$, (c) $e^{2\ln x}$, (d) $e^{x\ln 2}$. Then use (d) to solve $e^{x\ln 2} = 8$ and $e^{x\ln 3} = \frac{1}{9}$.
 
-**A4.** Solve the inequality: $\left(\frac{1}{3}\right)^{2x-1} < \frac{1}{9}$. Handle base < 1.
+**A4.** (log expansion — log-differentiation prep) Expand fully: (a) $\ln\left(\frac{x^2+1}{x-1}\right)$, (b) $\ln(x^3\sqrt{x+2})$, (c) $\ln(x^x)$, (d) $\ln\left(\frac{(x+1)^2}{e^x}\right)$. Then reverse: write $\ln(x^2-1)$ as a sum of two logs, and $\ln(e^x \cdot 2^x)$ as a linear expression in $x$.
 
-**A5.** Solve for $x$: $5^{2x} - 6 \cdot 5^{x} + 5 = 0$. Substitute $t = 5^x$.
+**A5.** Solve: $2^{2x+1} - 3\cdot 2^{x+1} + 4 = 0$. Clean up the coefficients first, then substitute $t = 2^x$.
 
-**A6.** Compute $\log_2 3 \cdot \log_3 4 \cdot \log_4 8$. Chain the change-of-base formula: $\log_a b \cdot \log_b c = \log_a c$.
+**A6.** (different log bases) Solve: $\log_2(x+1) - \log_4(x+3) = 1$. Convert $\log_4$ to $\log_2$, square carefully, and check arguments.
 
-**A7.** Solve the inequality: $\log_2(x^2 - 5x + 6) \leq 1$. Enforce arguments > 0.
+**A7.** (inequality + domain) Solve: $\log_{\frac{1}{2}}(x^2-3x) > -2$. Base $<1$ flips the sign; don't forget the argument condition.
 
-**A8.** Solve for $x$: $\ln(2x+1) - \ln(x-2) = 1$. Convert to exponential form.
+**A8.** (mixed type) Solve: $x^{\log_2 x} = 8x^2$. Take $\log_2$ of both sides, then substitute $t = \log_2 x$.
 
-**A9.** Solve for $x$: $x^{\log_3 x} = 81$. Take $\log_3$ of both sides.
+**A9.** (solve via e-form) Solve: $2^x \cdot 3^x = 24$. The bases can't be unified — use the e-form (or logs), and write the answer as $\log_6 24$, also as $1 + \log_6 4$.
 
-**A10.** Solve for $x$: $e^{2x} - 5e^{x} + 6 = 0$. Let $t = e^x$.
+**A10.** (real battle) Solve: $3^{2x+1} - 4\cdot 3^x + 1 = 0$. After substituting, check $t > 0$.
 
 > Solutions: [Solutions](solutions/10A-solutions.md#advanced-drill)
 
