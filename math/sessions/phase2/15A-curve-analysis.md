@@ -6,6 +6,8 @@
 
 > Derivatives tell us slope, curvature, and critical points. But add vectors, matrices, and parametric thinking — and curve analysis becomes a unified geometric language. Tangent lines are linear approximations (matrices). Normals are perpendicular directions (dot product = 0). Curvature is the rate of turning (vector derivatives). Every curve is a moving point whose behavior is governed by its velocity and acceleration.
 
+> 💡 **Stuck?** Every problem has a collapsible **Hint** below it — click it only when you need a nudge.
+
 ---
 
 ## Part A: Tangent and Normal Lines — Linear Geometry
@@ -222,6 +224,34 @@ $\kappa = \frac{|(-3)(2) - (0)(0)|}{((-3)^2+0^2)^{3/2}} = \frac{6}{27} = \frac{2
 
 ---
 
+## Common Mistakes
+
+### Mistake 1: Assuming $f'(x)=0$ always gives an extremum
+
+**Wrong**: "Since $f'(0)=0$ for $f(x)=x^3$, there is an extremum at $x=0$." **Right**: $x=0$ is NOT an extremum — $f'$ never changes sign (it's always $\geq 0$). An extremum requires a **sign change** of $f'$, not merely $f'=0$.
+
+### Mistake 2: Trusting only the 2nd derivative test
+
+**Wrong**: "At $x=0$ for $f(x)=x^4$, $f''(0)=0$ so it's inconclusive — I give up." **Right**: An inconclusive 2nd derivative test does NOT mean there's no extremum. $x^4$ clearly has a minimum — use the 1st derivative test (sign change of $f'$) when $f''=0$.
+
+### Mistake 3: Calling every $f''=0$ point an inflection point
+
+**Wrong**: "$f''(0)=0$, so $(0,0)$ is an inflection point of $f(x)=x^4$." **Right**: An inflection point requires $f''$ to **change sign**. For $x^4$, $f''(x)=12x^2 \geq 0$ everywhere — no sign change, no inflection.
+
+### Mistake 4: Forgetting $f'$ undefined points are critical candidates
+
+**Wrong**: "For $f(x)=|x^2-4|$, the only candidates are where $f'=0$." **Right**: Points where $f'$ is undefined (the sharp corners at $x=\pm 2$) are critical-point candidates too — there the function has cusps, not extrema.
+
+### Mistake 5: Forgetting the normal needs a nonzero slope
+
+**Wrong**: Writing the normal slope as $-1/f'(a)$ even when $f'(a)=0$. **Right**: When $f'(a)=0$ the tangent is horizontal, so the normal is **vertical** ($x=a$). Never divide by zero.
+
+### Mistake 6: Misusing the curvature formula
+
+**Wrong**: Writing $\kappa = |f''|$ or $\kappa = \frac{f''}{(1+(f')^2)}$. **Right**: $\kappa = \frac{|f''|}{(1+(f')^2)^{3/2}}$ — absolute value on top, $3/2$ power on the bottom.
+
+---
+
 ## What We Just Did
 
 ```
@@ -240,6 +270,13 @@ $\kappa = \frac{|(-3)(2) - (0)(0)|}{((-3)^2+0^2)^{3/2}} = \frac{6}{27} = \frac{2
 
 Find the tangent and normal lines to $f(x) = x^3$ at $x=1$. Verify the normal slope via the dot product condition.
 
+<details>
+<summary>💡 Hint</summary>
+
+Slope of the tangent is $f'(1) = 3$. The normal slope is the negative reciprocal $-\frac{1}{3}$. For the dot-product check, take tangent direction $(1,3)$ and normal direction $(1,-\frac13)$.
+
+</details>
+
 → Solutions: [Solutions](solutions/15A-solutions.md#practice-1)
 
 ---
@@ -247,6 +284,13 @@ Find the tangent and normal lines to $f(x) = x^3$ at $x=1$. Verify the normal sl
 ## Practice 2
 
 Find all local extrema of $f(x) = x^4 - 4x^3$ using both the first and second derivative tests. Note any point where the second derivative test is inconclusive.
+
+<details>
+<summary>💡 Hint</summary>
+
+Factor $f'(x) = 4x^2(x-3)$. Since $x^2 \geq 0$, the sign of $f'$ is just the sign of $(x-3)$ — so $x=0$ has no sign change. At $x=0$, $f''(0)=0$: the second derivative test is inconclusive; fall back on the first derivative test.
+
+</details>
 
 → Solutions: [Solutions](solutions/15A-solutions.md#practice-2)
 
@@ -256,13 +300,27 @@ Find all local extrema of $f(x) = x^4 - 4x^3$ using both the first and second de
 
 For the ellipse $\vec{r}(t) = (3\cos t,\; 2\sin t)$, find the tangent line at $t=\pi/3$ and the points where the tangent is horizontal or vertical.
 
+<details>
+<summary>💡 Hint</summary>
+
+$\vec{r}{\,}'(t) = (-3\sin t,\; 2\cos t)$; slope of the tangent is $\frac{y'(t)}{x'(t)}$. Horizontal tangent: $y'=0$. Vertical tangent: $x'=0$.
+
+</details>
+
 → Solutions: [Solutions](solutions/15A-solutions.md#practice-3)
 
 ---
 
 ## Practice 4 (🔗 9B)
 
-Find equations of both tangent lines to $y = x^3$ that pass through $(0,0)$. (Hint: the tangency point is NOT at $x=0$.)
+Find equations of both tangent lines to $y = x^3$ that pass through $(1, 0)$.
+
+<details>
+<summary>💡 Hint</summary>
+
+Let the tangency point be $(a, a^3)$. Write the tangent line $y - a^3 = 3a^2(x-a)$, then substitute $(1,0)$ — you'll get a cubic in $a$ that factors as $a^2(2a-3)$.
+
+</details>
 
 → Solutions: [Solutions](solutions/15A-solutions.md#practice-4)
 
@@ -272,6 +330,13 @@ Find equations of both tangent lines to $y = x^3$ that pass through $(0,0)$. (Hi
 
 Apply the MVT to $f(x) = e^x$ on $[0, 1]$. Find $c$ and interpret geometrically: what point on the curve has tangent parallel to the secant?
 
+<details>
+<summary>💡 Hint</summary>
+
+Secant slope over $[0,1]$ is $\frac{e-1}{1} = e-1$. Set $f'(c) = e^c = e-1$ and solve for $c$ using $\ln$.
+
+</details>
+
 → Solutions: [Solutions](solutions/15A-solutions.md#practice-5)
 
 ---
@@ -279,6 +344,13 @@ Apply the MVT to $f(x) = e^x$ on $[0, 1]$. Find $c$ and interpret geometrically:
 ## Practice 6: Real Battle
 
 $f(x) = \frac{x^2-1}{x^2+1}$. Find domain, intercepts, asymptotes, $f'$, $f''$, all extrema and inflection points. Sketch.
+
+<details>
+<summary>💡 Hint</summary>
+
+The function is even and tends to $1$ as $x \to \pm\infty$. $f'(x) = \frac{4x}{(x^2+1)^2}$; $f''$ has numerator $4(1-3x^2)$.
+
+</details>
 
 → Solutions: [Solutions](solutions/15A-solutions.md#practice-6)
 
@@ -288,13 +360,27 @@ $f(x) = \frac{x^2-1}{x^2+1}$. Find domain, intercepts, asymptotes, $f'$, $f''$, 
 
 For $\vec{r}(t) = (t^2,\; t^3 - 3t)$: find velocity, acceleration, speed at $t=1$, horizontal/vertical tangent points, and curvature at $t=0$.
 
+<details>
+<summary>💡 Hint</summary>
+
+Speed $= |\vec{v}|$. Horizontal tangent: $y'(t)=0$; vertical tangent: $x'(t)=0$. Curvature: $\kappa = \frac{|x'y'' - y'x''|}{((x')^2+(y')^2)^{3/2}}$.
+
+</details>
+
 → Solutions: [Solutions](solutions/15A-solutions.md#practice-7)
 
 ---
 
 ## Practice 8: Real Battle — Complete Sketch
 
-$f(x) = \frac{x^3}{x^2-1}$. Domain, intercepts, asymptotes, $f'$, $f''$, sketch. (This has a vertical asymptote AND a slant asymptote.)
+$f(x) = \frac{x^3}{x^2-1}$. Domain, intercepts, asymptotes, $f'$, $f''$, sketch.
+
+<details>
+<summary>💡 Hint</summary>
+
+Long division: $x^3/(x^2-1) = x + \frac{x}{x^2-1}$ gives the slant asymptote. $f'(x) = \frac{x^2(x^2-3)}{(x^2-1)^2}$, so critical points are $0$ and $\pm\sqrt3$.
+
+</details>
 
 → Solutions: [Solutions](solutions/15A-solutions.md#practice-8)
 
@@ -330,7 +416,25 @@ $f(x) = \frac{x^3}{x^2-1}$. Domain, intercepts, asymptotes, $f'$, $f''$, sketch.
 
 **D14.** The tangent line to $f$ at $a$ is the 1st-order Taylor polynomial. For $f(x)=\sqrt{x}$ at $a=4$, find $L(x)$. Use it to approximate $\sqrt{4.1}$ and compare with the true value.
 
-**D15.** $f(x) = x^3 + ax + b$. Find $a, b$ so that $f$ has a local max at $(-1, 2)$ and a local min at $(1, -2)$. (This is a cubic with specified extrema.)
+**D15.** $f(x) = x^3 + ax + b$. Find $a, b$ so that $f$ has a local max at $(-1, 2)$ and a local min at $(1, -2)$.
+
+**D16.** Find the curvature of $f(x) = \ln x$ at $x = 1$ using the graph formula $\kappa = \frac{|f''(x)|}{(1+[f'(x)]^2)^{3/2}}$.
+
+<details>
+<summary>💡 Hint</summary>
+
+Here $f'(x) = \frac{1}{x}$ and $f''(x) = -\frac{1}{x^2}$. Plug $x=1$ into $\kappa = \frac{|f''|}{(1+(f')^2)^{3/2}}$.
+
+</details>
+
+**D17.** Use Rolle's Theorem to show that $f(x) = x^3 + x - 1$ has at most one real root.
+
+<details>
+<summary>💡 Hint</summary>
+
+Suppose two roots $a < b$ exist. Rolle forces $f'(c) = 0$ for some $c \in (a,b)$ — but $f'(x) = 3x^2+1 > 0$ everywhere. Contradiction.
+
+</details>
 
 > Solutions: [Solutions](solutions/15A-solutions.md#basic-drill)
 
@@ -340,27 +444,111 @@ $f(x) = \frac{x^3}{x^2-1}$. Domain, intercepts, asymptotes, $f'$, $f''$, sketch.
 
 **A1.** Prove that $f(x) = x^3 + ax + b$ has exactly one inflection point. Find it and show it's always at the origin after horizontal translation.
 
-**A2.** $f(x) = \frac{x}{x^2+1}$. Find all extrema, asymptotes, inflection points. Sketch. (This function has the classic "damped oscillation" shape.)
+<details>
+<summary>💡 Hint</summary>
 
-**A3.** Prove $\frac{x}{1+x} < \ln(1+x) < x$ for $x>0$ by analyzing $F(x) = \ln(1+x) - \frac{x}{1+x}$ and $G(x) = x - \ln(1+x)$.
+$f''(x) = 6x$. An inflection point needs $f''=0$ with a sign change.
+
+</details>
+
+**A2.** $f(x) = \frac{x}{x^2+1}$. Find all extrema, asymptotes, inflection points. Sketch.
+
+<details>
+<summary>💡 Hint</summary>
+
+$f'(x) = \frac{1-x^2}{(x^2+1)^2}$; $f''(x) = \frac{2x(x^2-3)}{(x^2+1)^3}$. Odd function, horizontal asymptote $y=0$.
+
+</details>
+
+**A3.** Prove $\frac{x}{1+x} < \ln(1+x) < x$ for $x>0$.
+
+<details>
+<summary>💡 Hint</summary>
+
+Compare each side to 0 with difference functions: $F(x) = \ln(1+x) - \frac{x}{1+x}$ and $G(x) = x - \ln(1+x)$. Show $F(0)=G(0)=0$ and both derivatives are positive.
+
+</details>
 
 **A4.** Find the point on $y = \sqrt{x}$ closest to $(2, 0)$.
 
+<details>
+<summary>💡 Hint</summary>
+
+Minimize $D^2 = (x-2)^2 + x = x^2 - 3x + 4$. (Or: the shortest segment from a point to a curve meets it along the normal.)
+
+</details>
+
 **A5.** (🔗 12C2) For the cycloid $\vec{r}(t) = (t - \sin t,\; 1 - \cos t)$: find all $t$ where the tangent is horizontal. Interpret geometrically — these are the tops of the arches.
 
-**A6.** A line with slope $m$ through $(0,1)$ is tangent to $y = x^2$. Find all possible $m$.
+<details>
+<summary>💡 Hint</summary>
+
+$y'(t) = \sin t$. Horizontal tangent $\Leftrightarrow y' = 0 \Leftrightarrow t = n\pi$. At odd multiples of $\pi$ the point sits at height $2$.
+
+</details>
+
+**A6.** A line through $(0,1)$ is tangent to $y = x^3$. Find the tangent line and its slope $m$.
+
+<details>
+<summary>💡 Hint</summary>
+
+The tangent at $(a, a^3)$ is $y = 3a^2x - 2a^3$. Plug in $(0,1)$ and solve for $a$.
+
+</details>
 
 **A7.** $f(x) = x^4 - 8x^2 + 3$. Find all intervals of increase/decrease, concavity, and all extrema. Sketch.
 
+<details>
+<summary>💡 Hint</summary>
+
+$f'(x) = 4x(x-2)(x+2)$; $f''(x) = 4(3x^2-4)$. The function is even.
+
+</details>
+
 **A8.** Sketch $f(x) = x e^{-x}$ using $f, f', f''$. Find the global maximum.
 
-**A9.** Show $f(x) = x^3 - 3x + 1$ has exactly three real roots. Use extrema and the Intermediate Value Theorem.
+<details>
+<summary>💡 Hint</summary>
 
-**A10.** Find the tangent to $f(x) = \ln x$ that passes through the origin. (This is the "tangent from external point" problem.)
+$f'(x) = e^{-x}(1-x)$; $f''(x) = e^{-x}(x-2)$. Consider the limits as $x \to \pm\infty$.
+
+</details>
+
+**A9.** Show $f(x) = x^3 - 3x + 1$ has exactly three real roots.
+
+<details>
+<summary>💡 Hint</summary>
+
+$f'(x) = 3x^2 - 3$, extrema at $x = \pm 1$ with values $f(-1) = 3$ and $f(1) = -1$. A continuous function that goes $(-\infty \to 3)$, then $(3 \to -1)$, then $(-1 \to \infty)$ must cross zero three times.
+
+</details>
+
+**A10.** Find the tangent to $f(x) = \ln x$ that passes through the origin.
+
+<details>
+<summary>💡 Hint</summary>
+
+The tangent at $(a, \ln a)$ is $y - \ln a = \frac{1}{a}(x-a)$. Substitute $(0,0)$.
+
+</details>
 
 **A11.** For the logarithmic spiral $\vec{r}(t) = (e^t\cos t,\; e^t\sin t)$: find the angle between the position vector and the velocity vector. Show it's constant — a defining property of this curve.
 
-**A12.** A cubic $f(x) = ax^3 + bx^2 + cx + d$ has an inflection point at $x=0$. Show this forces $b=0$. Then find $a,c,d$ so the function has a local max at $(-1, 2)$ and passes through $(2, 0)$.
+<details>
+<summary>💡 Hint</summary>
+
+Compute $\vec{r}\cdot\vec{r}{\,}'$ and $|\vec{r}{\,}'|$. The angle satisfies $\cos\theta = \frac{\vec{r}\cdot\vec{r}{\,}'}{|\vec{r}|\,|\vec{r}{\,}'|}$ — the $t$-dependence cancels.
+
+</details>
+
+**A12.** A cubic $f(x) = ax^3 + bx^2 + cx + d$ has an inflection point at $x=0$. Show this forces $b=0$. Then find $a,c,d$ so the function has a local max at $(-1, 2)$ and a local min at $(1, 0)$.
+
+<details>
+<summary>💡 Hint</summary>
+
+$f''(x) = 6ax + 2b$; inflection at $x=0$ forces $b=0$. Then $f(x) = ax^3 + cx + d$ is symmetric about its inflection point, so the max and min pair up — set $f'(\pm1) = 0$.
+
+</details>
 
 > Solutions: [Solutions](solutions/15A-solutions.md#advanced-drill)
 

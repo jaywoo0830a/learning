@@ -6,6 +6,8 @@
 
 > Optimization finds the best — the shortest distance, the largest volume, the cheapest cost. Related rates track how quantities change together in time. Both are geometry problems at heart: the constraint is a shape (a line, a sphere, a cone), and calculus provides the tool to find extrema and rates. Vectors, matrices, and coordinate systems make the geometry transparent.
 
+> 💡 **Stuck?** Every problem has a collapsible **Hint** below it — click it only when you need a nudge.
+
 ---
 
 ## Part A: Optimization — Finding Extrema Under Geometric Constraints
@@ -225,6 +227,34 @@ Ratio to sphere volume: $\frac{V_{\max}}{V_{\text{sphere}}} = \frac{4\pi R^3/(3\
 
 ---
 
+## Common Mistakes
+
+### Mistake 1: Plugging in values BEFORE differentiating (related rates)
+
+**Wrong**: Substituting $x=3, y=4$ into $x^2+y^2=25$ first, then differentiating — you destroy the relationship. **Right**: Differentiate first ($2x\frac{dx}{dt}+2y\frac{dy}{dt}=0$), THEN plug in the known values.
+
+### Mistake 2: Forgetting endpoints on a closed interval
+
+**Wrong**: "For $f(x)=-x^2+4x$ on $[0,5]$, the critical point $x=2$ is a maximum, so I'm done." **Right**: The absolute minimum of a continuous function on a closed interval can sit at an **endpoint**. Evaluate $f(0)$, $f(2)$, $f(5)$ and compare.
+
+### Mistake 3: Optimizing without reducing to ONE variable
+
+**Wrong**: Maximizing $A = xy$ and differentiating with respect to $x$ and $y$ as if independent. **Right**: Use the constraint to eliminate a variable first (e.g. $y = 20 - x$), so the objective becomes a function of a single variable.
+
+### Mistake 4: Not verifying max vs. min
+
+**Wrong**: "I found where $f'=0$, done." **Right**: Use the 2nd derivative test or a sign chart — a critical point can be a max, a min, or neither.
+
+### Mistake 5: Forgetting chain-rule terms in a constraint
+
+**Wrong**: Differentiating $V = \pi r^2 h$ as $\frac{dV}{dt} = \pi r^2 \frac{dh}{dt}$ (treating $r$ as constant). **Right**: If both $r$ and $h$ change with time, $\frac{dV}{dt} = \pi r^2\frac{dh}{dt} + 2\pi r h\frac{dr}{dt}$ — every variable that depends on $t$ gets a $\frac{d}{dt}$.
+
+### Mistake 6: Making distance minimization messier than needed
+
+**Wrong**: Minimizing $D = \sqrt{(x-2)^2 + (\sqrt{x})^2}$ directly, complete with square-root chain rule. **Right**: Minimize $D^2$ instead — same critical points, far easier algebra, and you never confuse the sign of the distance.
+
+---
+
 ## What We Just Did
 
 ```
@@ -243,6 +273,13 @@ Ratio to sphere volume: $\frac{V_{\max}}{V_{\text{sphere}}} = \frac{4\pi R^3/(3\
 
 Find two positive numbers whose product is 100 and sum is minimized.
 
+<details>
+<summary>💡 Hint</summary>
+
+With $y = \frac{100}{x}$, minimize $S(x) = x + \frac{100}{x}$.
+
+</details>
+
 → Solutions: [Solutions](solutions/15B-solutions.md#practice-1)
 
 ---
@@ -251,13 +288,27 @@ Find two positive numbers whose product is 100 and sum is minimized.
 
 A cylindrical can (with top) must hold 1 liter (1000 cm³). Minimize the surface area. Find the optimal radius and height, and the ratio $h/r$.
 
+<details>
+<summary>💡 Hint</summary>
+
+Use $h = \frac{1000}{\pi r^2}$ to write $S(r) = 2\pi r^2 + \frac{2000}{r}$. At the optimum the height is twice the radius.
+
+</details>
+
 → Solutions: [Solutions](solutions/15B-solutions.md#practice-2)
 
 ---
 
 ## Practice 3
 
-A spherical balloon inflates at 100 cm³/s. How fast does the radius grow when $r=5$ cm? ($V = \frac{4}{3}\pi r^3$.)
+A spherical balloon inflates at 100 cm³/s. How fast does the radius grow when $r=5$ cm?
+
+<details>
+<summary>💡 Hint</summary>
+
+$V = \frac{4}{3}\pi r^3$ so $\frac{dV}{dt} = 4\pi r^2 \frac{dr}{dt}$.
+
+</details>
 
 → Solutions: [Solutions](solutions/15B-solutions.md#practice-3)
 
@@ -265,7 +316,14 @@ A spherical balloon inflates at 100 cm³/s. How fast does the radius grow when $
 
 ## Practice 4: Real Battle (🔗 12A2)
 
-Two cars start from the same intersection: car A north at 60 km/h, car B east at 80 km/h. How fast does the distance increase after 2 hours? Find both the instantaneous rate and verify that it equals $|\vec{v}_{\text{rel}}|$.
+Car A drives north through an intersection at 60 km/h. Car B drives east through the SAME intersection at 80 km/h, but leaves 1 hour LATER. How fast is the distance between them increasing 2 hours after car A passes the intersection?
+
+<details>
+<summary>💡 Hint</summary>
+
+At the measuring moment, A has driven 2 h but B has driven only 1 h. Set $s^2 = x^2 + y^2$ with the correct values, then differentiate.
+
+</details>
 
 → Solutions: [Solutions](solutions/15B-solutions.md#practice-4)
 
@@ -273,7 +331,14 @@ Two cars start from the same intersection: car A north at 60 km/h, car B east at
 
 ## Practice 5: Distance Minimization (🔗 9B, 12C1)
 
-Find the point on the line $y = 2x + 1$ closest to the origin. Solve two ways: (a) minimize squared distance, (b) perpendicular line through the origin (normal method).
+Find the point on the line $y = 2x + 1$ closest to the origin. Solve two different ways and verify they agree.
+
+<details>
+<summary>💡 Hint</summary>
+
+Minimize $D^2 = x^2 + (2x+1)^2$. For the second way, the perpendicular from the origin to the line has slope $-\frac12$.
+
+</details>
 
 → Solutions: [Solutions](solutions/15B-solutions.md#practice-5)
 
@@ -283,13 +348,30 @@ Find the point on the line $y = 2x + 1$ closest to the origin. Solve two ways: (
 
 A spherical snowball melts at a rate proportional to its surface area: $\frac{dV}{dt} = -kS$, where $S = 4\pi r^2$. Show that $\frac{dr}{dt}$ is constant. If radius decreases from 10 cm to 9 cm in 30 minutes, when will it be completely melted?
 
+<details>
+<summary>💡 Hint</summary>
+
+Write $\frac{dV}{dt} = 4\pi r^2\frac{dr}{dt}$ and set it equal to $-k(4\pi r^2)$. The $4\pi r^2$ cancels.
+
+</details>
+
 → Solutions: [Solutions](solutions/15B-solutions.md#practice-6)
 
 ---
 
 ## Practice 7: Exponential Optimization (🔗 12B1)
 
-Population $P(t) = 1000 e^{0.03t}$. Resource consumption rate $R(t) = P(t) \cdot C(t)$ where per-capita consumption $C(t) = 50 e^{-0.01t}$ (improving efficiency). Find when $R(t)$ is maximized and the maximum value.
+Population grows 3%/yr: $P(t) = 1000 e^{0.03t}$. Per-capita consumption falls 5%/yr: $C(t) = 50 e^{-0.05t}$ (improving efficiency). Total consumption $R(t) = P(t) \cdot C(t)$.
+
+(a) Compute $R(t)$. Show it is always decreasing and find its maximum value (and where it occurs).
+(b) Generalize: if per-capita consumption falls at rate $r$ (i.e. $C(t) = 50 e^{-rt}$), for which $r$ does $R(t)$ (i) grow forever, (ii) stay constant, (iii) eventually decline? Interpret your answer.
+
+<details>
+<summary>💡 Hint</summary>
+
+$R(t) = P(t)C(t) = 50000\, e^{(0.03-r)t}$. The sign of the exponent $0.03 - r$ decides (i)–(iii).
+
+</details>
 
 → Solutions: [Solutions](solutions/15B-solutions.md#practice-7)
 
@@ -297,7 +379,14 @@ Population $P(t) = 1000 e^{0.03t}$. Resource consumption rate $R(t) = P(t) \cdot
 
 ## Practice 8: Real Battle (🔗 9C, 12C3)
 
-Find the point on the plane $x + 2y + 3z = 6$ closest to the origin. Use (a) Lagrange multiplier / partial derivative method and (b) the normal vector shortcut. Verify both give the same result.
+Find the point on the plane $x + 2y + 3z = 6$ closest to the origin, and the shortest distance. Solve two different ways and verify they agree.
+
+<details>
+<summary>💡 Hint</summary>
+
+The shortest path from the origin to the plane runs along the normal direction $(1,2,3)$. For the second way, remember the point-to-plane distance formula $d = \frac{|ax_0+by_0+cz_0-d'|}{\sqrt{a^2+b^2+c^2}}$.
+
+</details>
 
 → Solutions: [Solutions](solutions/15B-solutions.md#practice-8)
 
@@ -327,13 +416,52 @@ Find the point on the plane $x + 2y + 3z = 6$ closest to the origin. Use (a) Lag
 
 **D11.** (🔗 12B1, 15A) Maximize $f(x) = x e^{-x}$ on $[0, \infty)$. Find the $x$ and the maximum value.
 
-**D12.** (🔗 9B) A rectangle is inscribed in a circle of radius 5. Maximize its area. (Hint: the diagonal of the rectangle is the diameter.)
+**D12.** (🔗 9B) A rectangle is inscribed in a circle of radius 5. Maximize its area.
 
-**D13.** (🔗 12C1, 12C3) Find the point on the curve $y = \cosh x$ closest to the origin. (Hint: minimize $x^2 + \cosh^2 x$; the derivative simplifies nicely.)
+<details>
+<summary>💡 Hint</summary>
+
+The rectangle's diagonal is a diameter of the circle, so $a^2 + b^2 = 100$.
+
+</details>
+
+**D13.** (🔗 12C1, 12C3) Find the point on the curve $y = \cosh x$ closest to the origin.
+
+<details>
+<summary>💡 Hint</summary>
+
+Minimize $x^2 + \cosh^2 x$. Its derivative is $2x + \sinh(2x)$, negative for $x<0$ and positive for $x>0$.
+
+</details>
 
 **D14.** (🔗 9C) A box with a square base and open top must have volume 32 m³. Minimize surface area.
 
-**D15.** The position of a particle is given by $(x(t), y(t)) = (t^2, t^3)$. Find the rate of change of its distance from the origin at $t=2$. (Hint: let $s = \sqrt{x^2+y^2}$, then differentiate $s^2 = x^2+y^2$ with respect to $t$.)
+**D15.** The position of a particle is given by $(x(t), y(t)) = (t^2, t^3)$. Find the rate of change of its distance from the origin at $t=2$.
+
+<details>
+<summary>💡 Hint</summary>
+
+Let $s = \sqrt{x^2 + y^2}$. Differentiate $s^2 = x^2 + y^2$ instead.
+
+</details>
+
+**D16.** (🔗 12C1, 11A) A searchlight 50 m from a straight wall rotates at 3 rad/min. How fast does the light spot move along the wall when the beam makes a $30^\circ$ angle with the perpendicular?
+
+<details>
+<summary>💡 Hint</summary>
+
+$x = 50\tan\theta$, so $\frac{dx}{dt} = 50\sec^2\theta \cdot \frac{d\theta}{dt}$.
+
+</details>
+
+**D17.** Find the absolute maximum AND minimum of $f(x) = -x^2 + 4x$ on the closed interval $[0, 5]$.
+
+<details>
+<summary>💡 Hint</summary>
+
+On a closed interval, always compare the critical point with BOTH endpoints: check $x = 0$, $2$, and $5$.
+
+</details>
 
 > Solutions: [Solutions](solutions/15B-solutions.md#basic-drill)
 
@@ -343,27 +471,111 @@ Find the point on the plane $x + 2y + 3z = 6$ closest to the origin. Use (a) Lag
 
 **A1.** A wire of length $L$ is cut into two pieces: one forms a circle, the other a square. How should you cut to (a) minimize total area, (b) maximize total area?
 
-**A2.** Find the maximum area of a rectangle inscribed in a semicircle of radius $R$.
+<details>
+<summary>💡 Hint</summary>
 
-**A3.** A trough is 10 m long with isosceles triangular ends (1 m wide at top, 0.5 m deep). Water pours in at 0.2 m³/min. How fast does water rise when depth is 0.3 m? (Volume of a triangular prism = $\frac{1}{2} \cdot$ base $\cdot$ height $\cdot$ length.)
+Let the circle use length $x$. Total area $A(x) = \frac{x^2}{4\pi} + \frac{(L-x)^2}{16}$. The critical point is a minimum — so the maximum hides at an endpoint of $[0, L]$.
+
+</details>
+
+**A2.** A Norman window is a rectangle topped by a semicircle (the semicircle's diameter equals the rectangle's width). If the perimeter is fixed at $P$, find the width and height that maximize the window's area.
+
+<details>
+<summary>💡 Hint</summary>
+
+With width $2x$ and height $y$, the perimeter is $2y + 2x + \pi x = P$. Express $A = 2xy + \frac12\pi x^2$ in terms of $x$ only.
+
+</details>
+
+**A3.** A trough is 10 m long with isosceles triangular ends (1 m wide at top, 0.5 m deep). Water pours in at 0.2 m³/min. How fast does water rise when depth is 0.3 m?
+
+<details>
+<summary>💡 Hint</summary>
+
+By similar triangles the surface width at depth $h$ is $w = 2h$. Then $V = \frac12 wh \cdot 10 = 10h^2$.
+
+</details>
 
 **A4.** (🔗 9C) Cylindrical tank: base costs \$3/m², sides \$2/m². Volume must be $100\pi$ m³. Minimize cost. What is the optimal $h/r$ ratio?
 
+<details>
+<summary>💡 Hint</summary>
+
+Cost $C = 3\pi r^2 + 4\pi rh$; use $h = \frac{100}{r^2}$ from $V = \pi r^2h = 100\pi$.
+
+</details>
+
 **A5.** Two ships: A sails east at 20 km/h from a port. B sails north at 15 km/h toward the same port from a point 100 km south. When are they closest? What is the minimum distance?
 
-**A6.** Find the maximum of $f(x) = x^{1/x}$ for $x > 0$. (Use logarithmic differentiation: $\ln f = \frac{\ln x}{x}$, then differentiate.)
+<details>
+<summary>💡 Hint</summary>
 
-**A7.** A man 2 m tall walks away from a 6 m lamppost at 1.5 m/s. How fast does (a) the tip of his shadow move, (b) his shadow lengthen? (Use similar triangles.)
+A is at $(20t, 0)$; B is at $(0, 100-15t)$. Minimize $D^2(t) = (20t)^2 + (100-15t)^2$.
 
-**A8.** Find the point on the ellipse $x^2/4 + y^2/9 = 1$ farthest from $(1, 0)$. (Parametrize the ellipse to turn this into a single-variable optimization.)
+</details>
+
+**A6.** Find the maximum of $f(x) = x^{1/x}$ for $x > 0$.
+
+<details>
+<summary>💡 Hint</summary>
+
+Take $\ln$: $\ln f = \frac{\ln x}{x}$, then differentiate both sides.
+
+</details>
+
+**A7.** A man 2 m tall walks away from a 6 m lamppost at 1.5 m/s. How fast does (a) the tip of his shadow move, (b) his shadow lengthen?
+
+<details>
+<summary>💡 Hint</summary>
+
+Let $x$ = the man's distance and $s$ = the shadow tip's distance. Similar triangles: $\frac{s}{6} = \frac{s-x}{2}$.
+
+</details>
+
+**A8.** Find the point on the ellipse $x^2/4 + y^2/9 = 1$ farthest from $(1, 0)$.
+
+<details>
+<summary>💡 Hint</summary>
+
+Parametrize $x = 2\cos t$, $y = 3\sin t$ and study $D^2(t) = (2\cos t - 1)^2 + (3\sin t)^2$.
+
+</details>
 
 **A9.** Oil spills in a circle. Radius grows at 0.5 km/h. When $r=10$ km, how fast is the area growing? Also: if thickness is constant, how fast is volume growing if the thickness is 1 mm?
 
-**A10.** (🔗 9C, 17A) A cone is inscribed in a sphere of radius $R$. Maximize the cone's volume. (Answer: $V_{\max} = \frac{32}{81}\pi R^3$.)
+<details>
+<summary>💡 Hint</summary>
 
-**A11.** (🔗 17A) A hemispherical tank (radius 2 m): water pours in at 1 m³/min. Volume of liquid in a spherical cap: $V = \pi h^2(R - h/3)$. Find $\frac{dh}{dt}$ when $h=1$ m.
+$A = \pi r^2$; volume = area $\times$ thickness. Differentiate each with respect to $t$.
+
+</details>
+
+**A10.** (🔗 9C, 17A) A cone is inscribed in a sphere of radius $R$. Maximize the cone's volume.
+
+<details>
+<summary>💡 Hint</summary>
+
+If the cone's height is $H$, its base circle sits a distance $R - H$ from the sphere's center, so $r^2 = 2RH - H^2$.
+
+</details>
+
+**A11.** (🔗 17A) A hemispherical tank (radius 2 m): water pours in at 1 m³/min. Find $\frac{dh}{dt}$ when $h=1$ m.
+
+<details>
+<summary>💡 Hint</summary>
+
+Use $V(h) = \pi h^2(R - h/3)$: compute $\frac{dV}{dh}$ at $h=1$, then $\frac{dh}{dt} = \frac{dV/dt}{dV/dh}$.
+
+</details>
 
 **A12.** (🔗 12B1) Profit $P(x) = 1000\ln(x+1) - 5x$. Find optimal production level $x$. Interpret: why does profit eventually decrease despite $\ln(x+1)$ growing forever?
+
+<details>
+<summary>💡 Hint</summary>
+
+Set $P'(x) = \frac{1000}{x+1} - 5 = 0$. The marginal benefit $\frac{1000}{x+1}$ shrinks as $x$ grows while marginal cost stays $5$.
+
+</details>
 
 > Solutions: [Solutions](solutions/15B-solutions.md#advanced-drill)
 
