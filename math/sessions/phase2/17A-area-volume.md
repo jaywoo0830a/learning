@@ -6,6 +6,8 @@
 
 > Integration computes area and volume. But when geometry — vectors, transformations, parametric curves, and coordinate systems — enters the picture, the same formulas unlock a much richer world. This session fuses calculus with the spatial reasoning you've already built.
 
+> 💡 **Stuck?** Every problem has a collapsible **Hint** below it — click it only when you need a nudge.
+
 ---
 
 ## Part A: Area Between Curves — Beyond $y=f(x)$
@@ -428,6 +430,13 @@ A linear transformation stretches space uniformly. The factor by which it scales
 
 Find the area enclosed by the cardioid $r = 1 + \cos\theta$. ($\theta \in [0, 2\pi]$, use symmetry.)
 
+<details>
+<summary>💡 Hint</summary>
+
+$A = \frac12\int_0^{2\pi}(1+\cos\theta)^2 d\theta$. Expand and use $\int_0^{2\pi}\cos^2\theta\,d\theta = \pi$ (the $\cos\theta$ term integrates to 0).
+
+</details>
+
 → Solutions: [Solutions](solutions/17A-solutions.md#practice-1)
 
 ---
@@ -435,6 +444,13 @@ Find the area enclosed by the cardioid $r = 1 + \cos\theta$. ($\theta \in [0, 2\
 ## Practice 2
 
 Find the area of the triangle with vertices $P(2,1,3)$, $Q(5,4,7)$, $R(1,6,2)$ using the cross product. Verify using Heron's formula.
+
+<details>
+<summary>💡 Hint</summary>
+
+Take $\vec{PQ}$ and $\vec{PR}$, then $A = \frac12|\vec{PQ}\times\vec{PR}|$. For Heron, first find the three side lengths $|\vec{PQ}|$, $|\vec{QR}|$, $|\vec{PR}|$.
+
+</details>
 
 → Solutions: [Solutions](solutions/17A-solutions.md#practice-2)
 
@@ -444,6 +460,13 @@ Find the area of the triangle with vertices $P(2,1,3)$, $Q(5,4,7)$, $R(1,6,2)$ u
 
 Ellipse $\frac{x^2}{9} + \frac{y^2}{4} = 1$ rotated about $x$-axis. Find the ellipsoid volume.
 
+<details>
+<summary>💡 Hint</summary>
+
+At each $x \in [-3,3]$ the cross-section is a disk of radius $y = 2\sqrt{1-x^2/9}$. So $V = \pi\int_{-3}^3 y^2\,dx$.
+
+</details>
+
 → Solutions: [Solutions](solutions/17A-solutions.md#practice-3)
 
 ---
@@ -451,6 +474,13 @@ Ellipse $\frac{x^2}{9} + \frac{y^2}{4} = 1$ rotated about $x$-axis. Find the ell
 ## Practice 4
 
 Region between $y = x^2$ and $y = \sqrt{x}$ rotated about $y = -1$. Washer method.
+
+<details>
+<summary>💡 Hint</summary>
+
+The axis $y=-1$ lies below the region, so a washer forms. Radii are distances from $y=-1$: outer $\sqrt{x}+1$ (top curve), inner $x^2+1$ (bottom curve).
+
+</details>
 
 → Solutions: [Solutions](solutions/17A-solutions.md#practice-4)
 
@@ -460,6 +490,13 @@ Region between $y = x^2$ and $y = \sqrt{x}$ rotated about $y = -1$. Washer metho
 
 Archimedean spiral $r = \theta$ from $\theta = 0$ to $2\pi$ encloses a region with the $x$-axis. Find its area using polar integration.
 
+<details>
+<summary>💡 Hint</summary>
+
+$A = \frac12\int_0^{2\pi} r^2\,d\theta = \frac12\int_0^{2\pi}\theta^2\,d\theta$.
+
+</details>
+
 → Solutions: [Solutions](solutions/17A-solutions.md#practice-5)
 
 ---
@@ -468,6 +505,13 @@ Archimedean spiral $r = \theta$ from $\theta = 0$ to $2\pi$ encloses a region wi
 
 Unit square $[0,1] \times [0,1]$ transformed by $M = \begin{pmatrix} 3 & 1 \\ 1 & 2 \end{pmatrix}$. Find the parallelogram area (a) via determinant, (b) via cross product of adjacent sides.
 
+<details>
+<summary>💡 Hint</summary>
+
+$\det M = 3\cdot2 - 1\cdot1 = 5$. For (b), apply $M$ to the two unit side vectors $(1,0)$ and $(0,1)$ and take the cross product.
+
+</details>
+
 → Solutions: [Solutions](solutions/17A-solutions.md#practice-6)
 
 ---
@@ -475,6 +519,13 @@ Unit square $[0,1] \times [0,1]$ transformed by $M = \begin{pmatrix} 3 & 1 \\ 1 
 ## Practice 7: Real Battle (🔗 12C2, 9C)
 
 Torus: $R=5$, $r=2$. (a) Volume via shell method. (b) Verify via Pappus: $V = (\text{area}) \times (\text{distance centroid travels})$.
+
+<details>
+<summary>💡 Hint</summary>
+
+Shell: $V = 4\pi\int_{-2}^{2}(u+5)\sqrt{4-u^2}\,du$ (sub $u=x-5$); the $u\sqrt{\cdot}$ term vanishes by oddness. Pappus: $V = \pi r^2 \cdot 2\pi R$.
+
+</details>
 
 → Solutions: [Solutions](solutions/17A-solutions.md#practice-7)
 
@@ -492,9 +543,23 @@ Torus: $R=5$, $r=2$. (a) Volume via shell method. (b) Verify via Pappus: $V = (\
 
 **D5.** Find the area of one petal of the polar rose $r = \sin(3\theta)$.
 
+<details>
+<summary>💡 Hint</summary>
+
+One petal forms where $\sin(3\theta) \ge 0$, i.e. $\theta \in [0, \pi/3]$. Then $A = \frac12\int_0^{\pi/3}\sin^2(3\theta)\,d\theta$.
+
+</details>
+
 **D6.** Region under $y = e^x$, $x \in [0, \ln 3]$, rotated about $x$-axis. Find the volume.
 
-**D7.** Region between $y = 4$ and $y = x^2$ rotated about $y = 4$. (Washer with shifted axis.)
+**D7.** Region between $y = 4$ and $y = x^2$ rotated about $y = 4$. (Disk with shifted axis.)
+
+<details>
+<summary>💡 Hint</summary>
+
+The axis $y=4$ is the top boundary of the region — the region touches the axis, so there is **no hole**. Radius $= 4 - x^2$, $x \in [-2,2]$.
+
+</details>
 
 **D8.** (🔗 12A2) Parallelogram with vertices $(0,0)$, $(3,1)$, $(4,5)$, $(1,4)$. Find area (a) via cross product, (b) via determinant of side-vector matrix.
 
@@ -502,21 +567,70 @@ Torus: $R=5$, $r=2$. (a) Volume via shell method. (b) Verify via Pappus: $V = (\
 
 **D10.** (🔗 12C3) Find the area inside both $r = 1$ and $r = 2\sin\theta$. Sketch first.
 
+<details>
+<summary>💡 Hint</summary>
+
+The circles meet where $2\sin\theta = 1 \to \theta = \pi/6$. For $\theta \in [0,\pi/6]$ the inner boundary is $r=2\sin\theta$; for $\theta \in [\pi/6,\pi/2]$ it is $r=1$. Use symmetry about the $y$-axis.
+
+</details>
+
 **D11.** Base: region bounded by $y = \sqrt{x}$, $y=0$, $x=4$. Cross-sections ⟂ $x$-axis are squares. Find the volume.
+
+<details>
+<summary>💡 Hint</summary>
+
+At position $x$, the square's side equals the region's height $\sqrt{x}$, so $A(x) = (\sqrt{x})^2 = x$.
+
+</details>
 
 **D12.** (🔗 12C2) Use parametric area formula to verify ellipse area = $\pi ab$.
 
 **D13.** (🔗 12C1) Region under $y = \sin x$, $x \in [0,\pi]$, rotated about $y = 1$. Set up (do not evaluate) the volume integral.
 
+<details>
+<summary>💡 Hint</summary>
+
+The axis $y=1$ is above the region, so use a washer: outer radius $1$ (reaching $y=0$), inner radius $1-\sin x$ (reaching $y=\sin x$).
+
+</details>
+
 **D14.** Sphere of radius $R$ with cylindrical hole of radius $r$ drilled through center (napkin ring). Set up the washer integral. The result depends only on the ring's height, not on $R$ and $r$ individually — verify.
+
+<details>
+<summary>💡 Hint</summary>
+
+At height $x$, the washer has outer radius $\sqrt{R^2-x^2}$ and inner radius $r$, over $x \in [-\sqrt{R^2-r^2},\,\sqrt{R^2-r^2}]$. The ring height is $h = 2\sqrt{R^2-r^2}$.
+
+</details>
 
 **D15.** (🔗 12A2, 12C1) Parabola $y = x^2$ on $[0,2]$ rotated about $y$-axis. Show shell method and disk method ($x=\sqrt{y}$) give the same volume.
 
-**D16.** Rotate $y = \sqrt{x}$, $x \in [0,4]$, about the $y$-axis using the disk method with $dy$. (Solve $x = y^2$.)
+**D16.** Rotate $y = \sqrt{x}$, $x \in [0,4]$, about the $y$-axis using the disk method with $dy$.
 
-**D17.** Region between $y=x^2$ and $y=\sqrt{x}$ on $[0,1]$ rotated about $x=1$. Set up the washer integral with $dy$. (Radii: $1-y^2$ and $1-\sqrt{y}$.)
+<details>
+<summary>💡 Hint</summary>
 
-**D18.** Region under $y=x$, $x \in [0,2]$, rotated about the $x$-axis using shells with $dy$. (Shell: radius $y$, height $2-y$.)
+Solve $y = \sqrt{x}$ for $x$: $x = y^2$, with $y \in [0,2]$. Each disk has radius $x = y^2$.
+
+</details>
+
+**D17.** Region between $y=x^2$ and $y=\sqrt{x}$ on $[0,1]$ rotated about $x=1$. Set up the washer integral with $dy$.
+
+<details>
+<summary>💡 Hint</summary>
+
+At height $y$, the region spans $x$ from $y^2$ to $\sqrt{y}$. Distances from $x=1$: outer $1-y^2$, inner $1-\sqrt{y}$.
+
+</details>
+
+**D18.** Region under $y=x$, $x \in [0,2]$, rotated about the $x$-axis using shells with $dy$.
+
+<details>
+<summary>💡 Hint</summary>
+
+At height $y$, the horizontal strip spans $x$ from $y$ to $2$: shell radius $y$, height $2-y$.
+
+</details>
 
 > Solutions: [Solutions](solutions/17A-solutions.md#basic-drill)
 
@@ -526,23 +640,93 @@ Torus: $R=5$, $r=2$. (a) Volume via shell method. (b) Verify via Pappus: $V = (\
 
 **A1.** Find the area common to the two circles $r = 2\cos\theta$ and $r = 2\sin\theta$.
 
+<details>
+<summary>💡 Hint</summary>
+
+The circles meet where $2\cos\theta = 2\sin\theta \to \theta = \pi/4$. On $[0,\pi/4]$ the inner boundary is $r=2\sin\theta$; double by symmetry.
+
+</details>
+
 **A2.** (🔗 9C) Derive the volume of a spherical cap of height $h$ from a sphere of radius $R$: $V = \frac{\pi h^2}{3}(3R - h)$.
 
-**A3.** (🔗 12C2) Cycloid $x = a(t - \sin t)$, $y = a(1 - \cos t)$, $t \in [0, 2\pi]$, encloses a region with the $x$-axis. Find its area. (Answer: $3\pi a^2$ — 3× the generating circle's area!)
+<details>
+<summary>💡 Hint</summary>
+
+Rotate $y = \sqrt{R^2-x^2}$ over the cap's $x$-range $[R-h, R]$ using disks of radius $y$.
+
+</details>
+
+**A3.** (🔗 12C2) Cycloid $x = a(t - \sin t)$, $y = a(1 - \cos t)$, $t \in [0, 2\pi]$, encloses a region with the $x$-axis. Find its area.
+
+<details>
+<summary>💡 Hint</summary>
+
+Area $= \int_0^{2\pi} y(t)\,x'(t)\,dt$ with $x' = a(1-\cos t)$. Simplify $1-\cos t = 2\sin^2(t/2)$. (Answer: $3\pi a^2$ — 3× the generating circle's area!)
+
+</details>
 
 **A4.** (🔗 12C1, 12A2) Transformation $T(\vec{x}) = M\vec{x}$ with $M = \begin{pmatrix} 2 & 1 \\ 0 & 3 \end{pmatrix}$ applied to the region bounded by $y=x^2$ and $y=x$ on $[0,1]$. Find the transformed area (a) via $\det(M)$, (b) via direct integration of transformed boundaries.
 
+<details>
+<summary>💡 Hint</summary>
+
+$\det M = 6$. The original area is $\int_0^1 (x-x^2)\,dx = 1/6$, so the image has area $6 \cdot \tfrac16 = 1$.
+
+</details>
+
 **A5.** (🔗 12C2) Lemniscate $r^2 = a^2\cos(2\theta)$ (figure-eight). Find its total area.
+
+<details>
+<summary>💡 Hint</summary>
+
+One loop has $\cos(2\theta) \ge 0$, i.e. $\theta \in [-\pi/4, \pi/4]$. Total $= 2 \cdot \frac12\int_{-\pi/4}^{\pi/4} a^2\cos(2\theta)\,d\theta$.
+
+</details>
 
 **A6.** Torus via washer method (cut horizontally). Show the integral simplifies to $2\pi^2 R r^2$.
 
+<details>
+<summary>💡 Hint</summary>
+
+At height $y$, the washer has outer radius $R+\sqrt{r^2-y^2}$ and inner radius $R-\sqrt{r^2-y^2}$ over $y \in [-r,r]$. The difference of squares kills the $R$-linear terms.
+
+</details>
+
 **A7.** Region inside cardioid $r = 1 + \cos\theta$ and outside $r = 1$ rotated about $x$-axis. Set up the polar volume integral.
+
+<details>
+<summary>💡 Hint</summary>
+
+The curves meet where $1+\cos\theta = 1 \to \theta = \pm\pi/2$. At angle $\theta$, a washer's radii come from $y = r\sin\theta$ for each boundary curve.
+
+</details>
 
 **A8.** (🔗 12B2, 9C) Base: infinite region under $y = e^{-x}$ for $x \ge 0$. Cross-sections ⟂ $x$-axis are semicircles. Find the volume.
 
-**A9.** Unit disk $x^2 + y^2 \le 1$ transformed by $M = \begin{pmatrix} 4 & 2 \\ 1 & 3 \end{pmatrix}$. The image is an ellipse. Find its area. (Hint: the area of the image = $|\det(M)|$ times the area of the original disk.)
+<details>
+<summary>💡 Hint</summary>
+
+At position $x$ the semicircle has diameter $e^{-x}$, so radius $e^{-x}/2$ and area $\frac12\pi(e^{-x}/2)^2$. Integrate to $\infty$.
+
+</details>
+
+**A9.** Unit disk $x^2 + y^2 \le 1$ transformed by $M = \begin{pmatrix} 4 & 2 \\ 1 & 3 \end{pmatrix}$. The image is an ellipse. Find its area.
+
+<details>
+<summary>💡 Hint</summary>
+
+The image's area is $|\det M|$ times the original disk's area: $\det M = 12-2 = 10$, so the answer is $10\pi$.
+
+</details>
 
 **A10.** (🔗 12C3) Solid bounded by paraboloid $z = x^2 + y^2$ and plane $z = 4$. Find volume via (a) disk method in $z$, (b) cylindrical coordinates.
+
+<details>
+<summary>💡 Hint</summary>
+
+At height $z$, the cross-section is a disk of radius $\sqrt{z}$: $V = \pi\int_0^4 z\,dz$. In cylindrical coordinates, integrate $r$ from $0$ to $\sqrt{z}$.
+
+</details>
 
 > Solutions: [Solutions](solutions/17A-solutions.md#advanced-drill)
 

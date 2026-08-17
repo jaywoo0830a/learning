@@ -6,6 +6,8 @@
 
 > Arc length measures how far a curve travels. Surface area measures the skin of a solid. Improper integrals extend integration to infinity. When geometry — vectors, parametric motion, and infinite series — joins these calculus tools, we can measure spirals, prove convergence, and resolve paradoxes like Gabriel's Horn.
 
+> 💡 **Stuck?** Every problem has a collapsible **Hint** below it — click it only when you need a nudge.
+
 ---
 
 ## Part A: Arc Length — Integrating Speed
@@ -370,6 +372,13 @@ Therefore $I = \sqrt{\pi}$. ✓
 
 Find the arc length of $y = \frac{2}{3}x^{3/2}$ from $x=0$ to $x=3$.
 
+<details>
+<summary>💡 Hint</summary>
+
+$y' = x^{1/2} = \sqrt{x}$, so $L = \int_0^3 \sqrt{1+x}\,dx$.
+
+</details>
+
 → Solutions: [Solutions](solutions/17B-solutions.md#practice-1)
 
 ---
@@ -378,13 +387,27 @@ Find the arc length of $y = \frac{2}{3}x^{3/2}$ from $x=0$ to $x=3$.
 
 Find the arc length of the helix $\vec{r}(t) = (2\cos t, 2\sin t, 3t)$ for $t \in [0, 4\pi]$.
 
+<details>
+<summary>💡 Hint</summary>
+
+Speed $= |\vec{r}{\,}'(t)| = \sqrt{4\sin^2 t + 4\cos^2 t + 9} = \sqrt{13}$ — constant.
+
+</details>
+
 → Solutions: [Solutions](solutions/17B-solutions.md#practice-2)
 
 ---
 
 ## Practice 3 (🔗 12C3)
 
-Find the arc length of the cardioid $r = 1 + \cos\theta$ (the whole curve, $\theta \in [0, 2\pi]$, using symmetry). Simplify: $\sqrt{(dr/d\theta)^2 + r^2} = \sqrt{2+2\cos\theta} = 2|\cos(\theta/2)|$.
+Find the arc length of the cardioid $r = 1 + \cos\theta$ (the whole curve, $\theta \in [0, 2\pi]$, using symmetry).
+
+<details>
+<summary>💡 Hint</summary>
+
+$\sqrt{(dr/d\theta)^2 + r^2} = \sqrt{2+2\cos\theta} = 2|\cos(\theta/2)|$. Split the integral where $\cos(\theta/2)$ changes sign (at $\theta = \pi$).
+
+</details>
 
 ![Cardioid r=1+cosθ: arc length L=8](graphs/0808/17B/17b-cardioid-arc-length.png)
 
@@ -396,6 +419,13 @@ Find the arc length of the cardioid $r = 1 + \cos\theta$ (the whole curve, $\the
 
 $\displaystyle \int_0^\infty \frac{dx}{x^2+1}$. (Improper — both infinite interval and the arctan connection.)
 
+<details>
+<summary>💡 Hint</summary>
+
+$\frac{d}{dx}\arctan x = \frac{1}{1+x^2}$, so the integral is $\lim_{b\to\infty}\arctan b - \arctan 0$.
+
+</details>
+
 → Solutions: [Solutions](solutions/17B-solutions.md#practice-4)
 
 ---
@@ -403,6 +433,13 @@ $\displaystyle \int_0^\infty \frac{dx}{x^2+1}$. (Improper — both infinite inte
 ## Practice 5: Real Battle (🔗 12C2)
 
 One arch of the cycloid: $x = t - \sin t$, $y = 1 - \cos t$, $t \in [0, 2\pi]$. Find its arc length. Also compute the length of the straight line from start to end and compare: why is the cycloid longer?
+
+<details>
+<summary>💡 Hint</summary>
+
+Speed $= \sqrt{(1-\cos t)^2 + \sin^2 t} = 2|\sin(t/2)|$. The endpoints are $(0,0)$ and $(2\pi, 0)$ — the line between them has length $2\pi$.
+
+</details>
 
 → Solutions: [Solutions](solutions/17B-solutions.md#practice-5)
 
@@ -412,6 +449,13 @@ One arch of the cycloid: $x = t - \sin t$, $y = 1 - \cos t$, $t \in [0, 2\pi]$. 
 
 Verify: rotating $y=1/x$, $x \in [1,\infty)$ about $x$-axis gives volume $\pi$ (finite) but surface area diverges. Explain why this is not a paradox using the $p$-test.
 
+<details>
+<summary>💡 Hint</summary>
+
+Volume integrand is $\pi x^{-2}$ (converges, $p=2$). Surface integrand is $2\pi\cdot\frac1x\sqrt{1+1/x^4} \ge \frac{2\pi}{x}$, which diverges like the harmonic tail.
+
+</details>
+
 → Solutions: [Solutions](solutions/17B-solutions.md#practice-6)
 
 ---
@@ -419,6 +463,13 @@ Verify: rotating $y=1/x$, $x \in [1,\infty)$ about $x$-axis gives volume $\pi$ (
 ## Practice 7: Real Battle (🔗 12C3, 12A2)
 
 The Gaussian integral: sketch the proof that $\int_{-\infty}^\infty e^{-x^2}\,dx = \sqrt{\pi}$ by squaring and switching to polar coordinates. Explain where the extra factor of $r$ comes from in $dx\,dy = r\,dr\,d\theta$.
+
+<details>
+<summary>💡 Hint</summary>
+
+Square: $I^2 = \iint_{\mathbb{R}^2} e^{-(x^2+y^2)}\,dx\,dy$. In polar, $e^{-(x^2+y^2)} = e^{-r^2}$ and $dx\,dy = r\,dr\,d\theta$ — the $r$ is the polar area element.
+
+</details>
 
 → Solutions: [Solutions](solutions/17B-solutions.md#practice-7)
 
@@ -436,11 +487,25 @@ The Gaussian integral: sketch the proof that $\int_{-\infty}^\infty e^{-x^2}\,dx
 
 **D5.** $\displaystyle \int_2^\infty \frac{dx}{x\ln x}$. Does it converge? Use $u$-sub.
 
+<details>
+<summary>💡 Hint</summary>
+
+$u = \ln x$ gives $\int \frac{du}{u} = \ln|\ln x|$, which grows without bound as $x \to \infty$.
+
+</details>
+
 **D6.** Rotate $y = 3$, $x \in [0,5]$ about $x$-axis. Find surface area. (Check: lateral area of a cylinder = $2\pi rh$.)
 
 **D7.** $\displaystyle \int_{-\infty}^\infty \frac{dx}{1+x^2}$. Improper, symmetric. (Result should be $\pi$.)
 
-**D8.** Arc length of one arch of $y = \sin x$ on $[0, \pi]$. ($\int_0^\pi \sqrt{1+\cos^2 x}\,dx$ — elliptic integral, leave as setup.)
+**D8.** Arc length of one arch of $y = \sin x$ on $[0, \pi]$.
+
+<details>
+<summary>💡 Hint</summary>
+
+$L = \int_0^\pi \sqrt{1+\cos^2 x}\,dx$ — an elliptic integral with no elementary antiderivative; leave it as the setup.
+
+</details>
 
 **D9.** $\displaystyle \int_0^\infty e^{-2x}\,dx$. Improper exponential.
 
@@ -450,11 +515,32 @@ The Gaussian integral: sketch the proof that $\int_{-\infty}^\infty e^{-x^2}\,dx
 
 **D12.** (🔗 12B2) $\displaystyle \int_1^\infty \frac{dx}{x^{1.01}}$. Converge or diverge?
 
-**D13.** (🔗 12C3) Arc length of the polar curve $r = e^\theta$ (logarithmic spiral) from $\theta = 0$ to $\theta = 2\pi$. Hint: $\sqrt{(dr/d\theta)^2 + r^2} = \sqrt{2}e^\theta$.
+**D13.** (🔗 12C3) Arc length of the polar curve $r = e^\theta$ (logarithmic spiral) from $\theta = 0$ to $\theta = 2\pi$.
+
+<details>
+<summary>💡 Hint</summary>
+
+$\sqrt{(dr/d\theta)^2 + r^2} = \sqrt{e^{2\theta} + e^{2\theta}} = \sqrt{2}\,e^\theta$, so $L = \sqrt2\int_0^{2\pi} e^\theta d\theta$.
+
+</details>
 
 **D14.** $\displaystyle \int_0^1 \ln x\,dx$. Improper at $x=0$. Evaluate the limit carefully.
 
+<details>
+<summary>💡 Hint</summary>
+
+Antiderivative is $x\ln x - x$. The subtle limit is $\lim_{x\to0^+} x\ln x = 0$.
+
+</details>
+
 **D15.** (🔗 12C2, 9C) Rotate the cycloid arch ($x = t-\sin t$, $y = 1-\cos t$, $t \in [0, 2\pi]$) about the $x$-axis. Set up the surface area integral (do not evaluate — it's elliptic).
+
+<details>
+<summary>💡 Hint</summary>
+
+$S = 2\pi\int_0^{2\pi} y(t)\,\sqrt{(dx/dt)^2 + (dy/dt)^2}\,dt = 2\pi\int_0^{2\pi}(1-\cos t)\cdot 2\sin(t/2)\,dt$.
+
+</details>
 
 > Solutions: [Solutions](solutions/17B-solutions.md#basic-drill)
 
@@ -464,29 +550,120 @@ The Gaussian integral: sketch the proof that $\int_{-\infty}^\infty e^{-x^2}\,dx
 
 **A1.** Find the arc length of $y = \ln(\sec x)$ from $x=0$ to $x=\pi/3$.
 
+<details>
+<summary>💡 Hint</summary>
+
+$y' = \tan x$ and $\sqrt{1+\tan^2 x} = \sec x$. Use $\int\sec x\,dx = \ln|\sec x + \tan x|$.
+
+</details>
+
 **A2.** Gabriel's Horn extended: rotate $y=1/x^p$, $x \in [1,\infty)$ about $x$-axis. For which $p$ is the volume finite? For which $p$ is the surface area finite? Find the $p$-range where volume is finite but surface area is infinite (the Gabriel's Horn phenomenon).
+
+<details>
+<summary>💡 Hint</summary>
+
+Volume integrand $\sim x^{-2p}$: finite iff $p > \frac12$. Surface integrand $\sim x^{-p}\cdot 1$: finite iff $p > 1$. The phenomenon occurs for $\frac12 < p \le 1$.
+
+</details>
 
 **A3.** $\displaystyle \int_0^\infty x e^{-x}\,dx$. Integration by parts + improper limit.
 
-**A4.** Arc length of $y = \frac{x^2}{4} - \frac{\ln x}{2}$ from $x=1$ to $x=e$. (Hint: the expression under the root becomes a perfect square.)
+<details>
+<summary>💡 Hint</summary>
+
+Integration by parts with $u=x$, $dv=e^{-x}dx$. The boundary term $xe^{-x}$ vanishes at both ends.
+
+</details>
+
+**A4.** Arc length of $y = \frac{x^2}{4} - \frac{\ln x}{2}$ from $x=1$ to $x=e$.
+
+<details>
+<summary>💡 Hint</summary>
+
+$y' = \frac{x}{2} - \frac{1}{2x} = \frac{x^2-1}{2x}$. Then $1+(y')^2$ collapses to $\left(\frac{x^2+1}{2x}\right)^2$ — a perfect square.
+
+</details>
 
 **A5.** Prove $\int_{-\infty}^\infty e^{-x^2}\,dx = \sqrt{\pi}$ using the polar coordinate trick. Explain why switching to polar coordinates introduces the factor $r$ in $r\,dr\,d\theta$.
 
+<details>
+<summary>💡 Hint</summary>
+
+Square $I$, convert to polar: $I^2 = 2\pi\int_0^\infty r e^{-r^2}\,dr$. The $r$ factor is the polar area element — polar cells are wider far from the origin.
+
+</details>
+
 **A6.** Surface area when $y = e^{-x}$, $x \in [0,\infty)$ is rotated about $x$-axis. Does it converge? Compare with Gabriel's Horn.
+
+<details>
+<summary>💡 Hint</summary>
+
+The integrand is $e^{-x}\sqrt{1+e^{-2x}} \le \sqrt2\, e^{-x}$, which integrates to a finite value — unlike Gabriel's Horn's $1/x$.
+
+</details>
 
 **A7.** $\displaystyle \int_0^1 \frac{\arcsin x}{\sqrt{1-x^2}}\,dx$. $u$-sub then check for improperness.
 
+<details>
+<summary>💡 Hint</summary>
+
+$u = \arcsin x$, $du = dx/\sqrt{1-x^2}$, bounds $0 \to \pi/2$. The integrand is actually well-behaved — no limit needed.
+
+</details>
+
 **A8.** (🔗 12C2) Curve $y = x^2$ from $x=0$ to $x=2$ rotated about the $y$-axis. Find surface area (use $x = \sqrt{y}$, integrate with respect to $y$).
+
+<details>
+<summary>💡 Hint</summary>
+
+$x = \sqrt{y}$, $dx/dy = 1/(2\sqrt{y})$, so $S = 2\pi\int_0^4 \sqrt{y}\,\sqrt{1+1/(4y)}\,dy = 2\pi\int_0^4 \sqrt{y+\tfrac14}\,dy$.
+
+</details>
 
 **A9.** $\displaystyle \int_0^\infty \frac{\arctan x}{1+x^2}\,dx$. $u$-sub + improper.
 
-**A10.** (🔗 12B2) Prove $\int_0^\infty \frac{\sin x}{x}\,dx$ converges by writing it as an alternating series of integrals over $[n\pi, (n+1)\pi]$ and applying the alternating series test. (Value = $\pi/2$, the Dirichlet integral.)
+<details>
+<summary>💡 Hint</summary>
+
+$u = \arctan x$, $du = dx/(1+x^2)$, bounds $0 \to \pi/2$.
+
+</details>
+
+**A10.** (🔗 12B2) Prove $\int_0^\infty \frac{\sin x}{x}\,dx$ converges by writing it as an alternating series of integrals over $[n\pi, (n+1)\pi]$ and applying the alternating series test.
+
+<details>
+<summary>💡 Hint</summary>
+
+Each piece $a_n = \int_{n\pi}^{(n+1)\pi}\frac{\sin x}{x}\,dx$ has sign $(-1)^n$ and shrinking magnitude $\le 1/(n\pi)$. (Value $= \pi/2$, the Dirichlet integral.)
+
+</details>
 
 **A11.** (🔗 12C2, 17A) Paraboloid formed by rotating $y = x^2$ from $x=0$ to $x=2$ about the $y$-axis. Find its surface area.
 
+<details>
+<summary>💡 Hint</summary>
+
+$S = 2\pi\int_0^2 x\sqrt{1+(2x)^2}\,dx$; sub $u = 1+4x^2$. (This is the $dx$-shell counterpart of A8 — same surface, same answer.)
+
+</details>
+
 **A12.** (🔗 9C, 12C2) Curve $y = \ln x$ from $x=1$ to $x=e$ rotated about $y$-axis. Find surface area. Express $x = e^y$ and integrate with respect to $y$.
 
+<details>
+<summary>💡 Hint</summary>
+
+$x = e^y$ with $y \in [0,1]$: $S = 2\pi\int_0^1 e^y\sqrt{1+e^{2y}}\,dy$. Sub $u = e^y$ and use $\int\sqrt{1+u^2}\,du = \frac{u}{2}\sqrt{1+u^2} + \frac12\ln(u+\sqrt{1+u^2})$.
+
+</details>
+
 **A13.** (🔗 9C) Derive the surface area of a zone of a sphere (the portion between two parallel planes). If the planes are distance $h$ apart, the zone surface area is $2\pi R h$ — independent of where the zone is on the sphere!
+
+<details>
+<summary>💡 Hint</summary>
+
+Same cancellation as the sphere: $S = 2\pi\int_{x_1}^{x_2} \sqrt{R^2-x^2}\cdot\frac{R}{\sqrt{R^2-x^2}}\,dx = 2\pi R(x_2-x_1)$.
+
+</details>
 
 > Solutions: [Solutions](solutions/17B-solutions.md#advanced-drill)
 
