@@ -4,7 +4,7 @@
 
 *Covers: radians and degree conversion, unit circle coordinates, sin/cos/tan/csc/sec/cot definitions and graphs, inverse trig functions and their graphs*
 
-*Prerequisite for: [11B — Trigonometric Identities, Equations, and Beyond](11B-trig-advanced.md)*
+*Prerequisite for: [11B — Trigonometric Identities, Equations, and Beyond](11B-trig-advanced.md), [11C — Hyperbolic Functions](11C-hyperbolic-functions.md)*
 
 ---
 
