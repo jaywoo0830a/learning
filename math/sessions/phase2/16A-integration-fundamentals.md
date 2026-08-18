@@ -6,6 +6,8 @@
 
 **Prerequisites**: 14A (basic derivatives), 13A (limits)
 
+> 💡 **Stuck?** Every drill below has a collapsible **Hint** — click it only when you need a nudge.
+
 ---
 
 ## Part A: Antiderivatives — The Reverse Dictionary
@@ -26,6 +28,8 @@ $\frac{d}{dx}[x^n] = nx^{n-1}$. Reverse it: $\int x^n\,dx = \frac{x^{n+1}}{n+1} 
 $\int x^3\,dx = \frac{x^4}{4} + C$. Check: differentiate $\frac{x^4}{4}$ → $x^3$. ✓
 $\int \sqrt{x}\,dx = \int x^{1/2}\,dx = \frac{x^{3/2}}{3/2} + C = \frac{2}{3}x^{3/2} + C$.
 $\int \frac{1}{x^2}\,dx = \int x^{-2}\,dx = \frac{x^{-1}}{-1} + C = -\frac{1}{x} + C$.
+
+> **How to think**: Before integrating any power, rewrite it in the form $x^n$ — $\sqrt{x} = x^{1/2}$, $\frac{1}{x^2} = x^{-2}$. Integration can't "see" roots or fractions; it only sees exponents. Once it's $x^n$, the rule is mechanical.
 
 ---
 
@@ -91,6 +95,8 @@ $\int_0^3 x^2\,dx$:
 
 **The constant cancels**: $\int_0^3 x^2\,dx = (\frac{27}{3}+C) - (0+C) = 9$. Use the simplest $C=0$.
 
+> **How to think**: Forget the bounds until the antiderivative is found — the bounds only get plugged in at the very end. And keep the "why" in mind: $F$ is the *running total* of $f$, so $F(b) - F(a)$ is the net change of that total between $a$ and $b$ — exactly the net signed area. That's why the $+C$ always cancels.
+
 ![FTC: area under f from a to b = F(b)−F(a)](graphs/0812/16A/16a-ftc-area.png)
 
 ---
@@ -153,6 +159,12 @@ $\frac{d}{dx}\int_0^{x^2} \sin t\,dt = \sin(x^2) \cdot 2x$.
 | 4 | **Integrate** in $u$ (use the dictionary from Part A) | $F(u) + C$ |
 | 5 | **Substitute back** $u = g(x)$ | $F(g(x)) + C$ |
 
+**Why it works — the chain rule in reverse**:
+
+The chain rule (14A) says $\frac{d}{dx}F(g(x)) = F'(g(x))\,g'(x)$. Read it backward: the integrand $f(g(x))\,g'(x)$ is *already the derivative of $F(g(x))$* — you just have to recognize it. The substitution $u = g(x)$, $du = g'(x)\,dx$ peels off the $g'(x)$ factor (the chain rule's "multiply by the inner derivative"), leaving $\int f(u)\,du$ whose antiderivative is $F(u)$. Step 5 puts the inner function back. Verify by differentiating $F(g(x))$: the chain rule reproduces the integrand — that's why the method always works.
+
+> **How to think**: On a product, ask the one question — "is one factor (up to a constant) the derivative of the *inside* of the other factor?" That single question IS the $u$-sub decision.
+
 ---
 
 ## Example 8: Polynomial $u$-Sub — Spot the Derivative
@@ -181,6 +193,8 @@ $\int x\sqrt{x^2+4}\,dx$.
 4. Integrate: $\frac{1}{2} \cdot \frac{u^{3/2}}{3/2} + C = \frac{1}{3}u^{3/2} + C$.
 5. Back: $\frac{1}{3}(x^2+4)^{3/2} + C$.
 
+> **How to think**: A *constant* mismatch ($x\,dx$ vs $2x\,dx$) is never a problem — constants slide outside the integral. A *non-constant* leftover is the real alarm: if after setting $u$ you still see an $x$ that no $du$ will absorb, you chose the wrong $u$.
+
 ---
 
 ## Example 10: Choosing $u$ — The Decision Rule
@@ -202,6 +216,8 @@ $\int \frac{\ln x}{x}\,dx$: Priority 5 → $u = \ln x$, $du = \frac{1}{x}dx$. $=
 
 $\int \tan x\,dx = \int \frac{\sin x}{\cos x}\,dx$: Priority 3 (denominator) → $u = \cos x$, $du = -\sin x\,dx$. $= -\ln|\cos x| + C = \ln|\sec x| + C$.
 
+> **How to think**: The priority list is a *search*, not a formula. Scan left to right — a parenthesized power, a root, a denominator, an exponent, a log/trig inside — and take the first match as $u$. Then confirm its derivative shows up (up to a constant). If no candidate's derivative appears, the problem belongs to a *different* technique (16B).
+
 ---
 
 ## Example 11: Definite Integrals — Change the Bounds
@@ -221,6 +237,8 @@ $\int_0^1 2x(x^2+1)^4\,dx$.
 
 **Why not go back to $x$?** You can — the answer is the same. But changing bounds is faster and avoids back-substitution errors.
 
+**Why changing bounds works**: Either route evaluates the *same* antiderivative $F(g(x))$ at the *same* two endpoints — $F(g(b)) - F(g(a))$. Changing bounds just performs the map $x \mapsto g(x)$ on the limits *before* integrating, so there is nothing left to undo at the end. Same answer, less writing, fewer sign errors.
+
 ---
 
 ## Example 12: $u$-Sub Checklist — Did You Do It Right?
@@ -232,6 +250,19 @@ After finishing a $u$-sub, run this checklist:
 - [ ] Is $+C$ there? (Indefinite integrals only.)
 
 > **Up to here**: Antiderivative dictionary (8 entries). FTC: $\int_a^b f = F(b)-F(a)$. FTC Part 1: $\frac{d}{dx}\int_a^x f = f(x)$. $u$-sub: 5-step algorithm. Choose $u$ by priority. Definite: change bounds.
+
+---
+
+**Why the checklist is the whole idea** — integration is a reverse dictionary of derivative rules:
+
+| Derivative rule (14A) | Read backward (16A) |
+|:---|:---|
+| Power rule: $\frac{d}{dx}\frac{x^{n+1}}{n+1}=x^n$ | $\int x^n\,dx=\frac{x^{n+1}}{n+1}+C$ (Ex 1) |
+| $\frac{d}{dx}\ln|x|=\frac{1}{x}$ | $\int\frac{1}{x}\,dx=\ln|x|+C$ (Ex 2) |
+| Chain rule: $\frac{d}{dx}F(g(x))=F'(g(x))g'(x)$ | $u$-sub: $\int f(g(x))g'(x)\,dx=\int f(u)\,du$ (Ex 7–12) |
+| FTC: $\frac{d}{dx}\int_a^x f(t)\,dt=f(x)$ | $\int_a^b f\,dx=F(b)-F(a)$ (Ex 4–6) |
+
+That's why "check by differentiating" is the ultimate test: if your answer's derivative equals the integrand, you have correctly undone a derivative — nothing else can go wrong.
 
 ---
 
@@ -317,59 +348,241 @@ A student computes $\int_{-2}^2 x^3\,dx = [\frac{x^4}{4}]_{-2}^2 = 4-4 = 0$ and 
 
 ## Basic Drills
 
-> Run the prescribed procedure. Show your $u$, $du$, and (for definite) new bounds.
+> Run the prescribed procedure. Show your $u$, $du$, and (for definite integrals) the new bounds.
 
-**D1.** $\int x^5\,dx$. Power rule.
+**B1.** $\int x^5\,dx$.
 
-**D2.** $\int (2e^x + \frac{3}{x})\,dx$. Dictionary: $e^x \to e^x$, $\frac{1}{x} \to \ln|x|$.
+<details>
+<summary>💡 Hint</summary>
 
-**D3.** $\int_1^4 \sqrt{x}\,dx$. Rewrite as $x^{1/2}$, FTC.
+Power rule: bump the exponent to $6$ and divide by $6$.
 
-**D4.** $\int_0^{\pi} \cos x\,dx$. Dictionary + FTC.
+</details>
 
-**D5.** $\int 3x^2(x^3+1)^4\,dx$. $u$-sub: $u=$?, $du=$? Check: does $du$ match $3x^2\,dx$ exactly?
+**B2.** $\int \left(2e^x + \frac{3}{x}\right)\,dx$.
 
-**D6.** $\int e^{3x}\,dx$. $u=3x$, $du=3\,dx \to dx = \frac{du}{3}$.
+<details>
+<summary>💡 Hint</summary>
 
-**D7.** $\int \frac{x}{x^2+1}\,dx$. $u=x^2+1$, $du=2x\,dx \to x\,dx = \frac{du}{2}$.
+Dictionary: $\int e^x\,dx = e^x$ and $\int \frac{1}{x}\,dx = \ln|x|$.
 
-**D8.** $\int_0^1 xe^{x^2}\,dx$. $u$-sub with bounds.
+</details>
 
-**D9.** $\int \frac{\cos x}{\sin x}\,dx$. $u=\sin x$, $du=\cos x\,dx$. Dictionary for $\frac{1}{u}$.
+**B3.** $\int_1^4 \sqrt{x}\,dx$.
 
-**D10.** $\int_{-1}^2 (x^2-2x)\,dx$. FTC — evaluate antiderivative at both bounds.
+<details>
+<summary>💡 Hint</summary>
 
-**D11.** Find the average value of $f(x)=\sin x$ on $[0,\pi]$.
+Rewrite $\sqrt{x} = x^{1/2}$, then FTC: $\left[\frac{2}{3}x^{3/2}\right]_1^4$.
 
-**D12.** $\int \sec x\tan x\,dx$. Dictionary: $\sec x\tan x \to \sec x$.
+</details>
+
+**B4.** $\int_0^{\pi} \cos x\,dx$.
+
+<details>
+<summary>💡 Hint</summary>
+
+$\int\cos x\,dx = \sin x$; evaluate at $0$ and $\pi$.
+
+</details>
+
+**B5.** $\int 3x^2(x^3+1)^4\,dx$.
+
+<details>
+<summary>💡 Hint</summary>
+
+$u = x^3+1$ gives $du = 3x^2\,dx$ — an exact match.
+
+</details>
+
+**B6.** $\int e^{3x}\,dx$.
+
+<details>
+<summary>💡 Hint</summary>
+
+$u = 3x$, $du = 3\,dx$, so $dx = \frac{du}{3}$.
+
+</details>
+
+**B7.** $\int \frac{x}{x^2+1}\,dx$.
+
+<details>
+<summary>💡 Hint</summary>
+
+$u = x^2+1$, $du = 2x\,dx$, so $x\,dx = \frac{du}{2}$.
+
+</details>
+
+**B8.** $\int_0^1 x e^{x^2}\,dx$.
+
+<details>
+<summary>💡 Hint</summary>
+
+$u = x^2$; the bounds become $u = 0$ and $u = 1$.
+
+</details>
+
+**B9.** $\int \frac{\cos x}{\sin x}\,dx$.
+
+<details>
+<summary>💡 Hint</summary>
+
+$u = \sin x$, $du = \cos x\,dx$, then $\int \frac{du}{u} = \ln|u|$.
+
+</details>
+
+**B10.** $\int_{-1}^2 (x^2 - 2x)\,dx$.
+
+<details>
+<summary>💡 Hint</summary>
+
+Find the antiderivative $\frac{x^3}{3} - x^2$ first, then plug in both bounds.
+
+</details>
+
+**B11.** Find the average value of $f(x) = \sin x$ on $[0, \pi]$.
+
+<details>
+<summary>💡 Hint</summary>
+
+$\bar f = \frac{1}{\pi-0}\int_0^\pi \sin x\,dx$.
+
+</details>
+
+**B12.** $\int \sec x\tan x\,dx$.
+
+<details>
+<summary>💡 Hint</summary>
+
+Dictionary: $\frac{d}{dx}\sec x = \sec x\tan x$.
+
+</details>
 
 > Solutions: [Solutions](solutions/16A-solutions.md#basic-drill)
 
 ---
 
+## Calculation Drills
+
+> Pure computation. Each takes ~10 minutes of grinding through formula patterns — polynomial expansions, fraction splits, log laws, exponent laws, trig identities, $u$-sub. No hints.
+
+**C1.** $\int \frac{(x^2+1)^3}{x^4}\,dx$
+
+**C2.** $\int \left(e^x + e^{-x}\right)^2\,dx$
+
+**C3.** $\int \frac{\ln\left(x\sqrt{x}\right)}{x}\,dx$
+
+**C4.** $\int_1^2 \frac{x^2+1}{x^3+3x}\,dx$
+
+**C5.** $\int \sin^3 x\cos^3 x\,dx$
+
+**C6.** $\int \frac{\tan x}{\ln(\sec x)}\,dx$
+
+**C7.** $\int_0^{\pi}\sin^2 x\cos^2 x\,dx$
+
+**C8.** $\int_0^{\pi/2}\left(e^{\sin x}\cos x + \sin 2x\right)\,dx$
+
+**C9.** $\int_0^1 x^3\sqrt{1-x^2}\,dx$
+
+**C10.** $\int_0^1\left(\frac{x}{1+x^2} + \frac{e^x}{e^x+1}\right)\,dx$
+
+> Solutions: [Solutions](solutions/16A-solutions.md#calculation-drill)
+
+---
+
 ## Advanced Drills
 
-> Multi-step. Choose $u$. Handle constants. Use FTC creatively.
+> Each problem has a computation part AND a thinking part — don't skip the second half. Solve first, then explain.
 
-**A1.** $\int x^2\sqrt{x^3+1}\,dx$. $u=x^3+1$, $du=3x^2\,dx$ — adjust.
+**A1.** $\int x^2\sqrt{x^3+1}\,dx$. Verify your answer by differentiating, and explain where the factor $\frac13$ comes from.
 
-**A2.** $\int \frac{e^x}{1+e^{2x}}\,dx$. $u=e^x$, $du=e^x\,dx$. Result involves $\arctan(u)$.
+<details>
+<summary>💡 Hint</summary>
 
-**A3.** $\int_0^4 \frac{x}{\sqrt{1+2x}}\,dx$. $u=1+2x$, solve for $x$ in terms of $u$, change bounds.
+The derivative of $x^3+1$ already sits inside the integrand, up to a constant. Once you've integrated, check by differentiating.
 
-**A4.** $\int \sin^5 x\cos x\,dx$. $u=\sin x$, $du=\cos x\,dx$ — exact match.
+</details>
 
-**A5.** $\int_1^e \frac{(\ln x)^2}{x}\,dx$. $u=\ln x$, change bounds: $x=1 \to u=0$, $x=e \to u=1$.
+**A2.** $\int \frac{e^x}{1+e^{2x}}\,dx$. Explain why the answer is an arctan and not a logarithm, by comparing with $\int \frac{e^x}{1+e^x}\,dx$.
 
-**A6.** $F(x)=\int_0^x \sin(t^2)\,dt$. Find $F'(x)$. (FTC Part 1 — no integration needed.)
+<details>
+<summary>💡 Hint</summary>
 
-**A7.** $\int \frac{1}{x\ln x}\,dx$. $u=\ln x$, $du=\frac{1}{x}dx$. Result: $\ln|\ln x| + C$.
+Write $1+e^{2x}$ as $1 + (e^x)^2$. After substituting $u = e^x$, compare the two denominators — what shapes are they?
 
-**A8.** $\int_0^{\pi/4} \tan x\,dx$. Write as $\frac{\sin x}{\cos x}$, $u=\cos x$, change bounds. Careful with sign.
+</details>
 
-**A9.** $\int_0^1 \frac{x}{1+x^4}\,dx$. $u=x^2$, $du=2x\,dx$. Then $\frac{1}{1+u^2} \to \arctan u$.
+**A3.** $\int_0^4 \frac{x}{\sqrt{1+2x}}\,dx$. Explain why you must solve $x = \frac{u-1}{2}$ here, but didn't need to in A1 — what property of the numerator forces it?
 
-**A10.** Prove $\int_{-a}^a \sin x\,dx = 0$ for any $a$ without computing. Use the fact that $\sin x$ is odd: $\sin(-x) = -\sin x$. What does this say about the area?
+<details>
+<summary>💡 Hint</summary>
+
+Compute $du$ for $u = 1+2x$. Is the leftover numerator a constant multiple of $du$, like in A1?
+
+</details>
+
+**A4.** $\int \sin^3 x\,dx$. Explain why the "peel one $\sin x$" trick works, and why it fails for $\int \sin^2 x\,dx$.
+
+<details>
+<summary>💡 Hint</summary>
+
+Which single factor could play the role of $du$ if $u = \cos x$? Then think: for $\sin^2 x$, is that factor present?
+
+</details>
+
+**A5.** $\int_1^e \frac{(\ln x)^n}{x}\,dx$. Solve for $n = 2$; then write the general formula for natural $n$ and check it for $n = 0$ and $n = 1$.
+
+<details>
+<summary>💡 Hint</summary>
+
+Set $u = \ln x$ and watch what happens to $\frac{dx}{x}$ and to both bounds. Solve the $n=2$ case, then guess the general pattern.
+
+</details>
+
+**A6.** $\int \frac{x^2+1}{x^3+3x+1}\,dx$. State the general rule $\int \frac{P'(x)}{P(x)}\,dx = \ln|P(x)| + C$ and use it to explain your answer.
+
+<details>
+<summary>💡 Hint</summary>
+
+Differentiate the denominator. How is the numerator related to what you get?
+
+</details>
+
+**A7.** Find the upper bound $b$ such that $\int_0^b x\cos(x^2)\,dx = \frac12$, then explain how you knew to aim for $\sin = 1$.
+
+<details>
+<summary>💡 Hint</summary>
+
+Do the substitution and write the integral's value as a function of the unknown upper bound $b$. Then solve for $b$.
+
+</details>
+
+**A8.** $\int \frac{dx}{1+e^x}$. Solve, and show your answer equals $x - \ln(1+e^x) + C$ — they differ by a constant. Why can two correct-looking answers appear?
+
+<details>
+<summary>💡 Hint</summary>
+
+Can you rewrite $\frac{1}{1+e^x}$ so the numerator is exactly $du$ for some $u$? Try multiplying top and bottom by $e^{-x}$.
+
+</details>
+
+**A9.** $\int_0^1 \frac{x}{1+x^4}\,dx$. Trace where the $\pi$ comes from: which step introduces it, and why is the answer $\frac{\pi}{8}$ and not $\frac{\pi}{4}$?
+
+<details>
+<summary>💡 Hint</summary>
+
+Write $x^4$ as a square. After substituting, which dictionary entry produces the answer — and what factor does the substitution contribute?
+
+</details>
+
+**A10.** Compute $\int_{-2}^{2}\left(x^5 + x^3 - 3x\right)\,dx$ without any antiderivative. Then: is $\int_{-2}^{2}(x^2 + x)\,dx$ also $0$? Explain. Finally, find the TOTAL (absolute) area of $y = x^5$ on $[-2, 2]$.
+
+<details>
+<summary>💡 Hint</summary>
+
+Test each term at $-x$: is it even or odd? Then recall what even/odd does to an integral on $[-a,a]$. For "total area", remember the word *absolute*.
+
+</details>
 
 > Solutions: [Solutions](solutions/16A-solutions.md#advanced-drill)
 

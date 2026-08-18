@@ -123,7 +123,7 @@ A $u$-sub would fail because there's no $x\,dx$ to match $du$ for $u=1-x^2$. Tri
 
 ## Basic Drills
 
-### D1. $\int x\cos x\,dx$
+### B1. $\int x\cos x\,dx$
 
 Parts: LIATE → $u=x$ (Algebraic), $dv=\cos x\,dx$.
 
@@ -138,7 +138,7 @@ Parts: LIATE → $u=x$ (Algebraic), $dv=\cos x\,dx$.
 
 ---
 
-### D2. $\int \ln(2x)\,dx$
+### B2. $\int \ln(2x)\,dx$
 
 Parts: LIATE → $u=\ln(2x)$ (Log — highest priority), $dv=dx$.
 
@@ -157,7 +157,7 @@ $\int \ln(2x)\,dx = \int (\ln 2 + \ln x)\,dx = x\ln 2 + (x\ln x - x) + C = x(\ln
 
 ---
 
-### D3. $\int \sin^2 x\,dx$
+### B3. $\int \sin^2 x\,dx$
 
 Even power → half-angle formula: $\sin^2 x = \frac{1-\cos 2x}{2}$.
 
@@ -167,7 +167,7 @@ $= \frac{1}{2}\left(x - \frac{\sin 2x}{2}\right) + C = \frac{x}{2} - \frac{\sin 
 
 ---
 
-### D4. $\int \tan x\sec^2 x\,dx$
+### B4. $\int \tan x\sec^2 x\,dx$
 
 Tan/sec: $n=2$ (even) → save $\sec^2 x$, $u = \tan x$.
 
@@ -179,7 +179,7 @@ $\int \tan x\sec^2 x\,dx = \int u\,du = \frac{u^2}{2} + C = \frac{\tan^2 x}{2} +
 
 ---
 
-### D5. $\int \frac{dx}{\sqrt{9-x^2}}$
+### B5. $\int \frac{dx}{\sqrt{9-x^2}}$
 
 Form: $\sqrt{9-x^2} = \sqrt{3^2-x^2}$ → $x = 3\sin\theta$.
 
@@ -192,7 +192,7 @@ $\int \frac{dx}{\sqrt{9-x^2}} = \arcsin\left(\frac{x}{3}\right) + C$.
 
 ---
 
-### D6. $\int \frac{dx}{x^2+9}$
+### B6. $\int \frac{dx}{x^2+9}$
 
 Arctan formula: $\int \frac{dx}{x^2+a^2} = \frac{1}{a}\arctan\left(\frac{x}{a}\right) + C$.
 
@@ -200,7 +200,7 @@ $a = 3$: $\int \frac{dx}{x^2+9} = \frac{1}{3}\arctan\left(\frac{x}{3}\right) + C
 
 ---
 
-### D7. $\int \frac{1}{x^2-x}\,dx$
+### B7. $\int \frac{1}{x^2-x}\,dx$
 
 Factor denominator: $x^2-x = x(x-1)$.
 
@@ -218,7 +218,7 @@ $\int \frac{1}{x^2-x}\,dx = \int \left(\frac{-1}{x} + \frac{1}{x-1}\right)dx = -
 
 ---
 
-### D8. $\int x^2 e^x\,dx$
+### B8. $\int x^2 e^x\,dx$
 
 Parts twice. LIATE: $u = x^2$ (Algebraic), $dv = e^x\,dx$.
 
@@ -244,7 +244,7 @@ $\int x^2 e^x\,dx = x^2 e^x - 2(x e^x - e^x) + C = e^x(x^2 - 2x + 2) + C$.
 
 ---
 
-### D9. $\int \sin x\cos x\,dx$
+### B9. $\int \sin x\cos x\,dx$
 
 ### Method 1: $u = \sin x$
 
@@ -272,7 +272,7 @@ The constants differ by $-\frac{1}{4}$, which is absorbed into $+C$. Both answer
 
 ---
 
-### D10. $\int \frac{x}{\sqrt{1-x^2}}\,dx$
+### B10. $\int \frac{x}{\sqrt{1-x^2}}\,dx$
 
 Decision: $u$-sub is faster (see Practice 5a).
 
@@ -284,7 +284,7 @@ $= -\frac{1}{2} \cdot \frac{u^{1/2}}{1/2} + C = -u^{1/2} + C = -\sqrt{1-x^2} + C
 
 ---
 
-### D11. $\int \frac{dx}{x^2+6x+13}$.
+### B11. $\int \frac{dx}{x^2+6x+13}$.
 
 Complete the square: $x^2+6x+13 = (x+3)^2+4$.
 
@@ -294,7 +294,7 @@ Let $u=x+3$: $\int\frac{du}{u^2+4} = \frac{1}{2}\arctan\frac{u}{2}+C = \frac{1}{
 
 ---
 
-### D12. $\int \sec x\,dx$.
+### B12. $\int \sec x\,dx$.
 
 Multiply by $\frac{\sec x+\tan x}{\sec x+\tan x}$:
 
@@ -306,275 +306,312 @@ $= \ln|\sec x+\tan x| + C$.
 
 ---
 
+## Calculation Drills
+
+### C1. $\int \frac{5x+7}{x^2+x-2}\,dx$
+
+Factor: $x^2+x-2 = (x+2)(x-1)$. Cover-up:
+- at $x=1$: $\frac{5+7}{1+2} = 4$ → $\frac{4}{x-1}$.
+- at $x=-2$: $\frac{-10+7}{-2-1} = 1$ → $\frac{1}{x+2}$.
+
+$\int\left(\frac4{x-1}+\frac1{x+2}\right)dx = 4\ln|x-1| + \ln|x+2| + C$.
+
+> **Answer**: $4\ln|x-1| + \ln|x+2| + C$
+
+---
+
+### C2. $\int x^2\ln x\,dx$
+
+Parts: $u = \ln x$, $dv = x^2\,dx$ ($du = \frac{dx}{x}$, $v = \frac{x^3}{3}$):
+
+$\frac{x^3}{3}\ln x - \int\frac{x^3}{3}\cdot\frac1x\,dx = \frac{x^3\ln x}{3} - \frac13\int x^2\,dx = \frac{x^3\ln x}{3} - \frac{x^3}{9} + C = \frac{x^3}{9}(3\ln x - 1) + C$.
+
+> **Answer**: $\frac{x^3}{9}(3\ln x - 1) + C$
+
+---
+
+### C3. $\int_0^{\pi/2} x\cos x\,dx$
+
+Parts: $u = x$, $dv = \cos x\,dx$ ($v = \sin x$):
+
+$\left[x\sin x\right]_0^{\pi/2} - \int_0^{\pi/2}\sin x\,dx = \frac{\pi}{2} - \left[-\cos x\right]_0^{\pi/2} = \frac{\pi}{2} - 1$.
+
+> **Answer**: $\frac{\pi}{2} - 1$
+
+---
+
+### C4. $\int \tan^3 x\sec^4 x\,dx$
+
+Save one $\sec^2 x$ for $du$; $u = \tan x$, $du = \sec^2 x\,dx$, $\sec^2 x = 1+\tan^2 x$:
+
+$\int\tan^3 x\sec^2 x\cdot\sec^2 x\,dx = \int u^3(1+u^2)\,du = \frac{u^4}{4} + \frac{u^6}{6} = \frac{\tan^4 x}{4} + \frac{\tan^6 x}{6} + C$.
+
+> **Answer**: $\frac{\tan^4 x}{4} + \frac{\tan^6 x}{6} + C$
+
+---
+
+### C5. $\int_0^{\pi/2}\sin^4 x\cos^3 x\,dx$
+
+$\cos$ power is odd → peel one: $\sin^4 x(1-\sin^2 x)\cos x$. $u = \sin x$, bounds $0\to1$:
+
+$\int_0^1 u^4(1-u^2)\,du = \frac15 - \frac17 = \frac{2}{35}$.
+
+> **Answer**: $\frac{2}{35}$
+
+---
+
+### C6. $\int \frac{dx}{(x^2+1)^{3/2}}$
+
+Trig sub (form $\sqrt{x^2+1}$): $x = \tan\theta$, $dx = \sec^2\theta\,d\theta$, $x^2+1 = \sec^2\theta$:
+
+$\int\frac{\sec^2\theta}{\sec^3\theta}\,d\theta = \int\cos\theta\,d\theta = \sin\theta$.
+
+Triangle ($\tan\theta = x/1$): $\sin\theta = \frac{x}{\sqrt{x^2+1}}$.
+
+> **Answer**: $\frac{x}{\sqrt{x^2+1}} + C$
+
+---
+
+### C7. $\int \frac{x^2}{\sqrt{4-x^2}}\,dx$
+
+Trig sub (form $\sqrt{4-x^2}$): $x = 2\sin\theta$, $dx = 2\cos\theta\,d\theta$, $\sqrt{4-x^2} = 2\cos\theta$:
+
+$\int\frac{4\sin^2\theta}{2\cos\theta}\cdot 2\cos\theta\,d\theta = \int 4\sin^2\theta\,d\theta = 2\theta - \sin 2\theta = 2\theta - 2\sin\theta\cos\theta$.
+
+Back-sub ($\sin\theta = x/2$, $\cos\theta = \frac{\sqrt{4-x^2}}{2}$, $\theta = \arcsin\frac{x}{2}$):
+
+$= 2\arcsin\frac{x}{2} - \frac{x\sqrt{4-x^2}}{2} + C$.
+
+> **Answer**: $2\arcsin\frac{x}{2} - \frac{x\sqrt{4-x^2}}{2} + C$
+
+---
+
+### C8. $\int e^{2x}\sin 3x\,dx$
+
+Cycling parts, or the formula $\int e^{ax}\sin(bx)\,dx = \frac{e^{ax}}{a^2+b^2}(a\sin bx - b\cos bx)$ with $a=2, b=3$:
+
+$\int e^{2x}\sin 3x\,dx = \frac{e^{2x}}{13}(2\sin 3x - 3\cos 3x) + C$.
+
+**Check**: derivative $= \frac{e^{2x}}{13}\left[2(2\sin3x-3\cos3x) + 3(2\cos3x+3\sin3x)\right] = e^{2x}\sin 3x$ ✓
+
+> **Answer**: $\frac{e^{2x}}{13}(2\sin 3x - 3\cos 3x) + C$
+
+---
+
+### C9. $\int \frac{3x^2+4x+3}{(x+1)(x^2+1)}\,dx$
+
+Template: $\frac{A}{x+1}+\frac{Bx+C}{x^2+1}$:
+
+$3x^2+4x+3 = A(x^2+1) + (Bx+C)(x+1)$
+$= (A+B)x^2 + (B+C)x + (A+C)$.
+
+Match: $A+B=3$, $B+C=4$, $A+C=3$ → $A=1$, $B=2$, $C=2$.
+
+$\int\left(\frac1{x+1} + \frac{2x}{x^2+1} + \frac{2}{x^2+1}\right)dx = \ln|x+1| + \ln(x^2+1) + 2\arctan x + C$.
+
+> **Answer**: $\ln|x+1| + \ln(x^2+1) + 2\arctan x + C$
+
+---
+
+### C10. $\int_0^1 x\arctan x\,dx$
+
+Parts: $u = \arctan x$, $dv = x\,dx$ ($du = \frac{dx}{1+x^2}$, $v = \frac{x^2}{2}$):
+
+$\left[\frac12(x^2+1)\arctan x - \frac{x}{2}\right]_0^1 = \frac12(2)\cdot\frac{\pi}{4} - \frac12 - 0 = \frac{\pi}{4} - \frac12$.
+
+> **Answer**: $\frac{\pi}{4} - \frac12$
+
+---
+
 ## Advanced Drills
 
-### A1. $\int e^x\cos x\,dx$
+### A1. $\int e^x\cos x\,dx$ — which side do you cycle?
 
-This is a cycling integral. Let $I = \int e^x\cos x\,dx$.
+Cycling integral. $I = \int e^x\cos x\,dx$.
 
-**Round 1**: $u = \cos x$, $dv = e^x\,dx$ (either choice works — LIATE gives Trig before Exp, so $u=\cos x$).
-
-$du = -\sin x\,dx$, $v = e^x$.
+**Round 1**: $u = \cos x$, $dv = e^x\,dx$ (LIATE: Trig before Exp, so $u = \cos x$). $du = -\sin x\,dx$, $v = e^x$.
 
 $I = e^x\cos x - \int e^x(-\sin x)\,dx = e^x\cos x + \int e^x\sin x\,dx$.
 
-**Round 2**: For $\int e^x\sin x\,dx$, $u = \sin x$, $dv = e^x\,dx$.
+**Round 2**: for $\int e^x\sin x\,dx$, $u = \sin x$, $dv = e^x\,dx$: $= e^x\sin x - \int e^x\cos x\,dx = e^x\sin x - I$.
 
-$du = \cos x\,dx$, $v = e^x$.
+**Combine**: $I = e^x\cos x + e^x\sin x - I$ → $2I = e^x(\cos x + \sin x)$ → $I = \frac{e^x}{2}(\cos x + \sin x) + C$.
 
-$\int e^x\sin x\,dx = e^x\sin x - \int e^x\cos x\,dx = e^x\sin x - I$.
+**Check**: $\frac{d}{dx}\left[\frac{e^x}{2}(\cos x+\sin x)\right] = \frac{e^x}{2}(\cos x+\sin x) + \frac{e^x}{2}(-\sin x+\cos x) = e^x\cos x$. ✓
 
-**Combine**:
-
-$I = e^x\cos x + (e^x\sin x - I) = e^x(\cos x + \sin x) - I$
-
-$2I = e^x(\cos x + \sin x)$ → $I = \frac{e^x}{2}(\cos x + \sin x) + C$.
-
-**Check**: $\frac{d}{dx}\left[\frac{e^x}{2}(\cos x+\sin x)\right] = \frac{e^x}{2}(\cos x+\sin x) + \frac{e^x}{2}(-\sin x+\cos x) = \frac{e^x}{2}(2\cos x) = e^x\cos x$. ✓
+**Why it works / why either choice is fine**: $e^x$ recycles under integration ($\int e^x = e^x$) and $\cos x$ recycles under repeated parts — so after two rounds you're back to $I$ with the pieces flipped, and $I$ appears on both sides. Choosing $u = e^x$ instead just flips the order; the same $2I$ equation results. **LIATE only decides which piece sits in $u$; it cannot break the cycle — it just tells you the answer won't get uglier.**
 
 ---
 
-### A2. $\int \sin^4 x\,dx$
+### A2. $\int \sin^4 x\,dx$, and $\int \cos^4 x\,dx$ — the $n=4$ pattern.
 
-Repeated half-angle: $\sin^4 x = (\sin^2 x)^2 = \left(\frac{1-\cos 2x}{2}\right)^2$.
+Half-angle twice: $\sin^4 x = \left(\frac{1-\cos 2x}{2}\right)^2 = \frac14(1 - 2\cos 2x + \cos^2 2x) = \frac14\left(1 - 2\cos 2x + \frac{1+\cos 4x}{2}\right)$
 
-$= \frac{1}{4}(1 - 2\cos 2x + \cos^2 2x)$
+$= \frac38 - \frac12\cos 2x + \frac18\cos 4x$.
 
-Now $\cos^2 2x = \frac{1+\cos 4x}{2}$ (half-angle again).
+$\int \sin^4 x\,dx = \frac{3x}{8} - \frac{\sin 2x}{4} + \frac{\sin 4x}{32} + C$.
 
-$= \frac{1}{4}\left(1 - 2\cos 2x + \frac{1+\cos 4x}{2}\right)$
+**Same pattern for $\cos^4 x$**: $\cos^4 x = \frac38 + \frac12\cos 2x + \frac18\cos 4x$, so $\int \cos^4 x\,dx = \frac{3x}{8} + \frac{\sin 2x}{4} + \frac{\sin 4x}{32} + C$ — only the middle sign flips.
 
-$= \frac{1}{4}\left(1 - 2\cos 2x + \frac{1}{2} + \frac{\cos 4x}{2}\right)$
+**General pattern for even $n$**: $\int_0^{\pi/2}\sin^n x\,dx = \frac{n-1}{n}\cdot\frac{n-3}{n-2}\cdots\frac12\cdot\frac{\pi}{2}$.
+- $n=2$: $\frac12\cdot\frac{\pi}{2} = \frac{\pi}{4}$
+- $n=4$: $\frac34\cdot\frac12\cdot\frac{\pi}{2} = \frac{3\pi}{16}$
 
-$= \frac{1}{4}\left(\frac{3}{2} - 2\cos 2x + \frac{\cos 4x}{2}\right)$
-
-$= \frac{3}{8} - \frac{1}{2}\cos 2x + \frac{1}{8}\cos 4x$
-
-Integrate:
-
-$\int \sin^4 x\,dx = \int \left(\frac{3}{8} - \frac{1}{2}\cos 2x + \frac{1}{8}\cos 4x\right)dx$
-
-$= \frac{3x}{8} - \frac{\sin 2x}{4} + \frac{\sin 4x}{32} + C$.
+On $[0,\pi/2]$, $\sin$ and $\cos$ give identical values (they are mirrors), so $\int_0^{\pi/2}\cos^4 x\,dx = \frac{3\pi}{16}$ too. **Spot the pattern once, and you never grind through half-angle again.**
 
 ---
 
-### A3. $\int \frac{dx}{(x^2+1)^2}$
+### A3. $\int \frac{dx}{(x^2+1)^2}$ — and find $C$ with $\int_0^1 = \frac{\pi}{8} + C$.
 
-Trig sub $x = \tan\theta$, $a=1$.
+Trig sub $x = \tan\theta$ (form $\sqrt{x^2+1}$, $a=1$):
 
-1. $x = \tan\theta$, $dx = \sec^2\theta\,d\theta$.
-2. $x^2+1 = \tan^2\theta+1 = \sec^2\theta$. So $(x^2+1)^2 = \sec^4\theta$.
-3. Integral: $\int \frac{\sec^2\theta\,d\theta}{\sec^4\theta} = \int \cos^2\theta\,d\theta$.
-4. $\int \cos^2\theta\,d\theta = \int \frac{1+\cos 2\theta}{2}\,d\theta = \frac{\theta}{2} + \frac{\sin 2\theta}{4} + C$.
-5. Back-substitute using right triangle ($x = \tan\theta$):
-   - $\theta = \arctan x$
-   - $\sin 2\theta = 2\sin\theta\cos\theta$
+1. $dx = \sec^2\theta\,d\theta$; $x^2+1 = \sec^2\theta$ → $(x^2+1)^2 = \sec^4\theta$.
+2. $\int \frac{\sec^2\theta\,d\theta}{\sec^4\theta} = \int \cos^2\theta\,d\theta = \frac{\theta}{2} + \frac{\sin 2\theta}{4} + C_1$.
+3. Back-substitute with the right triangle ($x = \tan\theta$: opposite $x$, adjacent $1$, hypotenuse $\sqrt{x^2+1}$): $\theta = \arctan x$, $\sin 2\theta = 2\cdot\frac{x}{\sqrt{x^2+1}}\cdot\frac{1}{\sqrt{x^2+1}} = \frac{2x}{x^2+1}$.
 
-   From triangle: opposite = $x$, adjacent = $1$, hypotenuse = $\sqrt{x^2+1}$.
-   - $\sin\theta = \frac{x}{\sqrt{x^2+1}}$, $\cos\theta = \frac{1}{\sqrt{x^2+1}}$.
-   - $\sin 2\theta = 2 \cdot \frac{x}{\sqrt{x^2+1}} \cdot \frac{1}{\sqrt{x^2+1}} = \frac{2x}{x^2+1}$.
+$\int \frac{dx}{(x^2+1)^2} = \frac12\arctan x + \frac{x}{2(x^2+1)} + C$.
 
-6. Final answer:
+**Find $C$**: $\int_0^1 = \left[\frac12\arctan x + \frac{x}{2(x^2+1)}\right]_0^1 = \frac12\cdot\frac{\pi}{4} + \frac{1}{2\cdot2} = \frac{\pi}{8} + \frac14$.
 
-$\int \frac{dx}{(x^2+1)^2} = \frac{1}{2}\arctan x + \frac{x}{2(x^2+1)} + C$.
+So $C = \frac14$: $\int_0^1\frac{dx}{(x^2+1)^2} = \frac{\pi}{8} + \frac14$.
+
+**How you knew**: read off the two "clean" pieces — $\arctan 1 = \frac{\pi}{4}$ (halved by the leading $\frac12$) and the algebraic part $\frac{x}{2(x^2+1)}$ at $x=1$ is exactly $\frac14$. **The bound $1$ was chosen so both pieces land on values you can compute in your head.**
 
 ---
 
-### A4. $\int \frac{x^3}{\sqrt{x^2+1}}\,dx$
+### A4. $\int \frac{x^3}{\sqrt{x^2+1}}\,dx$, then $\int \frac{x^5}{\sqrt{x^2+1}}\,dx$ — the odd-power pattern.
 
-$u$-sub: $u = x^2+1$, $du = 2x\,dx$ → $x\,dx = \frac{du}{2}$.
+**$x^3$**: $u = x^2+1$, $du = 2x\,dx$; solve $x^2 = u-1$:
 
-Rewrite $x^3 = x^2 \cdot x$. Solve for $x^2$: $x^2 = u-1$.
+$\int\frac{x^2\cdot x\,dx}{\sqrt{u}} = \frac12\int\frac{u-1}{u^{1/2}}\,du = \frac12\left(\frac{2}{3}u^{3/2} - 2u^{1/2}\right) = \frac13 u^{3/2} - u^{1/2} + C$
 
-$\int \frac{x^3}{\sqrt{x^2+1}}\,dx = \int \frac{x^2 \cdot x}{\sqrt{x^2+1}}\,dx = \int \frac{(u-1) \cdot x\,dx}{\sqrt{u}} = \int \frac{u-1}{u^{1/2}} \cdot \frac{du}{2}$
+$= \frac13(x^2+1)^{3/2} - \sqrt{x^2+1} + C = \frac{\sqrt{x^2+1}}{3}(x^2-2) + C$.
 
-$= \frac{1}{2}\int (u^{1/2} - u^{-1/2})\,du = \frac{1}{2}\left(\frac{u^{3/2}}{3/2} - \frac{u^{1/2}}{1/2}\right) + C$
+**$x^5$**: same trick, but $x^5 = x\cdot x^4 = x(u-1)^2$:
 
-$= \frac{1}{2}\left(\frac{2}{3}u^{3/2} - 2u^{1/2}\right) + C = \frac{1}{3}u^{3/2} - u^{1/2} + C$
+$\frac12\int\frac{(u-1)^2}{u^{1/2}}\,du = \frac12\int(u^{3/2} - 2u^{1/2} + u^{-1/2})\,du = \frac15 u^{5/2} - \frac23 u^{3/2} + u^{1/2} + C$
 
-$= \frac{1}{3}(x^2+1)^{3/2} - (x^2+1)^{1/2} + C = \frac{1}{3}(x^2+1)^{3/2} - \sqrt{x^2+1} + C$.
+$= \frac15(x^2+1)^{5/2} - \frac23(x^2+1)^{3/2} + \sqrt{x^2+1} + C$.
 
-Factor: $= \frac{\sqrt{x^2+1}}{3}(x^2+1 - 3) + C = \frac{\sqrt{x^2+1}}{3}(x^2-2) + C$.
+**Pattern**: $x^3$ → power $\frac32$; $x^5$ → powers $\frac52, \frac32, \frac12$. Each extra $x^2$ in the numerator costs one more term in the answer, generated by expanding $(u-1)^k$. **Peel one $x$ for $du$, expand the rest as powers of $u-1$ — you never need trig sub for odd powers.**
 
 ---
 
-### A5. $\int \frac{x^2+2x-1}{(x-1)(x^2+1)}\,dx$
+### A5. $\int \frac{x^2+2x-1}{(x-1)(x^2+1)}\,dx$ — the $B=0$ surprise.
 
-Template for linear + irreducible quadratic:
+Template: $\frac{x^2+2x-1}{(x-1)(x^2+1)} = \frac{A}{x-1} + \frac{Bx+C}{x^2+1}$.
 
-$\frac{x^2+2x-1}{(x-1)(x^2+1)} = \frac{A}{x-1} + \frac{Bx+C}{x^2+1}$
-
-Clear denominators: $x^2+2x-1 = A(x^2+1) + (Bx+C)(x-1)$.
-
-$= A(x^2+1) + Bx(x-1) + C(x-1)$
-$= Ax^2 + A + Bx^2 - Bx + Cx - C$
-$= (A+B)x^2 + (C-B)x + (A-C)$.
+Clear: $x^2+2x-1 = A(x^2+1) + (Bx+C)(x-1)$.
 
 Match coefficients:
 - $x^2$: $A+B = 1$
 - $x$: $C-B = 2$
-- constant: $A-C = -1$
+- const: $A-C = -1$
 
-Solve:
-From (3): $A = C-1$.
-From (2): $C = B+2$.
-Sub into (1): $(C-1)+B = 1$ → $(B+2-1)+B = 1$ → $2B+1 = 1$ → $B = 0$.
+From the last two, $A = C-1$, $C = B+2$ → $(B+1)+B = 1$ → $B=0$, then $C=2$, $A=1$.
 
-Then $C = 2$, $A = 1$.
+$\int = \int\frac{dx}{x-1} + \int\frac{2\,dx}{x^2+1} = \ln|x-1| + 2\arctan x + C$.
 
-So: $\frac{x^2+2x-1}{(x-1)(x^2+1)} = \frac{1}{x-1} + \frac{2}{x^2+1}$.
+**Check by cover-up at $x=0$**: LHS $= \frac{-1}{(-1)(1)} = 1$; RHS $= \frac{1}{-1} + \frac{2}{1} = 1$ ✓.
 
-Integrate:
-
-$\int \frac{x^2+2x-1}{(x-1)(x^2+1)}\,dx = \int \frac{1}{x-1}\,dx + \int \frac{2}{x^2+1}\,dx$
-
-$= \ln|x-1| + 2\arctan x + C$.
+**Why $B=0$ surprises you (and why it shouldn't)**: the numerator is *linear-free* in the quadratic part — after division, no genuine $Bx$ survives. **Whenever $B=0$ appears, plug in one convenient $x$ (like $x=0$) to confirm before trusting the algebra.**
 
 ---
 
-### A6. $\int \arctan x\,dx$
+### A6. $\int \arctan x\,dx$, and $\int x\arctan x\,dx$ — why the $\frac12\ln$?
 
-Parts: $u = \arctan x$ (Inverse trig), $dv = dx$.
+Parts on $\arctan x$ (Inverse trig first):
 
-| Step | Value |
-|:---:|:---|
-| $u$ | $\arctan x$ |
-| $dv$ | $dx$ |
-| $du$ | $\frac{1}{1+x^2}\,dx$ |
-| $v$ | $x$ |
+| $u$ | $dv$ | $du$ | $v$ |
+|:---:|:---:|:---:|:---:|
+| $\arctan x$ | $dx$ | $\frac{dx}{1+x^2}$ | $x$ |
 
-$uv - \int v\,du = x\arctan x - \int \frac{x}{1+x^2}\,dx$
+$\int \arctan x\,dx = x\arctan x - \int\frac{x}{1+x^2}\,dx = x\arctan x - \frac12\ln(1+x^2) + C$.
 
-The new integral is a $u$-sub: $w = 1+x^2$, $dw = 2x\,dx$ → $x\,dx = \frac{dw}{2}$.
+**Why the $\frac12$**: the leftover integral is a $\frac{P'}{P}$ form — $d(1+x^2) = 2x\,dx$, so the numerator $x$ is only *half* a derivative. The factor $\frac12$ is the $2$ from $2x$ being divided out, exactly like A6 in 16A.
 
-$\int \frac{x}{1+x^2}\,dx = \int \frac{1}{w} \cdot \frac{dw}{2} = \frac{1}{2}\ln|w| + C = \frac{1}{2}\ln(1+x^2) + C$.
+**$x\arctan x$**: parts again, $u = \arctan x$, $dv = x\,dx$:
 
-$\int \arctan x\,dx = x\arctan x - \frac{1}{2}\ln(1+x^2) + C$.
+$\frac{x^2}{2}\arctan x - \frac12\int\frac{x^2}{1+x^2}\,dx = \frac{x^2}{2}\arctan x - \frac12\int\left(1 - \frac{1}{1+x^2}\right)dx$
 
----
+$= \frac{x^2}{2}\arctan x - \frac{x}{2} + \frac12\arctan x + C = \frac12(x^2+1)\arctan x - \frac{x}{2} + C$.
 
-### A7. $\int \sec^3 x\,dx$
-
-Parts: $u = \sec x$, $dv = \sec^2 x\,dx$.
-
-| Step | Value |
-|:---:|:---|
-| $u$ | $\sec x$ |
-| $dv$ | $\sec^2 x\,dx$ |
-| $du$ | $\sec x\tan x\,dx$ |
-| $v$ | $\tan x$ |
-
-$I = \sec x\tan x - \int \tan x \cdot \sec x\tan x\,dx = \sec x\tan x - \int \sec x\tan^2 x\,dx$
-
-Use $\tan^2 x = \sec^2 x - 1$:
-
-$I = \sec x\tan x - \int \sec x(\sec^2 x - 1)\,dx$
-
-$= \sec x\tan x - \int \sec^3 x\,dx + \int \sec x\,dx$
-
-$= \sec x\tan x - I + \int \sec x\,dx$
-
-Now $\int \sec x\,dx = \ln|\sec x + \tan x| + C$ (standard formula).
-
-$I = \sec x\tan x - I + \ln|\sec x + \tan x|$
-
-$2I = \sec x\tan x + \ln|\sec x + \tan x|$
-
-$I = \frac{1}{2}\sec x\tan x + \frac{1}{2}\ln|\sec x + \tan x| + C$.
+**Check**: derivative $= x\arctan x + \frac12\cdot\frac{x^2+1}{x^2+1}\cdot$ (chain) $= x\arctan x + \frac12 - \frac12 = x\arctan x$ ✓. **Both problems are the same move — dump $\arctan$ into $u$ because its derivative is rational — and both times the leftover integral is a $u$-sub or a $\frac{P'}{P}$.**
 
 ---
 
-### A8. $\int \frac{\sqrt{x^2-4}}{x}\,dx$
+### A7. $\int \sec^3 x\,dx$, then $\int \sec^5 x\,dx$ — the recursion.
 
-Form: $\sqrt{x^2-4} = \sqrt{x^2-2^2}$ → $x = 2\sec\theta$.
+Parts: $u = \sec x$, $dv = \sec^2 x\,dx$ ($du = \sec x\tan x\,dx$, $v = \tan x$):
 
-1. $x = 2\sec\theta$, $dx = 2\sec\theta\tan\theta\,d\theta$.
-2. $\sqrt{x^2-4} = \sqrt{4\sec^2\theta-4} = 2\sqrt{\sec^2\theta-1} = 2\tan\theta$ (assuming $\theta$ where $\tan\theta \geq 0$).
-3. Integral: $\int \frac{2\tan\theta}{2\sec\theta} \cdot 2\sec\theta\tan\theta\,d\theta = \int 2\tan^2\theta\,d\theta$.
+$I_3 = \sec x\tan x - \int \sec x\tan^2 x\,dx = \sec x\tan x - \int\sec x(\sec^2 x-1)\,dx$
 
-$= 2\int (\sec^2\theta - 1)\,d\theta = 2(\tan\theta - \theta) + C$.
+$= \sec x\tan x - I_3 + \int\sec x\,dx$ → $2I_3 = \sec x\tan x + \ln|\sec x + \tan x|$
 
-4. Back-substitute via right triangle: $\sec\theta = x/2$.
+$I_3 = \frac12\sec x\tan x + \frac12\ln|\sec x+\tan x| + C$.
 
-   Adjacent = $2$, hypotenuse = $x$, opposite = $\sqrt{x^2-4}$.
-   - $\tan\theta = \frac{\sqrt{x^2-4}}{2}$
-   - $\theta = \operatorname{arcsec}(x/2)$ or $\theta = \arccos(2/x)$.
+**$\sec^5$ by recursion (not from scratch)**: $u = \sec^3 x$, $dv = \sec^2 x\,dx$ ($du = 3\sec^3 x\tan x\,dx$, $v = \tan x$):
 
-$\int \frac{\sqrt{x^2-4}}{x}\,dx = 2\left(\frac{\sqrt{x^2-4}}{2} - \operatorname{arcsec}(x/2)\right) + C$
+$I_5 = \sec^3 x\tan x - 3\int\sec^3 x\tan^2 x\,dx = \sec^3 x\tan x - 3\int\sec^3 x(\sec^2 x - 1)\,dx$
 
-$= \sqrt{x^2-4} - 2\operatorname{arcsec}(x/2) + C$.
+$= \sec^3 x\tan x - 3I_5 + 3I_3$ → $4I_5 = \sec^3 x\tan x + 3I_3$
 
-(Alternative: $\sqrt{x^2-4} - 2\arccos(2/x) + C$.)
+$I_5 = \frac14\sec^3 x\tan x + \frac34I_3 = \frac14\sec^3 x\tan x + \frac38\sec x\tan x + \frac38\ln|\sec x+\tan x| + C$.
+
+**The thinking**: you *never* integrate $\sec^5$ from scratch. Raising the power by 2 in $u$ lowers it by 2 in the leftover ($\tan^2$ → $\sec^2 - 1$), so $I_5$ reduces to $I_3$ — a recursion $I_{n} = \frac{\sec^{n-2}x\tan x}{n-1} + \frac{n-2}{n-1}I_{n-2}$. **Solve the recurrence once; each higher odd power is one substitution away from the previous.**
 
 ---
 
-### A9. $\int x\arcsin x\,dx$
+### A8. $\int \frac{\sqrt{x^2-4}}{x}\,dx$ — the choice table and the sign.
 
-Parts: $u = \arcsin x$ (Inverse trig), $dv = x\,dx$.
+Form $\sqrt{x^2 - 2^2}$ → $x = 2\sec\theta$, $dx = 2\sec\theta\tan\theta\,d\theta$.
 
-| Step | Value |
-|:---:|:---|
-| $u$ | $\arcsin x$ |
-| $dv$ | $x\,dx$ |
-| $du$ | $\frac{1}{\sqrt{1-x^2}}\,dx$ |
-| $v$ | $\frac{x^2}{2}$ |
+$\sqrt{x^2-4} = 2\sqrt{\sec^2\theta-1} = 2|\tan\theta| = 2\tan\theta$ (taking $\theta \in [0,\pi/2)$, where $\tan\theta \geq 0$).
 
-$uv - \int v\,du = \frac{x^2}{2}\arcsin x - \int \frac{x^2}{2} \cdot \frac{1}{\sqrt{1-x^2}}\,dx$
+$\int \frac{2\tan\theta}{2\sec\theta}\cdot 2\sec\theta\tan\theta\,d\theta = \int 2\tan^2\theta\,d\theta = 2\int(\sec^2\theta-1)\,d\theta = 2(\tan\theta - \theta)$.
 
-$= \frac{x^2}{2}\arcsin x - \frac{1}{2}\int \frac{x^2}{\sqrt{1-x^2}}\,dx$
+Right triangle ($\sec\theta = x/2$: adjacent $2$, hypotenuse $x$, opposite $\sqrt{x^2-4}$): $\tan\theta = \frac{\sqrt{x^2-4}}{2}$.
 
-For $\int \frac{x^2}{\sqrt{1-x^2}}\,dx$, use trig sub $x = \sin\theta$, $dx = \cos\theta\,d\theta$:
+$\int \frac{\sqrt{x^2-4}}{x}\,dx = \sqrt{x^2-4} - 2\operatorname{arcsec}(x/2) + C = \sqrt{x^2-4} - 2\arccos(2/x) + C$.
 
-$\int \frac{\sin^2\theta}{\sqrt{1-\sin^2\theta}} \cdot \cos\theta\,d\theta = \int \frac{\sin^2\theta}{\cos\theta} \cdot \cos\theta\,d\theta = \int \sin^2\theta\,d\theta$
+**The choice table** — one line that removes all guessing:
+| radical | substitution |
+|:---:|:---:|
+| $\sqrt{a^2 - x^2}$ | $x = a\sin\theta$ |
+| $\sqrt{a^2 + x^2}$ | $x = a\tan\theta$ |
+| $\sqrt{x^2 - a^2}$ | $x = a\sec\theta$ |
 
-$= \int \frac{1-\cos 2\theta}{2}\,d\theta = \frac{\theta}{2} - \frac{\sin 2\theta}{4} + C$.
-
-Back-substitute: $\theta = \arcsin x$, $\sin 2\theta = 2\sin\theta\cos\theta = 2x\sqrt{1-x^2}$.
-
-$= \frac{1}{2}\arcsin x - \frac{x\sqrt{1-x^2}}{2} + C$.
-
-Now combine:
-
-$\int x\arcsin x\,dx = \frac{x^2}{2}\arcsin x - \frac{1}{2}\left(\frac{1}{2}\arcsin x - \frac{x\sqrt{1-x^2}}{2}\right) + C$
-
-$= \frac{x^2}{2}\arcsin x - \frac{1}{4}\arcsin x + \frac{x\sqrt{1-x^2}}{4} + C$
-
-$= \frac{2x^2-1}{4}\arcsin x + \frac{x\sqrt{1-x^2}}{4} + C$.
+**Why sec here**: we need $\sqrt{x^2-4}$ to become a single trig function, and $\sec^2\theta - 1 = \tan^2\theta$. **The sign question**: $\sqrt{\cdot}$ is always nonnegative but $2\tan\theta$ isn't — you must declare the quadrant where $\tan\theta \geq 0$. This is the one place a sloppy trig sub silently flips signs.**
 
 ---
 
-### A10. Derive $\int \sin^n x\,dx = -\frac{1}{n}\sin^{n-1}x\cos x + \frac{n-1}{n}\int \sin^{n-2}x\,dx$
+### A9. $\int x\arcsin x\,dx$ — recycle A6's answer.
 
-Parts: $u = \sin^{n-1}x$, $dv = \sin x\,dx$.
+Parts: $u = \arcsin x$, $dv = x\,dx$ ($du = \frac{dx}{\sqrt{1-x^2}}$, $v = \frac{x^2}{2}$):
 
-| Step | Value |
-|:---:|:---|
-| $u$ | $\sin^{n-1}x$ |
-| $dv$ | $\sin x\,dx$ |
-| $du$ | $(n-1)\sin^{n-2}x \cdot \cos x\,dx$ |
-| $v$ | $-\cos x$ |
+$\frac{x^2}{2}\arcsin x - \frac12\int\frac{x^2}{\sqrt{1-x^2}}\,dx$.
 
-Let $I_n = \int \sin^n x\,dx$.
+Trig sub $x = \sin\theta$: $\int\frac{x^2}{\sqrt{1-x^2}}\,dx = \int\sin^2\theta\,d\theta = \frac{\theta}{2} - \frac{\sin 2\theta}{4} = \frac12\arcsin x - \frac{x\sqrt{1-x^2}}{2}$.
 
-$I_n = \sin^{n-1}x \cdot (-\cos x) - \int (-\cos x) \cdot (n-1)\sin^{n-2}x\cos x\,dx$
+$\int x\arcsin x\,dx = \frac{x^2}{2}\arcsin x - \frac12\left(\frac12\arcsin x - \frac{x\sqrt{1-x^2}}{2}\right) = \frac{2x^2-1}{4}\arcsin x + \frac{x\sqrt{1-x^2}}{4} + C$.
 
-$= -\sin^{n-1}x\cos x + (n-1)\int \sin^{n-2}x\cos^2 x\,dx$
+**Compare with A6's structure**: both times $\arcsin$/$\arctan$ goes into $u$ (Inverse trig first in LIATE) and the leftover is a rational/radical integral you already know. **The $\frac12$ factors come from $dv = x\,dx$ (an $x$ too many) and from $\sin 2\theta$'s half-angle — same "halves" you've now seen three times today.**
 
-Use $\cos^2 x = 1 - \sin^2 x$:
+---
 
-$I_n = -\sin^{n-1}x\cos x + (n-1)\int \sin^{n-2}x(1-\sin^2 x)\,dx$
+### A10. $\int_0^{\pi/2}\sin^3 x\cos^2 x\,dx$, and $\int_0^{\pi/2}\sin^2 x\cos^2 x\,dx$ — odd vs even.
 
-$= -\sin^{n-1}x\cos x + (n-1)\int \sin^{n-2}x\,dx - (n-1)\int \sin^n x\,dx$
+**Odd exponent ($m=3$)** → peel: $\sin^3 x\cos^2 x = \sin x(1-\cos^2 x)\cos^2 x$. $u = \cos x$, $du = -\sin x\,dx$; bounds $x=0\to u=1$, $x=\pi/2\to u=0$:
 
-$= -\sin^{n-1}x\cos x + (n-1)I_{n-2} - (n-1)I_n$.
+$\int_0^{\pi/2}\sin^3 x\cos^2 x\,dx = \int_1^0 (1-u^2)u^2(-du) = \int_0^1(u^2-u^4)\,du = \frac13 - \frac15 = \frac{2}{15}$.
 
-Bring $(n-1)I_n$ to the left side:
+**Even-even ($m=2,n=2$)** → half-angle: $\sin^2 x\cos^2 x = \frac{\sin^2 2x}{4} = \frac{1-\cos 4x}{8}$:
 
-$I_n + (n-1)I_n = -\sin^{n-1}x\cos x + (n-1)I_{n-2}$
+$\int_0^{\pi/2}\sin^2 x\cos^2 x\,dx = \frac18\left[x - \frac{\sin 4x}{4}\right]_0^{\pi/2} = \frac18\cdot\frac{\pi}{2} = \frac{\pi}{16}$.
 
-$nI_n = -\sin^{n-1}x\cos x + (n-1)I_{n-2}$
+**Why $2/15$ but $\pi/16$?** The odd case reduces to a pure polynomial in $u$ — rational answer. The even case needs half-angle, which leaves a linear $x$ term — so $\pi$ appears. **Odd power → rational; all-even → $\pi$. That fingerprint tells you which technique to reach for before you start.**
 
-$I_n = -\frac{1}{n}\sin^{n-1}x\cos x + \frac{n-1}{n}\int \sin^{n-2}x\,dx$. ∎
+(Also: $\int_0^{\pi/2}\sin^4 x\,dx = \frac{3\pi}{16}$ and $\int_0^{\pi/2}\cos^4 x\,dx = \frac{3\pi}{16}$ by A2's pattern — the even-case answers always carry $\pi$.)
 
 ---
 

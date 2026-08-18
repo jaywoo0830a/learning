@@ -6,6 +6,8 @@
 
 **Prerequisites**: 16A (FTC & $u$-sub), 14B (chain/product rules), 11A (trig)
 
+> 💡 **Stuck?** Every drill below has a collapsible **Hint** — click it only when you need a nudge.
+
 ---
 
 ## The Integration Decision Tree
@@ -45,6 +47,12 @@ Look at the integral. Ask:
 | 4 | **Compute $v$** = integrate $dv$ (no $+C$ needed here) |
 | 5 | **Assemble**: $uv - \int v\,du$ |
 | 6 | **Integrate** $\int v\,du$. It should be simpler than the original |
+
+**Why it works — the product rule in reverse**:
+
+The product rule (14A) reads $d(uv) = u\,dv + v\,du$. Integrate both sides: $uv = \int u\,dv + \int v\,du$, so $\int u\,dv = uv - \int v\,du$. You can't integrate the product as-is, but you *can* if one factor is a derivative you recognize — parts splits the product so one piece integrates and the other differentiates into something simpler.
+
+> **How to think**: LIATE is a *ranking of what gets simpler when differentiated* — log (→ algebraic), inverse trig (→ algebraic), polynomial (→ lower degree), trig (→ cycles), exponential (→ never simpler). Pick $u$ as the factor whose derivative moves toward the dictionary; everything else becomes $dv$.
 
 ---
 
@@ -182,6 +190,10 @@ $\int \cos^2 x\,dx$. $n=2$ (even, and $m=0$ which is even too).
 2. **Integrate**: $\int \frac{1+\cos 2x}{2}\,dx = \frac{1}{2}\int (1+\cos 2x)\,dx$.
 3. $= \frac{1}{2}(x + \frac{\sin 2x}{2}) + C = \frac{x}{2} + \frac{\sin 2x}{4} + C$.
 
+**Why half-angle works**: $\sin^2 x$ and $\cos^2 x$ have no dictionary entry — but $\cos 2x$ does (its antiderivative $\frac{\sin 2x}{2}$ comes straight from the chain rule: $\frac{d}{dx}\sin 2x = 2\cos 2x$). The half-angle identities trade an unintegratable square for an integratable first power.
+
+> **How to think**: Odd powers → peel one off, then $u$-sub. Even powers → half-angle. The parity tree in Example 7 is the thinking; these two moves cover every $\sin^m x\cos^n x$.
+
 ---
 
 ## Example 10: $\int \tan^m x\sec^n x\,dx$ — Save $\sec^2 x$
@@ -220,6 +232,18 @@ $u = \tan x$, $du = \sec^2 x\,dx$. Integral = $\int u^3\,du = \frac{\tan^4 x}{4}
 | $\sqrt{a^2-x^2}$ | $x = a\sin\theta$ | $a\cos\theta\,d\theta$ | $a\cos\theta$ |
 | $\sqrt{a^2+x^2}$ | $x = a\tan\theta$ | $a\sec^2\theta\,d\theta$ | $a\sec\theta$ |
 | $\sqrt{x^2-a^2}$ | $x = a\sec\theta$ | $a\sec\theta\tan\theta\,d\theta$ | $a\tan\theta$ |
+
+**Why it works — the Pythagorean identities in reverse**:
+
+The square root is the obstacle. Each substitution makes the inside a perfect square via a Pythagorean identity:
+
+- $\sqrt{a^2-x^2}$: $x=a\sin\theta$ → $\sqrt{a^2(1-\sin^2\theta)}=a\cos\theta$ (uses $\cos^2=1-\sin^2$).
+- $\sqrt{a^2+x^2}$: $x=a\tan\theta$ → $\sqrt{a^2(1+\tan^2\theta)}=a\sec\theta$ (uses $\sec^2=1+\tan^2$).
+- $\sqrt{x^2-a^2}$: $x=a\sec\theta$ → $\sqrt{a^2(\sec^2\theta-1)}=a\tan\theta$ (uses $\tan^2=\sec^2-1$).
+
+One move, three faces: **kill the root by turning the inside into a perfect square with an identity.** The right triangle (Ex 14) is just the reverse mapping back to $x$.
+
+> **How to think**: See a root of a sum/difference of squares → ask "which identity makes this a perfect square?" That choice IS the substitution.
 
 ---
 
@@ -314,6 +338,12 @@ $\int \frac{1}{x^2-1}\,dx = \int \frac{1}{(x-1)(x+1)}\,dx$.
 
 5. Integrate: $\int (\frac{1/2}{x-1} - \frac{1/2}{x+1})\,dx = \frac{1}{2}\ln|x-1| - \frac{1}{2}\ln|x+1| + C = \frac{1}{2}\ln\left|\frac{x-1}{x+1}\right| + C$.
 
+**Why it works — reverse of the common-denominator trick**:
+
+You already know how to *add* $\frac{A}{x-1}+\frac{B}{x+1}$: common denominator $(x-1)(x+1)$, numerator $A(x+1)+B(x-1)$. Partial fractions run that operation **backward** — given the single fraction $\frac{1}{(x-1)(x+1)}$, find $A,B$ so that the "added" numerator $A(x+1)+B(x-1)$ equals $1$. Plugging roots ($x=1$ kills the $B$-term; $x=-1$ kills the $A$-term) is the fastest way to reverse the addition.
+
+> **How to think**: A rational function is a sum of "dictionary atoms" — $\frac{1}{ax+b}$ (→ ln), $\frac{1}{(ax+b)^k}$ (→ power), $\frac{Ax+B}{x^2+c^2}$ (→ arctan/ln). Partial fractions is the machinery that decomposes any proper fraction into exactly these atoms.
+
 ---
 
 ## Example 18: Repeated Linear Factor
@@ -364,6 +394,12 @@ $\int \frac{x^3}{x^2+1}\,dx$. Degree: $3 \geq 2$ → divide.
 $x^3 \div (x^2+1)$: $x^3 = x(x^2+1) - x$. So $\frac{x^3}{x^2+1} = x - \frac{x}{x^2+1}$.
 
 Integrate: $\int x\,dx - \int \frac{x}{x^2+1}\,dx = \frac{x^2}{2} - \frac{1}{2}\ln(x^2+1) + C$.
+
+**Why divide first — the degree check IS the thinking**:
+
+A fraction with $\deg P \geq \deg Q$ is not yet in dictionary form: it contains a polynomial part that *grows*, which no $\frac{1}{ax+b}$ atom can reproduce. Long division peels off that polynomial part (integrated by the power rule) and leaves a **proper** fraction ($\deg P < \deg Q$) that partial fractions can decompose. This mirrors ordinary arithmetic: just as $\frac{7}{3} = 2 + \frac{1}{3}$, every rational function splits as **polynomial + proper fraction** — and each half has its own technique.
+
+> **How to think**: Fixed order: **divide → factor → decompose → integrate.** Check degrees first (is it proper?), factor second (can the dictionary see the pieces?), then decompose. Skipping the degree check is the classic error.
 
 > **Up to here**: Parts (LIATE). Trig integrals (odd→peel+sub, even→half-angle, tan/sec→save sec²). Trig sub (√form→sin/tan/sec). Partial fractions (factor→template→solve→integrate). All four techniques integrated into one decision tree.
 
@@ -454,59 +490,241 @@ A classmate sees $\int \frac{x}{\sqrt{1-x^2}}\,dx$ and says: "Trig sub! $\sqrt{1
 
 ## Basic Drills
 
-> Identify the technique from the decision tree. Execute the procedure.
+> Identify the technique from the decision tree, then execute it.
 
-**D1.** $\int x\cos x\,dx$. Parts: $u=x$, $dv=\cos x\,dx$.
+**B1.** $\int x\cos x\,dx$.
 
-**D2.** $\int \ln(2x)\,dx$. Parts: $u=\ln(2x)$, $dv=dx$.
+<details>
+<summary>💡 Hint</summary>
 
-**D3.** $\int \sin^2 x\,dx$. Trig integral (even → half-angle).
+Parts: $u = x$, $dv = \cos x\,dx$.
 
-**D4.** $\int \tan x\sec^2 x\,dx$. Tan/sec: $n=2$ (even) → $u=\tan x$.
+</details>
 
-**D5.** $\int \frac{dx}{\sqrt{9-x^2}}$. Trig sub: $x=3\sin\theta$.
+**B2.** $\int \ln(2x)\,dx$.
 
-**D6.** $\int \frac{dx}{x^2+9}$. Arctan formula: $\frac{1}{3}\arctan(x/3) + C$.
+<details>
+<summary>💡 Hint</summary>
 
-**D7.** $\int \frac{1}{x^2-x}\,dx$. Partial fractions: factor $x(x-1)$.
+Parts: $u = \ln(2x)$, $dv = dx$. Note $\frac{d}{dx}\ln(2x) = \frac{1}{x}$.
 
-**D8.** $\int x^2 e^x\,dx$. Parts twice: first $u=x^2$, then $u=x$.
+</details>
 
-**D9.** $\int \sin x\cos x\,dx$. Two methods: $u=\sin x$ OR $\sin 2x = 2\sin x\cos x$. Verify answers match.
+**B3.** $\int \sin^2 x\,dx$.
 
-**D10.** $\int \frac{x}{\sqrt{1-x^2}}\,dx$. Decision: trig sub or $u$-sub? Choose the faster one.
+<details>
+<summary>💡 Hint</summary>
 
-**D11.** $\int \frac{dx}{x^2+6x+13}$. Complete the square, then arctan.
+Trig integral — even power → half-angle $\sin^2 x = \frac{1-\cos 2x}{2}$.
 
-**D12.** $\int \sec x\,dx$. Multiply by $\frac{\sec x+\tan x}{\sec x+\tan x}$, substitute.
+</details>
+
+**B4.** $\int \tan x\sec^2 x\,dx$.
+
+<details>
+<summary>💡 Hint</summary>
+
+$n = 2$ (even) → save $\sec^2 x$, $u = \tan x$.
+
+</details>
+
+**B5.** $\int \frac{dx}{\sqrt{9-x^2}}$.
+
+<details>
+<summary>💡 Hint</summary>
+
+$\sqrt{a^2-x^2}$ form with $a=3$: $x = 3\sin\theta$ (or use the dictionary entry $\arcsin$).
+
+</details>
+
+**B6.** $\int \frac{dx}{x^2+9}$.
+
+<details>
+<summary>💡 Hint</summary>
+
+Arctan form: $\int\frac{dx}{x^2+a^2} = \frac{1}{a}\arctan\frac{x}{a}$ with $a=3$.
+
+</details>
+
+**B7.** $\int \frac{dx}{x^2-x}$.
+
+<details>
+<summary>💡 Hint</summary>
+
+Partial fractions: factor $x^2-x = x(x-1)$.
+
+</details>
+
+**B8.** $\int x^2 e^x\,dx$.
+
+<details>
+<summary>💡 Hint</summary>
+
+Parts twice: first $u = x^2$, then $u = x$.
+
+</details>
+
+**B9.** $\int \sin x\cos x\,dx$. Solve two ways and verify the answers agree.
+
+<details>
+<summary>💡 Hint</summary>
+
+$u = \sin x$ works directly; or use $\sin 2x = 2\sin x\cos x$. The answers differ by a constant.
+
+</details>
+
+**B10.** $\int \frac{x}{\sqrt{1-x^2}}\,dx$. Choose the faster method.
+
+<details>
+<summary>💡 Hint</summary>
+
+$u = 1-x^2$ beats trig sub here — the $x$ upstairs is exactly (half of) $du$.
+
+</details>
+
+**B11.** $\int \frac{dx}{x^2+6x+13}$.
+
+<details>
+<summary>💡 Hint</summary>
+
+Complete the square: $(x+3)^2+4$, then arctan.
+
+</details>
+
+**B12.** $\int \sec x\,dx$.
+
+<details>
+<summary>💡 Hint</summary>
+
+Multiply by $\frac{\sec x+\tan x}{\sec x+\tan x}$ — the numerator becomes the derivative of the denominator.
+
+</details>
 
 > Solutions: [Solutions](solutions/16B-solutions.md#basic-drill)
 
 ---
 
+## Calculation Drills
+
+> Pure computation. Each takes ~10 minutes of grinding through formula patterns — parts, trig integrals, trig substitution, partial fractions. No hints.
+
+**C1.** $\int \frac{5x+7}{x^2+x-2}\,dx$
+
+**C2.** $\int x^2\ln x\,dx$
+
+**C3.** $\int_0^{\pi/2} x\cos x\,dx$
+
+**C4.** $\int \tan^3 x\sec^4 x\,dx$
+
+**C5.** $\int_0^{\pi/2}\sin^4 x\cos^3 x\,dx$
+
+**C6.** $\int \frac{dx}{(x^2+1)^{3/2}}$
+
+**C7.** $\int \frac{x^2}{\sqrt{4-x^2}}\,dx$
+
+**C8.** $\int e^{2x}\sin 3x\,dx$
+
+**C9.** $\int \frac{3x^2+4x+3}{(x+1)(x^2+1)}\,dx$
+
+**C10.** $\int_0^1 x\arctan x\,dx$
+
+> Solutions: [Solutions](solutions/16B-solutions.md#calculation-drill)
+
+---
+
 ## Advanced Drills
 
-> Multi-step. May combine techniques.
+> Each problem has a computation part AND a thinking part — don't skip the second half. Solve first, then explain.
 
-**A1.** $\int e^x\cos x\,dx$. Cycling parts — apply twice, solve for $I$.
+**A1.** $\int e^x\cos x\,dx$. Solve by cycling; then explain why choosing $u = \cos x$ vs $u = e^x$ does not change the outcome — what property makes the cycle work either way?
 
-**A2.** $\int \sin^4 x\,dx$. Repeated half-angle: $(\frac{1-\cos 2x}{2})^2$, expand, half-angle again.
+<details>
+<summary>💡 Hint</summary>
 
-**A3.** $\int \frac{dx}{(x^2+1)^2}$. Trig sub $x=\tan\theta$. Right triangle for back-sub.
+Do parts twice and watch the original integral $I$ reappear on both sides. Then think: why would the *other* choice of $u$ also lead back to $I$?
 
-**A4.** $\int \frac{x^3}{\sqrt{x^2+1}}\,dx$. $u=x^2+1$ is faster than trig sub — try it.
+</details>
 
-**A5.** $\int \frac{x^2+2x-1}{(x-1)(x^2+1)}\,dx$. Quadratic factor: template $\frac{A}{x-1} + \frac{Bx+C}{x^2+1}$.
+**A2.** $\int \sin^4 x\,dx$. Solve; then use the even-power pattern $\int_0^{\pi/2}\sin^n x\,dx = \frac{n-1}{n}\cdot\frac{n-3}{n-2}\cdots\frac12\cdot\frac{\pi}{2}$ to write the $n=2$ and $n=4$ values, and state $\int_0^{\pi/2}\cos^4 x\,dx$ without integrating.
 
-**A6.** $\int \arctan x\,dx$. Parts: $u=\arctan x$, $dv=dx$. Result needs $u$-sub.
+<details>
+<summary>💡 Hint</summary>
 
-**A7.** $\int \sec^3 x\,dx$. Parts: $u=\sec x$, $dv=\sec^2 x\,dx$. Classic — it cycles.
+Apply the half-angle identity, then apply it again to the new $\cos^2$ term. For the pattern and the $\cos^4$ comparison: $\sin$ and $\cos$ are mirrors on $[0,\pi/2]$.
 
-**A8.** $\int \frac{\sqrt{x^2-4}}{x}\,dx$. Trig sub $x=2\sec\theta$. Right triangle needed.
+</details>
 
-**A9.** $\int x\arcsin x\,dx$. Parts: $u=\arcsin x$, $dv=x\,dx$. Result needs trig sub or clever $u$-sub.
+**A3.** $\int \frac{dx}{(x^2+1)^2}$. Solve via trig sub; then find the constant $C$ such that $\int_0^1 = \frac{\pi}{8} + C$, and explain how you knew $C$ without any extra integration.
 
-**A10.** Derive the reduction formula: $\int \sin^n x\,dx = -\frac{1}{n}\sin^{n-1}x\cos x + \frac{n-1}{n}\int \sin^{n-2}x\,dx$. (Parts: $u=\sin^{n-1}x$, $dv=\sin x\,dx$.)
+<details>
+<summary>💡 Hint</summary>
+
+Which row of the substitution table matches $\frac{1}{(x^2+1)^2}$? After back-substituting, just plug in $x = 0$ and $x = 1$.
+
+</details>
+
+**A4.** $\int \frac{x^3}{\sqrt{x^2+1}}\,dx$. Solve; then compute $\int \frac{x^5}{\sqrt{x^2+1}}\,dx$ with the same move, and describe how the answer's terms grow as the odd power increases.
+
+<details>
+<summary>💡 Hint</summary>
+
+Set $u = x^2+1$ and write $x^3 = x \cdot x^2$ in terms of $u$. For the second integral, try $x^5 = x \cdot (x^2)^2$.
+
+</details>
+
+**A5.** $\int \frac{x^2+2x-1}{(x-1)(x^2+1)}\,dx$. Solve; then check the answer by substituting $x=0$ into both sides, and explain why $B=0$ (no linear term over the quadratic) is plausible from the original numerator.
+
+<details>
+<summary>💡 Hint</summary>
+
+Set up the template with $(Bx+C)$ over the quadratic factor, then match coefficients. To check, substitute one convenient value of $x$ into both sides.
+
+</details>
+
+**A6.** $\int \arctan x\,dx$. Solve; then compute $\int x\arctan x\,dx$ with the same first move, and explain why the $\frac12\ln(1+x^2)$ carries a $\frac12$.
+
+<details>
+<summary>💡 Hint</summary>
+
+Which factor should go in $u$? Then look at the leftover integral: is the numerator related to the derivative of the denominator?
+
+</details>
+
+**A7.** $\int \sec^3 x\,dx$. Solve; then derive $\int \sec^5 x\,dx$ from it using the recursion $I_n = \frac{\sec^{n-2}x\tan x}{n-1} + \frac{n-2}{n-1}I_{n-2}$.
+
+<details>
+<summary>💡 Hint</summary>
+
+Parts with $u = \sec x$, $dv = \sec^2 x\,dx$; expect $I$ to reappear. For $\sec^5$, try parts with $u = \sec^3 x$ and reuse your $\sec^3$ result.
+
+</details>
+
+**A8.** $\int \frac{\sqrt{x^2-4}}{x}\,dx$. Solve; then write the choice table (which substitution for $\sqrt{a^2-x^2}$, $\sqrt{a^2+x^2}$, $\sqrt{x^2-a^2}$) and explain where $|2\tan\theta|$ comes from and why you may drop the bars.
+
+<details>
+<summary>💡 Hint</summary>
+
+Which row of the substitution table matches $\sqrt{x^2-4}$? Keep track of whether the root comes out positive.
+
+</details>
+
+**A9.** $\int x\arcsin x\,dx$. Solve; then compare with A6's $\int \arctan x\,dx$ — identify the shared structure and where the $\frac14$ factors appear.
+
+<details>
+<summary>💡 Hint</summary>
+
+Put $\arcsin x$ in $u$. Then look at the leftover integral — what does $\sqrt{1-x^2}$ tell you to try?
+
+</details>
+
+**A10.** $\int_0^{\pi/2}\sin^3 x\cos^2 x\,dx$. Solve; then evaluate $\int_0^{\pi/2}\sin^2 x\cos^2 x\,dx$ and explain why one answer is rational and the other contains $\pi$.
+
+<details>
+<summary>💡 Hint</summary>
+
+Check the parity of each exponent first. Odd power → which branch? Both even → which branch? Evaluate each one.
+
+</details>
 
 > Solutions: [Solutions](solutions/16B-solutions.md#advanced-drill)
 
