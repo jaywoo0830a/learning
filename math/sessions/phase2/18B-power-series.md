@@ -4,6 +4,8 @@
 
 *Prerequisites: 18A (convergence tests), 14B (chain rule), 16A (FTC)*
 
+> 💡 **Stuck?** Every problem has a collapsible **Hint** below it — click it only when you need a nudge.
+
 ---
 
 ## Example 1: What Is a Power Series?
@@ -74,6 +76,26 @@ Integrate $\frac{1}{1+x^2}$: $\arctan x = \sum_{n=0}^\infty \frac{(-1)^n x^{2n+1
 
 ---
 
+## Common Mistakes
+
+### Mistake 1: Forgetting to check the endpoints
+
+**Wrong**: "$R=1$, so the interval is $(-1,1)$." The radius only guarantees convergence on $(a-R, a+R)$. The endpoints must be **checked separately** — e.g. $\sum x^n/n$ has interval $[-1,1)$, not $(-1,1)$.
+
+### Mistake 2: Confusing the ratio with the radius
+
+If the ratio test gives $\lim |c_{n+1}/c_n| = L$, the radius is $R = 1/L$, **not** $L$. ($L=0 \Rightarrow R=\infty$; $L=\infty \Rightarrow R=0$.)
+
+### Mistake 3: Differentiating or integrating outside the radius
+
+Term-by-term operations are only valid **inside** the radius of convergence. Differentiating can also change which endpoints converge (e.g. $\sum x^n/n^2$ vs its derivative $\sum x^{n-1}/n$).
+
+### Mistake 4: Treating the power series as a finite polynomial
+
+You cannot plug in $x$ values outside the radius, and you cannot truncate arbitrarily without an error bound. A power series is a function only where it converges.
+
+---
+
 ## What We Just Did
 
 ```
@@ -89,6 +111,13 @@ Integrate $\frac{1}{1+x^2}$: $\arctan x = \sum_{n=0}^\infty \frac{(-1)^n x^{2n+1
 
 Find radius and interval for $\sum_{n=1}^\infty \frac{(x-2)^n}{3^n n}$.
 
+<details>
+<summary>💡 Hint</summary>
+
+$c_n = \frac{1}{3^n n}$, so $R = \lim \frac{c_n}{c_{n+1}} = 3$. Center is $x=2$. Then check the endpoints $x = -1$ and $x = 5$ separately.
+
+</details>
+
 → Solutions: [Solutions](solutions/18B-solutions.md#practice-1)
 
 ---
@@ -96,6 +125,13 @@ Find radius and interval for $\sum_{n=1}^\infty \frac{(x-2)^n}{3^n n}$.
 ## Practice 2
 
 Find a power series for $\ln(1-x^2)$ using the geometric series.
+
+<details>
+<summary>💡 Hint</summary>
+
+Write $\ln(1-x^2) = \ln(1+u)$ with $u = -x^2$, then substitute into the series for $\ln(1+u)$.
+
+</details>
 
 → Solutions: [Solutions](solutions/18B-solutions.md#practice-2)
 
@@ -105,19 +141,44 @@ Find a power series for $\ln(1-x^2)$ using the geometric series.
 
 Differentiate $\sum_{n=0}^\infty \frac{x^n}{n!}$ term-by-term. What do you notice?
 
+<details>
+<summary>💡 Hint</summary>
+
+$\frac{d}{dx}\frac{x^n}{n!} = \frac{x^{n-1}}{(n-1)!}$. Re-index with $k = n-1$ and compare with the original.
+
+</details>
+
 → Solutions: [Solutions](solutions/18B-solutions.md#practice-3)
 
 ---
 
 ## Practice 4: Real Battle (🔗 12B1, 18A)
 
-Find the interval of convergence for $\sum_{n=1}^\infty \frac{(x-1)^n}{n\cdot 3^n}$. Check both endpoints. Connect to the geometric series (12B1) and ratio test (18A).
+Find the interval of convergence for $\sum_{n=1}^\infty \frac{(x-1)^n}{n\cdot 3^n}$. Check both endpoints.
+
+<details>
+<summary>💡 Hint</summary>
+
+Same structure as Practice 1: $R = 3$, center $x=1$. Endpoints: $x=4$ gives the harmonic series; $x=-2$ gives an alternating series.
+
+</details>
+
+→ Solutions: [Solutions](solutions/18B-solutions.md#practice-4)
 
 ---
 
 ## Practice 5: Real Battle — Series for $\pi$ (🔗 18C)
 
-Use the series for $\arctan x$ to find a series for $\pi$. Hint: $\arctan 1 = \pi/4$. How many terms are needed to estimate $\pi$ to 3 decimal places? Connect to alternating series error bound.
+Use the series for $\arctan x$ to find a series for $\pi$. How many terms are needed to estimate $\pi$ to 3 decimal places?
+
+<details>
+<summary>💡 Hint</summary>
+
+Plug $x=1$ into $\arctan x = \sum \frac{(-1)^n x^{2n+1}}{2n+1}$ and multiply by $4$. For 3 decimal places you need error $< 0.0005$: $\frac{4}{2N+1} < 0.0005$. The answer is surprisingly large.
+
+</details>
+
+→ Solutions: [Solutions](solutions/18B-solutions.md#practice-5)
 
 ---
 
@@ -129,6 +190,13 @@ Use the series for $\arctan x$ to find a series for $\pi$. Hint: $\arctan 1 = \p
 
 **D3.** Find interval for $\sum_{n=0}^\infty \frac{(-1)^n x^n}{n+1}$.
 
+<details>
+<summary>💡 Hint</summary>
+
+$R=1$. At $x=1$ the terms alternate; at $x=-1$ you get $\sum \frac{1}{n+1}$.
+
+</details>
+
 **D4.** Write $\frac{1}{1+2x}$ as a power series. For which $x$?
 
 **D5.** Find a series for $\frac{1}{(1-x)^2}$ by differentiating $\frac{1}{1-x}$.
@@ -137,15 +205,36 @@ Use the series for $\arctan x$ to find a series for $\pi$. Hint: $\arctan 1 = \p
 
 **D7.** Evaluate $\sum_{n=1}^\infty \frac{n}{2^n}$ by recognizing a differentiated series.
 
+<details>
+<summary>💡 Hint</summary>
+
+$\sum n x^n = \frac{x}{(1-x)^2}$ (differentiate the geometric series). Evaluate at $x = \frac12$.
+
+</details>
+
 **D8.** Find interval for $\sum_{n=1}^\infty \frac{(x+1)^n}{n^2}$.
 
 **D9.** Differentiate the series for $\sin x = \sum (-1)^n \frac{x^{2n+1}}{(2n+1)!}$.
 
 **D10.** Find $R$ for $\sum_{n=0}^\infty \frac{(2n)!}{(n!)^2}x^n$. Use ratio test.
 
+<details>
+<summary>💡 Hint</summary>
+
+$\frac{c_{n+1}}{c_n} = \frac{(2n+2)(2n+1)}{(n+1)^2} \to 4$, so $R = \frac14$.
+
+</details>
+
 **D11.** Find a power series for $\frac{x}{(1-x)^2}$ by differentiating $\frac{1}{1-x}$.
 
 **D12.** Evaluate $\sum_{n=0}^\infty \frac{(-1)^n}{2^n}$ by recognizing it as a geometric series.
+
+<details>
+<summary>💡 Hint</summary>
+
+$\sum \left(-\frac12\right)^n$ with $r = -\frac12$. Sum $= \frac{1}{1-r}$.
+
+</details>
 
 > Solutions: [Solutions](solutions/18B-solutions.md#basic-drill)
 
@@ -155,27 +244,111 @@ Use the series for $\arctan x$ to find a series for $\pi$. Hint: $\arctan 1 = \p
 
 **A1.** Find the interval for $\sum_{n=1}^\infty \frac{n(x+3)^n}{4^n}$. Be careful with endpoints.
 
-**A2.** Find a power series for $\frac{x}{1+x-2x^2}$ by partial fractions + geometric series.
+<details>
+<summary>💡 Hint</summary>
+
+$R = 4$, center $-3$. At both endpoints the general term does NOT tend to $0$ — both diverge.
+
+</details>
+
+**A2.** Find a power series for $\frac{x}{1+x-2x^2}$.
+
+<details>
+<summary>💡 Hint</summary>
+
+$1+x-2x^2 = (1-x)(1+2x)$. Split into partial fractions $\frac{A}{1-x} + \frac{B}{1+2x}$, then use the geometric series for each.
+
+</details>
 
 **A3.** Use series to evaluate $\lim_{x\to0}\frac{e^x-1-x}{x^2}$.
 
-**A4.** Prove $\sum_{n=1}^\infty \frac{n}{3^n} = \frac{3}{4}$ by differentiating a geometric series.
+<details>
+<summary>💡 Hint</summary>
+
+$e^x = 1 + x + \frac{x^2}{2} + \cdots$ — the numerator's lowest power of $x$ decides the limit.
+
+</details>
+
+**A4.** Prove $\sum_{n=1}^\infty \frac{n}{3^n} = \frac{3}{4}$.
+
+<details>
+<summary>💡 Hint</summary>
+
+Differentiate $\sum x^n = \frac{1}{1-x}$ to get $\sum n x^{n-1}$, then set $x = \frac13$.
+
+</details>
 
 **A5.** Find the interval for $\sum_{n=1}^\infty \frac{(x-1)^n}{n\cdot5^n}$.
 
+<details>
+<summary>💡 Hint</summary>
+
+$R=5$, center $1$: endpoints $x=6$ (harmonic) and $x=-4$ (alternating).
+
+</details>
+
 **A6.** Express $\int_0^{1/2} \frac{dx}{1+x^4}$ as a series. Compute to 4 decimal places.
 
-**A7.** Find all $x$ for which $\sum_{n=0}^\infty \frac{n!\,(x-2)^n}{n^n}$ converges. Use ratio + Stirling.
+<details>
+<summary>💡 Hint</summary>
+
+$\frac{1}{1+x^4} = 1 - x^4 + x^8 - \cdots$ is geometric with ratio $-x^4$. Integrate term-by-term — the result is an alternating series, so the first omitted term bounds the error.
+
+</details>
+
+**A7.** Find all $x$ for which $\sum_{n=0}^\infty \frac{n!\,(x-2)^n}{n^n}$ converges.
+
+<details>
+<summary>💡 Hint</summary>
+
+The ratio limit is $\lim \left(\frac{n}{n+1}\right)^n |x-2| = \frac{|x-2|}{e}$ — the radius is $e$. Stirling gives the same answer via the root test.
+
+</details>
 
 **A8.** A power series satisfies $f'(x)=f(x)$ with $f(0)=1$. Find the series and identify $f$.
 
-**A9.** Find the radius for $\sum_{n=0}^\infty \binom{2n}{n}x^n$ using the ratio test.
+<details>
+<summary>💡 Hint</summary>
 
-**A10.** Cauchy product: multiply the series for $e^x$ by itself. Show the result is the series for $e^{2x}$.
+Write $f = \sum c_n x^n$ and equate coefficients of $f'$ and $f$: $(n+1)c_{n+1} = c_n$.
 
-**A11.** (🔗 18A) Find the radius and interval of convergence for $\sum_{n=1}^\infty \frac{(3x-1)^n}{n\cdot 2^n}$. (Hint: rewrite as $\sum \frac{3^n}{n\cdot 2^n}(x-1/3)^n$.)
+</details>
 
-**A12.** Find a power series for $\ln\left(\frac{1+x}{1-x}\right)$ by combining the series for $\ln(1+x)$ and $\ln(1-x)$. What is its interval of convergence?
+**A9.** Find the radius for $\sum_{n=0}^\infty \binom{2n}{n}x^n$.
+
+<details>
+<summary>💡 Hint</summary>
+
+$\frac{c_{n+1}}{c_n} = \frac{\binom{2n+2}{n+1}}{\binom{2n}{n}} = \frac{(2n+2)(2n+1)}{(n+1)^2} \to 4$.
+
+</details>
+
+**A10.** Multiply the series for $e^x$ by itself. Show the result is the series for $e^{2x}$.
+
+<details>
+<summary>💡 Hint</summary>
+
+The $x^n$ coefficient is $\sum_{k=0}^n \frac{1}{k!(n-k)!}$. Factor out $\frac{1}{n!}$ — the rest is $\sum \binom{n}{k} = 2^n$.
+
+</details>
+
+**A11.** (🔗 18A) Find the radius and interval of convergence for $\sum_{n=1}^\infty \frac{(3x-1)^n}{n\cdot 2^n}$.
+
+<details>
+<summary>💡 Hint</summary>
+
+After rewriting, $R = \lim \frac{c_n}{c_{n+1}} = \frac23$ with center $\frac13$. Endpoints: $x=1$ (harmonic) and $x=-\frac13$ (alternating).
+
+</details>
+
+**A12.** Find a power series for $\ln\left(\frac{1+x}{1-x}\right)$. What is its interval of convergence?
+
+<details>
+<summary>💡 Hint</summary>
+
+Add $\sum \frac{(-1)^{n+1}x^n}{n}$ and $\sum \frac{x^n}{n}$: odd powers double, even powers cancel. The interval is where BOTH series converge — check the endpoints.
+
+</details>
 
 > Solutions: [Solutions](solutions/18B-solutions.md#advanced-drill)
 

@@ -4,6 +4,8 @@
 
 *Prerequisites: 12B (sequences), 13C (limits of sequences), 17B (improper integrals)*
 
+> 💡 **Stuck?** Every problem has a collapsible **Hint** below it — click it only when you need a nudge.
+
 ---
 
 ## Part A: What Is a Series?
@@ -173,6 +175,13 @@ $\sum \frac{(-1)^{n+1}}{n}$: $\sum 1/n$ diverges → conditionally convergent.
 
 $\displaystyle \sum_{n=0}^\infty \frac{3}{4^n}$. Identify $a$ and $r$, find the sum.
 
+<details>
+<summary>💡 Hint</summary>
+
+This is a geometric series. The first term (at $n=0$) is $3$ — that's $a$. Each step multiplies by $r = \frac14$. Sum $= \frac{a}{1-r}$.
+
+</details>
+
 → Solutions: [Solutions](solutions/18A-solutions.md#practice-1)
 
 ---
@@ -180,6 +189,13 @@ $\displaystyle \sum_{n=0}^\infty \frac{3}{4^n}$. Identify $a$ and $r$, find the 
 ## Practice 2
 
 Determine convergence: $\displaystyle \sum_{n=1}^\infty \frac{n}{n^2+4}$. Use comparison or limit comparison.
+
+<details>
+<summary>💡 Hint</summary>
+
+For large $n$, $\frac{n}{n^2+4} \approx \frac{n}{n^2} = \frac{1}{n}$. Use limit comparison with $b_n = \frac{1}{n}$ — the limit is $1$.
+
+</details>
 
 → Solutions: [Solutions](solutions/18A-solutions.md#practice-2)
 
@@ -189,6 +205,13 @@ Determine convergence: $\displaystyle \sum_{n=1}^\infty \frac{n}{n^2+4}$. Use co
 
 Determine convergence: $\displaystyle \sum_{n=1}^\infty \frac{3^n}{n!}$. Ratio test.
 
+<details>
+<summary>💡 Hint</summary>
+
+$\frac{a_{n+1}}{a_n} = \frac{3^{n+1}/(n+1)!}{3^n/n!} = \frac{3}{n+1}$. What does this tend to?
+
+</details>
+
 → Solutions: [Solutions](solutions/18A-solutions.md#practice-3)
 
 ---
@@ -197,19 +220,44 @@ Determine convergence: $\displaystyle \sum_{n=1}^\infty \frac{3^n}{n!}$. Ratio t
 
 Determine convergence: $\displaystyle \sum_{n=1}^\infty \frac{(-1)^{n+1}}{\sqrt{n}}$. Alternating series test. Absolute or conditional?
 
+<details>
+<summary>💡 Hint</summary>
+
+$a_n = \frac{1}{\sqrt{n}}$ is decreasing and tends to $0$ — the alternating test applies. Then decide convergence of $\sum |a_n| = \sum \frac{1}{n^{1/2}}$: what kind of $p$-series is that?
+
+</details>
+
 → Solutions: [Solutions](solutions/18A-solutions.md#practice-4)
 
 ---
 
 ## Practice 5: Real Battle (🔗 12B2, 17B)
 
-$\displaystyle \sum_{n=2}^\infty \frac{1}{n(\ln n)^p}$. For which $p$ does this converge? Use the integral test. Connect to the $p$-test from 17B and the harmonic series from 12B2.
+$\displaystyle \sum_{n=2}^\infty \frac{1}{n(\ln n)^p}$. For which $p$ does this converge? Use the integral test.
+
+<details>
+<summary>💡 Hint</summary>
+
+Use the integral test with $u = \ln x$, so $du = \frac{dx}{x}$. You'll get $\int \frac{du}{u^p}$ — a $p$-integral. The answer mirrors the $p$-series rule.
+
+</details>
+
+→ Solutions: [Solutions](solutions/18A-solutions.md#practice-5)
 
 ---
 
 ## Practice 6: Real Battle — Strategy Challenge (🔗 18B, 17B)
 
-Determine convergence of $\displaystyle \sum_{n=1}^\infty \frac{n!}{n^n}$. Use the ratio test. Then use the comparison test to show $\frac{n!}{n^n} \leq \frac{1}{2^n}$ for $n\geq 4$. Which approach is simpler? Connect to the $p$-test from 17B.
+Determine convergence of $\displaystyle \sum_{n=1}^\infty \frac{n!}{n^n}$. Use the ratio test. Then use the comparison test to show $\frac{n!}{n^n} \leq \frac{1}{2^n}$ for $n\geq 6$. Which approach is simpler?
+
+<details>
+<summary>💡 Hint</summary>
+
+Ratio test: $\frac{a_{n+1}}{a_n} = \left(\frac{n}{n+1}\right)^n \to \frac1e$. For the comparison, check $n=6$ directly, then use $\left(\frac{n}{n+1}\right)^n \le \frac12$ to induct upward.
+
+</details>
+
+→ Solutions: [Solutions](solutions/18A-solutions.md#practice-6)
 
 ---
 
@@ -233,11 +281,39 @@ Determine convergence of $\displaystyle \sum_{n=1}^\infty \frac{n!}{n^n}$. Use t
 
 **D9.** Telescoping: $\sum_{n=1}^\infty \frac{2}{(2n-1)(2n+1)}$.
 
+<details>
+<summary>💡 Hint</summary>
+
+Partial fractions: $\frac{2}{(2n-1)(2n+1)} = \frac{1}{2n-1} - \frac{1}{2n+1}$. Write out $S_N$ — which terms survive?
+
+</details>
+
 **D10.** Root test on $\sum_{n=1}^\infty \left(1+\frac{1}{n}\right)^{-n^2}$.
+
+<details>
+<summary>💡 Hint</summary>
+
+$\sqrt[n]{a_n} = \left(1+\frac1n\right)^{-n}$. What famous limit is that?
+
+</details>
 
 **D11.** $\sum_{n=1}^\infty \frac{n^{10}}{10^n}$. Ratio test — which dominates, polynomial or exponential?
 
+<details>
+<summary>💡 Hint</summary>
+
+$\frac{a_{n+1}}{a_n} = \frac{1}{10}\left(\frac{n+1}{n}\right)^{10} \to \frac{1}{10}$ — the $\left(\frac{n+1}{n}\right)^{10}$ factor tends to $1$.
+
+</details>
+
 **D12.** $\sum_{n=1}^\infty \frac{n\cos(n\pi)}{n^3+1}$. Determine absolute vs conditional convergence.
+
+<details>
+<summary>💡 Hint</summary>
+
+$\cos(n\pi) = (-1)^n$. For absolute convergence, compare $\sum \frac{n}{n^3+1}$ to a $p$-series.
+
+</details>
 
 > Solutions: [Solutions](solutions/18A-solutions.md#basic-drill)
 
@@ -245,29 +321,113 @@ Determine convergence of $\displaystyle \sum_{n=1}^\infty \frac{n!}{n^n}$. Use t
 
 ## Advanced Drills
 
-**A1.** Determine convergence of $\sum_{n=2}^\infty \frac{1}{n(\ln n)^2}$. Integral test.
+**A1.** Determine convergence of $\sum_{n=2}^\infty \frac{1}{n(\ln n)^2}$.
 
-**A2.** $\sum_{n=1}^\infty \frac{n!}{2^n}$. Ratio test — watch the limit.
+<details>
+<summary>💡 Hint</summary>
 
-**A3.** $\sum_{n=1}^\infty \frac{\sin n}{n^2}$. Use $|\sin n| \le 1$ and comparison.
+$u = \ln x$ turns $\int \frac{dx}{x(\ln x)^2}$ into $\int \frac{du}{u^2}$, which converges.
 
-**A4.** $\sum_{n=1}^\infty \frac{(-1)^n n}{n^2+1}$. Alternating test + absolute/conditional.
+</details>
 
-**A5.** $\sum_{n=1}^\infty \left(\frac{n}{n+1}\right)^{n^2}$. Root test. Hint: $(1-1/(n+1))^n \to 1/e$.
+**A2.** $\sum_{n=1}^\infty \frac{n!}{2^n}$. Determine convergence.
+
+<details>
+<summary>💡 Hint</summary>
+
+$\frac{a_{n+1}}{a_n} = \frac{n+1}{2}$ — this grows without bound, so $\rho = \infty > 1$.
+
+</details>
+
+**A3.** $\sum_{n=1}^\infty \frac{\sin n}{n^2}$. Determine convergence.
+
+<details>
+<summary>💡 Hint</summary>
+
+$\left|\frac{\sin n}{n^2}\right| \le \frac{1}{n^2}$ — compare to a converging $p$-series to get absolute convergence.
+
+</details>
+
+**A4.** $\sum_{n=1}^\infty \frac{(-1)^n n}{n^2+1}$. Determine convergence; absolute or conditional?
+
+<details>
+<summary>💡 Hint</summary>
+
+$a_n = \frac{n}{n^2+1}$ is decreasing (check $f'(x) = \frac{1-x^2}{(x^2+1)^2} < 0$) and $\to 0$. For absolute convergence, $\frac{n}{n^2+1}$ behaves like $\frac1n$.
+
+</details>
+
+**A5.** $\sum_{n=1}^\infty \left(\frac{n}{n+1}\right)^{n^2}$. Determine convergence.
+
+<details>
+<summary>💡 Hint</summary>
+
+$\sqrt[n]{a_n} = \left(\frac{n}{n+1}\right)^n = \left(1 - \frac{1}{n+1}\right)^n \to \frac1e < 1$.
+
+</details>
 
 **A6.** Determine all $x$ where $\sum_{n=1}^\infty \frac{x^n}{n}$ converges.
 
-**A7.** $\sum_{n=1}^\infty \frac{1\cdot3\cdot5\cdots(2n-1)}{n!\,3^n}$. Ratio test.
+<details>
+<summary>💡 Hint</summary>
 
-**A8.** Prove $\sum_{n=1}^\infty \frac{1}{n^2}$ converges by comparing to $\sum\frac{1}{n(n-1)}$ and telescoping.
+Ratio test gives radius $R=1$. The two endpoints must be checked separately: $x=1$ is harmonic, $x=-1$ is alternating.
 
-**A9.** $\sum_{n=1}^\infty \frac{\ln n}{n^2}$. Compare to $\sum 1/n^{1.5}$.
+</details>
 
-**A10.** True or false: if $\sum a_n$ converges, then $\sum a_n^2$ converges. Counterexample: $a_n=(-1)^n/\sqrt{n}$.
+**A7.** $\sum_{n=1}^\infty \frac{1\cdot3\cdot5\cdots(2n-1)}{n!\,3^n}$. Determine convergence.
 
-**A11.** Determine convergence of $\sum_{n=1}^\infty \frac{\sqrt{n}}{\sqrt{n^3+1}}$ using limit comparison with $1/n^p$.
+<details>
+<summary>💡 Hint</summary>
 
-**A12.** (🔗 17B) $\sum_{n=2}^\infty \frac{\ln n}{n(\ln n)^2-1}$. Integral test — use $u=\ln n$ substitution.
+The next numerator factor is $2n+1$, so $\frac{a_{n+1}}{a_n} = \frac{2n+1}{3(n+1)} \to \frac23$.
+
+</details>
+
+**A8.** Prove $\sum_{n=1}^\infty \frac{1}{n^2}$ converges.
+
+<details>
+<summary>💡 Hint</summary>
+
+For $n \ge 2$: $\frac{1}{n^2} \le \frac{1}{n(n-1)}$. Then $\frac{1}{n(n-1)} = \frac{1}{n-1} - \frac{1}{n}$ — a telescoping series.
+
+</details>
+
+**A9.** $\sum_{n=1}^\infty \frac{\ln n}{n^2}$. Determine convergence.
+
+<details>
+<summary>💡 Hint</summary>
+
+For large $n$, $\ln n \le n^{1/2}$ (logs grow slower than any power). So $\frac{\ln n}{n^2} \le \frac{1}{n^{3/2}}$.
+
+</details>
+
+**A10.** True or false: if $\sum a_n$ converges, then $\sum a_n^2$ converges?
+
+<details>
+<summary>💡 Hint</summary>
+
+$\sum \frac{(-1)^n}{\sqrt{n}}$ converges (alternating). What is $\sum a_n^2$?
+
+</details>
+
+**A11.** Determine convergence of $\sum_{n=1}^\infty \frac{\sqrt{n}}{\sqrt{n^3+1}}$.
+
+<details>
+<summary>💡 Hint</summary>
+
+The general term behaves like $\frac{\sqrt{n}}{\sqrt{n^3}} = \frac{1}{n}$. Use limit comparison with $b_n = \frac1n$.
+
+</details>
+
+**A12.** (🔗 17B) Determine convergence of $\sum_{n=2}^\infty \frac{\ln n}{n(\ln n)^2-1}$.
+
+<details>
+<summary>💡 Hint</summary>
+
+With $u = \ln x$: $dx = e^u du$ and $x(\ln x)^2 - 1 = e^u u^2 - 1$. The $e^u$ factors cancel, leaving $\int \frac{u}{u^2-1}du$.
+
+</details>
 
 > Solutions: [Solutions](solutions/18A-solutions.md#advanced-drill)
 

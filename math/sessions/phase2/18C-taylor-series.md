@@ -4,6 +4,8 @@
 
 *Prerequisites: 18B (power series), 14C (higher derivatives)*
 
+> 💡 **Stuck?** Every problem has a collapsible **Hint** below it — click it only when you need a nudge.
+
 ---
 
 ## Example 1: Taylor Polynomials — The Idea (🔗 14C)
@@ -92,9 +94,37 @@ Term-by-term integration (🔗 18B) gives an alternating series — easy to esti
 
 ---
 
+## Common Mistakes
+
+### Mistake 1: Forgetting the factorial in the Taylor formula
+
+**Wrong**: $f(x) = \sum f^{(n)}(a)(x-a)^n$. The correct formula divides by $n!$:
+$f(x) = \sum \frac{f^{(n)}(a)}{n!}(x-a)^n$. Without the factorial, $\sin x$ would not come out right.
+
+### Mistake 2: Using the Lagrange remainder without bounding the derivative
+
+$R_n = \frac{f^{(n+1)}(c)}{(n+1)!}(x-a)^{n+1}$ requires a bound $|f^{(n+1)}(c)| \le M$ **on the whole interval between $a$ and $x$**. Plugging in the center value instead of the max is a common error.
+
+### Mistake 3: Dropping terms when composing series
+
+When composing $\ln(1+u)$ with $u = \sin x$, you must keep enough terms of $u$ (and its powers) to reach the requested order — e.g. to get $x^4$ you need $u^2$ to order $x^4$ too, because $u$ itself starts at $x$.
+
+### Mistake 4: Confusing the degree with the number of terms
+
+The $n$-th degree Taylor polynomial $T_n$ contains $n+1$ terms (from the $x^0$ term through $x^n$). For error bounds, keeping terms up to $x^n$ leaves an error controlled by the $(n+1)$-st term.
+
+---
+
 ## Practice 1
 
 Find the Maclaurin series for $f(x)=xe^x$.
+
+<details>
+<summary>💡 Hint</summary>
+
+Multiply the known Maclaurin series for $e^x$ by $x$, then shift the index.
+
+</details>
 
 → Solutions: [Solutions](solutions/18C-solutions.md#practice-1)
 
@@ -104,6 +134,13 @@ Find the Maclaurin series for $f(x)=xe^x$.
 
 Find the Taylor series for $f(x)=\ln x$ centered at $a=1$.
 
+<details>
+<summary>💡 Hint</summary>
+
+Write $\ln x = \ln(1 + (x-1))$ and use the Maclaurin series for $\ln(1+u)$ with $u = x-1$.
+
+</details>
+
 → Solutions: [Solutions](solutions/18C-solutions.md#practice-2)
 
 ---
@@ -111,6 +148,13 @@ Find the Taylor series for $f(x)=\ln x$ centered at $a=1$.
 ## Practice 3
 
 Use Taylor series to evaluate $\lim_{x\to0}\frac{\cos x-1+x^2/2}{x^4}$.
+
+<details>
+<summary>💡 Hint</summary>
+
+$\cos x = 1 - \frac{x^2}{2} + \frac{x^4}{24} - \frac{x^6}{720} + \cdots$. Subtract $1 - x^2/2$ and see which power of $x$ survives.
+
+</details>
 
 → Solutions: [Solutions](solutions/18C-solutions.md#practice-3)
 
@@ -120,6 +164,13 @@ Use Taylor series to evaluate $\lim_{x\to0}\frac{\cos x-1+x^2/2}{x^4}$.
 
 Estimate $\int_0^{0.5} \sin(x^2)dx$ to 4 decimal places using series.
 
+<details>
+<summary>💡 Hint</summary>
+
+$\sin(x^2) = x^2 - \frac{x^6}{3!} + \frac{x^{10}}{5!} - \cdots$. Integrate term-by-term and evaluate at $\frac12$ — it's an alternating series, so the first omitted term bounds the error.
+
+</details>
+
 → Solutions: [Solutions](solutions/18C-solutions.md#practice-4)
 
 ---
@@ -128,11 +179,29 @@ Estimate $\int_0^{0.5} \sin(x^2)dx$ to 4 decimal places using series.
 
 Use the binomial series (🔗 12B2) to find the Maclaurin series for $\arcsin x$. Integrate $(1-x^2)^{-1/2}$ term-by-term (🔗 18B). Then use your series to evaluate $\lim_{x\to0}\frac{\arcsin x - x}{x^3}$ (🔗 13A).
 
+<details>
+<summary>💡 Hint</summary>
+
+Expand $(1+u)^{-1/2}$ with the binomial series, substitute $u = -x^2$, then integrate. The first two terms of $\arcsin x$ are $x + \frac{x^3}{6}$.
+
+</details>
+
+→ Solutions: [Solutions](solutions/18C-solutions.md#practice-5)
+
 ---
 
 ## Practice 6: Real Battle — Error Analysis (🔗 18B)
 
 How many terms of the Maclaurin series for $e^x$ are needed to approximate $e$ (i.e., $e^1$) with error less than $10^{-6}$? Use the Lagrange remainder bound. Compare with the actual error after that many terms.
+
+<details>
+<summary>💡 Hint</summary>
+
+At $x=1$: $R_n \le \frac{e}{(n+1)!} \le \frac{3}{(n+1)!}$. Find the smallest $n$ with $(n+1)! > 3\times10^6$. Note $9! = 362880$, $10! = 3628800$.
+
+</details>
+
+→ Solutions: [Solutions](solutions/18C-solutions.md#practice-6)
 
 ---
 
@@ -144,6 +213,13 @@ How many terms of the Maclaurin series for $e^x$ are needed to approximate $e$ (
 
 **D3.** Find the 3rd-degree Taylor polynomial of $f(x)=\sqrt{x}$ at $a=4$.
 
+<details>
+<summary>💡 Hint</summary>
+
+Compute $f(4), f'(4), f''(4), f'''(4)$ from $f(x)=x^{1/2}$ — remember $f''$ and $f'''$ come with negative/alternating signs.
+
+</details>
+
 **D4.** Find the Maclaurin series for $\frac{1}{1+x^2}$ and its radius.
 
 **D5.** Find the Maclaurin series for $\ln(1-x)$.
@@ -152,15 +228,43 @@ How many terms of the Maclaurin series for $e^x$ are needed to approximate $e$ (
 
 **D7.** Find $T_2(x)$ (2nd-degree Taylor) for $f(x)=\tan x$ at $a=0$.
 
+<details>
+<summary>💡 Hint</summary>
+
+$\tan x$ is odd, so all even-degree coefficients vanish — the $x^2$ term is $0$.
+
+</details>
+
 **D8.** Write the binomial series for $\frac{1}{\sqrt{1+x}} = (1+x)^{-1/2}$ (first 3 terms).
 
 **D9.** Multiply the series for $e^x$ and $e^{-x}$. What do you get?
 
 **D10.** Use $\cos x$ series to estimate $\cos(0.2)$ to 4 decimal places.
 
+<details>
+<summary>💡 Hint</summary>
+
+$\cos(0.2) = 1 - \frac{(0.2)^2}{2!} + \frac{(0.2)^4}{4!} - \cdots$ — alternating, so the next term bounds the error.
+
+</details>
+
 **D11.** Use the binomial series to write the first 3 nonzero terms of $(1+2x)^{1/3}$.
 
+<details>
+<summary>💡 Hint</summary>
+
+Compute $\binom{1/3}{1}$, $\binom{1/3}{2}$, $\binom{1/3}{3}$ and plug $u=2x$ into $(1+u)^{1/3}$.
+
+</details>
+
 **D12.** Find the Taylor series for $f(x)=x^3-2x^2+3x-4$ at $a=1$ directly using the formula.
+
+<details>
+<summary>💡 Hint</summary>
+
+$f$ is cubic, so $f^{(4)} = 0$ — the series stops after the $(x-1)^3$ term. Compute $f(1), f'(1), f''(1), f'''(1)$.
+
+</details>
 
 > Solutions: [Solutions](solutions/18C-solutions.md#basic-drill)
 
@@ -170,27 +274,111 @@ How many terms of the Maclaurin series for $e^x$ are needed to approximate $e$ (
 
 **A1.** Find the Maclaurin series for $\sinh x = \frac{e^x-e^{-x}}{2}$.
 
+<details>
+<summary>💡 Hint</summary>
+
+Subtract the series for $e^{-x}$ from $e^x$: even powers cancel, odd powers double.
+
+</details>
+
 **A2.** Prove $e^{i\theta} = \cos\theta + i\sin\theta$ using Maclaurin series.
+
+<details>
+<summary>💡 Hint</summary>
+
+Plug $x = i\theta$ into $e^x = \sum \frac{x^n}{n!}$ and split the sum into even and odd $n$ (using $i^{2k} = (-1)^k$).
+
+</details>
 
 **A3.** Find the Taylor series for $f(x)=\frac{1}{x}$ about $a=2$.
 
+<details>
+<summary>💡 Hint</summary>
+
+$\frac{1}{x} = \frac{1}{2+(x-2)} = \frac12\cdot\frac{1}{1+(x-2)/2}$ — geometric series.
+
+</details>
+
 **A4.** Evaluate $\lim_{x\to0}\frac{\tan x - x}{x^3}$ using series.
+
+<details>
+<summary>💡 Hint</summary>
+
+$\tan x = x + \frac{x^3}{3} + \frac{2x^5}{15} + \cdots$.
+
+</details>
 
 **A5.** Compute $\int_0^1 \frac{\sin x}{x}dx$ to 4 decimal places using series.
 
-**A6.** Find the Maclaurin series for $\arcsin x$ by integrating the binomial series for $(1-x^2)^{-1/2}$.
+<details>
+<summary>💡 Hint</summary>
+
+$\frac{\sin x}{x} = 1 - \frac{x^2}{3!} + \frac{x^4}{5!} - \cdots$; integrate to $\sum \frac{(-1)^n}{(2n+1)!(2n+1)}$ — alternating series.
+
+</details>
+
+**A6.** Find the Maclaurin series for $\arcsin x$.
+
+<details>
+<summary>💡 Hint</summary>
+
+Same route as Practice 5: expand $(1-x^2)^{-1/2}$ binomially and integrate term-by-term.
+
+</details>
 
 **A7.** How many terms of $\sin x$ series are needed to estimate $\sin(1)$ with error $<10^{-6}$?
 
+<details>
+<summary>💡 Hint</summary>
+
+At $x=1$ it's alternating: keeping up to $x^{2n+1}$ leaves error $\le \frac{1}{(2n+3)!}$. Find the smallest $2n+3$ with $(2n+3)! > 10^6$.
+
+</details>
+
 **A8.** Find the sum: $1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\cdots$. Recognize the series.
 
-**A9.** Derive the Taylor series for $\frac{1}{(1-x)^2}$ by differentiating the geometric series.
+<details>
+<summary>💡 Hint</summary>
 
-**A10.** Use the Lagrange remainder to prove that $e$ is irrational. (Sketch: assume $e=p/q$, multiply by $q!$, use remainder bound.)
+Evaluate $\ln(1+x) = x - \frac{x^2}{2} + \frac{x^3}{3} - \cdots$ at $x=1$.
+
+</details>
+
+**A9.** Derive the Taylor series for $\frac{1}{(1-x)^2}$.
+
+<details>
+<summary>💡 Hint</summary>
+
+$\frac{d}{dx}\frac{1}{1-x} = \frac{1}{(1-x)^2}$; differentiate $\sum x^n$ term by term and re-index.
+
+</details>
+
+**A10.** Use the Lagrange remainder to prove that $e$ is irrational.
+
+<details>
+<summary>💡 Hint</summary>
+
+For $n \ge q$, $n!e$ and each $n!/k!$ are integers, so $n!R_n = n!e - \sum_{k=0}^n n!/k!$ is an integer. But $0 < n!R_n \le \frac{3}{n+1} < 1$ — contradiction.
+
+</details>
 
 **A11.** (🔗 13A, 18B) Use series to evaluate $\lim_{x\to 0}\frac{\sin x - x + x^3/6}{x^5}$. How many terms are needed?
 
-**A12.** Find the Maclaurin series for $\ln(1+\sin x)$ up to $x^4$ by composing the series for $\ln(1+u)$ and $u=\sin x$.
+<details>
+<summary>💡 Hint</summary>
+
+$\sin x = x - \frac{x^3}{6} + \frac{x^5}{120} - \frac{x^7}{5040} + \cdots$ — the first three terms cancel, leaving $\frac{x^5}{120}$.
+
+</details>
+
+**A12.** Find the Maclaurin series for $\ln(1+\sin x)$ up to $x^4$.
+
+<details>
+<summary>💡 Hint</summary>
+
+Set $u = x - \frac{x^3}{6}$. You need $u^2, u^3, u^4$ only up to the $x^4$ power — e.g. $u^2 = x^2 - \frac{x^4}{3} + \cdots$.
+
+</details>
 
 > Solutions: [Solutions](solutions/18C-solutions.md#advanced-drill)
 
