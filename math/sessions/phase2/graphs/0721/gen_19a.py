@@ -193,8 +193,8 @@ def phase_line():
     ax2.plot(y, f, 'b-', lw=2)
     ax2.axhline(0, color='gray', lw=0.5)
     ax2.axvline(0, color='gray', lw=0.5)
-    # Mark equilibria
-    for ye, color, label in [(0, 'red', 'Unstable'), (1, 'green', 'Stable'), (2, 'red', 'Unstable')]:
+    # Mark equilibria (y=0 and y=2 are stable sinks; y=1 is an unstable source)
+    for ye, color, label in [(0, 'green', 'Stable'), (1, 'red', 'Unstable'), (2, 'green', 'Stable')]:
         ax2.scatter(ye, 0, color=color, s=100, zorder=5, label=label if ye==0 else '')
     ax2.set_xlabel('y'); ax2.set_ylabel("f(y) = y'")
     ax2.set_title("Phase Line: f(y) = y(1-y)(y-2)")
@@ -209,24 +209,28 @@ def phase_line():
     # Draw vertical line
     ax3.plot([0, 0], [-0.3, 2.3], 'k-', lw=2)
     
-    # Equilibria
-    ax3.scatter(0, 0, color='red', s=150, marker='o', zorder=5)
-    ax3.scatter(0, 1, color='green', s=150, marker='o', zorder=5)
-    ax3.scatter(0, 2, color='red', s=150, marker='o', zorder=5)
-    
-    ax3.text(0.15, 0, 'Unstable', fontsize=9, color='red', va='center')
-    ax3.text(0.15, 1, 'Stable', fontsize=9, color='green', va='center')
-    ax3.text(0.15, 2, 'Unstable', fontsize=9, color='red', va='center')
-    
-    # Arrows on phase line
+# Equilibria (green = stable, red = unstable)
+    ax3.scatter(0, 0, color='green', s=150, marker='o', zorder=5)
+    ax3.scatter(0, 1, color='red', s=150, marker='o', zorder=5)
+    ax3.scatter(0, 2, color='green', s=150, marker='o', zorder=5)
+
+    ax3.text(0.15, 0, 'Stable', fontsize=9, color='green', va='center')
+    ax3.text(0.15, 1, 'Unstable', fontsize=9, color='red', va='center')
+    ax3.text(0.15, 2, 'Stable', fontsize=9, color='green', va='center')
+
+    # Arrows on phase line (direction of motion: toward the stable sinks)
+    # y<0: f>0, y increases toward 0
     ax3.annotate('', xy=(0, -0.05), xytext=(0, -0.3),
-                 arrowprops=dict(arrowstyle='->', color='red', lw=2))
-    ax3.annotate('', xy=(0, 0.95), xytext=(0, 0.05),
                  arrowprops=dict(arrowstyle='->', color='green', lw=2))
-    ax3.annotate('', xy=(0, 1.05), xytext=(0, 1.95),
+    # 0<y<1: f<0, y decreases toward 0
+    ax3.annotate('', xy=(0, 0.05), xytext=(0, 0.95),
                  arrowprops=dict(arrowstyle='->', color='green', lw=2))
-    ax3.annotate('', xy=(0, 2.3), xytext=(0, 2.05),
+    # 1<y<2: f>0, y increases toward 2 (away from unstable 1)
+    ax3.annotate('', xy=(0, 1.95), xytext=(0, 1.05),
                  arrowprops=dict(arrowstyle='->', color='red', lw=2))
+    # y>2: f<0, y decreases toward 2
+    ax3.annotate('', xy=(0, 2.05), xytext=(0, 2.3),
+                 arrowprops=dict(arrowstyle='->', color='green', lw=2))
     
     ax3.set_title('Phase Line Diagram')
     ax3.axis('off')
@@ -252,8 +256,61 @@ def phase_line():
     plt.close()
     print('  ✓ phase-line.png')
 
+
+def rl_circuit():
+    """19A-5: RL circuit current approaching steady state"""
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5), gridspec_kw={'width_ratios': [1.4, 1]})
+
+    # Left: current vs time
+    R, L, E = 2.0, 1.0, 10.0
+    t = np.linspace(0, 3, 400)
+    iss = E / R
+    tau = L / R
+    i = iss * (1 - np.exp(-R / L * t))
+    ax1.plot(t, i, 'b-', lw=2.5, label=r'$i(t)=\frac{E}{R}\left(1-e^{-(R/L)t}\right)$')
+    ax1.axhline(iss, color='green', ls='--', lw=1.5, label=r'steady state $E/R=5$ A')
+    ax1.axvline(tau, color='red', ls=':', lw=1.5)
+    ax1.plot(tau, iss * (1 - np.exp(-1)), 'ro', ms=7, zorder=5)
+    ax1.annotate(r'$\tau=L/R=0.5$ s', (tau, 0.2), xytext=(0.95, 1.2),
+                 fontsize=12, color='red', fontweight='bold',
+                 arrowprops=dict(arrowstyle='->', color='red'))
+    ax1.annotate(r'$63.2\%$ of $E/R$', (tau, iss * (1 - np.exp(-1))), xytext=(0.95, 3.7),
+                 fontsize=12, arrowprops=dict(arrowstyle='->'))
+    ax1.set_xlabel('Time t (s)', fontsize=13); ax1.set_ylabel('Current i (A)', fontsize=13)
+    ax1.set_title('Current Rises to $E/R$', fontsize=14, fontweight='bold')
+    ax1.set_ylim(0, 6); ax1.legend(fontsize=10, loc='lower right'); ax1.grid(True, alpha=0.3)
+
+    # Right: circuit schematic (loop of battery, resistor, inductor)
+    ax2.set_xlim(0, 10); ax2.set_ylim(0, 6); ax2.set_aspect('equal'); ax2.axis('off')
+    ax2.plot([2, 9], [1, 1], 'k-', lw=2.5); ax2.plot([9, 9], [1, 5], 'k-', lw=2.5)
+    ax2.plot([9, 2], [5, 5], 'k-', lw=2.5); ax2.plot([2, 2], [5, 1], 'k-', lw=2.5)
+    # battery (left edge): two parallel plates
+    ax2.plot([1.3, 2], [1.6, 1.6], 'k-', lw=2.5); ax2.plot([1.3, 2], [4.4, 4.4], 'k-', lw=2.5)
+    ax2.plot([1.3, 1.3], [1.6, 4.4], 'k-', lw=1.5)
+    ax2.text(0.5, 3.0, r'$E$', fontsize=16, rotation=90, ha='center', va='center')
+    # resistor (top edge): zigzag
+    xr = np.array([2, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 6.5, 7.0, 7.5, 8.0, 8.5, 9.0])
+    yr = np.array([5, 5.7, 4.3, 5.7, 4.3, 5.7, 4.3, 5.7, 4.3, 5.7, 4.3, 5.7, 4.3, 5.7, 5.0])
+    ax2.plot(xr, yr, 'k-', lw=2.5)
+    ax2.text(5.5, 6.25, r'$R$', fontsize=16, ha='center')
+    # inductor (right edge): coils
+    ax2.plot([9, 9], [1.0, 1.4], 'k-', lw=2.5); ax2.plot([9, 9], [4.6, 5.0], 'k-', lw=2.5)
+    for yy in np.linspace(1.5, 4.5, 4):
+        arc = np.linspace(0, np.pi, 30)
+        ax2.plot(9 + 0.35 * np.cos(arc), yy + 0.35 * np.sin(arc) + 0.18, 'k-', lw=2.5)
+    ax2.text(10.0, 3.0, r'$L$', fontsize=16, va='center')
+    ax2.text(5.5, 0.35, r'$L\frac{di}{dt}+Ri=E$', fontsize=14, ha='center')
+    ax2.set_title('RL Circuit', fontsize=14, fontweight='bold')
+
+    plt.tight_layout()
+    plt.savefig(f'{OUT_DIR}/rl-circuit.png', dpi=DPI)
+    plt.close()
+    print('  ✓ rl-circuit.png')
+
+
 if __name__ == '__main__':
     slope_field()
     growth_decay()
     logistic()
     phase_line()
+    rl_circuit()

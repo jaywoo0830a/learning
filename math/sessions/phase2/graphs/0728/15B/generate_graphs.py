@@ -135,6 +135,58 @@ def fig_03_rectangle_semicircle():
     save_fig(fig, '03-rectangle-semicircle.png')
 
 # ════════════════════════════════════════════════════
+# 04E — Closest point on ellipse x^2/4 + y^2/9 = 1 to (1,0)
+# ════════════════════════════════════════════════════
+def fig_04_ellipse_closest():
+    """Example 4 — closest point on x^2/4 + y^2/9 = 1 to (1, 0)."""
+    Dfun = lambda u: -5*u**2 - 4*u + 10
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5.5))
+
+    # Left: ellipse with target, closest, and farthest points
+    ax1.set_aspect('equal')
+    t = np.linspace(0, 2*np.pi, 400)
+    ax1.plot(2*np.cos(t), 3*np.sin(t), 'b-', lw=2.5, zorder=3)
+    # target point (1, 0)
+    ax1.plot(1, 0, 'o', color='#2C3E50', ms=9, zorder=5)
+    ax1.annotate('(1, 0)', (1, 0), textcoords="offset points", xytext=(8, 6),
+                 fontsize=11, color='#2C3E50', fontweight='bold')
+    # closest point (2, 0)
+    ax1.plot(2, 0, 'o', color='#E74C3C', ms=11, zorder=5)
+    ax1.plot([1, 2], [0, 0], color='#E74C3C', lw=2, zorder=4)
+    ax1.annotate('closest (2, 0)', (2, 0), textcoords="offset points", xytext=(10, 10),
+                 fontsize=11, color='#E74C3C', fontweight='bold')
+    ax1.annotate('distance = 1', (1.5, 0.18), fontsize=11, color='#E74C3C', ha='center')
+    # farthest point (for context, dashed)
+    xf, yf = -0.8, 3*np.sqrt(1-0.4**2)
+    ax1.plot(xf, yf, 'o', mfc='white', mec='#27AE60', ms=9, zorder=5)
+    ax1.plot([1, xf], [0, yf], '--', color='#27AE60', lw=1.5, alpha=0.6)
+    ax1.annotate('farthest (−0.8, 2.75)', (xf, yf), textcoords="offset points",
+                 xytext=(10, -18), fontsize=10, color='#27AE60')
+    ax1.set_xlim(-3, 3); ax1.set_ylim(-3.5, 3.5)
+    ax1.axhline(0, color='gray', lw=0.5); ax1.axvline(0, color='gray', lw=0.5)
+    ax1.grid(True, alpha=0.25)
+    ax1.set_title('Closest Point on the Ellipse', fontweight='bold')
+    ax1.set_xlabel('x'); ax1.set_ylabel('y')
+
+    # Right: D(u) = -5u^2 - 4u + 10 on [-1, 1]
+    u = np.linspace(-1, 1, 300)
+    ax2.plot(u, Dfun(u), 'b-', lw=2.5, zorder=3)
+    ax2.plot(-0.4, Dfun(-0.4), 'o', mfc='white', mec='#F39C12', ms=10, zorder=5)
+    ax2.annotate('local MAX\n(u = −0.4)', (-0.4, Dfun(-0.4)), textcoords="offset points",
+                 xytext=(-170, 6), fontsize=11, color='#F39C12', fontweight='bold')
+    ax2.plot(1, Dfun(1), 'o', color='#E74C3C', ms=11, zorder=5)
+    ax2.annotate('min at u = 1', (1, Dfun(1)), textcoords="offset points",
+                 xytext=(12, -18), fontsize=11, color='#E74C3C', fontweight='bold')
+    ax2.plot(-1, Dfun(-1), 'o', color='gray', ms=8, zorder=5)
+    ax2.set_xlim(-1.2, 1.2); ax2.set_ylim(0, 12)
+    ax2.axvline(0, color='gray', lw=0.5)
+    ax2.grid(True, alpha=0.25)
+    ax2.set_title('D(u) = −5u² − 4u + 10 on [−1, 1]', fontweight='bold')
+    ax2.set_xlabel('u = cos t'); ax2.set_ylabel('D(u)')
+
+    save_fig(fig, '04-ellipse-closest.png')
+
+# ════════════════════════════════════════════════════
 # 04 — Ladder Related Rates
 # ════════════════════════════════════════════════════
 def fig_04_ladder_rates():
@@ -399,6 +451,7 @@ if __name__ == '__main__':
     fig_01_box_volume()
     fig_02_distance_minimization()
     fig_03_rectangle_semicircle()
+    fig_04_ellipse_closest()
     fig_04_ladder_rates()
     fig_05_conical_tank()
     fig_06_spotlight()

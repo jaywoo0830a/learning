@@ -60,21 +60,38 @@ $\frac{\sqrt{a} - 0}{a - 2} = -2\sqrt{a} \to \sqrt{a} = -2\sqrt{a}(a-2) \to 1 = 
 
 Find the point on the ellipse $\frac{x^2}{4} + \frac{y^2}{9} = 1$ closest to $(1, 0)$.
 
-Parametrize: $x = 2\cos t$, $y = 3\sin t$. Minimize squared distance:
-$D(t) = (2\cos t - 1)^2 + (3\sin t)^2 = 4\cos^2 t - 4\cos t + 1 + 9\sin^2 t$.
+**Why parametrize?** The ellipse is not a function (it fails the vertical line test), but the pair $(2\cos t,\, 3\sin t)$ sweeps out the whole curve as $t$ runs over $[0, 2\pi)$ (🔗 12C2). Parametrizing turns "optimize on a curve" into "optimize a one-variable function."
 
-Use $\sin^2 t = 1 - \cos^2 t$:
-$D(t) = 4\cos^2 t - 4\cos t + 1 + 9(1-\cos^2 t) = -5\cos^2 t - 4\cos t + 10$.
+**Step 1 — Parametrize and square the distance.** Minimizing the distance is the same as minimizing its square (squaring removes the square root; the location of the minimum is unchanged):
 
-Let $u = \cos t$, $u \in [-1, 1]$: $D(u) = -5u^2 - 4u + 10$.
-$D'(u) = -10u - 4 = 0 \to u = -0.4$. $D''(u) = -10 < 0$ → MAXIMUM in $u$? Wait…
+$$D(t) = (2\cos t - 1)^2 + (3\sin t)^2 = 4\cos^2 t - 4\cos t + 1 + 9\sin^2 t.$$
 
-$D(u) = -5u^2 - 4u + 10$ is a **downward** parabola — its critical point is a maximum! For a minimum on $[-1, 1]$, check endpoints:
-$D(-1) = -5 + 4 + 10 = 9$, $D(1) = -5 - 4 + 10 = 1$. Minimum at $u=1 \to t=0$.
+**Step 2 — Reduce to one variable.** Use $\sin^2 t = 1 - \cos^2 t$:
 
-Point: $(2\cos 0, 3\sin 0) = (2, 0)$. Distance $= \sqrt{1} = 1$.
+$$D(t) = 4\cos^2 t - 4\cos t + 1 + 9(1 - \cos^2 t) = -5\cos^2 t - 4\cos t + 10.$$
 
-> **Lesson**: Always check the domain AND the type of extremum. A downward parabola on a closed interval attains its minimum at an endpoint, not the critical point.
+Let $u = \cos t$, so $u \in [-1, 1]$: $D(u) = -5u^2 - 4u + 10$.
+
+**Step 3 — Analyze $D$ on the closed interval $[-1, 1]$.**
+
+- Critical point: $D'(u) = -10u - 4 = 0$ → $u = -0.4$.
+- Second derivative: $D''(u) = -10 < 0$ → this critical point is a **local maximum**, not a minimum.
+- Since $D$ is a **downward-opening parabola**, its minimum on the closed interval cannot be at the (maximum) critical point — it must be at an endpoint.
+
+Check the endpoints:
+$D(-1) = -5(1) - 4(-1) + 10 = 9$, $D(1) = -5(1) - 4(1) + 10 = 1$.
+
+Minimum: $u = 1$, with distance $\sqrt{D} = \sqrt{1} = 1$.
+
+**Step 4 — Back to the curve.** $u = \cos t = 1$ → $t = 0$ → the point $(2\cos 0,\, 3\sin 0) = (2, 0)$.
+
+![Closest point on the ellipse and the distance function](graphs/0728/15B/04-ellipse-closest.png)
+
+*Graph 15B-4: Left — the ellipse, the target point $(1,0)$, the closest point $(2,0)$ (solid), and the farthest point $(-0.8, 2.75)$ (dashed, for contrast). Right — $D(u) = -5u^2 - 4u + 10$ on $[-1,1]$: the critical point $u=-0.4$ is a local maximum (open dot), so the minimum sits at the endpoint $u=1$.*
+
+> **Lesson**: Two traps to avoid. (1) **Identify the type of the critical point** — here $D'' < 0$ makes $u=-0.4$ a maximum, so it cannot answer "closest." (2) **Always compare endpoints** on a closed interval. Flip the question to "farthest" (15B A8) and the same function's maximum at $u = -0.4$ becomes the answer — points $(-0.8, \pm 2.75)$, distance $\approx 3.29$. One function, two questions, two different answers.
+
+> **Geometric insight**: The closest point is $(2,0)$ — the ray from the center through $(1,0)$ hits the ellipse there. But the farthest point is *not* the antipode $(-2,0)$ (distance 3): the ellipse is taller than it is wide (radii 3 vs 2), so the far side bulges past it at $(-0.8, \pm 2.75)$. Parametrization makes these surprising answers exact.
 
 ---
 
