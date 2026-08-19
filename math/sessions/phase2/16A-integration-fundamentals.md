@@ -308,7 +308,24 @@ That's why "check by differentiating" is the ultimate test: if your answer's der
 
 ## Practice 1
 
-$\int (4x^3 - 2x + 5)\,dx$. Use the antiderivative dictionary — split, pull constants, apply power rule.
+<details>
+<summary><b>P1.1</b></summary>
+
+Split the integral at each $+$/$-$ sign.
+
+<details>
+<summary><b>P1.2</b></summary>
+
+Pull each constant outside.
+
+<details>
+<summary><b>P1.3</b></summary>
+
+Apply the power rule to each term, then combine into one $+C$.
+
+</details>
+</details>
+</details>
 
 → Solutions: [Solutions](solutions/16A-solutions.md#practice-1)
 
@@ -316,7 +333,18 @@ $\int (4x^3 - 2x + 5)\,dx$. Use the antiderivative dictionary — split, pull co
 
 ## Practice 2
 
-$\int_0^2 (3x^2+1)\,dx$. Apply FTC: find $F$, compute $F(2)-F(0)$.
+<details>
+<summary><b>P2.1</b></summary>
+
+Find an antiderivative $F(x)$ of $3x^2+1$ (ignore $+C$).
+
+<details>
+<summary><b>P2.2</b></summary>
+
+Compute $F(2) - F(0)$.
+
+</details>
+</details>
 
 → Solutions: [Solutions](solutions/16A-solutions.md#practice-2)
 
@@ -324,7 +352,24 @@ $\int_0^2 (3x^2+1)\,dx$. Apply FTC: find $F$, compute $F(2)-F(0)$.
 
 ## Practice 3
 
-$\int x\sqrt{x^2+4}\,dx$. Run the $u$-sub algorithm. $u=$?, $du=$?, adjust constant?
+<details>
+<summary><b>P3.1</b></summary>
+
+Choose the inner function $u$ and compute $du$.
+
+<details>
+<summary><b>P3.2</b></summary>
+
+Adjust the constant mismatch so the integrand becomes exactly $f(u)\,du$.
+
+<details>
+<summary><b>P3.3</b></summary>
+
+Integrate in $u$ and substitute back.
+
+</details>
+</details>
+</details>
 
 → Solutions: [Solutions](solutions/16A-solutions.md#practice-3)
 
@@ -332,7 +377,24 @@ $\int x\sqrt{x^2+4}\,dx$. Run the $u$-sub algorithm. $u=$?, $du=$?, adjust const
 
 ## Practice 4
 
-$\int_0^{\pi/2} \sin x\cos^2 x\,dx$. Definite $u$-sub: choose $u$, change bounds, integrate, evaluate.
+<details>
+<summary><b>P4.1</b></summary>
+
+Choose $u$ and compute $du$.
+
+<details>
+<summary><b>P4.2</b></summary>
+
+Change the bounds to $u$-values.
+
+<details>
+<summary><b>P4.3</b></summary>
+
+Integrate and evaluate.
+
+</details>
+</details>
+</details>
 
 → Solutions: [Solutions](solutions/16A-solutions.md#practice-4)
 
@@ -340,7 +402,32 @@ $\int_0^{\pi/2} \sin x\cos^2 x\,dx$. Definite $u$-sub: choose $u$, change bounds
 
 ## Practice 5: Real Battle (Constructive)
 
-A student computes $\int_{-2}^2 x^3\,dx = [\frac{x^4}{4}]_{-2}^2 = 4-4 = 0$ and concludes "the area under $x^3$ from $-2$ to $2$ is zero." (a) Is the computation correct? (b) Is the conclusion correct? (c) Compute the TOTAL area (treating all regions as positive) from $-2$ to $2$. What property of odd functions explains this?
+A student computes $\int_{-2}^2 x^3\,dx = [\frac{x^4}{4}]_{-2}^2 = 4-4 = 0$ and concludes "the area under $x^3$ from $-2$ to $2$ is zero."
+
+<details>
+<summary><b>P5.1</b></summary>
+
+Is the computation correct?
+
+<details>
+<summary><b>P5.2</b></summary>
+
+Is the conclusion correct? (What does $0$ actually measure?)
+
+<details>
+<summary><b>P5.3</b></summary>
+
+Compute the TOTAL area (treating all regions as positive) from $-2$ to $2$.
+
+<details>
+<summary><b>P5.4</b></summary>
+
+What property of odd functions explains this?
+
+</details>
+</details>
+</details>
+</details>
 
 → Solutions: [Solutions](solutions/16A-solutions.md#practice-5)
 
@@ -348,114 +435,186 @@ A student computes $\int_{-2}^2 x^3\,dx = [\frac{x^4}{4}]_{-2}^2 = 4-4 = 0$ and 
 
 ## Basic Drills
 
-> Run the prescribed procedure. Show your $u$, $du$, and (for definite integrals) the new bounds.
+> Solve each sub-problem in order. Show your $u$, $du$, and (for definite integrals) the new bounds.
 
-**B1.** $\int x^5\,dx$.
+**B1.** $\int x^5\,dx$
 
 <details>
-<summary>💡 Hint</summary>
+<summary><b>B1.1</b></summary>
 
-Power rule: bump the exponent to $6$ and divide by $6$.
+Which rule applies to a pure power?
+
+<details>
+<summary><b>B1.2</b></summary>
+
+Compute the integral.
 
 </details>
-
-**B2.** $\int \left(2e^x + \frac{3}{x}\right)\,dx$.
-
-<details>
-<summary>💡 Hint</summary>
-
-Dictionary: $\int e^x\,dx = e^x$ and $\int \frac{1}{x}\,dx = \ln|x|$.
-
 </details>
 
-**B3.** $\int_1^4 \sqrt{x}\,dx$.
+**B2.** $\int \left(2e^x + \frac{3}{x}\right)\,dx$
 
 <details>
-<summary>💡 Hint</summary>
+<summary><b>B2.1</b></summary>
 
-Rewrite $\sqrt{x} = x^{1/2}$, then FTC: $\left[\frac{2}{3}x^{3/2}\right]_1^4$.
+Identify the dictionary entry for each term.
+
+<details>
+<summary><b>B2.2</b></summary>
+
+Compute the integral.
 
 </details>
-
-**B4.** $\int_0^{\pi} \cos x\,dx$.
-
-<details>
-<summary>💡 Hint</summary>
-
-$\int\cos x\,dx = \sin x$; evaluate at $0$ and $\pi$.
-
 </details>
 
-**B5.** $\int 3x^2(x^3+1)^4\,dx$.
+**B3.** $\int_1^4 \sqrt{x}\,dx$
 
 <details>
-<summary>💡 Hint</summary>
+<summary><b>B3.1</b></summary>
 
-$u = x^3+1$ gives $du = 3x^2\,dx$ — an exact match.
+Rewrite $\sqrt{x}$ as a power of $x$.
+
+<details>
+<summary><b>B3.2</b></summary>
+
+Apply the FTC and evaluate.
 
 </details>
-
-**B6.** $\int e^{3x}\,dx$.
-
-<details>
-<summary>💡 Hint</summary>
-
-$u = 3x$, $du = 3\,dx$, so $dx = \frac{du}{3}$.
-
 </details>
 
-**B7.** $\int \frac{x}{x^2+1}\,dx$.
+**B4.** $\int_0^{\pi} \cos x\,dx$
 
 <details>
-<summary>💡 Hint</summary>
+<summary><b>B4.1</b></summary>
 
-$u = x^2+1$, $du = 2x\,dx$, so $x\,dx = \frac{du}{2}$.
+Write the antiderivative of $\cos x$.
+
+<details>
+<summary><b>B4.2</b></summary>
+
+Evaluate at the bounds.
 
 </details>
-
-**B8.** $\int_0^1 x e^{x^2}\,dx$.
-
-<details>
-<summary>💡 Hint</summary>
-
-$u = x^2$; the bounds become $u = 0$ and $u = 1$.
-
 </details>
 
-**B9.** $\int \frac{\cos x}{\sin x}\,dx$.
+**B5.** $\int 3x^2(x^3+1)^4\,dx$
 
 <details>
-<summary>💡 Hint</summary>
+<summary><b>B5.1</b></summary>
 
-$u = \sin x$, $du = \cos x\,dx$, then $\int \frac{du}{u} = \ln|u|$.
+Choose $u$ (the inner function) and compute $du$.
+
+<details>
+<summary><b>B5.2</b></summary>
+
+Compute the integral.
 
 </details>
+</details>
 
-**B10.** $\int_{-1}^2 (x^2 - 2x)\,dx$.
+**B6.** $\int e^{3x}\,dx$
 
 <details>
-<summary>💡 Hint</summary>
+<summary><b>B6.1</b></summary>
 
-Find the antiderivative $\frac{x^3}{3} - x^2$ first, then plug in both bounds.
+Choose $u$ so that $du$ accounts for the factor $3$.
 
+<details>
+<summary><b>B6.2</b></summary>
+
+Compute the integral.
+
+</details>
+</details>
+
+**B7.** $\int \frac{x}{x^2+1}\,dx$
+
+<details>
+<summary><b>B7.1</b></summary>
+
+Choose $u$ and express $x\,dx$ in terms of $du$.
+
+<details>
+<summary><b>B7.2</b></summary>
+
+Compute the integral.
+
+</details>
+</details>
+
+**B8.** $\int_0^1 x e^{x^2}\,dx$
+
+<details>
+<summary><b>B8.1</b></summary>
+
+Choose $u$ and change the bounds to $u$-values.
+
+<details>
+<summary><b>B8.2</b></summary>
+
+Compute and evaluate.
+
+</details>
+</details>
+
+**B9.** $\int \frac{\cos x}{\sin x}\,dx$
+
+<details>
+<summary><b>B9.1</b></summary>
+
+Choose $u$ so the numerator is (up to sign) $du$.
+
+<details>
+<summary><b>B9.2</b></summary>
+
+Compute the integral.
+
+</details>
+</details>
+
+**B10.** $\int_{-1}^2 (x^2 - 2x)\,dx$
+
+<details>
+<summary><b>B10.1</b></summary>
+
+Find the antiderivative.
+
+<details>
+<summary><b>B10.2</b></summary>
+
+Plug in both bounds and subtract.
+
+</details>
 </details>
 
 **B11.** Find the average value of $f(x) = \sin x$ on $[0, \pi]$.
 
 <details>
-<summary>💡 Hint</summary>
+<summary><b>B11.1</b></summary>
 
-$\bar f = \frac{1}{\pi-0}\int_0^\pi \sin x\,dx$.
-
-</details>
-
-**B12.** $\int \sec x\tan x\,dx$.
+Write the average-value formula for $[0,\pi]$.
 
 <details>
-<summary>💡 Hint</summary>
+<summary><b>B11.2</b></summary>
 
-Dictionary: $\frac{d}{dx}\sec x = \sec x\tan x$.
+Compute it.
 
+</details>
+</details>
+
+**B12.** $\int \sec x\tan x\,dx$
+
+<details>
+<summary><b>B12.1</b></summary>
+
+Which dictionary entry has derivative $\sec x\tan x$?
+
+<details>
+<summary><b>B12.2</b></summary>
+
+Compute the integral.
+
+</details>
 </details>
 
 > Solutions: [Solutions](solutions/16A-solutions.md#basic-drill)
@@ -464,27 +623,205 @@ Dictionary: $\frac{d}{dx}\sec x = \sec x\tan x$.
 
 ## Calculation Drills
 
-> Pure computation. Each takes ~10 minutes of grinding through formula patterns — polynomial expansions, fraction splits, log laws, exponent laws, trig identities, $u$-sub. No hints.
+> Pure computation — solve each sub-problem in order, then the full problem. No hints.
 
 **C1.** $\int \frac{(x^2+1)^3}{x^4}\,dx$
 
+<details>
+<summary><b>C1.1</b></summary>
+
+Expand $(x^2+1)^3$ and split into a sum of powers.
+
+<details>
+<summary><b>C1.2</b></summary>
+
+Integrate each term.
+
+</details>
+</details>
+
 **C2.** $\int \left(e^x + e^{-x}\right)^2\,dx$
+
+<details>
+<summary><b>C2.1</b></summary>
+
+Expand the square.
+
+<details>
+<summary><b>C2.2</b></summary>
+
+Integrate each term.
+
+</details>
+</details>
 
 **C3.** $\int \frac{\ln\left(x\sqrt{x}\right)}{x}\,dx$
 
+<details>
+<summary><b>C3.1</b></summary>
+
+Simplify $\ln(x\sqrt{x})$ with log laws.
+
+<details>
+<summary><b>C3.2</b></summary>
+
+Substitute $u=\ln x$.
+
+<details>
+<summary><b>C3.3</b></summary>
+
+Integrate.
+
+</details>
+</details>
+</details>
+
 **C4.** $\int_1^2 \frac{x^2+1}{x^3+3x}\,dx$
+
+<details>
+<summary><b>C4.1</b></summary>
+
+Check: is the numerator (up to a constant) the derivative of the denominator?
+
+<details>
+<summary><b>C4.2</b></summary>
+
+Substitute $u$, change the bounds.
+
+<details>
+<summary><b>C4.3</b></summary>
+
+Integrate and evaluate.
+
+</details>
+</details>
+</details>
 
 **C5.** $\int \sin^3 x\cos^3 x\,dx$
 
+<details>
+<summary><b>C5.1</b></summary>
+
+Check the parity of both exponents and pick the move.
+
+<details>
+<summary><b>C5.2</b></summary>
+
+Peel one factor and convert the rest.
+
+<details>
+<summary><b>C5.3</b></summary>
+
+Substitute and integrate.
+
+</details>
+</details>
+</details>
+
 **C6.** $\int \frac{\tan x}{\ln(\sec x)}\,dx$
+
+<details>
+<summary><b>C6.1</b></summary>
+
+Find a function whose derivative is the numerator.
+
+<details>
+<summary><b>C6.2</b></summary>
+
+Substitute and integrate.
+
+</details>
+</details>
 
 **C7.** $\int_0^{\pi}\sin^2 x\cos^2 x\,dx$
 
+<details>
+<summary><b>C7.1</b></summary>
+
+Simplify using $\sin^2x\cos^2x = \frac14\sin^2 2x$.
+
+<details>
+<summary><b>C7.2</b></summary>
+
+Integrate (half-angle) and evaluate.
+
+</details>
+</details>
+
 **C8.** $\int_0^{\pi/2}\left(e^{\sin x}\cos x + \sin 2x\right)\,dx$
+
+<details>
+<summary><b>C8.1</b></summary>
+
+Split into two integrals.
+
+<details>
+<summary><b>C8.2</b></summary>
+
+Integrate the first term.
+
+<details>
+<summary><b>C8.3</b></summary>
+
+Integrate the second term.
+
+<details>
+<summary><b>C8.4</b></summary>
+
+Evaluate at the bounds.
+
+</details>
+</details>
+</details>
+</details>
 
 **C9.** $\int_0^1 x^3\sqrt{1-x^2}\,dx$
 
+<details>
+<summary><b>C9.1</b></summary>
+
+Choose $u$ and express $x^3\,dx$ in terms of $u$ and $du$.
+
+<details>
+<summary><b>C9.2</b></summary>
+
+Change the bounds.
+
+<details>
+<summary><b>C9.3</b></summary>
+
+Integrate and evaluate.
+
+</details>
+</details>
+</details>
+
 **C10.** $\int_0^1\left(\frac{x}{1+x^2} + \frac{e^x}{e^x+1}\right)\,dx$
+
+<details>
+<summary><b>C10.1</b></summary>
+
+Split into two integrals.
+
+<details>
+<summary><b>C10.2</b></summary>
+
+Integrate the first ($P'/P$ form).
+
+<details>
+<summary><b>C10.3</b></summary>
+
+Integrate the second ($P'/P$ form).
+
+<details>
+<summary><b>C10.4</b></summary>
+
+Evaluate.
+
+</details>
+</details>
+</details>
+</details>
 
 > Solutions: [Solutions](solutions/16A-solutions.md#calculation-drill)
 
@@ -492,96 +829,198 @@ Dictionary: $\frac{d}{dx}\sec x = \sec x\tan x$.
 
 ## Advanced Drills
 
-> Each problem has a computation part AND a thinking part — don't skip the second half. Solve first, then explain.
+> Each problem is scoped into sub-problems: compute first, then explain. Don't skip the explanation parts.
 
-**A1.** $\int x^2\sqrt{x^3+1}\,dx$. Verify your answer by differentiating, and explain where the factor $\frac13$ comes from.
+**A1.** $\int x^2\sqrt{x^3+1}\,dx$
 
 <details>
-<summary>💡 Hint</summary>
+<summary><b>A1.1</b></summary>
 
-The derivative of $x^3+1$ already sits inside the integrand, up to a constant. Once you've integrated, check by differentiating.
+Compute the integral.
+
+<details>
+<summary><b>A1.2</b></summary>
+
+Verify your answer by differentiating.
+
+<details>
+<summary><b>A1.3</b></summary>
+
+Explain where the factor $\frac13$ comes from.
 
 </details>
-
-**A2.** $\int \frac{e^x}{1+e^{2x}}\,dx$. Explain why the answer is an arctan and not a logarithm, by comparing with $\int \frac{e^x}{1+e^x}\,dx$.
-
-<details>
-<summary>💡 Hint</summary>
-
-Write $1+e^{2x}$ as $1 + (e^x)^2$. After substituting $u = e^x$, compare the two denominators — what shapes are they?
-
+</details>
 </details>
 
-**A3.** $\int_0^4 \frac{x}{\sqrt{1+2x}}\,dx$. Explain why you must solve $x = \frac{u-1}{2}$ here, but didn't need to in A1 — what property of the numerator forces it?
+**A2.** $\int \frac{e^x}{1+e^{2x}}\,dx$
 
 <details>
-<summary>💡 Hint</summary>
+<summary><b>A2.1</b></summary>
 
-Compute $du$ for $u = 1+2x$. Is the leftover numerator a constant multiple of $du$, like in A1?
+Compute the integral.
+
+<details>
+<summary><b>A2.2</b></summary>
+
+Compare with $\int \frac{e^x}{1+e^x}\,dx$ and explain why the answer is an arctan and not a logarithm.
 
 </details>
-
-**A4.** $\int \sin^3 x\,dx$. Explain why the "peel one $\sin x$" trick works, and why it fails for $\int \sin^2 x\,dx$.
-
-<details>
-<summary>💡 Hint</summary>
-
-Which single factor could play the role of $du$ if $u = \cos x$? Then think: for $\sin^2 x$, is that factor present?
-
 </details>
 
-**A5.** $\int_1^e \frac{(\ln x)^n}{x}\,dx$. Solve for $n = 2$; then write the general formula for natural $n$ and check it for $n = 0$ and $n = 1$.
+**A3.** $\int_0^4 \frac{x}{\sqrt{1+2x}}\,dx$
 
 <details>
-<summary>💡 Hint</summary>
+<summary><b>A3.1</b></summary>
 
-Set $u = \ln x$ and watch what happens to $\frac{dx}{x}$ and to both bounds. Solve the $n=2$ case, then guess the general pattern.
+Compute the integral.
+
+<details>
+<summary><b>A3.2</b></summary>
+
+Explain why you must solve $x = \frac{u-1}{2}$ here, but didn't need to in A1.
 
 </details>
-
-**A6.** $\int \frac{x^2+1}{x^3+3x+1}\,dx$. State the general rule $\int \frac{P'(x)}{P(x)}\,dx = \ln|P(x)| + C$ and use it to explain your answer.
-
-<details>
-<summary>💡 Hint</summary>
-
-Differentiate the denominator. How is the numerator related to what you get?
-
 </details>
 
-**A7.** Find the upper bound $b$ such that $\int_0^b x\cos(x^2)\,dx = \frac12$, then explain how you knew to aim for $\sin = 1$.
+**A4.** $\int \sin^3 x\,dx$
 
 <details>
-<summary>💡 Hint</summary>
+<summary><b>A4.1</b></summary>
 
-Do the substitution and write the integral's value as a function of the unknown upper bound $b$. Then solve for $b$.
+Compute the integral.
+
+<details>
+<summary><b>A4.2</b></summary>
+
+Explain why the "peel one $\sin x$" trick works.
+
+<details>
+<summary><b>A4.3</b></summary>
+
+Explain why it fails for $\int \sin^2 x\,dx$.
 
 </details>
-
-**A8.** $\int \frac{dx}{1+e^x}$. Solve, and show your answer equals $x - \ln(1+e^x) + C$ — they differ by a constant. Why can two correct-looking answers appear?
-
-<details>
-<summary>💡 Hint</summary>
-
-Can you rewrite $\frac{1}{1+e^x}$ so the numerator is exactly $du$ for some $u$? Try multiplying top and bottom by $e^{-x}$.
-
+</details>
 </details>
 
-**A9.** $\int_0^1 \frac{x}{1+x^4}\,dx$. Trace where the $\pi$ comes from: which step introduces it, and why is the answer $\frac{\pi}{8}$ and not $\frac{\pi}{4}$?
+**A5.** $\int_1^e \frac{(\ln x)^n}{x}\,dx$
 
 <details>
-<summary>💡 Hint</summary>
+<summary><b>A5.1</b></summary>
 
-Write $x^4$ as a square. After substituting, which dictionary entry produces the answer — and what factor does the substitution contribute?
+Compute the integral for $n = 2$.
+
+<details>
+<summary><b>A5.2</b></summary>
+
+Write the general formula for natural $n$.
+
+<details>
+<summary><b>A5.3</b></summary>
+
+Check it for $n = 0$ and $n = 1$.
 
 </details>
+</details>
+</details>
 
-**A10.** Compute $\int_{-2}^{2}\left(x^5 + x^3 - 3x\right)\,dx$ without any antiderivative. Then: is $\int_{-2}^{2}(x^2 + x)\,dx$ also $0$? Explain. Finally, find the TOTAL (absolute) area of $y = x^5$ on $[-2, 2]$.
+**A6.** $\int \frac{x^2+1}{x^3+3x+1}\,dx$
 
 <details>
-<summary>💡 Hint</summary>
+<summary><b>A6.1</b></summary>
 
-Test each term at $-x$: is it even or odd? Then recall what even/odd does to an integral on $[-a,a]$. For "total area", remember the word *absolute*.
+Compute the integral.
 
+<details>
+<summary><b>A6.2</b></summary>
+
+State the general rule $\int \frac{P'(x)}{P(x)}\,dx = \ln|P(x)| + C$ and use it to explain your answer.
+
+</details>
+</details>
+
+**A7.** Find the upper bound $b$ such that $\int_0^b x\cos(x^2)\,dx = \frac12$
+
+<details>
+<summary><b>A7.1</b></summary>
+
+Do the substitution and write the value as a function of the unknown bound $b$.
+
+<details>
+<summary><b>A7.2</b></summary>
+
+Solve for $b$.
+
+<details>
+<summary><b>A7.3</b></summary>
+
+Explain how you knew to aim for $\sin = 1$.
+
+</details>
+</details>
+</details>
+
+**A8.** $\int \frac{dx}{1+e^x}$
+
+<details>
+<summary><b>A8.1</b></summary>
+
+Compute the integral.
+
+<details>
+<summary><b>A8.2</b></summary>
+
+Show your answer equals $x - \ln(1+e^x) + C$.
+
+<details>
+<summary><b>A8.3</b></summary>
+
+Explain why two correct-looking answers can appear.
+
+</details>
+</details>
+</details>
+
+**A9.** $\int_0^1 \frac{x}{1+x^4}\,dx$
+
+<details>
+<summary><b>A9.1</b></summary>
+
+Compute the integral.
+
+<details>
+<summary><b>A9.2</b></summary>
+
+Trace where the $\pi$ comes from.
+
+<details>
+<summary><b>A9.3</b></summary>
+
+Explain why the answer is $\frac{\pi}{8}$ and not $\frac{\pi}{4}$.
+
+</details>
+</details>
+</details>
+
+**A10.** Compute $\int_{-2}^{2}\left(x^5 + x^3 - 3x\right)\,dx$ without any antiderivative.
+
+<details>
+<summary><b>A10.1</b></summary>
+
+Determine the parity of each term and evaluate the integral.
+
+<details>
+<summary><b>A10.2</b></summary>
+
+Is $\int_{-2}^{2}(x^2 + x)\,dx$ also $0$? Explain.
+
+<details>
+<summary><b>A10.3</b></summary>
+
+Find the TOTAL (absolute) area of $y = x^5$ on $[-2, 2]$.
+
+</details>
+</details>
 </details>
 
 > Solutions: [Solutions](solutions/16A-solutions.md#advanced-drill)

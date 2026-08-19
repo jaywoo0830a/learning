@@ -450,7 +450,24 @@ A fraction with $\deg P \geq \deg Q$ is not yet in dictionary form: it contains 
 
 ## Practice 1
 
-$\int x\sin x\,dx$. Run the parts algorithm. LIATE: $u=x$ (Algebraic), $dv=\sin x\,dx$.
+<details>
+<summary><b>P1.1</b></summary>
+
+Choose $u$ and $dv$ using LIATE.
+
+<details>
+<summary><b>P1.2</b></summary>
+
+Compute $du$ and $v$.
+
+<details>
+<summary><b>P1.3</b></summary>
+
+Assemble $uv - \int v\,du$ and integrate.
+
+</details>
+</details>
+</details>
 
 → Solutions: [Solutions](solutions/16B-solutions.md#practice-1)
 
@@ -458,7 +475,24 @@ $\int x\sin x\,dx$. Run the parts algorithm. LIATE: $u=x$ (Algebraic), $dv=\sin 
 
 ## Practice 2
 
-$\int \cos^3 x\,dx$. Odd power of cosine → peel one, convert $\cos^2$, $u$-sub with $u=\sin x$.
+<details>
+<summary><b>P2.1</b></summary>
+
+Check the parity of the exponents.
+
+<details>
+<summary><b>P2.2</b></summary>
+
+Peel one $\cos x$, convert the rest.
+
+<details>
+<summary><b>P2.3</b></summary>
+
+Substitute and integrate.
+
+</details>
+</details>
+</details>
 
 → Solutions: [Solutions](solutions/16B-solutions.md#practice-2)
 
@@ -466,7 +500,24 @@ $\int \cos^3 x\,dx$. Odd power of cosine → peel one, convert $\cos^2$, $u$-sub
 
 ## Practice 3
 
-$\int \frac{dx}{x^2+4}$. Arctan formula directly, OR trig sub $x=2\tan\theta$. Show both.
+<details>
+<summary><b>P3.1</b></summary>
+
+Recognize the form of $\frac{1}{x^2+4}$.
+
+<details>
+<summary><b>P3.2</b></summary>
+
+Apply the arctan formula directly.
+
+<details>
+<summary><b>P3.3</b></summary>
+
+Show the same result via trig sub $x=2\tan\theta$.
+
+</details>
+</details>
+</details>
 
 → Solutions: [Solutions](solutions/16B-solutions.md#practice-3)
 
@@ -474,7 +525,30 @@ $\int \frac{dx}{x^2+4}$. Arctan formula directly, OR trig sub $x=2\tan\theta$. S
 
 ## Practice 4
 
-$\int \frac{x+1}{x^2-3x+2}\,dx$. Factor denominator: $(x-1)(x-2)$. Template: $\frac{A}{x-1}+\frac{B}{x-2}$. Solve, integrate.
+<details>
+<summary><b>P4.1</b></summary>
+
+Factor the denominator.
+
+<details>
+<summary><b>P4.2</b></summary>
+
+Write the partial fractions template.
+
+<details>
+<summary><b>P4.3</b></summary>
+
+Solve for the constants.
+
+<details>
+<summary><b>P4.4</b></summary>
+
+Integrate each term.
+
+</details>
+</details>
+</details>
+</details>
 
 → Solutions: [Solutions](solutions/16B-solutions.md#practice-4)
 
@@ -482,7 +556,26 @@ $\int \frac{x+1}{x^2-3x+2}\,dx$. Factor denominator: $(x-1)(x-2)$. Template: $\f
 
 ## Practice 5: Real Battle (Constructive)
 
-A classmate sees $\int \frac{x}{\sqrt{1-x^2}}\,dx$ and says: "Trig sub! $\sqrt{1-x^2}$ means $x=\sin\theta$." (a) Is there a faster way? Solve it with $u$-sub. (b) Now solve $\int \frac{1}{\sqrt{1-x^2}}\,dx$ — was trig sub the right call this time? (c) Write a one-sentence rule: when $\sqrt{a^2-x^2}$ appears, how do you choose between $u$-sub and trig sub?
+A classmate sees $\int \frac{x}{\sqrt{1-x^2}}\,dx$ and says: "Trig sub! $\sqrt{1-x^2}$ means $x=\sin\theta$."
+
+<details>
+<summary><b>P5.1</b></summary>
+
+Is there a faster way? Solve it with $u$-sub.
+
+<details>
+<summary><b>P5.2</b></summary>
+
+Now solve $\int \frac{1}{\sqrt{1-x^2}}\,dx$ — was trig sub the right call this time?
+
+<details>
+<summary><b>P5.3</b></summary>
+
+Write a one-sentence rule: when $\sqrt{a^2-x^2}$ appears, how do you choose between $u$-sub and trig sub?
+
+</details>
+</details>
+</details>
 
 → Solutions: [Solutions](solutions/16B-solutions.md#practice-5)
 
@@ -490,114 +583,192 @@ A classmate sees $\int \frac{x}{\sqrt{1-x^2}}\,dx$ and says: "Trig sub! $\sqrt{1
 
 ## Basic Drills
 
-> Identify the technique from the decision tree, then execute it.
+> Use the decision tree to identify the technique first, then solve each sub-problem in order.
 
-**B1.** $\int x\cos x\,dx$.
+**B1.** $\int x\cos x\,dx$
 
 <details>
-<summary>💡 Hint</summary>
+<summary><b>B1.1</b></summary>
 
-Parts: $u = x$, $dv = \cos x\,dx$.
+Choose $u$ and $dv$ (LIATE).
+
+<details>
+<summary><b>B1.2</b></summary>
+
+Assemble and integrate.
 
 </details>
-
-**B2.** $\int \ln(2x)\,dx$.
-
-<details>
-<summary>💡 Hint</summary>
-
-Parts: $u = \ln(2x)$, $dv = dx$. Note $\frac{d}{dx}\ln(2x) = \frac{1}{x}$.
-
 </details>
 
-**B3.** $\int \sin^2 x\,dx$.
+**B2.** $\int \ln(2x)\,dx$
 
 <details>
-<summary>💡 Hint</summary>
+<summary><b>B2.1</b></summary>
 
-Trig integral — even power → half-angle $\sin^2 x = \frac{1-\cos 2x}{2}$.
+Choose $u$ (implicit product with $1$).
+
+<details>
+<summary><b>B2.2</b></summary>
+
+Assemble and integrate.
 
 </details>
-
-**B4.** $\int \tan x\sec^2 x\,dx$.
-
-<details>
-<summary>💡 Hint</summary>
-
-$n = 2$ (even) → save $\sec^2 x$, $u = \tan x$.
-
 </details>
 
-**B5.** $\int \frac{dx}{\sqrt{9-x^2}}$.
+**B3.** $\int \sin^2 x\,dx$
 
 <details>
-<summary>💡 Hint</summary>
+<summary><b>B3.1</b></summary>
 
-$\sqrt{a^2-x^2}$ form with $a=3$: $x = 3\sin\theta$ (or use the dictionary entry $\arcsin$).
+Check parity and choose the identity.
+
+<details>
+<summary><b>B3.2</b></summary>
+
+Integrate.
 
 </details>
-
-**B6.** $\int \frac{dx}{x^2+9}$.
-
-<details>
-<summary>💡 Hint</summary>
-
-Arctan form: $\int\frac{dx}{x^2+a^2} = \frac{1}{a}\arctan\frac{x}{a}$ with $a=3$.
-
 </details>
 
-**B7.** $\int \frac{dx}{x^2-x}$.
+**B4.** $\int \tan x\sec^2 x\,dx$
 
 <details>
-<summary>💡 Hint</summary>
+<summary><b>B4.1</b></summary>
 
-Partial fractions: factor $x^2-x = x(x-1)$.
+Check parity and save the piece that becomes $du$.
+
+<details>
+<summary><b>B4.2</b></summary>
+
+Substitute and integrate.
 
 </details>
-
-**B8.** $\int x^2 e^x\,dx$.
-
-<details>
-<summary>💡 Hint</summary>
-
-Parts twice: first $u = x^2$, then $u = x$.
-
 </details>
 
-**B9.** $\int \sin x\cos x\,dx$. Solve two ways and verify the answers agree.
+**B5.** $\int \frac{dx}{\sqrt{9-x^2}}$
 
 <details>
-<summary>💡 Hint</summary>
+<summary><b>B5.1</b></summary>
 
-$u = \sin x$ works directly; or use $\sin 2x = 2\sin x\cos x$. The answers differ by a constant.
+Identify the root form.
+
+<details>
+<summary><b>B5.2</b></summary>
+
+Apply the matching substitution (or dictionary entry).
 
 </details>
-
-**B10.** $\int \frac{x}{\sqrt{1-x^2}}\,dx$. Choose the faster method.
-
-<details>
-<summary>💡 Hint</summary>
-
-$u = 1-x^2$ beats trig sub here — the $x$ upstairs is exactly (half of) $du$.
-
 </details>
 
-**B11.** $\int \frac{dx}{x^2+6x+13}$.
+**B6.** $\int \frac{dx}{x^2+9}$
 
 <details>
-<summary>💡 Hint</summary>
+<summary><b>B6.1</b></summary>
 
-Complete the square: $(x+3)^2+4$, then arctan.
+Identify the form.
+
+<details>
+<summary><b>B6.2</b></summary>
+
+Apply the arctan formula.
 
 </details>
+</details>
 
-**B12.** $\int \sec x\,dx$.
+**B7.** $\int \frac{dx}{x^2-x}$
 
 <details>
-<summary>💡 Hint</summary>
+<summary><b>B7.1</b></summary>
 
-Multiply by $\frac{\sec x+\tan x}{\sec x+\tan x}$ — the numerator becomes the derivative of the denominator.
+Factor the denominator.
 
+<details>
+<summary><b>B7.2</b></summary>
+
+Decompose and integrate.
+
+</details>
+</details>
+
+**B8.** $\int x^2 e^x\,dx$
+
+<details>
+<summary><b>B8.1</b></summary>
+
+First round of parts.
+
+<details>
+<summary><b>B8.2</b></summary>
+
+Second round and finish.
+
+</details>
+</details>
+
+**B9.** $\int \sin x\cos x\,dx$
+
+<details>
+<summary><b>B9.1</b></summary>
+
+Solve with $u = \sin x$.
+
+<details>
+<summary><b>B9.2</b></summary>
+
+Solve with $\sin 2x = 2\sin x\cos x$.
+
+<details>
+<summary><b>B9.3</b></summary>
+
+Verify the answers agree.
+
+</details>
+</details>
+</details>
+
+**B10.** $\int \frac{x}{\sqrt{1-x^2}}\,dx$
+
+<details>
+<summary><b>B10.1</b></summary>
+
+Choose the faster method.
+
+<details>
+<summary><b>B10.2</b></summary>
+
+Compute.
+
+</details>
+</details>
+
+**B11.** $\int \frac{dx}{x^2+6x+13}$
+
+<details>
+<summary><b>B11.1</b></summary>
+
+Complete the square.
+
+<details>
+<summary><b>B11.2</b></summary>
+
+Integrate (arctan form).
+
+</details>
+</details>
+
+**B12.** $\int \sec x\,dx$
+
+<details>
+<summary><b>B12.1</b></summary>
+
+Multiply by the right form of $1$.
+
+<details>
+<summary><b>B12.2</b></summary>
+
+Integrate.
+
+</details>
 </details>
 
 > Solutions: [Solutions](solutions/16B-solutions.md#basic-drill)
@@ -606,27 +777,217 @@ Multiply by $\frac{\sec x+\tan x}{\sec x+\tan x}$ — the numerator becomes the 
 
 ## Calculation Drills
 
-> Pure computation. Each takes ~10 minutes of grinding through formula patterns — parts, trig integrals, trig substitution, partial fractions. No hints.
+> Pure computation — solve each sub-problem in order, then the full problem. No hints.
 
 **C1.** $\int \frac{5x+7}{x^2+x-2}\,dx$
 
+<details>
+<summary><b>C1.1</b></summary>
+
+Factor the denominator.
+
+<details>
+<summary><b>C1.2</b></summary>
+
+Write the partial fractions template.
+
+<details>
+<summary><b>C1.3</b></summary>
+
+Solve for the constants.
+
+<details>
+<summary><b>C1.4</b></summary>
+
+Integrate.
+
+</details>
+</details>
+</details>
+</details>
+
 **C2.** $\int x^2\ln x\,dx$
+
+<details>
+<summary><b>C2.1</b></summary>
+
+Choose $u$ (LIATE).
+
+<details>
+<summary><b>C2.2</b></summary>
+
+Apply parts.
+
+<details>
+<summary><b>C2.3</b></summary>
+
+Integrate the leftover.
+
+</details>
+</details>
+</details>
 
 **C3.** $\int_0^{\pi/2} x\cos x\,dx$
 
+<details>
+<summary><b>C3.1</b></summary>
+
+Apply parts.
+
+<details>
+<summary><b>C3.2</b></summary>
+
+Evaluate at the bounds.
+
+</details>
+</details>
+
 **C4.** $\int \tan^3 x\sec^4 x\,dx$
+
+<details>
+<summary><b>C4.1</b></summary>
+
+Check parity, save the $du$ piece.
+
+<details>
+<summary><b>C4.2</b></summary>
+
+Convert the rest and substitute.
+
+<details>
+<summary><b>C4.3</b></summary>
+
+Integrate.
+
+</details>
+</details>
+</details>
 
 **C5.** $\int_0^{\pi/2}\sin^4 x\cos^3 x\,dx$
 
+<details>
+<summary><b>C5.1</b></summary>
+
+Check parity.
+
+<details>
+<summary><b>C5.2</b></summary>
+
+Peel, convert, substitute.
+
+<details>
+<summary><b>C5.3</b></summary>
+
+Integrate and evaluate.
+
+</details>
+</details>
+</details>
+
 **C6.** $\int \frac{dx}{(x^2+1)^{3/2}}$
+
+<details>
+<summary><b>C6.1</b></summary>
+
+Choose the trig substitution.
+
+<details>
+<summary><b>C6.2</b></summary>
+
+Substitute and simplify.
+
+<details>
+<summary><b>C6.3</b></summary>
+
+Integrate and back-substitute.
+
+</details>
+</details>
+</details>
 
 **C7.** $\int \frac{x^2}{\sqrt{4-x^2}}\,dx$
 
+<details>
+<summary><b>C7.1</b></summary>
+
+Choose the trig substitution.
+
+<details>
+<summary><b>C7.2</b></summary>
+
+Integrate in $\theta$.
+
+<details>
+<summary><b>C7.3</b></summary>
+
+Back-substitute via the right triangle.
+
+</details>
+</details>
+</details>
+
 **C8.** $\int e^{2x}\sin 3x\,dx$
+
+<details>
+<summary><b>C8.1</b></summary>
+
+First round of parts.
+
+<details>
+<summary><b>C8.2</b></summary>
+
+Second round.
+
+<details>
+<summary><b>C8.3</b></summary>
+
+Solve for $I$.
+
+</details>
+</details>
+</details>
 
 **C9.** $\int \frac{3x^2+4x+3}{(x+1)(x^2+1)}\,dx$
 
+<details>
+<summary><b>C9.1</b></summary>
+
+Write the decomposition template.
+
+<details>
+<summary><b>C9.2</b></summary>
+
+Solve for the constants.
+
+<details>
+<summary><b>C9.3</b></summary>
+
+Integrate each term.
+
+</details>
+</details>
+</details>
+
 **C10.** $\int_0^1 x\arctan x\,dx$
+
+<details>
+<summary><b>C10.1</b></summary>
+
+Apply parts.
+
+<details>
+<summary><b>C10.2</b></summary>
+
+Handle the leftover integral.
+
+<details>
+<summary><b>C10.3</b></summary>
+
+Evaluate.
+
+</details>
+</details>
+</details>
 
 > Solutions: [Solutions](solutions/16B-solutions.md#calculation-drill)
 
@@ -634,96 +995,192 @@ Multiply by $\frac{\sec x+\tan x}{\sec x+\tan x}$ — the numerator becomes the 
 
 ## Advanced Drills
 
-> Each problem has a computation part AND a thinking part — don't skip the second half. Solve first, then explain.
+> Each problem is scoped into sub-problems: compute first, then explain. Don't skip the explanation parts.
 
-**A1.** $\int e^x\cos x\,dx$. Solve by cycling; then explain why choosing $u = \cos x$ vs $u = e^x$ does not change the outcome — what property makes the cycle work either way?
+**A1.** $\int e^x\cos x\,dx$
 
 <details>
-<summary>💡 Hint</summary>
+<summary><b>A1.1</b></summary>
 
-Do parts twice and watch the original integral $I$ reappear on both sides. Then think: why would the *other* choice of $u$ also lead back to $I$?
+Solve by cycling (parts twice).
+
+<details>
+<summary><b>A1.2</b></summary>
+
+Explain why choosing $u = \cos x$ vs $u = e^x$ does not change the outcome.
 
 </details>
-
-**A2.** $\int \sin^4 x\,dx$. Solve; then use the even-power pattern $\int_0^{\pi/2}\sin^n x\,dx = \frac{n-1}{n}\cdot\frac{n-3}{n-2}\cdots\frac12\cdot\frac{\pi}{2}$ to write the $n=2$ and $n=4$ values, and state $\int_0^{\pi/2}\cos^4 x\,dx$ without integrating.
-
-<details>
-<summary>💡 Hint</summary>
-
-Apply the half-angle identity, then apply it again to the new $\cos^2$ term. For the pattern and the $\cos^4$ comparison: $\sin$ and $\cos$ are mirrors on $[0,\pi/2]$.
-
 </details>
 
-**A3.** $\int \frac{dx}{(x^2+1)^2}$. Solve via trig sub; then find the constant $C$ such that $\int_0^1 = \frac{\pi}{8} + C$, and explain how you knew $C$ without any extra integration.
+**A2.** $\int \sin^4 x\,dx$
 
 <details>
-<summary>💡 Hint</summary>
+<summary><b>A2.1</b></summary>
 
-Which row of the substitution table matches $\frac{1}{(x^2+1)^2}$? After back-substituting, just plug in $x = 0$ and $x = 1$.
+Compute the integral.
+
+<details>
+<summary><b>A2.2</b></summary>
+
+Use the even-power pattern $\int_0^{\pi/2}\sin^n x\,dx = \frac{n-1}{n}\cdot\frac{n-3}{n-2}\cdots\frac12\cdot\frac{\pi}{2}$ to write the $n=2$ and $n=4$ values.
+
+<details>
+<summary><b>A2.3</b></summary>
+
+State $\int_0^{\pi/2}\cos^4 x\,dx$ without integrating.
 
 </details>
-
-**A4.** $\int \frac{x^3}{\sqrt{x^2+1}}\,dx$. Solve; then compute $\int \frac{x^5}{\sqrt{x^2+1}}\,dx$ with the same move, and describe how the answer's terms grow as the odd power increases.
-
-<details>
-<summary>💡 Hint</summary>
-
-Set $u = x^2+1$ and write $x^3 = x \cdot x^2$ in terms of $u$. For the second integral, try $x^5 = x \cdot (x^2)^2$.
-
+</details>
 </details>
 
-**A5.** $\int \frac{x^2+2x-1}{(x-1)(x^2+1)}\,dx$. Solve; then check the answer by substituting $x=0$ into both sides, and explain why $B=0$ (no linear term over the quadratic) is plausible from the original numerator.
+**A3.** $\int \frac{dx}{(x^2+1)^2}$
 
 <details>
-<summary>💡 Hint</summary>
+<summary><b>A3.1</b></summary>
 
-Set up the template with $(Bx+C)$ over the quadratic factor, then match coefficients. To check, substitute one convenient value of $x$ into both sides.
+Solve via trig sub.
+
+<details>
+<summary><b>A3.2</b></summary>
+
+Find the constant $C$ such that $\int_0^1 = \frac{\pi}{8} + C$, without extra integration.
 
 </details>
-
-**A6.** $\int \arctan x\,dx$. Solve; then compute $\int x\arctan x\,dx$ with the same first move, and explain why the $\frac12\ln(1+x^2)$ carries a $\frac12$.
-
-<details>
-<summary>💡 Hint</summary>
-
-Which factor should go in $u$? Then look at the leftover integral: is the numerator related to the derivative of the denominator?
-
 </details>
 
-**A7.** $\int \sec^3 x\,dx$. Solve; then derive $\int \sec^5 x\,dx$ from it using the recursion $I_n = \frac{\sec^{n-2}x\tan x}{n-1} + \frac{n-2}{n-1}I_{n-2}$.
+**A4.** $\int \frac{x^3}{\sqrt{x^2+1}}\,dx$
 
 <details>
-<summary>💡 Hint</summary>
+<summary><b>A4.1</b></summary>
 
-Parts with $u = \sec x$, $dv = \sec^2 x\,dx$; expect $I$ to reappear. For $\sec^5$, try parts with $u = \sec^3 x$ and reuse your $\sec^3$ result.
+Compute the integral.
+
+<details>
+<summary><b>A4.2</b></summary>
+
+Compute $\int \frac{x^5}{\sqrt{x^2+1}}\,dx$ with the same move.
+
+<details>
+<summary><b>A4.3</b></summary>
+
+Describe how the answer's terms grow as the odd power increases.
 
 </details>
-
-**A8.** $\int \frac{\sqrt{x^2-4}}{x}\,dx$. Solve; then write the choice table (which substitution for $\sqrt{a^2-x^2}$, $\sqrt{a^2+x^2}$, $\sqrt{x^2-a^2}$) and explain where $|2\tan\theta|$ comes from and why you may drop the bars.
-
-<details>
-<summary>💡 Hint</summary>
-
-Which row of the substitution table matches $\sqrt{x^2-4}$? Keep track of whether the root comes out positive.
-
+</details>
 </details>
 
-**A9.** $\int x\arcsin x\,dx$. Solve; then compare with A6's $\int \arctan x\,dx$ — identify the shared structure and where the $\frac14$ factors appear.
+**A5.** $\int \frac{x^2+2x-1}{(x-1)(x^2+1)}\,dx$
 
 <details>
-<summary>💡 Hint</summary>
+<summary><b>A5.1</b></summary>
 
-Put $\arcsin x$ in $u$. Then look at the leftover integral — what does $\sqrt{1-x^2}$ tell you to try?
+Compute the integral.
+
+<details>
+<summary><b>A5.2</b></summary>
+
+Check the answer by substituting $x=0$ into both sides.
+
+<details>
+<summary><b>A5.3</b></summary>
+
+Explain why $B=0$ is plausible from the original numerator.
 
 </details>
+</details>
+</details>
 
-**A10.** $\int_0^{\pi/2}\sin^3 x\cos^2 x\,dx$. Solve; then evaluate $\int_0^{\pi/2}\sin^2 x\cos^2 x\,dx$ and explain why one answer is rational and the other contains $\pi$.
+**A6.** $\int \arctan x\,dx$
 
 <details>
-<summary>💡 Hint</summary>
+<summary><b>A6.1</b></summary>
 
-Check the parity of each exponent first. Odd power → which branch? Both even → which branch? Evaluate each one.
+Compute the integral.
 
+<details>
+<summary><b>A6.2</b></summary>
+
+Compute $\int x\arctan x\,dx$ with the same first move.
+
+<details>
+<summary><b>A6.3</b></summary>
+
+Explain why the $\frac12\ln(1+x^2)$ carries a $\frac12$.
+
+</details>
+</details>
+</details>
+
+**A7.** $\int \sec^3 x\,dx$
+
+<details>
+<summary><b>A7.1</b></summary>
+
+Compute the integral.
+
+<details>
+<summary><b>A7.2</b></summary>
+
+Derive $\int \sec^5 x\,dx$ using the recursion $I_n = \frac{\sec^{n-2}x\tan x}{n-1} + \frac{n-2}{n-1}I_{n-2}$.
+
+</details>
+</details>
+
+**A8.** $\int \frac{\sqrt{x^2-4}}{x}\,dx$
+
+<details>
+<summary><b>A8.1</b></summary>
+
+Compute the integral.
+
+<details>
+<summary><b>A8.2</b></summary>
+
+Write the choice table (which substitution for each root form).
+
+<details>
+<summary><b>A8.3</b></summary>
+
+Explain where $|2\tan\theta|$ comes from and why you may drop the bars.
+
+</details>
+</details>
+</details>
+
+**A9.** $\int x\arcsin x\,dx$
+
+<details>
+<summary><b>A9.1</b></summary>
+
+Compute the integral.
+
+<details>
+<summary><b>A9.2</b></summary>
+
+Compare with A6's $\int \arctan x\,dx$ — identify the shared structure and where the $\frac14$ factors appear.
+
+</details>
+</details>
+
+**A10.** $\int_0^{\pi/2}\sin^3 x\cos^2 x\,dx$
+
+<details>
+<summary><b>A10.1</b></summary>
+
+Compute the integral.
+
+<details>
+<summary><b>A10.2</b></summary>
+
+Evaluate $\int_0^{\pi/2}\sin^2 x\cos^2 x\,dx$.
+
+<details>
+<summary><b>A10.3</b></summary>
+
+Explain why one answer is rational and the other contains $\pi$.
+
+</details>
+</details>
 </details>
 
 > Solutions: [Solutions](solutions/16B-solutions.md#advanced-drill)
