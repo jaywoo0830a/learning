@@ -1,208 +1,208 @@
-# 복습용 문제풀이 영상 가이드
+# Problem-Solving Review Video Guide
 
-> **한 줄:** 찍는 행위 자체가 학습의 90%, 영상은 10%의 재복습용 기록.
-
----
-
-## 1. 중점: 찍는 행위 = 학습 (90%)
-
-- **학습은 촬영 중에 일어난다.** 카메라가 켜진 동안 직접 풀고(인출), 소리 내어 말하고(메타인지), 막힌 지점을 분석한다(오류 기반 학습). 이 세 가지가 찍는 순간의 90%다.
-- **카메라는 집중 장치다.** "지금 최선을 다해 푼다"는 의무감이 인출을 진짜로 만든다.
-- **영상 자체는 신경 쓰지 않는다.** 편집·재촬영·화질 전부 생략. 판단 기준은 하나 — *"찍는 동안 내가 진짜로 생각했는가?"* 생각을 안 했다면 그 영상은 가치 0이다.
-- **대본 없음. 뼈대만.** 대본을 읽으면 인출이 낭독이 되어 90%가 사라진다. 아래 뼈대와 "말할 문장"만 외워 두고 매번 같은 순서로 진행한다.
+> **One-liner:** The act of filming IS 90% of the learning; the video is a 10% record for re-review.
 
 ---
 
-## 2. 영상 뼈대 (문제당 3~5분, 원테이크)
+## 1. Core principle: filming = learning (90%)
 
-```
-1. 문제 읽기 + "구해야 하는 건 ___다"
-2. 직접 풀기 (카메라 실시간) — 계획·"왜 이 단계?"를 말하며  ← 90%의 핵심
-3. 정답 확인 → 틀렸으면 3줄: 어디서 / 왜 / 어떻게
-4. 교훈 1문장 (음성 기록): "다음에 이 유형을 만나면 → 이렇게 한다"
-5. "다음 복습은 N일 후"
-```
-
-> 풀린 부분은 생략하고 **막힌 지점부터** 시작해도 된다 (§5). 처음부터 끝까지 다 풀 필요는 없다.
+- **Learning happens while the camera is on.** Solve directly (retrieval), speak out loud (metacognition), and analyze the stuck point (error-driven learning) — these three are the 90% that happens in the moment of filming.
+- **The camera is a focus device.** The commitment to "solve my best right now" makes retrieval real.
+- **Don't care about the video itself.** Skip editing, re-shoots, and quality entirely. The single judgment criterion: *"Did I actually think while filming?"* — if you didn't think, the video is worth 0.
+- **No script. Skeleton only.** Reading a script turns retrieval into recitation and destroys the 90%. Memorize only the skeleton below and the phrases to say, then follow the same order every time.
 
 ---
 
-## 3. 의식적으로 말할 것 (핵심)
+## 2. Video skeleton (3–5 min per problem, one take)
 
-매 단계에서 이 문장들을 **소리 내어** 말한다.
+```
+1. Read the problem + "What we need to find is ___."
+2. Solve directly (live on camera) — say your plan and "why this step?"  ← the core 90%
+3. Check the answer → if wrong, 3 lines: where / why / how
+4. Lesson in one sentence (voice record): "Next time I see this type → I'll do this."
+5. "Next review is in N days."
+```
 
-**① 문제 읽고 — 목표 선언**
-> "구해야 하는 건 ___다." / "이건 ___유형이다."
-
-**② 풀기 전 — 계획**
-> "내 계획: 1) ___ 2) ___ 3) ___" / "이미 아는 것: ___"
-
-**③ 풀면서 — 매 단계마다**
-> "이 단계는 왜 이렇게 하지? → ___"
-
-**④ 막혔을 때 — 제일 중요**
-> "여기서 막혔다. 이유는 개념 / 계산 / 해석 중 ___"
-
-**⑤ 정답 확인 후**
-> 맞음: "핵심은 ___"
-> 틀림: "어디서 틀렸나 → 왜 틀렸나 → 다음엔 어떻게"
-
-**⑥ 마무리 — 연결 · 교훈 · 일정**
-> "이건 ___와 연결된다." / "다음에 이 유형을 만나면 → 이렇게 한다." / "다음 복습은 N일 후."
-
-**왜 이 말들이 효과인가 (한 줄씩):**
-
-- 목표·계획을 말함 = **메타인지** — 무엇을 하는지 뇌가 점검
-- "왜 이 단계?" = **자기 설명(self-explanation)** — 이해와 기억을 강화
-- "막혔다 + 이유" = **오류 기반 학습** + **오버씽킹 정지** — 막힘을 한 문장으로 못박으면 무한 검토가 끝난다
-- 핵심 1줄 = **정교화** — 기존 지식과 연결 고리 생성
+> You may skip the solved parts and **start from the stuck point** (§5). You don't need to solve the whole thing from scratch.
 
 ---
 
-## 4. 다시 볼 때 = 10%
+## 3. What to say out loud (the core)
 
-- **1분 안에 끝낸다.** "문제만 보고 풀 수 있는가?"를 확인하는 게 전부다. 영상을 감상하지 않는다.
-- **보지 말고 먼저 풀기.** 문제 부분만 보고 일시정지 → 직접 풀기 → 대조.
-- 간격: **1일 → 3일 → 7일 → 21일.** 틀리면 절반으로 줄이고, 맞으면 1.5배로 늘린다.
-- 과목·유형을 섞어 본다 (교차 연습).
+Say these sentences **aloud** at each stage.
+
+**① After reading the problem — state the goal**
+> "What we need to find is ___." / "This is a ___ type."
+
+**② Before solving — plan**
+> "My plan: 1) ___ 2) ___ 3) ___" / "What I already know: ___"
+
+**③ While solving — at every step**
+> "Why this step? → ___"
+
+**④ When stuck — most important**
+> "I'm stuck here. The reason is concept / calculation / interpretation: ___"
+
+**⑤ After checking the answer**
+> Correct: "The key is ___."
+> Wrong: "Where did I go wrong → why → how to fix it next time"
+
+**⑥ Wrap-up — connection · lesson · schedule**
+> "This connects to ___." / "Next time I see this type → I'll do this." / "Next review is in N days."
+
+**Why these phrases work (one line each):**
+
+- Stating the goal and plan = **metacognition** — the brain monitors what it's doing
+- "Why this step?" = **self-explanation** — strengthens understanding and memory
+- "Stuck + reason" = **error-driven learning** + **stopping overthinking** — pinning the stuck point into one sentence ends the endless review
+- Key one-liner = **elaboration** — creates links to existing knowledge
 
 ---
 
-## 5. 하루 루틴 (물리 2 + 수학 2 + 화학 2, 각 5분)
+## 4. Re-watching = 10%
 
-**하루 6문제 = 30분 촬영. 과목을 섞어 찍는다 (교차 연습).**
+- **Finish within 1 minute.** The whole point is to check "can I solve it from just the problem?" — don't watch for enjoyment.
+- **Solve first, don't watch.** Look at only the problem part, pause → solve yourself → compare.
+- Intervals: **1 day → 3 days → 7 days → 21 days.** If wrong, halve; if right, multiply by 1.5.
+- Mix subjects and problem types (interleaving).
 
-### 5분 영상 구성 (막힌 부분부터 찍는다)
+---
 
-**처음부터 끝까지 다 찍지 않는다. 풀린 부분은 종이에 미리 적어 두고, 카메라는 막힌 지점부터 켠다.**
+## 5. Daily routine (physics 2 + math 2 + chemistry 2, ~5 min each)
 
-```
-[0:00] 헤더 + "이건 [유형] 문제. 여기까지 풀었고 [여기서] 막혔다"
-[0:15] 막힌 지점에서의 내 시도: "이렇게 해봤는데 안 됐다"
-[1:00] 풀이 확인 — 막힌 지점부터
-[2:00] 오류 3줄: 어디서 / 왜 / 어떻게
-[3:00] 교훈 1문장 (음성 기록): "다음에 이 유형을 만나면 → 이렇게 한다"
-[4:00] "다음 복습 N일 후"
-```
+**6 problems a day = 30 min of filming. Interleave subjects (interleaving).**
 
-### 못 풀었을 때 (10분 초과)
+### 5-minute video structure (start from the stuck point)
 
-**해설을 이 영상에 넣지 않는다. 못 푼 상태에서 영상을 끝낸다.**
+**Don't film from start to finish. Write the solved part on paper beforehand, and start the camera at the stuck point.**
 
 ```
-"10분 고민했지만 못 풀었다."
-"내가 시도한 것: 1) ___ 2) ___"   ← 이미 실패한 경로, 다시 반복하지 않기
-"막힌 이유(추정): ___"
-"지금은 해설을 보고, 다음 복습 때 다시 풀겠다."  ← 이 문제는 '못 풀음' 태그
+[0:00] Header + "This is a [type] problem. I solved up to here, and got stuck here."
+[0:15] My attempt at the stuck point: "I tried this, but it didn't work."
+[1:00] Check the solution — from the stuck point on
+[2:00] Error 3 lines: where / why / how
+[3:00] Lesson in one sentence (voice record): "Next time I see this type → I'll do this."
+[4:00] "Next review is in N days."
 ```
 
-- **왜 해설을 안 넣나:** 해설을 바로 보면 다음에 "안다고 착각"하게 된다. 못 푼 상태로 끝내야 다음 복습이 진짜 인출이 된다.
-- 이어서: 해설은 영상 밖에서 본다 → 이 문제를 **1일 후 다시 풀기** (가장 짧은 간격) → 풀면 그때 **교훈 1문장이 있는 해결 영상**을 찍는다.
-- 못 푼 문제 = 재촬영 가치가 가장 높은 문제 (§7).
+### When you can't solve it (10 min exceeded)
 
-### 왜 막힌 지점부터인가
+**Don't put the solution in this video. End the video in the unsolved state.**
 
-- 막힌 곳 = 예측이 빗나간 곳 = 뇌가 학습 신호를 만드는 곳. 처음부터 다 찍는 것보다 효과가 크고 시간도 절약된다.
-- 카메라를 켜기 전에 종이에 **문제 + 풀린 부분까지**를 적어 두면, 다시 볼 때 맥락이 바로 보인다.
+```
+"I thought for 10 minutes but couldn't solve it."
+"What I tried: 1) ___ 2) ___"   ← paths that already failed — don't repeat them
+"Likely reason for being stuck: ___"
+"I'll look at the solution now, and re-solve it at the next review."  ← tag as 'unsolved'
+```
 
-### 유형이 많을 때
+- **Why no solution in the video:** if you see the solution right away, you'll falsely believe you "know" it next time. Ending in the unsolved state makes the next review real retrieval.
+- Next: look at the solution **outside the video** → re-solve this problem **1 day later** (shortest interval) → when you solve it, film the **resolution video with the one-sentence lesson**.
+- An unsolved problem = highest re-shoot value (§7).
 
-- 막힌 지점부터 찍는 것 자체가 **자동 필터**다 — 모든 유형을 커버할 필요 없이, 막힌 것만 찍으면 된다.
-- 파일명·태그에 **유형**을 넣어 관리: `[과목]-[유형]-[개념]-[N회]-[날짜]`
-- 같은 유형이 자꾸 "막힘"으로 뜨면 그 유형이 약점이다 → 그 유형 문제를 더 풀거나, **유형별 대표 문제 1개**를 모아 두는 유형 카드를 만든다.
+### Why start from the stuck point
 
-### 촬영 순서 (매일 바꾼다)
+- The stuck point = where prediction failed = where the brain makes a learning signal. Better than filming everything, and saves time.
+- Write the **problem + everything you solved** on paper before turning on the camera, so context is visible when re-watching.
 
-- 과목을 **번갈아** 찍는다: 물리 → 화학 → 수학 → 물리 → 수학 → 화학
-- 같은 순서를 반복하지 않는다 — 순서가 예측되면 유형 판별 능력이 안 생긴다.
+### When there are many problem types
 
-### 시간이 없을 때 (3초 즉답 필터)
+- Starting from the stuck point is a **built-in filter** — no need to cover every type; just film what you get stuck on.
+- Put the **type** in the filename/tags: `[subject]-[type]-[concept]-[Nth]-[date]`
+- If the same type keeps showing up as "stuck," that type is your weakness → solve more of that type, or build **type cards** collecting one representative problem per type.
 
-- 6문제 모두 5분짜리로 찍을 필요는 없다. 바로 떠오르는 문제는 **20초 버전** 또는 태그만 갱신 (§6 규칙).
-- 시간이 빠듯하면 **흔들린 문제만** 5분으로 찍고, 나머지는 즉답 확인만 한다.
+### Recording order (change daily)
 
-### 하루 타임라인 (총 40~50분)
+- Film subjects **alternating**: physics → chemistry → math → physics → math → chemistry
+- Don't repeat the same order — a predictable order prevents type discrimination.
 
-| 단계 | 시간 | 내용 |
+### When short on time (3-second instant-recall filter)
+
+- Not all 6 problems need 5-minute videos. Problems you recall instantly get a **20-second version** or just a tag update (§6 rules).
+- When pressed for time, film only the **shaky problems** for 5 minutes; just do a quick recall check on the rest.
+
+### Daily timeline (40–50 min total)
+
+| Stage | Time | What |
 |---|---|---|
-| 문제 준비 | 5분 | 오늘 6문제 선택 (복습 일정표에서) |
-| 촬영 | 30분 | 6문제 × 5분 (필터 적용 시 더 짧음) |
-| 정리·태깅 | 5~10분 | 오답 간격 조정, 교훈 1줄 추가, 다음 복습 날짜 기록 |
+| Problem prep | 5 min | Pick today's 6 problems (from the review schedule) |
+| Filming | 30 min | 6 problems × 5 min (shorter with the filter) |
+| Wrap-up & tagging | 5–10 min | Adjust wrong-answer intervals, add lesson, note next review date |
 
 ---
 
-## 6. 교훈 정리 — 영상 마지막의 음성 1문장
+## 6. Lesson summary — the one spoken sentence at the end of the video
 
-**교훈은 영상의 마지막에 소리 내어 말하고, 음성으로 남긴다. 이것이 영상의 진짜 결론이다.**
+**Say the lesson out loud at the end of the video and leave it as a voice record. This is the real conclusion of the video.**
 
-### 말하는 형식 (1문장)
+### Format (one sentence)
 
 ```
-다음에 [상황/유형]을 만나면 → 이렇게 한다. (이유)
+Next time I meet [situation/type] → I'll do this. (reason)
 ```
 
-- "다음에 몰 농도 계산을 만나면 → mL→L 환산부터 한다. 단위 실수가 대부분이라서."
-- "다음에 충돌 문제를 만나면 → 충돌 전후를 따로 그린다. 해석 실수 방지."
+- "Next time I meet a molarity calculation → I'll convert mL to L first. Unit errors are most of the mistakes."
+- "Next time I meet a collision problem → I'll draw before/after separately. Prevents interpretation errors."
 
-### 왜 음성인가
+### Why voice
 
-- 소리 내어 말하는 순간 = **자기 설명 + 생성 효과** — 교훈이 기억으로 굳는 90%의 순간
-- 다시 볼 때(10%) 교훈 1문장만 다시 들으면 복습이 끝난다
+- The moment you say it aloud = **self-explanation + generation effect** — the 90% moment when the lesson sets into memory
+- When re-watching (10%), just hearing the one-sentence lesson finishes the review
 
-### (선택) 파일로 모으기
+### (Optional) Collecting into files
 
-- 모아서 훑고 싶을 때만 과목별 파일(`video-guide/lessons/*.md`)에 옮긴다 — **영상이 원본, 파일은 색인**
-- 새 문제를 풀기 전 해당 유형 교훈을 10초 훑기 → 교훈 파일 = 사전 점검표
-- 주 1회 같은 유형 합치기, 반복되는 것은 체크리스트로 승격
-
----
-
-## 7. 맞힌 문제는 재촬영하지 않는다
-
-**재촬영할 가치가 있는 문제는 "기억이 흔들린 문제"뿐이다.**
-
-### 3초 즉답 판별
-
-1. 문제를 보고 **3초 안에 풀이 방향이 떠오르면** → 재촬영 없이 태그만 갱신 (간격 1.5배)
-2. 3초 안에 안 떠오르거나 헷갈리면 → **이때만 재촬영** (이게 진짜 복습)
-3. 틀렸으면 → 재촬영 + 오류 3줄 (간격 절반)
-
-### 왜 자꾸 맞힌 문제를 다시 찍게 되는가
-
-- **복습 간격이 너무 짧다** — 아직 안 잊은 문제를 다시 풀고 있다. 간격을 늘린다.
-- **"찍는 습관"이 "인출 판단"을 대체**하고 있다 — 3초 즉답 판별부터 한다.
-
-### 꼭 기록으로 남기고 싶으면 (독서실에서)
-
-- **20초 초고속 버전:** "답은 ___이고, 핵심은 ___다" 한 줄만 녹화.
-- 또는 새 영상 없이 기존 파일명의 `N회` 태그만 갱신.
+- Only when you want to browse them, copy into subject files (`video-guide/lessons/*.md`) — **the video is the original; the file is an index**
+- Skim the type's lessons for 10 seconds before solving new problems → the lesson file becomes a pre-flight checklist
+- Weekly: merge same-type lessons; promote recurring ones to a checklist
 
 ---
 
-## 8. 촬영 세팅
+## 7. Don't re-film problems you already solved correctly
 
-- 수직 거치 카메라(오버헤드) + 종이 + 펜 2색 + (마이크)
-- 종이: 한 장에 한 문제, 큰 글씨. 구역 3개 `문제 / 풀이 / 오류·요약`. 핵심·오류는 빨강.
-- 조명은 45° 측면 위(그림자 방지), 마이크는 입에서 15~30cm 고정.
-- 시작 전 **박수 1번** (음성·화면 싱크 기준).
-- 시작 전 종이 위에 `날짜 / 태그 / N회 복습` 기록.
+**Only "problems whose memory is shaky" deserve a re-shoot.**
+
+### The 3-second instant-recall test
+
+1. If the solution path comes to mind **within 3 seconds** → no re-shoot, just update the tag (interval ×1.5)
+2. If it doesn't come within 3 seconds or you're unsure → **re-shoot only then** (this is the real review)
+3. If wrong → re-shoot + 3-line error analysis (interval halved)
+
+### Why you keep re-filming already-correct problems
+
+- **Review intervals are too short** — you're re-solving problems you haven't forgotten yet. Lengthen the interval.
+- **"The habit of filming" has replaced "the judgment of recall"** — do the 3-second test first.
+
+### If you really want a record (at the study room)
+
+- **20-second speed version:** record one line — "The answer is ___ and the key is ___."
+- Or just update the `Nth` tag in the existing filename without a new video.
 
 ---
 
-## 9. 허용 / 금지
+## 8. Filming setup
 
-| ✅ 허용 | ❌ 금지 |
+- Vertical tripod camera (overhead) + paper + 2 pens + (microphone)
+- Paper: one problem per page, large writing. 3 zones `problem / solution / errors & summary`. Highlight keys and errors in red.
+- Lighting from a 45° side angle (avoid shadows); mic fixed 15–30 cm from your mouth.
+- **Clap once** before starting (audio-video sync reference).
+- Before starting, write `date / tags / Nth review` on the paper.
+
+---
+
+## 9. Allowed / Not allowed
+
+| ✅ Allowed | ❌ Not allowed |
 |---|---|
-| 원테이크, 편집 없음 | 재촬영, 화려한 편집 |
-| 실수 그대로 남기기 | 실수 잘라내기 |
-| 뼈대만 따르기 | 대본 읽기 |
-| 과목 섞어서 풀기 | 한 유형 몰아서 풀기 |
+| One take, no editing | Re-shoots, fancy editing |
+| Keep mistakes as they are | Cutting out mistakes |
+| Follow only the skeleton | Reading a script |
+| Mix subjects | Grinding one type only |
 
 ---
 
-## 10. 파일명
+## 10. Filenames
 
 ```
-[과목]-[유형]-[개념]-[N회]-[날짜].mp4
-예: math-trig-identity-3rd-2026-08-19.mp4
+[subject]-[type]-[concept]-[Nth]-[date].mp4
+Example: math-trig-identity-3rd-2026-08-19.mp4
 ```
