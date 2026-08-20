@@ -242,8 +242,163 @@ def f_m5_stability():
     save(fig, 'f_m5_stability.png')
     print('[f_m5] stability pair drawn')
 
+# ═══════════════════════ STAGE 2: 전자기학 ═══════════════════════
+
+def f_e1_uniform_field():
+    """Parallel plates: equipotentials (left) + V(x) straight line with slope triangle (right)."""
+    fig, axes = plt.subplots(1, 2, figsize=(11, 4.2))
+    ax = axes[0]
+    d = 0.02
+    ax.plot([0, 0], [0.06, 0.94], color=RED, lw=7, solid_capstyle='butt')
+    ax.plot([d, d], [0.06, 0.94], color=BLUE, lw=7, solid_capstyle='butt')
+    for v in (0.25, 0.5, 0.75):
+        ax.plot([0, d], [v, v], '--', color=GRAY, lw=1.1)
+        ax.text(-0.0012, v, f'{int(v*200)} V', ha='right', va='center', fontsize=8)
+    for yy in (0.12, 0.35, 0.62, 0.85):
+        arrow(ax, 0.004, yy, 0.016, yy, color=GREEN, lw=2)
+    ax.text(0.0, 1.06, '+ plate\n200 V', ha='center', fontsize=9, color=RED)
+    ax.text(d, 1.06, '− plate\n0 V', ha='center', fontsize=9, color=BLUE)
+    ax.text(0.01, -0.17, 'equipotential lines: equal V, evenly spaced → E uniform',
+            ha='center', fontsize=8.5, color=GRAY)
+    ax.set_xlim(-0.008, 0.028); ax.set_ylim(-0.24, 1.22)
+    ax.axis('off')
+
+    ax = axes[1]
+    x = np.array([0.0, d])
+    V = np.array([200.0, 0.0])
+    ax.plot(x, V, color=BLUE, lw=2.4)
+    x0, x1 = 0.004, 0.014          # points on the line: V=160, V=60
+    ax.plot([x0, x0], [60, 160], color=RED, lw=1.6)
+    ax.plot([x0, x1], [60, 60], color=RED, lw=1.6)
+    ax.text(x0 + 0.0003, 102, r'$\Delta V = -100$ V', fontsize=9, color=RED)
+    ax.text(0.008, 50, r'$\Delta d = 0.01$ m', fontsize=9, color=RED)
+    ax.text(0.0098, 155, r'$E = -\dfrac{\Delta V}{\Delta d} = 10^4$ V/m', fontsize=11, color=GREEN)
+    ax.set_xlim(-0.001, 0.023); ax.set_ylim(-10, 220)
+    ax.set_xlabel('distance $x$ (m)'); ax.set_ylabel('potential $V$ (V)')
+    ax.set_title('$V(x)$ in a uniform field: one straight slope → one constant $E$')
+    save(fig, 'f_e1_uniform_field.png')
+    print('[f_e1] E = -(-100 V)/(0.01 m) = 10000 V/m')
+
+def f_e2_point_charge_V():
+    """Point charge V(r): tangent slope = E, chord slope = average E; Q>0 and Q<0."""
+    fig, axes = plt.subplots(1, 2, figsize=(11, 4.3))
+    kQ = 1.8e4                       # Q = 2 μC
+    for ax, sign, label, adir in zip(axes, (1, -1), (r'$Q=+2\,\mu$C', r'$Q=-2\,\mu$C'), ('outward', 'inward')):
+        r = np.linspace(0.6, 6.0, 400)
+        V = sign * kQ / r
+        ax.plot(r, V, color=BLUE, lw=2.4, label='$V(r)$')
+        r0 = 2.0
+        V0 = sign * kQ / r0
+        dV = -sign * kQ / r0**2      # -4500 for Q>0
+        rt = np.linspace(r0 - 0.8, r0 + 0.8, 12)
+        ax.plot(rt, V0 + dV*(rt - r0), color=AMBER, lw=2.2,
+                label=f'tangent slope $={dV:.0f}$ V/m  →  $E={-dV:.0f}$ N/C')
+        r1, r2v = 2.0, 4.0
+        V1, V2 = sign*kQ/r1, sign*kQ/r2v
+        chord = (V2 - V1)/(r2v - r1)   # -2250 for Q>0
+        rc = np.linspace(r1, r2v, 10)
+        ax.plot(rc, V1 + chord*(rc - r1), color=GREEN, lw=2.0, ls='--',
+                label=f'chord slope $={chord:.0f}$ V/m  →  average $E={-chord:.0f}$ N/C')
+        for rr0 in (1.2, 2.5, 4.0):
+            yy = sign * kQ / rr0
+            arrow(ax, rr0 - sign*0.28, yy, rr0 + sign*0.28, yy, color=RED, lw=2.4)
+        ax.axhline(0, color=GRAY, lw=0.9)
+        ax.set_title(f'{label}:   $E = -dV/dr$, points {adir}')
+        ax.set_xlabel('distance $r$ (m)'); ax.set_ylabel('potential $V$ (V)')
+        ax.legend(loc='upper right', fontsize=7.6)
+    save(fig, 'f_e2_point_charge_V.png')
+    print('[f_e2] kQ=18000 V.m  tangent@2 = -4500 V/m (E=4500)  chord(2->4) = -2250 V/m (avg E=2250)')
+
+def f_e3_dipole_equipotentials():
+    """Dipole equipotential contours + E arrows perpendicular to contours, downhill."""
+    x = np.linspace(-3.0, 3.0, 240)
+    y = np.linspace(-2.4, 2.4, 200)
+    X, Y = np.meshgrid(x, y)
+    a = 1.0
+    V = 1/np.sqrt((X - a)**2 + Y**2) - 1/np.sqrt((X + a)**2 + Y**2)
+    Ey, Ex = np.gradient(V)
+    Ex, Ey = -Ex, -Ey
+    fig, ax = plt.subplots(figsize=(8.2, 5.8))
+    lv = np.linspace(-1.4, 1.4, 29)
+    cf = ax.contourf(X, Y, V, levels=lv, cmap='RdBu_r', alpha=0.9)
+    ax.contour(X, Y, V, levels=lv, colors='k', linewidths=0.4, alpha=0.5)
+    step = 18
+    ax.quiver(X[::step, ::step], Y[::step, ::step],
+              Ex[::step, ::step], Ey[::step, ::step], color=GREEN,
+              scale=60, width=0.004, headwidth=3.4, angles='xy')
+    ax.plot(a, 0, 'o', color=RED, ms=12)
+    ax.plot(-a, 0, 'o', color=BLUE, ms=12)
+    ax.text(a, 0.24, '$+$', color='k', ha='center', fontsize=14, fontweight='bold')
+    ax.text(-a, 0.24, '$-$', color='w', ha='center', fontsize=14, fontweight='bold')
+    ax.set_xlabel('$x$'); ax.set_ylabel('$y$')
+    ax.set_title('Equipotential lines (contours) + $\\vec{E}$ (arrows ⊥ contours, downhill)')
+    ax.set_aspect('equal')
+    fig.colorbar(cf, ax=ax, label='potential $V$')
+    save(fig, 'f_e3_dipole_equipotentials.png')
+    print('[f_e3] dipole map drawn')
+
+def _plates_ax(ax):
+    """Draw the shared plate + equipotential background used by f_e4/f_e5."""
+    d = 0.02
+    ax.plot([0, 0], [0.06, 0.94], color=RED, lw=8, solid_capstyle='butt', zorder=2)
+    ax.plot([d, d], [0.06, 0.94], color=BLUE, lw=8, solid_capstyle='butt', zorder=2)
+    for v in (0.25, 0.5, 0.75):
+        ax.plot([0, d], [v, v], '--', color=GRAY, lw=1.2, zorder=1)
+        ax.text(-0.0022, v, f'{int(v*120)} V', ha='right', va='center', fontsize=9, color=GRAY)
+    ax.text(-0.0022, 1.05, '+ plate\n120 V', ha='right', va='bottom', fontsize=10, color=RED)
+    ax.text(d + 0.0022, 1.05, '0 V\n− plate', ha='left', va='bottom', fontsize=10, color=BLUE)
+    for yy in (0.12, 0.88):
+        ax.annotate('', xy=(0.017, yy), xytext=(0.003, yy),
+                    arrowprops=dict(arrowstyle='->', color=GREEN, lw=1.6, alpha=0.7))
+    ax.set_xlim(-0.012, 0.032)
+    ax.set_ylim(-0.10, 1.28)
+    ax.axis('off')
+
+def f_e4_work_along():
+    """Moving a charge ALONG an equipotential line: W = 0."""
+    fig, ax = plt.subplots(figsize=(7.6, 4.6))
+    _plates_ax(ax)
+    ax.plot([0.004, 0.016], [0.5, 0.5], color=AMBER, lw=3.2, zorder=4)
+    ax.annotate('', xy=(0.016, 0.5), xytext=(0.007, 0.5),
+                arrowprops=dict(arrowstyle='->', color=AMBER, lw=2.8))
+    ax.plot(0.005, 0.5, 'o', ms=15, color=AMBER, mec='k', mew=1.2, zorder=5)
+    ax.text(0.005, 0.5, '+', color='white', ha='center', va='center',
+            fontsize=13, fontweight='bold', zorder=6)
+    ax.text(0.010, 0.27,
+            'along an equipotential:\n' + r'$\Delta V = 0$  →  $W = q\,\Delta V = 0$' + '\n(same height — free ride)',
+            fontsize=10, color=AMBER, ha='center', va='top',
+            bbox=dict(boxstyle='round,pad=0.35', fc='white', ec=AMBER, alpha=0.92))
+    ax.set_title('Moving ALONG an equipotential:  W = 0', fontsize=11.5)
+    save(fig, 'f_e4_work_along.png')
+    print('[f_e4] along equipotential: W = 0')
+
+def f_e5_work_across():
+    """Moving a charge ACROSS equipotential lines: W = qΔV."""
+    fig, ax = plt.subplots(figsize=(7.6, 4.6))
+    _plates_ax(ax)
+    x0, y0, x1, y1 = 0.004, 0.82, 0.02, 0.12
+    ax.plot([x0, x1], [y0, y1], color=GREEN, lw=3.2, zorder=4)
+    ax.annotate('', xy=(0.0158, 0.303), xytext=(0.0075, 0.665),
+                arrowprops=dict(arrowstyle='->', color=GREEN, lw=2.8))
+    ax.plot(x0 + 0.0018, y0 - 0.0788, 'o', ms=15, color=GREEN, mec='k', mew=1.2, zorder=5)
+    ax.text(x0 + 0.0018, y0 - 0.0788, '+', color='white', ha='center', va='center',
+            fontsize=13, fontweight='bold', zorder=6)
+    # crossing dots on the 90 / 60 / 30 V lines
+    for vline, lab in ((0.75, '90'), (0.50, '60'), (0.25, '30')):
+        xc = x0 + (x1 - x0) * (y0 - vline) / (y0 - y1)
+        ax.plot(xc, vline, 'o', ms=7, color='w', mec='k', mew=1.2, zorder=6)
+    ax.text(0.014, 1.02,
+            'across equipotentials:\n' + r'$\Delta V = -120$ V  →  $W = q\cdot(-120$ V)' + '\n(field does the work — downhill)',
+            fontsize=10, color=GREEN, ha='center', va='top',
+            bbox=dict(boxstyle='round,pad=0.35', fc='white', ec=GREEN, alpha=0.92))
+    ax.set_title('Crossing equipotentials:  W = qΔV', fontsize=11.5)
+    save(fig, 'f_e5_work_across.png')
+    print('[f_e5] across equipotentials: ΔV = -120 V')
+
 if __name__ == '__main__':
     for f in (f_m1_spring_energy, f_m2_gravity_linear, f_m3_gravity_well,
-              f_m4_slope_zoom, f_m5_stability):
+              f_m4_slope_zoom, f_m5_stability,
+              f_e1_uniform_field, f_e2_point_charge_V,
+              f_e3_dipole_equipotentials, f_e4_work_along, f_e5_work_across):
         f()
-    print('all stage-1 graphs saved')
+    print('all stage-1 + stage-2 graphs saved')
