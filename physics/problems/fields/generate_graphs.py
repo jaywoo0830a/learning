@@ -395,10 +395,145 @@ def f_e5_work_across():
     save(fig, 'f_e5_work_across.png')
     print('[f_e5] across equipotentials: ΔV = -120 V')
 
+# ═══════════════════════ STAGE 3: 통합1 ═══════════════════════
+
+def f_t1a_force():
+    """Outfit (a): force F = qE on a charge between plates."""
+    fig, ax = plt.subplots(figsize=(6.2, 4.4))
+    d = 0.02
+    ax.plot([0, 0], [0.12, 0.88], color=RED, lw=6, solid_capstyle='butt')
+    ax.plot([d, d], [0.12, 0.88], color=BLUE, lw=6, solid_capstyle='butt')
+    ax.plot(0.01, 0.5, 'o', ms=17, color=AMBER, mec='k', mew=1.2)
+    ax.text(0.01, 0.5, '+', color='white', ha='center', va='center',
+            fontsize=13, fontweight='bold')
+    ax.annotate('', xy=(0.018, 0.5), xytext=(0.012, 0.5),
+                arrowprops=dict(arrowstyle='->', color=GREEN, lw=3))
+    ax.text(0, 1.04, '$+$', ha='center', va='center', fontsize=14, color=RED, fontweight='bold')
+    ax.text(d, 1.04, '$-$', ha='center', va='center', fontsize=14, color=BLUE, fontweight='bold')
+    ax.text(0.01, 0.70, '$F=qE$', ha='center', fontsize=13)
+    ax.set_xlim(-0.005, 0.025); ax.set_ylim(0, 1.18)
+    ax.axis('off')
+    ax.set_title('(a) Force outfit:  $F=qE$', fontsize=12)
+    save(fig, 'f_t1a_force.png')
+    print('[f_t1a] force outfit drawn')
+
+def f_t1b_potential():
+    """Outfit (b): potential V(x) straight line, slope = -E."""
+    fig, ax = plt.subplots(figsize=(6.2, 4.4))
+    d = 0.02
+    ax.plot([0, d], [200, 0], color=BLUE, lw=2.6)
+    ax.plot([0, d], [0, 0], color=GRAY, lw=0.8)
+    ax.annotate('', xy=(0.0142, 0), xytext=(0.0142, 200),
+                arrowprops=dict(arrowstyle='<->', color=RED, lw=1.6))
+    ax.text(0.0154, 100, r'$\Delta V = 200$ V', rotation=90, va='center', fontsize=11, color=RED)
+    ax.text(0.0040, 42, r'slope $= -E$  →  $E = \Delta V/d = 10^4$ V/m', fontsize=9.8, color=GREEN)
+    ax.set_xlim(-0.001, 0.0225); ax.set_ylim(-15, 235)
+    ax.set_xlabel('distance $x$ (m)'); ax.set_ylabel('potential $V$ (V)')
+    ax.set_title('(b) Potential outfit:  $V=Ed$', fontsize=12)
+    save(fig, 'f_t1b_potential.png')
+    print('[f_t1b] potential outfit drawn')
+
+def f_t1c_energy():
+    """Outfit (c): energy bars U -> K between the plates."""
+    fig, ax = plt.subplots(figsize=(6.2, 4.4))
+    U0 = 4.0e-4
+    ax.bar([0], [U0], width=0.38, color=BLUE, label='$U$ (Deposit)')
+    ax.bar([0], [0], bottom=[U0], width=0.38, color=GREEN, label='$K$ (Cash)')
+    ax.bar([1], [0], width=0.38, color=BLUE)
+    ax.bar([1], [U0], bottom=[0], width=0.38, color=GREEN)
+    ax.set_xticks([0, 1]); ax.set_xticklabels(['start', 'end'], fontsize=10)
+    ax.set_ylabel('energy (J)')
+    ax.set_ylim(0, 5.2e-4)
+    ax.ticklabel_format(axis='y', style='sci', scilimits=(0, 0))
+    ax.legend(loc='upper right', fontsize=9)
+    ax.set_title('(c) Energy outfit:  $U=qV$', fontsize=12)
+    save(fig, 'f_t1c_energy.png')
+    print('[f_t1c] energy outfit drawn')
+
+def f_t1d_conservation():
+    """Outfit (d): conservation — Balance line constant while K and U swap."""
+    fig, ax = plt.subplots(figsize=(6.2, 4.4))
+    U0 = 4.0e-4
+    ax.bar([0], [U0], width=0.38, color=BLUE)
+    ax.bar([0], [0], bottom=[U0], width=0.38, color=GREEN)
+    ax.bar([1], [0], width=0.38, color=BLUE)
+    ax.bar([1], [U0], bottom=[0], width=0.38, color=GREEN)
+    ax.axhline(U0, color=RED, ls='--', lw=2, label='Balance $=K+U$ (constant)')
+    ax.set_xticks([0, 1]); ax.set_xticklabels(['start', 'end'], fontsize=10)
+    ax.set_ylabel('energy (J)')
+    ax.set_ylim(0, 5.2e-4)
+    ax.ticklabel_format(axis='y', style='sci', scilimits=(0, 0))
+    ax.legend(loc='upper right', fontsize=9)
+    ax.set_title('(d) Conservation outfit:  $\Delta K = q\Delta V$', fontsize=12)
+    save(fig, 'f_t1d_conservation.png')
+    print('[f_t1d] conservation outfit drawn')
+
+# ═══════════════════════ STAGE 4: 통합2 ═══════════════════════
+
+def f_t2a_terrain_3d():
+    """3D potential terrain with contour lines and gradient arrows on the floor."""
+    x = np.linspace(-3.2, 3.2, 150)
+    y = np.linspace(-3.2, 3.2, 150)
+    X, Y = np.meshgrid(x, y)
+    V = (0.16*X**2 + 0.26*Y**2
+         + 2.2*np.exp(-((X-1.3)**2 + (Y-1.3)**2)/0.7)
+         - 0.9*np.exp(-((X+1.6)**2 + (Y+1.1)**2)/1.1))
+    Ey, Ex = np.gradient(V)
+    Ex, Ey = -Ex, -Ey
+    fig = plt.figure(figsize=(9.6, 7.0))
+    ax = fig.add_subplot(111, projection='3d')
+    ax.plot_surface(X, Y, V, cmap='terrain', alpha=0.96, linewidth=0, antialiased=True)
+    zoff = V.min() - 1.5
+    ax.contour(X, Y, V, zdir='z', offset=zoff, levels=9, colors='k', linewidths=0.7)
+    step = 15
+    Xs, Ys = X[::step, ::step], Y[::step, ::step]
+    Exs, Eys = Ex[::step, ::step], Ey[::step, ::step]
+    N = np.hypot(Exs, Eys)
+    N[N == 0] = 1
+    Zs = np.full_like(Xs, zoff)
+    ax.quiver(Xs, Ys, Zs, Exs/N, Eys/N, np.zeros_like(Xs), color=RED,
+              length=0.35, normalize=True, linewidth=1.1)
+    ax.set_zlim(zoff, V.max() + 1.0)
+    ax.set_xlabel('$x$'); ax.set_ylabel('$y$'); ax.set_zlabel('potential $V$ ("height")')
+    ax.set_title(r'3D: potential as a terrain — $\vec{E}=-\nabla V$: steepest downhill, ⊥ contours',
+                 fontsize=11)
+    ax.view_init(elev=30, azim=-62)
+    save(fig, 'f_t2a_terrain_3d.png')
+    print('[f_t2a] 3D terrain drawn')
+
+def f_t2b_charge_map():
+    """Single positive charge: concentric equipotentials + radial E arrows (length ∝ E)."""
+    x = np.linspace(-3.2, 3.2, 260)
+    y = np.linspace(-3.2, 3.2, 260)
+    X, Y = np.meshgrid(x, y)
+    r = np.hypot(X, Y)
+    V = 1.0/r
+    fig, ax = plt.subplots(figsize=(6.8, 6.2))
+    levels = [0.25, 0.4, 0.6, 0.9, 1.3, 1.8, 2.6, 3.6]
+    cf = ax.contourf(X, Y, V, levels=levels, cmap='YlOrRd', alpha=0.95)
+    ax.contour(X, Y, V, levels=levels, colors='k', linewidths=0.5, alpha=0.6)
+    for rr in np.linspace(0.7, 3.0, 6):
+        for a in np.linspace(0, 2*np.pi, 13, endpoint=False):
+            cx, cy = rr*np.cos(a), rr*np.sin(a)
+            L = 0.06 + 0.25 * (0.49/rr**2)          # arrow length ∝ E = 1/r²
+            ax.annotate('', xy=(cx + L*np.cos(a), cy + L*np.sin(a)), xytext=(cx, cy),
+                        arrowprops=dict(arrowstyle='->', color=GREEN, lw=1.5, alpha=0.85))
+    ax.plot(0, 0, 'o', color=RED, ms=13, zorder=6)
+    ax.text(0, 0, '+', color='k', ha='center', va='center', fontsize=13, fontweight='bold', zorder=7)
+    ax.set_xlim(-3.5, 3.5); ax.set_ylim(-3.5, 3.5)
+    ax.set_xlabel('$x$'); ax.set_ylabel('$y$')
+    ax.set_title(r'Point charge: $V=kQ/r$ — contours crowd near the charge → E strongest', fontsize=11)
+    ax.set_aspect('equal')
+    fig.colorbar(cf, ax=ax, label='potential $V$')
+    save(fig, 'f_t2b_charge_map.png')
+    print('[f_t2b] charge contour map drawn')
+
 if __name__ == '__main__':
     for f in (f_m1_spring_energy, f_m2_gravity_linear, f_m3_gravity_well,
               f_m4_slope_zoom, f_m5_stability,
               f_e1_uniform_field, f_e2_point_charge_V,
-              f_e3_dipole_equipotentials, f_e4_work_along, f_e5_work_across):
+              f_e3_dipole_equipotentials, f_e4_work_along, f_e5_work_across,
+              f_t1a_force, f_t1b_potential, f_t1c_energy, f_t1d_conservation,
+              f_t2a_terrain_3d, f_t2b_charge_map):
         f()
-    print('all stage-1 + stage-2 graphs saved')
+    print('all stage-1..4 graphs saved')
