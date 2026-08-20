@@ -464,7 +464,7 @@ def f_t1d_conservation():
     ax.set_ylim(0, 5.2e-4)
     ax.ticklabel_format(axis='y', style='sci', scilimits=(0, 0))
     ax.legend(loc='upper right', fontsize=9)
-    ax.set_title('(d) Conservation outfit:  $\Delta K = q\Delta V$', fontsize=12)
+    ax.set_title(r'(d) Conservation outfit:  $\Delta K = q\Delta V$', fontsize=12)
     save(fig, 'f_t1d_conservation.png')
     print('[f_t1d] conservation outfit drawn')
 
@@ -528,12 +528,199 @@ def f_t2b_charge_map():
     save(fig, 'f_t2b_charge_map.png')
     print('[f_t2b] charge contour map drawn')
 
+# ═══════════════════════ STAGE 5: 필드갤러리 ═══════════════════════
+
+def f_g1a_point_3d():
+    """3D surfaces of V=kQ/r: spike for Q>0, funnel for Q<0."""
+    fig = plt.figure(figsize=(10.8, 5.0))
+    x = np.linspace(-2.6, 2.6, 130)
+    y = np.linspace(-2.6, 2.6, 130)
+    X, Y = np.meshgrid(x, y)
+    r = np.hypot(X, Y)
+    for i, sign, lab, cmap in ((1, 1, '$Q>0$: spike  $V=+kQ/r$', 'terrain'),
+                               (2, -1, '$Q<0$ (or mass): funnel  $V=-kQ/r$', 'coolwarm')):
+        ax = fig.add_subplot(1, 2, i, projection='3d')
+        V = np.clip(sign*1.0/r, -2.6, 2.6)
+        ax.plot_surface(X, Y, V, cmap=cmap, alpha=0.95, linewidth=0, antialiased=True)
+        ax.set_zlim(-2.6, 2.6)
+        ax.set_xlabel('$x$'); ax.set_ylabel('$y$'); ax.set_zlabel('$V$')
+        ax.set_title(lab, fontsize=11)
+        ax.view_init(elev=28, azim=-55)
+    save(fig, 'f_g1a_point_3d.png')
+    print('[f_g1a] 3D spike/funnel drawn')
+
+def f_g1c_point_fieldlines():
+    """Radial field lines of a point source with faint equipotential circles."""
+    fig, ax = plt.subplots(figsize=(6.4, 6.0))
+    for R in (0.6, 1.2, 1.8, 2.4):
+        ax.add_patch(plt.Circle((0, 0), R, fill=False, color=GRAY, lw=1.0, ls='--'))
+    for a in np.linspace(0, 2*np.pi, 13, endpoint=False):
+        ax.annotate('', xy=(2.75*np.cos(a), 2.75*np.sin(a)), xytext=(0.45*np.cos(a), 0.45*np.sin(a)),
+                    arrowprops=dict(arrowstyle='->', color=GREEN, lw=1.7))
+    ax.plot(0, 0, 'o', color=RED, ms=12, zorder=5)
+    ax.text(0, 0, '+', color='k', ha='center', va='center', fontsize=13, fontweight='bold', zorder=6)
+    ax.set_xlim(-3.0, 3.0); ax.set_ylim(-3.0, 3.0)
+    ax.set_aspect('equal')
+    ax.axis('off')
+    ax.set_title('Field lines: streams from source — ⊥ the equipotential circles', fontsize=11)
+    save(fig, 'f_g1c_point_fieldlines.png')
+    print('[f_g1c] radial field lines drawn')
+
+def f_g1d_point_cut():
+    """1D cut V(r) with tangent (=E) and chord (=average E) — map-to-graph bridge."""
+    fig, ax = plt.subplots(figsize=(6.8, 4.3))
+    r = np.linspace(0.4, 4.0, 400)
+    kQ = 9.0
+    V = kQ/r
+    ax.plot(r, V, color=BLUE, lw=2.4, label='$V(r)=kQ/r$')
+    r0 = 1.5
+    V0 = kQ/r0
+    dV = -kQ/r0**2                      # -4
+    rt = np.linspace(0.8, 2.2, 12)
+    ax.plot(rt, V0 + dV*(rt-r0), color=AMBER, lw=2.2,
+            label=f'tangent slope $={dV:.0f}$ V/m  →  $E={-dV:.0f}$ N/C')
+    r1, r2v = 1.0, 2.0
+    V1, V2 = kQ/r1, kQ/r2v
+    chord = (V2-V1)/(r2v-r1)             # -4.5
+    rc = np.linspace(r1, r2v, 10)
+    ax.plot(rc, V1 + chord*(rc-r1), color=GREEN, lw=2.0, ls='--',
+            label=f'chord slope $={chord:.1f}$ V/m  →  average $E={-chord:.1f}$ N/C')
+    ax.set_xlabel('distance $r$ (m)'); ax.set_ylabel('$V$ (V)')
+    ax.set_title('1D cut: slope = E  (map → graph bridge)', fontsize=11.5)
+    ax.legend(fontsize=8)
+    save(fig, 'f_g1d_point_cut.png')
+    print(f'[f_g1d] tangent@1.5={dV:.1f} V/m  chord(1->2)={chord:.1f} V/m')
+
+def f_g2_flux():
+    """Why E ∝ 1/r²: the same field lines pierce spheres of radius r, 2r, 3r."""
+    fig, ax = plt.subplots(figsize=(6.8, 6.2))
+    for R in (1.0, 2.0, 3.0):
+        ax.add_patch(plt.Circle((0, 0), R, fill=False, color=GRAY, lw=1.5))
+        ax.text(R*0.75, R*0.75, f'{R:.0f}r', fontsize=9.5, color=BLACK)
+    for a in np.linspace(0, 2*np.pi, 13, endpoint=False):
+        ax.plot([0, 3.05*np.cos(a)], [0, 3.05*np.sin(a)], color=GREEN, lw=1.1, alpha=0.85)
+    # highlighted wedge between two lines
+    for a in (0.0, np.pi/6):
+        ax.plot([0, 3.05*np.cos(a)], [0, 3.05*np.sin(a)], color=RED, lw=2.4)
+    for R in (1.0, 2.0, 3.0):
+        th = np.linspace(0, np.pi/6, 30)
+        ax.plot(R*np.cos(th), R*np.sin(th), color=RED, lw=2.0)
+        ax.text(0.55, R*0.16 + 0.14, f'arc ∝ {R:.0f}r', fontsize=8, color=RED)
+    ax.plot(0, 0, 'o', color=BLACK, ms=10, zorder=5)
+    ax.text(0.32, 0.32,
+            'same 2 lines pierce\nevery sphere → line density\n∝ 1/r²  (3D: area 4πr²)',
+            fontsize=9.5, color=RED, ha='left', va='bottom',
+            bbox=dict(boxstyle='round,pad=0.35', fc='white', ec=RED, alpha=0.9))
+    ax.set_xlim(-3.25, 3.25); ax.set_ylim(-3.25, 3.25)
+    ax.set_aspect('equal')
+    ax.axis('off')
+    ax.set_title(r'Why $E \propto 1/r^2$: field lines spread over a growing sphere', fontsize=11.5)
+    save(fig, 'f_g2_flux.png')
+    print('[f_g2] flux picture drawn')
+
+def f_g3_earth_inside():
+    """Earth field: g linear inside, 1/r² outside; U parabola inside + funnel outside."""
+    fig, axes = plt.subplots(1, 2, figsize=(11, 4.2))
+    ax = axes[0]
+    r = np.linspace(0, 3, 400)
+    g = np.piecewise(r, [r <= 1, r > 1], [lambda x: x, lambda x: 1/x**2])
+    ax.plot(r, g, color=BLUE, lw=2.4)
+    ax.axvline(1, color=GRAY, ls=':', lw=1.2)
+    ax.text(0.35, 0.22, r'inside: $g \propto r$ (linear)', fontsize=9.5, color=GREEN)
+    ax.text(1.45, 0.72, r'outside: $g \propto 1/r^2$', fontsize=9.5, color=GREEN)
+    ax.set_xlabel('$r/R$'); ax.set_ylabel('$g/g_s$')
+    ax.set_title('Field $g(r)$: linear inside, inverse-square outside')
+    ax.set_xlim(0, 3); ax.set_ylim(0, 1.9)
+    ax = axes[1]
+    r = np.linspace(0.02, 3, 400)
+    U = np.where(r <= 1, -1.5 + 0.5*r**2, -1.0/r)
+    ax.plot(r, U, color=BLUE, lw=2.4)
+    ax.axvline(1, color=GRAY, ls=':', lw=1.2)
+    ax.plot(0, -1.5, 'o', color=RED, ms=6)
+    ax.text(0.05, -1.38, r'center: $U=-1.5\,mgR$', fontsize=8.5, color=RED)
+    ax.text(1.15, -1.12, 'surface: $-mgR$', fontsize=8.5, color=GRAY)
+    ax.set_xlabel('$r/R$'); ax.set_ylabel('$U/(mgR)$')
+    ax.set_title('Potential $U(r)$: parabola inside + funnel outside')
+    ax.set_xlim(0, 3); ax.set_ylim(-1.75, 0.1)
+    save(fig, 'f_g3_earth_inside.png')
+    print('[f_g3] earth inside/outside drawn')
+
+def f_g4_zoom():
+    """Near the surface: parallel (uniform). Far away: radial (1/r²). Same field."""
+    fig, axes = plt.subplots(1, 2, figsize=(10.6, 4.6))
+    ax = axes[0]
+    ax.add_patch(plt.Circle((0, 0), 0.55, color='#d2a679', ec='k', lw=1.2))
+    for a in np.linspace(0, 2*np.pi, 12, endpoint=False):
+        ax.annotate('', xy=(2.7*np.cos(a), 2.7*np.sin(a)), xytext=(0.95*np.cos(a), 0.95*np.sin(a)),
+                    arrowprops=dict(arrowstyle='->', color=GREEN, lw=1.6))
+    ax.set_xlim(-3.0, 3.0); ax.set_ylim(-3.0, 3.0)
+    ax.set_aspect('equal'); ax.axis('off')
+    ax.set_title(r'far view: radial, $g \propto 1/r^2$', fontsize=11.5)
+    ax = axes[1]
+    ax.add_patch(plt.Rectangle((-1.7, -1.3), 3.4, 2.6, fill=False, ec=GRAY, ls='--', lw=1.4))
+    for yy in np.linspace(-1.0, 1.0, 7):
+        ax.annotate('', xy=(1.35, yy), xytext=(-1.35, yy),
+                    arrowprops=dict(arrowstyle='->', color=GREEN, lw=1.8))
+    ax.text(0, -1.55, 'surface', ha='center', fontsize=10)
+    ax.set_xlim(-2.2, 2.2); ax.set_ylim(-1.9, 1.9)
+    ax.axis('off')
+    ax.set_title('near view: parallel (uniform $g$)', fontsize=11.5)
+    save(fig, 'f_g4_zoom.png')
+    print('[f_g4] zoom transition drawn')
+
+def f_g5_sink_source():
+    """Sink (mass / −Q) vs source (+Q): the fluid analogy."""
+    fig, axes = plt.subplots(1, 2, figsize=(9.6, 4.5))
+    for ax, dirsign, title, color in ((axes[0], -1, 'SINK  (mass M or $-Q$)\nfield flows INWARD', BLUE),
+                                      (axes[1], +1, 'SOURCE  ($+Q$)\nfield flows OUTWARD', RED)):
+        for R in (0.6, 1.3, 2.0, 2.6):
+            ax.add_patch(plt.Circle((0, 0), R, fill=False, color=GRAY, lw=1.0, ls='--'))
+        for a in np.linspace(0, 2*np.pi, 9, endpoint=False):
+            r0, r1 = 0.5, 2.75
+            if dirsign < 0:
+                ax.annotate('', xy=(r0*np.cos(a), r0*np.sin(a)), xytext=(r1*np.cos(a), r1*np.sin(a)),
+                            arrowprops=dict(arrowstyle='->', color=color, lw=1.7))
+            else:
+                ax.annotate('', xy=(r1*np.cos(a), r1*np.sin(a)), xytext=(r0*np.cos(a), r0*np.sin(a)),
+                            arrowprops=dict(arrowstyle='->', color=color, lw=1.7))
+        ax.set_xlim(-2.9, 2.9); ax.set_ylim(-2.9, 2.9)
+        ax.set_aspect('equal'); ax.axis('off')
+        ax.set_title(title, fontsize=11)
+    save(fig, 'f_g5_sink_source.png')
+    print('[f_g5] sink/source drawn')
+
+def f_g6_dipole_lines():
+    """Dipole field lines via streamplot: from + (source) to − (sink)."""
+    x = np.linspace(-3.0, 3.0, 200)
+    y = np.linspace(-2.4, 2.4, 160)
+    X, Y = np.meshgrid(x, y)
+    a = 1.0
+    rp = np.hypot(X - a, Y)
+    rm = np.hypot(X + a, Y)
+    Ex = (X - a)/rp**3 - (X + a)/rm**3
+    Ey = Y/rp**3 - Y/rm**3
+    fig, ax = plt.subplots(figsize=(8.6, 6.0))
+    ax.streamplot(X, Y, Ex, Ey, color=np.hypot(Ex, Ey), cmap='viridis',
+                  density=1.6, linewidth=0.9, arrowsize=0.8)
+    ax.plot(a, 0, 'o', color=RED, ms=11, zorder=5)
+    ax.plot(-a, 0, 'o', color=BLUE, ms=11, zorder=5)
+    ax.text(a, 0.20, '$+$', color='k', ha='center', fontsize=14, fontweight='bold', zorder=6)
+    ax.text(-a, 0.20, '$-$', color='w', ha='center', fontsize=14, fontweight='bold', zorder=6)
+    ax.set_xlim(-3.0, 3.0); ax.set_ylim(-2.4, 2.4)
+    ax.set_aspect('equal')
+    ax.set_title('Field lines of a dipole: streams from + (source) to − (sink)', fontsize=11.5)
+    save(fig, 'f_g6_dipole_lines.png')
+    print('[f_g6] dipole streamlines drawn')
+
 if __name__ == '__main__':
     for f in (f_m1_spring_energy, f_m2_gravity_linear, f_m3_gravity_well,
               f_m4_slope_zoom, f_m5_stability,
               f_e1_uniform_field, f_e2_point_charge_V,
               f_e3_dipole_equipotentials, f_e4_work_along, f_e5_work_across,
               f_t1a_force, f_t1b_potential, f_t1c_energy, f_t1d_conservation,
-              f_t2a_terrain_3d, f_t2b_charge_map):
+              f_t2a_terrain_3d, f_t2b_charge_map,
+              f_g1a_point_3d, f_g1c_point_fieldlines, f_g1d_point_cut,
+              f_g2_flux, f_g3_earth_inside, f_g4_zoom,
+              f_g5_sink_source, f_g6_dipole_lines):
         f()
-    print('all stage-1..4 graphs saved')
+    print('all stage-1..5 graphs saved')
