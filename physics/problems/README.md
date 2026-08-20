@@ -10,7 +10,9 @@ physics/problems/
 ├── mechanics/2.md    │  one file = one day = 5 problems,
 ├── mechanics/3.md   ─┘  topics mixed inside each day
 ├── em/1.md ... 3.md     Electricity & Magnetism (mixed)
-└── others/1.md ... 3.md Waves & Optics · Heat & Thermo · Modern · Measurement (mixed)
+├── others/1.md ... 3.md Waves & Optics · Heat & Thermo · Modern · Measurement (mixed)
+└── fields/1.md          Cross-domain concept map: field ↔ potential ↔ energy,
+                         the dY/dX slope reading (mechanics + E&M), with graphs
 ```
 
 ## Rules of Engagement
