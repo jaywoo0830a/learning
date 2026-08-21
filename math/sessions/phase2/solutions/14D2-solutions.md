@@ -235,6 +235,20 @@ Each differentiation multiplies by $i\omega$: one quarter-turn (with scale $\ome
 
 ---
 
+## Deep Insight
+
+### DI1.
+
+**(a)** $\Delta(x^2+y^2) = 2+2 = 4$; $\Delta(x^2-y^2) = 2-2 = 0$; $\Delta(x^3-3xy^2)$: $\nabla = (3x^2-3y^2,\ -6xy)$, divergence $6x-6x = 0$; $\Delta(x^2) = 2$.
+
+**(b)** Along the $x$-direction the arrows lengthen as $x$ grows ($+2$ of spreading); along the $y$-direction they shorten ($-2$). The two cancel: the flow is **area-preserving** — what it stretches horizontally it squeezes vertically. A tiny square carried by the arrow field deforms into a parallelogram of the same area. No sources, no sinks.
+
+**(c)** $\Delta T = 0$ is the **mean-value property**: $T$ at the point equals the average of $T$ over any tiny circle around it. The surface neither bulges up (bowl, $\Delta>0$) nor caps down (hill, $\Delta<0$) — it is perfectly flat *in the average sense*, which is exactly what a saddle is. $\Delta T$ is the "bulge detector": positive at bowl points, negative at peak points, zero at saddles. The ladder scalar → gradient → divergence lands on the one scalar that reports the surface's shape.
+
+> **Answer**: $\Delta = 4,\ 0,\ 0,\ 2$; the saddle's gradient flow is area-preserving (harmonic = mean-value property)
+
+---
+
 ## Answer Check
 
 | Problem | Answer |
@@ -265,3 +279,4 @@ Each differentiation multiplies by $i\omega$: one quarter-turn (with scale $\ome
 | A8 | $[\tau]=\mathrm{T}$, 37% remains |
 | A9 | outward along $x$, inward along $y$; saddle |
 | A10 | $v=i\omega z$; $a=-\omega^2 z$ |
+| DI1 | $\Delta=4,0,0,2$ — saddle flow area-preserving |

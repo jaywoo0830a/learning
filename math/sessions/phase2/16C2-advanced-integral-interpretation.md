@@ -538,6 +538,23 @@ $M = kL^2/2$; $\bar x = \frac{\int kx^2}{\int kx} = \frac{kL^3/3}{kL^2/2} = \fra
 
 ---
 
+## Deep Insight
+
+> One problem, pushed to the edge of this session's method. Compute it — then explain *why* the method breaks or holds. The "why" is the whole point.
+
+**DI1.** In 2D, a point charge at the origin creates the field $E = kQ\frac{(x,y)}{r^2}$. (a) Compute the flux of $E$ through the square $|x|\le1$, $|y|\le1$ by direct integration over the four sides. (b) Compare with the flux through the circle of radius 1. (c) They agree — explain why **any** closed curve around the charge gives the same flux, and what that reveals about what flux actually counts.
+
+<details>
+<summary>💡 Hint</summary>
+
+On the side $x=1$, $E\cdot n = \frac{kQ}{1+y^2}$ — the arctan is waiting. For (c): where is $\operatorname{div} E$ nonzero?
+
+</details>
+
+→ Solutions: [Solutions](solutions/16C2-solutions.md#deep-insight)
+
+---
+
 ## Today's Procedure
 
 | When you see... | Do this... |

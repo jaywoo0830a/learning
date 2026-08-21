@@ -241,6 +241,20 @@ Compare 16C1's triangular density $p(x) = \frac{2x}{L^2}$: its expectation is $\
 
 ---
 
+## Deep Insight
+
+### DI1.
+
+**(a)** Right side $x=1$, outward normal $n=(1,0)$: $E\cdot n = kQ\cdot\frac{1}{1+y^2}$, so the contribution is $\int_{-1}^{1}\frac{kQ}{1+y^2}dy = kQ\cdot 2\arctan(1) = kQ\cdot\frac{\pi}{2}$. By symmetry the four sides total $4\cdot kQ\frac{\pi}{2} = 2\pi kQ$.
+
+**(b)** Circle radius 1: $|E| = kQ$ on the circle, normal outward: flux $= kQ\cdot 2\pi = 2\pi kQ$ ✓ — identical.
+
+**(c)** Away from the origin, $\operatorname{div} E = 0$ (the inverse-square field neither creates nor destroys flow between nested curves — Example 6). By Gauss, flux through any closed curve $=$ the total source inside $= 2\pi kQ$, no matter the shape. **Flux does not measure the boundary — it counts the sources enclosed.** The square and the circle agree because they enclose the same charge; a curve that misses the charge gives 0. That is the whole power of the divergence theorem: a hard boundary integral is secretly a trivial source count. Shape-independence is not a coincidence to check — it is the theorem's meaning.
+
+> **Answer**: $2\pi kQ$ through both; any closed curve enclosing the charge gives $2\pi kQ$ — flux counts sources
+
+---
+
 ## Answer Check
 
 | Problem | Answer |
@@ -271,3 +285,4 @@ Compare 16C1's triangular density $p(x) = \frac{2x}{L^2}$: its expectation is $\
 | A8 | 0 vs $2\pi i$ |
 | A9 | $(0, \frac{4}{3\pi})$ |
 | A10 | $kL^2/2$; $2L/3$ |
+| DI1 | $2\pi kQ$ both — flux counts sources |

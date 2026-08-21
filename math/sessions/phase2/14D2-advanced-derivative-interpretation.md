@@ -559,6 +559,23 @@ $i\omega$ rotates 90° and scales. Two rotations $= 180°$: acceleration points 
 
 ---
 
+## Deep Insight
+
+> One problem, pushed to the edge of this session's method. Compute it — then explain *why* the method breaks or holds. The "why" is the whole point.
+
+**DI1.** Close the field ladder. For a scalar field $T(x,y)$, define $\Delta T = \operatorname{div}(\nabla T)$ — the divergence of the gradient. (a) Compute $\Delta T$ for $T=x^2+y^2$, $T=x^2-y^2$, $T=x^3-3xy^2$, and $T=x^2$. (b) The saddle $T=x^2-y^2$ has $\Delta T = 0$: read the arrow field $\nabla T=(2x,-2y)$ and explain in words why the arrows squeeze in one direction exactly as much as they stretch in the other. (c) What does $\Delta T=0$ mean for the average of $T$ on a tiny circle around the point?
+
+<details>
+<summary>💡 Hint</summary>
+
+$\Delta T = \frac{\partial^2 T}{\partial x^2}+\frac{\partial^2 T}{\partial y^2}$. For (b): the $x$-arrow growth contributes $+2$ to the divergence, the $y$-arrow shrink contributes $-2$.
+
+</details>
+
+→ Solutions: [Solutions](solutions/14D2-solutions.md#deep-insight)
+
+---
+
 ## Today's Procedure
 
 | When you see... | Do this... |

@@ -212,6 +212,20 @@ The parametric lens keeps time visible ($x'$, $y'$ are actual speeds); the impli
 
 ---
 
+## Deep Insight
+
+### DI1.
+
+**(a)** $y' = \frac{2y-x^2}{y^2-2x} = \frac{0}{0}$ at $(0,0)$; its reciprocal $x' = \frac{y^2-2x}{2y-x^2} = \frac{0}{0}$ too. Neither variable can be traded for the other.
+
+**(b)** $t\to0$: $x\approx6t$, $y\approx6t^2$ → $y \approx \frac{x^2}{6}$ — a branch tangent to the $x$-axis. $t\to\infty$: $x\approx\frac{6}{t^2}$, $y\approx\frac{6}{t}$ → $y^2 \approx 6x$ — a branch tangent to the $y$-axis. Two branches, two tangent directions, both through the origin.
+
+**(c)** "Locally a graph" needs the trade ratio finite — i.e. at least one partial of $F = x^3+y^3-6xy$ nonzero: $F_x = 3x^2-6y$, $F_y = 3y^2-6x$; at the origin **both** vanish. The gradient dying is the machine's fuse: the tangent direction becomes ambiguous and no variable can serve as the local coordinate. Everywhere else on the folium, one partial survives and A7's reading works. The derivative sees everything except the points where the gradient vanishes.
+
+> **Answer**: (0,0) is the lone singular point; branches $y\approx x^2/6$ and $y^2\approx6x$; gradient $(F_x,F_y)=(0,0)$ is the breakdown condition
+
+---
+
 ## Answer Check
 
 | Problem | Answer |
@@ -242,3 +256,4 @@ The parametric lens keeps time visible ($x'$, $y'$ are actual speeds); the impli
 | A8 | $qp^k=C$ |
 | A9 | both $-\frac{x}{y}$ |
 | A10 | $\frac{nR}{P}$, $\frac{nR}{V}$ |
+| DI1 | singular point; branches $y\approx x^2/6$, $y^2\approx6x$ |

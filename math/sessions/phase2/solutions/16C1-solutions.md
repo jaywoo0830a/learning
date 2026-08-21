@@ -236,6 +236,24 @@ Mean: $\frac23 \approx 0.667$. The median is larger because the density $2x$ ris
 
 ---
 
+## Deep Insight
+
+### DI1.
+
+**(a)** Displacement $= \int_0^\pi\cos t\,dt = \sin\pi-\sin0 = 0$ m — the boat ends where it started.
+
+**(b)** Distance $= \int_0^\pi|\cos t|\,dt = \int_0^{\pi/2}\cos t\,dt - \int_{\pi/2}^{\pi}\cos t\,dt = 1+1 = 2$ m.
+
+**(c)** Average velocity $= \frac{0}{\pi} = 0$ m/h.
+
+**(d)** Average speed $= \frac{2}{\pi} \approx 0.637$ m/h.
+
+The FTC pair: (a) and (c) — displacement is the integral of the *signed* rate, and the average velocity is that integral divided by time. The failing pair: (b) and (d). $|\cos t|$ is not the derivative of any smooth position function — it has a corner where the sign flips, so $\int|v|$ cannot be written $F(\pi)-F(0)$ of one natural $F$. **The FTC is a theorem about signed rates.** Unsigned totals (distance, total outflow regardless of direction) need the absolute value — and the absolute value is precisely where the theorem refuses to work: split the domain at every sign change. Deciding which total is asked (signed vs unsigned) is the first interpretation move of every rate integral.
+
+> **Answer**: displacement 0 m · distance 2 m · avg velocity 0 m/h · avg speed $\frac{2}{\pi}\approx0.637$ m/h; the FTC needs a signed rate
+
+---
+
 ## Answer Check
 
 | Problem | Answer |
@@ -266,3 +284,4 @@ Mean: $\frac23 \approx 0.667$. The median is larger because the density $2x$ ris
 | A8 | 1 ✓ · $e^{-2}$ · $\frac12$ |
 | A9 | area / avg×len / total change |
 | A10 | $4\pi r^2c$ · $\frac43\pi R^3$ · cubic |
+| DI1 | disp 0 · dist 2 · avg vel 0 · avg speed $2/\pi$ |

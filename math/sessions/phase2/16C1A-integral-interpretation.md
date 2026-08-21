@@ -465,6 +465,23 @@ $ds = \sqrt{(x')^2+(y')^2}\,dt = 3|\sin t\cos t|dt$; over one quarter $3\int_0^{
 
 ---
 
+## Deep Insight
+
+> One problem, pushed to the edge of this session's method. Compute it — then explain *why* the method breaks or holds. The "why" is the whole point.
+
+**DI1.** The adiabatic work formula $W = \frac{p_2V_2-p_1V_1}{1-\gamma}$ divides by zero as $\gamma \to 1$ — yet $\gamma=1$ is the isotherm, whose work is perfectly finite: $C\ln\frac{V_2}{V_1}$. Show that the limit as $\gamma\to1$ recovers the isotherm formula. Then verify numerically ($\gamma=1.001$ vs $\gamma=1$, with $C=300$ kPa·m³, $V_1=1$, $V_2=2$ m³), and explain what "the two laws are one family" means physically.
+
+<details>
+<summary>💡 Hint</summary>
+
+Set $s = 1-\gamma$ and recognize $\frac{V^{s}-1}{s}$ as a difference quotient — the derivative of $V^{s}$ with respect to $s$ at $s=0$.
+
+</details>
+
+→ Solutions: [Solutions](solutions/16C1A-solutions.md#deep-insight)
+
+---
+
 ## Today's Procedure
 
 | When you see... | Do this... |

@@ -208,6 +208,26 @@ Parametrizing is the fastest path because it *solves the constraint by geometry*
 
 ---
 
+## Deep Insight
+
+### DI1.
+
+With $pV^{\gamma} = C$, both endpoints satisfy $p_iV_i = C V_i^{1-\gamma} = C V_i^{s}$ with $s = 1-\gamma$, so
+
+$W = \dfrac{C(V_2^{s}-V_1^{s})}{s}$.
+
+As $s\to0$ this is the derivative of $V^{s}$ with respect to $s$, evaluated at the two endpoints:
+
+$\lim_{s\to0}\dfrac{V_2^{s}-V_1^{s}}{s} = \ln V_2 - \ln V_1 = \ln\dfrac{V_2}{V_1}$, so $W \to C\ln\dfrac{V_2}{V_1}$ — the isotherm formula ✓.
+
+Numbers: $\gamma=1.001$: $W = 300\cdot\dfrac{2^{-0.001}-1}{-0.001} \approx 207.87$ kJ; the isotherm: $300\ln 2 \approx 207.94$ kJ — equal to three decimals. The apparent singularity at $\gamma=1$ is only a limit, never a cliff.
+
+Physically: as $\gamma\to1$ the gas exchanges heat so freely that each bit of compression work leaks out — the adiabat softens continuously into the isotherm, and the stiffness factor melts into the logarithm. The power-law family $pV^{\gamma}=C$ and the log law are **one family**; $\ln$ is the $\gamma=1$ member, the boundary case of every power.
+
+> **Answer**: $\lim_{\gamma\to1}W = C\ln\frac{V_2}{V_1}$; 207.87 vs 207.94 kJ — one family, the log as its boundary case
+
+---
+
 ## Answer Check
 
 | Problem | Answer |
@@ -238,3 +258,4 @@ Parametrizing is the fastest path because it *solves the constraint by geometry*
 | A8 | negative = outside pays |
 | A9 | $\frac{2\pi}{3}$ |
 | A10 | 6 |
+| DI1 | limit $= C\ln(V_2/V_1)$; 207.87 ≈ 207.94 kJ |

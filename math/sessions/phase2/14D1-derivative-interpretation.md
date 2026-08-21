@@ -512,6 +512,23 @@ $\frac{dV}{dr} = 2\pi r h$ — the lateral surface (a wrapped band). $\frac{dV}{
 
 ---
 
+## Deep Insight
+
+> One problem, pushed to the edge of this session's method. Compute it — then explain *why* the method breaks or holds. The "why" is the whole point.
+
+**DI1.** Which functions are equal to their own tangent-line model at *every* point? Find all functions $f$ such that $L_a(x) = f(a) + f'(a)(x-a)$ equals $f(x)$ for every $x$ **and** every $a$. Prove your characterization, and explain what it says about the error bound in Example 3 — where exactly does the linearization error live?
+
+<details>
+<summary>💡 Hint</summary>
+
+The condition is $f(x)-f(a) = f'(a)(x-a)$ for all $a,x$. What is the secant slope $\frac{f(x)-f(a)}{x-a}$ then? And Example 3's bound uses $M = \max|f''|$.
+
+</details>
+
+→ Solutions: [Solutions](solutions/14D1-solutions.md#deep-insight)
+
+---
+
 ## Today's Procedure
 
 | When you see... | Do this... |

@@ -469,6 +469,23 @@ $\frac{dy}{dx} = \frac{dy/dt}{dx/dt} = \frac{5\cos\theta}{-5\sin\theta} = -\frac
 
 ---
 
+## Deep Insight
+
+> One problem, pushed to the edge of this session's method. Compute it — then explain *why* the method breaks or holds. The "why" is the whole point.
+
+**DI1.** At the origin the folium $x^3+y^3=6xy$ crosses itself. (a) Show that **both** $\frac{dy}{dx}$ and $\frac{dx}{dy}$ fail at $(0,0)$ — the formulas are $0/0$. (b) Using the parametrization $x=\frac{6t}{1+t^3}$, $y=\frac{6t^2}{1+t^3}$, show the curve has **two** branches through the origin, one tangent to each axis. (c) Explain why the "locally a graph" reading (A7) has exactly this one loophole — and which condition on $(F_x, F_y)$ detects it.
+
+<details>
+<summary>💡 Hint</summary>
+
+(a) Both numerator and denominator of $y'=\frac{2y-x^2}{y^2-2x}$ vanish at the origin. (b) Send $t\to0$ and $t\to\infty$; for the second branch, write $y^2$ in terms of $x$.
+
+</details>
+
+→ Solutions: [Solutions](solutions/14D1A-solutions.md#deep-insight)
+
+---
+
 ## Today's Procedure
 
 | When you see... | Do this... |

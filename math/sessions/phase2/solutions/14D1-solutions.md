@@ -242,6 +242,18 @@ $\frac{dV}{dh} = \pi r^2 = 9\pi \approx 28.3$ cm³ per cm — the **base disk**.
 
 ---
 
+## Deep Insight
+
+### DI1.
+
+For all $a,x$: $f(x)-f(a) = f'(a)(x-a)$, i.e. $\frac{f(x)-f(a)}{x-a} = f'(a)$ — the secant slope between any two points equals the slope at $a$. Holding $a$ fixed, the right side is constant in $x$, so $f$ is a straight line: $f(x) = mx+b$ (with $m = f'(a)$) — affine, so $f'' = 0$ everywhere. Conversely, if $f(x) = mx+b$, then $L_a(x) = f(a)+m(x-a) = ma+b+mx-ma = mx+b = f(x)$ ✓.
+
+The error bound in Example 3: $|f-L| \le \frac{M}{2}(x-a)^2$ with $M = \max|f''|$ — it vanishes for every $a,x$ exactly when $f''=0$ everywhere. The tangent model is perfect precisely for curvature-free functions: **all linearization error lives in $f''$.** That is why the bound is quadratic — it is the second derivative's fingerprint.
+
+> **Answer**: exactly the affine functions $f(x)=mx+b$ ($f''=0$); the error lives entirely in $f''$
+
+---
+
 ## Answer Check
 
 | Problem | Answer |
@@ -272,3 +284,4 @@ $\frac{dV}{dh} = \pi r^2 = 9\pi \approx 28.3$ cm³ per cm — the **base disk**.
 | A8 | $F=ma$; thrust $=v\,dm/dt$ |
 | A9 | converse fails; $f'=0$ is only a flag |
 | A10 | $60\pi$ lateral · $9\pi$ base |
+| DI1 | affine functions $f=mx+b$ — $f''=0$ everywhere |

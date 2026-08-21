@@ -510,6 +510,23 @@ $\int_0^m 2x\,dx = m^2 = \frac12$ → $m = \frac{1}{\sqrt2} \approx 0.707$. The 
 
 ---
 
+## Deep Insight
+
+> One problem, pushed to the edge of this session's method. Compute it — then explain *why* the method breaks or holds. The "why" is the whole point.
+
+**DI1.** A boat moves with velocity $v(t) = \cos t$ m/h on $0 \le t \le \pi$. Compute (a) the net displacement, (b) the total distance traveled, (c) the average velocity, (d) the average speed. Then the insight question: which pair is joined by the FTC and which pair is not — and what exactly breaks the FTC for the failing pair? State the general rule.
+
+<details>
+<summary>💡 Hint</summary>
+
+$\int_0^\pi\cos t\,dt$ is one line. For distance, $|\cos t|$ flips sign at $t=\frac\pi2$ — split there.
+
+</details>
+
+→ Solutions: [Solutions](solutions/16C1-solutions.md#deep-insight)
+
+---
+
 ## Today's Procedure
 
 | When you see... | Do this... |
