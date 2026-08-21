@@ -6,7 +6,7 @@
 
 **Prerequisites**: 14A (basic derivatives), 14B (product/chain rules), 14C (higher derivatives), 15A (curve analysis)
 
-*Prerequisite for: [14D2 — Advanced Derivative Interpretation](14D2-advanced-derivative-interpretation.md)*
+*Prerequisite for: [14D2 — Advanced Derivative Interpretation](14D2-advanced-derivative-interpretation.md), [14D1A — Implicit Relations](14D1A-derivative-interpretation.md)*
 
 > 💡 **Stuck?** Every problem has a collapsible **Hint** below it — click it only when you need a nudge.
 

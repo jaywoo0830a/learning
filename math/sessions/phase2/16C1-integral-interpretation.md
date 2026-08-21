@@ -6,7 +6,7 @@
 
 **Prerequisites**: 16A (FTC & $u$-sub), 16B (techniques), 14D1 (reading rates)
 
-*Prerequisite for: [16C2 — Advanced Integral Interpretation](16C2-advanced-integral-interpretation.md)*
+*Prerequisite for: [16C2 — Advanced Integral Interpretation](16C2-advanced-integral-interpretation.md), [16C1A — Implicit Regions](16C1A-integral-interpretation.md)*
 
 > 💡 **Stuck?** Every problem has a collapsible **Hint** below it — click it only when you need a nudge.
 
