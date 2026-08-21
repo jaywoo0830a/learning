@@ -1,10 +1,12 @@
-# Session 14D: Derivative Interpretation — Reading Reality Through Rates
+# Session 14D1: Derivative Interpretation — Reading Reality Through Rates
 
 **Phase 2 — Classical Techniques | 60 min**
 
 *Every derivative you can compute here is easy. That is the point: the calculus is not the exercise. The exercise is reading — a derivative is a sentence, and this session trains you to hear its units, its sign, its size, and the shape it describes. Science, engineering, and economics all speak in derivatives; by the end you will hear them fluently.*
 
 **Prerequisites**: 14A (basic derivatives), 14B (product/chain rules), 14C (higher derivatives), 15A (curve analysis)
+
+*Prerequisite for: [14D2 — Advanced Derivative Interpretation](14D2-advanced-derivative-interpretation.md)*
 
 > 💡 **Stuck?** Every problem has a collapsible **Hint** below it — click it only when you need a nudge.
 
@@ -32,7 +34,7 @@ A derivative is a fraction: $dy/dx$ carries **y-units per x-unit**. Writing the 
 
 **Worked**: $s(t) = \frac12 t^2$ meters. $s'(t) = t$, so at $t=2$: $s'(2) = 2$ m/s. Read it as a sentence: "at $t=2$, each extra second adds about 2 meters of position." The number 2 alone means nothing — 2 m/s is the whole story.
 
-![Units of the derivative: m/s for position, $/unit for cost](graphs/0821/14D/14d1-derivative-units.png)
+![Units of the derivative: m/s for position, $/unit for cost](graphs/0821/14D1/14d1-derivative-units.png)
 
 *Graph 14D-1: Left — position vs time, tangent slope 4 m/s. Right — cost vs quantity, tangent slope 28 \$/unit. The same geometric object (a tangent) says completely different sentences depending on its units.*
 
@@ -55,7 +57,7 @@ $s(t) = t^3 - 6t^2 + 9t$ (meters, seconds, from 14C). $v(t) = s'(t) = 3(t-1)(t-3
 
 The two turning points ($t=1, 3$) and the one acceleration switch ($t=2$) chop time into exactly four stories.
 
-![Motion story from signs of v and a](graphs/0821/14D/14d2-motion-story.png)
+![Motion story from signs of v and a](graphs/0821/14D1/14d2-motion-story.png)
 
 *Graph 14D-2: Top — $v(t)$ and $a(t)$ with zero crossings marked. Bottom — the motion timeline built purely from signs.*
 
@@ -80,7 +82,7 @@ Estimate $\sqrt{4.1}$ using $f(x)=\sqrt{x}$ at $a=4$:
 
 **The insight**: the error is **quadratic** in the step. Ten times smaller step → a hundred times smaller error. Engineers linearize because the price of the approximation is known and tiny when $f''$ is small.
 
-![Linearization: tangent approximates sqrt near 4](graphs/0821/14D/14d3-linearization.png)
+![Linearization: tangent approximates sqrt near 4](graphs/0821/14D1/14d3-linearization.png)
 
 *Graph 14D-3: The tangent at $x=4$ and the zoom showing the gap at $x=4.1$ — error ≈ 0.00015, exactly the size the $f''$ bound predicts.*
 
@@ -116,11 +118,11 @@ Sphere: $V = \frac{4}{3}\pi r^3$. Differentiate: $\frac{dV}{dr} = 4\pi r^2$ — 
 
 Cube sanity check: a cube of side $s$ has $V=s^3$, so $\frac{dV}{ds} = 3s^2$ — *not* $6s^2$. Why? Growing the side by $ds$ thickens only 3 of the 6 faces. If instead the cube grows by its **half-side** $u = s/2$, then $V = 8u^3$ and $\frac{dV}{du} = 24u^2 = 6s^2$ — the full surface area. The derivative with respect to *which* growth dimension you use sets the meaning. (This is a preview of A2.)
 
-![Circle: ring area = circumference × dr](graphs/0821/14D/14d4-circle-ring.png)
+![Circle: ring area = circumference × dr](graphs/0821/14D1/14d4-circle-ring.png)
 
 *Graph 14D-4: The ring of width $dr$ has area ≈ $2\pi r\,dr$ — differentiating area gives the circumference.*
 
-![Sphere: shell volume = surface area × dr](graphs/0821/14D/14d5-sphere-shell.png)
+![Sphere: shell volume = surface area × dr](graphs/0821/14D1/14d5-sphere-shell.png)
 
 *Graph 14D-5 (3D): A spherical shell of thickness $dr$ has volume ≈ $4\pi r^2\,dr$ — differentiating volume gives the surface area.*
 
@@ -140,7 +142,7 @@ Set $MC = AC$: $2q+4 = q+4+\frac{144}{q}$ → $q^2 = 144$ → $q=12$. At $q=12$ 
 
 **The law**: marginal cost crosses average cost exactly at the average's minimum. Check: $AC'(q) = 1 - \frac{144}{q^2} = 0$ at $q=12$. ✓ (The tangent's slope at the crossing equals the average height — that can only happen where the average stops falling.)
 
-![Marginal cost as tangent slope; MC crosses AC at AC's minimum](graphs/0821/14D/14d6-marginal-cost.png)
+![Marginal cost as tangent slope; MC crosses AC at AC's minimum](graphs/0821/14D1/14d6-marginal-cost.png)
 
 *Graph 14D-6: Left — the cost curve with its tangent at $q=12$; the tangent's slope is the cost of the next unit. Right — $MC$ and $AC$ cross at the minimum of $AC$.*
 
@@ -178,7 +180,7 @@ Demand: $q(p) = 500 - 10p$ (units sold at price $p$).
 
 **Revenue** $R = p\,q(p) = 500p - 10p^2$, so $R' = 500 - 20p = 0$ at $p=25$ — maximum revenue \$6250. Elasticity $E=-1$ is exactly where $R'=0$: to the left (inelastic) raising price raises revenue; to the right (elastic) raising price loses more demand than it gains.
 
-![Demand with elastic/inelastic regions; revenue maximized at E=-1](graphs/0821/14D/14d7-elasticity.png)
+![Demand with elastic/inelastic regions; revenue maximized at E=-1](graphs/0821/14D1/14d7-elasticity.png)
 
 *Graph 14D-7: Left — demand with elastic and inelastic regions. Right — revenue peaks exactly where $E=-1$.*
 
@@ -258,7 +260,7 @@ Derivative units = y-units ÷ x-units. The sentence starts "each extra …" and 
 
 </details>
 
-→ Solutions: [Solutions](solutions/14D-solutions.md#practice-1)
+→ Solutions: [Solutions](solutions/14D1-solutions.md#practice-1)
 
 ---
 
@@ -273,7 +275,7 @@ Factor $v(t) = (t-2)(t-4)$ for the turning points. $a(t) = 2t-6$ switches sign a
 
 </details>
 
-→ Solutions: [Solutions](solutions/14D-solutions.md#practice-2)
+→ Solutions: [Solutions](solutions/14D1-solutions.md#practice-2)
 
 ---
 
@@ -288,7 +290,7 @@ $L(x) = f(9) + f'(9)(x-9)$ with $f'(9)=\frac16$. The error bound is $\frac{M}{2}
 
 </details>
 
-→ Solutions: [Solutions](solutions/14D-solutions.md#practice-3)
+→ Solutions: [Solutions](solutions/14D1-solutions.md#practice-3)
 
 ---
 
@@ -303,7 +305,7 @@ For $C(q) = q^2 + 4q + 144$: (a) compute $C'(20)$ and say what it means; (b) est
 
 </details>
 
-→ Solutions: [Solutions](solutions/14D-solutions.md#practice-4)
+→ Solutions: [Solutions](solutions/14D1-solutions.md#practice-4)
 
 ---
 
@@ -318,7 +320,7 @@ A spherical balloon has $V = \frac{4}{3}\pi r^3$. (a) Compute $\frac{dV}{dr}$ at
 
 </details>
 
-→ Solutions: [Solutions](solutions/14D-solutions.md#practice-5)
+→ Solutions: [Solutions](solutions/14D1-solutions.md#practice-5)
 
 ---
 
@@ -333,7 +335,7 @@ $E = \frac{p}{q}\cdot(-8)$. Revenue rises when $|E|<1$ (inelastic). At the reven
 
 </details>
 
-→ Solutions: [Solutions](solutions/14D-solutions.md#practice-6)
+→ Solutions: [Solutions](solutions/14D1-solutions.md#practice-6)
 
 ---
 
@@ -408,7 +410,7 @@ $q=60$, $\frac{dq}{dp}=-2$, so $E = \frac{20}{60}(-2) = -\frac23$. Compare $|E|$
 
 </details>
 
-> Solutions: [Solutions](solutions/14D-solutions.md#basic-drill)
+> Solutions: [Solutions](solutions/14D1-solutions.md#basic-drill)
 
 ---
 
@@ -506,7 +508,7 @@ $\frac{dV}{dr} = 2\pi r h$ — the lateral surface (a wrapped band). $\frac{dV}{
 
 </details>
 
-> Solutions: [Solutions](solutions/14D-solutions.md#advanced-drill)
+> Solutions: [Solutions](solutions/14D1-solutions.md#advanced-drill)
 
 ---
 

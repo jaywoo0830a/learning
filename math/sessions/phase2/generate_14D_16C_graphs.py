@@ -17,7 +17,7 @@ plt.rcParams.update({
     'axes.grid': False, 'figure.facecolor': 'white', 'axes.facecolor': 'white',
 })
 BASE = os.path.join(os.path.dirname(__file__), 'graphs', '0821')
-for _sub in ('14D', '16C'):
+for _sub in ('14D1', '16C1'):
     os.makedirs(os.path.join(BASE, _sub), exist_ok=True)
 
 BLUE = '#1a73e8'
@@ -66,7 +66,7 @@ def d1_units():
     ax2.set_title(r"Cost: $C'$ has units \$/unit", fontweight='bold')
     ax2.set_ylim(0, 900); ax2.legend(fontsize=9, loc='upper left')
     fig.tight_layout()
-    save(fig, '14D', '14d1-derivative-units.png')
+    save(fig, '14D1', '14d1-derivative-units.png')
 
 def d2_motion_story():
     """v(t)=t^2-4t+3 and a(t)=2t-4 with speeding/slowing regions and a motion timeline."""
@@ -105,7 +105,7 @@ def d2_motion_story():
     ax2.set_xlabel('time $t$ [s]')
     ax2.set_title('Motion timeline', fontweight='bold', fontsize=11)
     fig.tight_layout()
-    save(fig, '14D', '14d2-motion-story.png')
+    save(fig, '14D1', '14d2-motion-story.png')
 
 def d3_linearization():
     """sqrt(x), tangent at x=4, zoom inset showing the tiny gap at x=4.1."""
@@ -139,7 +139,7 @@ def d3_linearization():
     for s in ins.spines.values():
         s.set_color('#aaa')
     fig.tight_layout()
-    save(fig, '14D', '14d3-linearization.png')
+    save(fig, '14D1', '14d3-linearization.png')
 
 def d4_circle_ring():
     """Circle of radius r with a thin ring of width dr: ring area ~ 2 pi r dr."""
@@ -159,7 +159,7 @@ def d4_circle_ring():
     ax.set_title('$dA/dr$ = circumference: growth happens on the boundary', fontweight='bold')
     ax.set_xticks([]); ax.set_yticks([])
     fig.tight_layout()
-    save(fig, '14D', '14d4-circle-ring.png')
+    save(fig, '14D1', '14d4-circle-ring.png')
 
 def d5_sphere_shell():
     """3D sphere with a translucent shell of thickness dr — dV/dr = 4 pi r^2."""
@@ -186,7 +186,7 @@ def d5_sphere_shell():
     ax.set_axis_off()
     ax.set_title('$dV/dr$ = surface area: a thin shell wraps the sphere', fontweight='bold')
     fig.tight_layout()
-    save(fig, '14D', '14d5-sphere-shell.png')
+    save(fig, '14D1', '14d5-sphere-shell.png')
 
 def d6_marginal_cost():
     """Cost curve with tangent (= marginal cost) and MC vs AC crossing at the min of AC."""
@@ -219,7 +219,7 @@ def d6_marginal_cost():
     ax2.set_title('Marginal meets average at the average\'s minimum', fontweight='bold')
     ax2.set_ylim(0, 80); ax2.legend(fontsize=9, loc='upper left')
     fig.tight_layout()
-    save(fig, '14D', '14d6-marginal-cost.png')
+    save(fig, '14D1', '14d6-marginal-cost.png')
 
 def d7_elasticity():
     """Demand q=500-10p and revenue R=pq with elastic/inelastic regions; max revenue at E=-1."""
@@ -251,7 +251,7 @@ def d7_elasticity():
     ax2.set_title('Revenue is maximized where $E=-1$', fontweight='bold')
     ax2.set_ylim(0, 7000); ax2.legend(fontsize=9, loc='upper left')
     fig.tight_layout()
-    save(fig, '14D', '14d7-elasticity.png')
+    save(fig, '14D1', '14d7-elasticity.png')
 
 # ═══════════════════════════ 16C ═══════════════════════════
 
@@ -272,7 +272,7 @@ def c1_accumulation():
     ax.set_xlabel('time $t$ [min]'); ax.set_ylabel('rate [L/min]')
     ax.legend(fontsize=9, loc='upper right')
     fig.tight_layout()
-    save(fig, '16C', '16c1-accumulation.png')
+    save(fig, '16C1', '16c1-accumulation.png')
 
 def c2_average_value():
     """T(t)=20+10sin(pi t/12) over 24 h with equal-area rectangle at height 20."""
@@ -292,7 +292,7 @@ def c2_average_value():
     ax.set_xlabel('time of day [h]'); ax.set_ylabel('temperature [$^\\circ$C]')
     ax.legend(fontsize=9, loc='lower right')
     fig.tight_layout()
-    save(fig, '16C', '16c2-average-value.png')
+    save(fig, '16C1', '16c2-average-value.png')
 
 def c3_work_spring():
     """F=kx with shaded triangle: work = 1/2 k x^2."""
@@ -312,7 +312,7 @@ def c3_work_spring():
     ax.set_xlabel('stretch $x$ [m]'); ax.set_ylabel('force [N]')
     ax.legend(fontsize=9, loc='upper left')
     fig.tight_layout()
-    save(fig, '16C', '16c3-work-spring.png')
+    save(fig, '16C1', '16c3-work-spring.png')
 
 def c4_surplus():
     """Supply and demand with consumer and producer surplus shaded."""
@@ -337,7 +337,7 @@ def c4_surplus():
     ax.set_xlabel('quantity $q$'); ax.set_ylabel(r'price [\$]')
     ax.legend(fontsize=9, loc='upper right')
     fig.tight_layout()
-    save(fig, '16C', '16c4-surplus.png')
+    save(fig, '16C1', '16c4-surplus.png')
 
 def c5_present_value():
     """Income stream R(t)=10000/yr discounted at 5%: PV = area under R e^{-rt}."""
@@ -355,7 +355,7 @@ def c5_present_value():
     ax.set_xlabel('time $t$ [yr]'); ax.set_ylabel(r'value rate [\$/yr]')
     ax.legend(fontsize=9, loc='upper right')
     fig.tight_layout()
-    save(fig, '16C', '16c5-present-value.png')
+    save(fig, '16C1', '16c5-present-value.png')
 
 def c6_density_3d():
     """3D probability density surface (2D gaussian): total volume 1, slice = probability."""
@@ -381,7 +381,7 @@ def c6_density_3d():
     ax.set_title('Probability = volume under the density surface', fontweight='bold')
     fig.colorbar(surf, ax=ax, shrink=0.55, pad=0.02, label='density $p(x,y)$')
     fig.tight_layout()
-    save(fig, '16C', '16c6-density-3d.png')
+    save(fig, '16C1', '16c6-density-3d.png')
 
 def c7_expectation():
     """Triangle density p(x)=x/50 on [0,10]; expectation = balance point at 20/3."""
@@ -402,11 +402,11 @@ def c7_expectation():
     ax.set_xlabel('$x$'); ax.set_ylabel('probability density')
     ax.legend(fontsize=9, loc='upper left')
     fig.tight_layout()
-    save(fig, '16C', '16c7-expectation.png')
+    save(fig, '16C1', '16c7-expectation.png')
 
 if __name__ == '__main__':
     d1_units(); d2_motion_story(); d3_linearization(); d4_circle_ring()
     d5_sphere_shell(); d6_marginal_cost(); d7_elasticity()
     c1_accumulation(); c2_average_value(); c3_work_spring(); c4_surplus()
     c5_present_value(); c6_density_3d(); c7_expectation()
-    print('Done: 14D + 16C graphs written to graphs/0821/')
+    print('Done: 14D1 + 16C1 graphs written to graphs/0821/')

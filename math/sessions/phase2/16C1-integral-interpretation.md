@@ -1,10 +1,12 @@
-# Session 16C: Integral Interpretation — From Rates Back to Totals
+# Session 16C1: Integral Interpretation — From Rates Back to Totals
 
 **Phase 2 — Classical Techniques | 60 min**
 
 *Differentiation told you a rate at every instant; integration tells you what all those instants add up to. Every integral here is easy to compute — the practice is seeing: what accumulates, what the area means, what the units are, and how to read the same integral three different ways. Science, engineering, and economics all run on this grammar.*
 
-**Prerequisites**: 16A (FTC & $u$-sub), 16B (techniques), 14D (reading rates)
+**Prerequisites**: 16A (FTC & $u$-sub), 16B (techniques), 14D1 (reading rates)
+
+*Prerequisite for: [16C2 — Advanced Integral Interpretation](16C2-advanced-integral-interpretation.md)*
 
 > 💡 **Stuck?** Every problem has a collapsible **Hint** below it — click it only when you need a nudge.
 
@@ -43,7 +45,7 @@ $\frac{30+20}{2}\cdot 5 + \frac{20+10}{2}\cdot 5 + \frac{10+0}{2}\cdot 5 = 125 +
 
 **The reading**: the area under the rate curve is literally the water. Each thin vertical strip is (rate) × (small time) = a small volume, and the integral stacks the strips.
 
-![Accumulation: area under the flow-rate curve equals the total volume](graphs/0821/16C/16c1-accumulation.png)
+![Accumulation: area under the flow-rate curve equals the total volume](graphs/0821/16C1/16c1-accumulation.png)
 
 *Graph 16C-1: Flow rate $r(t)=30-2t$. The shaded area (225 L) is the total water delivered; the trapezoids show how a rate table approximates the same total.*
 
@@ -67,7 +69,7 @@ The sine integrates to zero over a full period: $\bar{T} = \frac{1}{24}\cdot 20\
 
 **Why engineers care**: the average of a rate × time is the total. $\bar{T}\cdot 24$ is the heat bill; $\bar{v}\cdot \Delta t$ is the distance.
 
-![Average value: the rectangle with the same area](graphs/0821/16C/16c2-average-value.png)
+![Average value: the rectangle with the same area](graphs/0821/16C1/16c2-average-value.png)
 
 *Graph 16C-2: $T(t)$ over 24 h. The dashed line at 20 °C is the equal-area height — amber above balances blue below.*
 
@@ -91,7 +93,7 @@ $W = \int_0^{0.3} 20x\,dx = \left[10x^2\right]_0^{0.3} = 0.9$ J.
 
 **The insight**: stretching from 0.3 m to 0.4 m costs $0.7$ J — *more* than the first 0.3 m cost ($0.9$ J spread over three times the distance). The last centimeter is the most expensive, because the spring is already tense.
 
-![Work: the triangle under F=kx](graphs/0821/16C/16c3-work-spring.png)
+![Work: the triangle under F=kx](graphs/0821/16C1/16c3-work-spring.png)
 
 *Graph 16C-3: $F=20x$ with the shaded triangle — work $=\frac12kx^2$, and the slope of the work function is the force.*
 
@@ -129,7 +131,7 @@ Equilibrium: $100 - 2q = 10 + q$ → $q^* = 30$, $p^* = 40$.
 
 **The reading**: the demand curve is a list of willingnesses-to-pay. Everyone between $q=0$ and $q=30$ who would have paid more than \$40 keeps the difference — the integral totals all those saved dollars into the amber triangle. Total welfare = $900 + 450 = 1350$.
 
-![Consumer and producer surplus as areas between the curves](graphs/0821/16C/16c4-surplus.png)
+![Consumer and producer surplus as areas between the curves](graphs/0821/16C1/16c4-surplus.png)
 
 *Graph 16C-4: Equilibrium (30, 40). Amber triangle = consumer surplus 900; purple triangle = producer surplus 450.*
 
@@ -147,7 +149,7 @@ $PV = \int_0^{10} 10{,}000\,e^{-0.05t}\,dt = 10{,}000\cdot\frac{1-e^{-0.5}}{0.05
 
 **The reading**: \$100,000 of raw payments over ten years is worth only \$78,694 today, because each dollar is weighted by *when* it arrives. The discount factor $e^{-rt}$ is a "time-to-money exchange rate," and the integral runs a continuous currency conversion.
 
-![Present value: discount each dollar by its arrival time](graphs/0821/16C/16c5-present-value.png)
+![Present value: discount each dollar by its arrival time](graphs/0821/16C1/16c5-present-value.png)
 
 *Graph 16C-5: The flat line is the raw income \$10,000/yr; the falling curve is the same income discounted. PV is the area under the falling curve.*
 
@@ -173,11 +175,11 @@ Density $p(x) = \frac{x}{50}$ on $[0,10]$ (a triangular model).
 
 **The reading**: every "average" from Part B is secretly a balance point. Mean value, expectation, centroid — one concept, three names.
 
-![Probability as volume under a density surface](graphs/0821/16C/16c6-density-3d.png)
+![Probability as volume under a density surface](graphs/0821/16C1/16c6-density-3d.png)
 
 *Graph 16C-6 (3D): A two-variable density surface. Total volume = 1 (probability of everything); the amber slice's volume = probability of one interval.*
 
-![Expectation as the balance point of the density](graphs/0821/16C/16c7-expectation.png)
+![Expectation as the balance point of the density](graphs/0821/16C1/16c7-expectation.png)
 
 *Graph 16C-7: The triangular density $p(x)=x/50$. The dashed line at $E[X]=20/3$ marks where the area balances; half the area sits left of the median $\sqrt{50}\approx7.07$.*
 
@@ -249,7 +251,7 @@ Water flows into a tank at $r(t) = 30 - 2t$ L/min. Find the total delivered over
 
 </details>
 
-→ Solutions: [Solutions](solutions/16C-solutions.md#practice-1)
+→ Solutions: [Solutions](solutions/16C1-solutions.md#practice-1)
 
 ---
 
@@ -264,7 +266,7 @@ The sine integrates to zero over any full period. The rectangle is $[0,24]\times
 
 </details>
 
-→ Solutions: [Solutions](solutions/16C-solutions.md#practice-2)
+→ Solutions: [Solutions](solutions/16C1-solutions.md#practice-2)
 
 ---
 
@@ -279,7 +281,7 @@ $W = \int F\,dx = \frac12 k x^2$ between the two endpoints. (c) the force at the
 
 </details>
 
-→ Solutions: [Solutions](solutions/16C-solutions.md#practice-3)
+→ Solutions: [Solutions](solutions/16C1-solutions.md#practice-3)
 
 ---
 
@@ -294,7 +296,7 @@ $120-3q = 20+2q$ → $q^*=20$, $p^*=60$. Then integrate $D-60$ and $60-S$ from 0
 
 </details>
 
-→ Solutions: [Solutions](solutions/16C-solutions.md#practice-4)
+→ Solutions: [Solutions](solutions/16C1-solutions.md#practice-4)
 
 ---
 
@@ -309,7 +311,7 @@ $PV = \int_0^{20} 50{,}000 e^{0.02t} e^{-0.06t}dt$ — the exponents combine int
 
 </details>
 
-→ Solutions: [Solutions](solutions/16C-solutions.md#practice-5)
+→ Solutions: [Solutions](solutions/16C1-solutions.md#practice-5)
 
 ---
 
@@ -324,7 +326,7 @@ A battery's lifetime (in years) has density $p(x) = \frac{3x^2}{1000}$ on $[0,10
 
 </details>
 
-→ Solutions: [Solutions](solutions/16C-solutions.md#practice-6)
+→ Solutions: [Solutions](solutions/16C1-solutions.md#practice-6)
 
 ---
 
@@ -406,7 +408,7 @@ $E[X] = \int_0^1 x\cdot 2x\,dx = \frac23$ — the balance point of the ramp.
 
 </details>
 
-> Solutions: [Solutions](solutions/16C-solutions.md#basic-drill)
+> Solutions: [Solutions](solutions/16C1-solutions.md#basic-drill)
 
 ---
 
@@ -504,7 +506,7 @@ $\int_0^m 2x\,dx = m^2 = \frac12$ → $m = \frac{1}{\sqrt2} \approx 0.707$. The 
 
 </details>
 
-> Solutions: [Solutions](solutions/16C-solutions.md#advanced-drill)
+> Solutions: [Solutions](solutions/16C1-solutions.md#advanced-drill)
 
 ---
 

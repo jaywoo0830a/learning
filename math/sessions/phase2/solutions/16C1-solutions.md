@@ -1,6 +1,6 @@
-# Solutions — 16C: Integral Interpretation
+# Solutions — 16C1: Integral Interpretation
 
-> Back to [16C — Integral Interpretation](../16C-integral-interpretation.md)
+> Back to [16C1 — Integral Interpretation](../16C1-integral-interpretation.md)
 
 ---
 
