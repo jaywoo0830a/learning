@@ -6,6 +6,8 @@
 
 **Prerequisites**: 16A (FTC & $u$-sub), 14B (chain/product rules), 11A (trig)
 
+*Prerequisite for: [16C — Integral Interpretation](16C-integral-interpretation.md)*
+
 > 💡 **Stuck?** Every drill below has a collapsible **Hint** — click it only when you need a nudge.
 
 ---

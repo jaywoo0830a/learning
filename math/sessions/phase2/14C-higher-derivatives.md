@@ -6,6 +6,8 @@
 
 **Prerequisites**: 14A (basic derivative dictionary), 14B (product/quotient/chain/implicit)
 
+*Prerequisite for: [14D — Derivative Interpretation](14D-derivative-interpretation.md)*
+
 ---
 
 ## Part A: Higher Derivatives — Just Keep Differentiating
