@@ -23,9 +23,15 @@ $T_1(x)=x$. $T_3(x)=x-\frac{x^3}{6}$. $T_5(x)=x-\frac{x^3}{6}+\frac{x^5}{120}$.
 
 ---
 
-## Example 2: The Taylor Series Formula
+## Example 2: The Taylor Series Formula — Where the $n!$ Comes From
 
-$f(x) = \displaystyle \sum_{n=0}^\infty \frac{f^{(n)}(a)}{n!}(x-a)^n$.
+Suppose $f(x) = \sum c_k(x-a)^k$ near $a$. Differentiate both sides $k$ times and set $x=a$: all terms of degree $<k$ have already died, and every term of degree $>k$ still contains $(x-a)$, so it vanishes at $x=a$. The sole survivor is $k!\,c_k$, hence
+
+$$f^{(k)}(a) = k!\,c_k \quad\Rightarrow\quad c_k = \frac{f^{(k)}(a)}{k!}.$$
+
+The coefficients are **forced** — there is no freedom. Equivalently (**uniqueness**): if any power series equals $f$ near $a$, it must be this one. That is the license behind every shortcut in this session — substitution, multiplication, and integration all produce *some* correct series, and uniqueness guarantees it is *the* Taylor series.
+
+$$f(x) = \displaystyle \sum_{n=0}^\infty \frac{f^{(n)}(a)}{n!}(x-a)^n.$$
 
 When $a=0$, it's called a **Maclaurin series**.
 
@@ -41,6 +47,8 @@ When $a=0$, it's called a **Maclaurin series**.
 | $\frac{1}{1-x}$ | $\sum_{n=0}^\infty x^n$ | $1$ |
 | $\ln(1+x)$ | $\sum_{n=1}^\infty \frac{(-1)^{n+1}x^n}{n}$ | $1$ |
 | $\arctan x$ | $\sum_{n=0}^\infty \frac{(-1)^n x^{2n+1}}{2n+1}$ | $1$ |
+
+> **Why these radii (🔗 18B):** $R=\infty$ for $e^x$, $\sin x$, $\cos x$ — no bad points anywhere. The three series with $R=1$ stop there because their *closed forms* have a bad point at distance 1 from the center: $\frac{1}{1-x}$ blows up at $x=1$; $\ln(1+x)$ at $x=-1$; and $\arctan x$ has complex bad points at $x=\pm i$ — the radius measures distance, not whether you can see the bad point on the real line.
 
 ![Taylor approximations of e^x](graphs/0721/18C/18c-taylor-exp.png)
 
@@ -66,6 +74,8 @@ $\frac{1}{\sqrt{1-x^2}} = (1-x^2)^{-1/2} = 1+\frac{x^2}{2}+\frac{3x^4}{8}+\cdots
 ## Example 5: Error Bound — Lagrange Remainder
 
 $f(x) = T_n(x) + R_n(x)$ where $R_n(x) = \frac{f^{(n+1)}(c)}{(n+1)!}(x-a)^{n+1}$ for some $c$ between $a$ and $x$.
+
+**Where it comes from:** for $n=0$ this is exactly the Mean Value Theorem — $f(x)-f(a)=f'(c)(x-a)$. Lagrange's formula is the same statement after matching $n+1$ derivatives instead of one: the leftover of the *next* derivative, evaluated somewhere in between. Because $c$ is unknown, in practice you replace $f^{(n+1)}(c)$ by its maximum $M$ over the interval between $a$ and $x$ (Mistake 2) — and for alternating series the simpler "first omitted term" bound is available instead.
 
 For alternating series: $|R_n| \le |\text{first omitted term}|$.
 
@@ -147,12 +157,12 @@ Write $\ln x = \ln(1 + (x-1))$ and use the Maclaurin series for $\ln(1+u)$ with 
 
 ## Practice 3
 
-Use Taylor series to evaluate $\lim_{x\to0}\frac{\cos x-1+x^2/2}{x^4}$.
+Evaluate $\lim_{x\to0}\frac{\cos x-1+x^2/2}{x^4}$.
 
 <details>
 <summary>💡 Hint</summary>
 
-$\cos x = 1 - \frac{x^2}{2} + \frac{x^4}{24} - \frac{x^6}{720} + \cdots$. Subtract $1 - x^2/2$ and see which power of $x$ survives.
+Write the first few terms of $\cos x$. After cancelling against the numerator, the first surviving power of $x$ decides the limit.
 
 </details>
 
@@ -162,7 +172,7 @@ $\cos x = 1 - \frac{x^2}{2} + \frac{x^4}{24} - \frac{x^6}{720} + \cdots$. Subtra
 
 ## Practice 4
 
-Estimate $\int_0^{0.5} \sin(x^2)dx$ to 4 decimal places using series.
+Estimate $\int_0^{0.5} \sin(x^2)dx$ to 4 decimal places.
 
 <details>
 <summary>💡 Hint</summary>
@@ -177,7 +187,7 @@ $\sin(x^2) = x^2 - \frac{x^6}{3!} + \frac{x^{10}}{5!} - \cdots$. Integrate term-
 
 ## Practice 5: Real Battle (🔗 12B2, 13A, 18B)
 
-Use the binomial series (🔗 12B2) to find the Maclaurin series for $\arcsin x$. Integrate $(1-x^2)^{-1/2}$ term-by-term (🔗 18B). Then use your series to evaluate $\lim_{x\to0}\frac{\arcsin x - x}{x^3}$ (🔗 13A).
+Find the Maclaurin series for $\arcsin x$, and use it to evaluate $\lim_{x\to0}\frac{\arcsin x - x}{x^3}$.
 
 <details>
 <summary>💡 Hint</summary>
@@ -192,12 +202,12 @@ Expand $(1+u)^{-1/2}$ with the binomial series, substitute $u = -x^2$, then inte
 
 ## Practice 6: Real Battle — Error Analysis (🔗 18B)
 
-How many terms of the Maclaurin series for $e^x$ are needed to approximate $e$ (i.e., $e^1$) with error less than $10^{-6}$? Use the Lagrange remainder bound. Compare with the actual error after that many terms.
+How many terms of the Maclaurin series for $e^x$ are needed to approximate $e$ (i.e., $e^1$) with error less than $10^{-6}$? Compare with the actual error after that many terms.
 
 <details>
 <summary>💡 Hint</summary>
 
-At $x=1$: $R_n \le \frac{e}{(n+1)!} \le \frac{3}{(n+1)!}$. Find the smallest $n$ with $(n+1)! > 3\times10^6$. Note $9! = 362880$, $10! = 3628800$.
+Use the Lagrange remainder bound: at $x=1$ the remainder is controlled by $e/(n+1)!$. A crude bound on $e$ turns this into: find the smallest factorial that clears a known number.
 
 </details>
 
@@ -224,7 +234,14 @@ Compute $f(4), f'(4), f''(4), f'''(4)$ from $f(x)=x^{1/2}$ — remember $f''$ an
 
 **D5.** Find the Maclaurin series for $\ln(1-x)$.
 
-**D6.** Use series to compute $\lim_{x\to0}\frac{e^x-1}{x}$.
+**D6.** Compute $\lim_{x\to0}\frac{e^x-1}{x}$.
+
+<details>
+<summary>💡 Hint</summary>
+
+Expand $e^x = 1+x+\frac{x^2}{2!}+\cdots$. Subtract the $1$, divide by $x$, and let $x\to0$.
+
+</details>
 
 **D7.** Find $T_2(x)$ (2nd-degree Taylor) for $f(x)=\tan x$ at $a=0$.
 
@@ -239,7 +256,7 @@ $\tan x$ is odd, so all even-degree coefficients vanish — the $x^2$ term is $0
 
 **D9.** Multiply the series for $e^x$ and $e^{-x}$. What do you get?
 
-**D10.** Use $\cos x$ series to estimate $\cos(0.2)$ to 4 decimal places.
+**D10.** Estimate $\cos(0.2)$ to 4 decimal places.
 
 <details>
 <summary>💡 Hint</summary>
@@ -248,7 +265,7 @@ $\cos(0.2) = 1 - \frac{(0.2)^2}{2!} + \frac{(0.2)^4}{4!} - \cdots$ — alternati
 
 </details>
 
-**D11.** Use the binomial series to write the first 3 nonzero terms of $(1+2x)^{1/3}$.
+**D11.** Write the first 3 nonzero terms of $(1+2x)^{1/3}$.
 
 <details>
 <summary>💡 Hint</summary>
@@ -257,12 +274,48 @@ Compute $\binom{1/3}{1}$, $\binom{1/3}{2}$, $\binom{1/3}{3}$ and plug $u=2x$ int
 
 </details>
 
-**D12.** Find the Taylor series for $f(x)=x^3-2x^2+3x-4$ at $a=1$ directly using the formula.
+**D12.** Find the Taylor series for $f(x)=x^3-2x^2+3x-4$ at $a=1$.
 
 <details>
 <summary>💡 Hint</summary>
 
 $f$ is cubic, so $f^{(4)} = 0$ — the series stops after the $(x-1)^3$ term. Compute $f(1), f'(1), f''(1), f'''(1)$.
+
+</details>
+
+**D13.** Expand $\ln(1+\sin x)$ to order $x^4$.
+
+<details>
+<summary>💡 Hint</summary>
+
+Substitute $u=\sin x$ into the $\ln(1+u)$ series. Because $u$ starts at $x$, you must keep $u^2$ to order $x^4$ as well — the powers interact.
+
+</details>
+
+**D14.** Estimate $\sqrt{4.1}$ and bound the error.
+
+<details>
+<summary>💡 Hint</summary>
+
+Use the degree-2 Taylor polynomial of $\sqrt{x}$ at $a=4$ with the Lagrange remainder. This is **not** an alternating series, so the first-omitted-term shortcut does not apply. Compute $f'''$ and take its maximum on $[4,\,4.1]$; the bound is $M|x-a|^3/3!$.
+
+</details>
+
+**D15.** The series $\sum_{n=0}^\infty (-1)^n x^{2n}$ converges only for $|x|<1$, yet its closed form $\frac{1}{1+x^2}$ is smooth on the whole real line. Explain the discrepancy.
+
+<details>
+<summary>💡 Hint</summary>
+
+Ask where the denominator vanishes — the "bad points" do not lie on the real axis, but the radius only measures distance, not visibility.
+
+</details>
+
+**D16.** A power series $\sum c_n x^n$ equals $\sin x$ for all $x$ in $(-1,1)$. Without memorizing the answer, find $c_2$ and $c_3$.
+
+<details>
+<summary>💡 Hint</summary>
+
+Differentiate both sides twice (and three times), then plug $x=0$. The left side contributes derivatives of $\sin x$; the right side collapses to a factorial times one coefficient.
 
 </details>
 
@@ -281,7 +334,7 @@ Subtract the series for $e^{-x}$ from $e^x$: even powers cancel, odd powers doub
 
 </details>
 
-**A2.** Prove $e^{i\theta} = \cos\theta + i\sin\theta$ using Maclaurin series.
+**A2.** Prove $e^{i\theta} = \cos\theta + i\sin\theta$.
 
 <details>
 <summary>💡 Hint</summary>
@@ -299,7 +352,7 @@ $\frac{1}{x} = \frac{1}{2+(x-2)} = \frac12\cdot\frac{1}{1+(x-2)/2}$ — geometri
 
 </details>
 
-**A4.** Evaluate $\lim_{x\to0}\frac{\tan x - x}{x^3}$ using series.
+**A4.** Evaluate $\lim_{x\to0}\frac{\tan x - x}{x^3}$.
 
 <details>
 <summary>💡 Hint</summary>
@@ -308,7 +361,7 @@ $\tan x = x + \frac{x^3}{3} + \frac{2x^5}{15} + \cdots$.
 
 </details>
 
-**A5.** Compute $\int_0^1 \frac{\sin x}{x}dx$ to 4 decimal places using series.
+**A5.** Compute $\int_0^1 \frac{\sin x}{x}dx$ to 4 decimal places.
 
 <details>
 <summary>💡 Hint</summary>
@@ -335,7 +388,7 @@ At $x=1$ it's alternating: keeping up to $x^{2n+1}$ leaves error $\le \frac{1}{(
 
 </details>
 
-**A8.** Find the sum: $1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\cdots$. Recognize the series.
+**A8.** Find the sum: $1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\cdots$.
 
 <details>
 <summary>💡 Hint</summary>
@@ -353,7 +406,7 @@ $\frac{d}{dx}\frac{1}{1-x} = \frac{1}{(1-x)^2}$; differentiate $\sum x^n$ term b
 
 </details>
 
-**A10.** Use the Lagrange remainder to prove that $e$ is irrational.
+**A10.** Prove that $e$ is irrational.
 
 <details>
 <summary>💡 Hint</summary>
@@ -362,7 +415,7 @@ For $n \ge q$, $n!e$ and each $n!/k!$ are integers, so $n!R_n = n!e - \sum_{k=0}
 
 </details>
 
-**A11.** (🔗 13A, 18B) Use series to evaluate $\lim_{x\to 0}\frac{\sin x - x + x^3/6}{x^5}$. How many terms are needed?
+**A11.** (🔗 13A, 18B) Evaluate $\lim_{x\to 0}\frac{\sin x - x + x^3/6}{x^5}$. How many terms are needed?
 
 <details>
 <summary>💡 Hint</summary>
@@ -376,7 +429,7 @@ $\sin x = x - \frac{x^3}{6} + \frac{x^5}{120} - \frac{x^7}{5040} + \cdots$ — t
 <details>
 <summary>💡 Hint</summary>
 
-Set $u = x - \frac{x^3}{6}$. You need $u^2, u^3, u^4$ only up to the $x^4$ power — e.g. $u^2 = x^2 - \frac{x^4}{3} + \cdots$.
+Substitute $u=\sin x$ into the $\ln(1+u)$ series. Because $u$ itself starts at $x$, each power $u^k$ contributes to several orders of $x$ — keep every $u^k$ only up to the order you need, but do keep all of them.
 
 </details>
 

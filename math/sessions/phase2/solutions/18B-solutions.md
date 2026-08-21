@@ -24,7 +24,7 @@ $$R = \lim_{n\to\infty}\left|\frac{c_n}{c_{n+1}}\right| = \lim_{n\to\infty}\frac
 
 ## Practice 2
 
-**Find a power series for $\ln(1-x^2)$ using the geometric series.**
+**Find a power series for $\ln(1-x^2)$.**
 
 ① Known: $\ln(1+u) = \sum_{n=1}^\infty \frac{(-1)^{n+1}u^n}{n}$ for $|u|<1$.
 
@@ -54,23 +54,27 @@ Valid for $|-x^2| < 1$, i.e. $|x| < 1$.
 
 ## Practice 4: Real Battle
 
-**Find the interval of convergence for $\sum_{n=1}^\infty \frac{(x-1)^n}{n\cdot 3^n}$. Check both endpoints.**
+**Find the interval of convergence for $\sum_{n=1}^\infty \frac{(2x+1)^n}{\sqrt{n}}$. Check both endpoints.**
 
-① $c_n = \frac{1}{n3^n}$, so $R = \lim \frac{3^{n+1}(n+1)}{3^n n} = 3$. Center $a = 1$ → interval $(1-3,\, 1+3) = (-2, 4)$.
+① Rewrite: $(2x+1)^n = 2^n\left(x+\tfrac12\right)^n$, so $c_n = \dfrac{2^n}{\sqrt{n}}$ and the center is $a=-\tfrac12$.
+
+$$R = \lim_{n\to\infty}\frac{2^n/\sqrt{n}}{2^{n+1}/\sqrt{n+1}} = \lim_{n\to\infty}\frac12\sqrt{\frac{n+1}{n}} = \frac12.$$
+
+Interval: $\left(-\tfrac12-\tfrac12,\;-\tfrac12+\tfrac12\right) = (-1,\,0)$.
 
 ② **Endpoints**:
-- $x = 4$: $\sum \frac{3^n}{n3^n} = \sum \frac1n$ — diverges (harmonic).
-- $x = -2$: $\sum \frac{(-3)^n}{n3^n} = \sum \frac{(-1)^n}{n}$ — converges (alternating, and this is $\ln 2$).
+- $x=0$: $\sum \dfrac{2^n(1/2)^n}{\sqrt{n}} = \sum \dfrac{1}{\sqrt{n}}$ — $p$-series with $p=\tfrac12\le1$: **diverges**.
+- $x=-1$: $\sum \dfrac{2^n(-1/2)^n}{\sqrt{n}} = \sum \dfrac{(-1)^n}{\sqrt{n}}$ — alternating, terms $\to0$ decreasing: **converges** (conditionally).
 
-> **Answer**: interval of convergence $[-2, 4)$
+> **Answer**: interval of convergence $\boxed{[-1,\,0)}$
 
-> **Connection**: inside $(-2,4)$ the series represents $-\ln(1 - \frac{x-1}{3})$; the ratio test result $R=3$ mirrors the geometric requirement $\left|\frac{x-1}{3}\right|<1$ from 12B1.
+> **Connection**: the center hides inside $2x+1$ until you factor out $2^n$ — always rewrite $(cx+d)^n$ as $c^n(x+d/c)^n$ before reading off $a$ and $R$.
 
 ---
 
 ## Practice 5: Real Battle — Series for $\pi$
 
-**Use the series for $\arctan x$ to find a series for $\pi$. How many terms are needed to estimate $\pi$ to 3 decimal places?**
+**Find a series for $\pi$. How many terms are needed to estimate $\pi$ to 3 decimal places?**
 
 ① $\arctan x = \sum_{n=0}^\infty \frac{(-1)^n x^{2n+1}}{2n+1}$, $|x|\le 1$ (endpoint convergence by alternating test). At $x=1$:
 
@@ -116,19 +120,19 @@ $\frac{1}{1+2x} = \frac{1}{1-(-2x)} = \sum_{n=0}^\infty (-2x)^n = \sum_{n=0}^\in
 
 > **Answer**: $\sum (-2)^n x^n$, $|x| < \frac12$
 
-### D5. Find a series for $\frac{1}{(1-x)^2}$ by differentiating $\frac{1}{1-x}$.
+### D5. Find a series for $\frac{1}{(1-x)^2}$.
 
 $\frac{d}{dx}\frac{1}{1-x} = \frac{1}{(1-x)^2} = \frac{d}{dx}\sum_{n=0}^\infty x^n = \sum_{n=1}^\infty n x^{n-1} = \sum_{n=0}^\infty (n+1)x^n$.
 
 > **Answer**: $\frac{1}{(1-x)^2} = \sum_{n=0}^\infty (n+1)x^n$, $|x|<1$
 
-### D6. Find a series for $\ln(1-x)$ by integrating $\frac{1}{1-x}$.
+### D6. Find a series for $\ln(1-x)$.
 
 $-\ln(1-x) = \int \frac{dx}{1-x} = \int \sum x^n dx = \sum \frac{x^{n+1}}{n+1} = \sum_{n=1}^\infty \frac{x^n}{n}$. So $\ln(1-x) = -\sum_{n=1}^\infty \frac{x^n}{n}$.
 
 > **Answer**: $\ln(1-x) = -\sum_{n=1}^\infty \frac{x^n}{n}$, $|x|<1$
 
-### D7. Evaluate $\sum_{n=1}^\infty \frac{n}{2^n}$ by recognizing a differentiated series.
+### D7. Evaluate $\sum_{n=1}^\infty \frac{n}{2^n}$.
 
 $\sum_{n=1}^\infty n x^n = x\sum n x^{n-1} = x\cdot\frac{1}{(1-x)^2} = \frac{x}{(1-x)^2}$ (using D5). At $x=\frac12$:
 
@@ -148,29 +152,68 @@ $\frac{d}{dx}\sin x = \sum (-1)^n \frac{(2n+1)x^{2n}}{(2n+1)!} = \sum_{n=0}^\inf
 
 > **Answer**: $\cos x = \sum \frac{(-1)^n x^{2n}}{(2n)!}$ — term-by-term differentiation recovers the cosine series
 
-### D10. Find $R$ for $\sum_{n=0}^\infty \frac{(2n)!}{(n!)^2}x^n$. Use ratio test.
+### D10. Find $R$ for $\sum_{n=0}^\infty \frac{(2n)!}{(n!)^2}x^n$.
 
 $\frac{c_{n+1}}{c_n} = \frac{(2n+2)!}{(n+1)!(n+1)!}\cdot\frac{n!n!}{(2n)!} = \frac{(2n+2)(2n+1)}{(n+1)^2} \to 4$. So $R = \frac{1}{4}$.
 
 > **Answer**: $R = \frac14$
 
-### D11. Find a power series for $\frac{x}{(1-x)^2}$ by differentiating $\frac{1}{1-x}$.
+### D11. Find a power series for $\frac{x}{(1-x)^2}$.
 
 $\frac{x}{(1-x)^2} = x\cdot\sum_{n=0}^\infty (n+1)x^n = \sum_{n=0}^\infty (n+1)x^{n+1} = \sum_{n=1}^\infty n x^n$.
 
 > **Answer**: $\frac{x}{(1-x)^2} = \sum_{n=1}^\infty n x^n$, $|x|<1$
 
-### D12. Evaluate $\sum_{n=0}^\infty \frac{(-1)^n}{2^n}$ by recognizing it as a geometric series.
+### D12. Evaluate $\sum_{n=0}^\infty \frac{(-1)^n}{2^n}$.
 
 $\sum \left(-\frac12\right)^n = \frac{1}{1-(-1/2)} = \frac{1}{3/2} = \frac23$.
 
 > **Answer**: $\frac23$
 
+### D13. Evaluate $1 - \frac12 + \frac13 - \frac14 + \cdots$ — and justify that the endpoint is allowed.
+
+This is $\sum_{n=1}^\infty \frac{(-1)^{n+1}}{n}$, i.e. the series for $\ln(1+x)$ at $x=1$. The interval of the $\ln(1+x)$ series is $(-1,1]$ — at $x=1$ the alternating series converges, at $x=-1$ it is the harmonic series. Since $x=1$ lies inside the interval, the value is legitimate:
+
+$$1-\frac12+\frac13-\frac14+\cdots = \ln 2.$$
+
+> **Answer**: $\ln 2$ — endpoint values are only trustworthy after the endpoint check.
+
+### D14. Write $\sum_{n=1}^\infty n x^{n-1}$ starting from $n=0$, then evaluate $\sum_{n=1}^\infty \frac{n}{2^{n-1}}$.
+
+Shift $k=n-1$: $\sum_{n=1}^\infty n x^{n-1} = \sum_{k=0}^\infty (k+1)x^k$. This is the derivative of the geometric series:
+
+$$\sum_{k=0}^\infty (k+1)x^k = \frac{1}{(1-x)^2}, \qquad |x|<1.$$
+
+At $x=\frac12$: $\sum_{n=1}^\infty \frac{n}{2^{n-1}} = \frac{1}{(1-\frac12)^2} = 4$.
+
+> **Answer**: $4$
+
+### D15. Evaluate $\sum_{n=1}^\infty \frac{n^2}{2^n}$.
+
+Split $n^2 = n(n-1)+n$. Differentiating the geometric series twice:
+
+$$\sum_{n=0}^\infty n(n-1)x^{n-2} = \frac{2}{(1-x)^3} \;\Rightarrow\; \sum_{n=1}^\infty n(n-1)x^n = \frac{2x^2}{(1-x)^3},$$
+$$\sum_{n=1}^\infty n x^n = \frac{x}{(1-x)^2}.$$
+
+At $x=\frac12$: $\sum \frac{n(n-1)}{2^n} = \frac{2\cdot\frac14}{(\frac12)^3} = 4$ and $\sum \frac{n}{2^n} = \frac{\frac12}{(\frac12)^2} = 2$. Total $4+2=6$.
+
+> **Answer**: $6$ — $n^2=n(n-1)+n$ decomposes any polynomial-in-$n$ sum into derivatives of the geometric series.
+
+### D16. Find $R$ for $\sum_{n=0}^\infty \left(\frac{x}{2}\right)^{n^2}$.
+
+The coefficients are $c_k = 2^{-k}$ when $k$ is a perfect square and $c_k=0$ otherwise. The ratio test is helpless (infinitely many zero coefficients). Root test:
+
+$$\limsup_{k\to\infty}\left|c_k x^k\right|^{1/k} = \left|\frac{x}{2}\right| \quad (\text{limit over square indices}).$$
+
+Convergence when $\left|\frac{x}{2}\right|<1$, i.e. $|x|<2$.
+
+> **Answer**: $R=2$ — the root test handles "gappy" series where the ratio test cannot even start.
+
 ---
 
 ## Advanced Drills
 
-### A1. Find the interval for $\sum_{n=1}^\infty \frac{n(x+3)^n}{4^n}$. Be careful with endpoints.
+### A1. Find the interval for $\sum_{n=1}^\infty \frac{n(x+3)^n}{4^n}$.
 
 $c_n = \frac{n}{4^n}$: $R = \lim \frac{n/4^n}{(n+1)/4^{n+1}} = 4$. Center $-3$ → interval $(-7, 1)$.
 
@@ -191,7 +234,7 @@ $x = A(1+2x) + B(1-x)$ → $A+B=0$, $2A-B=1$ → $A=\frac13$, $B=-\frac13$.
 
 > **Answer**: $\frac{x}{1+x-2x^2} = \sum_{n=0}^\infty \frac{1-(-2)^n}{3}x^n$, $|x|<\frac12$
 
-### A3. Use series to evaluate $\lim_{x\to0}\frac{e^x-1-x}{x^2}$.
+### A3. Evaluate $\lim_{x\to0}\frac{e^x-1-x}{x^2}$.
 
 $e^x = 1+x+\frac{x^2}{2}+\frac{x^3}{6}+\cdots$, so $\frac{e^x-1-x}{x^2} = \frac{\frac{x^2}{2}+\cdots}{x^2} \to \frac12$.
 

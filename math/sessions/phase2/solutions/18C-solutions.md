@@ -32,7 +32,7 @@ Valid for $|x-1|<1$, i.e. $0 < x < 2$ (at $x=2$ it converges to $\ln 2$; at $x=0
 
 ## Practice 3
 
-**Use Taylor series to evaluate $\lim_{x\to0}\frac{\cos x-1+x^2/2}{x^4}$.**
+**Evaluate $\lim_{x\to0}\frac{\cos x-1+x^2/2}{x^4}$.**
 
 $\cos x = 1 - \frac{x^2}{2} + \frac{x^4}{24} - \frac{x^6}{720} + \cdots$, so
 
@@ -44,7 +44,7 @@ $$\frac{\cos x - 1 + \frac{x^2}{2}}{x^4} = \frac{\frac{x^4}{24} - \frac{x^6}{720
 
 ## Practice 4
 
-**Estimate $\int_0^{0.5} \sin(x^2)dx$ to 4 decimal places using series.**
+**Estimate $\int_0^{0.5} \sin(x^2)dx$ to 4 decimal places.**
 
 ① $\sin(x^2) = \sum_{n=0}^\infty \frac{(-1)^n (x^2)^{2n+1}}{(2n+1)!} = \sum \frac{(-1)^n x^{4n+2}}{(2n+1)!}$.
 
@@ -62,7 +62,7 @@ Terms: $\frac{1}{24} - \frac{1}{5376} + \frac{1}{2703360} - \cdots = 0.041667 - 
 
 ## Practice 5: Real Battle
 
-**Use the binomial series to find the Maclaurin series for $\arcsin x$. Integrate $(1-x^2)^{-1/2}$ term-by-term. Then use your series to evaluate $\lim_{x\to0}\frac{\arcsin x - x}{x^3}$.**
+**Find the Maclaurin series for $\arcsin x$, and use it to evaluate $\lim_{x\to0}\frac{\arcsin x - x}{x^3}$.**
 
 ① Binomial series for $(1+u)^{-1/2} = 1 - \frac12 u + \frac{3}{8}u^2 - \frac{5}{16}u^3 + \cdots$; substitute $u = -x^2$:
 
@@ -80,7 +80,7 @@ $$\arcsin x = \int_0^x \frac{dt}{\sqrt{1-t^2}} = \sum_{n=0}^\infty \frac{1\cdot3
 
 ## Practice 6: Real Battle — Error Analysis
 
-**How many terms of the Maclaurin series for $e^x$ are needed to approximate $e$ (i.e., $e^1$) with error less than $10^{-6}$? Use the Lagrange remainder bound.**
+**How many terms of the Maclaurin series for $e^x$ are needed to approximate $e$ (i.e., $e^1$) with error less than $10^{-6}$? Compare with the actual error after that many terms.**
 
 ① Lagrange remainder at $x=1$: $R_n(1) = \frac{e^c}{(n+1)!}$ for some $c\in(0,1)$, so
 
@@ -130,7 +130,7 @@ $\ln(1-x) = -\sum_{n=1}^\infty \frac{x^n}{n} = -x - \frac{x^2}{2} - \frac{x^3}{3
 
 > **Answer**: $\ln(1-x) = -\sum_{n=1}^\infty \frac{x^n}{n}$
 
-### D6. Use series to compute $\lim_{x\to0}\frac{e^x-1}{x}$.
+### D6. Compute $\lim_{x\to0}\frac{e^x-1}{x}$.
 
 $e^x - 1 = x + \frac{x^2}{2} + \cdots$, so $\frac{e^x-1}{x} = 1 + \frac{x}{2} + \cdots \to 1$.
 
@@ -154,7 +154,7 @@ $e^x \cdot e^{-x} = e^0 = 1$. (Cauchy product: $\sum_n \left(\sum_{k=0}^n \frac{
 
 > **Answer**: $1$ — all non-constant terms cancel
 
-### D10. Use $\cos x$ series to estimate $\cos(0.2)$ to 4 decimal places.
+### D10. Estimate $\cos(0.2)$ to 4 decimal places.
 
 $\cos(0.2) = 1 - \frac{(0.2)^2}{2!} + \frac{(0.2)^4}{4!} - \cdots = 1 - 0.02 + 0.0000667 - \cdots = 0.9800667$
 
@@ -162,7 +162,7 @@ Next term $\frac{(0.2)^6}{6!} \approx 8.9\times10^{-9}$, negligible.
 
 > **Answer**: $\cos(0.2) \approx 0.9801$
 
-### D11. Use the binomial series to write the first 3 nonzero terms of $(1+2x)^{1/3}$.
+### D11. Write the first 3 nonzero terms of $(1+2x)^{1/3}$.
 
 $\binom{1/3}{1} = \frac13$, $\binom{1/3}{2} = \frac{(1/3)(-2/3)}{2} = -\frac19$, $\binom{1/3}{3} = \frac{(1/3)(-2/3)(-5/3)}{6} = \frac{5}{81}$.
 
@@ -170,13 +170,53 @@ $$(1+2x)^{1/3} = 1 + \frac13(2x) - \frac19(2x)^2 + \frac{5}{81}(2x)^3 + \cdots =
 
 > **Answer**: $1 + \frac{2x}{3} - \frac{4x^2}{9} + \frac{40x^3}{81}$
 
-### D12. Find the Taylor series for $f(x)=x^3-2x^2+3x-4$ at $a=1$ directly using the formula.
+### D12. Find the Taylor series for $f(x)=x^3-2x^2+3x-4$ at $a=1$.
 
 $f(1) = -2$; $f'(x)=3x^2-4x+3$, $f'(1)=2$; $f''(x)=6x-4$, $f''(1)=2$; $f'''(x)=6$, $f'''(1)=6$; higher derivatives $0$.
 
 $$T(x) = -2 + 2(x-1) + \frac{2}{2}(x-1)^2 + \frac{6}{6}(x-1)^3 = -2 + 2(x-1) + (x-1)^2 + (x-1)^3.$$
 
 > **Answer**: $-2 + 2(x-1) + (x-1)^2 + (x-1)^3$ (check: expands back to $x^3-2x^2+3x-4$)
+
+### D13. Expand $\ln(1+\sin x)$ to order $x^4$.
+
+$u = \sin x = x-\frac{x^3}{6}+O(x^5)$. Then
+
+$$\ln(1+u) = u-\frac{u^2}{2}+\frac{u^3}{3}-\frac{u^4}{4}+O(u^5),$$
+$$u^2 = x^2-\frac{x^4}{3}+O(x^6), \quad u^3 = x^3+O(x^5), \quad u^4 = x^4+O(x^6).$$
+
+Collect:
+
+$$\ln(1+\sin x) = \left(x-\frac{x^3}{6}\right) - \frac12\left(x^2-\frac{x^4}{3}\right) + \frac{x^3}{3} - \frac{x^4}{4} + O(x^5)$$
+$$= x - \frac{x^2}{2} + \frac{x^3}{6} - \frac{x^4}{12} + O(x^5).$$
+
+> **Answer**: $\ln(1+\sin x) = x-\frac{x^2}{2}+\frac{x^3}{6}-\frac{x^4}{12}+\cdots$ — the $x^4$ coefficient receives contributions from *three* places ($u^2$, $u^3$, $u^4$); dropping any one of them corrupts the answer.
+
+### D14. Estimate $\sqrt{4.1}$ and bound the error.
+
+$f(x)=x^{1/2}$: $f(4)=2$, $f'(4)=\frac14$, $f''(4)=-\frac{1}{32}$.
+
+$$T_2(4.1) = 2 + \frac14(0.1) - \frac{1}{32}\cdot\frac{(0.1)^2}{2} = 2 + 0.025 - 0.00015625 = 2.02484375.$$
+
+$f'''(x)=\frac{3}{8}x^{-5/2}$, maximum on $[4,4.1]$ at $x=4$: $M=\frac{3}{8\cdot32}=\frac{3}{256}$.
+
+$$|R_2| \le \frac{M}{3!}(0.1)^3 = \frac{3}{256}\cdot\frac{10^{-3}}{6} \approx 1.95\times10^{-6}.$$
+
+> **Answer**: $\sqrt{4.1}\approx 2.02484375$ with error $<2\times10^{-6}$ (actual $\sqrt{4.1}=2.02484567\ldots$). No alternating shortcut here — the Lagrange bound with $M$ is what guarantees the digits.
+
+### D15. Why does $\sum (-1)^n x^{2n}$ stop at $|x|<1$ when $\frac{1}{1+x^2}$ is smooth everywhere?
+
+The denominator $1+x^2$ vanishes at $x=\pm i$ — bad points **off the real line**, at distance $|i|=1$ from the center. The radius is the distance to the nearest singular point, visible or not (18B). The function is smooth along the real axis, but the series cannot represent it past the complex singularity.
+
+> **Answer**: the nearest singularities are $\pm i$; $R=1$ regardless of their invisibility on the real line.
+
+### D16. Find $c_2$ and $c_3$ for the series equal to $\sin x$ near 0.
+
+Differentiate $\sum c_n x^n = \sin x$ twice: $\sum_{n\ge2} n(n-1)c_n x^{n-2} = -\sin x$. Set $x=0$: only $n=2$ survives → $2\cdot1\cdot c_2 = 0$ → $c_2=0$.
+
+Three times: $\sum_{n\ge3} n(n-1)(n-2)c_n x^{n-3} = -\cos x$. At $x=0$: $3\cdot2\cdot1\cdot c_3 = -\cos 0 = -1$ → $c_3 = -\frac16$.
+
+> **Answer**: $c_2=0$, $c_3=-\frac{1}{6}$ — matching $\sin x = x-\frac{x^3}{6}+\cdots$. This is the coefficient derivation of Example 2 in action: the series is forced by the derivatives.
 
 ---
 
@@ -190,7 +230,7 @@ $$\sinh x = \sum_{n=0}^\infty \frac{x^{2n+1}}{(2n+1)!} = x + \frac{x^3}{6} + \fr
 
 > **Answer**: $\sinh x = \sum_{n=0}^\infty \frac{x^{2n+1}}{(2n+1)!}$, all positive terms, radius $\infty$
 
-### A2. Prove $e^{i\theta} = \cos\theta + i\sin\theta$ using Maclaurin series.
+### A2. Prove $e^{i\theta} = \cos\theta + i\sin\theta$.
 
 $$e^{i\theta} = \sum_{n=0}^\infty \frac{(i\theta)^n}{n!}.$$
 
@@ -208,13 +248,13 @@ Valid for $\left|\frac{x-2}{2}\right|<1$, i.e. $0<x<4$ (radius $2$).
 
 > **Answer**: $\frac{1}{x} = \sum_{n=0}^\infty \frac{(-1)^n}{2^{n+1}}(x-2)^n$, radius $2$
 
-### A4. Evaluate $\lim_{x\to0}\frac{\tan x - x}{x^3}$ using series.
+### A4. Evaluate $\lim_{x\to0}\frac{\tan x - x}{x^3}$.
 
 $\tan x = x + \frac{x^3}{3} + \frac{2x^5}{15} + \cdots$, so $\frac{\tan x - x}{x^3} = \frac{\frac{x^3}{3} + \cdots}{x^3} \to \frac13$.
 
 > **Answer**: $\frac13$
 
-### A5. Compute $\int_0^1 \frac{\sin x}{x}dx$ to 4 decimal places using series.
+### A5. Compute $\int_0^1 \frac{\sin x}{x}dx$ to 4 decimal places.
 
 $\frac{\sin x}{x} = 1 - \frac{x^2}{3!} + \frac{x^4}{5!} - \frac{x^6}{7!} + \cdots$
 
@@ -240,7 +280,7 @@ Need $\frac{1}{(2n+3)!} < 10^{-6}$: $9! = 362880 < 10^6$, $10! = 3628800 > 10^6$
 
 > **Answer**: 5 terms (up to $x^9/9!$)
 
-### A8. Find the sum: $1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\cdots$. Recognize the series.
+### A8. Find the sum: $1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\cdots$.
 
 $\ln(1+x) = x - \frac{x^2}{2} + \frac{x^3}{3} - \cdots$; at $x=1$: $1 - \frac12 + \frac13 - \frac14 + \cdots = \ln 2$.
 
@@ -252,7 +292,7 @@ $\frac{1}{1-x} = \sum x^n$; $\frac{1}{(1-x)^2} = \frac{d}{dx}\frac{1}{1-x} = \su
 
 > **Answer**: $\frac{1}{(1-x)^2} = \sum_{n=0}^\infty (n+1)x^n$, $|x|<1$
 
-### A10. Use the Lagrange remainder to prove that $e$ is irrational.
+### A10. Prove that $e$ is irrational.
 
 Assume $e = \frac{p}{q}$ with integers $p, q > 0$.
 
@@ -268,7 +308,7 @@ The left side is an integer: $n!\,e = n!\frac{p}{q}$ is an integer when $n\ge q$
 
 > **Answer**: the integer-vs-fraction contradiction proves $e\notin\mathbb{Q}$
 
-### A11. Use series to evaluate $\lim_{x\to 0}\frac{\sin x - x + x^3/6}{x^5}$. How many terms are needed?
+### A11. Evaluate $\lim_{x\to 0}\frac{\sin x - x + x^3/6}{x^5}$. How many terms are needed?
 
 $\sin x = x - \frac{x^3}{6} + \frac{x^5}{120} - \frac{x^7}{5040} + \cdots$, so
 
