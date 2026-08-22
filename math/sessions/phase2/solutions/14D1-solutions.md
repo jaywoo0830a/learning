@@ -15,6 +15,8 @@
 
 > **Answer**: units = y-units ÷ x-units, and the sentence always starts with "each extra …".
 
+**Lens reading**: each derivative is a degree of relation between two domains — L/min relates volume to time, people/yr relates population to time, °C/m relates temperature to depth, kg/item relates weight to quantity. The units are the relation's name; write them first and the sentence writes itself.
+
 ---
 
 ## Practice 2
@@ -29,6 +31,8 @@ $v(t) = (t-2)(t-4)$, $a(t) = 2t-6$. Turning points: $v=0$ at $t=2, 4$. Accelerat
 | $4<t<6$ | $+$ | $+$ | forward, speeding up |
 
 > **Answer**: turns at $t=2$ (forward→backward) and $t=4$ (backward→forward); the speed story flips at $t=3$.
+
+**Lens reading**: velocity is position's degree of relation to time, acceleration is velocity's. The timeline reads the two relations' signs against each other — same sign means the relation is strengthening (speeding up), opposite means weakening.
 
 ---
 
@@ -46,6 +50,8 @@ $|error| \le \frac{M}{2}(0.3)^2 = \frac{1}{216}\cdot 0.09 = 0.000417$ ✓ (true 
 
 > **Answer**: $\sqrt{9.3} \approx 3.05$, error $\le 0.000417$ (true ≈ 0.00041)
 
+**Lens reading**: the tangent is $\sqrt{x}$'s local degree of relation to $x$ — near 9, each unit of $x$ buys about $\frac16$ unit of $\sqrt{x}$. The error is what the local relation misses, priced by the relation's own curvature $f''$.
+
 ---
 
 ## Practice 4
@@ -58,6 +64,8 @@ $|error| \le \frac{M}{2}(0.3)^2 = \frac{1}{216}\cdot 0.09 = 0.000417$ ✓ (true 
 
 > **Answer**: (a) \$44/unit (b) ≈\$668 vs exact \$669 (c) $q=12$, where $MC=AC=28$
 
+**Lens reading**: marginal cost is cost's degree of relation to quantity at 20 units — each extra unit buys about \$44 of cost. The \$1 gap is the relation's curvature: the degree itself strengthens by $\frac12 C''$ over one step.
+
 ---
 
 ## Practice 5: Real Battle — The Inflating Balloon
@@ -69,6 +77,8 @@ $|error| \le \frac{M}{2}(0.3)^2 = \frac{1}{216}\cdot 0.09 = 0.000417$ ✓ (true 
 **(c)** $\frac{dV}{dr}$ measures growth *per unit of radius* — how much volume comes with being bigger. $\frac{dV}{dt}$ measures growth *per unit of time* — how fast air is arriving. Both answer "how fast is the balloon growing," for two different "with respect to"s.
 
 > **Answer**: (a) $100\pi \approx 314$ cm³/cm = surface area (b) $\frac{8}{100\pi} \approx 0.0255$ cm/s
+
+**Lens reading**: one balloon, two drivers. $\frac{dV}{dr}$ relates volume to radius — each cm of radius buys 314 cm³, the surface through which growth enters. $\frac{dV}{dt}$ relates volume to time — the pump's arrival rate. The chain rule stitches the two relations.
 
 ---
 
@@ -83,6 +93,8 @@ $|error| \le \frac{M}{2}(0.3)^2 = \frac{1}{216}\cdot 0.09 = 0.000417$ ✓ (true 
 **(c)** $R = 400p - 8p^2$, $R' = 400-16p = 0$ → $p=25$, $q=200$, $R=\$5000$. At that price $E = \frac{25}{200}(-8) = -1$ ✓.
 
 > **Answer**: (a) $E=-1.5$ at $p=30$, $E=-0.25$ at $p=10$ (b) revenue falls at 30, rises at 10 (c) max revenue \$5000 at $p=25$ ($E=-1$)
+
+**Lens reading**: elasticity is demand's percentage degree of relation to price — at 30, strong and backwards (−1.5% per 1%); at 10, weak (−0.25%). Revenue follows the relation's strength: price wins only where the relation is weak enough.
 
 ---
 
@@ -242,11 +254,15 @@ $|error| \le \frac{M}{2}(0.3)^2 = \frac{1}{216}\cdot 0.09 = 0.000417$ ✓ (true 
 
 > **Answer**: (a) mi/hr (b) \$/item (c) bacteria/min (d) N/m
 
+**Lens reading**: four degrees of relation, four unit-names: distance to time, cost to items, population to time, force to distance. Each unit IS a relation, read aloud.
+
 ### D2.
 
 $v = 3(t-1)(t-3)$. The sign is negative between the roots.
 
 > **Answer**: backward on $1 < t < 3$
+
+**Lens reading**: $v$'s sign is the direction of position's relation to time. Between the roots the relation is negative — each second buys negative meters — so the particle moves backward.
 
 ### D3.
 
@@ -254,11 +270,15 @@ $L(x) = 1 + x$ at $a=0$: $e^{0.05} \approx 1.05$ (true $1.051271\ldots$). On $[0
 
 > **Answer**: $e^{0.05} \approx 1.05$, error $\le 0.00131$
 
+**Lens reading**: near 0, $e^x$'s degree of relation to $x$ is 1 — each unit of $x$ buys about one unit of $e^x$. The error bound prices the relation's curvature ($f''=e^x$) against the step squared.
+
 ### D4.
 
 $f'(x) = 2x-4 < 0$ on $(-\infty,2)$ and $>0$ on $(2,\infty)$.
 
 > **Answer**: $f$ decreases on $(-\infty,2)$, increases on $(2,\infty)$, minimum at $x=2$
+
+**Lens reading**: $f' = 2x-4$ is $f$'s degree of relation to $x$ — negative where each unit of $x$ buys less $f$ (falling), positive where it buys more (rising), zero at $x=2$ where the relation pauses at the minimum.
 
 ### D5.
 
@@ -266,11 +286,15 @@ $\frac{dA}{dr} = 2\pi r = 6\pi \approx 18.85$ at $r=3$.
 
 > **Answer**: $6\pi$ cm² per cm — the circumference; each extra cm of radius adds ≈ 18.85 cm² of area
 
+**Lens reading**: the circle's area relates to its radius at degree $6\pi$ — each cm of radius buys $6\pi$ cm², and that degree is the circumference: growth enters through the boundary.
+
 ### D6.
 
 $C'(q) = 0.2q+1$, so $C'(10) = 3$ \$/unit. $C(10) = 70$; estimate $C(11) \approx 73$. Exact $C(11) = 73.1$; actual jump $= 3.1$. The $0.1$ gap is $\frac12 C''(10)\cdot 1^2 = \frac12(0.2) = 0.1$ ✓.
 
 > **Answer**: $C'(10) = \$3$/unit; estimate \$73 vs exact \$73.10
+
+**Lens reading**: $C'(10)=3$ is cost's degree of relation to quantity — the next item buys \$3 of cost. The exact difference \$3.10 shows the relation strengthening as $q$ moves: the degree itself grows, and that growth is $C''$.
 
 ### D7.
 
@@ -278,11 +302,15 @@ $\frac{dK}{dv} = mv = 2\cdot 4 = 8$; units $\mathrm{J}/(\mathrm{m/s}) = \mathrm{
 
 > **Answer**: 8 kg·m/s — momentum
 
+**Lens reading**: $\frac{dK}{dv} = mv = 8$ is energy's degree of relation to speed — each m/s of speed buys 8 kg·m/s of energy, and that degree has a name: momentum.
+
 ### D8.
 
 $\frac{dV}{dr} = 4\pi r^2 = 16\pi \approx 50.3$ at $r=2$.
 
 > **Answer**: $16\pi$ cm³ per cm — the sphere's surface area
+
+**Lens reading**: the sphere's volume relates to its radius at degree $16\pi$ — each cm of radius buys $16\pi$ cm³, and the degree is the surface area: the boundary through which growth arrives.
 
 ### D9.
 
@@ -290,11 +318,15 @@ $AC'(q) = 1 - \frac{25}{q^2} = 0$ → $q=5$. $AC(5) = 20$. Total cost $C = q\cdo
 
 > **Answer**: minimum of $AC$ at $q=5$, value 20; $MC(5)=20=AC(5)$
 
+**Lens reading**: average cost's relation to $q$ is $(MC-AC)/q$ — negative while the next unit is cheaper than the average (drag), zero where they meet at $q=5$ (the relation pauses at the average's minimum), positive after.
+
 ### D10.
 
 $q=60$, $E = \frac{20}{60}(-2) = -\frac23$. $|E| < 1$ → inelastic.
 
 > **Answer**: $E = -\frac23$ (inelastic) — a price rise increases revenue
+
+**Lens reading**: $E=-\frac23$ is demand's percentage degree of relation to price — 1% of price buys only $\frac23$% of demand, so price and revenue are still related forward: raise the price.
 
 ### D11.
 
@@ -305,6 +337,8 @@ $q=60$, $E = \frac{20}{60}(-2) = -\frac23$. $|E| < 1$ → inelastic.
 **(c)** $\frac{dC}{dq}$ — **\$/item**: "each extra item costs about $\frac{dC}{dq}$ dollars" — marginal cost is a degree of relation between cost and quantity.
 
 > **Answer**: km/L (mileage) · kg/m³ (density) · \$/item (marginal cost) — three relations, three named degrees
+
+**Lens reading**: three relations, three named degrees — km/L, kg/m³, \$/item. Each is "how much B per unit A", and each name is a unit: the relation's signature.
 
 ---
 
@@ -318,6 +352,8 @@ Divide by $dr$ and let $dr\to 0$: $\frac{dA}{dr} = 2\pi r$. The ring picture: th
 
 > **Answer**: $\frac{dA}{dr}=2\pi r$; ring area = circumference × width, corner term vanishes
 
+**Lens reading**: area's degree of relation to radius is the circumference — growth enters through the boundary, and the leftover corner $(dr)^2$ is the second-order term the local relation ignores.
+
 ### A2.
 
 **(a)** $\Delta V = \frac{4}{3}\pi\big[(r+dr)^3 - r^3\big] = \frac{4}{3}\pi\big[3r^2 dr + 3r(dr)^2 + (dr)^3\big]$. The leading term is $4\pi r^2\,dr$ — a shell of area $4\pi r^2$ and thickness $dr$.
@@ -325,6 +361,8 @@ Divide by $dr$ and let $dr\to 0$: $\frac{dA}{dr} = 2\pi r$. The ring picture: th
 **(b)** With half-side $u = \frac{s}{2}$: $V = 8u^3$, so $\frac{dV}{du} = 24u^2 = 6(2u)^2 = 6s^2$ — the full surface area. The difference: growing $s$ by $ds$ moves only **3 faces** outward (the cube thickens on three sides), adding $3s^2 ds$; growing the half-side moves **all 6 faces** outward by $du$ each, adding $6s^2\,du$. The derivative measures whichever growth direction you feed it.
 
 > **Answer**: shell volume $4\pi r^2 dr$; half-side derivative = $6s^2$ = full surface area
+
+**Lens reading**: the degree of relation between volume and a growth dimension is the surface facing that dimension. Grow the side and 3 faces answer ($3s^2$); grow the half-side and all 6 do ($6s^2$) — which boundary the relation sees depends on which driver you choose.
 
 ### A3.
 
@@ -336,6 +374,8 @@ Divide by $dr$ and let $dr\to 0$: $\frac{dA}{dr} = 2\pi r$. The ring picture: th
 
 > **Answer**: $\frac{dK}{dt} = Fv$; units momentum vs power; power = force × velocity
 
+**Lens reading**: kinetic energy is related to speed with degree momentum ($mv$), and to time through the chain: momentum × acceleration = $Fv$, power. Two drivers, one chain, two named degrees.
+
 ### A4.
 
 **(a)** Tangent at 0: $f'(0)=\cos 0=1$, so $L(x) = x$. $\sin(0.2) \approx 0.2$ (true $0.198669$).
@@ -345,6 +385,8 @@ Divide by $dr$ and let $dr\to 0$: $\frac{dA}{dr} = 2\pi r$. The ring picture: th
 **(c)** The bound blows up like $|x|^3/6$, and for $x=2$ it is $\frac83 \approx 1.33$ — the tangent model is useless far from 0 (and indeed $\sin 2 \approx 0.91$).
 
 > **Answer**: $\sin 0.2 \approx 0.2$ with error $\le \frac{0.2^3}{6} \approx 0.00133$; the model is local
+
+**Lens reading**: near 0, sine's degree of relation to $x$ is 1 and almost uniform — but only locally. The cubic error is the relation's curvature: sine bends, and far from 0 the local degree stops describing the relation.
 
 ### A5.
 
@@ -358,6 +400,8 @@ Interpretation: at $q=5$, $MC = AC = 15$ — the next unit costs exactly what un
 
 > **Answer**: $q=5$, $MC=AC=15$ = minimum average cost
 
+**Lens reading**: the average's relation to quantity pauses exactly where the next unit's degree (MC) equals the average itself. Below, the next unit is cheaper and drags the average down; above, dearer and pushes it up — the relation's direction flips at $q=5$.
+
 ### A6.
 
 **(a)** Product rule: $R'(p) = q + p\,q' = q\left(1 + \frac{p\,q'}{q}\right) = q\,(1+E)$.
@@ -367,6 +411,8 @@ Interpretation: at $q=5$, $MC = AC = 15$ — the next unit costs exactly what un
 **(c)** With $q>0$, $R'=0 \iff E=-1$. Left of the peak ($E>-1$, inelastic) a price rise gains more per unit than it loses in volume; right of the peak ($E<-1$, elastic) it loses more volume than it gains.
 
 > **Answer**: $R'=q(1+E)$; max revenue at $p=25$, where $E=-1$
+
+**Lens reading**: revenue's degree of relation to price is the direct relation (volume at the current price, $q$) plus the indirect one (volume's own negative relation to price, $p\,q'$). At $E=-1$ the two relations cancel — revenue's relation to price pauses at the peak.
 
 ### A7.
 
@@ -378,6 +424,8 @@ Interpretation: at $q=5$, $MC = AC = 15$ — the next unit costs exactly what un
 
 > **Answer**: $-6.5$ °C/km ($-0.65$ °C per 100 m); freezing at ≈ 3.08 km
 
+**Lens reading**: temperature's degree of relation to altitude is $-6.5$ °C/km — a uniform relation: every kilometer buys 6.5 °C of cold. The freezing altitude is where the relation has run its course ($T=0$).
+
 ### A8.
 
 **(a)** $m$ constant: $F = \frac{dp}{dt} = \frac{d}{dt}(mv) = m\frac{dv}{dt} = ma$.
@@ -386,11 +434,15 @@ Interpretation: at $q=5$, $MC = AC = 15$ — the next unit costs exactly what un
 
 > **Answer**: $F=ma$; two channels: accelerate-current-mass + momentum-of-mass-flow (frame question → 14D1B A1)
 
+**Lens reading**: momentum's degree of relation to speed is the mass; its degree to mass is the velocity of the exchanged mass. The two channels are those two relations — and the full rocket story (the frame question, thrust $-u\dot m$) lives in 14D1B A1.
+
 ### A9.
 
 The exact direction is: $f'(x) > 0$ on an interval ⟹ $f$ increasing there. The converse is false. For $f(x)=x^3$, $f'(0)=0$ but the function is increasing *everywhere*: between any two points $a<b$ there is a $c$ with $\frac{f(b)-f(a)}{b-a} = f'(c) = 3c^2 \ge 0$, and the quotient is positive whenever $a<b$. A zero derivative at a single point cannot force a flat spot — flatness needs the derivative zero on a whole interval. So "$f'=0$" is only a *candidate flag* for an extremum, and "$f'>0$" is a sufficient, not necessary, test.
 
 > **Answer**: $f'>0$ ⟹ increasing is exact; the converse fails at single points like $x=0$ of $x^3$
+
+**Lens reading**: $f'>0$ means the relation to $x$ is positive everywhere — each unit of $x$ buys more $f$. The converse fails at single points: the relation can pause for an instant ($x^3$ at 0) without ever reversing.
 
 ### A10.
 
@@ -399,6 +451,8 @@ $\frac{dV}{dr} = 2\pi r h = 2\pi(3)(10) = 60\pi \approx 188.5$ cm³ per cm — t
 $\frac{dV}{dh} = \pi r^2 = 9\pi \approx 28.3$ cm³ per cm — the **base disk**.
 
 > **Answer**: $60\pi$ = lateral area (band), $9\pi$ = base area (disk)
+
+**Lens reading**: the cylinder's volume relates to radius through the lateral band ($2\pi rh$) and to height through the base disk ($\pi r^2$) — two drivers, two boundaries, and each degree is the surface facing that driver.
 
 ### A11.
 
@@ -409,6 +463,8 @@ $\frac{dV}{dh} = \pi r^2 = 9\pi \approx 28.3$ cm³ per cm — the **base disk**.
 **(c)** At $p=20$: $q=60$, $E = \frac{20}{60}(-2) = -\frac23$. Reading: "1% of price buys $-\frac23$% of demand" — a scale-free degree of relation. The raw $-2$ units/\$ is glued to dollars and units, so it cannot be laid next to $-6.5$ °C/km; the percentage form strips the domains and leaves only the strength of the relation.
 
 > **Answer**: $-2$ units/\$ ↔ $-\frac12$ \$/unit (reciprocals); $E = -\frac23$
+
+**Lens reading**: demand's relation to price is $-2$ units/\$; price's relation to demand is $-\frac12$ \$/unit — one relation, two directions, reciprocals. The percentage form $E=-\frac23$ is the scale-free strength, comparable across domains.
 
 ---
 
@@ -421,6 +477,8 @@ For all $a,x$: $f(x)-f(a) = f'(a)(x-a)$, i.e. $\frac{f(x)-f(a)}{x-a} = f'(a)$ �
 The error bound in Example 3: $|f-L| \le \frac{M}{2}(x-a)^2$ with $M = \max|f''|$ — it vanishes for every $a,x$ exactly when $f''=0$ everywhere. The tangent model is perfect precisely for curvature-free functions: **all linearization error lives in $f''$.** That is why the bound is quadratic — it is the second derivative's fingerprint.
 
 > **Answer**: exactly the affine functions $f(x)=mx+b$ ($f''=0$); the error lives entirely in $f''$
+
+**Lens reading**: the tangent model claims $f$'s relation to $x$ is uniform — degree $f'$ constant. That holds exactly for affine $f$: any curvature means the relation's strength varies, and the linearization error is that curvature, priced by the squared step.
 
 ---
 

@@ -20,6 +20,8 @@
 
 > **Answer**: (a) $F=ma$; (b) two force-channels: accelerate-current-mass + momentum-of-mass-flow; (c) $6$ N, all in the mass channel; (d) thrust $=-u\dot m = 10{,}000$ N, independent of $v$; (e) ask $v_{flow}$ first
 
+**Lens reading**: momentum is jointly related to two drivers, and the two channels are those relations. The degree of $p$ to speed is the mass itself — each extra m/s of speed buys $m$ kg·m/s of momentum. The degree of $p$ to mass is the velocity at which mass joins or leaves: sand arriving from rest buys the full $v$, rocket exhaust leaving at $v-u$ buys only $u$, water dripping off at the truck's own speed buys nothing at all. One quantity, two relations — and the strength of the second relation is a physics question, not a calculus one.
+
 ### A2.
 
 **(a)** $A = xy$, so $\frac{dA}{dt} = x\frac{dy}{dt} + y\frac{dx}{dt}$. Channel 1, $x\frac{dy}{dt} = (3+0.2t)(-0.1)$: the width is frozen at its current value while the height shrinks — "the height shrinking costs area." Channel 2, $y\frac{dx}{dt} = (2-0.1t)(0.2)$: the height is frozen while the width grows — "the width growing adds area."
@@ -27,6 +29,8 @@
 **(b)** At $t=0$: channel 1 $= 3(-0.1) = -0.3$ cm²/s, channel 2 $= 2(0.2) = 0.4$ cm²/s → total $+0.1$ cm²/s: the width channel wins, the area grows. At $t=10$: $x=5$, $y=1$, channel 1 $= -0.5$, channel 2 $= 0.2$ → total $-0.3$ cm²/s: the height channel wins, the area shrinks. (The balance flips at $t=2.5$, where $\frac{dA}{dt} = 0.1 - 0.04t = 0$.)
 
 > **Answer**: $\frac{dA}{dt} = x\dot y + y\dot x$; at $t=0$: $-0.3 + 0.4 = +0.1$ cm²/s (growing); at $t=10$: $-0.5 + 0.2 = -0.3$ cm²/s (shrinking)
+
+**Lens reading**: area is related to width and height at the same time, and each degree of relation is simply the other side's length. The degree of $A$ to height (width frozen) is $x = 3+0.2t$; the degree of $A$ to width (height frozen) is $y = 2-0.1t$. Both degrees drift as the rectangle changes shape — at $t=0$ the width's degree (2) times the width's growth beats the height's degree (3) times the height's shrink; by $t=10$ the degrees are 1 and 5, and the shrinking side wins. A relation's strength is local — here, it flips with time.
 
 ### A3.
 
@@ -37,6 +41,8 @@
 **(c)** At $p=25$: $q=250$, channel 1 $= +250$, channel 2 $= 25(-10) = -250$ — equal and opposite, so $R' = 0$: the budget balances exactly at the revenue peak, which is exactly $E = -1$.
 
 > **Answer**: (b) $+300$ vs $-200$ → $R'=100$ (volume channel winning); (c) balanced channels $= R'=0 = E=-1$ = revenue peak
+
+**Lens reading**: revenue is related to price through two chained relations. Direct: with volume frozen, the degree of $R$ to $p$ is $q$ — each dollar of price on the current volume adds $q$ dollars. Indirect: with price frozen, the degree of $R$ to $q$ is $p$, and demand's own degree to price is $q' = -10$; chained, that contributes $p\,q' = -200$. Two relations, opposite signs — at $p=20$ the direct one wins, at $p=25$ they cancel and revenue's relation to price pauses at zero (the peak — not "no relation").
 
 ### A4.
 
@@ -50,6 +56,8 @@
 
 > **Answer**: (a) 10,000 N; (b) 10 → 16.7 m/s²; (c) constant force, shrinking mass; (d) the exhaust leaves at $v-u$, not $v$
 
+**Lens reading**: acceleration is velocity's degree of relation to time, $a = T/m$. The thrust — force's relation to the mass flow — is constant at $10{,}000$ N, but the mass it must move (the denominator) melts away, so the same force relates velocity to time ever more strongly: 10 m/s per second at launch, 16.7 later. The student's error is a lens error: they read the degree of $p$ to $m$ as the rocket's speed $v$, but the true degree is the velocity the leaving mass actually carries, $v-u$.
+
 ### A5.
 
 **(a)** $AC = \frac{C}{q}$ → $AC' = \frac{C'\,q - C\cdot 1}{q^2} = \frac{C' - C/q}{q} = \frac{MC - AC}{q}$.
@@ -61,6 +69,8 @@
 **(c)** $AC' = 0$ ⟺ $MC = AC$: $2q+4 = q+4+\frac{144}{q}$ → $q^2 = 144$ → $q = 12$ — the minimum of $AC$ from 14D1 Ex6, where both equal 28.
 
 > **Answer**: $AC' = (MC-AC)/q$; at $q=6$: $+2.67 - 5.67 = -3$ (falling); at $q=20$: $+2.2 - 1.56 = +0.64$ (rising); still at $q=12$
+
+**Lens reading**: average cost is a per-unit quantity, so its relation to $q$ is the gap between the next unit and the current average, spread over $q$: degree $= (MC - AC)/q$. At $q=6$ the gap is negative ($16 < 34$) — the average is related to $q$ *backwards* (dilution wins, $-3$ \$/item per item). At $q=20$ the gap is positive ($44 > 31.2$) — related *forwards* ($+0.64$). At $q=12$ the degree is zero: the relation pauses, not disappears — the average stops falling there and starts rising after.
 
 ### A6.
 
@@ -74,6 +84,8 @@
 
 > **Answer**: $\bar v' = (v-\bar v)/t$; at $t=8$: $4.5 - 3.5 = +1$ m/s²; $v = \bar v$ only at $t=0$
 
+**Lens reading**: the average speed's degree of relation to time is the gap between the instantaneous and the average, spread over $t$: $(v - \bar v)/t$. At $t=8$ the instantaneous speed sits 8 m/s above the average, so each second of travel buys the average 1 m/s. The relation is alive the whole trip, and its strength is local — positive while the instant is above, negative were it below, zero exactly where the two meet.
+
 ### A7.
 
 **(a)** $g = \frac{G}{P} = 2000\,e^{0.01t}$ \$/person ($g(0) = 2000$ \$/person).
@@ -86,6 +98,8 @@
 
 > **Answer**: $g = 2000e^{0.01t}$; channels $+80 - 60 = +20$ \$/yr (1%); flat ⟺ equal percentage rates
 
+**Lens reading**: per-capita GDP is related to its numerator forwards and to its denominator backwards. The economy's growth buys the ratio $+80$ \$/yr per person; the population's growth dilutes it $-60$ \$/yr. Two strong relations, one weak net — and the net is exactly the difference of the two percentage degrees, $4\% - 3\% = 1\%$. A ratio hears differences of rates, never sizes.
+
 ### A8.
 
 **(a)** $I = \frac{230}{460} = 0.5$ A. Channels: $+\frac{V'}{R} = \frac{-2.3}{460} = -0.005$ and $-\frac{V\,R'}{R^2} = -\frac{230 \times 9.2}{460^2} = -0.01$ → $\frac{dI}{dt} = -0.015$ A/s.
@@ -95,6 +109,8 @@
 **(c)** The voltage sag alone would cost 1%; but the filament's heating raises the resistance, spreading the same voltage over more ohms — the dilution channel adds another 2%. Two channels, both working against the current.
 
 > **Answer**: $I = 0.5$ A; channels $-0.005 - 0.01 = -0.015$ A/s $= -1\% - 2\% = -3\%$/s
+
+**Lens reading**: current is related to voltage forwards (degree $1/R$: each volt buys $1/R$ amperes) and to resistance backwards (degree $-V/R^2$: each ohm dilutes the current). The voltage sag relates at $-1\%$/s; the filament's heating relates at $+2\%$/s in the backwards direction. Two relations, both against the current: $-1\% - 2\% = -3\%$/s.
 
 ---
 

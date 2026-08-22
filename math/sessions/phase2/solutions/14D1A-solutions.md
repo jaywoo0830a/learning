@@ -14,6 +14,8 @@
 
 > **Answer**: (a) $-\frac34$ (b) vertical at $(\pm5,0)$, horizontal at $(0,\pm5)$ (c) locally a graph everywhere except the tips
 
+**Lens reading**: the circle relates $x$ and $y$ backwards in the upper-right (degree $-\frac34$), and the relation's strength is local — infinite at the tips, zero at the top. One relation, a position-dependent degree.
+
 ---
 
 ## Practice 2
@@ -26,6 +28,8 @@
 
 > **Answer**: (a) $-0.0267$ m³/kPa (b) trade rate (c) $-0.08$ m³/s
 
+**Lens reading**: volume's degree of relation to pressure is $-0.0267$ m³/kPa — backwards and local to this state. Chained to pressure's own relation to time (3 kPa/s), the compound degree is $-0.08$ m³/s.
+
 ---
 
 ## Practice 3
@@ -35,6 +39,8 @@
 **(b)** $\frac{T'}{T} = \frac{5}{200} + \frac{-0.2}{3} = 0.025 - 0.0667 = -0.0417$ — temperature falls about 4.2% per second. The volume shrinkage (−6.7%/s) outweighs the pressure growth (+2.5%/s), and the equation forces the difference onto temperature.
 
 > **Answer**: $\frac{T'}{T} = -0.0417$ (−4.2%/s — the budget forces it)
+
+**Lens reading**: three entangled relations in percentages — pressure +2.5%, volume −6.7% — and the ledger forces temperature's relation to time to be the difference: −4.2%/s.
 
 ---
 
@@ -46,6 +52,8 @@
 
 > **Answer**: (a) $z' = -\frac32$ (b) velocity ⊥ radius
 
+**Lens reading**: the sphere's constraint relates the three velocities — two are free, and the third's degree is forced ($z'=-\frac32$). One equation, one bought relation.
+
 ---
 
 ## Practice 5: Real Battle — The Folium's Leaf
@@ -55,6 +63,8 @@
 **(b)** Horizontal: numerator $= 0$ → $2y = x^2$. Substitute into the curve: $x^3 + \frac{x^6}{8} = 3x^3$ → $x^6 = 16x^3$ → $x^3 = 16$ → $x = 2^{4/3} \approx 2.52$, $y = 2^{5/3} \approx 3.17$. Check: $x^3 + y^3 = 16 + 32 = 48 = 6\cdot 8 = 6xy$ ✓.
 
 > **Answer**: (a) slope $-1$ at $(3,3)$ (b) horizontal at $(2^{4/3},\,2^{5/3}) \approx (2.52,\,3.17)$
+
+**Lens reading**: the folium relates $y$ to $x$ at degree $-1$ at $(3,3)$; the horizontal pause is where the relation's numerator dies — found by solving the relation and its pause-condition together.
 
 ---
 
@@ -66,6 +76,8 @@ Why: compression does work on the gas; in the adiabat no heat leaks away, so the
 
 > **Answer**: $-1.4\frac{p}{V}$ vs $-\frac{p}{V}$; heating stiffens the curve by the factor $\gamma$
 
+**Lens reading**: the same state, two relations — the isotherm's degree $-\frac{p}{V}$ and the adiabat's $-\gamma\frac{p}{V}$. The extra stiffness is the heating the relation itself feeds back.
+
 ---
 
 ## Basic Drills
@@ -76,11 +88,15 @@ $\frac{dy}{dx} = -\frac{4x}{9y} = 0$ at $(0,2)$ — a horizontal tangent at the 
 
 > **Answer**: 0 — horizontal tangent at the top
 
+**Lens reading**: at $(0,2)$ the ellipse's relation of $y$ to $x$ pauses — degree 0, a horizontal tangent at the oval's top.
+
 ### D2.
 
 $V = 4$ m³ at $p = 150$: $\frac{dV}{dp} = -\frac{4}{150} = -0.0267$ m³/kPa.
 
 > **Answer**: $-0.0267$ m³/kPa
+
+**Lens reading**: at $p=150$, volume's degree of relation to pressure is $-0.0267$ m³/kPa — each kPa buys out a little volume, and the degree is local to this state.
 
 ### D3.
 
@@ -88,11 +104,15 @@ $y + x y' = 0$ → $y' = -\frac{y}{x} = -\frac43$: each unit of $x$ trades away 
 
 > **Answer**: $-\frac43$ — a 4-to-3 trade
 
+**Lens reading**: $xy$ constant relates $y$ to $x$ backwards at degree $-\frac43$ — each unit of $x$ trades away $\frac43$ units of $y$.
+
 ### D4.
 
 Vertical where $y = 0$: $(\pm5, 0)$. Horizontal where $x = 0$: $(0, \pm5)$.
 
 > **Answer**: vertical at $(\pm5,0)$; horizontal at $(0,\pm5)$
+
+**Lens reading**: the relation pauses (degree 0) at top and bottom, and switches driver (degree ∞) at the left and right tips — four special points of one relation.
 
 ### D5.
 
@@ -100,11 +120,15 @@ $\frac{dV}{dp} = -\frac{V}{p}$ → $E = \frac{p}{V}\left(-\frac{V}{p}\right) = -
 
 > **Answer**: $E = -1$ — unit elastic
 
+**Lens reading**: the percentage degree of relation between volume and pressure is exactly $-1$ at every state — the hyperbola's relation is uniformly strong.
+
 ### D6.
 
 $2(1)(1) + 2(2)(1) + 2(2)z' = 0$ → $z' = -\frac32$.
 
 > **Answer**: $z' = -\frac32$
+
+**Lens reading**: the sphere's rate-budget forces the third relation — with two speeds chosen, $z'=-\frac32$ is the price of staying on the surface.
 
 ### D7.
 
@@ -112,11 +136,15 @@ $-\gamma\frac{p}{V}$ vs $-\frac{p}{V}$: ratio $\gamma$ (1.4 for air).
 
 > **Answer**: ratio $\gamma$ — the adiabat is $\gamma$ times steeper
 
+**Lens reading**: the adiabat's relation is $\gamma$ times stronger than the isotherm's — the same driver (volume), but the process heats itself and stiffens the response.
+
 ### D8.
 
 $x' + y' + z' = 0$ → $z' = -(x'+y') = -(2-1) = -1$ m/s.
 
 > **Answer**: $-1$ m/s
+
+**Lens reading**: the plane constraint relates the three speeds with equal degrees (1, 1, 1) — two are chosen, the third is bought: $z'=-1$.
 
 ### D9.
 
@@ -124,11 +152,15 @@ $-\frac{x}{y} \to -\infty$ as $(x,y)\to(5,0)$: the trade ratio blows up — a ve
 
 > **Answer**: blows up — vertical tangent at the tip
 
+**Lens reading**: as the circle approaches its tip, the relation of $y$ to $x$ strengthens without bound — $x$ can no longer buy $y$; the relation has switched to the other direction.
+
 ### D10.
 
 $V' = -\frac{V}{P}P' = -\frac{4}{100}\cdot 3 = -0.12$ m³/s.
 
 > **Answer**: $-0.12$ m³/s
+
+**Lens reading**: chained relations — volume's degree to pressure ($-\frac{V}{p}$) times pressure's degree to time ($P'=3$) gives volume's relation to time: $-0.12$ m³/s.
 
 ---
 
@@ -142,6 +174,8 @@ Uniqueness: solve $\frac{dV}{dp} = -\frac{V}{p}$ → $\frac{dV}{V} = -\frac{dp}{
 
 > **Answer**: $\frac{dV}{dp}=-\frac{V}{p}$, $E=-1$; constant elasticity ⟺ hyperbola
 
+**Lens reading**: a constant percentage relation ($E=-1$) is not just a property of Boyle's law — it *is* Boyle's law. Solving the relation's uniformity gives back the hyperbola.
+
 ### A2.
 
 Log-differentiate $PV=nRT$: $\frac{P'}{P}+\frac{V'}{V}=\frac{T'}{T}$.
@@ -150,11 +184,15 @@ Numbers: $0.025 - 0.0667 = -0.0417$. The volume term dominates — the gas is co
 
 > **Answer**: $-0.0417$; the shrinkage outruns the pressure rise
 
+**Lens reading**: the ledger's entries are percentage degrees of relation — volume's −6.7% outruns pressure's +2.5%, and temperature's relation to time is the forced difference: −4.2%/s.
+
 ### A3.
 
 $2y = x^2$; with the curve: $x^3 + \frac{x^6}{8} = 3x^3$ → $x^6 = 16x^3$ → $x^3 = 16$ → $x = 2^{4/3}$, $y = 2^{5/3}$. Verify: $16+32 = 48 = 6\cdot8$ ✓.
 
 > **Answer**: $(2^{4/3}, 2^{5/3})$ on the curve ✓
+
+**Lens reading**: the folium's horizontal pause occurs where the relation's numerator dies — solved against the relation itself, the pause-point is $(2^{4/3},2^{5/3})$.
 
 ### A4.
 
@@ -164,6 +202,8 @@ Compression work raises internal energy; without heat exchange the temperature r
 
 > **Answer**: $-\gamma\frac{p}{V}$; the heating shows up as extra steepness
 
+**Lens reading**: differentiating the adiabat's relation gives $-\gamma\frac{p}{V}$ — the extra $\gamma$ is the heating the compression itself creates, priced into the relation's strength.
+
 ### A5.
 
 Differentiating $\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=1$ along a path: $\frac{2x}{a^2}x' + \frac{2y}{b^2}y' + \frac{2z}{c^2}z' = 0$, i.e. $\left(\frac{x}{a^2},\frac{y}{b^2},\frac{z}{c^2}\right)\cdot(x',y',z')=0$.
@@ -171,6 +211,8 @@ Differentiating $\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=1$ along a path
 The weighted vector is the ellipsoid's normal direction: motion on the surface is perpendicular to it. On the sphere ($a=b=c$) this reduces to radius ⊥ velocity. The weights $1/a^2$ etc. stretch the perpendicularity the same way the surface is stretched.
 
 > **Answer**: weighted dot product $=0$ — a stretched perpendicularity
+
+**Lens reading**: the ellipsoid relates the three velocities with weights $\frac1{a^2},\frac1{b^2},\frac1{c^2}$ — the stretched surface stretches its own perpendicularity relation.
 
 ### A6.
 
@@ -180,17 +222,23 @@ Dynamic: $\frac{dV}{dt} = -0.08$ m³/s — the cash flow, "right now, volume dra
 
 > **Answer**: $-0.04$ m³/kPa (trade) vs $-0.08$ m³/s (flow)
 
+**Lens reading**: two scales of the same relation — the static degree $-\frac{V}{p}$ (m³/kPa, valid at a state) and the dynamic degree $\frac{dV}{dt}$ (m³/s, valid at an instant). Exchange rate vs cash flow.
+
 ### A7.
 
 Where $y'$ is finite, a small change in $x$ produces a well-defined change in $y$ — locally the equation *can* be solved for $y = f(x)$ (the implicit function theorem's conclusion). Where the denominator vanishes, the trade ratio explodes and no such local graph exists (vertical tangent). "Denominator ≠ 0" is exactly "locally a graph."
 
 > **Answer**: finite derivative ⟺ locally solvable for $y$; denominator 0 kills it
 
+**Lens reading**: a finite degree of relation means the equation can be locally solved for one driver in terms of the other — the relation is locally a function. Where the degree blows up, no driver can serve.
+
 ### A8.
 
 $\frac{dq}{q} = -k\frac{dp}{p}$ → $\ln q = -k\ln p + c$ → $q\,p^{k} = C$. Boyle ($k=1$) and power-law demand curves are one family — the elasticity constant is the exponent of the family.
 
 > **Answer**: $qp^k = C$ — elasticity is the exponent
+
+**Lens reading**: a constant percentage relation $k$ integrates to the power family $qp^k=C$ — the elasticity is the exponent of the relation.
 
 ### A9.
 
@@ -199,6 +247,8 @@ Parametric: $\frac{dy}{dx} = \frac{dy/dt}{dx/dt} = \frac{5\cos\theta}{-5\sin\the
 The parametric lens keeps time visible ($x'$, $y'$ are actual speeds); the implicit lens shows the pure geometric trade. Same curve, two questions: "how fast?" (parametric) vs "how steep?" (implicit).
 
 > **Answer**: both give $-\frac{x}{y}$; parametric reads time, implicit reads geometry
+
+**Lens reading**: the parametric form reads the relation through time (two speeds); the implicit form reads it directly (one trade). Same relation, two drivers, one number.
 
 ### A10.
 
@@ -209,6 +259,8 @@ The parametric lens keeps time visible ($x'$, $y'$ are actual speeds); the impli
 **(c)** The same law, two different "holds" — the held variable decides the meaning (14D1's "with respect to what"). One equation manufactures as many derivative-meanings as it has variables.
 
 > **Answer**: $\frac{nR}{P}$ m³/K (expansion), $\frac{nR}{V}$ kPa/K (sealed heating)
+
+**Lens reading**: one law, two held drivers — hold pressure and volume's relation to temperature is $\frac{nR}{P}$ m³/K; hold volume and pressure's relation is $\frac{nR}{V}$ kPa/K. The held variable chooses which relation the derivative reads.
 
 ---
 
@@ -223,6 +275,8 @@ The parametric lens keeps time visible ($x'$, $y'$ are actual speeds); the impli
 **(c)** "Locally a graph" needs the trade ratio finite — i.e. at least one partial of $F = x^3+y^3-6xy$ nonzero: $F_x = 3x^2-6y$, $F_y = 3y^2-6x$; at the origin **both** vanish. The gradient dying is the machine's fuse: the tangent direction becomes ambiguous and no variable can serve as the local coordinate. Everywhere else on the folium, one partial survives and A7's reading works. The derivative sees everything except the points where the gradient vanishes.
 
 > **Answer**: (0,0) is the lone singular point; branches $y\approx x^2/6$ and $y^2\approx6x$; gradient $(F_x,F_y)=(0,0)$ is the breakdown condition
+
+**Lens reading**: at the origin neither variable can buy the other — both degrees read 0/0, so the relation's local strength is undefined. The gradient dying is the breakdown: the relation becomes ambiguous exactly where both partial relations vanish.
 
 ---
 

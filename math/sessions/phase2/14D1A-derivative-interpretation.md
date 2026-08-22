@@ -34,6 +34,22 @@ $$\frac{dy}{dx} = -\frac{x}{y}.$$
 
 ---
 
+### The Relationship Lens — How Much Is $y$ Related to $x$ When They're Entangled? (🔗 14D1)
+
+14D1's relationship lens said: *"A is related to B" is a sentence missing its number — $\frac{dB}{dA}$ in units of B per A is that number.* For entangled variables the relation is no longer a function $B(A)$ but an **equation** $F(x,y)=0$ — and the degree of relation becomes the implicit derivative $\frac{dy}{dx}$, with the same units and the same question: *how much $y$ per unit of $x$?*
+
+**Worked — the circle, through the lens.** $x^2+y^2=25$. At $(3,4)$: $\frac{dy}{dx} = -\frac34$. Sentence: "at this point, $x$ and $y$ are related at degree $-\frac34$ — each unit of $x$ buys $-\frac34$ unit of $y$." The relation exists everywhere on the circle, but its **degree is local**:
+- at $(0,5)$: $\frac{dy}{dx}=0$ — the degree vanishes: for one instant, $x$ buys no $y$ (horizontal tangent). Entangled, yet momentarily unresponsive — the lens's "zero ≠ no relation" (14D1 A9).
+- at $(5,0)$: $\frac{dy}{dx}\to\infty$ — the degree blows up: $y$ responds with infinite strength (vertical tangent). The relation did not break — it switched direction; read $\frac{dx}{dy}=0$ there instead.
+
+**Two directions, one relation.** $\frac{dx}{dy} = -\frac{y}{x} = -\frac43$ at $(3,4)$ — reciprocals, exactly as in 14D1: *"how much does $y$ respond to $x$"* and *"how much does $x$ respond to $y$"* are the same entanglement, read in reverse.
+
+**The percentage form exposes uniform relatedness.** For the multiplicative law $pV = C$ the raw degree $\frac{dV}{dp} = -\frac{V}{p}$ depends on where you stand — but the dimensionless degree $E = \frac{p}{V}\frac{dV}{dp} = -1$ is the same at **every** point: pressure and volume are *uniformly* related, exactly unit elastic (Example 2). The lens's rule repeats itself: raw $\frac{dB}{dA}$ says *how much, here*; the percentage form says *how strongly, everywhere*. And for three entangled variables, the percentage degrees of relation must add to zero (Example 3's budget) — a relation can be read from any direction, but the ledger must balance.
+
+**The mindset, in one sentence**: *entangled is not unreadable — the equation fixes the global relation, and $\frac{dy}{dx}$ (units y per x) reads its local degree: write the units, read the sign, and watch where the degree vanishes (flat) or blows up (vertical).*
+
+---
+
 ## Example 2: Boyle's Law — The Unit-Elastic Trade (🔗 10A, 14D1 Ex8)
 
 Gas at fixed temperature: $pV = C$ (Boyle's law). Differentiate with respect to $p$: $p\,\frac{dV}{dp} + V = 0$, so
@@ -48,6 +64,8 @@ $$\frac{dV}{dp} = -\frac{V}{p}.$$
 ![Boyle's law: tangent slope -V/p on the hyperbola](graphs/0821/14D1A/14d1a-2-boyle.png)
 
 *Graph 14D1A-2: The hyperbola $pV=400$ with tangent at $p=100$ — slope $-\frac{V}{p} = -0.04$ m³/kPa, the unit-elastic trade.*
+
+**Lens reading**: Boyle's law relates pressure to volume at degree $-\frac{V}{p}$ — backwards everywhere, and the percentage degree $E=-1$ shows the relation is uniformly strong: exactly unit elastic at every state.
 
 ---
 
@@ -71,6 +89,8 @@ $$\frac{P'}{P} + \frac{V'}{V} = \frac{T'}{T}.$$
 
 *Graph 14D1A-3: The rate budget $\frac{P'}{P}+\frac{V'}{V}=\frac{T'}{T}$ — pressure +2.5%/s and volume −6.7%/s force temperature to fall 4.2%/s.*
 
+**Lens reading**: the ideal-gas law entangles three relations in one ledger — the percentage degrees of relation must sum to zero. Two rates are free; the third relation is forced to balance the ledger.
+
 ---
 
 ## Example 4: The Sphere — A Geometric Constraint on Motion (🔗 9C)
@@ -86,6 +106,8 @@ $$2x\,\frac{dx}{dt} + 2y\,\frac{dy}{dt} + 2z\,\frac{dz}{dt} = 0, \qquad\text{i.e
 ![Sphere: velocity perpendicular to radius](graphs/0821/14D1A/14d1a-4-sphere-tangent-3d.png)
 
 *Graph 14D1A-4 (3D): The constraint $x^2+y^2+z^2=9$ differentiated — the velocity at (1,2,2) is perpendicular to the radius, always tangent to the sphere.*
+
+**Lens reading**: the sphere's equation is a relation among three coordinates whose rate-budget is the dot product with the radius — the constraint relates the three speeds, leaving two free and one bought.
 
 ---
 
@@ -109,6 +131,8 @@ $$y' = \frac{2y - x^2}{y^2 - 2x}.$$
 
 *Graph 14D1A-5: The folium with tangent slope −1 at (3,3) and the horizontal tangent at $(2^{4/3},\ 2^{5/3})$ — numerator and denominator each control one geometry.*
 
+**Lens reading**: the folium's relation of $y$ to $x$ has a numerator-zero (horizontal pause) and a denominator-zero (vertical blow-up) as two separate events — the relation's strength has its own geometry.
+
 ---
 
 ## Example 6: Adiabatic vs Isothermal — Stiffness of a Law (🔗 14D1 Ex8)
@@ -125,7 +149,9 @@ Adiabatic (no heat exchange): $pV^{\gamma} = C$, $\gamma > 1$ → $\frac{dp}{dV}
 
 *Graph 14D1A-6: Through the same point, the adiabat is $\gamma$ times steeper than the isotherm — compression heating, priced into the slope.*
 
-> **Up to here**: an implicit equation differentiates into a trade-off — the circle's slope $-\frac{x}{y}$, Boyle's $-\frac{V}{p}$ (unit elasticity), the ideal gas's percentage budget $\frac{P'}{P}+\frac{V'}{V}=\frac{T'}{T}$, the sphere's perpendicularity $(x,y,z)\cdot v = 0$, the folium's independent horizontal/vertical conditions, and adiabatic stiffness $-\gamma\frac{p}{V}$.
+**Lens reading**: the adiabat's relation of pressure to volume is $\gamma$ times stronger than the isotherm's — the extra strength is the heating the process itself creates. Elasticity reads that stiffness scale-free: $-\gamma$ vs $-1$.
+
+> **Up to here**: an implicit equation differentiates into a trade-off — the circle's slope $-\frac{x}{y}$, Boyle's $-\frac{V}{p}$ (unit elasticity), the ideal gas's percentage budget $\frac{P'}{P}+\frac{V'}{V}=\frac{T'}{T}$, the sphere's perpendicularity $(x,y,z)\cdot v = 0$, the folium's independent horizontal/vertical conditions, and adiabatic stiffness $-\gamma\frac{p}{V}$; and the relationship lens — an entangled equation's degree of relation is $\frac{dy}{dx}$ in units of y per x, local and reciprocal, with its uniformity exposed by the percentage form.
 
 ---
 

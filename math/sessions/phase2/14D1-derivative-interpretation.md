@@ -232,6 +232,8 @@ The two turning points ($t=1, 3$) and the one acceleration switch ($t=2$) chop t
 
 *Graph 14D-2: Top — $v(t)$ and $a(t)$ with zero crossings marked. Bottom — the motion timeline built purely from signs.*
 
+**Lens reading**: velocity is position's degree of relation to time, acceleration is velocity's — the timeline reads the two relations' signs against each other: same sign means the relation is strengthening.
+
 ---
 
 ## Part B: The Geometric Lens — The Tangent Is the Best Local Model
@@ -257,6 +259,8 @@ Estimate $\sqrt{4.1}$ using $f(x)=\sqrt{x}$ at $a=4$:
 
 *Graph 14D-3: The tangent at $x=4$ and the zoom showing the gap at $x=4.1$ — error ≈ 0.00015, exactly the size the $f''$ bound predicts.*
 
+**Lens reading**: the tangent line is $f$'s local degree of relation to $x$, and the error is the relation's curvature ($f''$) — engineers trust the relation because its local strength is known and its curvature is priced.
+
 ---
 
 ## Example 4: Reading the Derivative's Graph — The Story of $f'$
@@ -270,6 +274,8 @@ Given the graph of $f'(x) = 2x-4$ (a line), read the story of $f$ without knowin
 Two layers, two readings: the **height** of the $f'$ graph tells where $f$ rises/falls; the **slope** of the $f'$ graph tells where $f$ bends. A derivative graph is read twice — once as a sign chart, once as a slope.
 
 > **How to think**: "Where is $f'$ positive?" is a question about $f$'s direction. "Where is $f'$ rising?" is a question about $f$'s curvature. Always know which of the two questions you are answering.
+
+**Lens reading**: $f'$'s sign is the direction of $f$'s relation to $x$; $f'$'s slope is how fast that relation itself changes ($f''$) — a derivative graph is two relations stacked.
 
 ---
 
@@ -297,6 +303,8 @@ Cube sanity check: a cube of side $s$ has $V=s^3$, so $\frac{dV}{ds} = 3s^2$ —
 
 *Graph 14D-5 (3D): A spherical shell of thickness $dr$ has volume ≈ $4\pi r^2\,dr$ — differentiating volume gives the surface area.*
 
+**Lens reading**: differentiating area or volume reads its relation to a growth dimension — and the degree is always the boundary through which growth enters. Which boundary answers depends on which driver you choose (side vs half-side).
+
 ---
 
 ## Example 6: Marginal Cost — The Cost of the Next Unit
@@ -317,6 +325,8 @@ Set $MC = AC$: $2q+4 = q+4+\frac{144}{q}$ → $q^2 = 144$ → $q=12$. At $q=12$ 
 
 *Graph 14D-6: Left — the cost curve with its tangent at $q=12$; the tangent's slope is the cost of the next unit. Right — $MC$ and $AC$ cross at the minimum of $AC$.*
 
+**Lens reading**: marginal cost is cost's degree of relation to quantity; average cost is the relation's lifetime average. They meet where the average's own relation to $q$ pauses — the minimum.
+
 ---
 
 ## Example 7: Physics — One Function, Two Meanings
@@ -334,6 +344,8 @@ The same function $K$ gives two laws because there are two different "with respe
 **Units check**: $[dK/dv] = \mathrm{J}/(\mathrm{m/s}) = \mathrm{kg\,m/s}$ — momentum ✓. $[dK/dt] = \mathrm{J/s} = \mathrm{W}$ — power ✓. The units pick out the right physical law.
 
 **Why power = force × velocity is natural**: pushing twice as hard ($2F$) delivers energy twice as fast, and pushing at twice the speed ($2v$) does too. Each factor scales the rate of energy delivery.
+
+**Lens reading**: one function, two relations — $K$'s degree to speed is momentum, $K$'s degree to time is power. "With respect to what" chooses which driver the relation answers to.
 
 ---
 
@@ -354,6 +366,8 @@ Demand: $q(p) = 500 - 10p$ (units sold at price $p$).
 ![Demand with elastic/inelastic regions; revenue maximized at E=-1](graphs/0821/14D1/14d7-elasticity.png)
 
 *Graph 14D-7: Left — demand with elastic and inelastic regions. Right — revenue peaks exactly where $E=-1$.*
+
+**Lens reading**: elasticity is the percentage degree of relation between demand and price — a scale-free strength. Revenue's relation to price pauses exactly where the two percentage relations balance: $E=-1$.
 
 > **Up to here**: units name the meaning; a relation between two domains is measured by $dB/dA$ in units of B per A; signs tell the story; the tangent is the best local model; differentiating area/volume gives the boundary; marginal cost is the next unit's price and crosses average cost at its minimum; $dK/dv$ is momentum while $dK/dt$ is power; elasticity $-1$ is the revenue peak. (Products and quotients get their own two-channel treatment in [14D1B](14D1B-product-quotient-interpretation.md).)
 

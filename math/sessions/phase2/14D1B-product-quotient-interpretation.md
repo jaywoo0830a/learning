@@ -48,6 +48,8 @@ The term $-u\frac{dm}{dt} > 0$ is the **thrust**: it depends on the *exhaust spe
 
 **The trap, made visible.** At $v=3000$ m/s the naive channel reads $v\frac{dm}{dt} = 3000\cdot(-5) = -15{,}000$ N — the wrong answer. The naive split counts the leaving mass at the rocket's own velocity; the exhaust actually leaves at $v-u = 1000$ m/s. The frame question — *"at what velocity does the mass actually enter or leave?"* — turns a wrong reading into the right one. (Contrast: water dripping straight down from a moving truck leaves with the truck's horizontal velocity — $u_{rel}=0$ — so no thrust and no drag, just $F_{ext}=m\frac{dv}{dt}$. Same mass flow, three different stories, all decided by $v_{flow}$.)
 
+**Reading it all through the relationship lens**: momentum is related to two drivers at once. Its degree of relation to speed is the mass itself ($m$); its degree of relation to mass is the velocity the exchanged mass actually carries ($v_{flow}$). The belt's force is a pure mass-channel relation — sand arriving from rest, degree $v$; the rocket's thrust is the same relation read with the true degree $u$; the leaky truck's is zero. The frame question is nothing but the lens question, asked of the second relation: *how strongly is $p$ related to $m$ — at what velocity does the mass really join or leave?*
+
 **The mindset, in one sentence**: *a product's derivative is a budget with one channel per factor — freeze each factor in turn, then ask at what velocity the moving part actually moves; that answer decides what each channel buys.* The same machine elsewhere: revenue $R' = q + p\,q'$ (14D1 Ex8) splits into a volume channel and a price channel (A3); a rectangle's $\frac{dA}{dt} = x\,\frac{dy}{dt} + y\,\frac{dx}{dt}$ splits into a width channel and a height channel (A2); and 14D1A's log-rule budget splits the *same* changes into percentage channels (14D1A Ex3).
 
 ![Conveyor belt and rocket: the two channels of the product-rule budget](graphs/0821/14D1B/14d1b-1-product-channels.png)
@@ -92,13 +94,37 @@ $$\frac{d}{dt}\ln\!\left(\frac{u}{v}\right) = \frac{u'}{u} - \frac{v'}{v}$$
 
 — *a ratio's percentage growth equals the numerator's percentage growth minus the denominator's* (14D1A's rate budget, at quotient level). GDP up 4%, population up 3% ⟹ per-capita up 1%; voltage down 1%, resistance up 2% ⟹ current down 3% (A8).
 
+**Reading it all through the relationship lens**: a quotient is a quantity related to two drivers, one forward and one backward. $AC$ is related to cost forwards (degree $1/q$) and to quantity backwards (degree $-C/q^2$) — their sum is the single number $(MC-AC)/q$. $\bar v$ is related to time at degree $(v-\bar v)/t$. Per-capita GDP is related to the economy at degree $1/P$ and to the population at degree $-G/P^2$ — and in percentage form the relation collapses to a difference: the ratio's percentage degree equals the numerator's minus the denominator's. Every quotient's derivative is that ledger of two relations, read aloud.
+
 **The mindset, in one sentence**: *a quotient's derivative compares two channels — what the numerator adds per unit, minus what the denominator spreads thinner — so the ratio rises only when the top outruns the bottom.*
 
 ![Average speed (secant vs tangent) and per-capita channel budget](graphs/0821/14D1B/14d1b-2-quotient-rule.png)
 
 *Graph 14D1B-2: Left — the secant's slope is the average speed and the tangent's is the instantaneous speed; the average climbs while the tangent sits above the secant. Right — per-capita GDP at $t=0$: two large channels, a small net — a ratio hears the difference of the two growth rates.*
 
-> **Up to here**: a product's derivative is a budget with one channel per factor — freeze each in turn, then ask at what velocity the mass enters or leaves; a quotient's derivative compares two channels — the numerator's gain per unit minus the denominator's dilution — so a ratio rises only when the top outruns the bottom.
+---
+
+### The Relationship Lens for Products and Quotients — How Much Is $uv$ Related to Each Factor? (🔗 14D1)
+
+14D1's lens reads "A is related to B" as $\frac{dB}{dA}$ in units of B per A. A product $y = u\,v$ is related to **two** drivers at once — so its degree of relation splits into two channels, one per factor, each freezing the other:
+
+$$\frac{d(uv)}{dt} = \underbrace{u}_{\text{degree to }v}\frac{dv}{dt} + \underbrace{v}_{\text{degree to }u}\frac{du}{dt}$$
+
+Each channel is a *frozen-factor degree of relation*: $u$ is how strongly $uv$ responds to $v$ (with $u$ held), $v$ is how strongly it responds to $u$ (with $v$ held). The total rate is the sum of "degree × that factor's own rate."
+
+**Worked — momentum, through the lens.** $p = mv$: the degree of relation of $p$ to $v$ is $m$ (mass), and of $p$ to $m$ is $v$ (velocity). So $F = m\frac{dv}{dt} + v\frac{dm}{dt}$ reads: *the force is the sum of momentum's two relations — to speed and to mass — each weighted by that driver's own change.* And the frame question is a question about the second degree of relation: the strength of the $p\leftrightarrow m$ relation is not $v$ in general — it is the velocity the exchanged mass actually carries, $v_{flow}$. Asking "at what velocity does the mass enter or leave?" is asking *what the true degree of that relation is.*
+
+**Worked — quotient, through the lens.** $AC = C/q$ has two degrees of relation: to its numerator $C$ (degree $\frac{1}{q}$ — more cost lifts the average) and to its denominator $q$ (degree $-\frac{C}{q^2}$ — more units dilute it). The quotient rule assembles them:
+
+$$AC' = \underbrace{\frac{1}{q}}_{\text{degree to }C}C' \;-\; \underbrace{\frac{C}{q^2}}_{\text{degree to }q}$$
+
+The dilution channel *is* the negative degree of relation of a per-unit quantity to its denominator — a per-unit sentence is related to its divisor *backwards*. (Reduced: $AC' = \frac{MC-AC}{q}$ — the average responds to $q$ at a degree equal to the gap between the next unit and the average, spread over $q$.)
+
+**Percentage form — comparing the two degrees.** Taking logarithms, $\ln(uv)' = \frac{u'}{u} + \frac{v'}{v}$: the percentage degrees of relation **add** for a product and **subtract** for a quotient. The lens's elasticity $E = \frac{A}{B}\frac{dB}{dA}$ is exactly this percentage degree — so the Two-Channel Checklist's PERCENT step is the relationship lens's answer to "how strongly is the whole related to each factor, scale-free?"
+
+**The mindset, in one sentence**: *a product's derivative budgets its two degrees of relation — freeze one factor, read the other; a quotient's adds a positive degree (numerator) and a negative one (dilution) — so always ask: how related is the whole to each part, with the other part held still?*
+
+> **Up to here**: a product's derivative is a budget with one channel per factor — freeze each in turn, then ask at what velocity the mass enters or leaves; a quotient's derivative compares two channels — the numerator's gain per unit minus the denominator's dilution — so a ratio rises only when the top outruns the bottom; and the relationship lens — a product is related to each factor through a frozen-factor degree (the channels), a quotient through a positive and a negative one.
 
 ---
 

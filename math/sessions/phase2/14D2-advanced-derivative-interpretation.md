@@ -42,6 +42,8 @@ Fix the basis $\{\mathrm{L}, \mathrm{M}, \mathrm{T}\}$ (length, mass, time). A u
 
 *Graph 14D2-1: Speed, force, and energy as vectors in the {L, M, T} dimension space. Differentiation (d/dt) and integration (∫dt) are arrows that move every vector one step along the time axis.*
 
+**Lens reading**: a unit is a relation between a quantity and the base dimensions — and $d/dt$ shifts that relation one step along the time axis. Units are relations; the dimension space is where they do arithmetic.
+
 ---
 
 ## Example 2: Dimensionless Arguments — Where Units Must Die
@@ -58,6 +60,8 @@ If $x$ were 2 meters, the series would add a pure number, a length, an area, a v
 - Radians are **dimensionless**: rad = (arc length)/(radius) = $\mathrm{L}-\mathrm{L} = 0$. That is why angles flow through trig functions freely — and why $e^{i\theta}$ (12A1) is meaningful.
 
 **The error-catcher**: "the answer is $e^{3t}$ meters" is not merely wrong — it is meaningless, like adding $\$5$ to 5 apples. Units are the first thing a field calculation must satisfy; every rung of this session carries them.
+
+**Lens reading**: $e^x$ and $\sin x$ only accept arguments whose relation to every dimension is zero — otherwise their series would add unrelated things. A transcendental function demands a relation-free input.
 
 ---
 
@@ -81,6 +85,8 @@ At $(3,1)$: $\frac{\partial T}{\partial x} = -6$ °C/m, $\frac{\partial T}{\part
 
 *Graph 14D2-2: Level curves (ellipses, 9C style) of $T=60-x^2-2y^2$ with gradient arrows. Arrows cross contours at right angles; short arrows near the warm center, long arrows on the steep outer slopes.*
 
+**Lens reading**: a partial derivative is the field's degree of relation to one coordinate, the other held still — the full relation to position will need the vector form (Example 4).
+
 ---
 
 ## Example 4: The Gradient — All Directions at Once
@@ -101,6 +107,8 @@ At $(3,1)$: $\nabla T = (-6,-4)$, magnitude $\sqrt{52} \approx 7.2$ °C/m.
 
 **Heat flows downhill**: conduction follows $-\nabla T$ — away from the warm center, across contours. A vector field was born from a scalar field by differentiating.
 
+**Lens reading**: the gradient is the field's degree of relation to *position* — a vector: strongest along one direction, perpendicular to the lines where the relation is flat (contours), zero where the field stops responding (peaks and pits).
+
 ---
 
 ## Example 5: 3D — The Gradient of a Room (🔗 9C)
@@ -116,6 +124,8 @@ $$\nabla T = (2x, 2y, 2z) = 2(x,y,z).$$
 ![Radial gradient field in 3D](graphs/0821/14D2/14d2-3-radial-gradient-3d.png)
 
 *Graph 14D2-3 (3D): The gradient field of $T=x^2+y^2+z^2$ — arrows radiate from the heat source, growing with distance. Level surfaces (spheres) sit perpendicular to the arrows.*
+
+**Lens reading**: temperature's degree of relation to position is $2(x,y,z)$ — radial, with strength $2r$: the relation strengthens linearly as you leave the source, and dies exactly at the source.
 
 ---
 
@@ -141,6 +151,8 @@ Differentiate again: $\frac{d^2z}{dt^2} = i\omega\cdot i\omega z = -\omega^2 z$ 
 
 *Graph 14D2-4: The velocity field $v = i\omega z$ of a rotating rim. Every arrow is the position vector rotated a quarter-turn ahead — the geometry of complex multiplication.*
 
+**Lens reading**: differentiation relates position to velocity at degree $i\omega$ — a quarter-turn ahead — and each further differentiation adds another quarter-turn. The relation itself is a rotation.
+
 ---
 
 ## Example 7: The Complex Derivative As a Local Lens
@@ -158,6 +170,8 @@ At $z_0 = 1+i$: $f'(z_0) = 2+2i$, modulus $2\sqrt2 \approx 2.83$, argument $45°
 ![z squared: local rotation and scaling near 1+i](graphs/0821/14D2/14d2-5-conformal-z2.png)
 
 *Graph 14D2-5: A tiny square near $1+i$ under $f(z)=z^2$. The square is stretched $2.83\times$ and rotated $45°$ — no shear. The derivative $2z_0$ is the lens.*
+
+**Lens reading**: $f'(z_0)$ is the map's degree of relation to its input — locally a pure rotation+scale lens. A reflection has no such degree: its relation depends on direction.
 
 ---
 
@@ -185,6 +199,8 @@ At $\omega=2$, the point $(3,3)$ moves with velocity $(-6,6)$ — speed $\sqrt{7
 
 *Graph 14D2-6: The velocity field of a spinning plate — $v = \omega \times r$, the same arrows as multiplication by $i\omega$. A 2×2 matrix IS a vector field.*
 
+**Lens reading**: the spinning plate relates velocity to position at degree $i\omega$ — the same relation complex numbers encode. A field *is* a relation, defined at every point.
+
 ---
 
 ## Example 9: Reading a Linear Field — Trace, Determinant, Eigen-directions
@@ -196,6 +212,8 @@ Take $A = \begin{pmatrix}2 & 0 \\ 0 & 3\end{pmatrix}$: the field $x \mapsto Ax$ 
 - **Trace** $= 2 + 3 = 5$: the **sum of the two stretch rates**. A tiny square grows its sides by $2+3=5$ (to first order) — the trace is the field's **divergence**: how much the field squirts outward per point. (16C2 makes this an integral theorem.)
 
 **Add shear**: $A = \begin{pmatrix}2 & 1 \\ 0 & 3\end{pmatrix}$. Trace $=5$, determinant $=6$ — **unchanged**. Shear stretches and turns but does not spread or rescale area: a parallelogram built by shear has the same area and the same edge-growth as the rectangle. Trace and determinant are *fingerprints* of the field that survive shear — the first step of reading any linear field.
+
+**Lens reading**: a matrix reads as a field of relations — eigen-lanes where the relation is a pure stretch, the determinant the relation's effect on area, the trace its total spreading. Shear redirects without changing the relation's fingerprints.
 
 ---
 
@@ -211,6 +229,8 @@ T(x,y) °C           ∇T °C/m        arrows        div (1/m)      source densi
 - Every rung carries units: $[\nabla T] = [T]/\mathrm{L}$, $[\mathrm{div}] = 1/\mathrm{L}$. The dimension space (Part A) is the ledger that keeps all rungs honest.
 
 > **Up to here**: units are vectors in a dimension space, and d/dt subtracts the time axis; transcendental functions need dimensionless arguments; a scalar field's derivative is the gradient — steepest ascent, perpendicular to contours, in units of field per meter; in ℂ the derivative is a rotation+scale lens; a matrix is a field, read by trace, determinant, and eigen-directions.
+
+**Lens reading**: the ladder chains relations — field to position (gradient), then arrow-field to its own spreading (divergence). Each rung's units record which relation was just taken.
 
 ---
 
