@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
-"""Generate the session graphs for 14D (derivative interpretation) and 16C (integral interpretation).
+"""Generate the session graphs for 14D (derivative interpretation), 14D1B (product/quotient), and 16C (integral interpretation).
 
-Outputs into graphs/0821/14D and graphs/0821/16C (png).
+Outputs into graphs/0821/14D1, graphs/0821/14D1B, and graphs/0821/16C1 (png).
 """
 import numpy as np
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-from matplotlib.patches import Rectangle, Circle, Wedge
+from matplotlib.patches import Rectangle, Circle, Wedge, FancyBboxPatch, Polygon
 import os
 
 plt.rcParams.update({
@@ -17,7 +17,7 @@ plt.rcParams.update({
     'axes.grid': False, 'figure.facecolor': 'white', 'axes.facecolor': 'white',
 })
 BASE = os.path.join(os.path.dirname(__file__), 'graphs', '0821')
-for _sub in ('14D1', '16C1'):
+for _sub in ('14D1', '14D1B', '16C1'):
     os.makedirs(os.path.join(BASE, _sub), exist_ok=True)
 
 BLUE = '#1a73e8'
@@ -253,6 +253,89 @@ def d7_elasticity():
     fig.tight_layout()
     save(fig, '14D1', '14d7-elasticity.png')
 
+def d8_product_rule():
+    """Two panels: conveyor belt (only the mass channel is open) and rocket (the frame question)."""
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(11, 4.8))
+    for ax in (ax1, ax2): g(ax)
+
+    # Left: conveyor belt — sand from a fixed hopper lands on a moving belt
+    ax1.plot([0.4, 6.2], [1.5, 1.5], color=GRAY, lw=7, solid_capstyle='round')
+    for x in (0.9, 5.7):
+        ax1.add_patch(Circle((x, 1.1), 0.3, facecolor='white', edgecolor=GRAY, lw=2))
+    for x in (2.2, 2.85, 3.5):
+        ax1.plot([x, x], [4.3, 1.52], color=AMBER, lw=2.4)
+        ax1.add_patch(Circle((x, 4.48), 0.13, color=AMBER))
+    ax1.arrow(6.0, 1.9, 0.55, 0, head_width=0.2, head_length=0.25, color=GREEN, lw=3)
+    ax1.text(5.72, 2.45, r'$v = 2$ m/s', color=GREEN, fontweight='bold', fontsize=10, ha='center')
+    ax1.arrow(2.2, 2.75, 0.7, 0, head_width=0.15, head_length=0.18, color=AMBER, lw=2.4)
+    ax1.text(1.05, 3.15, r'$\dot m = 3$ kg/s from rest', color=AMBER, fontweight='bold', fontsize=10)
+    ax1.arrow(3.35, 0.72, 1.15, 0, head_width=0.18, head_length=0.22, color=RED, lw=3)
+    ax1.text(3.15, 0.26, r'$F = v\,\dot m = 6$ N', color=RED, fontweight='bold', fontsize=11, ha='center')
+    ax1.set_xlim(0, 6.9); ax1.set_ylim(0, 5)
+    ax1.set_xticks([]); ax1.set_yticks([])
+    ax1.set_title('Conveyor belt: only the mass channel is open', fontweight='bold')
+
+    # Right: rocket — the exhaust leaves at v−u, not v
+    ax2.add_patch(FancyBboxPatch((2.55, 2.15), 0.9, 1.85,
+                                 boxstyle='round,pad=0.05,rounding_size=0.28',
+                                 facecolor=BLUE, alpha=0.85))
+    ax2.add_patch(Polygon([[2.7, 2.2], [3.3, 2.2], [3.0, 1.25]], closed=True,
+                          facecolor=RED, alpha=0.9))
+    ax2.arrow(4.0, 3.3, 0.85, 0, head_width=0.22, head_length=0.28, color=GREEN, lw=3)
+    ax2.text(4.15, 3.95, r'$v$ (rocket speed)', color=GREEN, fontweight='bold', fontsize=10, ha='center')
+    for x in (2.8, 3.0, 3.2):
+        ax2.arrow(x, 1.15, 0, -0.7, head_width=0.14, head_length=0.2, color=AMBER, lw=2.6)
+    ax2.text(1.7, 0.5, r'exhaust leaves at $v - u$', color=AMBER, fontweight='bold', fontsize=10)
+    ax2.arrow(3.45, 3.3, 0.85, 0, head_width=0.22, head_length=0.28, color=RED, lw=3)
+    ax2.text(4.15, 2.6, r'thrust $= -u\,\dot m$', color=RED, fontweight='bold', fontsize=10, ha='center')
+    ax2.text(4.15, 2.0, r'$= 10^4$ N — not $v\,\dot m$', color=RED, fontsize=10, ha='center')
+    ax2.set_xlim(0, 6.9); ax2.set_ylim(0, 5)
+    ax2.set_xticks([]); ax2.set_yticks([])
+    ax2.set_title('Rocket: the frame question decides the channel', fontweight='bold')
+
+    fig.tight_layout()
+    save(fig, '14D1B', '14d1b-1-product-channels.png')
+
+def d9_quotient():
+    """Two panels: average speed (secant vs tangent) and per-capita channel budget."""
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(11, 4.6))
+    for ax in (ax1, ax2): g(ax)
+
+    # Left: s(t) = 20t + t^2 — secant from origin = average speed, tangent = instantaneous
+    t = np.linspace(0, 12, 400)
+    s = 20*t + t**2
+    t0 = 8
+    s0 = 20*t0 + t0**2
+    v_inst = 20 + 2*t0
+    ax1.plot(t, s, BLUE, lw=2.5, label=r'$s(t)=20t+t^2$ [m]')
+    ax1.plot(t, (s0/t0)*t, GREEN, lw=2, ls='--', label=r'secant: slope $=\bar{v}=s/t$')
+    ax1.plot(t, v_inst*(t - t0) + s0, RED, lw=2, ls='--', label='tangent: slope $=v$')
+    ax1.plot([t0], [s0], 'o', color=RED, ms=7, zorder=6)
+    ax1.annotate(r'$v > \bar{v}$ → average rising', (t0, s0), xytext=(1.6, 320),
+                 fontsize=10, color=RED, fontweight='bold',
+                 arrowprops=dict(arrowstyle='->', color=RED, lw=1.2))
+    ax1.set_xlim(0, 12); ax1.set_ylim(0, 430)
+    ax1.set_xlabel('time $t$ [s]'); ax1.set_ylabel('position $s$ [m]')
+    ax1.set_title('Average speed rises while instant > average', fontweight='bold')
+    ax1.legend(fontsize=9, loc='upper left')
+
+    # Right: per-capita GDP channels — big channels, small net
+    labels = [r'$G^{\prime}/P$', r'$-G\,P^{\prime}/P^2$', r'net $g^{\prime}$']
+    vals = [80, -60, 20]
+    colors = [GREEN, AMBER, BLUE]
+    bars = ax2.barh(labels, vals, color=colors, alpha=0.85, height=0.55)
+    for bar, v in zip(bars, vals):
+        ax2.text(v + (2 if v >= 0 else -2), bar.get_y() + bar.get_height()/2,
+                 f'{v:+.0f}', va='center', ha='left' if v >= 0 else 'right',
+                 fontsize=10, fontweight='bold', color='#333')
+    ax2.axvline(0, color='#888', lw=1.2)
+    ax2.set_xlim(-85, 110)
+    ax2.set_xlabel(r'rate [\$/yr per person]')
+    ax2.set_title(r'Per-capita GDP: $4\% - 3\% = 1\%$', fontweight='bold')
+
+    fig.tight_layout()
+    save(fig, '14D1B', '14d1b-2-quotient-rule.png')
+
 # ═══════════════════════════ 16C ═══════════════════════════
 
 def c1_accumulation():
@@ -406,7 +489,8 @@ def c7_expectation():
 
 if __name__ == '__main__':
     d1_units(); d2_motion_story(); d3_linearization(); d4_circle_ring()
-    d5_sphere_shell(); d6_marginal_cost(); d7_elasticity()
+    d5_sphere_shell(); d6_marginal_cost(); d7_elasticity(); d8_product_rule()
+    d9_quotient()
     c1_accumulation(); c2_average_value(); c3_work_spring(); c4_surplus()
     c5_present_value(); c6_density_3d(); c7_expectation()
     print('Done: 14D1 + 16C1 graphs written to graphs/0821/')

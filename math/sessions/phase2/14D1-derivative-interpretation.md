@@ -6,7 +6,7 @@
 
 **Prerequisites**: 14A (basic derivatives), 14B (product/chain rules), 14C (higher derivatives), 15A (curve analysis)
 
-*Prerequisite for: [14D2 — Advanced Derivative Interpretation](14D2-advanced-derivative-interpretation.md), [14D1A — Implicit Relations](14D1A-derivative-interpretation.md)*
+*Prerequisite for: [14D2 — Advanced Derivative Interpretation](14D2-advanced-derivative-interpretation.md), [14D1A — Implicit Relations](14D1A-derivative-interpretation.md), [14D1B — Product & Quotient Rules](14D1B-product-quotient-interpretation.md)*
 
 > 💡 **Stuck?** Every problem has a collapsible **Hint** below it — click it only when you need a nudge.
 
@@ -184,7 +184,7 @@ Demand: $q(p) = 500 - 10p$ (units sold at price $p$).
 
 *Graph 14D-7: Left — demand with elastic and inelastic regions. Right — revenue peaks exactly where $E=-1$.*
 
-> **Up to here**: units name the meaning; signs tell the story; the tangent is the best local model; differentiating area/volume gives the boundary; marginal cost is the next unit's price and crosses average cost at its minimum; $dK/dv$ is momentum while $dK/dt$ is power; elasticity $-1$ is the revenue peak.
+> **Up to here**: units name the meaning; signs tell the story; the tangent is the best local model; differentiating area/volume gives the boundary; marginal cost is the next unit's price and crosses average cost at its minimum; $dK/dv$ is momentum while $dK/dt$ is power; elasticity $-1$ is the revenue peak. (Products and quotients get their own two-channel treatment in [14D1B](14D1B-product-quotient-interpretation.md).)
 
 ---
 
@@ -486,7 +486,7 @@ $-6.5$ °C/km $= -0.65$ °C per 100 m. Solve $20 - 6.5h = 0$.
 <details>
 <summary>💡 Hint</summary>
 
-$\frac{dp}{dt} = m\frac{dv}{dt} + v\frac{dm}{dt}$. For a rocket $\frac{dm}{dt}<0$ — the second term is the thrust from throwing mass away.
+$\frac{dp}{dt} = m\frac{dv}{dt} + v\frac{dm}{dt}$ — two channels: accelerate the mass that is here, and momentum carried by the mass flow. (The full rocket story — thrust $= -u\frac{dm}{dt}$ and the frame question — lives in [14D1B](14D1B-product-quotient-interpretation.md#advanced-drill) A1.)
 
 </details>
 

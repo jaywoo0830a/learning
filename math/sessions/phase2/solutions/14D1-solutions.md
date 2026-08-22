@@ -222,9 +222,9 @@ Interpretation: at $q=5$, $MC = AC = 15$ — the next unit costs exactly what un
 
 **(a)** $m$ constant: $F = \frac{dp}{dt} = \frac{d}{dt}(mv) = m\frac{dv}{dt} = ma$.
 
-**(b)** $m(t)$ changing: $F = m\frac{dv}{dt} + v\frac{dm}{dt}$. First term: accelerating the current mass. Second term: the momentum carried off by the ejected mass — for a rocket $\frac{dm}{dt} < 0$, so $-v\frac{dm}{dt}$ is positive thrust. Throw mass backward, get pushed forward.
+**(b)** $m(t)$ changing: $F = m\frac{dv}{dt} + v\frac{dm}{dt}$. First term: accelerating the mass that is already here. Second term: the momentum carried by the mass flow — mass leaving at speed $v$ subtracts momentum like money leaving an account. (The precise rocket story — the exhaust leaves at $v-u$, so the true thrust is $-u\frac{dm}{dt}$ — is worked out in [14D1B A1](../14D1B-product-quotient-interpretation.md#advanced-drill).)
 
-> **Answer**: $F=ma$ for fixed mass; rockets get thrust from the $v\,dm/dt$ term
+> **Answer**: $F=ma$; two channels: accelerate-current-mass + momentum-of-mass-flow (frame question → 14D1B A1)
 
 ### A9.
 
@@ -281,7 +281,7 @@ The error bound in Example 3: $|f-L| \le \frac{M}{2}(x-a)^2$ with $M = \max|f''|
 | A5 | $q=5$, $MC=AC=15$ |
 | A6 | $R'=q(1+E)$; $p=25$ |
 | A7 | $-0.65$ °C/100m; ≈3.08 km |
-| A8 | $F=ma$; thrust $=v\,dm/dt$ |
+| A8 | $F=ma$; channels $m\dot v + v\dot m$ (frame question → 14D1B A1) |
 | A9 | converse fails; $f'=0$ is only a flag |
 | A10 | $60\pi$ lateral · $9\pi$ base |
 | DI1 | affine functions $f=mx+b$ — $f''=0$ everywhere |
