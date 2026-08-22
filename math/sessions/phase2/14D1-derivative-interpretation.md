@@ -69,7 +69,7 @@ Sphere: $V = \frac{4}{3}\pi r^3$. Differentiate: $\frac{dV}{dr} = 4\pi r^2$ — 
 
 **Why this is not a coincidence**: grow the circle from radius $r$ to $r+dr$. The added area is a thin ring of circumference $2\pi r$ and width $dr$: $\Delta A \approx 2\pi r\,dr$. Divide by $dr$: exactly $\frac{dA}{dr} = 2\pi r$. Growth happens **on the boundary**, and the derivative measures that boundary.
 
-**The shape underneath**: $A = \pi r^2$ is 14D's Case 1 shape — proportional·forward — with a degree $2\pi r$ that *grows* with $r$: the boundary lengthens as the driver grows. That is why a bigger circle buys more area per extra meter.
+**The shape underneath**: $A = \pi r^2$ — the degree $2\pi r$ *grows* with $r$: the boundary lengthens as the driver grows. That is why a bigger circle buys more area per extra meter.
 
 Cube sanity check: a cube of side $s$ has $V=s^3$, so $\frac{dV}{ds} = 3s^2$ — *not* $6s^2$. Why? Growing the side by $ds$ thickens only 3 of the 6 faces. If instead the cube grows by its **half-side** $u = s/2$, then $V = 8u^3$ and $\frac{dV}{du} = 24u^2 = 6s^2$ — the full surface area. The derivative with respect to *which* growth dimension you use sets the meaning. (This is a preview of A2.)
 
@@ -147,7 +147,7 @@ Demand: $q(p) = 500 - 10p$ (units sold at price $p$).
 
 **Lens reading**: raw $\frac{dq}{dp}$ is demand's degree to price in units/\$; elasticity strips the units and reads the same relation in percentages — 1% of price buys $E$% of demand (14D's percentage form). Revenue's relation to price pauses exactly where the two percentage relations balance: at $E=-1$ the per-unit gain is eaten by the lost volume.
 
-> **Up to here**: the tangent is the best local model; differentiating area/volume gives the boundary; marginal cost is the next unit's price and crosses average cost at its minimum; $dK/dv$ is momentum while $dK/dt$ is power; elasticity $-1$ is the revenue peak. (The unit lens, relationship lens, shape lens, and motion signs live in [14D](14D-relation-lens.md); products and quotients get their two-channel treatment in [14D1B](14D1B-product-quotient-interpretation.md).)
+> **Up to here**: the tangent is the best local model; differentiating area/volume gives the boundary; marginal cost is the next unit's price and crosses average cost at its minimum; $dK/dv$ is momentum while $dK/dt$ is power; elasticity $-1$ is the revenue peak. (The unit lens, relationship lens, sign lens, variable jail, and motion signs live in [14D](14D-relation-lens.md); products and quotients get their two-channel treatment in [14D1B](14D1B-product-quotient-interpretation.md).)
 
 ---
 
@@ -234,18 +234,8 @@ Derivative units = y-units ÷ x-units. The sentence starts "each extra …" and 
 
 A particle has $v(t) = t^2 - 6t + 8$ (m/s).
 
-<details>
-<summary><b>P2.A</b></summary>
-
-Find the turning points and the acceleration.
-
-<details>
-<summary><b>P2.B</b></summary>
-
-Write the complete motion timeline (moving forward/backward, speeding up/slowing down) on $[0,6]$.
-
-</details>
-</details>
+- **A.** Find the turning points and the acceleration.
+- **B.** Write the complete motion timeline (moving forward/backward, speeding up/slowing down) on $[0,6]$.
 
 <details>
 <summary>💡 Hint</summary>
@@ -262,18 +252,8 @@ Factor $v(t) = (t-2)(t-4)$ for the turning points. $a(t) = 2t-6$ switches sign a
 
 $f(x)=\sqrt{x}$, at $a=9$.
 
-<details>
-<summary><b>P3.A</b></summary>
-
-Linearize at $a=9$ and estimate $\sqrt{9.3}$.
-
-<details>
-<summary><b>P3.B</b></summary>
-
-Bound the error using $f''$.
-
-</details>
-</details>
+- **A.** Linearize at $a=9$ and estimate $\sqrt{9.3}$.
+- **B.** Bound the error using $f''$.
 
 <details>
 <summary>💡 Hint</summary>
@@ -290,24 +270,9 @@ $L(x) = f(9) + f'(9)(x-9)$ with $f'(9)=\frac16$. The error bound is $\frac{M}{2}
 
 For $C(q) = q^2 + 4q + 144$:
 
-<details>
-<summary><b>P4.A</b></summary>
-
-Compute $C'(20)$ and say what it means.
-
-<details>
-<summary><b>P4.B</b></summary>
-
-Estimate $C(21)$ from $C(20)$ and compare with the exact value.
-
-<details>
-<summary><b>P4.C</b></summary>
-
-Find the $q$ where marginal cost equals average cost.
-
-</details>
-</details>
-</details>
+- **A.** Compute $C'(20)$ and say what it means.
+- **B.** Estimate $C(21)$ from $C(20)$ and compare with the exact value.
+- **C.** Find the $q$ where marginal cost equals average cost.
 
 <details>
 <summary>💡 Hint</summary>
@@ -324,24 +289,9 @@ Find the $q$ where marginal cost equals average cost.
 
 A spherical balloon has $V = \frac{4}{3}\pi r^3$.
 
-<details>
-<summary><b>P5.A</b></summary>
-
-Compute $\frac{dV}{dr}$ at $r=5$ cm and say what it means geometrically.
-
-<details>
-<summary><b>P5.B</b></summary>
-
-Air enters at $\frac{dV}{dt} = 8$ cm³/s. How fast is the radius growing when $r=5$ cm?
-
-<details>
-<summary><b>P5.C</b></summary>
-
-In one sentence each: what does $\frac{dV}{dr}$ measure, and what does $\frac{dV}{dt}$ measure — why are both legitimate answers to "how fast is the balloon growing"?
-
-</details>
-</details>
-</details>
+- **A.** Compute $\frac{dV}{dr}$ at $r=5$ cm and say what it means geometrically.
+- **B.** Air enters at $\frac{dV}{dt} = 8$ cm³/s. How fast is the radius growing when $r=5$ cm?
+- **C.** In one sentence each: what does $\frac{dV}{dr}$ measure, and what does $\frac{dV}{dt}$ measure — why are both legitimate answers to "how fast is the balloon growing"?
 
 <details>
 <summary>💡 Hint</summary>
@@ -358,24 +308,9 @@ In one sentence each: what does $\frac{dV}{dr}$ measure, and what does $\frac{dV
 
 Demand is $q(p) = 400 - 8p$.
 
-<details>
-<summary><b>P6.A</b></summary>
-
-Compute the elasticity $E$ at $p=30$ and at $p=10$.
-
-<details>
-<summary><b>P6.B</b></summary>
-
-If the price rises 1% from each of those points, does revenue rise or fall?
-
-<details>
-<summary><b>P6.C</b></summary>
-
-Find the price that maximizes revenue.
-
-</details>
-</details>
-</details>
+- **A.** Compute the elasticity $E$ at $p=30$ and at $p=10$.
+- **B.** If the price rises 1% from each of those points, does revenue rise or fall?
+- **C.** Find the price that maximizes revenue.
 
 <details>
 <summary>💡 Hint</summary>
@@ -392,30 +327,10 @@ $E = \frac{p}{q}\cdot(-8)$. Revenue rises when $|E|<1$ (inelastic). At the reven
 
 **D1.** Write the units of each derivative.
 
-<details>
-<summary><b>D1.A</b></summary>
-
-$s'(t)$, $s$ in miles, $t$ in hours.
-
-<details>
-<summary><b>D1.B</b></summary>
-
-$C'(q)$, $C$ in \$, $q$ in items.
-
-<details>
-<summary><b>D1.C</b></summary>
-
-$N'(t)$, $N$ in bacteria, $t$ in minutes.
-
-<details>
-<summary><b>D1.D</b></summary>
-
-$F'(x)$, $F$ in newtons, $x$ in meters.
-
-</details>
-</details>
-</details>
-</details>
+- **A.** $s'(t)$, $s$ in miles, $t$ in hours.
+- **B.** $C'(q)$, $C$ in \$, $q$ in items.
+- **C.** $N'(t)$, $N$ in bacteria, $t$ in minutes.
+- **D.** $F'(x)$, $F$ in newtons, $x$ in meters.
 
 <details>
 <summary>💡 Hint</summary>
@@ -426,18 +341,8 @@ y-units ÷ x-units: mi/hr, \$/item, bacteria/min, N/m.
 
 **D2.** $v(t) = 3t^2 - 12t + 9$ (m/s).
 
-<details>
-<summary><b>D2.A</b></summary>
-
-Factor $v(t)$.
-
-<details>
-<summary><b>D2.B</b></summary>
-
-When is the particle moving backward?
-
-</details>
-</details>
+- **A.** Factor $v(t)$.
+- **B.** When is the particle moving backward?
 
 <details>
 <summary>💡 Hint</summary>
@@ -448,18 +353,8 @@ Factor $3(t-1)(t-3)$ and test the sign between the roots.
 
 **D3.** Linearize $f(x)=e^x$ at $a=0$.
 
-<details>
-<summary><b>D3.A</b></summary>
-
-Find $L(x)$ and estimate $e^{0.05}$.
-
-<details>
-<summary><b>D3.B</b></summary>
-
-Bound the error.
-
-</details>
-</details>
+- **A.** Find $L(x)$ and estimate $e^{0.05}$.
+- **B.** Bound the error.
 
 <details>
 <summary>💡 Hint</summary>
@@ -470,54 +365,19 @@ $L(x) = 1+x$. On $[0,\,0.05]$, $f''=e^x$ is largest at the right endpoint.
 
 **D4.** A function has $f'(x) = 2x-4$.
 
-<details>
-<summary><b>D4.A</b></summary>
-
-Where does $f$ increase, where decrease, where is its minimum?
-
-<details>
-<summary><b>D4.B</b></summary>
-
-Read the relation in 14D's vocabulary: where is $f$'s relation to $x$ reversed, where forward, where does the degree vanish?
-
-</details>
-</details>
+- **A.** Where does $f$ increase, where decrease, where is its minimum?
+- **B.** Read the relation in 14D's vocabulary: where is $f$'s relation to $x$ reversed, where forward, where does the degree vanish?
 
 **D5.** For a circle:
 
-<details>
-<summary><b>D5.A</b></summary>
-
-Compute $\frac{dA}{dr}$ at $r=3$.
-
-<details>
-<summary><b>D5.B</b></summary>
-
-Read the degree of the area–radius relation in one sentence (the number has a geometric name).
-
-</details>
-</details>
+- **A.** Compute $\frac{dA}{dr}$ at $r=3$.
+- **B.** Read the degree of the area–radius relation in one sentence (the number has a geometric name).
 
 **D6.** $C(q) = 0.1q^2 + q + 50$ (dollars).
 
-<details>
-<summary><b>D6.A</b></summary>
-
-Compute $C'(10)$.
-
-<details>
-<summary><b>D6.B</b></summary>
-
-Estimate $C(11)$ from $C(10)$.
-
-<details>
-<summary><b>D6.C</b></summary>
-
-Compute the exact $C(11)-C(10)$ and compare.
-
-</details>
-</details>
-</details>
+- **A.** Compute $C'(10)$.
+- **B.** Estimate $C(11)$ from $C(10)$.
+- **C.** Compute the exact $C(11)-C(10)$ and compare.
 
 <details>
 <summary>💡 Hint</summary>
@@ -528,18 +388,8 @@ $C'(10) = 3$ \$/unit, so $C(11) \approx C(10)+3$. The exact difference adds the 
 
 **D7.** $K = \frac12 mv^2$ with $m=2$ kg, $v=4$ m/s.
 
-<details>
-<summary><b>D7.A</b></summary>
-
-Compute $\frac{dK}{dv}$.
-
-<details>
-<summary><b>D7.B</b></summary>
-
-Name the physical quantity and read the degree in one sentence with units.
-
-</details>
-</details>
+- **A.** Compute $\frac{dK}{dv}$.
+- **B.** Name the physical quantity and read the degree in one sentence with units.
 
 <details>
 <summary>💡 Hint</summary>
@@ -550,33 +400,13 @@ $\frac{dK}{dv} = mv = 8$ — units $\mathrm{J}/(\mathrm{m/s}) = \mathrm{kg\,m/s}
 
 **D8.** For a sphere:
 
-<details>
-<summary><b>D8.A</b></summary>
-
-Compute $\frac{dV}{dr}$ at $r=2$.
-
-<details>
-<summary><b>D8.B</b></summary>
-
-Read the degree of the volume–radius relation in one sentence (the number has a name).
-
-</details>
-</details>
+- **A.** Compute $\frac{dV}{dr}$ at $r=2$.
+- **B.** Read the degree of the volume–radius relation in one sentence (the number has a name).
 
 **D9.** Average cost $AC(q) = 10 + q + \frac{25}{q}$.
 
-<details>
-<summary><b>D9.A</b></summary>
-
-Find the $q$ that minimizes $AC$.
-
-<details>
-<summary><b>D9.B</b></summary>
-
-Verify that $MC = AC$ there.
-
-</details>
-</details>
+- **A.** Find the $q$ that minimizes $AC$.
+- **B.** Verify that $MC = AC$ there.
 
 <details>
 <summary>💡 Hint</summary>
@@ -587,18 +417,8 @@ $AC'(q) = 1 - \frac{25}{q^2} = 0$ → $q=5$. The corresponding cost is $C = q\cd
 
 **D10.** Demand $q(p) = 100 - 2p$.
 
-<details>
-<summary><b>D10.A</b></summary>
-
-Compute the elasticity at $p=20$.
-
-<details>
-<summary><b>D10.B</b></summary>
-
-Would a price increase raise revenue?
-
-</details>
-</details>
+- **A.** Compute the elasticity at $p=20$.
+- **B.** Would a price increase raise revenue?
 
 <details>
 <summary>💡 Hint</summary>
@@ -609,24 +429,9 @@ $q=60$, $\frac{dq}{dp}=-2$, so $E = \frac{20}{60}(-2) = -\frac23$. Compare $|E|$
 
 **D11.** For each pair of related quantities, write the degree-of-relation derivative, its units, and a one-sentence reading.
 
-<details>
-<summary><b>D11.A</b></summary>
-
-Distance driven $d$ (km) vs fuel burned $f$ (L).
-
-<details>
-<summary><b>D11.B</b></summary>
-
-Mass $m$ (kg) vs volume $V$ (m³).
-
-<details>
-<summary><b>D11.C</b></summary>
-
-Cost $C$ (\$) vs quantity $q$ (items).
-
-</details>
-</details>
-</details>
+- **A.** Distance driven $d$ (km) vs fuel burned $f$ (L).
+- **B.** Mass $m$ (kg) vs volume $V$ (m³).
+- **C.** Cost $C$ (\$) vs quantity $q$ (items).
 
 <details>
 <summary>💡 Hint</summary>
@@ -645,18 +450,8 @@ Differentiate the response with respect to the driver: $\frac{dd}{df}$, $\frac{d
 
 **A1.** Derive $\frac{dA}{dr}$ from $A=\pi r^2$.
 
-<details>
-<summary><b>A1.A</b></summary>
-
-Derive $\frac{dA}{dr} = 2\pi r$ directly from $A=\pi r^2$.
-
-<details>
-<summary><b>A1.B</b></summary>
-
-Explain with the ring picture why the added area is $\approx 2\pi r\,dr$, not $\pi r^2$'s worth.
-
-</details>
-</details>
+- **A.** Derive $\frac{dA}{dr} = 2\pi r$ directly from $A=\pi r^2$.
+- **B.** Explain with the ring picture why the added area is $\approx 2\pi r\,dr$, not $\pi r^2$'s worth.
 
 <details>
 <summary>💡 Hint</summary>
@@ -665,18 +460,9 @@ The new area is $\pi(r+dr)^2 - \pi r^2 = 2\pi r\,dr + \pi(dr)^2$. The last term 
 
 </details>
 
-**A2.** <details>
-<summary><b>A2.A</b></summary>
-
-For a sphere, expand $V(r+dr)-V(r)$ and show the leading term is $4\pi r^2 dr$.
-
-<details>
-<summary><b>A2.B</b></summary>
-
-A cube of side $s$ has $\frac{dV}{ds} = 3s^2$, not $6s^2$. Show that with the half-side $u = \frac{s}{2}$ you get the full surface area, and explain which "growth dimension" each derivative uses.
-
-</details>
-</details>
+**A2.**
+- **A.** For a sphere, expand $V(r+dr)-V(r)$ and show the leading term is $4\pi r^2 dr$.
+- **B.** A cube of side $s$ has $\frac{dV}{ds} = 3s^2$, not $6s^2$. Show that with the half-side $u = \frac{s}{2}$ you get the full surface area, and explain which "growth dimension" each derivative uses.
 
 <details>
 <summary>💡 Hint</summary>
@@ -687,30 +473,10 @@ $V = 8u^3$ → $\frac{dV}{du} = 24u^2 = 6(2u)^2 = 6s^2$. Growing the side thicke
 
 **A3.** For $K = \frac12 mv^2$:
 
-<details>
-<summary><b>A3.A</b></summary>
-
-Show $\frac{dK}{dt} = Fv$ using the chain rule and $F=ma$.
-
-<details>
-<summary><b>A3.B</b></summary>
-
-Write the units of $\frac{dK}{dv}$ and $\frac{dK}{dt}$.
-
-<details>
-<summary><b>A3.C</b></summary>
-
-Explain in words why "power = force × velocity" means pushing twice as hard, or twice as fast, doubles the energy arrival rate.
-
-<details>
-<summary><b>A3.D</b></summary>
-
-Read both degrees of relation in one sentence each — what does $K$'s degree to $v$ say, and what does $K$'s degree to $t$ say?
-
-</details>
-</details>
-</details>
-</details>
+- **A.** Show $\frac{dK}{dt} = Fv$ using the chain rule and $F=ma$.
+- **B.** Write the units of $\frac{dK}{dv}$ and $\frac{dK}{dt}$.
+- **C.** Explain in words why "power = force × velocity" means pushing twice as hard, or twice as fast, doubles the energy arrival rate.
+- **D.** Read both degrees of relation in one sentence each — what does $K$'s degree to $v$ say, and what does $K$'s degree to $t$ say?
 
 <details>
 <summary>💡 Hint</summary>
@@ -721,24 +487,9 @@ $\frac{dK}{dt} = \frac{dK}{dv}\cdot\frac{dv}{dt} = mv\cdot a = Fv$. Units: $\mat
 
 **A4.** The small-angle approximation says $\sin x \approx x$ near 0.
 
-<details>
-<summary><b>A4.A</b></summary>
-
-Use the tangent at 0 to get the approximation and estimate $\sin(0.2)$.
-
-<details>
-<summary><b>A4.B</b></summary>
-
-Bound the error by $|x|^3/6$ — where does the cubic come from?
-
-<details>
-<summary><b>A4.C</b></summary>
-
-Why is the approximation excellent for $x=0.2$ but hopeless for $x=2$?
-
-</details>
-</details>
-</details>
+- **A.** Use the tangent at 0 to get the approximation and estimate $\sin(0.2)$.
+- **B.** Bound the error by $|x|^3/6$ — where does the cubic come from?
+- **C.** Why is the approximation excellent for $x=0.2$ but hopeless for $x=2$?
 
 <details>
 <summary>💡 Hint</summary>
@@ -749,24 +500,9 @@ The error is controlled by $f'''$: $|R| \le \frac{M}{6}|x|^3$ with $M = \max|\co
 
 **A5.** For $C(q) = q^3 - 9q^2 + 30q + 25$:
 
-<details>
-<summary><b>A5.A</b></summary>
-
-Solve $MC = AC$ exactly.
-
-<details>
-<summary><b>A5.B</b></summary>
-
-Verify you found the minimum of $AC$.
-
-<details>
-<summary><b>A5.C</b></summary>
-
-Interpret the meeting point in words.
-
-</details>
-</details>
-</details>
+- **A.** Solve $MC = AC$ exactly.
+- **B.** Verify you found the minimum of $AC$.
+- **C.** Interpret the meeting point in words.
 
 <details>
 <summary>💡 Hint</summary>
@@ -777,24 +513,9 @@ $MC=3q^2-18q+30$, $AC=q^2-9q+30+\frac{25}{q}$. Setting them equal gives $2q^3-9q
 
 **A6.** Let $R(p) = p\cdot q(p)$.
 
-<details>
-<summary><b>A6.A</b></summary>
-
-Prove $R'(p) = q\,(1+E)$ where $E = \frac{p}{q}\frac{dq}{dp}$.
-
-<details>
-<summary><b>A6.B</b></summary>
-
-For $q = 500-10p$, find the revenue-maximizing price.
-
-<details>
-<summary><b>A6.C</b></summary>
-
-Explain why revenue is maximized exactly where $E = -1$.
-
-</details>
-</details>
-</details>
+- **A.** Prove $R'(p) = q\,(1+E)$ where $E = \frac{p}{q}\frac{dq}{dp}$.
+- **B.** For $q = 500-10p$, find the revenue-maximizing price.
+- **C.** Explain why revenue is maximized exactly where $E = -1$.
 
 <details>
 <summary>💡 Hint</summary>
@@ -805,52 +526,22 @@ Product rule: $R' = q + p\,q' = q(1 + \frac{p\,q'}{q}) = q(1+E)$. Setting $R'=0$
 
 **A7.** Atmospheric temperature drops with altitude: $T(h) = 20 - 6.5h$ (°C, $h$ in km).
 
-<details>
-<summary><b>A7.A</b></summary>
-
-Compute $\frac{dT}{dh}$ and convert it to °C per 100 m.
-
-<details>
-<summary><b>A7.B</b></summary>
-
-Say the meaning in one sentence.
-
-<details>
-<summary><b>A7.C</b></summary>
-
-At what altitude does water freeze?
-
-<details>
-<summary><b>A7.D</b></summary>
-
-Which of 14D's four shapes is $T(h)$? Read the direction knob and the attribute knob, and say where the attribute flips.
-
-</details>
-</details>
-</details>
-</details>
+- **A.** Compute $\frac{dT}{dh}$ and convert it to °C per 100 m.
+- **B.** Say the meaning in one sentence.
+- **C.** At what altitude does water freeze?
+- **D.** Apply 14D's sign lens at $h = 1$: where does the number sit and where is it going? Write the two-question sentence.
 
 <details>
 <summary>💡 Hint</summary>
 
-$-6.5$ °C/km $= -0.65$ °C per 100 m. Solve $20 - 6.5h = 0$.
+$-6.5$ °C/km $= -0.65$ °C per 100 m. Solve $20 - 6.5h = 0$. At $h=1$: $T = 13.5$ °C (positive) but $T' = -6.5 < 0$ — above zero, sinking.
 
 </details>
 
 **A8.** Newton's second law in full form is $F = \frac{dp}{dt}$ with $p = mv$.
 
-<details>
-<summary><b>A8.A</b></summary>
-
-For constant mass, recover $F = ma$.
-
-<details>
-<summary><b>A8.B</b></summary>
-
-For a rocket whose mass $m(t)$ changes, apply the product rule and interpret each term: which one is "accelerate the current mass", which one is "eject mass backward"?
-
-</details>
-</details>
+- **A.** For constant mass, recover $F = ma$.
+- **B.** For a rocket whose mass $m(t)$ changes, apply the product rule and interpret each term: which one is "accelerate the current mass", which one is "eject mass backward"?
 
 <details>
 <summary>💡 Hint</summary>
@@ -861,18 +552,8 @@ $\frac{dp}{dt} = m\frac{dv}{dt} + v\frac{dm}{dt}$ — two channels: accelerate t
 
 **A9.** $f(x) = x^3$ has $f'(0)=0$, yet $f$ is increasing at 0 (and everywhere).
 
-<details>
-<summary><b>A9.A</b></summary>
-
-Reconcile this with the slogan "$f'>0$ means increasing".
-
-<details>
-<summary><b>A9.B</b></summary>
-
-Which direction of the slogan is exact, and which is only a warning?
-
-</details>
-</details>
+- **A.** Reconcile this with the slogan "$f'>0$ means increasing".
+- **B.** Which direction of the slogan is exact, and which is only a warning?
 
 <details>
 <summary>💡 Hint</summary>
@@ -883,18 +564,8 @@ $f'>0$ ⇒ increasing is exact. Increasing ⇒ $f'>0$ is false — at a point li
 
 **A10.** A cylinder has $V = \pi r^2 h$ with $h$ fixed.
 
-<details>
-<summary><b>A10.A</b></summary>
-
-Compute both $\frac{dV}{dr}$ and $\frac{dV}{dh}$ for $r=3$, $h=10$.
-
-<details>
-<summary><b>A10.B</b></summary>
-
-Name the geometric object each derivative describes.
-
-</details>
-</details>
+- **A.** Compute both $\frac{dV}{dr}$ and $\frac{dV}{dh}$ for $r=3$, $h=10$.
+- **B.** Name the geometric object each derivative describes.
 
 <details>
 <summary>💡 Hint</summary>
@@ -905,24 +576,9 @@ $\frac{dV}{dr} = 2\pi r h$ — the lateral surface (a wrapped band). $\frac{dV}{
 
 **A11.** Demand is $q(p) = 100 - 2p$ (units sold at price $p$).
 
-<details>
-<summary><b>A11.A</b></summary>
-
-Compute $\frac{dq}{dp}$ and $\frac{dp}{dq}$ at $p=20$ — the same relation, read in two directions — and verify they are reciprocals.
-
-<details>
-<summary><b>A11.B</b></summary>
-
-Write one sentence for each direction: "how much does demand respond to price?" and "how much must price respond to demand?"
-
-<details>
-<summary><b>A11.C</b></summary>
-
-Compute the elasticity at $p=20$ and explain why this *dimensionless* degree of relation could be compared to a temperature–altitude relation, while $\frac{dq}{dp} = -2$ units/\$ cannot.
-
-</details>
-</details>
-</details>
+- **A.** Compute $\frac{dq}{dp}$ and $\frac{dp}{dq}$ at $p=20$ — the same relation, read in two directions — and verify they are reciprocals.
+- **B.** Write one sentence for each direction: "how much does demand respond to price?" and "how much must price respond to demand?"
+- **C.** Compute the elasticity at $p=20$ and explain why this *dimensionless* degree of relation could be compared to a temperature–altitude relation, while $\frac{dq}{dp} = -2$ units/\$ cannot.
 
 <details>
 <summary>💡 Hint</summary>
@@ -941,24 +597,9 @@ $\frac{dq}{dp} = -2$ units/\$; $\frac{dp}{dq} = -\frac12$ \$/unit. $E = \frac{p}
 
 **DI1.** Which functions are equal to their own tangent-line model at *every* point?
 
-<details>
-<summary><b>DI1.A</b></summary>
-
-Find all functions $f$ such that $L_a(x) = f(a) + f'(a)(x-a)$ equals $f(x)$ for every $x$ **and** every $a$.
-
-<details>
-<summary><b>DI1.B</b></summary>
-
-Prove your characterization.
-
-<details>
-<summary><b>DI1.C</b></summary>
-
-Explain what it says about the error bound in Example 1 — where exactly does the linearization error live?
-
-</details>
-</details>
-</details>
+- **A.** Find all functions $f$ such that $L_a(x) = f(a) + f'(a)(x-a)$ equals $f(x)$ for every $x$ **and** every $a$.
+- **B.** Prove your characterization.
+- **C.** Explain what it says about the error bound in Example 1 — where exactly does the linearization error live?
 
 <details>
 <summary>💡 Hint</summary>

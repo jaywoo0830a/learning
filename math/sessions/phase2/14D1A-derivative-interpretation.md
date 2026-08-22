@@ -230,18 +230,8 @@ Adiabatic (no heat exchange): $pV^{\gamma} = C$, $\gamma > 1$ → $\frac{dp}{dV}
 
 **D1.**
 
-<details>
-<summary><b>D1.A</b></summary>
-
-$x^2/9 + y^2/4 = 1$. Differentiate implicitly and find $\frac{dy}{dx}$ at $(0,2)$.
-
-<details>
-<summary><b>D1.B</b></summary>
-
-What kind of tangent does the point have, and where does it sit on the ellipse?
-
-</details>
-</details>
+- **A.** $x^2/9 + y^2/4 = 1$. Differentiate implicitly and find $\frac{dy}{dx}$ at $(0,2)$.
+- **B.** What kind of tangent does the point have, and where does it sit on the ellipse?
 
 <details>
 <summary>💡 Hint</summary>
@@ -252,18 +242,8 @@ $\frac{dy}{dx} = -\frac{4x}{9y} = 0$ at $(0,2)$ — a horizontal tangent (the to
 
 **D2.**
 
-<details>
-<summary><b>D2.A</b></summary>
-
-$pV = 600$ kPa·m³. Find $\frac{dV}{dp}$ at $p = 150$ kPa.
-
-<details>
-<summary><b>D2.B</b></summary>
-
-State the units and read the trade in one sentence.
-
-</details>
-</details>
+- **A.** $pV = 600$ kPa·m³. Find $\frac{dV}{dp}$ at $p = 150$ kPa.
+- **B.** State the units and read the trade in one sentence.
 
 <details>
 <summary>💡 Hint</summary>
@@ -274,18 +254,8 @@ $V = 4$ m³ → $-\frac{4}{150} = -0.0267$ m³/kPa.
 
 **D3.**
 
-<details>
-<summary><b>D3.A</b></summary>
-
-$xy = 12$. Differentiate implicitly and find $\frac{dy}{dx}$ at $(3,4)$.
-
-<details>
-<summary><b>D3.B</b></summary>
-
-Read the trade: what does the number say about $x$ and $y$?
-
-</details>
-</details>
+- **A.** $xy = 12$. Differentiate implicitly and find $\frac{dy}{dx}$ at $(3,4)$.
+- **B.** Read the trade: what does the number say about $x$ and $y$?
 
 <details>
 <summary>💡 Hint</summary>
@@ -296,18 +266,8 @@ $y + x y' = 0$ → $y' = -\frac{y}{x} = -\frac43$: each unit of $x$ trades away 
 
 **D4.**
 
-<details>
-<summary><b>D4.A</b></summary>
-
-$x^2 + y^2 = 25$. Where is the tangent vertical?
-
-<details>
-<summary><b>D4.B</b></summary>
-
-Where is it horizontal?
-
-</details>
-</details>
+- **A.** $x^2 + y^2 = 25$. Where is the tangent vertical?
+- **B.** Where is it horizontal?
 
 <details>
 <summary>💡 Hint</summary>
@@ -318,18 +278,8 @@ Vertical: $y=0$, $x=\pm5$. Horizontal: $x=0$, $y=\pm5$.
 
 **D5.**
 
-<details>
-<summary><b>D5.A</b></summary>
-
-From $pV = C$, compute $\frac{dV}{dp}$.
-
-<details>
-<summary><b>D5.B</b></summary>
-
-Show the elasticity $E = \frac{p}{V}\frac{dV}{dp} = -1$ — the same at every state.
-
-</details>
-</details>
+- **A.** From $pV = C$, compute $\frac{dV}{dp}$.
+- **B.** Show the elasticity $E = \frac{p}{V}\frac{dV}{dp} = -1$ — the same at every state.
 
 <details>
 <summary>💡 Hint</summary>
@@ -340,18 +290,8 @@ $\frac{dV}{dp} = -\frac{V}{p}$, so $E = \frac{p}{V}\cdot\left(-\frac{V}{p}\right
 
 **D6.**
 
-<details>
-<summary><b>D6.A</b></summary>
-
-On the sphere $x^2+y^2+z^2 = 9$ at $(1,2,2)$, differentiate along a path with $x' = 1$, $y' = 1$.
-
-<details>
-<summary><b>D6.B</b></summary>
-
-Solve for $z'$ and read what the constraint forced.
-
-</details>
-</details>
+- **A.** On the sphere $x^2+y^2+z^2 = 9$ at $(1,2,2)$, differentiate along a path with $x' = 1$, $y' = 1$.
+- **B.** Solve for $z'$ and read what the constraint forced.
 
 <details>
 <summary>💡 Hint</summary>
@@ -362,18 +302,8 @@ $2(1)(1) + 2(2)(1) + 2(2)z' = 0$ → $z' = -\frac32$.
 
 **D7.**
 
-<details>
-<summary><b>D7.A</b></summary>
-
-At the same point, compute the adiabatic and isothermal slopes $\frac{dp}{dV}$.
-
-<details>
-<summary><b>D7.B</b></summary>
-
-What is their ratio, and what does it mean?
-
-</details>
-</details>
+- **A.** At the same point, compute the adiabatic and isothermal slopes $\frac{dp}{dV}$.
+- **B.** What is their ratio, and what does it mean?
 
 <details>
 <summary>💡 Hint</summary>
@@ -384,18 +314,8 @@ $-\gamma\frac{p}{V}$ vs $-\frac{p}{V}$: ratio $\gamma$ (e.g. 1.4 for air).
 
 **D8.**
 
-<details>
-<summary><b>D8.A</b></summary>
-
-A plane satisfies $x + y + z = 10$ (units: meters). Differentiate the constraint along a path.
-
-<details>
-<summary><b>D8.B</b></summary>
-
-If $x' = 2$ m/s and $y' = -1$ m/s, find $z'$.
-
-</details>
-</details>
+- **A.** A plane satisfies $x + y + z = 10$ (units: meters). Differentiate the constraint along a path.
+- **B.** If $x' = 2$ m/s and $y' = -1$ m/s, find $z'$.
 
 <details>
 <summary>💡 Hint</summary>
@@ -406,18 +326,8 @@ $x' + y' + z' = 0$ → $z' = -1$ m/s. A plane is the simplest entangled constrai
 
 **D9.**
 
-<details>
-<summary><b>D9.A</b></summary>
-
-For $x^2 + y^2 = 25$, what happens to $\frac{dy}{dx}$ as the point approaches $(5,0)$?
-
-<details>
-<summary><b>D9.B</b></summary>
-
-Interpret — and give the frame-question fix for the blow-up.
-
-</details>
-</details>
+- **A.** For $x^2 + y^2 = 25$, what happens to $\frac{dy}{dx}$ as the point approaches $(5,0)$?
+- **B.** Interpret — and give the frame-question fix for the blow-up.
 
 <details>
 <summary>💡 Hint</summary>
@@ -428,18 +338,8 @@ $-\frac{x}{y} \to -\infty$: the trade ratio blows up — a vertical tangent, whe
 
 **D10.**
 
-<details>
-<summary><b>D10.A</b></summary>
-
-$PV = nRT$ with $T$ fixed. Write the rate budget.
-
-<details>
-<summary><b>D10.B</b></summary>
-
-If $P' = 3$ kPa/s at $P = 100$ kPa, $V = 4$ m³, find $V'$.
-
-</details>
-</details>
+- **A.** $PV = nRT$ with $T$ fixed. Write the rate budget.
+- **B.** If $P' = 3$ kPa/s at $P = 100$ kPa, $V = 4$ m³, find $V'$.
 
 <details>
 <summary>💡 Hint</summary>
@@ -458,18 +358,8 @@ $V' = -\frac{V}{P}P' = -\frac{4}{100}\cdot 3 = -0.12$ m³/s.
 
 **A1.**
 
-<details>
-<summary><b>A1.A</b></summary>
-
-From $pV = C$, derive both $\frac{dV}{dp} = -\frac{V}{p}$ and the elasticity $E = -1$.
-
-<details>
-<summary><b>A1.B</b></summary>
-
-Explain why a hyperbola is the *only* shape with constant elasticity — solve the differential equation $\frac{dV}{dp} = -\frac{V}{p}$.
-
-</details>
-</details>
+- **A.** From $pV = C$, derive both $\frac{dV}{dp} = -\frac{V}{p}$ and the elasticity $E = -1$.
+- **B.** Explain why a hyperbola is the *only* shape with constant elasticity — solve the differential equation $\frac{dV}{dp} = -\frac{V}{p}$.
 
 <details>
 <summary>💡 Hint</summary>
@@ -480,24 +370,9 @@ Separate: $\frac{dV}{V} = -\frac{dp}{p}$ → $\ln V = -\ln p + \text{const}$ →
 
 **A2.**
 
-<details>
-<summary><b>A2.A</b></summary>
-
-Ideal gas $PV = nRT$: derive the percentage budget by log-differentiation.
-
-<details>
-<summary><b>A2.B</b></summary>
-
-Work the numbers $P' = 5$ kPa/s, $V' = -0.2$ m³/s, $P = 200$ kPa, $V = 3$ m³.
-
-<details>
-<summary><b>A2.C</b></summary>
-
-Interpret each term's contribution: which rate dominates?
-
-</details>
-</details>
-</details>
+- **A.** Ideal gas $PV = nRT$: derive the percentage budget by log-differentiation.
+- **B.** Work the numbers $P' = 5$ kPa/s, $V' = -0.2$ m³/s, $P = 200$ kPa, $V = 3$ m³.
+- **C.** Interpret each term's contribution: which rate dominates?
 
 <details>
 <summary>💡 Hint</summary>
@@ -508,24 +383,9 @@ $\frac{P'}{P} + \frac{V'}{V} = \frac{T'}{T}$; $0.025 - 0.0667 = -0.0417$: the vo
 
 **A3.**
 
-<details>
-<summary><b>A3.A</b></summary>
-
-Folium $x^3 + y^3 = 6xy$: set $\frac{dy}{dx} = 0$ and solve exactly.
-
-<details>
-<summary><b>A3.B</b></summary>
-
-Show the horizontal tangent occurs at $x = 2^{4/3}$, $y = 2^{5/3}$.
-
-<details>
-<summary><b>A3.C</b></summary>
-
-Verify the point lies on the curve.
-
-</details>
-</details>
-</details>
+- **A.** Folium $x^3 + y^3 = 6xy$: set $\frac{dy}{dx} = 0$ and solve exactly.
+- **B.** Show the horizontal tangent occurs at $x = 2^{4/3}$, $y = 2^{5/3}$.
+- **C.** Verify the point lies on the curve.
 
 <details>
 <summary>💡 Hint</summary>
@@ -536,18 +396,8 @@ $2y - x^2 = 0$ → $y = \frac{x^2}{2}$; substitute: $x^3 + \frac{x^6}{8} = 3x^3$
 
 **A4.**
 
-<details>
-<summary><b>A4.A</b></summary>
-
-Derive $\frac{dp}{dV} = -\gamma\frac{p}{V}$ from $pV^{\gamma} = C$.
-
-<details>
-<summary><b>A4.B</b></summary>
-
-Explain step by step why compression heats the gas and stiffens the curve.
-
-</details>
-</details>
+- **A.** Derive $\frac{dp}{dV} = -\gamma\frac{p}{V}$ from $pV^{\gamma} = C$.
+- **B.** Explain step by step why compression heats the gas and stiffens the curve.
 
 <details>
 <summary>💡 Hint</summary>
@@ -558,18 +408,8 @@ $\frac{d}{dV}(pV^{\gamma}) = p'V^{\gamma} + \gamma pV^{\gamma-1} = 0$ → $p' = 
 
 **A5.**
 
-<details>
-<summary><b>A5.A</b></summary>
-
-For the ellipsoid $\frac{x^2}{a^2} + \frac{y^2}{b^2} + \frac{z^2}{c^2} = 1$, differentiate along a path and show the velocity must satisfy $\left(\frac{x}{a^2}, \frac{y}{b^2}, \frac{z}{c^2}\right)\cdot (x', y', z') = 0$.
-
-<details>
-<summary><b>A5.B</b></summary>
-
-What does the weighted normal mean geometrically?
-
-</details>
-</details>
+- **A.** For the ellipsoid $\frac{x^2}{a^2} + \frac{y^2}{b^2} + \frac{z^2}{c^2} = 1$, differentiate along a path and show the velocity must satisfy $\left(\frac{x}{a^2}, \frac{y}{b^2}, \frac{z}{c^2}\right)\cdot (x', y', z') = 0$.
+- **B.** What does the weighted normal mean geometrically?
 
 <details>
 <summary>💡 Hint</summary>
@@ -580,24 +420,9 @@ Each term contributes $2\frac{x}{a^2}x'$ etc. The weighted vector is the surface
 
 **A6.**
 
-<details>
-<summary><b>A6.A</b></summary>
-
-$pV = C$ at $p=100$ kPa, $V=4$ m³. Compute the static trade $\frac{dV}{dp}$.
-
-<details>
-<summary><b>A6.B</b></summary>
-
-Compute the dynamic response $\frac{dV}{dt}$ (for $\frac{dp}{dt} = 2$ kPa/s).
-
-<details>
-<summary><b>A6.C</b></summary>
-
-Both are "how volume responds to pressure" — explain the difference in what they measure.
-
-</details>
-</details>
-</details>
+- **A.** $pV = C$ at $p=100$ kPa, $V=4$ m³. Compute the static trade $\frac{dV}{dp}$.
+- **B.** Compute the dynamic response $\frac{dV}{dt}$ (for $\frac{dp}{dt} = 2$ kPa/s).
+- **C.** Both are "how volume responds to pressure" — explain the difference in what they measure.
 
 <details>
 <summary>💡 Hint</summary>
@@ -608,18 +433,8 @@ $-0.04$ m³/kPa is the static trade (per unit of pressure, whenever); $-0.08$ m�
 
 **A7.**
 
-<details>
-<summary><b>A7.A</b></summary>
-
-Near the folium's horizontal tangent, the curve is locally a graph $y = f(x)$ even though globally it is not. State the test that decides this.
-
-<details>
-<summary><b>A7.B</b></summary>
-
-Explain why the derivative's finiteness is exactly that local test (the intuition behind the implicit function theorem).
-
-</details>
-</details>
+- **A.** Near the folium's horizontal tangent, the curve is locally a graph $y = f(x)$ even though globally it is not. State the test that decides this.
+- **B.** Explain why the derivative's finiteness is exactly that local test (the intuition behind the implicit function theorem).
 
 <details>
 <summary>💡 Hint</summary>
@@ -630,18 +445,8 @@ Where $y'$ is finite, $y$ changes predictably with $x$ — locally the equation 
 
 **A8.**
 
-<details>
-<summary><b>A8.A</b></summary>
-
-Show that the only curves with *constant* elasticity $E = \frac{p}{q}\frac{dq}{dp} = -k$ are the power laws $q p^{k} = C$ (separate variables and integrate).
-
-<details>
-<summary><b>A8.B</b></summary>
-
-What does this unify — how do Boyle's law and demand curves fit one family?
-
-</details>
-</details>
+- **A.** Show that the only curves with *constant* elasticity $E = \frac{p}{q}\frac{dq}{dp} = -k$ are the power laws $q p^{k} = C$ (separate variables and integrate).
+- **B.** What does this unify — how do Boyle's law and demand curves fit one family?
 
 <details>
 <summary>💡 Hint</summary>
@@ -652,18 +457,8 @@ $\frac{dq}{q} = -k\frac{dp}{p}$ → $\ln q = -k\ln p + c$ → $q p^k = C$. Boyle
 
 **A9.**
 
-<details>
-<summary><b>A9.A</b></summary>
-
-A point moves on $x^2 + y^2 = 25$ with $x = 5\cos\theta(t)$, $y = 5\sin\theta(t)$. Compute $\frac{dy}{dx}$ by parametric differentiation (9B) and confirm it equals $-\frac{x}{y}$ from the implicit method.
-
-<details>
-<summary><b>A9.B</b></summary>
-
-Which method reveals the *time* story better?
-
-</details>
-</details>
+- **A.** A point moves on $x^2 + y^2 = 25$ with $x = 5\cos\theta(t)$, $y = 5\sin\theta(t)$. Compute $\frac{dy}{dx}$ by parametric differentiation (9B) and confirm it equals $-\frac{x}{y}$ from the implicit method.
+- **B.** Which method reveals the *time* story better?
 
 <details>
 <summary>💡 Hint</summary>
@@ -674,24 +469,9 @@ $\frac{dy}{dx} = \frac{dy/dt}{dx/dt} = \frac{5\cos\theta}{-5\sin\theta} = -\frac
 
 **A10.**
 
-<details>
-<summary><b>A10.A</b></summary>
-
-For $PV = nRT$, holding $P$ fixed, compute $\frac{dV}{dT}$ and its units.
-
-<details>
-<summary><b>A10.B</b></summary>
-
-Holding $V$ fixed, compute $\frac{dP}{dT}$ and its units.
-
-<details>
-<summary><b>A10.C</b></summary>
-
-Explain what each derivative measures physically.
-
-</details>
-</details>
-</details>
+- **A.** For $PV = nRT$, holding $P$ fixed, compute $\frac{dV}{dT}$ and its units.
+- **B.** Holding $V$ fixed, compute $\frac{dP}{dT}$ and its units.
+- **C.** Explain what each derivative measures physically.
 
 <details>
 <summary>💡 Hint</summary>
@@ -710,24 +490,9 @@ Explain what each derivative measures physically.
 
 **DI1.**
 
-<details>
-<summary><b>DI1.A</b></summary>
-
-At the origin the folium $x^3+y^3=6xy$ crosses itself. Show that **both** $\frac{dy}{dx}$ and $\frac{dx}{dy}$ fail at $(0,0)$ — the formulas are $0/0$.
-
-<details>
-<summary><b>DI1.B</b></summary>
-
-Using the parametrization $x=\frac{6t}{1+t^3}$, $y=\frac{6t^2}{1+t^3}$, show the curve has **two** branches through the origin, one tangent to each axis.
-
-<details>
-<summary><b>DI1.C</b></summary>
-
-Explain why the "locally a graph" reading (A7) has exactly this one loophole — and which condition on $(F_x, F_y)$ detects it.
-
-</details>
-</details>
-</details>
+- **A.** At the origin the folium $x^3+y^3=6xy$ crosses itself. Show that **both** $\frac{dy}{dx}$ and $\frac{dx}{dy}$ fail at $(0,0)$ — the formulas are $0/0$.
+- **B.** Using the parametrization $x=\frac{6t}{1+t^3}$, $y=\frac{6t^2}{1+t^3}$, show the curve has **two** branches through the origin, one tangent to each axis.
+- **C.** Explain why the "locally a graph" reading (A7) has exactly this one loophole — and which condition on $(F_x, F_y)$ detects it.
 
 <details>
 <summary>💡 Hint</summary>

@@ -276,7 +276,7 @@ Interpretation: at $q=5$, $MC = AC = 15$ — the next unit costs exactly what un
 
 **(c)** $20 - 6.5h = 0$ → $h = \frac{20}{6.5} \approx 3.08$ km.
 
-**(d)** $T(h) = 20 - 6.5h$ is 14D's proportional·reversed shape: direction knob $n=+1$ (the size $|T-20| = 6.5h$ grows with $h$), attribute knob $k = -6.5$ (the slope's minus makes temperature descend). The attribute itself flips — freezing — at $h \approx 3.08$ km.
+**(d)** At $h=1$: the number sits positive ($T = 13.5$ °C) while the arrow points down ($T' = -6.5$ °C/km) — "above zero, sinking." The value crosses zero at $h \approx 3.08$ km (freezing); the degree stays $-6.5$ throughout.
 
 > **Answer**: $-6.5$ °C/km ($-0.65$ °C per 100 m); freezing at ≈ 3.08 km
 

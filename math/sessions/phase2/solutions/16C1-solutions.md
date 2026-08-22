@@ -246,9 +246,9 @@ $\bar{f} = \frac{1}{4}\int_0^4 x^2 dx = \frac{1}{4}\cdot\frac{64}{3} = \frac{16}
 
 $W = \frac12 kx^2 = \frac12\cdot 100\cdot(0.2)^2 = 2$ J.
 
-**(b)** $F = 100x$ is 14D's proportional·forward shape — the degree grows with $x$. A growing degree collects into a triangle ($\frac12 \cdot 0.2\,\mathrm{m} \cdot 20\,\mathrm{N}$); a constant force would collect into a rectangle.
+**(b)** $F = 100x$: the force grows with the stretch — from 0 N to 20 N — so the work collects into a triangle ($\frac12 \cdot 0.2\,\mathrm{m} \cdot 20\,\mathrm{N}$); a constant force would collect into a rectangle.
 
-> **Answer**: (a) 2 J; (b) proportional·forward — triangle, because the degree strengthens
+> **Answer**: (a) 2 J; (b) force grows with stretch → triangle
 
 **Lens reading**: work collects the force–stretch relation; the shape of the relation (growing vs uniform) decides the shape of the total (triangle vs rectangle).
 
@@ -412,9 +412,9 @@ Mean: $\frac23 \approx 0.667$. The median is larger because the density $2x$ ris
 
 **(c)** $r = ct$, so $V(t) = \frac{4}{3}\pi(ct)^3$ — volume grows **cubically** in time even though the radius grows only linearly. A constant radial growth rate is an exploding volume growth rate.
 
-**(d)** $V = \frac{4}{3}\pi r^3$ is 14D's proportional·forward shape: $n = +3$, $k = +\frac{4\pi}{3}$ — no minus anywhere, so $\frac{dV}{dr} = 4\pi r^2 > 0$ for every $r>0$; the degree is the surface through which growth enters.
+**(d)** $\frac{dV}{dr} = 4\pi r^2 > 0$ for every $r>0$ — no minus anywhere, so $V$ rises with $r$ everywhere; the degree is the surface through which growth enters.
 
-> **Answer**: (a) $4\pi r^2 c$ (b) $\frac43\pi R^3$ ✓ (c) $V(t)=\frac43\pi(ct)^3$ — cubic (d) proportional·forward, degree positive
+> **Answer**: (a) $4\pi r^2 c$ (b) $\frac43\pi R^3$ ✓ (c) $V(t)=\frac43\pi(ct)^3$ — cubic (d) degree positive everywhere
 
 **Lens reading**: volume's relation to radius is the surface — collected, it rebuilds the sphere; with $r=ct$ the relation to time is cubic.
 
@@ -463,7 +463,7 @@ The FTC pair: (a) and (c) — displacement is the integral of the *signed* rate,
 | D1 | m · L · J · \$ |
 | D2 | ≈ 43.2 L; −10%/min; 50 L total |
 | D3 | $\frac{16}{3}$ |
-| D4 | 2 J; proportional·forward → triangle |
+| D4 | 2 J; growing force → triangle |
 | D5 | 10 m; strengthening degree |
 | D6 | $\frac12$ · 4 |
 | D7 | $\frac{32}{3}$ (cm²) |
@@ -479,5 +479,5 @@ The FTC pair: (a) and (c) — displacement is the integral of the *signed* rate,
 | A7 | $0.707 > \frac23$ |
 | A8 | 1 ✓ · $e^{-2}$ · $\frac12$ |
 | A9 | area / avg×len / total change |
-| A10 | $4\pi r^2c$ · $\frac43\pi R^3$ · cubic · proportional·forward |
+| A10 | $4\pi r^2c$ · $\frac43\pi R^3$ · cubic · degree positive |
 | DI1 | disp 0 · dist 2 · avg vel 0 · avg speed $2/\pi$ |

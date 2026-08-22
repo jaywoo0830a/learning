@@ -214,18 +214,8 @@ $$A = 9\pi - 4\pi = 5\pi \approx 15.7.$$
 
 **D1.**
 
-<details>
-<summary><b>D1.A</b></summary>
-
-What are the units of $\int p\,dV$ when $p$ is in kPa and $V$ in m³?
-
-<details>
-<summary><b>D1.B</b></summary>
-
-Convert the product to joules and to kilojoules.
-
-</details>
-</details>
+- **A.** What are the units of $\int p\,dV$ when $p$ is in kPa and $V$ in m³?
+- **B.** Convert the product to joules and to kilojoules.
 
 <details>
 <summary>💡 Hint</summary>
@@ -236,18 +226,8 @@ kPa·m³ = 1000 Pa·m³ = 1000 J = 1 kJ.
 
 **D2.**
 
-<details>
-<summary><b>D2.A</b></summary>
-
-Find the area of $x^2 + y^2 = 16$ by integration — solve for $y$ and count the symmetry lobes.
-
-<details>
-<summary><b>D2.B</b></summary>
-
-Evaluate the integral.
-
-</details>
-</details>
+- **A.** Find the area of $x^2 + y^2 = 16$ by integration — solve for $y$ and count the symmetry lobes.
+- **B.** Evaluate the integral.
 
 <details>
 <summary>💡 Hint</summary>
@@ -258,18 +238,8 @@ $4\int_0^4\sqrt{16-x^2}dx = 16\pi \approx 50.3$.
 
 **D3.**
 
-<details>
-<summary><b>D3.A</b></summary>
-
-$pV = 500$ kPa·m³. Substitute the constraint and set up the work from $V=1$ to $V=3$.
-
-<details>
-<summary><b>D3.B</b></summary>
-
-Integrate.
-
-</details>
-</details>
+- **A.** $pV = 500$ kPa·m³. Substitute the constraint and set up the work from $V=1$ to $V=3$.
+- **B.** Integrate.
 
 <details>
 <summary>💡 Hint</summary>
@@ -280,18 +250,8 @@ $500\ln 3 \approx 549.3$ kJ.
 
 **D4.**
 
-<details>
-<summary><b>D4.A</b></summary>
-
-$pV = 500$ kPa·m³. Work from $V=3$ to $V=1$.
-
-<details>
-<summary><b>D4.B</b></summary>
-
-Read the sign: who pays?
-
-</details>
-</details>
+- **A.** $pV = 500$ kPa·m³. Work from $V=3$ to $V=1$.
+- **B.** Read the sign: who pays?
 
 <details>
 <summary>💡 Hint</summary>
@@ -302,18 +262,8 @@ $500\ln\frac13 = -549.3$ kJ — negative: the world compresses the gas.
 
 **D5.**
 
-<details>
-<summary><b>D5.A</b></summary>
-
-Identify the stretch factors of the ellipse $\frac{x^2}{4}+\frac{y^2}{9}=1$.
-
-<details>
-<summary><b>D5.B</b></summary>
-
-Area.
-
-</details>
-</details>
+- **A.** Identify the stretch factors of the ellipse $\frac{x^2}{4}+\frac{y^2}{9}=1$.
+- **B.** Area.
 
 <details>
 <summary>💡 Hint</summary>
@@ -324,18 +274,8 @@ $\pi\cdot 2\cdot 3 = 6\pi \approx 18.85$.
 
 **D6.**
 
-<details>
-<summary><b>D6.A</b></summary>
-
-Set up the average pressure on the isotherm $pV = 800$ between $V=2$ and $V=4$.
-
-<details>
-<summary><b>D6.B</b></summary>
-
-Evaluate it.
-
-</details>
-</details>
+- **A.** Set up the average pressure on the isotherm $pV = 800$ between $V=2$ and $V=4$.
+- **B.** Evaluate it.
 
 <details>
 <summary>💡 Hint</summary>
@@ -346,18 +286,8 @@ $\frac{800\ln 2}{2} = 400\ln 2 \approx 277.3$ kPa.
 
 **D7.**
 
-<details>
-<summary><b>D7.A</b></summary>
-
-For the previous drill, compute both sides of $W = \bar p\,\Delta V$.
-
-<details>
-<summary><b>D7.B</b></summary>
-
-Verify they match $800\ln 2$.
-
-</details>
-</details>
+- **A.** For the previous drill, compute both sides of $W = \bar p\,\Delta V$.
+- **B.** Verify they match $800\ln 2$.
 
 <details>
 <summary>💡 Hint</summary>
@@ -368,18 +298,8 @@ $277.3 \times 2 = 554.5 = 800\ln 2$ ✓.
 
 **D8.**
 
-<details>
-<summary><b>D8.A</b></summary>
-
-Derive the adiabatic work formula from $pV^{\gamma} = C$ — integrate $\int C V^{-\gamma}dV$.
-
-<details>
-<summary><b>D8.B</b></summary>
-
-Rewrite the result in terms of the endpoints to get $W = \frac{p_2V_2-p_1V_1}{1-\gamma}$.
-
-</details>
-</details>
+- **A.** Derive the adiabatic work formula from $pV^{\gamma} = C$ — integrate $\int C V^{-\gamma}dV$.
+- **B.** Rewrite the result in terms of the endpoints to get $W = \frac{p_2V_2-p_1V_1}{1-\gamma}$.
 
 <details>
 <summary>💡 Hint</summary>
@@ -390,18 +310,8 @@ $\int C V^{-\gamma}dV = \frac{C V^{1-\gamma}}{1-\gamma}$, and $C V^{1-\gamma} = 
 
 **D9.**
 
-<details>
-<summary><b>D9.A</b></summary>
-
-Set up the area of the half-ellipse $\frac{x^2}{4}+\frac{y^2}{9}=1$ above the $x$-axis.
-
-<details>
-<summary><b>D9.B</b></summary>
-
-Evaluate.
-
-</details>
-</details>
+- **A.** Set up the area of the half-ellipse $\frac{x^2}{4}+\frac{y^2}{9}=1$ above the $x$-axis.
+- **B.** Evaluate.
 
 <details>
 <summary>💡 Hint</summary>
@@ -412,18 +322,8 @@ $3\pi \approx 9.42$ — half the full ellipse.
 
 **D10.**
 
-<details>
-<summary><b>D10.A</b></summary>
-
-Identify the two integrands: which gas law integrates to a logarithm, which to a power?
-
-<details>
-<summary><b>D10.B</b></summary>
-
-Why is the isotherm's work a logarithm, while the adiabat's is a power law?
-
-</details>
-</details>
+- **A.** Identify the two integrands: which gas law integrates to a logarithm, which to a power?
+- **B.** Why is the isotherm's work a logarithm, while the adiabat's is a power law?
 
 <details>
 <summary>💡 Hint</summary>
@@ -442,24 +342,9 @@ $p = \frac{C}{V}$ integrates to $\ln$ (10A's special case); $p = CV^{-\gamma}$ i
 
 **A1.**
 
-<details>
-<summary><b>A1.A</b></summary>
-
-Derive the isotherm work $W = C\ln\frac{V_2}{V_1}$.
-
-<details>
-<summary><b>A1.B</b></summary>
-
-Verify the FTC check $\frac{dW}{dV} = p$.
-
-<details>
-<summary><b>A1.C</b></summary>
-
-Why is this check *free* for every gas law?
-
-</details>
-</details>
-</details>
+- **A.** Derive the isotherm work $W = C\ln\frac{V_2}{V_1}$.
+- **B.** Verify the FTC check $\frac{dW}{dV} = p$.
+- **C.** Why is this check *free* for every gas law?
 
 <details>
 <summary>💡 Hint</summary>
@@ -470,18 +355,8 @@ $\frac{d}{dV}\left(C\ln\frac{V}{V_1}\right) = \frac{C}{V} = p$ — because $W$ w
 
 **A2.**
 
-<details>
-<summary><b>A2.A</b></summary>
-
-Prove that the log-mean $\bar p = \frac{C\ln(V_2/V_1)}{V_2-V_1}$ is always below the arithmetic mean for $V_1 \neq V_2$.
-
-<details>
-<summary><b>A2.B</b></summary>
-
-Interpret: why does the hyperbola weight low pressure more?
-
-</details>
-</details>
+- **A.** Prove that the log-mean $\bar p = \frac{C\ln(V_2/V_1)}{V_2-V_1}$ is always below the arithmetic mean for $V_1 \neq V_2$.
+- **B.** Interpret: why does the hyperbola weight low pressure more?
 
 <details>
 <summary>💡 Hint</summary>
@@ -492,18 +367,8 @@ The log-mean is the average of $p$ with respect to *equal volume steps*, and $p$
 
 **A3.**
 
-<details>
-<summary><b>A3.A</b></summary>
-
-Show the ellipse's area is $\pi ab$ by the rescaling argument: map $u = x/a$, $v = y/b$.
-
-<details>
-<summary><b>A3.B</b></summary>
-
-Explain why the area scales by the determinant $ab$ (12A2).
-
-</details>
-</details>
+- **A.** Show the ellipse's area is $\pi ab$ by the rescaling argument: map $u = x/a$, $v = y/b$.
+- **B.** Explain why the area scales by the determinant $ab$ (12A2).
 
 <details>
 <summary>💡 Hint</summary>
@@ -514,24 +379,9 @@ The map shrinks $x$ by $a$ and $y$ by $b$ — a diagonal matrix with determinant
 
 **A4.**
 
-<details>
-<summary><b>A4.A</b></summary>
-
-Adiabatic work with numbers: $\gamma = \frac53$, $p_1 = 300$ kPa, $V_1 = 1$ m³, $V_2 = 2$ m³. Compute $p_2$ and $W$ with the endpoint formula.
-
-<details>
-<summary><b>A4.B</b></summary>
-
-Compute $W$ again by the direct integral.
-
-<details>
-<summary><b>A4.C</b></summary>
-
-Explain why the adiabat yields *less* work than an isotherm through the same point.
-
-</details>
-</details>
-</details>
+- **A.** Adiabatic work with numbers: $\gamma = \frac53$, $p_1 = 300$ kPa, $V_1 = 1$ m³, $V_2 = 2$ m³. Compute $p_2$ and $W$ with the endpoint formula.
+- **B.** Compute $W$ again by the direct integral.
+- **C.** Explain why the adiabat yields *less* work than an isotherm through the same point.
 
 <details>
 <summary>💡 Hint</summary>
@@ -542,18 +392,8 @@ $p_2 = 300\cdot2^{-5/3} \approx 94.5$; $W = \frac{188.99-300}{1-1.667} \approx 1
 
 **A5.**
 
-<details>
-<summary><b>A5.A</b></summary>
-
-If the temperature is *not* fixed, work $\int p\,dV$ depends on the path. Take $pV = nRT$ with two paths between the same endpoints (an isotherm and a straight $p$-$V$ line).
-
-<details>
-<summary><b>A5.B</b></summary>
-
-Explain in words why the areas differ.
-
-</details>
-</details>
+- **A.** If the temperature is *not* fixed, work $\int p\,dV$ depends on the path. Take $pV = nRT$ with two paths between the same endpoints (an isotherm and a straight $p$-$V$ line).
+- **B.** Explain in words why the areas differ.
 
 <details>
 <summary>💡 Hint</summary>
@@ -564,24 +404,9 @@ The constraint only fixes the curve when $T$ is pinned. With $T$ free, different
 
 **A6.**
 
-<details>
-<summary><b>A6.A</b></summary>
-
-The annulus between $x^2+y^2=4$ and $x^2+y^2=9$ has density $\rho = 1$. Find its area by subtraction.
-
-<details>
-<summary><b>A6.B</b></summary>
-
-Find its moment of inertia $\int\int r^2\,dA$ about the origin.
-
-<details>
-<summary><b>A6.C</b></summary>
-
-Interpret each.
-
-</details>
-</details>
-</details>
+- **A.** The annulus between $x^2+y^2=4$ and $x^2+y^2=9$ has density $\rho = 1$. Find its area by subtraction.
+- **B.** Find its moment of inertia $\int\int r^2\,dA$ about the origin.
+- **C.** Interpret each.
 
 <details>
 <summary>💡 Hint</summary>
@@ -592,18 +417,8 @@ Area $= 9\pi - 4\pi = 5\pi$. $I = \int_0^{2\pi}\int_2^3 r^2\cdot r\,dr\,d\theta 
 
 **A7.**
 
-<details>
-<summary><b>A7.A</b></summary>
-
-Find the moment of inertia of the full disk $x^2+y^2 \le R^2$ (density 1) about its center, $\int\int r^2\,dA = \frac{\pi R^4}{2}$.
-
-<details>
-<summary><b>A7.B</b></summary>
-
-Why does $I$ grow as the *fourth* power of the radius?
-
-</details>
-</details>
+- **A.** Find the moment of inertia of the full disk $x^2+y^2 \le R^2$ (density 1) about its center, $\int\int r^2\,dA = \frac{\pi R^4}{2}$.
+- **B.** Why does $I$ grow as the *fourth* power of the radius?
 
 <details>
 <summary>💡 Hint</summary>
@@ -614,18 +429,8 @@ $I = \int_0^{2\pi}\int_0^R r^3\,dr\,d\theta = \frac{\pi R^4}{2}$. Fourth power: 
 
 **A8.**
 
-<details>
-<summary><b>A8.A</b></summary>
-
-Work convention: why is work *negative* when a gas is compressed? Trace the sign through $W = \int p\,dV$.
-
-<details>
-<summary><b>A8.B</b></summary>
-
-Explain what the negative sign buys in the energy budget.
-
-</details>
-</details>
+- **A.** Work convention: why is work *negative* when a gas is compressed? Trace the sign through $W = \int p\,dV$.
+- **B.** Explain what the negative sign buys in the energy budget.
 
 <details>
 <summary>💡 Hint</summary>
@@ -636,18 +441,8 @@ Compression: $dV < 0$ with $p > 0$, so every slice contributes negative work —
 
 **A9.**
 
-<details>
-<summary><b>A9.A</b></summary>
-
-The volume under the hemisphere $z = \sqrt{1-x^2-y^2}$ over the unit disk equals $\frac{2\pi}{3}$. Set up the double integral.
-
-<details>
-<summary><b>A9.B</b></summary>
-
-Evaluate and interpret the result as the half-ball's volume (9C's sphere sliced).
-
-</details>
-</details>
+- **A.** The volume under the hemisphere $z = \sqrt{1-x^2-y^2}$ over the unit disk equals $\frac{2\pi}{3}$. Set up the double integral.
+- **B.** Evaluate and interpret the result as the half-ball's volume (9C's sphere sliced).
 
 <details>
 <summary>💡 Hint</summary>
@@ -658,24 +453,9 @@ $V = \int\int_{x^2+y^2\le1}\sqrt{1-x^2-y^2}\,dA = \int_0^{2\pi}\int_0^1 \sqrt{1-
 
 **A10.**
 
-<details>
-<summary><b>A10.A</b></summary>
-
-The astroid $x^{2/3} + y^{2/3} = 1$ has parametrization $x = \cos^3 t$, $y = \sin^3 t$ (9B-style). Compute $ds = \sqrt{(x')^2+(y')^2}\,dt$.
-
-<details>
-<summary><b>A10.B</b></summary>
-
-Find its full arc length.
-
-<details>
-<summary><b>A10.C</b></summary>
-
-Explain why parametrizing an entangled curve is often the *fastest* way to integrate along it.
-
-</details>
-</details>
-</details>
+- **A.** The astroid $x^{2/3} + y^{2/3} = 1$ has parametrization $x = \cos^3 t$, $y = \sin^3 t$ (9B-style). Compute $ds = \sqrt{(x')^2+(y')^2}\,dt$.
+- **B.** Find its full arc length.
+- **C.** Explain why parametrizing an entangled curve is often the *fastest* way to integrate along it.
 
 <details>
 <summary>💡 Hint</summary>
@@ -694,24 +474,9 @@ $ds = \sqrt{(x')^2+(y')^2}\,dt = 3|\sin t\cos t|dt$; over one quarter $3\int_0^{
 
 **DI1.**
 
-<details>
-<summary><b>DI1.A</b></summary>
-
-The adiabatic work formula $W = \frac{p_2V_2-p_1V_1}{1-\gamma}$ divides by zero as $\gamma \to 1$ — yet $\gamma=1$ is the isotherm, whose work is perfectly finite: $C\ln\frac{V_2}{V_1}$. Show that the limit as $\gamma\to1$ recovers the isotherm formula.
-
-<details>
-<summary><b>DI1.B</b></summary>
-
-Verify numerically ($\gamma=1.001$ vs $\gamma=1$, with $C=300$ kPa·m³, $V_1=1$, $V_2=2$ m³).
-
-<details>
-<summary><b>DI1.C</b></summary>
-
-Explain what "the two laws are one family" means physically.
-
-</details>
-</details>
-</details>
+- **A.** The adiabatic work formula $W = \frac{p_2V_2-p_1V_1}{1-\gamma}$ divides by zero as $\gamma \to 1$ — yet $\gamma=1$ is the isotherm, whose work is perfectly finite: $C\ln\frac{V_2}{V_1}$. Show that the limit as $\gamma\to1$ recovers the isotherm formula.
+- **B.** Verify numerically ($\gamma=1.001$ vs $\gamma=1$, with $C=300$ kPa·m³, $V_1=1$, $V_2=2$ m³).
+- **C.** Explain what "the two laws are one family" means physically.
 
 <details>
 <summary>💡 Hint</summary>
