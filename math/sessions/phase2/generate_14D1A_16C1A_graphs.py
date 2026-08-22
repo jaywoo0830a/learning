@@ -340,9 +340,63 @@ def b6_annulus_and_hemisphere():
     fig.tight_layout()
     save(fig, '16C1A', '16c1a-6-annulus-hemisphere.png')
 
+def a0_frame_question():
+    """One tangent line, two reciprocal degrees — the frame question picks the driver."""
+    fig, ax = plt.subplots(figsize=(7.6, 6.6)); g(ax)
+    th = np.linspace(0, 2*np.pi, 500)
+    ax.plot(5*np.cos(th), 5*np.sin(th), BLUE, lw=2.5, label=r'$x^2+y^2=25$')
+    x = np.linspace(0.5, 5.6, 200)
+    ax.plot(x, 4 - 0.75*(x - 3), RED, lw=2.2, ls='--', label='the tangent line')
+    ax.plot([3], [4], 'o', color=RED, ms=8, zorder=6)
+    ax.annotate(r'driver $x$:  $\frac{dy}{dx}=-\frac{3}{4}$', (3, 4), xytext=(1.0, 4.9),
+                fontsize=11, color=RED, fontweight='bold',
+                arrowprops=dict(arrowstyle='->', color=RED, lw=1.2))
+    ax.annotate(r'driver $y$:  $\frac{dx}{dy}=-\frac{4}{3}$', (3, 4), xytext=(1.0, -2.2),
+                fontsize=11, color=PURPLE, fontweight='bold',
+                arrowprops=dict(arrowstyle='->', color=PURPLE, lw=1.2))
+    ax.text(3.7, 3.1, r'$\frac{dy}{dx}\cdot\frac{dx}{dy}=1$', fontsize=10, color=GRAY, ha='center')
+    ax.set_xlim(-5.8, 6.4); ax.set_ylim(-3.2, 5.8)
+    ax.set_aspect('equal')
+    ax.set_title('One line, two degrees — the frame question picks the driver', fontweight='bold')
+    ax.set_xlabel('$x$'); ax.set_ylabel('$y$')
+    ax.legend(fontsize=9, loc='upper left')
+    fig.tight_layout()
+    save(fig, '14D1A', '14d1a-0-frame-question.png')
+
+def b0_two_slicings():
+    """Same circle area collected two ways: vertical slices (driver x) vs horizontal (driver y)."""
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(11, 5.2))
+    for ax in (ax1, ax2): g(ax)
+    th = np.linspace(0, 2*np.pi, 400)
+    for ax in (ax1, ax2):
+        ax.plot(3*np.cos(th), 3*np.sin(th), BLUE, lw=2.5)
+        ax.set_aspect('equal'); ax.set_xlim(-3.5, 3.5); ax.set_ylim(-3.5, 3.5)
+    for x0 in (-2.5, -1.25, 0.0, 1.25):
+        xw = np.linspace(x0, x0 + 0.9, 60)
+        yw = np.sqrt(np.clip(9 - xw**2, 0, None))
+        ax1.fill_between(xw, -yw, yw, color=RED, alpha=0.25)
+        ax1.plot([x0, x0], [-np.sqrt(9 - x0**2), np.sqrt(9 - x0**2)], color=RED, lw=1.2)
+    ax1.text(0, -3.1, r'driver $x$:  $A = \int_{-3}^{3} 2\sqrt{9-x^2}\,dx = 9\pi$',
+             fontsize=10, color=RED, fontweight='bold', ha='center')
+    ax1.text(-2.95, 2.7, r'$dA = y(x)\,dx$', fontsize=10, color=GRAY)
+    ax1.set_title('Vertical slices — $x$ drives', fontweight='bold')
+    for y0 in (-2.5, -1.25, 0.0, 1.25):
+        yw = np.linspace(y0, y0 + 0.9, 60)
+        xw = np.sqrt(np.clip(9 - yw**2, 0, None))
+        ax2.fill_betweenx(yw, -xw, xw, color=PURPLE, alpha=0.25)
+        ax2.plot([-np.sqrt(9 - y0**2), np.sqrt(9 - y0**2)], [y0, y0], color=PURPLE, lw=1.2)
+    ax2.text(0, -3.1, r'driver $y$:  $A = \int_{-3}^{3} 2\sqrt{9-y^2}\,dy = 9\pi$',
+             fontsize=10, color=PURPLE, fontweight='bold', ha='center')
+    ax2.text(-2.95, 2.7, r'$dA = x(y)\,dy$', fontsize=10, color=GRAY)
+    ax2.set_title('Horizontal slices — $y$ drives', fontweight='bold')
+    fig.suptitle('One region, two drivers — the same relation collected in either direction',
+                 fontweight='bold', fontsize=12)
+    fig.tight_layout()
+    save(fig, '16C1A', '16c1a-0-two-slicings.png')
+
 if __name__ == '__main__':
-    a1_circle_trade(); a2_boyle(); a3_rate_budget()
+    a0_frame_question(); a1_circle_trade(); a2_boyle(); a3_rate_budget()
     a4_sphere_tangent_3d(); a5_folium(); a6_adiabatic_stiffness()
-    b1_circle_area(); b2_isotherm_work(); b3_ellipse_stretch()
+    b0_two_slicings(); b1_circle_area(); b2_isotherm_work(); b3_ellipse_stretch()
     b4_logmean(); b5_adiabatic_work(); b6_annulus_and_hemisphere()
     print('Done: 14D1A + 16C1A graphs written to graphs/0821/')

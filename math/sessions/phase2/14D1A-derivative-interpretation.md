@@ -34,19 +34,31 @@ $$\frac{dy}{dx} = -\frac{x}{y}.$$
 
 ---
 
-### The Relationship Lens — How Much Is $y$ Related to $x$ When They're Entangled? (🔗 14D)
+### The Relationship Lens — Two Variables, One Relation: The Frame Question (🔗 14D)
 
-14D's relationship lens said: *"y is related to x" is a sentence missing its number — $\frac{dy}{dx}$ in units of y per x is that number.* For entangled variables the relation is no longer a function $y(x)$ but an **equation** $F(x,y)=0$ — and the degree of relation becomes the implicit derivative $\frac{dy}{dx}$, with the same units and the same question: *how much $y$ per unit of $x$?*
+Two entangled variables feel harder than one, but the relation lens cuts the confusion with one move: **an equation is ONE relation, and reading it is choosing a driver.** 14D said *"y is related to x" is a sentence missing its number — $\frac{dy}{dx}$ in units of y per x is that number.* For an entangled equation $F(x,y)=0$ the same sentence works: the equation fixes the global relation; the implicit derivative is its local degree.
 
-**Worked — the circle, through the lens.** $x^2+y^2=25$. At $(3,4)$: $\frac{dy}{dx} = -\frac34$. Sentence: "at this point, $x$ and $y$ are related at degree $-\frac34$ — each unit of $x$ buys $-\frac34$ unit of $y$." The relation exists everywhere on the circle, but its **degree is local**:
-- at $(0,5)$: $\frac{dy}{dx}=0$ — the degree vanishes: for one instant, $x$ buys no $y$ (horizontal tangent). Entangled, yet momentarily unresponsive — the lens's "zero ≠ no relation" (14D1 A9).
-- at $(5,0)$: $\frac{dy}{dx}\to\infty$ — the degree blows up: $y$ responds with infinite strength (vertical tangent). The relation did not break — it switched direction; read $\frac{dx}{dy}=0$ there instead.
+**The three questions, in order** — 14D's drill, applied to the tangle:
 
-**Two directions, one relation.** $\frac{dx}{dy} = -\frac{y}{x} = -\frac43$ at $(3,4)$ — reciprocals, exactly as in 14D: *"how much does $y$ respond to $x$"* and *"how much does $x$ respond to $y$"* are the same entanglement, read in reverse.
+| Question | For $x^2+y^2=25$ at $(3,4)$ |
+|:---|:---|
+| 1. Who is the **driver**, who is the response? (the frame question) | respect $x$: degree $\frac{dy}{dx}$; respect $y$: degree $\frac{dx}{dy}$ |
+| 2. What is the **degree**, with units? | $\frac{dy}{dx} = -\frac{x}{y} = -\frac34$ (m/m — dimensionless) |
+| 3. What is the **direction**, and where does it flip or break? | negative: reversed relation; degree 0 at $(0,\pm5)$ (flat), blows up at $(\pm5,0)$ — switch drivers there |
 
-**The percentage form exposes uniform relatedness.** For the multiplicative law $pV = C$ the raw degree $\frac{dV}{dp} = -\frac{V}{p}$ depends on where you stand — but the dimensionless degree $E = \frac{p}{V}\frac{dV}{dp} = -1$ is the same at **every** point: pressure and volume are *uniformly* related, exactly unit elastic (Example 2). The lens's rule repeats itself: raw $\frac{dB}{dA}$ says *how much, here*; the percentage form says *how strongly, everywhere*. And for three entangled variables, the percentage degrees of relation must add to zero (Example 3's budget) — a relation can be read from any direction, but the ledger must balance.
+**One line, two numbers — that is all the "two variables" fear amounts to.** The tangent at $(3,4)$ is a single geometric object, but it carries two degrees, one per driver:
 
-**The mindset, in one sentence**: *entangled is not unreadable — the equation fixes the global relation, and $\frac{dy}{dx}$ (units y per x) reads its local degree: write the units, read the sign, and watch where the degree vanishes (flat) or blows up (vertical).*
+$$\frac{dy}{dx} = -\frac34 \qquad\text{and}\qquad \frac{dx}{dy} = -\frac43, \qquad \frac{dy}{dx}\cdot\frac{dx}{dy} = 1.$$
+
+"How much $y$ per unit of $x$" and "how much $x$ per unit of $y$" are the *same relation read in reverse* — reciprocals, exactly as in 14D. When one degree blows up, the other is 0: the relation did not break, it just needs the other driver. (This is also why the circle has "no slope" at $(\pm5,0)$ — the slope exists, it just lives in the $x$-respecting reading.)
+
+**The percentage form exposes uniform relatedness.** For the multiplicative law $pV = C$ the raw degree $\frac{dV}{dp} = -\frac{V}{p}$ depends on where you stand — but the dimensionless degree $E = \frac{p}{V}\frac{dV}{dp} = -1$ is the same at **every** point: pressure and volume are *uniformly* related, exactly unit elastic (Example 2). Raw degree says *how much, here*; the percentage form says *how strongly, everywhere*. And for three entangled variables, the percentage degrees of relation must add to zero (Example 3's budget) — a relation can be read from any direction, but the ledger must balance.
+
+![One line, two degrees: the frame question](graphs/0821/14D1A/14d1a-0-frame-question.png)
+
+*Graph 14D1A-0: The tangent at (3,4) is one line but two degrees — respect $x$ and it reads $-\frac34$, respect $y$ and it reads $-\frac43$. The frame question, not the equation, picks the number.*
+
+**The mindset, in one sentence**: *two variables are one relation read twice — choose the driver (the frame question), read the degree $\frac{dy}{dx}$ (units y per x), watch the sign, and switch drivers where the degree vanishes or blows up.*
 
 ---
 
@@ -160,7 +172,8 @@ Adiabatic (no heat exchange): $pV^{\gamma} = C$, $\gamma > 1$ → $\frac{dp}{dV}
 > When an entangled equation appears, run this. It is the whole supplement in one box.
 
 ```
-1. NAME        → which variables, which units? Who is traded for whom?
+1. FRAME       → name both variables, then choose the driver (the frame question) —
+                 the degree dy/dx has units y per x, and dx/dy reads the same relation backwards.
 2. DIFFERENTIATE → both sides, every variable (product rule for products, chain
                  rule for powers, log-diff for multiplicative laws).
 3. SOLVE       → isolate the trade-off dy/dx (or a rate budget).
@@ -198,6 +211,8 @@ Adiabatic (no heat exchange): $pV^{\gamma} = C$, $\gamma > 1$ → $\frac{dp}{dV}
 ## What We Just Did
 
 ```
+(0) The frame question: one equation, one relation — respect x or respect y;
+    dy/dx and dx/dy are reciprocals; where one blows up, switch drivers.
 (1) Circle x²+y²=25: dy/dx = −x/y — a dimensionless trade; sign flips by quadrant;
     vertical tangent where y=0.
 (2) Boyle pV=C: dV/dp = −V/p (m³/kPa); elasticity E = −1 exactly; rates obey pV'+Vp'=0.
@@ -211,99 +226,22 @@ Adiabatic (no heat exchange): $pV^{\gamma} = C$, $\gamma > 1$ → $\frac{dp}{dV}
 
 ---
 
-## Practice 1
-
-For the circle $x^2 + y^2 = 25$: (a) find $\frac{dy}{dx}$ at $(3,4)$ and read its sign; (b) find where the tangent is vertical and where it is horizontal; (c) explain why the curve is "not a function of $x$" yet still has a derivative at every point except two.
-
-<details>
-<summary>💡 Hint</summary>
-
-(a) $-\frac{x}{y} = -\frac34$. (b) vertical at $y=0$ ($x=\pm5$), horizontal at $x=0$ ($y=\pm5$). (c) one $x$, two $y$'s — but locally near any point except the left/right tips the curve is a graph.
-
-</details>
-
-→ Solutions: [Solutions](solutions/14D1A-solutions.md#practice-1)
-
----
-
-## Practice 2
-
-A gas obeys $pV = 600$ (kPa·m³, fixed temperature). (a) Find $\frac{dV}{dp}$ when $p = 150$ kPa. (b) State its units and meaning. (c) If pressure rises at 3 kPa/s at that instant, how fast is the volume changing?
-
-<details>
-<summary>💡 Hint</summary>
-
-$V = 600/150 = 4$ m³, so (a) $\frac{dV}{dp} = -\frac{V}{p} = -0.0267$ m³/kPa. (c) $\frac{dV}{dt} = -\frac{V}{p}\frac{dp}{dt} = -0.08$ m³/s.
-
-</details>
-
-→ Solutions: [Solutions](solutions/14D1A-solutions.md#practice-2)
-
----
-
-## Practice 3
-
-An ideal gas has $P = 200$ kPa, $V = 3$ m³. At some instant $P' = 5$ kPa/s and $V' = -0.2$ m³/s. (a) Write the percentage budget. (b) Find $\frac{T'}{T}$ and say what it means.
-
-<details>
-<summary>💡 Hint</summary>
-
-$\frac{T'}{T} = \frac{P'}{P} + \frac{V'}{V} = 0.025 - 0.0667 = -0.0417$ — temperature falls about 4.2% per second. The equation *forces* this third rate.
-
-</details>
-
-→ Solutions: [Solutions](solutions/14D1A-solutions.md#practice-3)
-
----
-
-## Practice 4
-
-A particle moves on the sphere $x^2+y^2+z^2=9$. At $(1,2,2)$ its velocity has $x' = 1$, $y' = 1$. (a) Find $z'$. (b) What geometric fact does the constraint equation enforce?
-
-<details>
-<summary>💡 Hint</summary>
-
-$2(1)(1) + 2(2)(1) + 2(2)z' = 0$ → $z' = -\frac32$. The velocity is perpendicular to the radius — motion is tangent to the sphere.
-
-</details>
-
-→ Solutions: [Solutions](solutions/14D1A-solutions.md#practice-4)
-
----
-
-## Practice 5: Real Battle — The Folium's Leaf (🔗 14C)
-
-For $x^3 + y^3 = 6xy$: (a) find $\frac{dy}{dx}$ at $(3,3)$; (b) solve for the horizontal tangent point and verify it lies on the curve.
-
-<details>
-<summary>💡 Hint</summary>
-
-(a) $\frac{2y-x^2}{y^2-2x} = -1$ at $(3,3)$. (b) $2y=x^2$ and the curve give $x = 2^{4/3}\approx2.52$, $y=2^{5/3}\approx3.17$; check $x^3+y^3 = 48 = 6xy$.
-
-</details>
-
-→ Solutions: [Solutions](solutions/14D1A-solutions.md#practice-5)
-
----
-
-## Practice 6: Real Battle — Stiffness of a Process
-
-Compare $\frac{dp}{dV}$ for the isotherm $pV = C$ and the adiabat $pV^{1.4} = C$ at the same point. Why is the adiabat steeper, and what does the extra steepness buy physically?
-
-<details>
-<summary>💡 Hint</summary>
-
-$-\frac{p}{V}$ vs $-1.4\frac{p}{V}$ — 1.4 times steeper. Compression heats the gas in the adiabat (no heat leaks away), and the heat raises pressure further.
-
-</details>
-
-→ Solutions: [Solutions](solutions/14D1A-solutions.md#practice-6)
-
----
-
 ## Basic Drills
 
-**D1.** $x^2/9 + y^2/4 = 1$. Find $\frac{dy}{dx}$ at $(0,2)$ and say what kind of tangent the point has.
+**D1.**
+
+<details>
+<summary><b>D1.A</b></summary>
+
+$x^2/9 + y^2/4 = 1$. Differentiate implicitly and find $\frac{dy}{dx}$ at $(0,2)$.
+
+<details>
+<summary><b>D1.B</b></summary>
+
+What kind of tangent does the point have, and where does it sit on the ellipse?
+
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -312,7 +250,20 @@ $\frac{dy}{dx} = -\frac{4x}{9y} = 0$ at $(0,2)$ — a horizontal tangent (the to
 
 </details>
 
-**D2.** $pV = 600$ kPa·m³. Find $\frac{dV}{dp}$ at $p = 150$ kPa, with units.
+**D2.**
+
+<details>
+<summary><b>D2.A</b></summary>
+
+$pV = 600$ kPa·m³. Find $\frac{dV}{dp}$ at $p = 150$ kPa.
+
+<details>
+<summary><b>D2.B</b></summary>
+
+State the units and read the trade in one sentence.
+
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -321,7 +272,20 @@ $V = 4$ m³ → $-\frac{4}{150} = -0.0267$ m³/kPa.
 
 </details>
 
-**D3.** $xy = 12$. Find $\frac{dy}{dx}$ at $(3,4)$ and read the trade.
+**D3.**
+
+<details>
+<summary><b>D3.A</b></summary>
+
+$xy = 12$. Differentiate implicitly and find $\frac{dy}{dx}$ at $(3,4)$.
+
+<details>
+<summary><b>D3.B</b></summary>
+
+Read the trade: what does the number say about $x$ and $y$?
+
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -330,7 +294,20 @@ $y + x y' = 0$ → $y' = -\frac{y}{x} = -\frac43$: each unit of $x$ trades away 
 
 </details>
 
-**D4.** $x^2 + y^2 = 25$. Where is the tangent vertical? Where horizontal?
+**D4.**
+
+<details>
+<summary><b>D4.A</b></summary>
+
+$x^2 + y^2 = 25$. Where is the tangent vertical?
+
+<details>
+<summary><b>D4.B</b></summary>
+
+Where is it horizontal?
+
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -339,7 +316,20 @@ Vertical: $y=0$, $x=\pm5$. Horizontal: $x=0$, $y=\pm5$.
 
 </details>
 
-**D5.** Show that $pV = C$ has constant elasticity $E = \frac{p}{V}\frac{dV}{dp} = -1$.
+**D5.**
+
+<details>
+<summary><b>D5.A</b></summary>
+
+From $pV = C$, compute $\frac{dV}{dp}$.
+
+<details>
+<summary><b>D5.B</b></summary>
+
+Show the elasticity $E = \frac{p}{V}\frac{dV}{dp} = -1$ — the same at every state.
+
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -348,7 +338,20 @@ $\frac{dV}{dp} = -\frac{V}{p}$, so $E = \frac{p}{V}\cdot\left(-\frac{V}{p}\right
 
 </details>
 
-**D6.** On the sphere $x^2+y^2+z^2 = 9$ at $(1,2,2)$: if $x' = 1$ and $y' = 1$, find $z'$.
+**D6.**
+
+<details>
+<summary><b>D6.A</b></summary>
+
+On the sphere $x^2+y^2+z^2 = 9$ at $(1,2,2)$, differentiate along a path with $x' = 1$, $y' = 1$.
+
+<details>
+<summary><b>D6.B</b></summary>
+
+Solve for $z'$ and read what the constraint forced.
+
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -357,7 +360,20 @@ $2(1)(1) + 2(2)(1) + 2(2)z' = 0$ → $z' = -\frac32$.
 
 </details>
 
-**D7.** At the same point, compare the adiabatic and isothermal slopes $\frac{dp}{dV}$. What is their ratio?
+**D7.**
+
+<details>
+<summary><b>D7.A</b></summary>
+
+At the same point, compute the adiabatic and isothermal slopes $\frac{dp}{dV}$.
+
+<details>
+<summary><b>D7.B</b></summary>
+
+What is their ratio, and what does it mean?
+
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -366,7 +382,20 @@ $-\gamma\frac{p}{V}$ vs $-\frac{p}{V}$: ratio $\gamma$ (e.g. 1.4 for air).
 
 </details>
 
-**D8.** A plane satisfies $x + y + z = 10$ (units: meters). If $x' = 2$ m/s and $y' = -1$ m/s, find $z'$.
+**D8.**
+
+<details>
+<summary><b>D8.A</b></summary>
+
+A plane satisfies $x + y + z = 10$ (units: meters). Differentiate the constraint along a path.
+
+<details>
+<summary><b>D8.B</b></summary>
+
+If $x' = 2$ m/s and $y' = -1$ m/s, find $z'$.
+
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -375,7 +404,20 @@ $x' + y' + z' = 0$ → $z' = -1$ m/s. A plane is the simplest entangled constrai
 
 </details>
 
-**D9.** For $x^2 + y^2 = 25$, what happens to $\frac{dy}{dx}$ as the point approaches $(5,0)$? Interpret.
+**D9.**
+
+<details>
+<summary><b>D9.A</b></summary>
+
+For $x^2 + y^2 = 25$, what happens to $\frac{dy}{dx}$ as the point approaches $(5,0)$?
+
+<details>
+<summary><b>D9.B</b></summary>
+
+Interpret — and give the frame-question fix for the blow-up.
+
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -384,7 +426,20 @@ $-\frac{x}{y} \to -\infty$: the trade ratio blows up — a vertical tangent, whe
 
 </details>
 
-**D10.** $PV = nRT$ with $T$ fixed. If $P' = 3$ kPa/s at $P = 100$ kPa, $V = 4$ m³, find $V'$.
+**D10.**
+
+<details>
+<summary><b>D10.A</b></summary>
+
+$PV = nRT$ with $T$ fixed. Write the rate budget.
+
+<details>
+<summary><b>D10.B</b></summary>
+
+If $P' = 3$ kPa/s at $P = 100$ kPa, $V = 4$ m³, find $V'$.
+
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -401,7 +456,20 @@ $V' = -\frac{V}{P}P' = -\frac{4}{100}\cdot 3 = -0.12$ m³/s.
 
 > Each problem has a computation part AND an interpretation part. Don't skip the explanation parts.
 
-**A1.** Derive both $\frac{dV}{dp} = -\frac{V}{p}$ and the elasticity $E = -1$ from $pV = C$. Then explain why a hyperbola is the *only* shape with constant elasticity (hint: solve the differential equation $\frac{dV}{dp} = -\frac{V}{p}$).
+**A1.**
+
+<details>
+<summary><b>A1.A</b></summary>
+
+From $pV = C$, derive both $\frac{dV}{dp} = -\frac{V}{p}$ and the elasticity $E = -1$.
+
+<details>
+<summary><b>A1.B</b></summary>
+
+Explain why a hyperbola is the *only* shape with constant elasticity — solve the differential equation $\frac{dV}{dp} = -\frac{V}{p}$.
+
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -410,7 +478,26 @@ Separate: $\frac{dV}{V} = -\frac{dp}{p}$ → $\ln V = -\ln p + \text{const}$ →
 
 </details>
 
-**A2.** Ideal gas $PV = nRT$: derive the percentage budget by log-differentiation, then work the numbers $P' = 5$ kPa/s, $V' = -0.2$ m³/s, $P = 200$ kPa, $V = 3$ m³, and interpret each term's contribution.
+**A2.**
+
+<details>
+<summary><b>A2.A</b></summary>
+
+Ideal gas $PV = nRT$: derive the percentage budget by log-differentiation.
+
+<details>
+<summary><b>A2.B</b></summary>
+
+Work the numbers $P' = 5$ kPa/s, $V' = -0.2$ m³/s, $P = 200$ kPa, $V = 3$ m³.
+
+<details>
+<summary><b>A2.C</b></summary>
+
+Interpret each term's contribution: which rate dominates?
+
+</details>
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -419,7 +506,26 @@ $\frac{P'}{P} + \frac{V'}{V} = \frac{T'}{T}$; $0.025 - 0.0667 = -0.0417$: the vo
 
 </details>
 
-**A3.** Folium $x^3 + y^3 = 6xy$: solve $\frac{dy}{dx} = 0$ exactly. Show the horizontal tangent occurs at $x = 2^{4/3}$, $y = 2^{5/3}$, and verify the point is on the curve.
+**A3.**
+
+<details>
+<summary><b>A3.A</b></summary>
+
+Folium $x^3 + y^3 = 6xy$: set $\frac{dy}{dx} = 0$ and solve exactly.
+
+<details>
+<summary><b>A3.B</b></summary>
+
+Show the horizontal tangent occurs at $x = 2^{4/3}$, $y = 2^{5/3}$.
+
+<details>
+<summary><b>A3.C</b></summary>
+
+Verify the point lies on the curve.
+
+</details>
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -428,7 +534,20 @@ $2y - x^2 = 0$ → $y = \frac{x^2}{2}$; substitute: $x^3 + \frac{x^6}{8} = 3x^3$
 
 </details>
 
-**A4.** Derive $\frac{dp}{dV} = -\gamma\frac{p}{V}$ from $pV^{\gamma} = C$, and explain step by step why compression heats the gas and stiffens the curve.
+**A4.**
+
+<details>
+<summary><b>A4.A</b></summary>
+
+Derive $\frac{dp}{dV} = -\gamma\frac{p}{V}$ from $pV^{\gamma} = C$.
+
+<details>
+<summary><b>A4.B</b></summary>
+
+Explain step by step why compression heats the gas and stiffens the curve.
+
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -437,7 +556,20 @@ $\frac{d}{dV}(pV^{\gamma}) = p'V^{\gamma} + \gamma pV^{\gamma-1} = 0$ → $p' = 
 
 </details>
 
-**A5.** For the ellipsoid $\frac{x^2}{a^2} + \frac{y^2}{b^2} + \frac{z^2}{c^2} = 1$, differentiate along a path and show the velocity must satisfy $\left(\frac{x}{a^2}, \frac{y}{b^2}, \frac{z}{c^2}\right)\cdot (x', y', z') = 0$. What does the weighted normal mean geometrically?
+**A5.**
+
+<details>
+<summary><b>A5.A</b></summary>
+
+For the ellipsoid $\frac{x^2}{a^2} + \frac{y^2}{b^2} + \frac{z^2}{c^2} = 1$, differentiate along a path and show the velocity must satisfy $\left(\frac{x}{a^2}, \frac{y}{b^2}, \frac{z}{c^2}\right)\cdot (x', y', z') = 0$.
+
+<details>
+<summary><b>A5.B</b></summary>
+
+What does the weighted normal mean geometrically?
+
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -446,7 +578,26 @@ Each term contributes $2\frac{x}{a^2}x'$ etc. The weighted vector is the surface
 
 </details>
 
-**A6.** $pV = C$ at $p=100$ kPa, $V=4$ m³. Compute $\frac{dV}{dp}$ and $\frac{dV}{dt}$ (for $\frac{dp}{dt} = 2$ kPa/s). Both are "how volume responds to pressure" — explain the difference in what they measure.
+**A6.**
+
+<details>
+<summary><b>A6.A</b></summary>
+
+$pV = C$ at $p=100$ kPa, $V=4$ m³. Compute the static trade $\frac{dV}{dp}$.
+
+<details>
+<summary><b>A6.B</b></summary>
+
+Compute the dynamic response $\frac{dV}{dt}$ (for $\frac{dp}{dt} = 2$ kPa/s).
+
+<details>
+<summary><b>A6.C</b></summary>
+
+Both are "how volume responds to pressure" — explain the difference in what they measure.
+
+</details>
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -455,7 +606,20 @@ $-0.04$ m³/kPa is the static trade (per unit of pressure, whenever); $-0.08$ m�
 
 </details>
 
-**A7.** Near the folium's horizontal tangent, the curve is locally a graph $y = f(x)$ even though globally it is not. Explain why the derivative's finiteness is exactly the local test (this is the intuition behind the implicit function theorem).
+**A7.**
+
+<details>
+<summary><b>A7.A</b></summary>
+
+Near the folium's horizontal tangent, the curve is locally a graph $y = f(x)$ even though globally it is not. State the test that decides this.
+
+<details>
+<summary><b>A7.B</b></summary>
+
+Explain why the derivative's finiteness is exactly that local test (the intuition behind the implicit function theorem).
+
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -464,7 +628,20 @@ Where $y'$ is finite, $y$ changes predictably with $x$ — locally the equation 
 
 </details>
 
-**A8.** Show that the only curves with *constant* elasticity $E = \frac{p}{q}\frac{dq}{dp} = -k$ are the power laws $q p^{k} = C$. (Separate variables and integrate — this unifies Boyle's law and demand curves.)
+**A8.**
+
+<details>
+<summary><b>A8.A</b></summary>
+
+Show that the only curves with *constant* elasticity $E = \frac{p}{q}\frac{dq}{dp} = -k$ are the power laws $q p^{k} = C$ (separate variables and integrate).
+
+<details>
+<summary><b>A8.B</b></summary>
+
+What does this unify — how do Boyle's law and demand curves fit one family?
+
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -473,7 +650,20 @@ $\frac{dq}{q} = -k\frac{dp}{p}$ → $\ln q = -k\ln p + c$ → $q p^k = C$. Boyle
 
 </details>
 
-**A9.** A point moves on $x^2 + y^2 = 25$ with $x = 5\cos\theta(t)$, $y = 5\sin\theta(t)$. Compute $\frac{dy}{dx}$ by parametric differentiation (9B) and confirm it equals $-\frac{x}{y}$ from the implicit method. Which method reveals the *time* story better?
+**A9.**
+
+<details>
+<summary><b>A9.A</b></summary>
+
+A point moves on $x^2 + y^2 = 25$ with $x = 5\cos\theta(t)$, $y = 5\sin\theta(t)$. Compute $\frac{dy}{dx}$ by parametric differentiation (9B) and confirm it equals $-\frac{x}{y}$ from the implicit method.
+
+<details>
+<summary><b>A9.B</b></summary>
+
+Which method reveals the *time* story better?
+
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -482,7 +672,26 @@ $\frac{dy}{dx} = \frac{dy/dt}{dx/dt} = \frac{5\cos\theta}{-5\sin\theta} = -\frac
 
 </details>
 
-**A10.** For $PV = nRT$: (a) holding $P$ fixed, compute $\frac{dV}{dT}$ and its units; (b) holding $V$ fixed, compute $\frac{dP}{dT}$ and its units; (c) explain what each derivative measures physically.
+**A10.**
+
+<details>
+<summary><b>A10.A</b></summary>
+
+For $PV = nRT$, holding $P$ fixed, compute $\frac{dV}{dT}$ and its units.
+
+<details>
+<summary><b>A10.B</b></summary>
+
+Holding $V$ fixed, compute $\frac{dP}{dT}$ and its units.
+
+<details>
+<summary><b>A10.C</b></summary>
+
+Explain what each derivative measures physically.
+
+</details>
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -499,7 +708,26 @@ $\frac{dy}{dx} = \frac{dy/dt}{dx/dt} = \frac{5\cos\theta}{-5\sin\theta} = -\frac
 
 > One problem, pushed to the edge of this session's method. Compute it — then explain *why* the method breaks or holds. The "why" is the whole point.
 
-**DI1.** At the origin the folium $x^3+y^3=6xy$ crosses itself. (a) Show that **both** $\frac{dy}{dx}$ and $\frac{dx}{dy}$ fail at $(0,0)$ — the formulas are $0/0$. (b) Using the parametrization $x=\frac{6t}{1+t^3}$, $y=\frac{6t^2}{1+t^3}$, show the curve has **two** branches through the origin, one tangent to each axis. (c) Explain why the "locally a graph" reading (A7) has exactly this one loophole — and which condition on $(F_x, F_y)$ detects it.
+**DI1.**
+
+<details>
+<summary><b>DI1.A</b></summary>
+
+At the origin the folium $x^3+y^3=6xy$ crosses itself. Show that **both** $\frac{dy}{dx}$ and $\frac{dx}{dy}$ fail at $(0,0)$ — the formulas are $0/0$.
+
+<details>
+<summary><b>DI1.B</b></summary>
+
+Using the parametrization $x=\frac{6t}{1+t^3}$, $y=\frac{6t^2}{1+t^3}$, show the curve has **two** branches through the origin, one tangent to each axis.
+
+<details>
+<summary><b>DI1.C</b></summary>
+
+Explain why the "locally a graph" reading (A7) has exactly this one loophole — and which condition on $(F_x, F_y)$ detects it.
+
+</details>
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -529,6 +757,7 @@ $\frac{dy}{dx} = \frac{dy/dt}{dx/dt} = \frac{5\cos\theta}{-5\sin\theta} = -\frac
 | Symbol | Reads as | Meaning |
 |:---:|:---:|------|
 | $\frac{dy}{dx} = -\frac{x}{y}$ | "d y d x equals minus x over y" | the circle's trade ratio — pure number (m/m) |
+| $\frac{dx}{dy}$ | "d x d y" | the same relation read backwards — the reciprocal degree |
 | $\frac{dV}{dp}$ | "d V d p" | volume's response to pressure — m³/kPa |
 | $\frac{P'}{P}$ | "P prime over P" | percentage rate of pressure — dimensionless |
 | $(x,y,z)\cdot(x',y',z')$ | "position dot velocity" | zero ⟹ motion is tangent to the sphere |

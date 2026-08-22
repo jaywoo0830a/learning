@@ -4,84 +4,6 @@
 
 ---
 
-## Practice 1
-
-Solve: $y = \pm\sqrt{16-x^2}$. The full circle is four quarters:
-
-$A = 4\int_0^4\sqrt{16-x^2}\,dx = 4\cdot\frac{16\pi}{4} = 16\pi \approx 50.3$ (units² — m² if axes are meters).
-
-The symmetry factor 4 matters: $2\int_0^4$ would give only the top half.
-
-> **Answer**: $16\pi \approx 50.3$, with symmetry factor 4
-
-**Lens reading**: the constraint's manufactured relation, collected four times — symmetry is the relation's own mirror.
-
----
-
-## Practice 2
-
-$p = \frac{500}{V}$, so $W = \int_1^3\frac{500}{V}dV = 500\ln 3 \approx 549.3$ kJ.
-
-Positive: the gas expands, pushing outward — it does work *on* the world. Units: kPa·m³ = kJ.
-
-> **Answer**: $500\ln 3 \approx 549.3$ kJ (positive — expansion)
-
-**Lens reading**: pressure's weakening relation to volume collects into a logarithm — 500 ln 3.
-
----
-
-## Practice 3
-
-**(a)** $\bar p = \frac{1}{4-2}\int_2^4\frac{800}{V}dV = \frac{800\ln 2}{2} = 400\ln 2 \approx 277.3$ kPa.
-
-**(b)** $W = \bar p\,\Delta V = 277.3 \times 2 = 554.5$ kJ, and directly $W = 800\ln 2 \approx 554.5$ kJ ✓ — the equal-area rectangle.
-
-**(c)** Midpoint: $\frac{400+200}{2} = 300$ kPa — too high. The hyperbola flattens toward the axis: it spends more of its length at large $V$ (low pressure), so the area-average sits below the midpoint. The curve's shape is the weighting.
-
-> **Answer**: (a) $400\ln 2\approx277.3$ kPa (b) $554.5$ kJ ✓ (c) log-mean < midpoint
-
-**Lens reading**: the log-mean is the uniform relation with the same total; the midpoint overshoots the weakening curve.
-
----
-
-## Practice 4
-
-Integration: $y = 3\sqrt{1-\frac{x^2}{4}}$; $A = 4\int_0^2 3\sqrt{1-\frac{x^2}{4}}\,dx = 12\int_0^2\sqrt{1-\frac{x^2}{4}}dx = 6\pi \approx 18.85$.
-
-Stretch: $u=\frac{x}{2}$, $v=\frac{y}{3}$ maps the ellipse to the unit circle; area scales by the stretch factors $2\times3$, so $A = \pi\cdot 2\cdot 3 = 6\pi$ — same.
-
-> **Answer**: $6\pi \approx 18.85$ by both methods
-
-**Lens reading**: the ellipse is the circle's stretched relation — area responds through the stretch determinant $ab$.
-
----
-
-## Practice 5: Real Battle — Adiabatic Expansion
-
-$p_2 = p_1\left(\frac{V_1}{V_2}\right)^{\gamma} = 300\cdot 2^{-5/3} \approx 94.5$ kPa.
-
-$W = \frac{p_2V_2 - p_1V_1}{1-\gamma} = \frac{94.5\cdot 2 - 300\cdot 1}{1-\frac53} = \frac{-111}{-0.667} \approx 166.5$ kJ.
-
-The isotherm through the same start ($pV = 300$) would give $W = 300\ln 2 \approx 207.9$ kJ — more. The adiabat is steeper, dives lower, sweeps less area: keeping the heat costs work.
-
-> **Answer**: $p_2\approx94.5$ kPa, $W\approx166.5$ kJ (less than the isotherm's 207.9)
-
-**Lens reading**: the steeper adiabatic relation collects less work — stiffness costs energy.
-
----
-
-## Practice 6: Real Battle — The Ring
-
-Area: $9\pi - 4\pi = 5\pi \approx 15.7$.
-
-Mass with $\rho = r$: $M = \int_0^{2\pi}\int_2^3 r\cdot r\,dr\,d\theta = 2\pi\cdot\frac{27-8}{3} = \frac{38\pi}{3} \approx 39.8$ kg — the outer rim dominates both the area and the mass.
-
-> **Answer**: area $5\pi$; mass $\frac{38\pi}{3}\approx39.8$ kg
-
-**Lens reading**: nested constraints subtract; the density weights each ring by its own radius relation.
-
----
-
 ## Basic Drills
 
 ### D1.
@@ -286,12 +208,6 @@ Physically: as $\gamma\to1$ the gas exchanges heat so freely that each bit of co
 
 | Problem | Answer |
 |:---:|:---|
-| P1 | $16\pi$ (factor 4) |
-| P2 | $500\ln3\approx549.3$ kJ |
-| P3 | $400\ln2\approx277.3$ kPa · $554.5$ ✓ · below midpoint |
-| P4 | $6\pi$ both ways |
-| P5 | $p_2\approx94.5$ · $166.5$ kJ < isotherm $207.9$ |
-| P6 | $5\pi$ · $\frac{38\pi}{3}\approx39.8$ kg |
 | D1 | kJ |
 | D2 | $16\pi$ |
 | D3 | $549.3$ kJ |

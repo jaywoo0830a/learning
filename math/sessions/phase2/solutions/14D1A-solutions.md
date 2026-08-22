@@ -4,82 +4,6 @@
 
 ---
 
-## Practice 1
-
-**(a)** $\frac{dy}{dx} = -\frac{x}{y} = -\frac34$ at $(3,4)$. Negative: on the upper-right arc, moving right trades away height — $x$ and $y$ fight.
-
-**(b)** Vertical: $y = 0$ → $x = \pm5$. Horizontal: $x = 0$ → $y = \pm5$.
-
-**(c)** One $x$ allows two $y$'s, so the circle is not a function of $x$. But near every point except the two tips $(\pm5, 0)$, the curve is locally a graph, so the derivative exists there; at the tips the trade ratio explodes (vertical tangent).
-
-> **Answer**: (a) $-\frac34$ (b) vertical at $(\pm5,0)$, horizontal at $(0,\pm5)$ (c) locally a graph everywhere except the tips
-
-**Lens reading**: the circle relates $x$ and $y$ backwards in the upper-right (degree $-\frac34$), and the relation's strength is local — infinite at the tips, zero at the top. One relation, a position-dependent degree.
-
----
-
-## Practice 2
-
-**(a)** $V = \frac{600}{150} = 4$ m³; $\frac{dV}{dp} = -\frac{V}{p} = -\frac{4}{150} = -0.0267$ m³/kPa.
-
-**(b)** "Each extra kPa of pressure squeezes out about 0.0267 m³ of volume."
-
-**(c)** $\frac{dV}{dt} = \frac{dV}{dp}\frac{dp}{dt} = -0.0267 \times 3 = -0.08$ m³/s.
-
-> **Answer**: (a) $-0.0267$ m³/kPa (b) trade rate (c) $-0.08$ m³/s
-
-**Lens reading**: volume's degree of relation to pressure is $-0.0267$ m³/kPa — backwards and local to this state. Chained to pressure's own relation to time (3 kPa/s), the compound degree is $-0.08$ m³/s.
-
----
-
-## Practice 3
-
-**(a)** Log-differentiation: $\frac{P'}{P} + \frac{V'}{V} = \frac{T'}{T}$.
-
-**(b)** $\frac{T'}{T} = \frac{5}{200} + \frac{-0.2}{3} = 0.025 - 0.0667 = -0.0417$ — temperature falls about 4.2% per second. The volume shrinkage (−6.7%/s) outweighs the pressure growth (+2.5%/s), and the equation forces the difference onto temperature.
-
-> **Answer**: $\frac{T'}{T} = -0.0417$ (−4.2%/s — the budget forces it)
-
-**Lens reading**: three entangled relations in percentages — pressure +2.5%, volume −6.7% — and the ledger forces temperature's relation to time to be the difference: −4.2%/s.
-
----
-
-## Practice 4
-
-**(a)** $2x\,x' + 2y\,y' + 2z\,z' = 0$: $2(1)(1) + 2(2)(1) + 2(2)z' = 0$ → $2 + 4 + 4z' = 0$ → $z' = -\frac32$.
-
-**(b)** The velocity is perpendicular to the position vector — motion on a sphere is tangent to it. The implicit equation, differentiated, is the geometric fact "radius ⊥ tangent."
-
-> **Answer**: (a) $z' = -\frac32$ (b) velocity ⊥ radius
-
-**Lens reading**: the sphere's constraint relates the three velocities — two are free, and the third's degree is forced ($z'=-\frac32$). One equation, one bought relation.
-
----
-
-## Practice 5: Real Battle — The Folium's Leaf
-
-**(a)** $y' = \frac{2y - x^2}{y^2 - 2x}$. At $(3,3)$: $\frac{6-9}{9-6} = -1$ — a diagonal tangent on the leaf's outer tip.
-
-**(b)** Horizontal: numerator $= 0$ → $2y = x^2$. Substitute into the curve: $x^3 + \frac{x^6}{8} = 3x^3$ → $x^6 = 16x^3$ → $x^3 = 16$ → $x = 2^{4/3} \approx 2.52$, $y = 2^{5/3} \approx 3.17$. Check: $x^3 + y^3 = 16 + 32 = 48 = 6\cdot 8 = 6xy$ ✓.
-
-> **Answer**: (a) slope $-1$ at $(3,3)$ (b) horizontal at $(2^{4/3},\,2^{5/3}) \approx (2.52,\,3.17)$
-
-**Lens reading**: the folium relates $y$ to $x$ at degree $-1$ at $(3,3)$; the horizontal pause is where the relation's numerator dies — found by solving the relation and its pause-condition together.
-
----
-
-## Practice 6: Real Battle — Stiffness of a Process
-
-Isotherm: $\frac{dp}{dV} = -\frac{p}{V}$. Adiabat ($\gamma = 1.4$): $\frac{dp}{dV} = -1.4\frac{p}{V}$ — 1.4 times steeper at the same point.
-
-Why: compression does work on the gas; in the adiabat no heat leaks away, so the work becomes internal energy, the temperature rises, and the pressure climbs *further*. The isotherm dumps the heat and stays flatter. The extra steepness is the price of keeping the heat.
-
-> **Answer**: $-1.4\frac{p}{V}$ vs $-\frac{p}{V}$; heating stiffens the curve by the factor $\gamma$
-
-**Lens reading**: the same state, two relations — the isotherm's degree $-\frac{p}{V}$ and the adiabat's $-\gamma\frac{p}{V}$. The extra stiffness is the heating the relation itself feeds back.
-
----
-
 ## Basic Drills
 
 ### D1.
@@ -284,12 +208,6 @@ The parametric lens keeps time visible ($x'$, $y'$ are actual speeds); the impli
 
 | Problem | Answer |
 |:---:|:---|
-| P1 | $-\frac34$ · vertical $(\pm5,0)$ · horizontal $(0,\pm5)$ |
-| P2 | $-0.0267$ m³/kPa · $-0.08$ m³/s |
-| P3 | $-0.0417$ (−4.2%/s) |
-| P4 | $z'=-\frac32$; velocity ⊥ radius |
-| P5 | slope $-1$ · $(2^{4/3},2^{5/3})$ |
-| P6 | $-1.4\frac{p}{V}$ vs $-\frac{p}{V}$ |
 | D1 | 0 — horizontal at top |
 | D2 | $-0.0267$ m³/kPa |
 | D3 | $-\frac43$ |
