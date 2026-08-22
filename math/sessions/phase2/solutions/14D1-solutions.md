@@ -126,7 +126,9 @@ $L(x) = 1 + x$ at $a=0$: $e^{0.05} \approx 1.05$ (true $1.051271\ldots$). On $[0
 
 $f'(x) = 2x-4 < 0$ on $(-\infty,2)$ and $>0$ on $(2,\infty)$.
 
-> **Answer**: $f$ decreases on $(-\infty,2)$, increases on $(2,\infty)$, minimum at $x=2$
+**(b)** Reversed relation on $(-\infty,2)$ — each unit of $x$ buys a loss of $f$; forward on $(2,\infty)$ — each unit buys a gain; the degree vanishes at $x=2$, where the relation pauses at the minimum.
+
+> **Answer**: (a) $f$ decreases on $(-\infty,2)$, increases on $(2,\infty)$, minimum at $x=2$; (b) reversed → forward, degree zero at $x=2$
 
 **Lens reading**: $f' = 2x-4$ is $f$'s degree of relation to $x$ — negative where each unit of $x$ buys less $f$ (falling), positive where it buys more (rising), zero at $x=2$ where the relation pauses at the minimum.
 
@@ -150,7 +152,7 @@ $C'(q) = 0.2q+1$, so $C'(10) = 3$ \$/unit. $C(10) = 70$; estimate $C(11) \approx
 
 $\frac{dK}{dv} = mv = 2\cdot 4 = 8$; units $\mathrm{J}/(\mathrm{m/s}) = \mathrm{kg\,m/s}$.
 
-> **Answer**: 8 kg·m/s — momentum
+> **Answer**: 8 kg·m/s — momentum; "each m/s of speed buys 8 J/(m/s) of kinetic energy"
 
 **Lens reading**: $\frac{dK}{dv} = mv = 8$ is energy's degree of relation to speed — each m/s of speed buys 8 kg·m/s of energy, and that degree has a name: momentum.
 
@@ -222,6 +224,8 @@ Divide by $dr$ and let $dr\to 0$: $\frac{dA}{dr} = 2\pi r$. The ring picture: th
 
 **(c)** Power is force × velocity because both factors scale the delivery rate: twice the force delivers twice the energy per second, and twice the speed covers twice the distance per second, so twice the work per second.
 
+**(d)** Degree to $v$: "each m/s of speed buys $mv$ J/(m/s) of kinetic energy" — momentum. Degree to $t$: "each second buys $Fv$ joules" — power. One quantity, two drivers, two named degrees.
+
 > **Answer**: $\frac{dK}{dt} = Fv$; units momentum vs power; power = force × velocity
 
 **Lens reading**: kinetic energy is related to speed with degree momentum ($mv$), and to time through the chain: momentum × acceleration = $Fv$, power. Two drivers, one chain, two named degrees.
@@ -271,6 +275,8 @@ Interpretation: at $q=5$, $MC = AC = 15$ — the next unit costs exactly what un
 **(b)** "Each kilometer higher, the air is 6.5 °C colder."
 
 **(c)** $20 - 6.5h = 0$ → $h = \frac{20}{6.5} \approx 3.08$ km.
+
+**(d)** $T(h) = 20 - 6.5h$ is 14D's proportional·reversed shape: direction knob $n=+1$ (the size $|T-20| = 6.5h$ grows with $h$), attribute knob $k = -6.5$ (the slope's minus makes temperature descend). The attribute itself flips — freezing — at $h \approx 3.08$ km.
 
 > **Answer**: $-6.5$ °C/km ($-0.65$ °C per 100 m); freezing at ≈ 3.08 km
 
@@ -345,21 +351,21 @@ The error bound in Example 1: $|f-L| \le \frac{M}{2}(x-a)^2$ with $M = \max|f''|
 | D1 | mi/hr · \$/item · bacteria/min · N/m |
 | D2 | $(1,3)$ |
 | D3 | $1.05$, err $\le 0.00131$ |
-| D4 | dec $(-\infty,2)$, inc $(2,\infty)$, min at 2 |
+| D4 | dec→inc at 2; reversed→forward, degree zero at 2 |
 | D5 | $6\pi$ = circumference |
 | D6 | \$3/unit · ≈\$73 vs \$73.10 |
-| D7 | 8 kg·m/s = momentum |
+| D7 | 8 kg·m/s = momentum (energy's degree to speed) |
 | D8 | $16\pi$ = surface area |
 | D9 | $q=5$, value 20, $MC=AC$ |
 | D10 | $E=-\frac23$ inelastic |
 | D11 | km/L · kg/m³ · \$/item |
 | A1 | $2\pi r$; corner $(dr)^2$ vanishes |
 | A2 | $4\pi r^2 dr$; half-side gives $6s^2$ |
-| A3 | $\frac{dK}{dt}=Fv$; power |
+| A3 | $\frac{dK}{dt}=Fv$; power; two degrees, two drivers |
 | A4 | err $\le 0.00133$; local only |
 | A5 | $q=5$, $MC=AC=15$ |
 | A6 | $R'=q(1+E)$; $p=25$ |
-| A7 | $-0.65$ °C/100m; ≈3.08 km |
+| A7 | $-0.65$ °C/100m; ≈3.08 km; proportional·reversed |
 | A8 | $F=ma$; channels $m\dot v + v\dot m$ (frame question → 14D1B A1) |
 | A9 | converse fails; $f'=0$ is only a flag |
 | A10 | $60\pi$ lateral · $9\pi$ base |

@@ -228,7 +228,9 @@ The income grows at 2% but money loses value at 6% per year — the *net* discou
 
 $\int_0^{20}5e^{-t/10}dt = 50(1-e^{-2}) \approx 43.23$ L.
 
-> **Answer**: ≈ 43.2 L
+**(b)** The exponent $-\frac{t}{10}$ is the percentage degree of the relation: each minute kills 10% of the remaining flow, compounded. Collected forever, the relation totals $\int_0^\infty 5e^{-t/10}dt = 50$ L — the finite reservoir the leak drains.
+
+> **Answer**: (a) ≈ 43.2 L; (b) −10% per minute, compounded; 50 L total
 
 **Lens reading**: the leak's relation to time decays with degree $-1/10$; collecting it over 20 minutes gives ≈43.2 L.
 
@@ -244,17 +246,19 @@ $\bar{f} = \frac{1}{4}\int_0^4 x^2 dx = \frac{1}{4}\cdot\frac{64}{3} = \frac{16}
 
 $W = \frac12 kx^2 = \frac12\cdot 100\cdot(0.2)^2 = 2$ J.
 
-> **Answer**: 2 J
+**(b)** $F = 100x$ is 14D's proportional·forward shape — the degree grows with $x$. A growing degree collects into a triangle ($\frac12 \cdot 0.2\,\mathrm{m} \cdot 20\,\mathrm{N}$); a constant force would collect into a rectangle.
 
-**Lens reading**: a constant force is a uniform relation; collecting 1 N over 2 m gives 2 J.
+> **Answer**: (a) 2 J; (b) proportional·forward — triangle, because the degree strengthens
+
+**Lens reading**: work collects the force–stretch relation; the shape of the relation (growing vs uniform) decides the shape of the total (triangle vs rectangle).
 
 ### D5.
 
 $\int_0^2(3t^2+1)dt = [t^3+t]_0^2 = 10$ m.
 
-> **Answer**: 10 m
+> **Answer**: 10 m — built from a strengthening degree ($3t^2+1$)
 
-**Lens reading**: displacement collects the signed velocity relation; splitting at the sign flips converts it to distance — 10 m.
+**Lens reading**: distance collects the velocity–time relation; the degree $3t^2+1$ strengthens with time, so the collected total grows faster than linearly.
 
 ### D6.
 
@@ -408,7 +412,9 @@ Mean: $\frac23 \approx 0.667$. The median is larger because the density $2x$ ris
 
 **(c)** $r = ct$, so $V(t) = \frac{4}{3}\pi(ct)^3$ — volume grows **cubically** in time even though the radius grows only linearly. A constant radial growth rate is an exploding volume growth rate.
 
-> **Answer**: (a) $4\pi r^2 c$ (b) $\frac43\pi R^3$ ✓ (c) $V(t)=\frac43\pi(ct)^3$ — cubic
+**(d)** $V = \frac{4}{3}\pi r^3$ is 14D's proportional·forward shape: $n = +3$, $k = +\frac{4\pi}{3}$ — no minus anywhere, so $\frac{dV}{dr} = 4\pi r^2 > 0$ for every $r>0$; the degree is the surface through which growth enters.
+
+> **Answer**: (a) $4\pi r^2 c$ (b) $\frac43\pi R^3$ ✓ (c) $V(t)=\frac43\pi(ct)^3$ — cubic (d) proportional·forward, degree positive
 
 **Lens reading**: volume's relation to radius is the surface — collected, it rebuilds the sphere; with $r=ct$ the relation to time is cubic.
 
@@ -455,10 +461,10 @@ The FTC pair: (a) and (c) — displacement is the integral of the *signed* rate,
 | RPA4 | 1 ✓ · $e^{-\lambda}$ · $\frac1\lambda$ |
 | RPA5 | $\frac43$ m · 4 m · FTC=signed |
 | D1 | m · L · J · \$ |
-| D2 | ≈ 43.2 L |
+| D2 | ≈ 43.2 L; −10%/min; 50 L total |
 | D3 | $\frac{16}{3}$ |
-| D4 | 2 J |
-| D5 | 10 m |
+| D4 | 2 J; proportional·forward → triangle |
+| D5 | 10 m; strengthening degree |
 | D6 | $\frac12$ · 4 |
 | D7 | $\frac{32}{3}$ (cm²) |
 | D8 | \$400 |
@@ -473,5 +479,5 @@ The FTC pair: (a) and (c) — displacement is the integral of the *signed* rate,
 | A7 | $0.707 > \frac23$ |
 | A8 | 1 ✓ · $e^{-2}$ · $\frac12$ |
 | A9 | area / avg×len / total change |
-| A10 | $4\pi r^2c$ · $\frac43\pi R^3$ · cubic |
+| A10 | $4\pi r^2c$ · $\frac43\pi R^3$ · cubic · proportional·forward |
 | DI1 | disp 0 · dist 2 · avg vel 0 · avg speed $2/\pi$ |

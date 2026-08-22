@@ -2,7 +2,7 @@
 
 **Phase 2 — Classical Techniques | 60 min**
 
-*Differentiation told you a rate at every instant; integration tells you what all those instants add up to. Every integral here is easy to compute — the practice is seeing: what accumulates, what the area means, what the units are, and how to read the same integral three different ways. Science, engineering, and economics all run on this grammar.*
+*Differentiation told you a rate at every instant; integration tells you what all those instants add up to. Every integral here is easy to compute — the practice is seeing: what accumulates, what the area means, what the units are, and how to read the same integral three different ways. The relation lens runs **backwards** here: 14D read the degree $\frac{dy}{dx}$ at a point; this session collects the degree back into the total — same driver, same units, the undo direction. Science, engineering, and economics all run on this grammar.*
 
 **Prerequisites**: 16A (FTC & $u$-sub), 16B (techniques), 14D (units & relations)
 
@@ -31,7 +31,7 @@ An integral multiplies units: $\int f(x)\,dx$ has **units of $f$ × units of $x$
 
 **The net change theorem** (the FTC in work clothes): $\int_a^b F'(x)\,dx = F(b) - F(a)$. The integral of a rate is the **total change** of the quantity. If $f'$ says "each step adds $f'$", then $\int f'$ says "adding all the steps recovers $f$".
 
-**Lens reading**: an integral is the collected relation — rate-units × x-units, and the FTC is the undo button: collect the degree $f'$, recover the quantity $f$.
+**Lens reading**: a rate is a relation's degree ($f'$, y-units per x-unit); the integral collects that degree over the driver and recovers the relation itself — the FTC is 14D's lens run backwards. Units multiply exactly as the lens predicts: (y/x) × x = y.
 
 ---
 
@@ -51,7 +51,7 @@ $\frac{30+20}{2}\cdot 5 + \frac{20+10}{2}\cdot 5 + \frac{10+0}{2}\cdot 5 = 125 +
 
 *Graph 16C-1: Flow rate $r(t)=30-2t$. The shaded area (225 L) is the total water delivered; the trapezoids show how a rate table approximates the same total.*
 
-**Lens reading**: the total is the collected relation of flow to time — 225 L is the area because each strip is the rate's degree at that instant, times one instant of the driver.
+**Lens reading**: $r(t) = 30 - 2t$ is a reversed relation — 14D's proportional·reversed shape, slope $-2$ — so the degree shrinks with time and each later strip is thinner. The total is the collected relation of flow to time, one strip per instant of the driver.
 
 ---
 
@@ -103,7 +103,7 @@ $W = \int_0^{0.3} 20x\,dx = \left[10x^2\right]_0^{0.3} = 0.9$ J.
 
 *Graph 16C-3: $F=20x$ with the shaded triangle — work $=\frac12kx^2$, and the slope of the work function is the force.*
 
-**Lens reading**: work is the collected relation of force to stretch — and because that relation *grows*, the collection is a triangle: the last step pays the fully-built degree $kx$.
+**Lens reading**: $F = kx$ is 14D's Case 1 shape — proportional·forward, degree $kx$ that grows with $x$. Work collects that growing degree, and a growing degree collects into a triangle (a uniform one would be a rectangle): the last step pays the fully-built degree $kx$.
 
 ---
 
@@ -165,7 +165,7 @@ $PV = \int_0^{10} 10{,}000\,e^{-0.05t}\,dt = 10{,}000\cdot\frac{1-e^{-0.5}}{0.05
 
 *Graph 16C-5: The flat line is the raw income \$10,000/yr; the falling curve is the same income discounted. PV is the area under the falling curve.*
 
-**Lens reading**: discounting is a relation between money and time — each dollar's worth decays at degree $-r$; the integral collects that decaying relation into today's value.
+**Lens reading**: each dollar's worth is related to its arrival time with percentage degree $-r$ — every extra year of waiting multiplies the worth by $e^{-r}$. The integral collects that decaying relation into today's value: present value is the collected relation of money to time.
 
 ---
 
@@ -258,7 +258,26 @@ Density $p(x) = \frac{x}{50}$ on $[0,10]$ (a triangular model).
 
 ## Practice 1
 
-Water flows into a tank at $r(t) = 30 - 2t$ L/min. Find the total delivered over $[0,15]$ (a) by integration and (b) by trapezoids from the rate table at $t=0, 5, 10, 15$. Compare.
+Water flows into a tank at $r(t) = 30 - 2t$ L/min.
+
+<details>
+<summary><b>P1.A</b></summary>
+
+Find the total delivered over $[0,15]$ by integration.
+
+<details>
+<summary><b>P1.B</b></summary>
+
+Find it by trapezoids from the rate table at $t=0, 5, 10, 15$.
+
+<details>
+<summary><b>P1.C</b></summary>
+
+Compare the two.
+
+</details>
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -273,7 +292,26 @@ Water flows into a tank at $r(t) = 30 - 2t$ L/min. Find the total delivered over
 
 ## Practice 2
 
-Temperature is $T(t) = 20 + 10\sin(\pi t/12)$ °C over 24 hours. Find (a) the average temperature and (b) the total degree-hours, and (c) explain what the equal-area rectangle says.
+Temperature is $T(t) = 20 + 10\sin(\pi t/12)$ °C over 24 hours.
+
+<details>
+<summary><b>P2.A</b></summary>
+
+Find the average temperature.
+
+<details>
+<summary><b>P2.B</b></summary>
+
+Find the total degree-hours.
+
+<details>
+<summary><b>P2.C</b></summary>
+
+Explain what the equal-area rectangle says.
+
+</details>
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -288,7 +326,26 @@ The sine integrates to zero over any full period. The rectangle is $[0,24]\times
 
 ## Practice 3
 
-A spring with $k=20$ N/m is stretched from rest to 0.3 m. (a) Find the work. (b) Find the extra work to go from 0.3 m to 0.4 m. (c) Why does the second, shorter stretch cost nearly as much as the first?
+A spring with $k=20$ N/m is stretched from rest to 0.3 m.
+
+<details>
+<summary><b>P3.A</b></summary>
+
+Find the work.
+
+<details>
+<summary><b>P3.B</b></summary>
+
+Find the extra work to go from 0.3 m to 0.4 m.
+
+<details>
+<summary><b>P3.C</b></summary>
+
+Why does the second, shorter stretch cost nearly as much as the first?
+
+</details>
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -303,7 +360,26 @@ $W = \int F\,dx = \frac12 k x^2$ between the two endpoints. (c) the force at the
 
 ## Practice 4
 
-Demand $D(q) = 120 - 3q$, supply $S(q) = 20 + 2q$. Find the equilibrium, the consumer surplus, and the producer surplus.
+Demand $D(q) = 120 - 3q$, supply $S(q) = 20 + 2q$.
+
+<details>
+<summary><b>P4.A</b></summary>
+
+Find the equilibrium.
+
+<details>
+<summary><b>P4.B</b></summary>
+
+Find the consumer surplus.
+
+<details>
+<summary><b>P4.C</b></summary>
+
+Find the producer surplus.
+
+</details>
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -318,7 +394,20 @@ $120-3q = 20+2q$ → $q^*=20$, $p^*=60$. Then integrate $D-60$ and $60-S$ from 0
 
 ## Practice 5: Real Battle — A Growing Income Stream (🔗 10B)
 
-An income stream pays $R(t) = 50{,}000\,e^{0.02t}$ \$/yr (2% annual growth) for 20 years, discounted at 6%. Find the present value, and explain why a growing stream is still heavily discounted.
+An income stream pays $R(t) = 50{,}000\,e^{0.02t}$ \$/yr (2% annual growth) for 20 years, discounted at 6%.
+
+<details>
+<summary><b>P5.A</b></summary>
+
+Find the present value.
+
+<details>
+<summary><b>P5.B</b></summary>
+
+Explain why a growing stream is still heavily discounted.
+
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -333,7 +422,32 @@ $PV = \int_0^{20} 50{,}000 e^{0.02t} e^{-0.06t}dt$ — the exponents combine int
 
 ## Practice 6: Real Battle — Battery Lifetime
 
-A battery's lifetime (in years) has density $p(x) = \frac{3x^2}{1000}$ on $[0,10]$. (a) Verify the total probability is 1. (b) Find $P(X > 5)$ — the chance it lasts more than 5 years. (c) Find the expected lifetime. (d) Explain why $P(X = 5) = 0$ even though the density is positive at $x=5$.
+A battery's lifetime (in years) has density $p(x) = \frac{3x^2}{1000}$ on $[0,10]$.
+
+<details>
+<summary><b>P6.A</b></summary>
+
+Verify the total probability is 1.
+
+<details>
+<summary><b>P6.B</b></summary>
+
+Find $P(X > 5)$ — the chance it lasts more than 5 years.
+
+<details>
+<summary><b>P6.C</b></summary>
+
+Find the expected lifetime.
+
+<details>
+<summary><b>P6.D</b></summary>
+
+Explain why $P(X = 5) = 0$ even though the density is positive at $x=5$.
+
+</details>
+</details>
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -352,7 +466,32 @@ A battery's lifetime (in years) has density $p(x) = \frac{3x^2}{1000}$ on $[0,10
 
 #### Basic RP — Straight Setups (RPB1–RPB5)
 
-**RPB1.** A pump delivers $r(t) = 60 - 4t$ L/min, slowly closing over 15 min. (a) Set up the total-delivery integral. (b) Evaluate it. (c) State the units and read the total in one sentence. (d) Why is the answer a trapezoid's area, and what does each thin strip mean?
+**RPB1.** A pump delivers $r(t) = 60 - 4t$ L/min, slowly closing over 15 min.
+
+<details>
+<summary><b>RPB1.A</b></summary>
+
+Set up the total-delivery integral.
+
+<details>
+<summary><b>RPB1.B</b></summary>
+
+Evaluate it.
+
+<details>
+<summary><b>RPB1.C</b></summary>
+
+State the units and read the total in one sentence.
+
+<details>
+<summary><b>RPB1.D</b></summary>
+
+Why is the answer a trapezoid's area, and what does each thin strip mean?
+
+</details>
+</details>
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -361,7 +500,26 @@ $[60t-2t^2]_0^{15} = 900-450 = 450$ L. Strip = (L/min) × (small minutes) = a sm
 
 </details>
 
-**RPB2.** A particle's velocity is $v(t) = 3t^2$ m/s. (a) Set up and evaluate the distance over $[0,4]$. (b) One sentence, with units. (c) Differentiate your answer — what relation do you read back?
+**RPB2.** A particle's velocity is $v(t) = 3t^2$ m/s.
+
+<details>
+<summary><b>RPB2.A</b></summary>
+
+Set up and evaluate the distance over $[0,4]$.
+
+<details>
+<summary><b>RPB2.B</b></summary>
+
+One sentence, with units.
+
+<details>
+<summary><b>RPB2.C</b></summary>
+
+Differentiate your answer — what relation do you read back?
+
+</details>
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -370,7 +528,26 @@ $[t^3]_0^4 = 64$ m. The undo button reads the velocity back.
 
 </details>
 
-**RPB3.** Marginal cost is $MC(q) = 2q + 1$ \$/item. (a) Set up and evaluate the added cost of producing items 0 through 10. (b) Why is the added cost an area under the marginal-cost curve? (c) One sentence.
+**RPB3.** Marginal cost is $MC(q) = 2q + 1$ \$/item.
+
+<details>
+<summary><b>RPB3.A</b></summary>
+
+Set up and evaluate the added cost of producing items 0 through 10.
+
+<details>
+<summary><b>RPB3.B</b></summary>
+
+Why is the added cost an area under the marginal-cost curve?
+
+<details>
+<summary><b>RPB3.C</b></summary>
+
+One sentence.
+
+</details>
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -379,7 +556,20 @@ $[q^2+q]_0^{10} = 110$. Each strip = (cost of one more item) × (one item).
 
 </details>
 
-**RPB4.** Find the average of $f(x) = x^2$ on $[0,3]$. (a) Set up, evaluate, divide. (b) Explain the equal-area rectangle in one sentence.
+**RPB4.** Find the average of $f(x) = x^2$ on $[0,3]$.
+
+<details>
+<summary><b>RPB4.A</b></summary>
+
+Set up, evaluate, divide.
+
+<details>
+<summary><b>RPB4.B</b></summary>
+
+Explain the equal-area rectangle in one sentence.
+
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -388,7 +578,20 @@ $\frac13\int_0^3 x^2\,dx = \frac13\cdot 9 = 3$ — the uniform relation that del
 
 </details>
 
-**RPB5.** A constant force $F = 5$ N pushes a block 8 m. (a) Set up and evaluate the work. (b) Why is the integral a rectangle here, and what does "the relation is uniform" mean for the total?
+**RPB5.** A constant force $F = 5$ N pushes a block 8 m.
+
+<details>
+<summary><b>RPB5.A</b></summary>
+
+Set up and evaluate the work.
+
+<details>
+<summary><b>RPB5.B</b></summary>
+
+Why is the integral a rectangle here, and what does "the relation is uniform" mean for the total?
+
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -399,7 +602,32 @@ $5 \times 8 = 40$ J — no triangle, because the force's relation to distance ne
 
 #### Advanced RP — Real Totals, Derived (RPA1–RPA5)
 
-**RPA1.** Derive spring work end to end: (a) state the force-stretch relation and its degree; (b) set up and evaluate $W$ from 0 to $x$; (c) press the undo button; (d) explain why the last centimeter costs the most.
+**RPA1.** Derive spring work end to end.
+
+<details>
+<summary><b>RPA1.A</b></summary>
+
+State the force-stretch relation and its degree.
+
+<details>
+<summary><b>RPA1.B</b></summary>
+
+Set up and evaluate $W$ from 0 to $x$.
+
+<details>
+<summary><b>RPA1.C</b></summary>
+
+Press the undo button.
+
+<details>
+<summary><b>RPA1.D</b></summary>
+
+Explain why the last centimeter costs the most.
+
+</details>
+</details>
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -408,7 +636,26 @@ $F = kx$ (degree $k$, relation grows from zero). $W = \frac12 kx^2$; $\frac{dW}{
 
 </details>
 
-**RPA2.** A uniform rope, 30 m long and 20 kg/m, hangs from a cliff. (a) Slice the rope and set up the work to wind it all up. (b) Evaluate ($g=9.8$). (c) Which segment pays the most, and why?
+**RPA2.** A uniform rope, 30 m long and 20 kg/m, hangs from a cliff.
+
+<details>
+<summary><b>RPA2.A</b></summary>
+
+Slice the rope and set up the work to wind it all up.
+
+<details>
+<summary><b>RPA2.B</b></summary>
+
+Evaluate ($g=9.8$).
+
+<details>
+<summary><b>RPA2.C</b></summary>
+
+Which segment pays the most, and why?
+
+</details>
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -417,7 +664,26 @@ $W = \int_0^{30}\rho g\,y\,dy = 20\cdot9.8\cdot450 = 88{,}200$ J. The bottom seg
 
 </details>
 
-**RPA3.** A growing perpetuity pays $R(t) = R_0 e^{gt}$ \$/yr forever, discounted at rate $r > g$. (a) Set up the PV integral. (b) Evaluate and interpret the denominator. (c) Compute for $R_0=1000$, $r=8\%$, $g=3\%$.
+**RPA3.** A growing perpetuity pays $R(t) = R_0 e^{gt}$ \$/yr forever, discounted at rate $r > g$.
+
+<details>
+<summary><b>RPA3.A</b></summary>
+
+Set up the PV integral.
+
+<details>
+<summary><b>RPA3.B</b></summary>
+
+Evaluate and interpret the denominator.
+
+<details>
+<summary><b>RPA3.C</b></summary>
+
+Compute for $R_0=1000$, $r=8\%$, $g=3\%$.
+
+</details>
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -426,7 +692,32 @@ $PV = \int_0^\infty R_0 e^{(g-r)t}dt = \frac{R_0}{r-g}$ — a difference of two 
 
 </details>
 
-**RPA4.** Waiting times have density $p(t) = \lambda e^{-\lambda t}$ on $[0,\infty)$. (a) Verify the total area is 1. (b) Derive $P(X>1) = e^{-\lambda}$ and read the sentence. (c) Derive $E[X] = \frac1\lambda$ by parts. (d) Compute both for $\lambda = 2$.
+**RPA4.** Waiting times have density $p(t) = \lambda e^{-\lambda t}$ on $[0,\infty)$.
+
+<details>
+<summary><b>RPA4.A</b></summary>
+
+Verify the total area is 1.
+
+<details>
+<summary><b>RPA4.B</b></summary>
+
+Derive $P(X>1) = e^{-\lambda}$ and read the sentence.
+
+<details>
+<summary><b>RPA4.C</b></summary>
+
+Derive $E[X] = \frac1\lambda$ by parts.
+
+<details>
+<summary><b>RPA4.D</b></summary>
+
+Compute both for $\lambda = 2$.
+
+</details>
+</details>
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -435,7 +726,26 @@ $PV = \int_0^\infty R_0 e^{(g-r)t}dt = \frac{R_0}{r-g}$ — a difference of two 
 
 </details>
 
-**RPA5.** A particle has $v(t) = t^2 - 4t + 3$ m/s on $[0,4]$. (a) Displacement? (b) Total distance? (split where the sign flips). (c) Which answer does the FTC own, and why does the other need splitting?
+**RPA5.** A particle has $v(t) = t^2 - 4t + 3$ m/s on $[0,4]$.
+
+<details>
+<summary><b>RPA5.A</b></summary>
+
+Displacement?
+
+<details>
+<summary><b>RPA5.B</b></summary>
+
+Total distance? (split where the sign flips)
+
+<details>
+<summary><b>RPA5.C</b></summary>
+
+Which answer does the FTC own, and why does the other need splitting?
+
+</details>
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -450,7 +760,32 @@ $v=(t-1)(t-3)$: flips at $t=1,3$. Displacement $\frac43$; distance $4$.
 
 ## Basic Drills
 
-**D1.** Write the units of each integral: (a) $\int v(t)dt$, $v$ in m/s; (b) $\int r(t)dt$, $r$ in L/min; (c) $\int F(x)dx$, $F$ in N; (d) $\int D(q)dq$, $D$ in \$.
+**D1.** Write the units of each integral.
+
+<details>
+<summary><b>D1.A</b></summary>
+
+$\int v(t)dt$, $v$ in m/s.
+
+<details>
+<summary><b>D1.B</b></summary>
+
+$\int r(t)dt$, $r$ in L/min.
+
+<details>
+<summary><b>D1.C</b></summary>
+
+$\int F(x)dx$, $F$ in N.
+
+<details>
+<summary><b>D1.D</b></summary>
+
+$\int D(q)dq$, $D$ in \$.
+
+</details>
+</details>
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -459,16 +794,42 @@ rate-units × x-units: m, L, J, \$ (the last is money, since demand \$/unit × u
 
 </details>
 
-**D2.** A chemical leaks at $r(t) = 5e^{-t/10}$ L/min. How much leaks out over the first 20 minutes?
+**D2.** A chemical leaks at $r(t) = 5e^{-t/10}$ L/min.
+
+<details>
+<summary><b>D2.A</b></summary>
+
+How much leaks out over the first 20 minutes?
+
+<details>
+<summary><b>D2.B</b></summary>
+
+What is the leak's percentage degree of relation to time, and why does the total over all time approach 50 L?
+
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
 
-$\int_0^{20}5e^{-t/10}dt = 50(1-e^{-2})$ L.
+(a) $\int_0^{20}5e^{-t/10}dt = 50(1-e^{-2})$. (b) the exponent $-\frac{t}{10}$ is a compounded $-10\%$ per minute; $\int_0^\infty 5e^{-t/10}dt = 50$ L.
 
 </details>
 
 **D3.** Find the average value of $f(x) = x^2$ on $[0,4]$.
+
+<details>
+<summary><b>D3.A</b></summary>
+
+Integrate and divide.
+
+<details>
+<summary><b>D3.B</b></summary>
+
+Explain the equal-area rectangle in one sentence.
+
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -477,11 +838,50 @@ $\int_0^4 x^2 dx = \frac{64}{3}$, then divide by 4.
 
 </details>
 
-**D4.** A spring with $k=100$ N/m is stretched 0.2 m from rest. Find the work.
+**D4.** A spring with $k=100$ N/m is stretched 0.2 m from rest.
 
-**D5.** A car moves with $v(t) = 3t^2 + 1$ m/s. How far does it travel in $[0,2]$?
+<details>
+<summary><b>D4.A</b></summary>
 
-**D6.** $X$ is uniform on $[0,8]$. Find $P(2 < X < 6)$ and $E[X]$.
+Find the work.
+
+<details>
+<summary><b>D4.B</b></summary>
+
+Which of 14D's four shapes is the force–stretch relation, and why is the work a triangle rather than a rectangle?
+
+</details>
+</details>
+
+**D5.** A car moves with $v(t) = 3t^2 + 1$ m/s.
+
+<details>
+<summary><b>D5.A</b></summary>
+
+How far does it travel in $[0,2]$?
+
+<details>
+<summary><b>D5.B</b></summary>
+
+One sentence: is the distance built from a uniform or a strengthening degree?
+
+</details>
+</details>
+
+**D6.** $X$ is uniform on $[0,8]$.
+
+<details>
+<summary><b>D6.A</b></summary>
+
+Find $P(2 < X < 6)$.
+
+<details>
+<summary><b>D6.B</b></summary>
+
+Find $E[X]$.
+
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -490,7 +890,18 @@ Uniform density is $\frac18$; probability = width × height, expectation = midpo
 
 </details>
 
-**D7.** Find $\int_{-2}^2 (4-x^2)dx$. If both axes are in cm, what does the number mean?
+**D7.** <details>
+<summary><b>D7.A</b></summary>
+
+Find $\int_{-2}^2 (4-x^2)dx$.
+
+<details>
+<summary><b>D7.B</b></summary>
+
+If both axes are in cm, what does the number mean?
+
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -499,7 +910,20 @@ $\frac{32}{3}$. With cm axes the units are cm × cm = cm² — a true area under
 
 </details>
 
-**D8.** Demand $D(q) = 60 - 2q$ with market price \$20. Find the consumer surplus.
+**D8.** Demand $D(q) = 60 - 2q$ with market price \$20.
+
+<details>
+<summary><b>D8.A</b></summary>
+
+Find the equilibrium quantity.
+
+<details>
+<summary><b>D8.B</b></summary>
+
+Find the consumer surplus.
+
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -508,7 +932,20 @@ $q^* = 20$; $CS = \int_0^{20}(60-2q-20)dq$.
 
 </details>
 
-**D9.** A stream pays \$1,000/yr for 10 years, discounted at 10%. Find the present value.
+**D9.** A stream pays \$1,000/yr for 10 years, discounted at 10%.
+
+<details>
+<summary><b>D9.A</b></summary>
+
+Set up the PV integral.
+
+<details>
+<summary><b>D9.B</b></summary>
+
+Evaluate.
+
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -517,7 +954,20 @@ $PV = 1000\cdot\frac{1-e^{-1}}{0.1}$.
 
 </details>
 
-**D10.** A random variable has density $p(x) = 2x$ on $[0,1]$. Find $E[X]$.
+**D10.** A random variable has density $p(x) = 2x$ on $[0,1]$.
+
+<details>
+<summary><b>D10.A</b></summary>
+
+Set up the balance-point integral.
+
+<details>
+<summary><b>D10.B</b></summary>
+
+Evaluate.
+
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -534,7 +984,26 @@ $E[X] = \int_0^1 x\cdot 2x\,dx = \frac23$ — the balance point of the ramp.
 
 > Each problem has a computation part AND an interpretation part. Don't skip the explanation parts.
 
-**A1.** Write the net change theorem $\int_a^b F'(x)dx = F(b)-F(a)$ in three one-sentence translations: a population with birth rate $P'(t)$, a tank with inflow $V'(t)$, and a bank account with interest rate $B'(t)$.
+**A1.** Write the net change theorem $\int_a^b F'(x)dx = F(b)-F(a)$ in three one-sentence translations.
+
+<details>
+<summary><b>A1.A</b></summary>
+
+A population with birth rate $P'(t)$.
+
+<details>
+<summary><b>A1.B</b></summary>
+
+A tank with inflow $V'(t)$.
+
+<details>
+<summary><b>A1.C</b></summary>
+
+A bank account with interest rate $B'(t)$.
+
+</details>
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -543,7 +1012,26 @@ Each sentence has the shape "the total X added between $a$ and $b$ equals the fi
 
 </details>
 
-**A2.** A force $F(x) = 6x^2$ N acts along the $x$-axis. Find the work from $x=1$ to $x=3$, verify that $\frac{dW}{dx} = F(x)$ at the endpoint, and state the units of the answer.
+**A2.** A force $F(x) = 6x^2$ N acts along the $x$-axis.
+
+<details>
+<summary><b>A2.A</b></summary>
+
+Find the work from $x=1$ to $x=3$.
+
+<details>
+<summary><b>A2.B</b></summary>
+
+Verify that $\frac{dW}{dx} = F(x)$ at the endpoint.
+
+<details>
+<summary><b>A2.C</b></summary>
+
+State the units of the answer.
+
+</details>
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -552,7 +1040,20 @@ $W = [2x^3]_1^3 = 52$ J. Differentiating $2x^3$ gives $6x^2$ — the FTC undo bu
 
 </details>
 
-**A3.** A conical tank (radius 3 m at the top, height 6 m, vertex at the bottom) is full of water. Pump it out over the top. ($\rho g = 9800$ N/m³.) Slice, set up the integral, and interpret why the lower layers dominate the work.
+**A3.** A conical tank (radius 3 m at the top, height 6 m, vertex at the bottom) is full of water. Pump it out over the top. ($\rho g = 9800$ N/m³.)
+
+<details>
+<summary><b>A3.A</b></summary>
+
+Slice and set up the integral.
+
+<details>
+<summary><b>A3.B</b></summary>
+
+Interpret why the lower layers dominate the work.
+
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -561,7 +1062,20 @@ At height $h$ from the bottom the radius is $r = \frac{h}{2}$. Layer volume $\pi
 
 </details>
 
-**A4.** Mean Value Theorem for integrals: continuous $f$ hits its average somewhere. For $f(x)=x^2$ on $[0,4]$, find the point $c$ where $f(c)$ equals the average value, and explain what the theorem guarantees in general.
+**A4.** Mean Value Theorem for integrals: continuous $f$ hits its average somewhere. For $f(x)=x^2$ on $[0,4]$.
+
+<details>
+<summary><b>A4.A</b></summary>
+
+Find the point $c$ where $f(c)$ equals the average value.
+
+<details>
+<summary><b>A4.B</b></summary>
+
+Explain what the theorem guarantees in general.
+
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -570,7 +1084,20 @@ Average $=\frac{16}{3}$, so $c^2 = \frac{16}{3}$, $c = \frac{4}{\sqrt3}\approx 2
 
 </details>
 
-**A5.** Demand $D(q)=200-2q$, supply $S(q)=q$. A quota limits production to $q=50$. Compute the deadweight loss (the lost-trade triangle) and explain what it measures.
+**A5.** Demand $D(q)=200-2q$, supply $S(q)=q$. A quota limits production to $q=50$.
+
+<details>
+<summary><b>A5.A</b></summary>
+
+Compute the deadweight loss (the lost-trade triangle).
+
+<details>
+<summary><b>A5.B</b></summary>
+
+Explain what it measures.
+
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -579,7 +1106,26 @@ Free-market equilibrium is $q^* = \frac{200}{3}$. Deadweight loss $= \int_{50}^{
 
 </details>
 
-**A6.** Show that a constant stream $R$ \$/yr for $T$ years has $PV = \frac{R}{r}(1-e^{-rT})$, take $T\to\infty$ for a perpetuity, and interpret the perpetuity formula.
+**A6.** A constant stream $R$ \$/yr for $T$ years.
+
+<details>
+<summary><b>A6.A</b></summary>
+
+Show that $PV = \frac{R}{r}(1-e^{-rT})$.
+
+<details>
+<summary><b>A6.B</b></summary>
+
+Take $T\to\infty$ for a perpetuity.
+
+<details>
+<summary><b>A6.C</b></summary>
+
+Interpret the perpetuity formula.
+
+</details>
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -588,7 +1134,20 @@ $\int_0^T Re^{-rt}dt = \frac{R}{r}(1-e^{-rT})$. As $T\to\infty$: $\frac{R}{r}$ �
 
 </details>
 
-**A7.** Density $p(x) = 2x$ on $[0,1]$. Find the median $m$ (the point splitting the probability in half) and compare it with the mean $\frac23$. Why is the median larger?
+**A7.** Density $p(x) = 2x$ on $[0,1]$.
+
+<details>
+<summary><b>A7.A</b></summary>
+
+Find the median $m$ (the point splitting the probability in half).
+
+<details>
+<summary><b>A7.B</b></summary>
+
+Compare it with the mean $\frac23$. Why is the median larger?
+
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -597,7 +1156,32 @@ $\int_0^m 2x\,dx = m^2 = \frac12$ → $m = \frac{1}{\sqrt2} \approx 0.707$. The 
 
 </details>
 
-**A8.** Density $p(x) = 2e^{-2x}$ on $[0,\infty)$. (a) Verify $\int_0^\infty p = 1$. (b) Find $P(X>1)$. (c) Find $E[X]$. (d) Interpret: why is the chance of surviving past 1 unit exactly $e^{-2}$?
+**A8.** Density $p(x) = 2e^{-2x}$ on $[0,\infty)$.
+
+<details>
+<summary><b>A8.A</b></summary>
+
+Verify $\int_0^\infty p = 1$.
+
+<details>
+<summary><b>A8.B</b></summary>
+
+Find $P(X>1)$.
+
+<details>
+<summary><b>A8.C</b></summary>
+
+Find $E[X]$.
+
+<details>
+<summary><b>A8.D</b></summary>
+
+Interpret: why is the chance of surviving past 1 unit exactly $e^{-2}$?
+
+</details>
+</details>
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -606,7 +1190,32 @@ $\int_0^m 2x\,dx = m^2 = \frac12$ → $m = \frac{1}{\sqrt2} \approx 0.707$. The 
 
 </details>
 
-**A9.** One number, three pictures: $\int_0^1 x^2 dx = \frac13$. Describe it (a) as an area, (b) as average × length, and (c) as the total change of a quantity whose rate is $x^2$. Why is "which picture?" the first question in interpretation?
+**A9.** One number, three pictures: $\int_0^1 x^2 dx = \frac13$.
+
+<details>
+<summary><b>A9.A</b></summary>
+
+Describe it as an area.
+
+<details>
+<summary><b>A9.B</b></summary>
+
+Describe it as average × length.
+
+<details>
+<summary><b>A9.C</b></summary>
+
+Describe it as the total change of a quantity whose rate is $x^2$.
+
+<details>
+<summary><b>A9.D</b></summary>
+
+Why is "which picture?" the first question in interpretation?
+
+</details>
+</details>
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
@@ -615,12 +1224,37 @@ $\int_0^m 2x\,dx = m^2 = \frac12$ → $m = \frac{1}{\sqrt2} \approx 0.707$. The 
 
 </details>
 
-**A10.** A snowball grows so its radius increases at a constant rate $\frac{dr}{dt} = c$. (a) Show $\frac{dV}{dt} = 4\pi r^2\cdot c$ — surface area times the radial speed. (b) Integrate $\int_0^R 4\pi r^2 dr$ and confirm it rebuilds $V(R)$. (c) If $r = ct$, describe how volume grows with time.
+**A10.** A snowball grows so its radius increases at a constant rate $\frac{dr}{dt} = c$.
+
+<details>
+<summary><b>A10.A</b></summary>
+
+Show $\frac{dV}{dt} = 4\pi r^2\cdot c$ — surface area times the radial speed.
+
+<details>
+<summary><b>A10.B</b></summary>
+
+Integrate $\int_0^R 4\pi r^2 dr$ and confirm it rebuilds $V(R)$.
+
+<details>
+<summary><b>A10.C</b></summary>
+
+If $r = ct$, describe how volume grows with time.
+
+<details>
+<summary><b>A10.D</b></summary>
+
+Which of 14D's four shapes is $V(r) = \frac{4}{3}\pi r^3$ — and what does the shape predict about the sign of $\frac{dV}{dr}$?
+
+</details>
+</details>
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
 
-(a) chain rule with 14D's $\frac{dV}{dr}=4\pi r^2$. (b) $\frac{4}{3}\pi R^3$. (c) $V(t) = \frac{4}{3}\pi (ct)^3$ — cubic growth, fast even for constant radial growth.
+(a) chain rule with 14D's $\frac{dV}{dr}=4\pi r^2$. (b) $\frac{4}{3}\pi R^3$. (c) $V(t) = \frac{4}{3}\pi (ct)^3$ — cubic growth, fast even for constant radial growth. (d) proportional·forward: no minus anywhere, so $\frac{dV}{dr} > 0$ for every $r>0$.
 
 </details>
 
@@ -632,7 +1266,38 @@ $\int_0^m 2x\,dx = m^2 = \frac12$ → $m = \frac{1}{\sqrt2} \approx 0.707$. The 
 
 > One problem, pushed to the edge of this session's method. Compute it — then explain *why* the method breaks or holds. The "why" is the whole point.
 
-**DI1.** A boat moves with velocity $v(t) = \cos t$ m/h on $0 \le t \le \pi$. Compute (a) the net displacement, (b) the total distance traveled, (c) the average velocity, (d) the average speed. Then the insight question: which pair is joined by the FTC and which pair is not — and what exactly breaks the FTC for the failing pair? State the general rule.
+**DI1.** A boat moves with velocity $v(t) = \cos t$ m/h on $0 \le t \le \pi$.
+
+<details>
+<summary><b>DI1.A</b></summary>
+
+Compute the net displacement.
+
+<details>
+<summary><b>DI1.B</b></summary>
+
+Compute the total distance traveled.
+
+<details>
+<summary><b>DI1.C</b></summary>
+
+Compute the average velocity.
+
+<details>
+<summary><b>DI1.D</b></summary>
+
+Compute the average speed.
+
+<details>
+<summary><b>DI1.E</b></summary>
+
+The insight question: which pair is joined by the FTC and which pair is not — and what exactly breaks the FTC for the failing pair? State the general rule.
+
+</details>
+</details>
+</details>
+</details>
+</details>
 
 <details>
 <summary>💡 Hint</summary>
