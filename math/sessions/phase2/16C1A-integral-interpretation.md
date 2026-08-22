@@ -31,6 +31,8 @@ $$A_{\text{top}} = \int_{-R}^{R}\sqrt{R^2-x^2}\,dx, \qquad A = 4\int_0^R \sqrt{R
 
 *Graph 16C1A-1: The constraint manufactures the slice height $\sqrt{9-x^2}$ at each $x$; four quarters integrate to $9\pi$.*
 
+**Lens reading**: the constraint manufactures the relation — each $x$ permits a height $\sqrt{R^2-x^2}$, and the integral collects that manufactured relation into area.
+
 ---
 
 ## Example 2: The Isotherm — Work Under the Hyperbola (🔗 10A, 16C1 Ex4)
@@ -48,6 +50,8 @@ $$W = \int_{V_1}^{V_2} p\,dV = \int_{V_1}^{V_2}\frac{C}{V}\,dV = C\ln\frac{V_2}{
 ![Isotherm work: the hyperbola's area](graphs/0821/16C1A/16c1a-2-isotherm-work.png)
 
 *Graph 16C1A-2: Work = area under $p=800/V$ from 2 to 4 m³ — $800\ln 2 \approx 554.5$ kJ, the hyperbola's logarithmic area.*
+
+**Lens reading**: pressure's relation to volume is $\frac{C}{V}$ — backwards and weakening; collecting it gives the logarithm, the hyperbola's accumulated relation.
 
 ---
 
@@ -69,6 +73,8 @@ $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$. Rescale: $u = \frac{x}{a}$, $v = \frac{
 ![Ellipse as a stretched circle](graphs/0821/16C1A/16c1a-3-ellipse-stretch.png)
 
 *Graph 16C1A-3: Rescaling $u=x/2$, $v=y/3$ maps the ellipse to the unit circle — area scales by the stretch factors: $\pi\cdot2\cdot3$.*
+
+**Lens reading**: the ellipse is the circle's relation stretched by $(a,b)$ — areas respond through the stretch determinant $ab$, and the integral is the stretched circle's collection.
 
 ---
 
@@ -92,6 +98,8 @@ $$\bar p = \frac{1}{V_2 - V_1}\int_{V_1}^{V_2}\frac{C}{V}\,dV = \frac{C\ln(V_2/V
 
 *Graph 16C1A-4: The log-mean rectangle at 277.3 kPa (dashed) has the same area as the hyperbola — the midpoint 300 overshoots because the curve flattens.*
 
+**Lens reading**: the log-mean is the *uniform* pressure relation that delivers the same work — and it sits below the midpoint because the hyperbola's degree weakens toward large volume.
+
 ---
 
 ## Example 5: Adiabatic Work — A Steeper Curve, A Different Area (🔗 14D1A Ex6)
@@ -108,6 +116,8 @@ $$W = \int_{V_1}^{V_2} C V^{-\gamma}\,dV = \frac{C}{1-\gamma}\left(V_2^{1-\gamma
 
 *Graph 16C1A-5: The steeper adiabat sweeps less area — 166.5 kJ vs the isotherm's 207.9 kJ. Stiffness becomes energy.*
 
+**Lens reading**: the adiabat's pressure-volume relation is $\gamma$ times steeper, so its collected area (work) is smaller — the exponent sets the relation, the integral converts it to energy.
+
 ---
 
 ## Example 6: Integrating Over an Implicit Region — The Annulus
@@ -122,6 +132,8 @@ $$A = 9\pi - 4\pi = 5\pi \approx 15.7.$$
 ![Annulus and the 3D hemisphere slice](graphs/0821/16C1A/16c1a-6-annulus-hemisphere.png)
 
 *Graph 16C1A-6: Left — the ring's area $5\pi$ by subtracting nested constraints. Right (3D) — the same slicing reaches volumes: the hemisphere $z=\sqrt{1-x^2-y^2}$ sliced into $r\,dr$ cylinders (A9).*
+
+**Lens reading**: nested constraints nest their collections — outer area minus inner area, and with a density the measure weights each ring by its own degree $r$.
 
 > **Up to here**: solve the constraint, then integrate — circle area $4\int_0^R\sqrt{R^2-x^2}dx$; isotherm work $C\ln\frac{V_2}{V_1}$ (the hyperbola's area is a logarithm); the ellipse is a stretched circle, area $\pi ab$; the average along an isotherm is the log-mean, and work $= \bar p\,\Delta V$; adiabatic work is $\frac{p_2V_2-p_1V_1}{1-\gamma}$; nested constraints nest their integrals.
 

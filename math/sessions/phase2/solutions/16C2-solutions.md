@@ -14,6 +14,8 @@
 
 > **Answer**: (a) 110 g (b) 80 g (c) density is higher on the right
 
+**Lens reading**: mass is density's relation to length, collected along the wire — 110 g.
+
 ---
 
 ## Practice 2
@@ -28,6 +30,8 @@ Reading: one factor $R=2$ comes from the field's strength at radius 2, the other
 
 > **Answer**: $8\pi$ — field strength ($\propto R$) × path length ($\propto R$)
 
+**Lens reading**: circulation is the field's along-path relation, collected around the loop — $8\pi$.
+
 ---
 
 ## Practice 3
@@ -40,6 +44,8 @@ Reading: one factor $R=2$ comes from the field's strength at radius 2, the other
 
 > **Answer**: (a) 4 (b) 4 ✓ (c) 0 — path-independent
 
+**Lens reading**: the gradient field's work is the potential relation's difference — path-independent.
+
 ---
 
 ## Practice 4
@@ -49,6 +55,8 @@ Flux through circle radius 3: on the circle $F = n \cdot 3$, so $F\cdot n = 3$ e
 Gauss check: $\operatorname{div}F = 1+1 = 2$; area $= \pi\cdot 9 = 9\pi$; product $= 18\pi$ ✓.
 
 > **Answer**: $18\pi$; div × area $= 2\cdot 9\pi = 18\pi$ ✓
+
+**Lens reading**: flux is the across-boundary relation; Gauss balances it against the sources inside.
 
 ---
 
@@ -62,6 +70,8 @@ Equal, because the inverse-square decay and the surface-area growth are exact in
 
 > **Answer**: $4\pi kQ$ through both spheres — inverse-square × surface-area = constant
 
+**Lens reading**: the inverse-square relation cancels the area relation — the charge counts, not the distance.
+
 ---
 
 ## Practice 6: Real Battle — The Winding Integral
@@ -74,6 +84,8 @@ Reading: $z$ winds and averages out; $1/z$ measures the winding itself. The pole
 
 > **Answer**: $\oint z\,dz = 0$; $\oint dz/z = 2\pi i$
 
+**Lens reading**: the winding integral collects the path's angular relation — $2\pi i$; only $z^{-1}$ survives.
+
 ---
 
 ## Basic Drills
@@ -82,11 +94,15 @@ Reading: $z$ winds and averages out; $1/z$ measures the winding itself. The pole
 
 > **Answer**: kg; kg; J (N·m); field-units × m (e.g. N, or m²/s for velocity fields)
 
+**Lens reading**: the units name which relation each measure collects.
+
 ### D2.
 
 $M = 3 \cdot 20 = 60$ g.
 
 > **Answer**: 60 g
+
+**Lens reading**: the density relation, collected along the wire.
 
 ### D3.
 
@@ -94,11 +110,15 @@ On the axis: $F=(x,0)$, $dr=(dx,0)$: $W = \int_0^2 x\,dx = 2$.
 
 > **Answer**: 2 J
 
+**Lens reading**: the field's along-path relation, collected.
+
 ### D4.
 
 $F\cdot dr = dt$: circulation $= 2\pi$.
 
 > **Answer**: $2\pi$
+
+**Lens reading**: one lap of the vortex relation.
 
 ### D5.
 
@@ -106,11 +126,15 @@ $F = n$ on the circle: flux $= 2\pi$.
 
 > **Answer**: $2\pi$
 
+**Lens reading**: the source relation's flux through the circle.
+
 ### D6.
 
 $\operatorname{div}(2x,3y) = 5$ (a strong source). $\operatorname{div}(-y,x) = 0$ (pure spin).
 
 > **Answer**: 5; 0
+
+**Lens reading**: div 5, curl 0 — spreading without spinning: one relation, two readings.
 
 ### D7.
 
@@ -118,11 +142,15 @@ $\frac{kQ}{R^2}\cdot 4\pi R^2 = 4\pi kQ$.
 
 > **Answer**: $4\pi kQ$ — independent of $R$
 
+**Lens reading**: the two relations cancel — the charge counts, the radius doesn't.
+
 ### D8.
 
 $\int_0^{2\pi}e^{it}dt = \left[\frac{e^{it}}{i}\right]_0^{2\pi} = 0$ — the average position of a full circle is its center.
 
 > **Answer**: 0 — a full circle balances
+
+**Lens reading**: the circle's position relation balances to its center.
 
 ### D9.
 
@@ -130,11 +158,15 @@ $M = \int_0^2\int_0^2 1\,dx\,dy = 4$. By symmetry $\bar x = \bar y = 1$.
 
 > **Answer**: $M=4$, centroid $(1,1)$
 
+**Lens reading**: the measure's balance point — the collected average.
+
 ### D10.
 
 $\oint z^2 dz = i\int_0^{2\pi}e^{3it}dt = 0$.
 
 > **Answer**: 0 — only $z^{-1}$ survives a loop integral
+
+**Lens reading**: only the $-1$ power sees the hole — every other relation winds to zero.
 
 ---
 
@@ -150,6 +182,8 @@ The loop test: if $F = \nabla\phi$, then $\oint F\cdot dr = \phi(\text{end})-\ph
 
 > **Answer**: $2\pi R^2$ vs 0; nonzero circulation ⟹ not a gradient
 
+**Lens reading**: nonzero circulation means no potential — the relation loops without returning.
+
 ### A2.
 
 Unit square boundary, counterclockwise, $F = (-y,x)$:
@@ -164,6 +198,8 @@ Green: $\iint\left(\frac{\partial F_2}{\partial x}-\frac{\partial F_1}{\partial 
 
 > **Answer**: circulation 2 = ∬2 dA = 2·area ✓
 
+**Lens reading**: Green's theorem — the boundary relation's collection equals the sources inside.
+
 ### A3.
 
 Unit square, $F=(x,y)$:
@@ -175,6 +211,8 @@ Flux $= 2$. Gauss: div $= 2$, area $= 1$ → $2 = 2\cdot1$ ✓.
 
 > **Answer**: flux 2 = div × area ✓
 
+**Lens reading**: Gauss at field level — outflow equals collected sources.
+
 ### A4.
 
 Away from the origin, flux through any two nested spheres is the same ($4\pi kQ$), so no flux is created in the shell between them — div $E = 0$ there. The field neither emits nor absorbs outside the charge.
@@ -182,6 +220,8 @@ Away from the origin, flux through any two nested spheres is the same ($4\pi kQ$
 All the outflow originates at the origin, the one point where the field is undefined — the charge is a **point source**. Gauss's law reads: flux through any closed surface $= 4\pi kQ_{\text{inside}}$ — the integral detects the charge no matter the surface's size or shape.
 
 > **Answer**: div = 0 away from origin; all flux comes from the charge — a point source
+
+**Lens reading**: all flux originates at the charge — the only point whose relation sources.
 
 ### A5.
 
@@ -195,6 +235,8 @@ Both equal $\phi(1,2) - \phi(0,0) = 2 - 0 = 2$ ✓ — the path never matters fo
 
 > **Answer**: 2 by both paths = $\phi(1,2)-\phi(0,0)$ ✓
 
+**Lens reading**: the potential difference is the collected relation — 2 by both paths.
+
 ### A6.
 
 $I = \int_{-L/2}^{L/2}x^2\,dx = \left[\frac{x^3}{3}\right]_{-L/2}^{L/2} = \frac{2L^3}{24} = \frac{L^3}{12}$.
@@ -203,6 +245,8 @@ Cubic growth: total mass grows like $L$, and the mass sits at distances that als
 
 > **Answer**: $I = L^3/12$ — mass × distance², both grow with $L$
 
+**Lens reading**: moment of inertia collects $r^2$ against the measure — $L^3/12$.
+
 ### A7.
 
 For integer $n \neq 0$: $\int_0^{2\pi}e^{int}dt = \frac{1}{in}e^{int}\big|_0^{2\pi} = 0$ (the circle closes — start equals end). For $n=0$: $\int_0^{2\pi}1\,dt = 2\pi$.
@@ -210,6 +254,8 @@ For integer $n \neq 0$: $\int_0^{2\pi}e^{int}dt = \frac{1}{in}e^{int}\big|_0^{2\
 Different rotation speeds are **orthogonal**: the average of the product of two different speeds is zero. This lets rotations act as independent measuring units for periodic signals — the foundation of Fourier analysis (25E).
 
 > **Answer**: 0 for $n\neq0$, $2\pi$ for $n=0$ — rotations are orthogonal
+
+**Lens reading**: rotations are orthogonal — the average relation cancels except at $n=0$.
 
 ### A8.
 
@@ -221,6 +267,8 @@ $z$ winds once forward and the path element averages it out; $\bar z$ winds once
 
 > **Answer**: $\oint z\,dz = 0$; $\oint\bar z\,dz = 2\pi i$ — the integral detects the reversed rotation
 
+**Lens reading**: $\bar z$ reverses the relation — the integral detects the reversed rotation.
+
 ### A9.
 
 $\bar x = 0$ by left-right symmetry.
@@ -231,6 +279,8 @@ The centroid sits at 42% of the radius, not halfway: the measure thins toward th
 
 > **Answer**: $\bar x = 0$, $\bar y = \frac{4}{3\pi}\approx0.42$ — measure thins toward the top
 
+**Lens reading**: the measure thins toward the top — the balance point sits at $\frac{4}{3\pi}$.
+
 ### A10.
 
 $M = \int_0^L kx\,dx = \frac{kL^2}{2}$. $\bar x = \frac{\int_0^L x\cdot kx\,dx}{\int_0^L kx\,dx} = \frac{kL^3/3}{kL^2/2} = \frac{2L}{3}$.
@@ -238,6 +288,8 @@ $M = \int_0^L kx\,dx = \frac{kL^2}{2}$. $\bar x = \frac{\int_0^L x\cdot kx\,dx}{
 Compare 16C1's triangular density $p(x) = \frac{2x}{L^2}$: its expectation is $\frac23 L$ — the same $\frac23$! The math is identical because both are "the average of $x$ against the ramp weighting." Only the units and meanings differ: kg·m vs probability. That is the measure concept in one sentence — *the weighting scheme is the mathematics; the units are the interpretation.*
 
 > **Answer**: $M = kL^2/2$, $\bar x = 2L/3$ — same math as the triangular density, different units
+
+**Lens reading**: the rod's centroid — the same collected average, different units.
 
 ---
 
@@ -252,6 +304,8 @@ Compare 16C1's triangular density $p(x) = \frac{2x}{L^2}$: its expectation is $\
 **(c)** Away from the origin, $\operatorname{div} E = 0$ (the inverse-square field neither creates nor destroys flow between nested curves — Example 6). By Gauss, flux through any closed curve $=$ the total source inside $= 2\pi kQ$, no matter the shape. **Flux does not measure the boundary — it counts the sources enclosed.** The square and the circle agree because they enclose the same charge; a curve that misses the charge gives 0. That is the whole power of the divergence theorem: a hard boundary integral is secretly a trivial source count. Shape-independence is not a coincidence to check — it is the theorem's meaning.
 
 > **Answer**: $2\pi kQ$ through both; any closed curve enclosing the charge gives $2\pi kQ$ — flux counts sources
+
+**Lens reading**: flux counts sources, not boundaries — any closed curve around the charge gives $2\pi kQ$.
 
 ---
 

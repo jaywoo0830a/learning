@@ -6,7 +6,7 @@
 
 **Prerequisites**: 16A (FTC & $u$-sub), 16B (techniques), 14D1 (reading rates)
 
-*Prerequisite for: [16C2 — Advanced Integral Interpretation](16C2-advanced-integral-interpretation.md), [16C1A — Implicit Regions](16C1A-integral-interpretation.md)*
+*Prerequisite for: [16C2 — Advanced Integral Interpretation](16C2-advanced-integral-interpretation.md), [16C1A — Implicit Regions](16C1A-integral-interpretation.md), [16C1B — Integral Techniques](16C1B-integral-techniques.md)*
 
 > 💡 **Stuck?** Every problem has a collapsible **Hint** below it — click it only when you need a nudge.
 
@@ -31,6 +31,8 @@ An integral multiplies units: $\int f(x)\,dx$ has **units of $f$ × units of $x$
 
 **The net change theorem** (the FTC in work clothes): $\int_a^b F'(x)\,dx = F(b) - F(a)$. The integral of a rate is the **total change** of the quantity. If $f'$ says "each step adds $f'$", then $\int f'$ says "adding all the steps recovers $f$".
 
+**Lens reading**: an integral is the collected relation — rate-units × x-units, and the FTC is the undo button: collect the degree $f'$, recover the quantity $f$.
+
 ---
 
 ## Example 2: The Filling Tank — Area Under the Rate Curve
@@ -48,6 +50,8 @@ $\frac{30+20}{2}\cdot 5 + \frac{20+10}{2}\cdot 5 + \frac{10+0}{2}\cdot 5 = 125 +
 ![Accumulation: area under the flow-rate curve equals the total volume](graphs/0821/16C1/16c1-accumulation.png)
 
 *Graph 16C-1: Flow rate $r(t)=30-2t$. The shaded area (225 L) is the total water delivered; the trapezoids show how a rate table approximates the same total.*
+
+**Lens reading**: the total is the collected relation of flow to time — 225 L is the area because each strip is the rate's degree at that instant, times one instant of the driver.
 
 ---
 
@@ -73,6 +77,8 @@ The sine integrates to zero over a full period: $\bar{T} = \frac{1}{24}\cdot 20\
 
 *Graph 16C-2: $T(t)$ over 24 h. The dashed line at 20 °C is the equal-area height — amber above balances blue below.*
 
+**Lens reading**: the average is the *uniform* relation that delivers the same total — the equal-area rectangle replaces the varying degree with one constant degree over the whole interval.
+
 ---
 
 ## Part C: The Work Lens — Physics and Engineering
@@ -97,6 +103,8 @@ $W = \int_0^{0.3} 20x\,dx = \left[10x^2\right]_0^{0.3} = 0.9$ J.
 
 *Graph 16C-3: $F=20x$ with the shaded triangle — work $=\frac12kx^2$, and the slope of the work function is the force.*
 
+**Lens reading**: work is the collected relation of force to stretch — and because that relation *grows*, the collection is a triangle: the last step pays the fully-built degree $kx$.
+
 ---
 
 ## Example 5: Pumping a Tank — Slicing Turns 3D Into 1D
@@ -110,6 +118,8 @@ $W = \int_0^5 \rho g \cdot 4\pi \cdot h\,dh = 4\pi\rho g\left[\frac{h^2}{2}\righ
 **The reading**: every layer pays its own fare — weight × its own distance — and the integral is the sum of all the fares. The slices near the bottom contribute the most, because they travel farthest *and* the water above them must be lifted too.
 
 **The pattern**: slicing + a per-slice contribution + an integral = the master method for "how much total X is needed" problems in engineering.
+
+**Lens reading**: each slice's fare is its own weight × its own distance — the integral collects a relation whose degree (distance to the rim) varies layer by layer.
 
 ---
 
@@ -135,6 +145,8 @@ Equilibrium: $100 - 2q = 10 + q$ → $q^* = 30$, $p^* = 40$.
 
 *Graph 16C-4: Equilibrium (30, 40). Amber triangle = consumer surplus 900; purple triangle = producer surplus 450.*
 
+**Lens reading**: surplus collects the relation between willingness-to-pay and quantity — each buyer keeps the difference between their degree and the market's, stacked into a money triangle.
+
 ---
 
 ## Example 7: Present Value — Discounting a Stream of Money
@@ -152,6 +164,8 @@ $PV = \int_0^{10} 10{,}000\,e^{-0.05t}\,dt = 10{,}000\cdot\frac{1-e^{-0.5}}{0.05
 ![Present value: discount each dollar by its arrival time](graphs/0821/16C1/16c5-present-value.png)
 
 *Graph 16C-5: The flat line is the raw income \$10,000/yr; the falling curve is the same income discounted. PV is the area under the falling curve.*
+
+**Lens reading**: discounting is a relation between money and time — each dollar's worth decays at degree $-r$; the integral collects that decaying relation into today's value.
 
 ---
 
@@ -183,7 +197,9 @@ Density $p(x) = \frac{x}{50}$ on $[0,10]$ (a triangular model).
 
 *Graph 16C-7: The triangular density $p(x)=x/50$. The dashed line at $E[X]=20/3$ marks where the area balances; half the area sits left of the median $\sqrt{50}\approx7.07$.*
 
-> **Up to here**: $\int$ rate = total change; units multiply; average value = equal-area rectangle; work = force area, $\frac{dW}{dx}=F$; pumping = slice-and-sum; surplus = money triangles; present value = discounted area; probability = area, expectation = balance point.
+**Lens reading**: probability is the collected relation of density to the interval; expectation is the balance point of that collected area — one pattern, two names.
+
+> **Up to here**: $\int$ rate = total change; units multiply; average value = equal-area rectangle; work = force area, $\frac{dW}{dx}=F$; pumping = slice-and-sum; surplus = money triangles; present value = discounted area; probability = area, expectation = balance point. (The two computation techniques — substitution and parts, derived as relations — live in [16C1B](16C1B-integral-techniques.md).)
 
 ---
 
@@ -327,6 +343,108 @@ A battery's lifetime (in years) has density $p(x) = \frac{3x^2}{1000}$ on $[0,10
 </details>
 
 → Solutions: [Solutions](solutions/16C1-solutions.md#practice-6)
+
+---
+
+## Integral Practice: Building the Total from Rates
+
+> The relationship lens applied to integrals: rate → total → units → sentence. **Setting up the rate and collecting it is the whole skill** — everything after that is routine.
+
+#### Basic RP — Straight Setups (RPB1–RPB5)
+
+**RPB1.** A pump delivers $r(t) = 60 - 4t$ L/min, slowly closing over 15 min. (a) Set up the total-delivery integral. (b) Evaluate it. (c) State the units and read the total in one sentence. (d) Why is the answer a trapezoid's area, and what does each thin strip mean?
+
+<details>
+<summary>💡 Hint</summary>
+
+$[60t-2t^2]_0^{15} = 900-450 = 450$ L. Strip = (L/min) × (small minutes) = a small volume.
+
+</details>
+
+**RPB2.** A particle's velocity is $v(t) = 3t^2$ m/s. (a) Set up and evaluate the distance over $[0,4]$. (b) One sentence, with units. (c) Differentiate your answer — what relation do you read back?
+
+<details>
+<summary>💡 Hint</summary>
+
+$[t^3]_0^4 = 64$ m. The undo button reads the velocity back.
+
+</details>
+
+**RPB3.** Marginal cost is $MC(q) = 2q + 1$ \$/item. (a) Set up and evaluate the added cost of producing items 0 through 10. (b) Why is the added cost an area under the marginal-cost curve? (c) One sentence.
+
+<details>
+<summary>💡 Hint</summary>
+
+$[q^2+q]_0^{10} = 110$. Each strip = (cost of one more item) × (one item).
+
+</details>
+
+**RPB4.** Find the average of $f(x) = x^2$ on $[0,3]$. (a) Set up, evaluate, divide. (b) Explain the equal-area rectangle in one sentence.
+
+<details>
+<summary>💡 Hint</summary>
+
+$\frac13\int_0^3 x^2\,dx = \frac13\cdot 9 = 3$ — the uniform relation that delivers the same total.
+
+</details>
+
+**RPB5.** A constant force $F = 5$ N pushes a block 8 m. (a) Set up and evaluate the work. (b) Why is the integral a rectangle here, and what does "the relation is uniform" mean for the total?
+
+<details>
+<summary>💡 Hint</summary>
+
+$5 \times 8 = 40$ J — no triangle, because the force's relation to distance never grows.
+
+</details>
+
+#### Advanced RP — Real Totals, Derived (RPA1–RPA5)
+
+**RPA1.** Derive spring work end to end: (a) state the force-stretch relation and its degree; (b) set up and evaluate $W$ from 0 to $x$; (c) press the undo button; (d) explain why the last centimeter costs the most.
+
+<details>
+<summary>💡 Hint</summary>
+
+$F = kx$ (degree $k$, relation grows from zero). $W = \frac12 kx^2$; $\frac{dW}{dx} = F$ ✓.
+
+</details>
+
+**RPA2.** A uniform rope, 30 m long and 20 kg/m, hangs from a cliff. (a) Slice the rope and set up the work to wind it all up. (b) Evaluate ($g=9.8$). (c) Which segment pays the most, and why?
+
+<details>
+<summary>💡 Hint</summary>
+
+$W = \int_0^{30}\rho g\,y\,dy = 20\cdot9.8\cdot450 = 88{,}200$ J. The bottom segment climbs the full 30 m.
+
+</details>
+
+**RPA3.** A growing perpetuity pays $R(t) = R_0 e^{gt}$ \$/yr forever, discounted at rate $r > g$. (a) Set up the PV integral. (b) Evaluate and interpret the denominator. (c) Compute for $R_0=1000$, $r=8\%$, $g=3\%$.
+
+<details>
+<summary>💡 Hint</summary>
+
+$PV = \int_0^\infty R_0 e^{(g-r)t}dt = \frac{R_0}{r-g}$ — a difference of two percentage relations. $= 20{,}000$.
+
+</details>
+
+**RPA4.** Waiting times have density $p(t) = \lambda e^{-\lambda t}$ on $[0,\infty)$. (a) Verify the total area is 1. (b) Derive $P(X>1) = e^{-\lambda}$ and read the sentence. (c) Derive $E[X] = \frac1\lambda$ by parts. (d) Compute both for $\lambda = 2$.
+
+<details>
+<summary>💡 Hint</summary>
+
+(b) $\int_1^\infty = e^{-\lambda}$. (c) parts with $u=t$, $dv=\lambda e^{-\lambda t}dt$.
+
+</details>
+
+**RPA5.** A particle has $v(t) = t^2 - 4t + 3$ m/s on $[0,4]$. (a) Displacement? (b) Total distance? (split where the sign flips). (c) Which answer does the FTC own, and why does the other need splitting?
+
+<details>
+<summary>💡 Hint</summary>
+
+$v=(t-1)(t-3)$: flips at $t=1,3$. Displacement $\frac43$; distance $4$.
+
+</details>
+
+→ Solutions: [Solutions](solutions/16C1-solutions.md#integral-practice)
 
 ---
 

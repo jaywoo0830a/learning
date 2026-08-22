@@ -37,6 +37,8 @@ Read it as a sentence: "the wire gets denser to the right; the integral adds eve
 
 *Graph 16C2-1: A wire whose shading shows density $\lambda(x)=2x+1$. Mass = the integral of density against the arc element $ds$ — density × length, added up.*
 
+**Lens reading**: a measure is the relation between a piece of space and its size — and integrating is collecting a field's value against that relation, units multiplying at every step.
+
 ---
 
 ## Part B: Line Integrals — Work and Circulation
@@ -61,6 +63,8 @@ $$W = \oint F\cdot dr = \int_0^{2\pi}\big[(-\sin t)(-\sin t) + (\cos t)(\cos t)\
 
 *Graph 16C2-2: The field $F=(-y,x)$ is tangent to circles everywhere; the work around one lap is $2\pi$. Each arrow pushes along the path — circulation is nonzero.*
 
+**Lens reading**: circulation is the collected relation between force and direction — the vortex's degree along the path is 1 everywhere, so a full lap collects $2\pi$.
+
 ---
 
 ## Example 3: The Radial Field — A Field That Is a Derivative
@@ -78,6 +82,8 @@ $$W = \int_0^1 2t\,dt = 1.$$
 $$W = \phi(1,1) - \phi(0,0) = 1 - 0 = 1.$$
 
 **The field-level FTC**: if $F = \nabla\phi$, the work between two points is $\phi(\text{end}) - \phi(\text{start})$ — **path-independent**. The vortex field has no such $\phi$: going around a loop changes the "potential" by $2\pi$, so it can never be a gradient. Two fields, two destinies — the loop test tells them apart. (That loop test is exactly 16C1's "differentiate the answer to check" — at field level.)
+
+**Lens reading**: the radial field is a gradient — its relation to position is someone's derivative, so work collects the potential difference: path-independent, the field-level FTC.
 
 ---
 
@@ -100,6 +106,8 @@ $$\text{Flux} = \oint F\cdot n\,ds = \int_0^{2\pi} 1\,dt = 2\pi.$$
 ![Flux of the source field through a circle](graphs/0821/16C2/16c2-3-flux.png)
 
 *Graph 16C2-3: $F=(x,y)$ crosses the circle outward everywhere — flux $2\pi$. The vortex field (right inset) is tangent everywhere: flux 0.*
+
+**Lens reading**: flux collects the relation across the boundary — the source field crosses everywhere (flux $2\pi$), the vortex is tangent everywhere (flux 0): two relations, two integrals.
 
 ---
 
@@ -125,6 +133,8 @@ It says: *the total that leaves equals the sum of all the little sources.* This 
 
 *Graph 16C2-4: Left — $F=(x,y)$, divergence 2: every point emits. Right — $F=(-y,x)$, divergence 0: pure rotation, nothing is created.*
 
+**Lens reading**: divergence is the source relation per unit area — for $F=(x,y)$ every point squirts with degree 2, and Gauss's theorem is the undo button: total outflow = collected sources.
+
 ---
 
 ## Example 6: Gauss's Law — The Electric Field's Secret (🔗 9C)
@@ -142,6 +152,8 @@ $$\text{flux} = \frac{kQ}{R^2}\cdot 4\pi R^2 = 4\pi kQ.$$
 ![Gauss's law: flux independent of the sphere's radius](graphs/0821/16C2/16c2-5-gauss-law.png)
 
 *Graph 16C2-5: The electric field of a point charge through two spheres ($R$ and $2R$). Strength drops to a quarter, area quadruples — the flux is the same. The charge is the field's only source.*
+
+**Lens reading**: the inverse-square relation and the surface-area relation cancel — strength's degree $1/R^2$ times the sphere's $R^2$ leaves the charge: flux counts sources, not distance.
 
 ---
 
@@ -169,6 +181,8 @@ $$\oint \frac{dz}{z} = i\int_0^{2\pi} 1\,dt = 2\pi i.$$
 
 *Graph 16C2-6: Integrating $1/z$ around the unit circle. The path element $dz$ is the position rotated 90°; $1/z$ un-rotates it, leaving the total angle $2\pi$, times the quarter-turn marker $i$.*
 
+**Lens reading**: integrating $1/z$ collects the path's angular relation to the origin — one lap, $2\pi i$; every other power's relation averages to zero. The winding is the only survivor.
+
 ---
 
 ## Example 8: Integrating Rotation — The Circle's Average Position
@@ -176,6 +190,8 @@ $$\oint \frac{dz}{z} = i\int_0^{2\pi} 1\,dt = 2\pi i.$$
 $\int_0^{2\pi} e^{it}dt = \left[\frac{e^{it}}{i}\right]_0^{2\pi} = 0$ — a point going around a circle has **average position zero**: every position is balanced by its opposite. This is 16C1's "average = balance point" (Example 8 there) living inside the complex field: the mean of a full circle is its center.
 
 For a **half** turn: $\int_0^{\pi} e^{it}dt = \frac{e^{i\pi}-1}{i} = \frac{-2}{i} = 2i$ — the average over the half-circle is $2i/\pi \approx 0.64i$: a point **above** the center, on the imaginary axis — exactly where a semicircle's center of mass sits. Integration over the complex field recovers 16C1's geometric facts in one line.
+
+**Lens reading**: the average of a full circle is its center — the collected relation balances to zero; over a half-circle the collection leaves the balance point $2i/\pi$ above center.
 
 ---
 
@@ -194,6 +210,8 @@ $$\bar y = \frac{\iint y\,dA}{M} = \frac{1}{\pi/2}\int_0^{\pi}\int_0^1 (r\sin\th
 **Read it**: the centroid is the balance point of the measure $dm = dA$ — the point where the plate balances on a fingertip. Note the pairing with 16C1: **probability is a measure of total 1**, so its expectation was the same calculation with the density as the weighting. Centroid, expectation, center of mass — one pattern: *sum the quantity against the measure, divide by the total measure.*
 
 **Moment of inertia** $I = \int r^2\,dm$ is the same pattern with the quantity $r^2$: it measures how far the mass sits from the axis — the resistance to spinning (A6).
+
+**Lens reading**: the centroid is the balance point of the measure — the same collected-average pattern as probability's expectation, with $dm$ as the relation weighting each point.
 
 > **Up to here**: $ds, dA, dV$ are measures and units multiply; work is $\int F\cdot dr$ — zero around loops exactly when $F$ is a gradient (the field-level FTC); flux is $\int F\cdot n\,ds$ and divergence is flux per area — Gauss's theorem says total outflow = integral of sources; inverse-square fields have constant flux (the charge counts); $\oint dz/z = 2\pi i$ counts windings; centroids and expectations are measure-averages.
 
