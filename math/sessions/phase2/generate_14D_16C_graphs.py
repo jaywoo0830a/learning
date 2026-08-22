@@ -495,32 +495,30 @@ def d8_shape_lens():
     panels = [
         ('14d8a-shape-proportional.png',
          r'Case 1: $A = \pi r^2$  —  proportional, forward',
-         r, np.pi*r**2, 0, 14, (1, np.pi), (2, 4*np.pi), (1.07, 4.3), (1.9, 11.3),
+         r, np.pi*r**2, 0, 14, (1, np.pi), (2, 4*np.pi),
          (0.92, 12.3), r'$A:\ \pi \rightarrow 4\pi$', r'$dA/dr = 2\pi r > 0$',
          BLUE, (0.85, 2.15), [1, 2], '$r$ [m]', '$A$ [m²]'),
         ('14d8b-shape-inverse.png',
          r'Case 2: $t = 120/v$  —  inverse, forward',
-         v, 120.0/v, 0, 3.4, (60, 2), (120, 1), (63, 1.85), (117, 1.12),
+         v, 120.0/v, 0, 3.4, (60, 2), (120, 1),
          (44, 3.05), r'$t:\ 2\ \mathrm{h} \rightarrow 1\ \mathrm{h}$',
          r'$dt/dv = -120/v^2 < 0$', RED, (35, 135), [60, 120], '$v$ [km/h]', '$t$ [h]'),
         ('14d8c-shape-proportional-reversed.png',
          r'Case 3: $T = 20 - 6.5h$  —  proportional, reversed',
-         h, 20 - 6.5*h, -1.2, 21, (1, 13.5), (2, 7), (1.06, 12.7), (1.9, 7.7),
+         h, 20 - 6.5*h, -1.2, 21, (1, 13.5), (2, 7),
          (0.92, 9.8), r'$T:\ 13.5 \rightarrow 7\ ^{\circ}C$', r'$dT/dh = -6.5 < 0$',
          AMBER, (0, 3.2), [1, 2], '$h$ [km]', '$T$ [°C]'),
         ('14d8d-shape-inverse-reversed.png',
          r'Case 4: $U = -GM/r$  —  inverse, reversed',
-         r, -1.0/r, -1.15, 0.05, (1, -1), (2, -0.5), (1.07, -0.93), (1.9, -0.56),
+         r, -1.0/r, -1.15, 0.05, (1, -1), (2, -0.5),
          (0.92, -1.06), r'$U:\ -GM \rightarrow -GM/2$', r'$dU/dr = +GM/r^2 > 0$',
          PURPLE, (0.85, 2.15), [1, 2], '$r$', '$U$'),
     ]
-    for fname, title, x, y, ymin, ymax, p1, p2, a0, a1, txy, tag, sign, col, xlim, xticks, xlabel, ylabel in panels:
+    for fname, title, x, y, ymin, ymax, p1, p2, txy, tag, sign, col, xlim, xticks, xlabel, ylabel in panels:
         fig, ax = plt.subplots(figsize=(4.9, 4.3)); g(ax)
         ax.axhline(0, color='#888', lw=0.8)
         ax.plot(x, y, col, lw=2.8, zorder=4)
-        ax.plot([p1[0], p2[0]], [p1[1], p2[1]], 'o', color='#333', ms=8, zorder=6)
-        ax.annotate('', xy=p2, xytext=a0,
-                    arrowprops=dict(arrowstyle='->', color=col, lw=2.2, alpha=0.85))
+        ax.plot([p1[0], p2[0]], [p1[1], p2[1]], 'o', color='#333', ms=9, zorder=6)
         ax.text(txy[0], txy[1], tag, fontsize=9.5, color='#333', fontweight='bold')
         ax.text(0.02, 0.97, sign, transform=ax.transAxes, fontsize=11, color=col,
                 fontweight='bold', ha='left', va='top')
