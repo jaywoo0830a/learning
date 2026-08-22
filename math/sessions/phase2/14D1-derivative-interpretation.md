@@ -2,9 +2,9 @@
 
 **Phase 2 — Classical Techniques | 60 min**
 
-*Every derivative you can compute here is easy. That is the point: the calculus is not the exercise. The exercise is reading — a derivative is a sentence, and this session trains you to hear its units, its sign, its size, and the shape it describes. Science, engineering, and economics all speak in derivatives; by the end you will hear them fluently.*
+*14D trained you to read a single derivative: its units, its sign, its size, and the shape of a power relation. This session reads what a derivative **builds**: the tangent as the best local model, the boundary of a growing shape, the next unit's cost, two laws inside one function, and the percentage strength of a demand relation. The derivatives here are still easy — the exercise is reading what they create.*
 
-**Prerequisites**: 14A (basic derivatives), 14B (product/chain rules), 14C (higher derivatives), 15A (curve analysis)
+**Prerequisites**: 14D (units & relations), 14A (basic derivatives), 14B (product/chain rules), 14C (higher derivatives), 15A (curve analysis)
 
 *Prerequisite for: [14D2 — Advanced Derivative Interpretation](14D2-advanced-derivative-interpretation.md), [14D1A — Implicit Relations](14D1A-derivative-interpretation.md), [14D1B — Product & Quotient Rules](14D1B-product-quotient-interpretation.md)*
 
@@ -12,237 +12,13 @@
 
 ---
 
-## Part A: The Unit Lens — A Derivative Is a Ratio of Rates
-
-> **The procedure**: Before touching a formula, write the units of the derivative. The units name its meaning. Then read the sign, then the size.
-
----
-
-## Example 1: The Units of a Derivative — Name the Meaning First
-
-A derivative is a fraction: $dy/dx$ carries **y-units per x-unit**. Writing the units forces the meaning out.
-
-| Quantity (y) | Units | Derivative | Units | One-sentence meaning |
-|:---:|:---:|:---:|:---:|:---|
-| position $s(t)$ | m | $s'(t)$ | m/s | "each second adds about $s'$ meters" |
-| cost $C(q)$ | \$ | $C'(q)$ | \$/unit | "each extra unit costs about $C'$ dollars" |
-| population $P(t)$ | people | $P'(t)$ | people/yr | "each year adds about $P'$ people" |
-| temperature $T(h)$ vs altitude | °C | $dT/dh$ | °C/km | "each km higher is $dT/dh$ degrees colder" |
-| balloon volume $V(t)$ | m³ | $dV/dt$ | m³/s | "each second pumps in $dV/dt$ cubic meters" |
-
-**The unit check**: units that look wrong mean the formula is wrong. If a "speed" comes out in m·s instead of m/s, the computation failed before the answer was read.
-
-**Worked**: $s(t) = \frac12 t^2$ meters. $s'(t) = t$, so at $t=2$: $s'(2) = 2$ m/s. Read it as a sentence: "at $t=2$, each extra second adds about 2 meters of position." The number 2 alone means nothing — 2 m/s is the whole story.
-
-![Units of the derivative: m/s for position, $/unit for cost](graphs/0821/14D1/14d1-derivative-units.png)
-
-*Graph 14D-1: Left — position vs time, tangent slope 4 m/s. Right — cost vs quantity, tangent slope 28 \$/unit. The same geometric object (a tangent) says completely different sentences depending on its units.*
-
----
-
-### The Relationship Lens — "How Much Is A Related to B?" Has a Unit
-
-Everyday language says "temperature is related to altitude," "demand is related to price," "income is related to education." The word *related* hides a question — **how much?** — and calculus answers it with one symbol. If $B$ is a function of $A$, then
-
-$$\frac{dB}{dA}\ \text{ has units }\ \left[\frac{B}{A}\right]$$
-
-The derivative **is** the degree of relatedness, and its units name the relation:
-
-| "A and B are related…" | Function | Degree of relation | Units | The sentence, with its number |
-|:---|:---:|:---:|:---:|:---|
-| temperature ↔ altitude | $T(h)$ | $\frac{dT}{dh} = -6.5$ | °C/km | "each km of altitude buys 6.5 °C of cold" |
-| demand ↔ price | $q(p)$ | $\frac{dq}{dp} = -10$ | units/\$ | "each dollar of price costs 10 units of demand" |
-| distance ↔ fuel | $d(f)$ | $\frac{dd}{df}$ | km/L | "each liter of fuel buys so many km" |
-| mass ↔ volume | $m(V)$ | $\frac{dm}{dV}$ | kg/m³ | "each cubic meter weighs so many kg" (density!) |
-
-**The relation is the function; the degree is the derivative.** "$B$ is related to $A$" is the *global* statement that a function $B(A)$ exists. $\frac{dB}{dA}$ is the *local* statement — how strong the relation is *right here*, at this value of $A$.
-
-**Sign and size are the direction and strength of the relation.** Positive derivative: the two quantities move together; negative: in opposite directions. Large $|\frac{dB}{dA}|$: strongly related at this point; small: weakly. Because it is local, one pair can be strongly related here and weakly there — a single "correlation number" cannot say that; a derivative can.
-
-**Zero derivative is not "no relation."** $B = A^3$ is related to $A$ everywhere, yet at $A=0$ the local degree is exactly 0 — momentarily flat (the same lesson as A9). "Related" is a global fact; $\frac{dB}{dA}$ measures its strength at a point.
-
-**The relation is symmetric; the rate is not.** "A and B are related" points both ways, but $\frac{dB}{dA}$ (units B/A) and $\frac{dA}{dB}$ (units A/B) are different questions — and locally they are **reciprocals**. Choosing the numerator is choosing *whose response per unit of whose driver* — this session's "with respect to WHAT", applied to relationships. Mileage (km/L) and fuel consumption (L/km) are the same relation, read in two directions.
-
-**Comparing relations across domains needs the percentage form.** Raw $\frac{dB}{dA}$ carries units, so the "income–education relation" and the "temperature–altitude relation" cannot be compared number-to-number. Strip the units and the relation becomes **elasticity** (Example 8): $E = \frac{A}{B}\frac{dB}{dA}$ is dimensionless — it reads "1% of A buys $E$% of B". The unit lens says *how much*; elasticity says *how strongly, scale-free*.
-
-**The mindset, in one sentence**: *"A is related to B" is a sentence missing its number — $\frac{dB}{dA}$ in units of B per A is that number. Write the units, and the vagueness disappears.*
-
-### Relationship Practice: Building the Relation from Words
-
-> The lens in action: verbal statement → function $B(A)$ → derivative $\frac{dB}{dA}$ → units → one-sentence reading. **Setting up the function is the whole skill** — everything after that is routine.
-
-**RP1.** A taxi charges a \$4 flat fee plus \$2 per km. (a) Set up the fare function $F(d)$ and compute $\frac{dF}{dd}$ with units. (b) Read the relation in one sentence. (c) $\frac{dF}{dd}$ is constant — what does a constant degree of relation say about this fare?
-
-<details>
-<summary>💡 Hint</summary>
-
-$F(d) = 4 + 2d$. Constant slope = the relation is uniform: every km buys the same \$2, everywhere.
-
-</details>
-
-**RP2.** A square metal plate has side $s$ cm and area $A$. (a) Set up $A(s)$ and compute $\frac{dA}{ds}$ at $s=5$ with units. (b) Read the relation in one sentence. (c) Compute $\frac{dA}{ds}$ at $s=20$ — why does the same relation get *stronger* as the plate grows?
-
-<details>
-<summary>💡 Hint</summary>
-
-$A = s^2$, so $\frac{dA}{ds} = 2s$. The degree of relation is local: a bigger plate has more boundary to grow from.
-
-</details>
-
-**RP3.** A car consumes 8 L of fuel per 100 km. (a) Set up fuel $f$ as a function of distance $d$ and compute $\frac{df}{dd}$ with units. (b) Set up the *reverse* relation — distance as a function of fuel — and compute $\frac{dd}{df}$. (c) Verify the two degrees are reciprocals and read the relation in both directions.
-
-<details>
-<summary>💡 Hint</summary>
-
-$f = 0.08d$ (L/km); $d = 12.5f$ (km/L). Reciprocals: $0.08 \times 12.5 = 1$.
-
-</details>
-
-**RP4.** A sealed gas container obeys $P = 0.4T$ (kPa vs kelvin), and its heater raises temperature as $T = 300 + 2t$ (K vs seconds). (a) Set up each relation and write each derivative with units — there are two degrees of relation here. (b) Use the chain rule to get $\frac{dP}{dt}$ and show the units multiply: $\frac{\mathrm{kPa}}{\mathrm{K}}\cdot\frac{\mathrm{K}}{\mathrm{s}} = \frac{\mathrm{kPa}}{\mathrm{s}}$. (c) One sentence: how strongly is pressure related to time?
-
-<details>
-<summary>💡 Hint</summary>
-
-$\frac{dP}{dT} = 0.4$ kPa/K and $\frac{dT}{dt} = 2$ K/s. Composed relation: $\frac{dP}{dt} = 0.4 \times 2 = 0.8$ kPa/s — degrees of relation multiply when relations chain.
-
-</details>
-
----
-
-#### Basic RP — Straight Setups (RPB1–RPB5)
-
-> One relation, one shape. Set up the function, differentiate, read the sentence.
-
-**RPB1.** A tank starts with 50 L of water and a pump adds 12 L/min. (a) Set up the volume function $V(t)$. (b) Compute $\frac{dV}{dt}$ with units and read the relation in one sentence. (c) Why is the degree of relation constant here?
-
-<details>
-<summary>💡 Hint</summary>
-
-$V(t) = 50 + 12t$. A constant rate means the relation is uniform — every minute buys the same 12 L.
-
-</details>
-
-**RPB2.** An equilateral triangle has side $s$ cm and area $A$. (a) Set up $A(s) = \frac{\sqrt3}{4}s^2$. (b) Compute $\frac{dA}{ds}$ at $s=4$ with units and read the sentence. (c) Compute it at $s=10$ — why is the relation stronger there?
-
-<details>
-<summary>💡 Hint</summary>
-
-$\frac{dA}{ds} = \frac{\sqrt3}{2}s$. The degree grows with $s$ — the relation is local.
-
-</details>
-
-**RPB3.** A trip is 120 km long, driven at a constant speed $v$ km/h. (a) Set up the time function $t(v)$. (b) Compute $\frac{dt}{dv}$ at $v=60$ with units and read the sentence (convert to minutes). (c) What does the minus sign say about the direction of the relation, and why is the degree smaller at $v=90$?
-
-<details>
-<summary>💡 Hint</summary>
-
-$t(v) = \frac{120}{v}$, so $\frac{dt}{dv} = -\frac{120}{v^2}$. At $v=60$: $-\frac{1}{30}$ h per km/h = 2 minutes shaved per extra km/h.
-
-</details>
-
-**RPB4.** Apples sell for \$3 per kg. (a) Set up cost $C(w)$ and compute $\frac{dC}{dw}$ with units. (b) Set up the reverse relation $w(C)$ and compute $\frac{dw}{dC}$. (c) Verify the two degrees are reciprocals and read both sentences.
-
-<details>
-<summary>💡 Hint</summary>
-
-$C = 3w$ and $w = \frac13 C$. $3 \times \frac13 = 1$.
-
-</details>
-
-**RPB5.** A rock dropped from rest falls $d(t) = 4.9t^2$ meters in $t$ seconds. (a) Compute $\frac{dd}{dt}$ at $t=2$ with units — this degree of relation has a name: what is it? (b) Compute it at $t=5$. (c) One sentence: how does the relation between distance and time change as the rock falls?
-
-<details>
-<summary>💡 Hint</summary>
-
-$\frac{dd}{dt} = 9.8t$ — velocity. At $t=2$: 19.6 m/s; at $t=5$: 49 m/s. The relation strengthens as it falls.
-
-</details>
-
-#### Advanced RP — Chained & Inverted Setups (RPA1–RPA5)
-
-> Now the relation is a chain, an inverse, or a search for where the degree vanishes. Setting up the function is the whole battle.
-
-**RPA1.** A box with a square base of side $x$ cm and fixed height 10 cm is built from material costing \$0.02 per cm². (a) Set up the surface area $S(x)$. (b) Compute $\frac{dS}{dx}$ at $x=5$. (c) Set up the cost $C(x)$ and compute $\frac{dC}{dx}$ at $x=5$ — show the units chain: $(\frac{\$}{\mathrm{cm^2}})(\frac{\mathrm{cm^2}}{\mathrm{cm}}) = \frac{\$}{\mathrm{cm}}$. (d) One sentence for the final degree.
-
-<details>
-<summary>💡 Hint</summary>
-
-$S(x) = 2x^2 + 40x$, $\frac{dS}{dx} = 4x + 40 = 60$ at $x=5$. $C = 0.02S$, so $\frac{dC}{dx} = 0.02(4x+40) = 1.2$ at $x=5$.
-
-</details>
-
-**RPA2.** Demand is $q(p) = 200 - 5p$ and revenue is $R = p\cdot q$. (a) Set up $R(p)$ and compute $\frac{dR}{dp}$ at $p=10$ with units. (b) Read the sentence. (c) Find the price where the degree of relation is exactly zero, and say what that means (🔗 A9).
-
-<details>
-<summary>💡 Hint</summary>
-
-$R = 200p - 5p^2$, $\frac{dR}{dp} = 200 - 10p$. Zero at $p=20$ — revenue stops responding to price: the peak.
-
-</details>
-
-**RPA3.** A heater's power is $P = \frac{V^2}{R}$ with fixed voltage $V = 120$ V. (a) Set up $P(R)$ and compute $\frac{dP}{dR}$ at $R = 60\,\Omega$ with units. (b) Read the sentence — why is the degree negative? (c) Compute the elasticity $E = \frac{R}{P}\frac{dP}{dR}$ and read the *dimensionless* degree of relation (compare with Example 8).
-
-<details>
-<summary>💡 Hint</summary>
-
-$\frac{dP}{dR} = -\frac{V^2}{R^2} = -\frac{14400}{3600} = -4$ W/Ω. $P = 240$ W, so $E = \frac{60}{240}(-4) = -1$ — exactly unit elastic, because $P \propto R^{-1}$.
-
-</details>
-
-**RPA4.** A farmer fences a rectangular pen against a river (the river side needs no fence) using 200 m of fence. (a) With width $x$ as the side perpendicular to the river, set up the area $A(x)$. (b) Compute $\frac{dA}{dx}$ at $x=20$ with units and read the sentence. (c) Find where the degree of relation is zero and say what the pen looks like there (🔗 A9).
-
-<details>
-<summary>💡 Hint</summary>
-
-$A(x) = x(200 - 2x) = 200x - 2x^2$, so $\frac{dA}{dx} = 200 - 4x$: $120$ m²/m at $x=20$; zero at $x=50$, where $A = 5000$ m² — the maximum.
-
-</details>
-
-**RPA5.** A faucet drips 2 drops per second, each drop 0.05 mL. (a) Set up the wasted volume $V(t)$ in mL and compute $\frac{dV}{dt}$ with units. (b) Chain the unit conversions — seconds → hours → days → years, mL → L — to find the yearly waste in liters. (c) One sentence: what does this say about relations that chain?
-
-<details>
-<summary>💡 Hint</summary>
-
-$\frac{dV}{dt} = 2 \times 0.05 = 0.1$ mL/s. $0.1 \times 3600 \times 24 \times 365 = 3{,}153{,}600$ mL ≈ 3,154 L/yr — degrees of relation multiply through every unit conversion.
-
-</details>
-
-→ Solutions: [Solutions](solutions/14D1-solutions.md#relationship-practice)
-
----
-
-## Example 2: The Motion Story — Signs of $v$ and $a$ Together
-
-$s(t) = t^3 - 6t^2 + 9t$ (meters, seconds, from 14C). $v(t) = s'(t) = 3(t-1)(t-3)$, $a(t) = s''(t) = 6t - 12$.
-
-**Reading the sign of $v$**: $v>0$ = moving forward, $v<0$ = moving backward, $v=0$ = turning around (at $t=1$ and $t=3$).
-
-**Reading the sign of $a$**: $a$ and $v$ have the **same sign** = speeding up. Opposite signs = slowing down. Negative $a$ is *not* automatically "decelerating" — it depends on the direction.
-
-| Interval | $v$ | $a$ | Story |
-|:---:|:---:|:---:|:---|
-| $0 < t < 1$ | $+$ | $-$ | forward, slowing |
-| $1 < t < 2$ | $-$ | $-$ | backward, speeding up |
-| $2 < t < 3$ | $-$ | $+$ | backward, slowing |
-| $t > 3$ | $+$ | $+$ | forward, speeding up |
-
-The two turning points ($t=1, 3$) and the one acceleration switch ($t=2$) chop time into exactly four stories.
-
-![Motion story from signs of v and a](graphs/0821/14D1/14d2-motion-story.png)
-
-*Graph 14D-2: Top — $v(t)$ and $a(t)$ with zero crossings marked. Bottom — the motion timeline built purely from signs.*
-
-**Lens reading**: velocity is position's degree of relation to time, acceleration is velocity's — the timeline reads the two relations' signs against each other: same sign means the relation is strengthening.
-
----
-
-## Part B: The Geometric Lens — The Tangent Is the Best Local Model
+## Part A: The Geometric Lens — The Tangent Is the Best Local Model
 
 > **The procedure**: Near a point, the function IS (almost) its tangent line. Replace the function with the line, compute, and bound how wrong you are.
 
 ---
 
-## Example 3: Linearization — Engineering's Favorite Approximation
+## Example 1: Linearization — Engineering's Favorite Approximation
 
 The tangent line at $x=a$: $L(x) = f(a) + f'(a)(x-a)$. It is the **best linear model** of $f$ near $a$.
 
@@ -257,13 +33,13 @@ Estimate $\sqrt{4.1}$ using $f(x)=\sqrt{x}$ at $a=4$:
 
 ![Linearization: tangent approximates sqrt near 4](graphs/0821/14D1/14d3-linearization.png)
 
-*Graph 14D-3: The tangent at $x=4$ and the zoom showing the gap at $x=4.1$ — error ≈ 0.00015, exactly the size the $f''$ bound predicts.*
+*Graph 14D1-1: The tangent at $x=4$ and the zoom showing the gap at $x=4.1$ — error ≈ 0.00015, exactly the size the $f''$ bound predicts.*
 
 **Lens reading**: the tangent line is $f$'s local degree of relation to $x$, and the error is the relation's curvature ($f''$) — engineers trust the relation because its local strength is known and its curvature is priced.
 
 ---
 
-## Example 4: Reading the Derivative's Graph — The Story of $f'$
+## Example 2: Reading the Derivative's Graph — The Story of $f'$
 
 Given the graph of $f'(x) = 2x-4$ (a line), read the story of $f$ without knowing $f$:
 
@@ -279,13 +55,13 @@ Two layers, two readings: the **height** of the $f'$ graph tells where $f$ rises
 
 ---
 
-## Part C: The Derivation Lens — Differentiating a Formula Creates Meaning
+## Part B: The Derivation Lens — Differentiating a Formula Creates Meaning
 
 > **The procedure**: Take a formula you trust from science, engineering, or economics. Differentiate it. The derivative is never just a computation — it is a new law with its own name and its own picture.
 
 ---
 
-## Example 5: Growing Round Objects — The Derivative of Area Is the Boundary
+## Example 3: Growing Round Objects — The Derivative of Area Is the Boundary
 
 Circle: $A = \pi r^2$. Differentiate: $\frac{dA}{dr} = 2\pi r$ — the **circumference**.
 
@@ -297,17 +73,17 @@ Cube sanity check: a cube of side $s$ has $V=s^3$, so $\frac{dV}{ds} = 3s^2$ —
 
 ![Circle: ring area = circumference × dr](graphs/0821/14D1/14d4-circle-ring.png)
 
-*Graph 14D-4: The ring of width $dr$ has area ≈ $2\pi r\,dr$ — differentiating area gives the circumference.*
+*Graph 14D1-2: The ring of width $dr$ has area ≈ $2\pi r\,dr$ — differentiating area gives the circumference.*
 
 ![Sphere: shell volume = surface area × dr](graphs/0821/14D1/14d5-sphere-shell.png)
 
-*Graph 14D-5 (3D): A spherical shell of thickness $dr$ has volume ≈ $4\pi r^2\,dr$ — differentiating volume gives the surface area.*
+*Graph 14D1-3 (3D): A spherical shell of thickness $dr$ has volume ≈ $4\pi r^2\,dr$ — differentiating volume gives the surface area.*
 
 **Lens reading**: differentiating area or volume reads its relation to a growth dimension — and the degree is always the boundary through which growth enters. Which boundary answers depends on which driver you choose (side vs half-side).
 
 ---
 
-## Example 6: Marginal Cost — The Cost of the Next Unit
+## Example 4: Marginal Cost — The Cost of the Next Unit
 
 $C(q) = q^2 + 4q + 144$ (dollars, $q$ = units produced).
 
@@ -323,13 +99,13 @@ Set $MC = AC$: $2q+4 = q+4+\frac{144}{q}$ → $q^2 = 144$ → $q=12$. At $q=12$ 
 
 ![Marginal cost as tangent slope; MC crosses AC at AC's minimum](graphs/0821/14D1/14d6-marginal-cost.png)
 
-*Graph 14D-6: Left — the cost curve with its tangent at $q=12$; the tangent's slope is the cost of the next unit. Right — $MC$ and $AC$ cross at the minimum of $AC$.*
+*Graph 14D1-4: Left — the cost curve with its tangent at $q=12$; the tangent's slope is the cost of the next unit. Right — $MC$ and $AC$ cross at the minimum of $AC$.*
 
 **Lens reading**: marginal cost is cost's degree of relation to quantity; average cost is the relation's lifetime average. They meet where the average's own relation to $q$ pauses — the minimum.
 
 ---
 
-## Example 7: Physics — One Function, Two Meanings
+## Example 5: Physics — One Function, Two Meanings
 
 Kinetic energy $K = \frac12 mv^2$ (joules).
 
@@ -349,7 +125,7 @@ The same function $K$ gives two laws because there are two different "with respe
 
 ---
 
-## Example 8: Elasticity — When a Price Hike Still Raises Revenue
+## Example 6: Elasticity — When a Price Hike Still Raises Revenue
 
 Demand: $q(p) = 500 - 10p$ (units sold at price $p$).
 
@@ -365,11 +141,11 @@ Demand: $q(p) = 500 - 10p$ (units sold at price $p$).
 
 ![Demand with elastic/inelastic regions; revenue maximized at E=-1](graphs/0821/14D1/14d7-elasticity.png)
 
-*Graph 14D-7: Left — demand with elastic and inelastic regions. Right — revenue peaks exactly where $E=-1$.*
+*Graph 14D1-5: Left — demand with elastic and inelastic regions. Right — revenue peaks exactly where $E=-1$.*
 
 **Lens reading**: elasticity is the percentage degree of relation between demand and price — a scale-free strength. Revenue's relation to price pauses exactly where the two percentage relations balance: $E=-1$.
 
-> **Up to here**: units name the meaning; a relation between two domains is measured by $dB/dA$ in units of B per A; signs tell the story; the tangent is the best local model; differentiating area/volume gives the boundary; marginal cost is the next unit's price and crosses average cost at its minimum; $dK/dv$ is momentum while $dK/dt$ is power; elasticity $-1$ is the revenue peak. (Products and quotients get their own two-channel treatment in [14D1B](14D1B-product-quotient-interpretation.md).)
+> **Up to here**: the tangent is the best local model; differentiating area/volume gives the boundary; marginal cost is the next unit's price and crosses average cost at its minimum; $dK/dv$ is momentum while $dK/dt$ is power; elasticity $-1$ is the revenue peak. (The unit lens, relationship lens, shape lens, and motion signs live in [14D](14D-relation-lens.md); products and quotients get their two-channel treatment in [14D1B](14D1B-product-quotient-interpretation.md).)
 
 ---
 
@@ -378,7 +154,7 @@ Demand: $q(p) = 500 - 10p$ (units sold at price $p$).
 > When a derivative appears anywhere, run this checklist. It is the whole session in one box.
 
 ```
-1. UNITS      → write y-units per x-unit. Wrong units = wrong formula.
+1. UNITS      → write y-units per x-unit. Wrong units = wrong formula. (14D)
 2. SIGN       → positive = growing, negative = shrinking. At 0, look for turning.
 3. SIZE       → the "each" sentence: "each extra x adds about f'(x) of y".
 4. GEOMETRY   → slope of the tangent; the best local (linear) model.
@@ -415,21 +191,19 @@ Demand: $q(p) = 500 - 10p$ (units sold at price $p$).
 ## What We Just Did
 
 ```
-(1) Units: a derivative is y-units per x-unit. Write them first — they name the meaning.
-(2) Relations: "A is related to B" is a sentence missing its number — dB/dA,
-    in units of B per A, is that number. Sign = direction, size = strength, local at a point.
-(3) Motion: sign of v = direction; v and a same sign = speeding up.
-(4) Linearization: L(x)=f(a)+f'(a)(x−a); error ~ (M/2)(x−a)², M = max |f''|.
-(5) Boundaries: dA/dr = 2πr (circumference), dV/dr = 4πr² (surface area) —
+(1) Geometry: the tangent is the best local model; error ~ (M/2)(x−a)², M = max |f''|.
+(2) Boundaries: dA/dr = 2πr (circumference), dV/dr = 4πr² (surface area) —
     growth happens on the boundary; choose the growth dimension carefully.
-(6) Economics: MC = C', AC = C/q; MC crosses AC at AC's minimum.
+(3) Economics: MC = C', AC = C/q; MC crosses AC at AC's minimum.
     Elasticity E=(p/q)(dq/dp); revenue is maximized where E = −1.
-(7) Physics: dK/dv = mv (momentum), dK/dt = Fv (power) — the "with respect to" sets the law.
+(4) Physics: dK/dv = mv (momentum), dK/dt = Fv (power) — the "with respect to" sets the law.
+
+(Units, relations, shapes, and motion signs — the unit lens of this series — live in 14D.)
 ```
 
 ---
 
-## Practice 1
+## Practice 1 (14D)
 
 Fill in the units and write a one-sentence meaning for each derivative:
 
@@ -451,7 +225,7 @@ Derivative units = y-units ÷ x-units. The sentence starts "each extra …" and 
 
 ---
 
-## Practice 2
+## Practice 2 (14D)
 
 A particle has $v(t) = t^2 - 6t + 8$ (m/s). Find the turning points and the acceleration, then write the complete motion timeline (moving forward/backward, speeding up/slowing down) on $[0,6]$.
 
@@ -721,12 +495,12 @@ $\frac{dq}{dp} = -2$ units/\$; $\frac{dp}{dq} = -\frac12$ \$/unit. $E = \frac{p}
 
 > One problem, pushed to the edge of this session's method. Compute it — then explain *why* the method breaks or holds. The "why" is the whole point.
 
-**DI1.** Which functions are equal to their own tangent-line model at *every* point? Find all functions $f$ such that $L_a(x) = f(a) + f'(a)(x-a)$ equals $f(x)$ for every $x$ **and** every $a$. Prove your characterization, and explain what it says about the error bound in Example 3 — where exactly does the linearization error live?
+**DI1.** Which functions are equal to their own tangent-line model at *every* point? Find all functions $f$ such that $L_a(x) = f(a) + f'(a)(x-a)$ equals $f(x)$ for every $x$ **and** every $a$. Prove your characterization, and explain what it says about the error bound in Example 1 — where exactly does the linearization error live?
 
 <details>
 <summary>💡 Hint</summary>
 
-The condition is $f(x)-f(a) = f'(a)(x-a)$ for all $a,x$. What is the secant slope $\frac{f(x)-f(a)}{x-a}$ then? And Example 3's bound uses $M = \max|f''|$.
+The condition is $f(x)-f(a) = f'(a)(x-a)$ for all $a,x$. What is the secant slope $\frac{f(x)-f(a)}{x-a}$ then? And Example 1's bound uses $M = \max|f''|$.
 
 </details>
 
@@ -738,9 +512,6 @@ The condition is $f(x)-f(a) = f'(a)(x-a)$ for all $a,x$. What is the secant slop
 
 | When you see... | Do this... |
 |:---|:---|
-| A derivative with real-world quantities | Write units first (y-units per x-unit), then sign, then size |
-| "How related is A to B?" | The relation is a function $B(A)$; its degree is $dB/dA$ with units [B/A] — sign = direction, size = strength; compare domains with elasticity |
-| A motion problem | Factor $v$ for turning points; compare signs of $v$ and $a$ for speeding/slowing |
 | "Estimate $f(a+h)$ without a calculator" | Linearize: $L(a+h)=f(a)+f'(a)h$; bound the error with $\frac{M}{2}h^2$ |
 | Area/volume of a round object | Differentiate with respect to the growth dimension → boundary (circumference, surface) |
 | Marginal vs average cost | $MC=C'$, $AC=C/q$; they cross at the minimum of $AC$ |
@@ -754,13 +525,11 @@ The condition is $f(x)-f(a) = f'(a)(x-a)$ for all $a,x$. What is the secant slop
 | Symbol | Reads as | Meaning |
 |:---:|:---:|------|
 | $f'(x)$, $\frac{dy}{dx}$ | "f prime of x" / "d y d x" | instantaneous rate — y-units per x-unit |
-| $dB/dA$ | "d B d A" | the degree of relation between two domains — B-units per A-unit |
 | $\frac{dV}{dr}$ vs $\frac{dV}{dt}$ | "d V d r" / "d V d t" | same function, different variable — different law (boundary vs flow) |
 | $MC$ | "marginal cost" | $C'(q)$ — cost of the next unit |
 | $AC$ | "average cost" | $\frac{C(q)}{q}$ — cost per unit over all units made |
 | $L(x)$ | "linearization" | tangent-line model $f(a)+f'(a)(x-a)$ |
 | $E$ | "elasticity" | $\frac{p}{q}\frac{dq}{dp}$ — % demand change per 1% price change |
-| m/s, \$/unit, °C/km | "meters per second…" | the units that name the meaning of the derivative |
 | $p = mv$ | "momentum" | mass × velocity — the velocity-derivative of kinetic energy |
 
 ---

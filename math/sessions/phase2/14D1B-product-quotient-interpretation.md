@@ -2,9 +2,9 @@
 
 **Phase 2 — Classical Techniques | Supplement to 14D1 | 40 min**
 
-*14D1 taught you to read one derivative at a time. This supplement trains you to read the two hardest shapes a derivative can take — a product and a quotient. Both obey the same machine: differentiating splits the total change into **two channels**, one per factor. The only difference is the sign — a product's second channel adds (new mass, new area), a quotient's second channel subtracts (dilution). By the end, $F = m\frac{dv}{dt} + v\frac{dm}{dt}$ and $AC' = \frac{MC - AC}{q}$ will read like sentences, not formulas.*
+*14D taught you to read one derivative at a time. This supplement trains you to read the two hardest shapes a derivative can take — a product and a quotient. Both obey the same machine: differentiating splits the total change into **two channels**, one per factor. The only difference is the sign — a product's second channel adds (new mass, new area), a quotient's second channel subtracts (dilution). By the end, $F = m\frac{dv}{dt} + v\frac{dm}{dt}$ and $AC' = \frac{MC - AC}{q}$ will read like sentences, not formulas.*
 
-**Prerequisites**: 14D1 (reading rates), 14B (product rule), 14D1A (percentage budget, for the log form)
+**Prerequisites**: 14D (units & relations), 14D1 (reading rates), 14B (product rule), 14D1A (percentage budget, for the log form)
 
 > 💡 **Stuck?** Every problem has a collapsible **Hint** below it — click it only when you need a nudge.
 
@@ -50,7 +50,7 @@ The term $-u\frac{dm}{dt} > 0$ is the **thrust**: it depends on the *exhaust spe
 
 **Reading it all through the relationship lens**: momentum is related to two drivers at once. Its degree of relation to speed is the mass itself ($m$); its degree of relation to mass is the velocity the exchanged mass actually carries ($v_{flow}$). The belt's force is a pure mass-channel relation — sand arriving from rest, degree $v$; the rocket's thrust is the same relation read with the true degree $u$; the leaky truck's is zero. The frame question is nothing but the lens question, asked of the second relation: *how strongly is $p$ related to $m$ — at what velocity does the mass really join or leave?*
 
-**The mindset, in one sentence**: *a product's derivative is a budget with one channel per factor — freeze each factor in turn, then ask at what velocity the moving part actually moves; that answer decides what each channel buys.* The same machine elsewhere: revenue $R' = q + p\,q'$ (14D1 Ex8) splits into a volume channel and a price channel (A3); a rectangle's $\frac{dA}{dt} = x\,\frac{dy}{dt} + y\,\frac{dx}{dt}$ splits into a width channel and a height channel (A2); and 14D1A's log-rule budget splits the *same* changes into percentage channels (14D1A Ex3).
+**The mindset, in one sentence**: *a product's derivative is a budget with one channel per factor — freeze each factor in turn, then ask at what velocity the moving part actually moves; that answer decides what each channel buys.* The same machine elsewhere: revenue $R' = q + p\,q'$ (14D1 Ex6) splits into a volume channel and a price channel (A3); a rectangle's $\frac{dA}{dt} = x\,\frac{dy}{dt} + y\,\frac{dx}{dt}$ splits into a width channel and a height channel (A2); and 14D1A's log-rule budget splits the *same* changes into percentage channels (14D1A Ex3).
 
 ![Conveyor belt and rocket: the two channels of the product-rule budget](graphs/0821/14D1B/14d1b-1-product-channels.png)
 
@@ -74,7 +74,7 @@ $$\frac{d}{dt}\left(\frac{u}{v}\right) = \underbrace{\frac{u'}{v}}_{\text{numera
 
 $$AC' = \frac{C'\,q - C}{q^2} = \frac{C' - C/q}{q} = \frac{MC - AC}{q}$$
 
-One line of calculus *derives* 14D1 Ex6's economic law instead of memorizing it: the average rises exactly when the next unit costs more than the average ($MC>AC$), falls exactly when it costs less, and sits still exactly where they meet. "Marginal pulls the average" is the quotient rule, read aloud.
+One line of calculus *derives* 14D1 Ex4's economic law instead of memorizing it: the average rises exactly when the next unit costs more than the average ($MC>AC$), falls exactly when it costs less, and sits still exactly where they meet. "Marginal pulls the average" is the quotient rule, read aloud.
 
 **Worked — average speed of a trip.** $\bar v = s/t$:
 
@@ -104,9 +104,9 @@ $$\frac{d}{dt}\ln\!\left(\frac{u}{v}\right) = \frac{u'}{u} - \frac{v'}{v}$$
 
 ---
 
-### The Relationship Lens for Products and Quotients — How Much Is $uv$ Related to Each Factor? (🔗 14D1)
+### The Relationship Lens for Products and Quotients — How Much Is $uv$ Related to Each Factor? (🔗 14D)
 
-14D1's lens reads "A is related to B" as $\frac{dB}{dA}$ in units of B per A. A product $y = u\,v$ is related to **two** drivers at once — so its degree of relation splits into two channels, one per factor, each freezing the other:
+14D's lens reads "y is related to x" as $\frac{dy}{dx}$ in units of y per x. A product $y = u\,v$ is related to **two** drivers at once — so its degree of relation splits into two channels, one per factor, each freezing the other:
 
 $$\frac{d(uv)}{dt} = \underbrace{u}_{\text{degree to }v}\frac{dv}{dt} + \underbrace{v}_{\text{degree to }u}\frac{du}{dt}$$
 
@@ -164,7 +164,7 @@ $A = xy$, so $\frac{dA}{dt} = x\frac{dy}{dt} + y\frac{dx}{dt}$: width frozen whi
 
 </details>
 
-**A3.** Revenue is $R = p\cdot q$ (14D1 Ex8). (a) Write $R' = q + p\,q'$ as two channels and name the factor each one freezes. (b) For $q = 500 - 10p$ at $p = 20$, compute both channels and say which is winning. (c) At $p = 25$ the two channels are equal in size and opposite in sign. What does a balanced budget say about revenue there?
+**A3.** Revenue is $R = p\cdot q$ (14D1 Ex6). (a) Write $R' = q + p\,q'$ as two channels and name the factor each one freezes. (b) For $q = 500 - 10p$ at $p = 20$, compute both channels and say which is winning. (c) At $p = 25$ the two channels are equal in size and opposite in sign. What does a balanced budget say about revenue there?
 
 <details>
 <summary>💡 Hint</summary>

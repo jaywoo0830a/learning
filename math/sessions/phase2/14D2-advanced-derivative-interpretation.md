@@ -2,9 +2,9 @@
 
 **Phase 2 — Classical Techniques | 90 min**
 
-*14D1 taught you to read a single rate. This session zooms out: a derivative is no longer one number at one point — it is a **field**: an object living at every point, with direction, size, and units of its own. You will abstract units into a vector space, read temperature fields through their gradients, watch complex numbers turn differentiation into rotation, and see matrix fields as stretching machines. The payoff: the four topics you already know — 2D geometry, 3D surfaces, complex numbers, matrices — become one picture.*
+*14D taught you to read a single rate. This session zooms out: a derivative is no longer one number at one point — it is a **field**: an object living at every point, with direction, size, and units of its own. You will abstract units into a vector space, read temperature fields through their gradients, watch complex numbers turn differentiation into rotation, and see matrix fields as stretching machines. The payoff: the four topics you already know — 2D geometry, 3D surfaces, complex numbers, matrices — become one picture.*
 
-**Prerequisites**: 14D1 (reading rates), 9B (2D geometry & parametric curves), 9C (3D surfaces & level curves), 12A1 (complex numbers), 12A2 (matrices & vectors)
+**Prerequisites**: 14D (units & relations), 14D1 (reading rates), 9B (2D geometry & parametric curves), 9C (3D surfaces & level curves), 12A1 (complex numbers), 12A2 (matrices & vectors)
 
 > 💡 **Stuck?** Every problem has a collapsible **Hint** below it — click it only when you need a nudge.
 
@@ -75,7 +75,7 @@ If $x$ were 2 meters, the series would add a pure number, a length, an area, a v
 
 A metal plate at position $(x,y)$ has temperature $T(x,y) = 60 - x^2 - 2y^2$ (°C). (In 9C's language, this is an elliptic paraboloid; its level curves are ellipses.)
 
-**Slice along $x$** (hold $y$ fixed): $\frac{\partial T}{\partial x} = -2x$. Sentence: "walking one meter in the $+x$ direction at this point changes the temperature by about $-2x$ °C." It is 14D1's rate, but *one direction at a time*.
+**Slice along $x$** (hold $y$ fixed): $\frac{\partial T}{\partial x} = -2x$. Sentence: "walking one meter in the $+x$ direction at this point changes the temperature by about $-2x$ °C." It is 14D's rate, but *one direction at a time*.
 
 **Slice along $y$**: $\frac{\partial T}{\partial y} = -4y$. The $y$-rate is twice as steep — the ellipse is taller than wide (9C's sign-pattern insight, read as a rate).
 

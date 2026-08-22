@@ -256,7 +256,7 @@ The parametric lens keeps time visible ($x'$, $y'$ are actual speeds); the impli
 
 **(b)** $V$ fixed: $P = \frac{nRT}{V}$ → $\frac{dP}{dT} = \frac{nR}{V}$ — kPa/K: pressure rise on heating in a sealed container.
 
-**(c)** The same law, two different "holds" — the held variable decides the meaning (14D1's "with respect to what"). One equation manufactures as many derivative-meanings as it has variables.
+**(c)** The same law, two different "holds" — the held variable decides the meaning (14D's "with respect to what"). One equation manufactures as many derivative-meanings as it has variables.
 
 > **Answer**: $\frac{nR}{P}$ m³/K (expansion), $\frac{nR}{V}$ kPa/K (sealed heating)
 

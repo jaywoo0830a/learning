@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Generate the session graphs for 14D (derivative interpretation), 14D1B (product/quotient), and 16C (integral interpretation).
+"""Generate the session graphs for 14D (units & relations), 14D1 (derivative interpretation), 14D1B (product/quotient), and 16C (integral interpretation).
 
-Outputs into graphs/0821/14D1, graphs/0821/14D1B, and graphs/0821/16C1 (png).
+Outputs into graphs/0821/14D1 (shared by 14D and 14D1), graphs/0821/14D1B, and graphs/0821/16C1 (png).
 """
 import numpy as np
 import matplotlib
@@ -487,10 +487,54 @@ def c7_expectation():
     fig.tight_layout()
     save(fig, '16C1', '16c7-expectation.png')
 
+def d8_shape_lens():
+    """One panel per shape class, drawn as a concrete model with its own letters."""
+    r = np.linspace(0.9, 2.1, 500)
+    v = np.linspace(40, 130, 500)
+    h = np.linspace(0, 3.2, 500)
+    panels = [
+        ('14d8a-shape-proportional.png',
+         r'Case 1: $A = \pi r^2$  —  proportional, forward',
+         r, np.pi*r**2, 0, 14, (1, np.pi), (2, 4*np.pi), (1.07, 4.3), (1.9, 11.3),
+         (0.92, 12.3), r'$A:\ \pi \rightarrow 4\pi$', r'$dA/dr = 2\pi r > 0$',
+         BLUE, (0.85, 2.15), [1, 2], '$r$ [m]', '$A$ [m²]'),
+        ('14d8b-shape-inverse.png',
+         r'Case 2: $t = 120/v$  —  inverse, forward',
+         v, 120.0/v, 0, 3.4, (60, 2), (120, 1), (63, 1.85), (117, 1.12),
+         (44, 3.05), r'$t:\ 2\ \mathrm{h} \rightarrow 1\ \mathrm{h}$',
+         r'$dt/dv = -120/v^2 < 0$', RED, (35, 135), [60, 120], '$v$ [km/h]', '$t$ [h]'),
+        ('14d8c-shape-proportional-reversed.png',
+         r'Case 3: $T = 20 - 6.5h$  —  proportional, reversed',
+         h, 20 - 6.5*h, -1.2, 21, (1, 13.5), (2, 7), (1.06, 12.7), (1.9, 7.7),
+         (0.92, 9.8), r'$T:\ 13.5 \rightarrow 7\ ^{\circ}C$', r'$dT/dh = -6.5 < 0$',
+         AMBER, (0, 3.2), [1, 2], '$h$ [km]', '$T$ [°C]'),
+        ('14d8d-shape-inverse-reversed.png',
+         r'Case 4: $U = -GM/r$  —  inverse, reversed',
+         r, -1.0/r, -1.15, 0.05, (1, -1), (2, -0.5), (1.07, -0.93), (1.9, -0.56),
+         (0.92, -1.06), r'$U:\ -GM \rightarrow -GM/2$', r'$dU/dr = +GM/r^2 > 0$',
+         PURPLE, (0.85, 2.15), [1, 2], '$r$', '$U$'),
+    ]
+    for fname, title, x, y, ymin, ymax, p1, p2, a0, a1, txy, tag, sign, col, xlim, xticks, xlabel, ylabel in panels:
+        fig, ax = plt.subplots(figsize=(4.9, 4.3)); g(ax)
+        ax.axhline(0, color='#888', lw=0.8)
+        ax.plot(x, y, col, lw=2.8, zorder=4)
+        ax.plot([p1[0], p2[0]], [p1[1], p2[1]], 'o', color='#333', ms=8, zorder=6)
+        ax.annotate('', xy=p2, xytext=a0,
+                    arrowprops=dict(arrowstyle='->', color=col, lw=2.2, alpha=0.85))
+        ax.text(txy[0], txy[1], tag, fontsize=9.5, color='#333', fontweight='bold')
+        ax.text(0.02, 0.97, sign, transform=ax.transAxes, fontsize=11, color=col,
+                fontweight='bold', ha='left', va='top')
+        ax.set_xlim(xlim[0], xlim[1]); ax.set_xticks(xticks)
+        ax.set_ylim(ymin, ymax)
+        ax.set_xlabel(xlabel); ax.set_ylabel(ylabel)
+        ax.set_title(title, fontweight='bold', fontsize=11)
+        fig.tight_layout()
+        save(fig, '14D1', fname)
+
 if __name__ == '__main__':
     d1_units(); d2_motion_story(); d3_linearization(); d4_circle_ring()
-    d5_sphere_shell(); d6_marginal_cost(); d7_elasticity(); d8_product_rule()
-    d9_quotient()
+    d5_sphere_shell(); d6_marginal_cost(); d7_elasticity(); d8_shape_lens()
+    d8_product_rule(); d9_quotient()
     c1_accumulation(); c2_average_value(); c3_work_spring(); c4_surplus()
     c5_present_value(); c6_density_3d(); c7_expectation()
     print('Done: 14D1 + 16C1 graphs written to graphs/0821/')

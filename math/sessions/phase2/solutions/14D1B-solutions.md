@@ -36,7 +36,7 @@
 
 **(a)** $R' = q + p\,q'$. Channel 1, $q$: price frozen — "selling one more unit at the current price adds $q$ dollars." Channel 2, $p\,q'$: volume frozen — "changing the price on the $q$ units we already sell changes revenue by $p\,q'$ dollars."
 
-**(b)** At $p=20$: $q = 300$, $q' = -10$. Channel 1: $+300$; channel 2: $20(-10) = -200$. Net $R' = 100 > 0$ — the volume channel wins: a small price hike still raises revenue (inelastic, $|E| = \frac23 < 1$, as in 14D1 Ex8).
+**(b)** At $p=20$: $q = 300$, $q' = -10$. Channel 1: $+300$; channel 2: $20(-10) = -200$. Net $R' = 100 > 0$ — the volume channel wins: a small price hike still raises revenue (inelastic, $|E| = \frac23 < 1$, as in 14D1 Ex6).
 
 **(c)** At $p=25$: $q=250$, channel 1 $= +250$, channel 2 $= 25(-10) = -250$ — equal and opposite, so $R' = 0$: the budget balances exactly at the revenue peak, which is exactly $E = -1$.
 
@@ -66,7 +66,7 @@
 - $q=6$: $C' = 16$, $C = 204$. Channels: $+\frac{16}{6} \approx +2.67$ and $-\frac{204}{36} \approx -5.67$ → $AC' = -3$ \$/item per item. The dilution channel wins: $MC = 16 < AC = 34$, so the next unit *drags the average down*.
 - $q=20$: $C' = 44$, $C = 624$. Channels: $+\frac{44}{20} = +2.2$ and $-\frac{624}{400} = -1.56$ → $AC' = +0.64$. The numerator channel wins: $MC = 44 > AC = 31.2$, so the next unit *pulls the average up*.
 
-**(c)** $AC' = 0$ ⟺ $MC = AC$: $2q+4 = q+4+\frac{144}{q}$ → $q^2 = 144$ → $q = 12$ — the minimum of $AC$ from 14D1 Ex6, where both equal 28.
+**(c)** $AC' = 0$ ⟺ $MC = AC$: $2q+4 = q+4+\frac{144}{q}$ → $q^2 = 144$ → $q = 12$ — the minimum of $AC$ from 14D1 Ex4, where both equal 28.
 
 > **Answer**: $AC' = (MC-AC)/q$; at $q=6$: $+2.67 - 5.67 = -3$ (falling); at $q=20$: $+2.2 - 1.56 = +0.64$ (rising); still at $q=12$
 

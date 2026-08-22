@@ -2,9 +2,9 @@
 
 **Phase 2 — Classical Techniques | Supplement to 14D1 | 40 min**
 
-*In 14D1 every quantity was a clean function of one variable. Reality is messier: $x$, $y$, $z$ are tangled together in one equation, and no variable is "the" independent one. This supplement trains you to read those tangles — every implicit derivative is a trade-off ("how much $y$ per unit of $x$"), with units, signs, and a geometric story, and every equation also constrains the **rates** of change together.*
+*In 14D every quantity was a clean function of one variable. Reality is messier: $x$, $y$, $z$ are tangled together in one equation, and no variable is "the" independent one. This supplement trains you to read those tangles — every implicit derivative is a trade-off ("how much $y$ per unit of $x$"), with units, signs, and a geometric story, and every equation also constrains the **rates** of change together.*
 
-**Prerequisites**: 14D1 (reading rates), 14C (implicit differentiation), 14B (chain rule)
+**Prerequisites**: 14D (units & relations), 14D1 (reading rates), 14C (implicit differentiation), 14B (chain rule)
 
 > 💡 **Stuck?** Every problem has a collapsible **Hint** below it — click it only when you need a nudge.
 
@@ -34,15 +34,15 @@ $$\frac{dy}{dx} = -\frac{x}{y}.$$
 
 ---
 
-### The Relationship Lens — How Much Is $y$ Related to $x$ When They're Entangled? (🔗 14D1)
+### The Relationship Lens — How Much Is $y$ Related to $x$ When They're Entangled? (🔗 14D)
 
-14D1's relationship lens said: *"A is related to B" is a sentence missing its number — $\frac{dB}{dA}$ in units of B per A is that number.* For entangled variables the relation is no longer a function $B(A)$ but an **equation** $F(x,y)=0$ — and the degree of relation becomes the implicit derivative $\frac{dy}{dx}$, with the same units and the same question: *how much $y$ per unit of $x$?*
+14D's relationship lens said: *"y is related to x" is a sentence missing its number — $\frac{dy}{dx}$ in units of y per x is that number.* For entangled variables the relation is no longer a function $y(x)$ but an **equation** $F(x,y)=0$ — and the degree of relation becomes the implicit derivative $\frac{dy}{dx}$, with the same units and the same question: *how much $y$ per unit of $x$?*
 
 **Worked — the circle, through the lens.** $x^2+y^2=25$. At $(3,4)$: $\frac{dy}{dx} = -\frac34$. Sentence: "at this point, $x$ and $y$ are related at degree $-\frac34$ — each unit of $x$ buys $-\frac34$ unit of $y$." The relation exists everywhere on the circle, but its **degree is local**:
 - at $(0,5)$: $\frac{dy}{dx}=0$ — the degree vanishes: for one instant, $x$ buys no $y$ (horizontal tangent). Entangled, yet momentarily unresponsive — the lens's "zero ≠ no relation" (14D1 A9).
 - at $(5,0)$: $\frac{dy}{dx}\to\infty$ — the degree blows up: $y$ responds with infinite strength (vertical tangent). The relation did not break — it switched direction; read $\frac{dx}{dy}=0$ there instead.
 
-**Two directions, one relation.** $\frac{dx}{dy} = -\frac{y}{x} = -\frac43$ at $(3,4)$ — reciprocals, exactly as in 14D1: *"how much does $y$ respond to $x$"* and *"how much does $x$ respond to $y$"* are the same entanglement, read in reverse.
+**Two directions, one relation.** $\frac{dx}{dy} = -\frac{y}{x} = -\frac43$ at $(3,4)$ — reciprocals, exactly as in 14D: *"how much does $y$ respond to $x$"* and *"how much does $x$ respond to $y$"* are the same entanglement, read in reverse.
 
 **The percentage form exposes uniform relatedness.** For the multiplicative law $pV = C$ the raw degree $\frac{dV}{dp} = -\frac{V}{p}$ depends on where you stand — but the dimensionless degree $E = \frac{p}{V}\frac{dV}{dp} = -1$ is the same at **every** point: pressure and volume are *uniformly* related, exactly unit elastic (Example 2). The lens's rule repeats itself: raw $\frac{dB}{dA}$ says *how much, here*; the percentage form says *how strongly, everywhere*. And for three entangled variables, the percentage degrees of relation must add to zero (Example 3's budget) — a relation can be read from any direction, but the ledger must balance.
 
@@ -50,7 +50,7 @@ $$\frac{dy}{dx} = -\frac{x}{y}.$$
 
 ---
 
-## Example 2: Boyle's Law — The Unit-Elastic Trade (🔗 10A, 14D1 Ex8)
+## Example 2: Boyle's Law — The Unit-Elastic Trade (🔗 10A, 14D1 Ex6)
 
 Gas at fixed temperature: $pV = C$ (Boyle's law). Differentiate with respect to $p$: $p\,\frac{dV}{dp} + V = 0$, so
 
@@ -58,7 +58,7 @@ $$\frac{dV}{dp} = -\frac{V}{p}.$$
 
 - **Units**: m³/kPa. Sentence: "each extra kPa squeezes out $\frac{V}{p}$ cubic meters."
 - **Numbers**: at $p=100$ kPa, $V=4$ m³: $\frac{dV}{dp} = -0.04$ m³/kPa — each kPa costs 0.04 m³.
-- **The elasticity connection** (14D1 Example 8): $E = \frac{p}{V}\frac{dV}{dp} = -1$ — gas is exactly **unit elastic**: 1% pressure up ⟹ 1% volume down. The hyperbola $pV=C$ is the unique curve with constant elasticity $-1$ (see A8) — physics and economics share one shape.
+- **The elasticity connection** (14D1 Example 6): $E = \frac{p}{V}\frac{dV}{dp} = -1$ — gas is exactly **unit elastic**: 1% pressure up ⟹ 1% volume down. The hyperbola $pV=C$ is the unique curve with constant elasticity $-1$ (see A8) — physics and economics share one shape.
 - **The rates are entangled too**: $pV = C$ implies $p\,\frac{dV}{dt} + V\,\frac{dp}{dt} = 0$. At $p=100$, $V=4$, if pressure rises at 2 kPa/s, volume falls at $\frac{dV}{dt} = -\frac{4}{100}\cdot 2 = -0.08$ m³/s. One equation, two rates, one free variable — the equation is a budget that the rates must respect.
 
 ![Boyle's law: tangent slope -V/p on the hyperbola](graphs/0821/14D1A/14d1a-2-boyle.png)
@@ -135,7 +135,7 @@ $$y' = \frac{2y - x^2}{y^2 - 2x}.$$
 
 ---
 
-## Example 6: Adiabatic vs Isothermal — Stiffness of a Law (🔗 14D1 Ex8)
+## Example 6: Adiabatic vs Isothermal — Stiffness of a Law (🔗 14D1 Ex6)
 
 Isothermal (fixed temperature): $pV = C$ → $\frac{dp}{dV} = -\frac{p}{V}$.
 

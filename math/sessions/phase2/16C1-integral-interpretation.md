@@ -4,7 +4,7 @@
 
 *Differentiation told you a rate at every instant; integration tells you what all those instants add up to. Every integral here is easy to compute — the practice is seeing: what accumulates, what the area means, what the units are, and how to read the same integral three different ways. Science, engineering, and economics all run on this grammar.*
 
-**Prerequisites**: 16A (FTC & $u$-sub), 16B (techniques), 14D1 (reading rates)
+**Prerequisites**: 16A (FTC & $u$-sub), 16B (techniques), 14D (units & relations)
 
 *Prerequisite for: [16C2 — Advanced Integral Interpretation](16C2-advanced-integral-interpretation.md), [16C1A — Implicit Regions](16C1A-integral-interpretation.md), [16C1B — Integral Techniques](16C1B-integral-techniques.md)*
 
