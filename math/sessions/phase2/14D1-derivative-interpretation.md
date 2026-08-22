@@ -40,6 +40,177 @@ A derivative is a fraction: $dy/dx$ carries **y-units per x-unit**. Writing the 
 
 ---
 
+### The Relationship Lens — "How Much Is A Related to B?" Has a Unit
+
+Everyday language says "temperature is related to altitude," "demand is related to price," "income is related to education." The word *related* hides a question — **how much?** — and calculus answers it with one symbol. If $B$ is a function of $A$, then
+
+$$\frac{dB}{dA}\ \text{ has units }\ \left[\frac{B}{A}\right]$$
+
+The derivative **is** the degree of relatedness, and its units name the relation:
+
+| "A and B are related…" | Function | Degree of relation | Units | The sentence, with its number |
+|:---|:---:|:---:|:---:|:---|
+| temperature ↔ altitude | $T(h)$ | $\frac{dT}{dh} = -6.5$ | °C/km | "each km of altitude buys 6.5 °C of cold" |
+| demand ↔ price | $q(p)$ | $\frac{dq}{dp} = -10$ | units/\$ | "each dollar of price costs 10 units of demand" |
+| distance ↔ fuel | $d(f)$ | $\frac{dd}{df}$ | km/L | "each liter of fuel buys so many km" |
+| mass ↔ volume | $m(V)$ | $\frac{dm}{dV}$ | kg/m³ | "each cubic meter weighs so many kg" (density!) |
+
+**The relation is the function; the degree is the derivative.** "$B$ is related to $A$" is the *global* statement that a function $B(A)$ exists. $\frac{dB}{dA}$ is the *local* statement — how strong the relation is *right here*, at this value of $A$.
+
+**Sign and size are the direction and strength of the relation.** Positive derivative: the two quantities move together; negative: in opposite directions. Large $|\frac{dB}{dA}|$: strongly related at this point; small: weakly. Because it is local, one pair can be strongly related here and weakly there — a single "correlation number" cannot say that; a derivative can.
+
+**Zero derivative is not "no relation."** $B = A^3$ is related to $A$ everywhere, yet at $A=0$ the local degree is exactly 0 — momentarily flat (the same lesson as A9). "Related" is a global fact; $\frac{dB}{dA}$ measures its strength at a point.
+
+**The relation is symmetric; the rate is not.** "A and B are related" points both ways, but $\frac{dB}{dA}$ (units B/A) and $\frac{dA}{dB}$ (units A/B) are different questions — and locally they are **reciprocals**. Choosing the numerator is choosing *whose response per unit of whose driver* — this session's "with respect to WHAT", applied to relationships. Mileage (km/L) and fuel consumption (L/km) are the same relation, read in two directions.
+
+**Comparing relations across domains needs the percentage form.** Raw $\frac{dB}{dA}$ carries units, so the "income–education relation" and the "temperature–altitude relation" cannot be compared number-to-number. Strip the units and the relation becomes **elasticity** (Example 8): $E = \frac{A}{B}\frac{dB}{dA}$ is dimensionless — it reads "1% of A buys $E$% of B". The unit lens says *how much*; elasticity says *how strongly, scale-free*.
+
+**The mindset, in one sentence**: *"A is related to B" is a sentence missing its number — $\frac{dB}{dA}$ in units of B per A is that number. Write the units, and the vagueness disappears.*
+
+### Relationship Practice: Building the Relation from Words
+
+> The lens in action: verbal statement → function $B(A)$ → derivative $\frac{dB}{dA}$ → units → one-sentence reading. **Setting up the function is the whole skill** — everything after that is routine.
+
+**RP1.** A taxi charges a \$4 flat fee plus \$2 per km. (a) Set up the fare function $F(d)$ and compute $\frac{dF}{dd}$ with units. (b) Read the relation in one sentence. (c) $\frac{dF}{dd}$ is constant — what does a constant degree of relation say about this fare?
+
+<details>
+<summary>💡 Hint</summary>
+
+$F(d) = 4 + 2d$. Constant slope = the relation is uniform: every km buys the same \$2, everywhere.
+
+</details>
+
+**RP2.** A square metal plate has side $s$ cm and area $A$. (a) Set up $A(s)$ and compute $\frac{dA}{ds}$ at $s=5$ with units. (b) Read the relation in one sentence. (c) Compute $\frac{dA}{ds}$ at $s=20$ — why does the same relation get *stronger* as the plate grows?
+
+<details>
+<summary>💡 Hint</summary>
+
+$A = s^2$, so $\frac{dA}{ds} = 2s$. The degree of relation is local: a bigger plate has more boundary to grow from.
+
+</details>
+
+**RP3.** A car consumes 8 L of fuel per 100 km. (a) Set up fuel $f$ as a function of distance $d$ and compute $\frac{df}{dd}$ with units. (b) Set up the *reverse* relation — distance as a function of fuel — and compute $\frac{dd}{df}$. (c) Verify the two degrees are reciprocals and read the relation in both directions.
+
+<details>
+<summary>💡 Hint</summary>
+
+$f = 0.08d$ (L/km); $d = 12.5f$ (km/L). Reciprocals: $0.08 \times 12.5 = 1$.
+
+</details>
+
+**RP4.** A sealed gas container obeys $P = 0.4T$ (kPa vs kelvin), and its heater raises temperature as $T = 300 + 2t$ (K vs seconds). (a) Set up each relation and write each derivative with units — there are two degrees of relation here. (b) Use the chain rule to get $\frac{dP}{dt}$ and show the units multiply: $\frac{\mathrm{kPa}}{\mathrm{K}}\cdot\frac{\mathrm{K}}{\mathrm{s}} = \frac{\mathrm{kPa}}{\mathrm{s}}$. (c) One sentence: how strongly is pressure related to time?
+
+<details>
+<summary>💡 Hint</summary>
+
+$\frac{dP}{dT} = 0.4$ kPa/K and $\frac{dT}{dt} = 2$ K/s. Composed relation: $\frac{dP}{dt} = 0.4 \times 2 = 0.8$ kPa/s — degrees of relation multiply when relations chain.
+
+</details>
+
+---
+
+#### Basic RP — Straight Setups (RPB1–RPB5)
+
+> One relation, one shape. Set up the function, differentiate, read the sentence.
+
+**RPB1.** A tank starts with 50 L of water and a pump adds 12 L/min. (a) Set up the volume function $V(t)$. (b) Compute $\frac{dV}{dt}$ with units and read the relation in one sentence. (c) Why is the degree of relation constant here?
+
+<details>
+<summary>💡 Hint</summary>
+
+$V(t) = 50 + 12t$. A constant rate means the relation is uniform — every minute buys the same 12 L.
+
+</details>
+
+**RPB2.** An equilateral triangle has side $s$ cm and area $A$. (a) Set up $A(s) = \frac{\sqrt3}{4}s^2$. (b) Compute $\frac{dA}{ds}$ at $s=4$ with units and read the sentence. (c) Compute it at $s=10$ — why is the relation stronger there?
+
+<details>
+<summary>💡 Hint</summary>
+
+$\frac{dA}{ds} = \frac{\sqrt3}{2}s$. The degree grows with $s$ — the relation is local.
+
+</details>
+
+**RPB3.** A trip is 120 km long, driven at a constant speed $v$ km/h. (a) Set up the time function $t(v)$. (b) Compute $\frac{dt}{dv}$ at $v=60$ with units and read the sentence (convert to minutes). (c) What does the minus sign say about the direction of the relation, and why is the degree smaller at $v=90$?
+
+<details>
+<summary>💡 Hint</summary>
+
+$t(v) = \frac{120}{v}$, so $\frac{dt}{dv} = -\frac{120}{v^2}$. At $v=60$: $-\frac{1}{30}$ h per km/h = 2 minutes shaved per extra km/h.
+
+</details>
+
+**RPB4.** Apples sell for \$3 per kg. (a) Set up cost $C(w)$ and compute $\frac{dC}{dw}$ with units. (b) Set up the reverse relation $w(C)$ and compute $\frac{dw}{dC}$. (c) Verify the two degrees are reciprocals and read both sentences.
+
+<details>
+<summary>💡 Hint</summary>
+
+$C = 3w$ and $w = \frac13 C$. $3 \times \frac13 = 1$.
+
+</details>
+
+**RPB5.** A rock dropped from rest falls $d(t) = 4.9t^2$ meters in $t$ seconds. (a) Compute $\frac{dd}{dt}$ at $t=2$ with units — this degree of relation has a name: what is it? (b) Compute it at $t=5$. (c) One sentence: how does the relation between distance and time change as the rock falls?
+
+<details>
+<summary>💡 Hint</summary>
+
+$\frac{dd}{dt} = 9.8t$ — velocity. At $t=2$: 19.6 m/s; at $t=5$: 49 m/s. The relation strengthens as it falls.
+
+</details>
+
+#### Advanced RP — Chained & Inverted Setups (RPA1–RPA5)
+
+> Now the relation is a chain, an inverse, or a search for where the degree vanishes. Setting up the function is the whole battle.
+
+**RPA1.** A box with a square base of side $x$ cm and fixed height 10 cm is built from material costing \$0.02 per cm². (a) Set up the surface area $S(x)$. (b) Compute $\frac{dS}{dx}$ at $x=5$. (c) Set up the cost $C(x)$ and compute $\frac{dC}{dx}$ at $x=5$ — show the units chain: $(\frac{\$}{\mathrm{cm^2}})(\frac{\mathrm{cm^2}}{\mathrm{cm}}) = \frac{\$}{\mathrm{cm}}$. (d) One sentence for the final degree.
+
+<details>
+<summary>💡 Hint</summary>
+
+$S(x) = 2x^2 + 40x$, $\frac{dS}{dx} = 4x + 40 = 60$ at $x=5$. $C = 0.02S$, so $\frac{dC}{dx} = 0.02(4x+40) = 1.2$ at $x=5$.
+
+</details>
+
+**RPA2.** Demand is $q(p) = 200 - 5p$ and revenue is $R = p\cdot q$. (a) Set up $R(p)$ and compute $\frac{dR}{dp}$ at $p=10$ with units. (b) Read the sentence. (c) Find the price where the degree of relation is exactly zero, and say what that means (🔗 A9).
+
+<details>
+<summary>💡 Hint</summary>
+
+$R = 200p - 5p^2$, $\frac{dR}{dp} = 200 - 10p$. Zero at $p=20$ — revenue stops responding to price: the peak.
+
+</details>
+
+**RPA3.** A heater's power is $P = \frac{V^2}{R}$ with fixed voltage $V = 120$ V. (a) Set up $P(R)$ and compute $\frac{dP}{dR}$ at $R = 60\,\Omega$ with units. (b) Read the sentence — why is the degree negative? (c) Compute the elasticity $E = \frac{R}{P}\frac{dP}{dR}$ and read the *dimensionless* degree of relation (compare with Example 8).
+
+<details>
+<summary>💡 Hint</summary>
+
+$\frac{dP}{dR} = -\frac{V^2}{R^2} = -\frac{14400}{3600} = -4$ W/Ω. $P = 240$ W, so $E = \frac{60}{240}(-4) = -1$ — exactly unit elastic, because $P \propto R^{-1}$.
+
+</details>
+
+**RPA4.** A farmer fences a rectangular pen against a river (the river side needs no fence) using 200 m of fence. (a) With width $x$ as the side perpendicular to the river, set up the area $A(x)$. (b) Compute $\frac{dA}{dx}$ at $x=20$ with units and read the sentence. (c) Find where the degree of relation is zero and say what the pen looks like there (🔗 A9).
+
+<details>
+<summary>💡 Hint</summary>
+
+$A(x) = x(200 - 2x) = 200x - 2x^2$, so $\frac{dA}{dx} = 200 - 4x$: $120$ m²/m at $x=20$; zero at $x=50$, where $A = 5000$ m² — the maximum.
+
+</details>
+
+**RPA5.** A faucet drips 2 drops per second, each drop 0.05 mL. (a) Set up the wasted volume $V(t)$ in mL and compute $\frac{dV}{dt}$ with units. (b) Chain the unit conversions — seconds → hours → days → years, mL → L — to find the yearly waste in liters. (c) One sentence: what does this say about relations that chain?
+
+<details>
+<summary>💡 Hint</summary>
+
+$\frac{dV}{dt} = 2 \times 0.05 = 0.1$ mL/s. $0.1 \times 3600 \times 24 \times 365 = 3{,}153{,}600$ mL ≈ 3,154 L/yr — degrees of relation multiply through every unit conversion.
+
+</details>
+
+→ Solutions: [Solutions](solutions/14D1-solutions.md#relationship-practice)
+
+---
+
 ## Example 2: The Motion Story — Signs of $v$ and $a$ Together
 
 $s(t) = t^3 - 6t^2 + 9t$ (meters, seconds, from 14C). $v(t) = s'(t) = 3(t-1)(t-3)$, $a(t) = s''(t) = 6t - 12$.
@@ -184,7 +355,7 @@ Demand: $q(p) = 500 - 10p$ (units sold at price $p$).
 
 *Graph 14D-7: Left — demand with elastic and inelastic regions. Right — revenue peaks exactly where $E=-1$.*
 
-> **Up to here**: units name the meaning; signs tell the story; the tangent is the best local model; differentiating area/volume gives the boundary; marginal cost is the next unit's price and crosses average cost at its minimum; $dK/dv$ is momentum while $dK/dt$ is power; elasticity $-1$ is the revenue peak. (Products and quotients get their own two-channel treatment in [14D1B](14D1B-product-quotient-interpretation.md).)
+> **Up to here**: units name the meaning; a relation between two domains is measured by $dB/dA$ in units of B per A; signs tell the story; the tangent is the best local model; differentiating area/volume gives the boundary; marginal cost is the next unit's price and crosses average cost at its minimum; $dK/dv$ is momentum while $dK/dt$ is power; elasticity $-1$ is the revenue peak. (Products and quotients get their own two-channel treatment in [14D1B](14D1B-product-quotient-interpretation.md).)
 
 ---
 
@@ -231,13 +402,15 @@ Demand: $q(p) = 500 - 10p$ (units sold at price $p$).
 
 ```
 (1) Units: a derivative is y-units per x-unit. Write them first — they name the meaning.
-(2) Motion: sign of v = direction; v and a same sign = speeding up.
-(3) Linearization: L(x)=f(a)+f'(a)(x−a); error ~ (M/2)(x−a)², M = max |f''|.
-(4) Boundaries: dA/dr = 2πr (circumference), dV/dr = 4πr² (surface area) —
+(2) Relations: "A is related to B" is a sentence missing its number — dB/dA,
+    in units of B per A, is that number. Sign = direction, size = strength, local at a point.
+(3) Motion: sign of v = direction; v and a same sign = speeding up.
+(4) Linearization: L(x)=f(a)+f'(a)(x−a); error ~ (M/2)(x−a)², M = max |f''|.
+(5) Boundaries: dA/dr = 2πr (circumference), dV/dr = 4πr² (surface area) —
     growth happens on the boundary; choose the growth dimension carefully.
-(5) Economics: MC = C', AC = C/q; MC crosses AC at AC's minimum.
+(6) Economics: MC = C', AC = C/q; MC crosses AC at AC's minimum.
     Elasticity E=(p/q)(dq/dp); revenue is maximized where E = −1.
-(6) Physics: dK/dv = mv (momentum), dK/dt = Fv (power) — the "with respect to" sets the law.
+(7) Physics: dK/dv = mv (momentum), dK/dt = Fv (power) — the "with respect to" sets the law.
 ```
 
 ---
@@ -410,6 +583,15 @@ $q=60$, $\frac{dq}{dp}=-2$, so $E = \frac{20}{60}(-2) = -\frac23$. Compare $|E|$
 
 </details>
 
+**D11.** For each pair of related quantities, write the degree-of-relation derivative, its units, and a one-sentence reading: (a) distance driven $d$ (km) vs fuel burned $f$ (L); (b) mass $m$ (kg) vs volume $V$ (m³); (c) cost $C$ (\$) vs quantity $q$ (items).
+
+<details>
+<summary>💡 Hint</summary>
+
+Differentiate the response with respect to the driver: $\frac{dd}{df}$, $\frac{dm}{dV}$, $\frac{dC}{dq}$. The units ARE the sentence — km/L, kg/m³, \$/item.
+
+</details>
+
 > Solutions: [Solutions](solutions/14D1-solutions.md#basic-drill)
 
 ---
@@ -508,6 +690,15 @@ $\frac{dV}{dr} = 2\pi r h$ — the lateral surface (a wrapped band). $\frac{dV}{
 
 </details>
 
+**A11.** Demand is $q(p) = 100 - 2p$ (units sold at price $p$). (a) Compute $\frac{dq}{dp}$ and $\frac{dp}{dq}$ at $p=20$ — the same relation, read in two directions — and verify they are reciprocals. (b) Write one sentence for each direction: "how much does demand respond to price?" and "how much must price respond to demand?" (c) Compute the elasticity at $p=20$ and explain why this *dimensionless* degree of relation could be compared to a temperature–altitude relation, while $\frac{dq}{dp} = -2$ units/\$ cannot.
+
+<details>
+<summary>💡 Hint</summary>
+
+$\frac{dq}{dp} = -2$ units/\$; $\frac{dp}{dq} = -\frac12$ \$/unit. $E = \frac{p}{q}\frac{dq}{dp}$ with $q = 60$ at $p=20$.
+
+</details>
+
 > Solutions: [Solutions](solutions/14D1-solutions.md#advanced-drill)
 
 ---
@@ -534,6 +725,7 @@ The condition is $f(x)-f(a) = f'(a)(x-a)$ for all $a,x$. What is the secant slop
 | When you see... | Do this... |
 |:---|:---|
 | A derivative with real-world quantities | Write units first (y-units per x-unit), then sign, then size |
+| "How related is A to B?" | The relation is a function $B(A)$; its degree is $dB/dA$ with units [B/A] — sign = direction, size = strength; compare domains with elasticity |
 | A motion problem | Factor $v$ for turning points; compare signs of $v$ and $a$ for speeding/slowing |
 | "Estimate $f(a+h)$ without a calculator" | Linearize: $L(a+h)=f(a)+f'(a)h$; bound the error with $\frac{M}{2}h^2$ |
 | Area/volume of a round object | Differentiate with respect to the growth dimension → boundary (circumference, surface) |
@@ -548,6 +740,7 @@ The condition is $f(x)-f(a) = f'(a)(x-a)$ for all $a,x$. What is the secant slop
 | Symbol | Reads as | Meaning |
 |:---:|:---:|------|
 | $f'(x)$, $\frac{dy}{dx}$ | "f prime of x" / "d y d x" | instantaneous rate — y-units per x-unit |
+| $dB/dA$ | "d B d A" | the degree of relation between two domains — B-units per A-unit |
 | $\frac{dV}{dr}$ vs $\frac{dV}{dt}$ | "d V d r" / "d V d t" | same function, different variable — different law (boundary vs flow) |
 | $MC$ | "marginal cost" | $C'(q)$ — cost of the next unit |
 | $AC$ | "average cost" | $\frac{C(q)}{q}$ — cost per unit over all units made |

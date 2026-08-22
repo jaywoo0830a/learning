@@ -86,6 +86,156 @@ $|error| \le \frac{M}{2}(0.3)^2 = \frac{1}{216}\cdot 0.09 = 0.000417$ ✓ (true 
 
 ---
 
+## Relationship Practice
+
+### RP1.
+
+**(a)** $F(d) = 4 + 2d$ (\$). $\frac{dF}{dd} = 2$ \$/km.
+
+**(b)** "Each kilometer of the ride buys \$2 of fare."
+
+**(c)** A constant degree means the relation is *uniform* — the \$2/km never changes, so the relation has the same strength everywhere. (Most real relations are not uniform; that is exactly why the derivative is usually not constant.)
+
+> **Answer**: $F = 4 + 2d$; $2$ \$/km; uniform relation
+
+### RP2.
+
+**(a)** $A(s) = s^2$. $\frac{dA}{ds} = 2s$; at $s=5$: $10$ cm²/cm.
+
+**(b)** "At side 5 cm, each extra cm of side buys about 10 cm² of area."
+
+**(c)** At $s=20$: $40$ cm²/cm — four times stronger. The degree of relation is *local*: a bigger plate has a longer boundary, so each cm of side adds a wider strip of area. The relation's strength depends on where you are.
+
+> **Answer**: $10$ cm²/cm at $s=5$; $40$ cm²/cm at $s=20$ — the relation strengthens with size
+
+### RP3.
+
+**(a)** $f(d) = 0.08d$ L. $\frac{df}{dd} = 0.08$ L/km: "each km of driving burns 0.08 L."
+
+**(b)** Invert: $d(f) = 12.5f$ km. $\frac{dd}{df} = 12.5$ km/L: "each liter of fuel buys 12.5 km."
+
+**(c)** $0.08 \times 12.5 = 1$ ✓ — reciprocals. Two numbers, one relation: the consumption direction (L/km) and the mileage direction (km/L) are the same relationship read in reverse.
+
+> **Answer**: $0.08$ L/km ↔ $12.5$ km/L, reciprocals
+
+### RP4.
+
+**(a)** Relation 1: $P(T) = 0.4T$, degree $\frac{dP}{dT} = 0.4$ kPa/K. Relation 2: $T(t) = 300 + 2t$, degree $\frac{dT}{dt} = 2$ K/s.
+
+**(b)** Chain: $\frac{dP}{dt} = \frac{dP}{dT}\cdot\frac{dT}{dt} = 0.4 \times 2 = 0.8$ kPa/s. Units multiply through: $\frac{\mathrm{kPa}}{\mathrm{K}}\cdot\frac{\mathrm{K}}{\mathrm{s}} = \frac{\mathrm{kPa}}{\mathrm{s}}$ — the K cancels, exactly as it should.
+
+**(c)** "Each second of heating raises the pressure by 0.8 kPa." The pressure–time relation is the *product* of the two chained degrees — relations chain by multiplication.
+
+> **Answer**: $0.4$ kPa/K and $2$ K/s; chained degree $0.8$ kPa/s
+
+### Basic RP Drills
+
+#### RPB1.
+
+**(a)** $V(t) = 50 + 12t$ L.
+
+**(b)** $\frac{dV}{dt} = 12$ L/min: "each minute of pumping adds 12 L."
+
+**(c)** The degree is constant because the relation is linear — a uniform relation: 12 L/min everywhere, regardless of how much water is already in the tank.
+
+> **Answer**: $V = 50 + 12t$; $12$ L/min, uniform
+
+#### RPB2.
+
+**(a)** $A(s) = \frac{\sqrt3}{4}s^2$ cm².
+
+**(b)** $\frac{dA}{ds} = \frac{\sqrt3}{2}s$. At $s=4$: $2\sqrt3 \approx 3.46$ cm²/cm: "at side 4 cm, each extra cm of side buys about 3.46 cm² of area."
+
+**(c)** At $s=10$: $5\sqrt3 \approx 8.66$ cm²/cm — over twice as strong. The relation is local: a bigger triangle has a longer boundary, so each cm of side adds a wider strip of area.
+
+> **Answer**: $2\sqrt3 \approx 3.46$ cm²/cm at $s=4$; $5\sqrt3 \approx 8.66$ at $s=10$
+
+#### RPB3.
+
+**(a)** $t(v) = \frac{120}{v}$ hours.
+
+**(b)** $\frac{dt}{dv} = -\frac{120}{v^2}$. At $v=60$: $-\frac{120}{3600} = -\frac{1}{30}$ h per km/h = 2 minutes per km/h: "at 60 km/h, each extra km/h shaves 2 minutes off the trip."
+
+**(c)** The minus sign says the two quantities move in opposite directions — more speed, less time. At $v=90$: $-\frac{120}{8100} \approx -0.0148$ h per km/h ≈ 0.89 min — weaker, because once the trip is already short, each km/h matters less. Same relation, different strength (local).
+
+> **Answer**: $-\frac{1}{30}$ h/(km/h) = −2 min/(km/h) at $v=60$; weaker at $v=90$
+
+#### RPB4.
+
+**(a)** $C(w) = 3w$; $\frac{dC}{dw} = 3$ \$/kg: "each extra kg costs \$3."
+
+**(b)** $w(C) = \frac{C}{3}$; $\frac{dw}{dC} = \frac13$ kg/\$: "each extra dollar buys one third of a kg."
+
+**(c)** $3 \times \frac13 = 1$ ✓ — the two directions of one relation are reciprocals.
+
+> **Answer**: $3$ \$/kg ↔ $\frac13$ kg/\$
+
+#### RPB5.
+
+**(a)** $\frac{dd}{dt} = 9.8t$. At $t=2$: $19.6$ m/s — **velocity**: the degree of relation between distance and time has its own name.
+
+**(b)** At $t=5$: $49$ m/s.
+
+**(c)** The relation strengthens as the rock falls: each additional second buys more distance than the previous one. The degree of relation is not a property of "distance vs time" in general — it is a property of the relation *at that instant*.
+
+> **Answer**: $19.6$ m/s at $t=2$; $49$ m/s at $t=5$ — velocity, local
+
+### Advanced RP Drills
+
+#### RPA1.
+
+**(a)** $S(x) = 2x^2 + 4(10x) = 2x^2 + 40x$ cm².
+
+**(b)** $\frac{dS}{dx} = 4x + 40$; at $x=5$: $60$ cm²/cm.
+
+**(c)** $C(x) = 0.02\,S(x) = 0.04x^2 + 0.8x$; $\frac{dC}{dx} = 0.02(4x+40) = 0.08x + 0.8$; at $x=5$: $1.2$ \$/cm. The units chain: $\left(\frac{\$}{\mathrm{cm^2}}\right)\!\left(\frac{\mathrm{cm^2}}{\mathrm{cm}}\right) = \frac{\$}{\mathrm{cm}}$ — the two relations (surface ↔ side, cost ↔ surface) chain by multiplying their degrees.
+
+**(d)** "At side 5 cm, each extra cm of side costs about \$1.20 of material."
+
+> **Answer**: $S = 2x^2+40x$; $\frac{dS}{dx} = 60$ cm²/cm; $\frac{dC}{dx} = 1.2$ \$/cm
+
+#### RPA2.
+
+**(a)** $R(p) = p(200 - 5p) = 200p - 5p^2$. $\frac{dR}{dp} = 200 - 10p$; at $p=10$: $100$ \$/\$ — each dollar of price buys 100 dollars of revenue.
+
+**(b)** "At \$10, raising the price by one dollar raises revenue by about \$100." (The degree of relation here is unitless: dollars per dollar.)
+
+**(c)** Zero at $p=20$: revenue stops responding to price — momentarily flat, the peak ($R = 2000$). Degree zero is not "no relation" (🔗 A9) — it is the relation at rest, for one instant.
+
+> **Answer**: $\frac{dR}{dp} = 200-10p$; $100$ \$/\$ at $p=10$; zero at $p=20$ = peak
+
+#### RPA3.
+
+**(a)** $P(R) = \frac{14400}{R}$; $\frac{dP}{dR} = -\frac{14400}{R^2}$. At $R=60$: $-4$ W/Ω.
+
+**(b)** "At 60 Ω, each extra ohm of resistance costs 4 W of power." Negative: resistance and power move in opposite directions — the relation is inverse.
+
+**(c)** $P(60) = \frac{14400}{60} = 240$ W. $E = \frac{R}{P}\frac{dP}{dR} = \frac{60}{240}(-4) = -1$. Reading: "1% of resistance buys exactly −1% of power." The dimensionless degree is unit elastic at *every* resistance, because $P \propto R^{-1}$ — the percentage form exposes a uniformity that the raw $-4$ W/Ω hides.
+
+> **Answer**: $-4$ W/Ω at $R=60$; $E = -1$ (unit elastic, everywhere)
+
+#### RPA4.
+
+**(a)** Width $x$ (two sides of length $x$), river side $200 - 2x$: $A(x) = x(200 - 2x) = 200x - 2x^2$ m².
+
+**(b)** $\frac{dA}{dx} = 200 - 4x$; at $x=20$: $120$ m²/m: "at width 20 m, each extra meter of width buys about 120 m² of pen."
+
+**(c)** Zero at $x=50$: the degree vanishes — area stops responding to width. There the pen is 50 m × 100 m, $A = 5000$ m² — the maximum. Degree zero is the relation's turning point (🔗 A9).
+
+> **Answer**: $\frac{dA}{dx} = 200-4x$; $120$ m²/m at $x=20$; zero at $x=50$ (max 5000 m²)
+
+#### RPA5.
+
+**(a)** $V(t) = 0.1t$ mL; $\frac{dV}{dt} = 0.1$ mL/s: "each second, 0.1 mL of water leaves."
+
+**(b)** $0.1 \frac{\mathrm{mL}}{\mathrm{s}} \times 3600 \frac{\mathrm{s}}{\mathrm{h}} \times 24 \frac{\mathrm{h}}{\mathrm{day}} \times 365 \frac{\mathrm{day}}{\mathrm{yr}} = 3{,}153{,}600$ mL/yr ≈ 3,154 L/yr.
+
+**(c)** Relations chain by multiplying degrees — and unit conversions are relations too: each conversion factor is a degree of relation between two units, and the units cancel exactly like the chain rule's factors do. A two-drops-per-second drip wastes over three tons of water a year.
+
+> **Answer**: $0.1$ mL/s ≈ 3,154 L/yr
+
+---
+
 ## Basic Drills
 
 ### D1.
@@ -145,6 +295,16 @@ $AC'(q) = 1 - \frac{25}{q^2} = 0$ → $q=5$. $AC(5) = 20$. Total cost $C = q\cdo
 $q=60$, $E = \frac{20}{60}(-2) = -\frac23$. $|E| < 1$ → inelastic.
 
 > **Answer**: $E = -\frac23$ (inelastic) — a price rise increases revenue
+
+### D11.
+
+**(a)** $\frac{dd}{df}$ — **km/L**: "each liter of fuel buys $\frac{dd}{df}$ kilometers of driving" (its reciprocal, L/km, is the same relation read from the other direction — consumption).
+
+**(b)** $\frac{dm}{dV}$ — **kg/m³**: "each cubic meter of the substance carries $\frac{dm}{dV}$ kilograms" — density is a degree of relation between mass and volume.
+
+**(c)** $\frac{dC}{dq}$ — **\$/item**: "each extra item costs about $\frac{dC}{dq}$ dollars" — marginal cost is a degree of relation between cost and quantity.
+
+> **Answer**: km/L (mileage) · kg/m³ (density) · \$/item (marginal cost) — three relations, three named degrees
 
 ---
 
@@ -240,6 +400,16 @@ $\frac{dV}{dh} = \pi r^2 = 9\pi \approx 28.3$ cm³ per cm — the **base disk**.
 
 > **Answer**: $60\pi$ = lateral area (band), $9\pi$ = base area (disk)
 
+### A11.
+
+**(a)** $\frac{dq}{dp} = -2$ units/\$ everywhere. $\frac{dp}{dq} = -\frac12$ \$/unit. Product: $(-2)\cdot(-\frac12) = 1$ ✓ — reciprocals, as the two directions of a relation locally always are.
+
+**(b)** "Each dollar of price costs 2 units of demand." "Each unit of demand the market is asked to absorb requires lowering the price by half a dollar." Same relation, two directions, two different numbers.
+
+**(c)** At $p=20$: $q=60$, $E = \frac{20}{60}(-2) = -\frac23$. Reading: "1% of price buys $-\frac23$% of demand" — a scale-free degree of relation. The raw $-2$ units/\$ is glued to dollars and units, so it cannot be laid next to $-6.5$ °C/km; the percentage form strips the domains and leaves only the strength of the relation.
+
+> **Answer**: $-2$ units/\$ ↔ $-\frac12$ \$/unit (reciprocals); $E = -\frac23$
+
 ---
 
 ## Deep Insight
@@ -264,6 +434,20 @@ The error bound in Example 3: $|f-L| \le \frac{M}{2}(x-a)^2$ with $M = \max|f''|
 | P4 | \$44/unit · ≈\$668 vs 669 · $q=12$ |
 | P5 | $100\pi$ · $8/(100\pi)\approx0.0255$ cm/s |
 | P6 | $E=-1.5$, $-0.25$ · max rev \$5000 at $p=25$ |
+| RP1 | $F=4+2d$; $2$ \$/km |
+| RP2 | $10$ → $40$ cm²/cm |
+| RP3 | $0.08$ L/km ↔ $12.5$ km/L |
+| RP4 | $0.8$ kPa/s |
+| RPB1 | $12$ L/min |
+| RPB2 | $2\sqrt3 \approx 3.46$ cm²/cm |
+| RPB3 | $-\frac1{30}$ h/(km/h) = −2 min/(km/h) |
+| RPB4 | $3$ \$/kg ↔ $\frac13$ kg/\$ |
+| RPB5 | $19.6$ m/s |
+| RPA1 | $1.2$ \$/cm |
+| RPA2 | $100$ \$/\$ at $p=10$; zero at $p=20$ (peak) |
+| RPA3 | $-4$ W/Ω; $E=-1$ |
+| RPA4 | $120$ m²/m at $x=20$; zero at $x=50$ |
+| RPA5 | $0.1$ mL/s ≈ $3{,}154$ L/yr |
 | D1 | mi/hr · \$/item · bacteria/min · N/m |
 | D2 | $(1,3)$ |
 | D3 | $1.05$, err $\le 0.00131$ |
@@ -274,6 +458,7 @@ The error bound in Example 3: $|f-L| \le \frac{M}{2}(x-a)^2$ with $M = \max|f''|
 | D8 | $16\pi$ = surface area |
 | D9 | $q=5$, value 20, $MC=AC$ |
 | D10 | $E=-\frac23$ inelastic |
+| D11 | km/L · kg/m³ · \$/item |
 | A1 | $2\pi r$; corner $(dr)^2$ vanishes |
 | A2 | $4\pi r^2 dr$; half-side gives $6s^2$ |
 | A3 | $\frac{dK}{dt}=Fv$; power |
@@ -284,4 +469,5 @@ The error bound in Example 3: $|f-L| \le \frac{M}{2}(x-a)^2$ with $M = \max|f''|
 | A8 | $F=ma$; channels $m\dot v + v\dot m$ (frame question → 14D1B A1) |
 | A9 | converse fails; $f'=0$ is only a flag |
 | A10 | $60\pi$ lateral · $9\pi$ base |
+| A11 | $-2$ units/\$ ↔ $-\frac12$ \$/unit; $E=-\frac23$ |
 | DI1 | affine functions $f=mx+b$ — $f''=0$ everywhere |
