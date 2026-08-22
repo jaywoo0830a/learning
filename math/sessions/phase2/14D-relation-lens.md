@@ -221,7 +221,26 @@ The two-question verdict is not a mnemonic — it is **three theorems, quoted in
 
 > Same two questions, now across domains. For each: (a) read direction and attribute from the shape — no calculus yet; (b) write the "$x$ up → $y$" sentence; (c) compute $\frac{dy}{dx}$ and check its sign against the table.
 
-**SP1.** A rock dropped from rest falls $d(t) = 4.9\,t^2$ meters. (a) Shape-read $d$ vs $t$. (b) One sentence. (c) Compute $\frac{dd}{dt}$ at $t=2$ and check the sign.
+**SP1.** A rock dropped from rest falls $d(t) = 4.9\,t^2$ meters.
+
+<details>
+<summary><b>SP1.A</b></summary>
+
+Shape-read $d$ vs $t$.
+
+<details>
+<summary><b>SP1.B</b></summary>
+
+One sentence.
+
+<details>
+<summary><b>SP1.C</b></summary>
+
+Compute $\frac{dd}{dt}$ at $t=2$ and check the sign.
+
+</details>
+</details>
+</details>
 
 <details>
 <summary>Hint</summary>
@@ -230,7 +249,26 @@ $n=2>0$ (proportional), $k=4.9>0$ (forward). $\frac{dd}{dt} = 9.8t$ — positive
 
 </details>
 
-**SP2.** A 120 km trip at speed $v$ takes $t(v) = \frac{120}{v}$ hours. (a) Shape-read. (b) One sentence. (c) Compute $\frac{dt}{dv}$ and check the sign.
+**SP2.** A 120 km trip at speed $v$ takes $t(v) = \frac{120}{v}$ hours.
+
+<details>
+<summary><b>SP2.A</b></summary>
+
+Shape-read.
+
+<details>
+<summary><b>SP2.B</b></summary>
+
+One sentence.
+
+<details>
+<summary><b>SP2.C</b></summary>
+
+Compute $\frac{dt}{dv}$ and check the sign.
+
+</details>
+</details>
+</details>
 
 <details>
 <summary>Hint</summary>
@@ -239,7 +277,32 @@ $t = 120\,v^{-1}$: $n=-1$ (inverse), $k=120>0$ (forward). $\frac{dt}{dv} = -\fra
 
 </details>
 
-**SP3.** Air temperature falls with altitude: $T(h) = 20 - 6.5h$ (°C, $h$ in km). (a) Which part is the direction knob, which is the attribute knob? (b) One sentence. (c) Compute $\frac{dT}{dh}$ and check the sign. (d) At what altitude does the attribute itself flip — where does water freeze?
+**SP3.** Air temperature falls with altitude: $T(h) = 20 - 6.5h$ (°C, $h$ in km).
+
+<details>
+<summary><b>SP3.A</b></summary>
+
+Which part is the direction knob, which is the attribute knob?
+
+<details>
+<summary><b>SP3.B</b></summary>
+
+One sentence.
+
+<details>
+<summary><b>SP3.C</b></summary>
+
+Compute $\frac{dT}{dh}$ and check the sign.
+
+<details>
+<summary><b>SP3.D</b></summary>
+
+At what altitude does the attribute itself flip — where does water freeze?
+
+</details>
+</details>
+</details>
+</details>
 
 <details>
 <summary>Hint</summary>
@@ -248,7 +311,26 @@ Linear = power with $n=1$ plus a constant: slope $-6.5$ is the attribute knob (r
 
 </details>
 
-**SP4.** Gravitational potential energy is $U(r) = -\frac{GM}{r}$ (negative: bound). (a) There are two minus signs — name what each one flips. (b) One sentence for $r$ up. (c) Compute $\frac{dU}{dr}$ and check the sign.
+**SP4.** Gravitational potential energy is $U(r) = -\frac{GM}{r}$ (negative: bound).
+
+<details>
+<summary><b>SP4.A</b></summary>
+
+There are two minus signs — name what each one flips.
+
+<details>
+<summary><b>SP4.B</b></summary>
+
+One sentence for $r$ up.
+
+<details>
+<summary><b>SP4.C</b></summary>
+
+Compute $\frac{dU}{dr}$ and check the sign.
+
+</details>
+</details>
+</details>
 
 <details>
 <summary>Hint</summary>
@@ -257,7 +339,32 @@ $U = -GM\,r^{-1}$: $n=-1$ flips direction, $k=-GM$ flips attribute — two flips
 
 </details>
 
-**SP5.** At fixed temperature, gas pressure obeys $P = \frac{C}{V}$ (Boyle's law). (a) Shape-read. (b) One sentence for compressing the gas. (c) Compute $\frac{dP}{dV}$ and check the sign. (d) Both $P$ and $V$ are positive — where does the "opposite" live?
+**SP5.** At fixed temperature, gas pressure obeys $P = \frac{C}{V}$ (Boyle's law).
+
+<details>
+<summary><b>SP5.A</b></summary>
+
+Shape-read.
+
+<details>
+<summary><b>SP5.B</b></summary>
+
+One sentence for compressing the gas.
+
+<details>
+<summary><b>SP5.C</b></summary>
+
+Compute $\frac{dP}{dV}$ and check the sign.
+
+<details>
+<summary><b>SP5.D</b></summary>
+
+Both $P$ and $V$ are positive — where does the "opposite" live?
+
+</details>
+</details>
+</details>
+</details>
 
 <details>
 <summary>Hint</summary>
@@ -266,7 +373,32 @@ $n=-1$ (inverse), $k=C>0$ (forward). $\frac{dP}{dV} = -\frac{C}{V^2} < 0$ — th
 
 </details>
 
-**SP6.** Demand: $q(p) = 200 - 5p$ (units sold at price $p$). (a) Shape-read. (b) One sentence. (c) Compute $\frac{dq}{dp}$ and check the sign. (d) At what price does the attribute flip — where would demand hit zero?
+**SP6.** Demand: $q(p) = 200 - 5p$ (units sold at price $p$).
+
+<details>
+<summary><b>SP6.A</b></summary>
+
+Shape-read.
+
+<details>
+<summary><b>SP6.B</b></summary>
+
+One sentence.
+
+<details>
+<summary><b>SP6.C</b></summary>
+
+Compute $\frac{dq}{dp}$ and check the sign.
+
+<details>
+<summary><b>SP6.D</b></summary>
+
+At what price does the attribute flip — where would demand hit zero?
+
+</details>
+</details>
+</details>
+</details>
 
 <details>
 <summary>Hint</summary>
@@ -281,7 +413,26 @@ Slope $-5$ → proportional · reversed. $q = 0$ at $p = \frac{200}{5} = 40$ —
 
 > The lens in action: verbal statement → function $y(x)$ → derivative $\frac{dy}{dx}$ → units → one-sentence reading. **Setting up the function is the whole skill** — everything after that is routine.
 
-**RP1.** A taxi charges a \$4 flat fee plus \$2 per km. (a) Set up the fare function $F(d)$ and compute $\frac{dF}{dd}$ with units. (b) Read the relation in one sentence. (c) $\frac{dF}{dd}$ is constant — what does a constant degree of relation say about this fare?
+**RP1.** A taxi charges a \$4 flat fee plus \$2 per km.
+
+<details>
+<summary><b>RP1.A</b></summary>
+
+Set up the fare function $F(d)$ and compute $\frac{dF}{dd}$ with units.
+
+<details>
+<summary><b>RP1.B</b></summary>
+
+Read the relation in one sentence.
+
+<details>
+<summary><b>RP1.C</b></summary>
+
+$\frac{dF}{dd}$ is constant — what does a constant degree of relation say about this fare?
+
+</details>
+</details>
+</details>
 
 <details>
 <summary>Hint</summary>
@@ -290,7 +441,26 @@ $F(d) = 4 + 2d$. Constant slope = the relation is uniform: every km buys the sam
 
 </details>
 
-**RP2.** A square metal plate has side $s$ cm and area $A$. (a) Set up $A(s)$ and compute $\frac{dA}{ds}$ at $s=5$ with units. (b) Read the relation in one sentence. (c) Compute $\frac{dA}{ds}$ at $s=20$ — why does the same relation get *stronger* as the plate grows?
+**RP2.** A square metal plate has side $s$ cm and area $A$.
+
+<details>
+<summary><b>RP2.A</b></summary>
+
+Set up $A(s)$ and compute $\frac{dA}{ds}$ at $s=5$ with units.
+
+<details>
+<summary><b>RP2.B</b></summary>
+
+Read the relation in one sentence.
+
+<details>
+<summary><b>RP2.C</b></summary>
+
+Compute $\frac{dA}{ds}$ at $s=20$ — why does the same relation get *stronger* as the plate grows?
+
+</details>
+</details>
+</details>
 
 <details>
 <summary>Hint</summary>
@@ -299,7 +469,26 @@ $A = s^2$, so $\frac{dA}{ds} = 2s$. The degree of relation is local: a bigger pl
 
 </details>
 
-**RP3.** A car consumes 8 L of fuel per 100 km. (a) Set up fuel $f$ as a function of distance $d$ and compute $\frac{df}{dd}$ with units. (b) Set up the *reverse* relation — distance as a function of fuel — and compute $\frac{dd}{df}$. (c) Verify the two degrees are reciprocals and read the relation in both directions.
+**RP3.** A car consumes 8 L of fuel per 100 km.
+
+<details>
+<summary><b>RP3.A</b></summary>
+
+Set up fuel $f$ as a function of distance $d$ and compute $\frac{df}{dd}$ with units.
+
+<details>
+<summary><b>RP3.B</b></summary>
+
+Set up the *reverse* relation — distance as a function of fuel — and compute $\frac{dd}{df}$.
+
+<details>
+<summary><b>RP3.C</b></summary>
+
+Verify the two degrees are reciprocals and read the relation in both directions.
+
+</details>
+</details>
+</details>
 
 <details>
 <summary>Hint</summary>
@@ -308,7 +497,26 @@ $f = 0.08d$ (L/km); $d = 12.5f$ (km/L). Reciprocals: $0.08 \times 12.5 = 1$.
 
 </details>
 
-**RP4.** A sealed gas container obeys $P = 0.4T$ (kPa vs kelvin), and its heater raises temperature as $T = 300 + 2t$ (K vs seconds). (a) Set up each relation and write each derivative with units — there are two degrees of relation here. (b) Use the chain rule to get $\frac{dP}{dt}$ and show the units multiply: $\frac{\mathrm{kPa}}{\mathrm{K}}\cdot\frac{\mathrm{K}}{\mathrm{s}} = \frac{\mathrm{kPa}}{\mathrm{s}}$. (c) One sentence: how strongly is pressure related to time?
+**RP4.** A sealed gas container obeys $P = 0.4T$ (kPa vs kelvin), and its heater raises temperature as $T = 300 + 2t$ (K vs seconds).
+
+<details>
+<summary><b>RP4.A</b></summary>
+
+Set up each relation and write each derivative with units — there are two degrees of relation here.
+
+<details>
+<summary><b>RP4.B</b></summary>
+
+Use the chain rule to get $\frac{dP}{dt}$ and show the units multiply: $\frac{\mathrm{kPa}}{\mathrm{K}}\cdot\frac{\mathrm{K}}{\mathrm{s}} = \frac{\mathrm{kPa}}{\mathrm{s}}$.
+
+<details>
+<summary><b>RP4.C</b></summary>
+
+One sentence: how strongly is pressure related to time?
+
+</details>
+</details>
+</details>
 
 <details>
 <summary>Hint</summary>
@@ -323,7 +531,26 @@ $\frac{dP}{dT} = 0.4$ kPa/K and $\frac{dT}{dt} = 2$ K/s. Composed relation: $\fr
 
 > One relation, one shape. Set up the function, differentiate, read the sentence.
 
-**RPB1.** A tank starts with 50 L of water and a pump adds 12 L/min. (a) Set up the volume function $V(t)$. (b) Compute $\frac{dV}{dt}$ with units and read the relation in one sentence. (c) Why is the degree of relation constant here?
+**RPB1.** A tank starts with 50 L of water and a pump adds 12 L/min.
+
+<details>
+<summary><b>RPB1.A</b></summary>
+
+Set up the volume function $V(t)$.
+
+<details>
+<summary><b>RPB1.B</b></summary>
+
+Compute $\frac{dV}{dt}$ with units and read the relation in one sentence.
+
+<details>
+<summary><b>RPB1.C</b></summary>
+
+Why is the degree of relation constant here?
+
+</details>
+</details>
+</details>
 
 <details>
 <summary>Hint</summary>
@@ -332,7 +559,26 @@ $V(t) = 50 + 12t$. A constant rate means the relation is uniform — every minut
 
 </details>
 
-**RPB2.** An equilateral triangle has side $s$ cm and area $A$. (a) Set up $A(s) = \frac{\sqrt3}{4}s^2$. (b) Compute $\frac{dA}{ds}$ at $s=4$ with units and read the sentence. (c) Compute it at $s=10$ — why is the relation stronger there?
+**RPB2.** An equilateral triangle has side $s$ cm and area $A$.
+
+<details>
+<summary><b>RPB2.A</b></summary>
+
+Set up $A(s) = \frac{\sqrt3}{4}s^2$.
+
+<details>
+<summary><b>RPB2.B</b></summary>
+
+Compute $\frac{dA}{ds}$ at $s=4$ with units and read the sentence.
+
+<details>
+<summary><b>RPB2.C</b></summary>
+
+Compute it at $s=10$ — why is the relation stronger there?
+
+</details>
+</details>
+</details>
 
 <details>
 <summary>Hint</summary>
@@ -341,7 +587,26 @@ $\frac{dA}{ds} = \frac{\sqrt3}{2}s$. The degree grows with $s$ — the relation 
 
 </details>
 
-**RPB3.** A trip is 120 km long, driven at a constant speed $v$ km/h. (a) Set up the time function $t(v)$. (b) Compute $\frac{dt}{dv}$ at $v=60$ with units and read the sentence (convert to minutes). (c) What does the minus sign say about the direction of the relation, and why is the degree smaller at $v=90$?
+**RPB3.** A trip is 120 km long, driven at a constant speed $v$ km/h.
+
+<details>
+<summary><b>RPB3.A</b></summary>
+
+Set up the time function $t(v)$.
+
+<details>
+<summary><b>RPB3.B</b></summary>
+
+Compute $\frac{dt}{dv}$ at $v=60$ with units and read the sentence (convert to minutes).
+
+<details>
+<summary><b>RPB3.C</b></summary>
+
+What does the minus sign say about the direction of the relation, and why is the degree smaller at $v=90$?
+
+</details>
+</details>
+</details>
 
 <details>
 <summary>Hint</summary>
@@ -350,7 +615,26 @@ $t(v) = \frac{120}{v}$, so $\frac{dt}{dv} = -\frac{120}{v^2}$. At $v=60$: $-\fra
 
 </details>
 
-**RPB4.** Apples sell for \$3 per kg. (a) Set up cost $C(w)$ and compute $\frac{dC}{dw}$ with units. (b) Set up the reverse relation $w(C)$ and compute $\frac{dw}{dC}$. (c) Verify the two degrees are reciprocals and read both sentences.
+**RPB4.** Apples sell for \$3 per kg.
+
+<details>
+<summary><b>RPB4.A</b></summary>
+
+Set up cost $C(w)$ and compute $\frac{dC}{dw}$ with units.
+
+<details>
+<summary><b>RPB4.B</b></summary>
+
+Set up the reverse relation $w(C)$ and compute $\frac{dw}{dC}$.
+
+<details>
+<summary><b>RPB4.C</b></summary>
+
+Verify the two degrees are reciprocals and read both sentences.
+
+</details>
+</details>
+</details>
 
 <details>
 <summary>Hint</summary>
@@ -359,7 +643,26 @@ $C = 3w$ and $w = \frac13 C$. $3 \times \frac13 = 1$.
 
 </details>
 
-**RPB5.** A rock dropped from rest falls $d(t) = 4.9t^2$ meters in $t$ seconds. (a) Compute $\frac{dd}{dt}$ at $t=2$ with units — this degree of relation has a name: what is it? (b) Compute it at $t=5$. (c) One sentence: how does the relation between distance and time change as the rock falls?
+**RPB5.** A rock dropped from rest falls $d(t) = 4.9t^2$ meters in $t$ seconds.
+
+<details>
+<summary><b>RPB5.A</b></summary>
+
+Compute $\frac{dd}{dt}$ at $t=2$ with units — this degree of relation has a name: what is it?
+
+<details>
+<summary><b>RPB5.B</b></summary>
+
+Compute it at $t=5$.
+
+<details>
+<summary><b>RPB5.C</b></summary>
+
+One sentence: how does the relation between distance and time change as the rock falls?
+
+</details>
+</details>
+</details>
 
 <details>
 <summary>Hint</summary>
@@ -372,7 +675,32 @@ $\frac{dd}{dt} = 9.8t$ — velocity. At $t=2$: 19.6 m/s; at $t=5$: 49 m/s. The r
 
 > Now the relation is a chain, an inverse, or a search for where the degree vanishes. Setting up the function is the whole battle.
 
-**RPA1.** A box with a square base of side $x$ cm and fixed height 10 cm is built from material costing \$0.02 per cm². (a) Set up the surface area $S(x)$. (b) Compute $\frac{dS}{dx}$ at $x=5$. (c) Set up the cost $C(x)$ and compute $\frac{dC}{dx}$ at $x=5$ — show the units chain: $(\frac{\$}{\mathrm{cm^2}})(\frac{\mathrm{cm^2}}{\mathrm{cm}}) = \frac{\$}{\mathrm{cm}}$. (d) One sentence for the final degree.
+**RPA1.** A box with a square base of side $x$ cm and fixed height 10 cm is built from material costing \$0.02 per cm².
+
+<details>
+<summary><b>RPA1.A</b></summary>
+
+Set up the surface area $S(x)$.
+
+<details>
+<summary><b>RPA1.B</b></summary>
+
+Compute $\frac{dS}{dx}$ at $x=5$.
+
+<details>
+<summary><b>RPA1.C</b></summary>
+
+Set up the cost $C(x)$ and compute $\frac{dC}{dx}$ at $x=5$ — show the units chain: $(\frac{\$}{\mathrm{cm^2}})(\frac{\mathrm{cm^2}}{\mathrm{cm}}) = \frac{\$}{\mathrm{cm}}$.
+
+<details>
+<summary><b>RPA1.D</b></summary>
+
+One sentence for the final degree.
+
+</details>
+</details>
+</details>
+</details>
 
 <details>
 <summary>Hint</summary>
@@ -381,7 +709,26 @@ $S(x) = 2x^2 + 40x$, $\frac{dS}{dx} = 4x + 40 = 60$ at $x=5$. $C = 0.02S$, so $\
 
 </details>
 
-**RPA2.** Demand is $q(p) = 200 - 5p$ and revenue is $R = p\cdot q$. (a) Set up $R(p)$ and compute $\frac{dR}{dp}$ at $p=10$ with units. (b) Read the sentence. (c) Find the price where the degree of relation is exactly zero, and say what that means (see 14D1 A9).
+**RPA2.** Demand is $q(p) = 200 - 5p$ and revenue is $R = p\cdot q$.
+
+<details>
+<summary><b>RPA2.A</b></summary>
+
+Set up $R(p)$ and compute $\frac{dR}{dp}$ at $p=10$ with units.
+
+<details>
+<summary><b>RPA2.B</b></summary>
+
+Read the sentence.
+
+<details>
+<summary><b>RPA2.C</b></summary>
+
+Find the price where the degree of relation is exactly zero, and say what that means (see 14D1 A9).
+
+</details>
+</details>
+</details>
 
 <details>
 <summary>Hint</summary>
@@ -390,7 +737,26 @@ $R = 200p - 5p^2$, $\frac{dR}{dp} = 200 - 10p$. Zero at $p=20$ — revenue stops
 
 </details>
 
-**RPA3.** A heater's power is $P = \frac{V^2}{R}$ with fixed voltage $V = 120$ V. (a) Set up $P(R)$ and compute $\frac{dP}{dR}$ at $R = 60\,\Omega$ with units. (b) Read the sentence — why is the degree negative? (c) Compute the elasticity $E = \frac{R}{P}\frac{dP}{dR}$ and read the *dimensionless* degree of relation (compare with 14D1 Example 6).
+**RPA3.** A heater's power is $P = \frac{V^2}{R}$ with fixed voltage $V = 120$ V.
+
+<details>
+<summary><b>RPA3.A</b></summary>
+
+Set up $P(R)$ and compute $\frac{dP}{dR}$ at $R = 60\,\Omega$ with units.
+
+<details>
+<summary><b>RPA3.B</b></summary>
+
+Read the sentence — why is the degree negative?
+
+<details>
+<summary><b>RPA3.C</b></summary>
+
+Compute the elasticity $E = \frac{R}{P}\frac{dP}{dR}$ and read the *dimensionless* degree of relation (compare with 14D1 Example 6).
+
+</details>
+</details>
+</details>
 
 <details>
 <summary>Hint</summary>
@@ -399,7 +765,26 @@ $\frac{dP}{dR} = -\frac{V^2}{R^2} = -\frac{14400}{3600} = -4$ W/Ω. $P = 240$ W,
 
 </details>
 
-**RPA4.** A farmer fences a rectangular pen against a river (the river side needs no fence) using 200 m of fence. (a) With width $x$ as the side perpendicular to the river, set up the area $A(x)$. (b) Compute $\frac{dA}{dx}$ at $x=20$ with units and read the sentence. (c) Find where the degree of relation is zero and say what the pen looks like there (see 14D1 A9).
+**RPA4.** A farmer fences a rectangular pen against a river (the river side needs no fence) using 200 m of fence.
+
+<details>
+<summary><b>RPA4.A</b></summary>
+
+With width $x$ as the side perpendicular to the river, set up the area $A(x)$.
+
+<details>
+<summary><b>RPA4.B</b></summary>
+
+Compute $\frac{dA}{dx}$ at $x=20$ with units and read the sentence.
+
+<details>
+<summary><b>RPA4.C</b></summary>
+
+Find where the degree of relation is zero and say what the pen looks like there (see 14D1 A9).
+
+</details>
+</details>
+</details>
 
 <details>
 <summary>Hint</summary>
@@ -408,7 +793,26 @@ $A(x) = x(200 - 2x) = 200x - 2x^2$, so $\frac{dA}{dx} = 200 - 4x$: $120$ m²/m a
 
 </details>
 
-**RPA5.** A faucet drips 2 drops per second, each drop 0.05 mL. (a) Set up the wasted volume $V(t)$ in mL and compute $\frac{dV}{dt}$ with units. (b) Chain the unit conversions — seconds → hours → days → years, mL → L — to find the yearly waste in liters. (c) One sentence: what does this say about relations that chain?
+**RPA5.** A faucet drips 2 drops per second, each drop 0.05 mL.
+
+<details>
+<summary><b>RPA5.A</b></summary>
+
+Set up the wasted volume $V(t)$ in mL and compute $\frac{dV}{dt}$ with units.
+
+<details>
+<summary><b>RPA5.B</b></summary>
+
+Chain the unit conversions — seconds → hours → days → years, mL → L — to find the yearly waste in liters.
+
+<details>
+<summary><b>RPA5.C</b></summary>
+
+One sentence: what does this say about relations that chain?
+
+</details>
+</details>
+</details>
 
 <details>
 <summary>Hint</summary>
