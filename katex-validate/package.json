@@ -1,0 +1,9 @@
+{
+  "name": "katex-validate",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Docker container that validates KaTeX math in markdown by actually rendering it.",
+  "dependencies": {
+    "katex": "0.18.4"
+  }
+}

@@ -1,0 +1,12 @@
+name: katex-validate
+version: 0.0.1
+schema: v1
+mcpServers:
+  - name: katex-validate
+    command: docker
+    args:
+      - run
+      - --rm
+      - -i
+      - katex-mcp:latest
+    env: {}

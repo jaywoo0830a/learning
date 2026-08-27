@@ -1,0 +1,11 @@
+{
+  "name": "katex-mcp",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "MCP server with in-process KaTeX validation, packaged as a Docker image.",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "katex": "0.18.4"
+  }
+}

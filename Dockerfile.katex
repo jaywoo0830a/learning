@@ -1,0 +1,7 @@
+FROM node:20-alpine
+
+WORKDIR /app
+COPY katex-validate/package.json katex-validate/validate.js ./
+RUN npm install --omit=dev
+
+ENTRYPOINT ["node", "validate.js"]
