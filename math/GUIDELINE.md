@@ -1,257 +1,308 @@
-# 수학 교재 작성 가이드라인 v8
+# Mathematics Textbook Authoring Guideline v9
 
-> 모든 세션은 이 문서의 규칙을 따른다. v8: 예시-우선 구조로 통일, 모순 제거.
-
----
-
-## 1. 핵심 원칙: 예시 → 방법 추출 → 연습 → 용어
-
-```
-[구체적 예시 다수] → [방법 추출 ("방금 우리가 한 일")] → [연습] → [용어 (맨 마지막)]
-        60%                        15%                    20%           5%
-```
-
-- **예시**: 추상적 규칙을 먼저 말하지 않는다. 구체적 사례 4~8개를 먼저 보여준다.
-- **방법 추출**: "방금 우리가 한 일" 코너에서 예시들의 공통 패턴을 뽑아낸다.
-- **용어와 기호는 세션 맨 마지막**에만 등장한다. 그 전까지는 한국어로만 설명한다.
-- 세션 제목은 개념명이 아닌 **방법 설명형**. 예: "문장의 참과 거짓을 표로 판정하기"
+> Every session follows the rules in this document. v9: unified example-first structure, contradictions removed; scope and exemptions for symbols and sentence length clarified; synthesis sessions defined as assessment; pedagogy additions.
 
 ---
 
-## 2. 언어적 명료성 원칙
-
-### 2-1. 문장 구조: 동작 → 대상 → 결과
-
-모든 절차 문장은 이 순서를 지킨다. 조건은 동작보다 먼저.
+## 1. Core Principle: Example → Method Extraction → Practice → Vocabulary
 
 ```
-[조건이 있다면 먼저] → [무엇을] → [어떻게 한다] → [그러면 무엇이 나온다]
+[many concrete examples] → [extract the method ("what we just did")] → [practice] → [vocabulary (last)]
+             60%                               15%                             20%                5%
 ```
 
-| 나쁨 | 좋음 |
+- **Examples**: never state an abstract rule first. Show 4–8 concrete cases first.
+- **Method extraction**: in the "What we just did" corner, pull out the common pattern across the examples.
+- **Vocabulary and symbols appear only at the very end** of a session. Until then, plain language only.
+- Session titles are method-descriptive, not concept-names. Example: "Judging whether a sentence is true or false using a table."
+- **Upper-phase note (v9):** in Phases 6–10, "examples" shift from *computation cases* (a concrete number to plug in) to *structural cases* (a concrete group, ring, space, or measure). The 60% share stays; the kind of example changes.
+
+---
+
+## 2. Principles of Linguistic Clarity
+
+### 2-1. Sentence structure: action → object → result
+
+Every procedure sentence keeps this order. Conditions come before the action.
+
+```
+[condition, if any, first] → [what] → [do what] → [then what results]
+```
+
+| Bad | Good |
 |------|------|
-| "$a$를 $b$로 나눈 나머지가 0이면 인수이다" | "$a$를 $b$로 나눈다. 나머지가 0이면 $b$는 인수다." |
-| "$f'(x)=0$인 점에서 극값을 가질 수 있다" | "$f'(x)=0$인 점을 찾는다. 그 점의 좌우에서 $f'$ 부호가 바뀌면 극값이다." |
-| "행렬을 대각화한다" | "고유벡터를 열로 늘어놓아 $P$를 만든다. $P^{-1}AP$를 계산한다. 대각선에 고유값만 남는다." |
+| "If the remainder of $a$ divided by $b$ is 0, it is a factor." | "Divide $a$ by $b$. If the remainder is 0, then $b$ is a factor." |
+| "An extremum may occur where $f'(x)=0$." | "Find the points where $f'(x)=0$. If the sign of $f'$ changes there, it is an extremum." |
+| "Diagonalize the matrix." | "Line up the eigenvectors as columns to form $P$. Compute $P^{-1}AP$. Only the eigenvalues remain on the diagonal." |
 
-핵심: **한 문장 = 동작 하나**. 두 동작은 문장을 나눈다.
+Key rule: **one sentence = one action**. Split two actions into two sentences.
 
-### 2-2. 위치 기반 지시: "어디에 있는 무엇을"
+### 2-2. Location-based pointing: "the thing that is where"
 
-추상 변수명 대신, 시각적·공간적 위치를 가리킨다.
+Point at a visual or spatial location instead of an abstract variable name.
 
-| 나쁨 | 좋음 |
+| Bad | Good |
 |------|------|
-| "$a_n$ = 수열의 $n$번째 항" | "수열의 $n$번째 자리에 적힌 숫자" |
-| "$A_{ij}$ = 행렬의 $(i,j)$ 성분" | "$i$번째 가로줄, $j$번째 세로줄에 적힌 숫자" |
-| "$f^{-1}$ = 역함수" | "$y=x$ 선으로 접었을 때 포개지는 함수" |
+| "$a_n$ = the $n$-th term of the sequence" | "the number written in the $n$-th slot of the sequence" |
+| "$A_{ij}$ = the $(i,j)$ entry of the matrix" | "the number written in the $i$-th horizontal row and $j$-th vertical column" |
+| "$f^{-1}$ = the inverse function" | "the function that overlaps when folded over the line $y=x$" |
 
-한 번 위치를 정의했으면, 그 세션 안에서는 **같은 표현만** 쓴다. 중간에 "행"이나 "row"로 바꾸지 않는다.
+Once a location is defined, use **the same wording only** for the rest of that session. Do not switch to "row" or "column" mid-session.
 
-### 2-3. 어휘 일관성: 하나의 동작 = 하나의 단어
+### 2-3. Vocabulary consistency: one action = one word
 
-| 동작 | 이 단어만 | 이 단어는 안 됨 |
+| Action | Use only this word | Not this |
 |:---:|:---:|------|
-| + | "더한다" | 합한다, 덧셈한다, 플러스한다 |
-| − | "뺀다" | 뺄셈한다, 차를 구한다 |
-| × | "곱한다" | 곱셈한다, 승산한다 |
-| ÷ | "나눈다" | 나눗셈한다, 제산한다 |
-| 대입 | "넣는다" | 대입한다, 치환한다 |
-| 미분 | "미분한다" | 도함수를 구한다 |
-| 적분 | "적분한다" | 원시함수를 찾는다 |
-| 이동 | "옮긴다" | 이항한다, 넘긴다 |
-| 소거 | "지운다" | 소거한다, 제거한다 |
+| + | "add" | sum, plus |
+| − | "subtract" | minus, take the difference |
+| × | "multiply" | times |
+| ÷ | "divide" | divide out |
+| substitute | "plug in" | substitute, replace |
+| differentiate | "differentiate" | take the derivative |
+| integrate | "integrate" | find the antiderivative |
+| move | "move" | transpose, carry over |
+| eliminate | "erase" | cancel, remove |
 
-한 세션 내에서 한 동작에 한 단어만 쓴다.
+Within a single session, one action uses one word only.
 
-### 2-4. 조건문: 문장 맨 앞에
+### 2-4. Conditionals: at the front of the sentence
 
-"만약 ~라면"은 문장 맨 앞에. 중간에 끼우지 않는다.
+"If ~" goes at the very front. Do not tuck it in the middle.
 
-| 나쁨 | 좋음 |
+| Bad | Good |
 |------|------|
-| "분모가 0이 아니라는 조건 하에 약분한다" | "분모가 0인지 먼저 확인한다. 0이 아니면 약분한다." |
+| "Cancel, provided the denominator is nonzero." | "First check whether the denominator is 0. If it is not 0, then cancel." |
 
-### 2-5. 부정문 금지 — "~하지 마라" 대신 "~한다"
+### 2-5. No negative imperatives — say "do" instead of "don't"
 
-| 나쁨 | 좋음 |
+| Bad | Good |
 |------|------|
-| "분모를 0으로 나누지 않는다" | "분모가 0이면 그대로 둔다." |
-| "아래첨자를 바꾸지 마라" | "아래첨자는 그대로 둔다. 앞 계수만 바꾼다." |
+| "Do not divide by zero." | "If the denominator is 0, leave it as is." |
+| "Do not change the subscript." | "Leave the subscript as is. Change only the leading coefficient." |
 
-### 2-6. 숫자에 감정을 싣는다
+### 2-6. Give numbers emotion
 
-결과가 깔끔할 때 언어로 표시한다: "나머지가 딱 0이 된다.", "한 방에 약분된다.", "깔끔하게 정수로 나온다."
+Mark clean results with language: "the remainder is exactly 0.", "it cancels in one shot.", "it comes out a clean integer."
 
 ---
 
-## 3. 뇌과학·언어학 원칙
+## 3. Principles from Neuroscience & Linguistics
 
-### 3-1. 3단위 청킹
+### 3-1. Chunking into threes
 
-작업기억은 3~5개 항목만 붙잡을 수 있다 (Miller, Sweller). **모든 절차는 3단계로.** 4단계 이상이면 상위 3단계 + 하위 3단계로 중첩한다.
+Working memory holds only 3–5 items (Miller, Sweller). **Every procedure has 3 steps.** If there are 4+, nest as top-level 3 + sub-level 3.
 
-### 3-2. 예측 오류 각인 — "자주 하는 실수" 코너
+### 3-2. Prediction-error imprinting — the "Common Mistake" corner
 
-뇌는 예측과 다른 정보에 가장 강하게 반응한다 (Friston).
+The brain reacts most strongly to information that differs from prediction (Friston).
 
-1. **먼저 틀린 방법을 보여준다** — "많은 사람이 이렇게 한다: (틀린 방법)"
-2. **틀린 이유를 한 줄로** — "하지만 이러면 ___가 성립하지 않는다."
-3. **그다음 옳은 방법을 보여준다.**
+1. **First show the wrong way** — "Many people do this: (the wrong way)."
+2. **State the reason in one line** — "But then ___ fails."
+3. **Then show the right way.**
 
-### 3-3. 운동 언어 — "손이 기억하게 한다"
+**Standard template (v9):** the wrong way is shown **without negative imperatives**, as a *consequence description* rather than a *prohibition*.
 
-체화인지 연구: 신체 동작 단어는 운동피질을 활성화해 기억을 강화한다.
-
-| 추상 동사 | → 운동 동사 |
+| Prohibited form (§2-5) | Consequence form (use this) |
 |------|------|
-| 이항한다 | 오른쪽으로 **옮긴다** |
-| 대입한다 | 그 자리에 **밀어넣는다** |
-| 소거한다 | **지운다** |
-| 인수분해한다 | **찢는다** |
-| 전개한다 | **펼친다** |
-| 약분한다 | **접는다** |
-| 정리한다 | **모은다** |
-| 행렬을 곱한다 | 가로줄과 세로줄을 **마주치게** 한다 |
+| "Do not multiply the two numerators like this." | "Many people multiply the two numerators directly. Then the denominator is wrong, so the result does not match." |
 
-### 3-4. 생성 효과 — 구성형 문제
+In other words: describe what *happens* when the mistake is made (a result that fails), never what *not to do*. This keeps §2-5 and §3-2 compatible.
 
-정보를 직접 생성할 때 기억이 2~3배 강해진다 (Slamecka & Graf).
-연습문제 중 최소 2개는 템플릿 적용이 아닌 **구성형**으로.
+### 3-3. Motor language — "let the hand remember"
 
-| 템플릿 적용 | 구성형 |
+Embodied-cognition research: action words activate motor cortex and strengthen memory.
+
+| Abstract verb | → Motor verb |
 |------|------|
-| "$2^3 \times 2^4$를 계산하라" | "곱이 $2^7$이 되는 두 지수 쌍을 세 개 만들어보라." |
-| "$f(x)=x^2$을 미분하라" | "미분해서 $2x$가 되는 함수를 세 개 쓰고, 공통점을 찾아보라." |
+| transpose | **move** to the right |
+| substitute | **push into** that spot |
+| eliminate | **erase** |
+| factor | **tear apart** |
+| expand | **spread out** |
+| cancel | **fold** |
+| simplify | **gather** |
+| multiply matrices | make a horizontal row **meet** a vertical column |
 
-### 3-5. 처리 유창성
+### 3-4. Generation effect — constructive problems
 
-- 모든 절차 문장은 같은 리듬: "~을 ~한다. 그러면 ~이 나온다."
-- 한 세션 내에서 문장 구조를 변주하지 않는다.
-- 문장 길이: 20자 이내. 넘으면 끊는다.
+Memory strengthens 2–3× when the learner generates the information (Slamecka & Graf). At least 2 practice problems are **constructive**, not template-application.
 
-### 3-6. 초두·최신 효과
+| Template application | Constructive |
+|------|------|
+| "Compute $2^3 \times 2^4$." | "Make three pairs of exponents whose product is $2^7$." |
+| "Differentiate $f(x)=x^2$." | "Write three functions that differentiate to $2x$, and find what they share." |
 
-- 가장 중요한 단계를 절차 목록의 **첫 번째**에.
-- 세션 마지막 "오늘의 절차" 카드로 핵심을 두 번 각인.
+### 3-5. Processing fluency
 
-### 3-7. 지식의 저주 방지
+- Every procedure sentence keeps the same rhythm: "___ the ___. Then ___ comes out."
+- Do not vary sentence structure within a session.
+- Sentence length: 20 characters or fewer. If longer, break it.
+- **Formula exemption (v9):** a procedural sentence that *contains a formula* is exempt from the 20-character limit. Keep the higher rule of one-action-per-sentence (§2-1) regardless.
 
-- "당연히", "쉽게", "자명하게" 금지.
-- 변수·기호 사용 전에 위치 기반으로 먼저 소개.
-- 중간 단계 건너뛰기 금지 (5→7이 아니라 5→6→7).
+### 3-6. Primacy & recency
+
+- Put the most important step **first** in the procedure list.
+- Imprint the core twice with the end-of-session "Today's Procedure" card.
+
+### 3-7. Avoiding the curse of knowledge
+
+- Ban "obviously", "easily", "trivially".
+- Introduce variables and symbols by location first.
+- Never skip an intermediate step (5→7 is forbidden; write 5→6→7).
 
 ---
 
-## 4. 기호 사용 규칙
+## 4. Rules for Symbol Usage
 
-**모든 수학 기호는 용어 정리에서만 처음 등장한다.** 그 전까지는 한국어로만 쓴다.
+**Every mathematical symbol first appears only in the Vocabulary Summary.** Until then, plain language only.
 
-| 기호 | 용어 정리 전 (본문) | 용어 정리에서 공개 |
+| Symbol | Before the summary (body) | Revealed in the summary |
 |:----:|------|:---:|
-| $\neg$ | "아니다" | 부정 |
-| $\land$ | "그리고" | 연언 |
-| $\lor$ | "또는" | 선언 |
-| $\to$ | "이면" | 함의 |
-| $\forall$ | "모든" | 전칭 양화사 |
-| $\exists$ | "어떤" | 존재 양화사 |
-| $x, y$ 같은 변수 | 구체적 숫자로 시작: 2, 3, 5 | 일반화는 용어 정리 후 |
-| T, F | "맞다", "틀리다" | 참, 거짓 |
+| $\neg$ | "not" | negation |
+| $\land$ | "and" | conjunction |
+| $\lor$ | "or" | disjunction |
+| $\to$ | "implies" | implication |
+| $\forall$ | "all" | universal quantifier |
+| $\exists$ | "some" | existential quantifier |
+| variables $x,y$ | start concrete: 2, 3, 5 | generalize after the summary |
+| T, F | "correct", "wrong" | true, false |
+
+**Scope (v9):** this rule applies to **session bodies**. The curriculum overview (`TOPICS.md`) is a summary document for instructors and may use symbols freely.
 
 ---
 
-## 5. 세션 구조
+## 5. Session Structure
 
-| 구간 | 비중 | 내용 |
+| Section | Share | Content |
 |:----:|:----:|------|
-| 예시 | 60% | 구체적 사례 4~8개. 추상 규칙 언급 없음. |
-| 방법 추출 | 15% | "방금 우리가 한 일" — 예시들의 공통 패턴을 3단계로 정리. |
-| 자주 하는 실수 | 포함 | 틀린 방법 → 이유 → 옳은 방법 (§3-2) |
-| 연습 | 20% | 5~6문제. 마지막 "실전". 최소 2개 구성형 (§3-4) |
-| 용어 정리 | 5% | "방법은 이미 다 배웠다. 이제 이름을 붙인다." |
+| Examples | 60% | 4–8 concrete cases. No abstract rules mentioned. |
+| Method extraction | 15% | "What we just did" — distill the common pattern into 3 steps. |
+| Common mistake | included | wrong way → reason → right way (§3-2) |
+| Practice | 20% | 5–6 problems. Last one labeled "Real-world". At least 2 constructive (§3-4) |
+| Vocabulary summary | 5% | "You already learned the method. Now we name it." |
 
 ---
 
-## 6. 풀이 분리
+## 6. Separating Solutions
 
-풀이는 `solutions/0X-solutions.md`에 별도 파일로. 세션 파일에는 링크만:
+Solutions go in a separate file `solutions/0X-solutions.md`. The session file carries only a link:
 
 ```markdown
-> 풀이: [풀이집](solutions/01-solutions.md#연습-1)
+> Solutions: [solution set](solutions/01-solutions.md#exercise-1)
 ```
 
 ---
 
-## 7. 연습문제 배치
+## 7. Exercise Placement
 
-| 번호 | 유형 |
+| Number | Type |
 |:---:|------|
-| 1~2 | 직적용 — 예시에서 본 절차 그대로 |
-| 3~4 | 변형 + 함정 — 흔한 실수 유도, 최소 1개는 구성형 |
-| 5 | 통합 |
-| 6 | **실전** — 최고 난이도 |
+| 1–2 | Direct application — exactly the procedure from the examples |
+| 3–4 | Variation + trap — bait a common mistake; at least 1 constructive |
+| 5 | Integration |
+| 6 | **Real-world** — highest difficulty |
 
 ---
 
-## 8. 용어 정리
+## 8. Vocabulary Summary
 
-세션 맨 마지막. 표준 도입 문구 필수.
+At the very end of a session. The standard opening is required.
 
 ```markdown
-## 용어 정리
+## Vocabulary Summary
 
-지금까지 우리는 (쉬운 말)만 썼다. **방법은 이미 다 배웠다.**
-이제 수학에서 쓰는 이름과 기호를 소개한다.
+So far we have used only (plain words). **You have already learned the method.**
+Now we introduce the names and symbols used in mathematics.
 
-| 우리가 써온 말 | 수학 용어 | 기호 |
+| The words we used | Mathematical term | Symbol |
 |:------------:|:--------:|:---:|
 ```
 
 ---
 
-## 9. 절차 요약 카드
+## 9. Procedure Summary Card
 
 ```markdown
-## 오늘 배운 절차
+## Today's Procedure
 
 ```
-1단계: ...
-2단계: ...
-3단계: ...
+Step 1: ...
+Step 2: ...
+Step 3: ...
 ```
 ```
 
-3~4단계. 용어 정리 후이므로 기호 섞어 써도 됨.
+3–4 steps. It appears after the vocabulary summary, so symbols may be mixed in.
 
 ---
 
-## 10. 체크리스트
+## 10. Synthesis Sessions (v9)
 
-### 언어
-- [ ] 모든 절차 문장이 [동작→대상→결과] 순서인가? 한 문장에 동작 하나?
-- [ ] 같은 개념을 세션 전체에서 같은 말로 지칭하는가?
-- [ ] 한 동작에 한 단어만 쓰는가? (§2-3)
-- [ ] 조건문이 문장 맨 앞에 있는가?
-- [ ] 부정문 대신 긍정문으로 지시하는가?
-- [ ] "당연히", "쉽게", "자명하게"가 없는가?
-- [ ] 중간 단계를 건너뛰지 않았는가?
+Every phase ends in a **synthesis session**. Unlike a tool session, it is an *assessment and integration* milestone with a fixed role and time.
 
-### 뇌과학·언어학
-- [ ] 모든 절차가 3단위로 청킹되어 있는가?
-- [ ] "자주 하는 실수"가 틀린 방법 → 이유 → 옳은 방법 순서인가?
-- [ ] 추상 동사를 운동 동사로 대체했는가? (§3-3)
-- [ ] 연습 중 최소 2개가 구성형 문제인가?
-- [ ] 문장이 같은 리듬이고 20자 이내인가?
-- [ ] 가장 중요한 단계가 절차 목록의 첫 번째에 있는가?
+| Phase | Synthesis session | Role | Time |
+|:---:|------|------|:---:|
+| 1 | 07 | formative milestone — mixed proofs | 60m |
+| 2 | 21 | mixed-technique problems (decide which tool) | 60m |
+| 3–9 | (per phase) | chain the phase's tools into one narrative + mixed problems | 60–90m |
+| 10 | 111 | capstone — full dependency graph | 90m |
 
-### 구조
-- [ ] 예시가 4~8개인가? 추상 규칙을 예시보다 먼저 말하지 않았는가?
-- [ ] "방금 우리가 한 일" 코너에서 패턴을 추출했는가?
-- [ ] 용어 정리가 맨 마지막인가? 표준 도입 문구 포함?
-- [ ] 수학 기호가 용어 정리 전에 등장하지 않는가?
-- [ ] 연습문제 5~6개, 마지막 "실전" 레이블?
-- [ ] 난이도 배치: 1~2 직적용, 3~4 변형+함정, 5~6 통합?
-- [ ] 풀이가 별도 풀이집에 있는가? 모든 연습문제에 링크?
-- [ ] 세션 마지막에 절차 요약 카드 (3~4단계)?
-- [ ] 제목이 방법 설명형인가?
-- [ ] 이모지 없는가?
+A synthesis session always contains:
+1. A **tool-chain summary**: how the phase's tools connect into one chain.
+2. **Mixed problems** that force the learner to choose among tools.
+3. A **constructive task**: build or extend something, not just apply.
+
+Phase 1's synthesis doubles as the **formative diagnostic** that gates entry into Phase 2.
+
+---
+
+## 11. Learning Objectives & Feedback (v9)
+
+For credit-bearing operation, every session states a **behavioral objective** in addition to its method procedure.
+
+```markdown
+> **Objective:** Given [condition], the learner can [observable action].
+> Example: "Given a separable ODE, the learner can write the separated integrals and solve them."
+```
+
+Feedback loop: each "Common Mistake" corner links to a corrective explanation in the solution set, so that a wrong answer always leads to a readable correction — not just a right answer.
+
+Prerequisite diagnostic: before Phase 2, measure algebraic manipulation with a short placement set (§10).
+
+---
+
+## 12. Checklist
+
+### Language
+- [ ] Every procedure sentence follows [action→object→result]? One action per sentence?
+- [ ] The same concept is called the same word throughout the session?
+- [ ] One action uses one word only? (§2-3)
+- [ ] Conditionals at the front of the sentence?
+- [ ] Affirmative instead of negative imperatives?
+- [ ] No "obviously", "easily", "trivially"?
+- [ ] No intermediate steps skipped?
+
+### Neuroscience & linguistics
+- [ ] Every procedure chunked into threes?
+- [ ] "Common Mistake" follows wrong-way → reason → right-way, in consequence form (§3-2)?
+- [ ] Abstract verbs replaced with motor verbs? (§3-3)
+- [ ] At least 2 constructive practice problems?
+- [ ] Sentences share one rhythm; 20 characters or fewer (formula exemption applied)?
+- [ ] Most important step first in the list?
+
+### Structure
+- [ ] 4–8 examples? No abstract rule before the examples?
+- [ ] "What we just did" corner extracts the pattern?
+- [ ] Vocabulary summary last, with the standard opening?
+- [ ] No mathematical symbols before the vocabulary summary?
+- [ ] 5–6 exercises, last labeled "Real-world"?
+- [ ] Difficulty order: 1–2 direct, 3–4 variation+trap, 5–6 integration?
+- [ ] Solutions in a separate file, every exercise linked?
+- [ ] Session ends with a procedure summary card (3–4 steps)?
+- [ ] Title is method-descriptive?
+- [ ] No emoji?
+
+### Credit-bearing (v9)
+- [ ] Behavioral objective stated?
+- [ ] Synthesis sessions defined with a tool-chain summary, mixed problems, and a constructive task?
+- [ ] Common-mistake feedback links to a corrective explanation?

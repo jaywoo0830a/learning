@@ -1,252 +1,258 @@
-# 수학 커리큘럼 v4: 도구 발명가의 길
+# Mathematics Curriculum v5: The Tool Inventor's Path
 
-> **대목적:** 언젠가 수학·과학에 이바지하는 새로운 도구를 만드는 사람이 된다.
-> **수단:** 이미 발명된 위대한 도구들을 방법 중심으로 분해해서 체화한다.
-> **원칙:** 방법 먼저, 용어는 나중에. 모든 세션은 ① ② ③ 단계로 구성.
-> **규모:** 110세션, 약 162시간. Precalculus 테크닉부터 21세기 도구까지.
-> **시간:** 방법 복잡도에 따라 최소 30분 ~ 최대 2시간.
-> **v4 변경:** Phase 2 (고전 테크닉 압축) 신설. Precalculus~AP Calculus 계산법 몰아서.
+> **Grand goal:** Become someone who someday builds new tools that advance mathematics and science.
+> **Means:** Decompose the great tools already invented, by method, and embody them.
+> **Principle:** Method first, vocabulary last. Every session follows the ① ② ③ step pattern.
+> **Scale:** 111 sessions, ~156 hours. From Precalculus technique to 21st-century tools.
+> **Time:** 30 minutes to 2 hours, depending on method complexity.
+> **v5 changes:** Linear algebra moved before differential equations (fixes dependency inversion); Fourier series added as an explicit session; session counts and hour totals reconciled; every phase now ends in a timed synthesis/milestone; Phase 1 gained a formative milestone.
 
 ---
 
-## 전체 구조
+## Overall Structure
 
-| 단계 | 도구군 | 세션 | 시간 |
+| Phase | Tool family | Sessions | Hours |
 |:---:|------|:---:|:---:|
-| 1 | 도구의 문법 — 논리·증명·집합 | 6 | 7h |
-| **2** | **고전 테크닉 — Precalculus→AP Calculus 압축** | **14** | **15h** |
-| 3 | 변화와 누적 — 실해석학 (증명) | 16 | 21h |
-| 4 | 변화의 법칙 — 미분방정식 | 10 | 14h |
-| 5 | 여럿을 한 번에 — 선형대수 | 11 | 11h |
-| 6 | 구조를 보는 눈 — 추상대수 | 8 | 13h |
-| 7 | 공간과 모양 — 위상·기하 | 11 | 21h |
-| 8 | 불확실성 — 측도론 기반 확률 | 11 | 21h |
-| 9 | 계산과 최적화 — 수치·ML 수학 | 11 | 17.5h |
-| 10 | 최전선 — 20~21세기 특수 주제 | 12 | 21h |
-| **계** | | **110** | **~161.5h** |
+| 1 | The grammar of tools — logic·proof·sets | 7 | 7.5h |
+| **2** | **Classical technique — Precalculus→AP Calculus, compressed** | **14** | **15h** |
+| 3 | Change & accumulation — real analysis (proof) | 17 | 23h |
+| 4 | Many at once — linear algebra | 11 | 11.75h |
+| 5 | The laws of change — differential equations | 10 | 13.75h |
+| 6 | The eye for structure — abstract algebra | 8 | 11.5h |
+| 7 | Space & shape — topology·geometry | 10 | 18h |
+| 8 | Uncertainty — measure-theoretic probability | 11 | 18.5h |
+| 9 | Computation & optimization — numerical·ML math | 11 | 16.75h |
+| 10 | The frontier — 20th–21st century topics | 12 | 20.5h |
+| **Total** | | **111** | **~156.25h** |
+
+> Counting: **101 tool sessions** + **9 phase syntheses** + **1 capstone** = 111 sessions.
 
 ---
 
-## Phase 1: 도구의 문법 — 논리·증명·집합 (6세션, 약 7h)
+## Phase 1: The Grammar of Tools — Logic·Proof·Sets (7 sessions, 7.5h)
 
-> **핵심 질문:** "어떤 주장이 참이라는 걸 어떻게 확신할 수 있는가?"
+> **Core question:** "How can you be certain a claim is true?"
 
-| # | 도구 | 방법 절차 | 시간 |
+| # | Tool | Method procedure | Time |
 |:--:|------|-----------|:---:|
-| 01 | 진리표·동치변환 | ① $\neg, \land, \lor, \to$ 규칙 암기 ② 복합명제 열별로 채우기 ③ 드모르간으로 변환, 항진식 판정 | 30분 |
-| 02 | $\forall$, $\exists$, 부정 | ① 정의역 설정 ② $\forall$: 전부 대입, $\exists$: 하나만 ③ $\neg\forall \equiv \exists\neg$, $\neg\exists \equiv \forall\neg$ | 45분 |
-| 03 | 직접·대우·귀류법 | ① 직접: $P$→$Q$ 유도 ② 대우: $\neg Q$→$\neg P$ ③ 귀류: $P\land\neg Q$→모순 ④ 반례 찾기 전략 | 60분 |
-| 04 | 수학적 귀납법 | ① $P(1)$ 확인 ② $P(k)$ 가정 → $P(k+1)$ 유도 ③ 강한 귀납법 | 45분 |
-| 05 | 집합·함수·기수 | ① 일대일대응으로 크기 비교 ② $\lvert\mathbb{N}\rvert=\lvert\mathbb{Z}\rvert=\lvert\mathbb{Q}\rvert=\aleph_0$ ③ 대각선 논법: $\lvert\mathbb{R}\rvert>\aleph_0$ | 90분 |
-| 06 | 괴델 불완전성 정리 | ① 괴델 수 $\ulcorner\phi\urcorner$ ② $\text{Provable}(x)$ 구성 ③ $G \leftrightarrow \neg\text{Provable}(\ulcorner G\urcorner)$ ④ 무모순이면 $G$도 $\neg G$도 증명불가 — 그러나 $G$는 참 | 120분 |
+| 01 | Truth tables & logical equivalence | ① memorize the rules for $\neg, \land, \lor, \to$ ② fill columns of a compound statement ③ transform via De Morgan, test tautology | 30m |
+| 02 | $\forall$, $\exists$, negation | ① fix the domain ② $\forall$: substitute all, $\exists$: one only ③ $\neg\forall \equiv \exists\neg$, $\neg\exists \equiv \forall\neg$ | 45m |
+| 03 | Direct, contrapositive, contradiction | ① direct: derive $P$→$Q$ ② contrapositive: $\neg Q$→$\neg P$ ③ contradiction: $P\land\neg Q$→contradiction ④ counterexample strategy | 60m |
+| 04 | Mathematical induction | ① check $P(1)$ ② assume $P(k)$ → derive $P(k+1)$ ③ strong induction | 45m |
+| 05 | Sets·functions·cardinality | ① compare size by bijection ② $\lvert\mathbb{N}\rvert=\lvert\mathbb{Z}\rvert=\lvert\mathbb{Q}\rvert=\aleph_0$ ③ diagonal argument: $\lvert\mathbb{R}\rvert>\aleph_0$ | 90m |
+| 06 | Gödel's incompleteness theorem | ① Gödel number $\ulcorner\phi\urcorner$ ② construct $\text{Provable}(x)$ ③ $G \leftrightarrow \neg\text{Provable}(\ulcorner G\urcorner)$ ④ if consistent, neither $G$ nor $\neg G$ is provable — yet $G$ is true | 120m |
+| 07 | **Phase 1 synthesis** | mixed proofs across sessions 01–06 — the "how do we know" milestone | 60m |
 
 ---
 
-## Phase 2: 고전 테크닉 — Precalculus→AP Calculus 압축 (14세션, 약 15h) 🆕
+## Phase 2: Classical Technique — Precalculus→AP Calculus, Compressed (14 sessions, 15h)
 
-> **핵심 질문:** "현대 수학을 배우기 전에, 손이 기억해야 할 모든 계산법을 몰아서 익힌다."
-> **원칙:** 증명은 Phase 3으로 미룬다. 여기서는 오직 "넣으면 답 나오는" 계산 절차만.
+> **Core question:** "Before modern mathematics, master every computation the hand must remember."
+> **Principle:** Proof is deferred to Phase 3. Here only the "plug in, get an answer" procedures.
 
-### Part A: Precalculus 테크닉 (6세션)
+### Part A: Precalculus technique (6 sessions)
 
-| # | 테크닉 묶음 | 방법 절차 | 시간 |
+| # | Technique bundle | Method procedure | Time |
 |:--:|------|-----------|:---:|
-| 07 | 다항식·유리식·방정식 | ① 조립제법: 상수항 약수 후보 → 나머지 0 확인 → 차수 낮춰 반복 ② 인수분해 전략: 공통인수→치환→공식→조립제법 순 ③ 부분분수: $\frac{P(x)}{Q(x)}=\frac{A}{x-a}+\frac{B}{x-b}+\cdots$ 계수비교 ④ 연립방정식: 변수 하나씩 소거 → 역대입 ⑤ 고차방정식: 인수분해로 차수 낮추기 | 60분 |
-| 08 | 부등식·부호표·절댓값 | ① 인수분해 → 수직선에 임계점 표시 → 각 구간 부호 결정 ② 유리부등식: 분모 $\neq 0$ 구간 제외 ③ 절댓값: $\lvert x\rvert<a \Leftrightarrow -a<x<a$, $\lvert x\rvert>a \Leftrightarrow x<-a \lor x>a$ ④ 이차부등식: 포물선이 $x$축 위/아래인 구간 | 45분 |
-| 09 | 함수 올인원 | ① 정의역 제한 4규칙: 분모$\neq$0, 루트안$\geq$0, 로그안$>$0, $\tan$점근선 ② 합성 $f(g(x))$: 안쪽→바깥쪽 순서 ③ 역함수: $y=x$ 대칭, $y$에 대해 풀기 ④ 평행이동: $f(x-h)$는 오른쪽 $h$, $f(x)+k$는 위 $k$ ⑤ 그래프 읽기 5정보: 정의역·치역·증감·극값·점근선 | 60분 |
-| 10 | 지수·로그 올인원 | ① 지수법칙: $a^m a^n=a^{m+n}$, $(a^m)^n=a^{mn}$, $a^{-n}=1/a^n$, $a^{m/n}=\sqrt[n]{a^m}$ ② 로그: $\log_a b=c \leftrightarrow a^c=b$, $\log(MN)=\log M+\log N$, $\log(M/N)=\log M-\log N$, $\log(M^k)=k\log M$ ③ 방정식: 밑 통일 or 로그 합치기, 진수$>$0 확인 ④ $e$의 계산적 정의: $\lim(1+1/n)^n$, 연속복리 | 45분 |
-| 11 | 삼각함수 올인원 | ① 호도법: $\pi=180^\circ$, 비례로 변환 ② 단위원: $(\cos\theta,\sin\theta)$, $\tan\theta=\sin/\cos$, 사분면별 부호 ③ 그래프: $\sin$/$\cos$ 주기$=2\pi/\lvert b\rvert$, 진폭$=\lvert a\rvert$, $\tan$ 주기$=\pi/\lvert b\rvert$ ④ 항등식: $\sin^2+\cos^2=1$, $\sin2\theta=2\sin\theta\cos\theta$, $\cos2\theta=\cos^2-\sin^2$ ⑤ 방정식: 기본해 $+n\cdot$주기, 사인법칙·코사인법칙 | 75분 |
-| 12 | 복소수·벡터·수열 | ① 복소수 사칙연산·켤레 $\bar{z}$·크기 $\lvert z\rvert$ ② 극형식 $z=r(\cos\theta+i\sin\theta)=re^{i\theta}$, 드무아브르 $z^n=r^n e^{in\theta}$ ③ 벡터: 성분·내적 $\mathbf{a}\cdot\mathbf{b}=a_1b_1+a_2b_2$·$\cos$각 공식 ④ 등차: $a_n=a_1+(n-1)d$, $S_n=\frac{n(a_1+a_n)}{2}$ ⑤ 등비: $a_n=a_1 r^{n-1}$, $S_n=a_1\frac{1-r^n}{1-r}$ ⑥ $\sum k=\frac{n(n+1)}{2}$, $\sum k^2=\frac{n(n+1)(2n+1)}{6}$ | 60분 |
+| 08 | Polynomials·rationals·equations | ① synthetic division: test divisors of the constant → remainder 0 → lower the degree, repeat ② factoring strategy: common factor→substitution→formula→synthetic order ③ partial fractions: $\frac{P(x)}{Q(x)}=\frac{A}{x-a}+\frac{B}{x-b}+\cdots$ compare coefficients ④ systems: eliminate one variable → back-substitute ⑤ higher-degree: lower the degree by factoring | 60m |
+| 09 | Inequalities·sign charts·absolute value | ① factor → mark critical points on a line → decide sign on each interval ② rational inequalities: exclude denominator $\neq 0$ ③ absolute value: $\lvert x\rvert<a \Leftrightarrow -a<x<a$, $\lvert x\rvert>a \Leftrightarrow x<-a \lor x>a$ ④ quadratic: where the parabola is above/below the $x$-axis | 45m |
+| 10 | Functions all-in-one | ① four domain rules: denominator$\neq$0, under-root$\geq$0, inside-log$>$0, $\tan$ asymptotes ② composition $f(g(x))$: inside→outside order ③ inverse: reflect over $y=x$, solve for $y$ ④ translation: $f(x-h)$ shifts right $h$, $f(x)+k$ shifts up $k$ ⑤ read 5 features: domain·range·increase/decrease·extrema·asymptotes | 60m |
+| 11 | Exponentials·logarithms all-in-one | ① laws: $a^m a^n=a^{m+n}$, $(a^m)^n=a^{mn}$, $a^{-n}=1/a^n$, $a^{m/n}=\sqrt[n]{a^m}$ ② log: $\log_a b=c \leftrightarrow a^c=b$, $\log(MN)=\log M+\log N$, $\log(M/N)=\log M-\log N$, $\log(M^k)=k\log M$ ③ equations: unify bases or combine logs, check argument$>$0 ④ computational definition of $e$: $\lim(1+1/n)^n$, continuous compounding | 45m |
+| 12 | Trigonometry all-in-one | ① radians: $\pi=180^\circ$, convert by proportion ② unit circle: $(\cos\theta,\sin\theta)$, $\tan\theta=\sin/\cos$, quadrant signs ③ graphs: $\sin$/$\cos$ period$=2\pi/\lvert b\rvert$, amplitude$=\lvert a\rvert$, $\tan$ period$=\pi/\lvert b\rvert$ ④ identities: $\sin^2+\cos^2=1$, $\sin2\theta=2\sin\theta\cos\theta$, $\cos2\theta=\cos^2-\sin^2$ ⑤ equations: base solution $+n\cdot$period, law of sines·cosines | 75m |
+| 13 | Complex numbers·vectors·sequences | ① complex arithmetic·conjugate $\bar{z}$·modulus $\lvert z\rvert$ ② polar form $z=r(\cos\theta+i\sin\theta)=re^{i\theta}$, de Moivre $z^n=r^n e^{in\theta}$ ③ vectors: components·dot product $\mathbf{a}\cdot\mathbf{b}=a_1b_1+a_2b_2$·angle formula ④ arithmetic: $a_n=a_1+(n-1)d$, $S_n=\frac{n(a_1+a_n)}{2}$ ⑤ geometric: $a_n=a_1 r^{n-1}$, $S_n=a_1\frac{1-r^n}{1-r}$ ⑥ $\sum k=\frac{n(n+1)}{2}$, $\sum k^2=\frac{n(n+1)(2n+1)}{6}$ | 60m |
 
-### Part B: AP Calculus 테크닉 (8세션)
+### Part B: AP Calculus technique (8 sessions)
 
-| # | 테크닉 묶음 | 방법 절차 | 시간 |
+| # | Technique bundle | Method procedure | Time |
 |:--:|------|-----------|:---:|
-| 13 | 극한 계산기 | ① 직접대입: 연속이면 그냥 넣기 ② $\frac{0}{0}$: 인수분해→약분, 켤레곱→약분, $\frac{\sin x}{x}\to1$ 활용 ③ $\frac{\infty}{\infty}$: 분자분모 최고차항으로 나누기 ④ 무한대 극한: 최고차항 부호로 $\pm\infty$ 판정 ⑤ $(1+\frac{1}{n})^n\to e$, $\frac{\ln n}{n}\to0$ 등 표준극한 | 60분 |
-| 14 | 미분법 전집 | ① 기본: $\frac{d}{dx}x^n=nx^{n-1}$, $e^x$, $\ln x$, $\sin x\to\cos x$, $\cos x\to-\sin x$, $\tan x\to\sec^2 x$ ② 곱: $(fg)'=f'g+fg'$ ③ 몫: $(\frac{f}{g})'=\frac{f'g-fg'}{g^2}$ ④ 연쇄: $\frac{d}{dx}f(g(x))=f'(g(x))g'(x)$ ⑤ 음함수: 양변 $x$로 미분→$\frac{dy}{dx}$ 항 모아 풀기 ⑥ 로그미분: $\ln$ 취하고 미분→복잡한 지수·거듭제곱 처리 ⑦ 역함수 미분·매개변수 $\frac{dy}{dx}=\frac{dy/dt}{dx/dt}$ | 75분 |
-| 15 | 미분 응용 | ① 접선: $(a,f(a))$에서 $y-f(a)=f'(a)(x-a)$, 법선: 기울기$=-1/f'(a)$ ② MVT: $f'(c)=\frac{f(b)-f(a)}{b-a}$인 $c$ 찾기 ③ 증감표: $f'$ 부호로 증가/감소 구간 ④ 극값: $f'=0$에서 부호변화 확인 ⑤ 오목·변곡점: $f''$ 부호 ⑥ 7단계 스케치: 정의역→절편→점근선→증감→극값→오목→그리기 ⑦ 최적화: 목적함수→제약소거→$f'=0$→검증 ⑧ 관련비율: 관계식→$t$로 미분→값 대입 | 75분 |
-| 16 | 적분법 전집 | ① FTC: $\int_a^b f(x)dx=F(b)-F(a)$ ② 치환: $u=g(x)$, $du=g'(x)dx$, $u$경계로 변환 ③ 부분적분: $\int u dv=uv-\int v du$, LIATE 순서로 $u$ 선택 ④ 부분분수: 분모 인수분해→$\frac{A}{x-a}+\frac{B}{(x-a)^2}+\frac{Cx+D}{x^2+bx+c}$ ⑤ 삼각치환: $\sqrt{a^2-x^2}\to x=a\sin\theta$, $\sqrt{a^2+x^2}\to x=a\tan\theta$, $\sqrt{x^2-a^2}\to x=a\sec\theta$ ⑥ 삼각적분: $\sin^2 x=\frac{1-\cos2x}{2}$, $\cos^2 x=\frac{1+\cos2x}{2}$, $\tan^n\sec^m$ 분리 | 90분 |
-| 17 | 적분 응용 | ① 곡선 사이 넓이: $\int_a^b[f(x)-g(x)]dx$ ② 디스크: $\pi\int R^2 dx$, 와셔: $\pi\int(R^2-r^2)dx$, 껍질: $2\pi\int r h dx$ ③ 곡선길이: $L=\int_a^b\sqrt{1+(y')^2}dx$ ④ 이상적분: $\int_a^\infty=\lim_{b\to\infty}\int_a^b$, 불연속점 편측극한 ⑤ 수렴판정: 비교판정으로 $\int_1^\infty 1/x^p$ 기준 | 75분 |
-| 18 | 급수·테일러 | ① 기하급수: $\sum ar^n=\frac{a}{1-r}$ ($\lvert r\rvert<1$) ② $p$-급수: $\sum 1/n^p$ 수렴↔$p>1$ ③ 비교·극한비교·비판정·근판정 ④ 교대급수: $a_n\searrow0$→수렴, 오차$\leq a_{n+1}$ ⑤ 테일러: $f(x)=\sum\frac{f^{(n)}(a)}{n!}(x-a)^n$ ⑥ 매클로린 표: $e^x,\sin x,\cos x,\ln(1+x),\frac{1}{1-x}$ | 75분 |
-| 19 | 미분방정식 기초 | ① 변수분리: $\frac{dy}{dx}=g(x)h(y)$ → $\int\frac{dy}{h(y)}=\int g(x)dx$ ② 지수모형: $y'=ky$ → $y=Ce^{kt}$, 배증시간 $t_2=\ln2/k$ ③ 로지스틱: $y'=ky(1-y/L)$ → $y=\frac{L}{1+Ae^{-kt}}$ ④ 1계 선형: $y'+P(x)y=Q(x)$, 적분인자 $\mu=e^{\int Pdx}$ | 45분 |
-| 20 | **Phase 2 종합** | 14세션 전체 혼합 문제 — 어떤 테크닉을 쓸지 판단부터 | 60분 |
+| 14 | The limit machine | ① direct substitution: continuous → just plug in ② $\frac{0}{0}$: factor→cancel, conjugate→cancel, use $\frac{\sin x}{x}\to1$ ③ $\frac{\infty}{\infty}$: divide by highest power ④ limits at infinity: sign of highest power → $\pm\infty$ ⑤ standard limits: $(1+\frac{1}{n})^n\to e$, $\frac{\ln n}{n}\to0$ | 60m |
+| 15 | Differentiation: the full arsenal | ① basics: $\frac{d}{dx}x^n=nx^{n-1}$, $e^x$, $\ln x$, $\sin x\to\cos x$, $\cos x\to-\sin x$, $\tan x\to\sec^2 x$ ② product: $(fg)'=f'g+fg'$ ③ quotient: $(\frac{f}{g})'=\frac{f'g-fg'}{g^2}$ ④ chain: $\frac{d}{dx}f(g(x))=f'(g(x))g'(x)$ ⑤ implicit: differentiate both sides → collect $\frac{dy}{dx}$ terms → solve ⑥ logarithmic: take $\ln$ then differentiate → handle complex powers ⑦ inverse-function·parametric: $\frac{dy}{dx}=\frac{dy/dt}{dx/dt}$ | 75m |
+| 16 | Applications of the derivative | ① tangent at $(a,f(a))$: $y-f(a)=f'(a)(x-a)$, normal: slope$=-1/f'(a)$ ② MVT: find $c$ with $f'(c)=\frac{f(b)-f(a)}{b-a}$ ③ inc/dec table: sign of $f'$ ④ extrema: sign change at $f'=0$ ⑤ concavity·inflection: sign of $f''$ ⑥ 7-step sketch: domain→intercepts→asymptotes→inc/dec→extrema→concavity→draw ⑦ optimization: objective→eliminate constraint→$f'=0$→verify ⑧ related rates: relation→differentiate by $t$→substitute | 75m |
+| 17 | Integration: the full arsenal | ① FTC: $\int_a^b f(x)dx=F(b)-F(a)$ ② substitution: $u=g(x)$, $du=g'(x)dx$, convert $u$-bounds ③ parts: $\int u dv=uv-\int v du$, choose $u$ by LIATE ④ partial fractions: factor → $\frac{A}{x-a}+\frac{B}{(x-a)^2}+\frac{Cx+D}{x^2+bx+c}$ ⑤ trig substitution: $\sqrt{a^2-x^2}\to x=a\sin\theta$, $\sqrt{a^2+x^2}\to x=a\tan\theta$, $\sqrt{x^2-a^2}\to x=a\sec\theta$ ⑥ trig integrals: $\sin^2 x=\frac{1-\cos2x}{2}$, $\cos^2 x=\frac{1+\cos2x}{2}$, split $\tan^n\sec^m$ | 90m |
+| 18 | Applications of the integral | ① area between curves: $\int_a^b[f(x)-g(x)]dx$ ② disk: $\pi\int R^2 dx$, washer: $\pi\int(R^2-r^2)dx$, shell: $2\pi\int r h dx$ ③ arc length: $L=\int_a^b\sqrt{1+(y')^2}dx$ ④ improper: $\int_a^\infty=\lim_{b\to\infty}\int_a^b$, one-sided limit at discontinuity ⑤ convergence: compare against $\int_1^\infty 1/x^p$ | 75m |
+| 19 | Series & Taylor | ① geometric: $\sum ar^n=\frac{a}{1-r}$ ($\lvert r\rvert<1$) ② $p$-series: $\sum 1/n^p$ converges↔$p>1$ ③ comparison·limit-comparison·ratio·root tests ④ alternating: $a_n\searrow0$→converges, error$\leq a_{n+1}$ ⑤ Taylor: $f(x)=\sum\frac{f^{(n)}(a)}{n!}(x-a)^n$ ⑥ Maclaurin table: $e^x,\sin x,\cos x,\ln(1+x),\frac{1}{1-x}$ | 75m |
+| 20 | Differential equations: basics | ① separable: $\frac{dy}{dx}=g(x)h(y)$ → $\int\frac{dy}{h(y)}=\int g(x)dx$ ② exponential model: $y'=ky$ → $y=Ce^{kt}$, doubling time $t_2=\ln2/k$ ③ logistic: $y'=ky(1-y/L)$ → $y=\frac{L}{1+Ae^{-kt}}$ ④ first-order linear: $y'+P(x)y=Q(x)$, integrating factor $\mu=e^{\int Pdx}$ | 45m |
+| 21 | **Phase 2 synthesis** | mixed problems over all 14 sessions — decide which technique, first | 60m |
 
 ---
 
-## Phase 3: 변화와 누적 — 실해석학 (16세션, 약 21h)
+## Phase 3: Change & Accumulation — Real Analysis (17 sessions, 23h)
 
-> **핵심 질문:** "Phase 2에서 배운 계산법들은 왜 통하는가? — 증명으로 답한다."
-> **전제:** 극한·미분·적분 계산은 이미 Phase 2에서 체화. 여기서는 $\varepsilon$-$\delta$와 증명에 집중.
+> **Core question:** "Why do the Phase 2 computations work? — answer with proof."
+> **Premise:** Limit·derivative·integral computation is already embodied in Phase 2. Here focus on $\varepsilon$-$\delta$ and proof.
 
-| # | 도구 | 방법 절차 | 시간 |
+| # | Tool | Method procedure | Time |
 |:--:|------|-----------|:---:|
-| 21 | 실수의 완비성 | ① $\sup$, $\inf$ 찾기 ② $\varepsilon$-$N$으로 수열 수렴 ③ 코시 수열 ↔ 수렴 ($\mathbb{R}$에서만) | 90분 |
-| 22 | 극한 — $\varepsilon$-$\delta$ | ① $\varepsilon$ 주어지면 $\delta$ 찾기 ② $\frac{0}{0}$ 극한의 정당화 ③ $\lim\frac{\sin x}{x}=1$, $\lim(1+\frac{1}{n})^n=e$ 증명 | 90분 |
-| 23 | 연속·중간값·최대최소 | ① $\varepsilon$-$\delta$로 연속 판정 ② IVT 증명 ③ EVT: 닫힌구간 연속 → 최대최소 존재 | 60분 |
-| 24 | 도함수 — 정의와 증명 | ① $f'(x)=\lim_{h\to0}\frac{f(x+h)-f(x)}{h}$ ② 미분가능→연속 증명 ③ 곱·몫·연쇄법칙 증명 | 75분 |
-| 25 | 평균값 정리·테일러 정리 | ① 롤→MVT 증명 ② MVT→증감 판정 정당화 ③ 테일러 정리 + 나머지항 (Lagrange·Cauchy) | 60분 |
-| 26 | 적분 — 리만합과 FTC | ① 리만합·상합·하합 ② FTC 증명 ③ 적분가능성 판정 | 75분 |
-| 27 | 적분 기술의 정당화 | ① 치환적분 증명 ② 부분적분 증명 ③ 부분분수·삼각치환의 이론적 근거 | 90분 |
-| 28 | 이상적분 | ① 무한구간·불연속점: $\lim$ 처리 ② 비교판정 증명 | 60분 |
-| 29 | 수열·급수의 수렴 | ① 비교판정·극한비교·비판정·근판정 증명 ② 교대급수 추정 | 75분 |
-| 30 | 멱급수·테일러 급수 | ① 수렴반경: ratio test ② 테일러 급수의 수렴성·해석함수 | 75분 |
-| 31 | 함수열·균등수렴 | ① 점별 vs 균등: $\sup\lvert f_n-f\rvert\to0$ ② 균등수렴 → $\lim\int=\int\lim$ ③ $\lim f_n' = (\lim f_n)'$ 조건 | 90분 |
-| 32 | $\mathbb{R}^n$ 위상 기초 | ① 열린공·열린집합·닫힌집합 ② 컴팩트: Heine-Borel | 60분 |
-| 33 | 다변수 미분 | ① 편도함수·그래디언트 $\nabla f$ ② 방향도함수·야코비안·연쇄법칙 | 90분 |
-| 34 | 다변수 적분 | ① Fubini·변수변환·극·원통·구면좌표 | 90분 |
-| 35 | 스토크스 정리 (고전) | ① Green·Gauss·Stokes ② 통합: $\int_{\partial M}\omega = \int_M d\omega$ | 120분 |
-| 36 | **Phase 3 종합** | $\varepsilon$-$\delta$ → FTC → 다변수 → Stokes — 하나의 사슬 | 90분 |
+| 22 | Completeness of $\mathbb{R}$ | ① find $\sup$, $\inf$ ② sequence convergence via $\varepsilon$-$N$ ③ Cauchy sequences ↔ convergence (in $\mathbb{R}$ only) | 90m |
+| 23 | Limits — $\varepsilon$-$\delta$ | ① given $\varepsilon$, find $\delta$ ② justify $\frac{0}{0}$ limits ③ prove $\lim\frac{\sin x}{x}=1$, $\lim(1+\frac{1}{n})^n=e$ | 90m |
+| 24 | Continuity·intermediate value·extreme value | ① continuity via $\varepsilon$-$\delta$ ② prove IVT ③ EVT: continuous on closed interval → max/min exists | 60m |
+| 25 | Derivative — definition & proofs | ① $f'(x)=\lim_{h\to0}\frac{f(x+h)-f(x)}{h}$ ② prove differentiable→continuous ③ prove product·quotient·chain rules | 75m |
+| 26 | Mean value theorem·Taylor's theorem | ① prove Rolle→MVT ② justify inc/dec test via MVT ③ Taylor's theorem + remainder (Lagrange·Cauchy) | 60m |
+| 27 | Integration — Riemann sums & FTC | ① Riemann sums·upper/lower sums ② prove FTC ③ test integrability | 75m |
+| 28 | Justifying integration techniques | ① prove substitution ② prove integration by parts ③ theoretical basis of partial fractions·trig substitution | 90m |
+| 29 | Improper integrals | ① infinite intervals·discontinuities: $\lim$ handling ② prove comparison test | 60m |
+| 30 | Convergence of sequences & series | ① prove comparison·limit-comparison·ratio·root tests ② alternating series estimate | 75m |
+| 31 | Power series & Taylor series | ① radius of convergence: ratio test ② convergence of Taylor series·analytic functions | 75m |
+| 32 | Sequences of functions·uniform convergence | ① pointwise vs uniform: $\sup\lvert f_n-f\rvert\to0$ ② uniform → $\lim\int=\int\lim$ ③ condition for $\lim f_n' = (\lim f_n)'$ | 90m |
+| 33 | Fourier series | ① orthogonality: $\int_{-\pi}^{\pi}\sin nx\cos mx\,dx=0$ ② compute coefficients $a_n,b_n$ ③ pointwise/uniform convergence, Gibbs phenomenon | 90m |
+| 34 | Topology of $\mathbb{R}^n$ | ① open balls·open/closed sets ② compact: Heine–Borel | 60m |
+| 35 | Multivariable differentiation | ① partial derivatives·gradient $\nabla f$ ② directional derivative·Jacobian·chain rule | 90m |
+| 36 | Multivariable integration | ① Fubini·change of variables·polar·cylindrical·spherical | 90m |
+| 37 | Stokes' theorem (classical) | ① Green·Gauss·Stokes ② unified: $\int_{\partial M}\omega = \int_M d\omega$ | 120m |
+| 38 | **Phase 3 synthesis** | $\varepsilon$-$\delta$ → FTC → multivariable → Stokes — one chain | 90m |
 
 ---
 
-## Phase 4: 변화의 법칙을 푸는 도구 — 미분방정식 (10세션, 약 14h)
+## Phase 4: Many at Once — Linear Algebra (11 sessions, 11.75h)
 
-> **핵심 질문:** "자연은 '변화율 = 무언가'로 말한다. 이 방정식을 어떻게 푸는가?"
+> **Core question:** "How do you solve a problem with dozens of variables in one move?"
+> **Order note (v5):** Linear algebra now precedes differential equations, because eigenvalues, linear independence, and matrices are prerequisites for systems of ODEs and Sturm–Liouville theory (Phase 5).
 
-| # | 도구 | 방법 절차 | 시간 |
+| # | Tool | Method procedure | Time |
 |:--:|------|-----------|:---:|
-| 37 | 1계 ODE: 변수분리·선형 | ① 변수분리: $\frac{dy}{dx}=g(x)h(y)$ → $\int\frac{dy}{h(y)}=\int g(x)dx$ ② 선형: $y'+P(x)y=Q(x)$, 적분인자 $\mu=e^{\int Pdx}$ → $y=\frac{1}{\mu}\int\mu Q dx$ | 75분 |
-| 38 | 1계 ODE: 완전·동차·Bernoulli | ① 완전: $Mdx+Ndy=0$, $M_y=N_x$ → $\phi(x,y)=C$ ② 동차: $v=y/x$ 치환 → 변수분리 ③ Bernoulli: $v=y^{1-n}$ 치환 → 선형 | 90분 |
-| 39 | 2계 선형 ODE: 제차 | ① 특성방정식 $ar^2+br+c=0$ → 실근·중근·복소근별 일반해 ② Wronskian 선형독립 판정 | 75분 |
-| 40 | 2계 선형 ODE: 비제차 | ① 미정계수법: $g(x)$ 보고 시험해 설정 ② 매개변수변환: $y_p=-y_1\!\int\!\frac{y_2 g}{W}dx + y_2\!\int\!\frac{y_1 g}{W}dx$ | 90분 |
-| 41 | 라플라스 변환 | ① $\mathcal{L}\{f\}=\int_0^\infty e^{-st}f(t)dt$, 기본 변환표 ② $\mathcal{L}\{f'\}=s\mathcal{L}\{f\}-f(0)$ ③ ODE→대수방정식→부분분수→역변환 | 90분 |
-| 42 | 연립 ODE·위상평면 | ① $\mathbf{x}'=A\mathbf{x}$ → 고유값·고유벡터 ② 위상평면 안정성 분류 ③ 비선형: Jacobian 선형화 | 90분 |
-| 43 | 급수해법·Frobenius | ① $y=\sum a_n x^n$ → 점화식 ② Frobenius: $y=x^r\sum a_n x^n$, 지표방정식 | 75분 |
-| 44 | 경계값 문제·Sturm-Liouville | ① $-(py')'+qy=\lambda wy$, 고유값·고유함수 ② 직교성·푸리에 전개의 일반화 | 90분 |
-| 45 | PDE 입문: 분리변수법 | ① 열방정식·파동방정식·라플라스방정식 → $X(x)T(t)$ 분리 → 푸리에 급수해 | 90분 |
-| 46 | **Phase 4 종합** | 1계→2계→연립→라플라스→급수→S-L→PDE — 해법 사슬 | 60분 |
+| 39 | Matrices & Gaussian elimination | ① multiply: $(AB)_{ij}=\sum_k a_{ik}b_{kj}$ ② zero below the pivot → back-substitute ③ RREF | 45m |
+| 40 | Vector spaces·subspaces·dimension | ① test subspace ② linear independence·basis·$\dim$ | 75m |
+| 41 | Linear maps & rank-nullity | ① $T(\mathbf{x})=A\mathbf{x}$, $\ker T$, $\operatorname{range}T$ ② $\dim\ker + \dim\operatorname{range} = n$ | 60m |
+| 42 | Determinants & eigenvalues | ① cofactor expansion ② $\det(A-\lambda I)=0$ → $\lambda_i$ → eigenvectors | 75m |
+| 43 | Diagonalization & spectral theorem | ① $P^{-1}AP=\Lambda$ ② symmetric: $A=Q\Lambda Q^{\mathsf{T}}$ | 75m |
+| 44 | Inner products·Gram–Schmidt·QR | ① GS: normalize→subtract projection→repeat ② $A=QR$ | 60m |
+| 45 | Singular value decomposition (SVD) | ① $A=U\Sigma V^{\mathsf{T}}$, rank-$k$ approximation | 90m |
+| 46 | Least squares & pseudoinverse | ① $A^{\mathsf{T}}A\hat{\mathbf{x}}=A^{\mathsf{T}}\mathbf{b}$ ② $A^\dagger$ (via SVD) | 60m |
+| 47 | PCA & dimensionality reduction | ① covariance matrix→eigendecomposition→principal components ② $X_k = X V_k$ | 60m |
+| 48 | Norms·condition numbers·stability | ① vector·matrix norms ② $\kappa(A)=\lVert A\rVert\lVert A^{-1}\rVert$ | 45m |
+| 49 | **Phase 4 synthesis** | elimination → eigenvalues → SVD — the linear toolbox | 60m |
 
 ---
 
-## Phase 5: 여럿을 한 번에 — 선형대수 (11세션, 약 11h)
+## Phase 5: The Laws of Change — Differential Equations (10 sessions, 13.75h)
 
-> **핵심 질문:** "변수가 수십 개인 문제를 어떻게 한 방에 푸는가?"
+> **Core question:** "Nature speaks as 'rate of change = something.' How do we solve that equation?"
+> **Order note (v5):** Eigenvalues, eigenvectors, and linear independence are already available from Phase 4.
 
-| # | 도구 | 방법 절차 | 시간 |
+| # | Tool | Method procedure | Time |
 |:--:|------|-----------|:---:|
-| 47 | 행렬·가우스 소거법 | ① 곱셈: $(AB)_{ij}=\sum_k a_{ik}b_{kj}$ ② 피벗 아래 0 → 후진대입 ③ RREF | 45분 |
-| 48 | 벡터공간·부분공간·차원 | ① 부분공간 판정 ② 일차독립·기저·$\dim$ | 75분 |
-| 49 | 선형변환·차원정리 | ① $T(\mathbf{x})=A\mathbf{x}$, $\ker T$, $\operatorname{range}T$ ② $\dim\ker + \dim\operatorname{range} = n$ | 60분 |
-| 50 | 행렬식·고유값 | ① 여인수 전개 ② $\det(A-\lambda I)=0$ → $\lambda_i$ → 고유벡터 | 75분 |
-| 51 | 대각화·스펙트럼 분해 | ① $P^{-1}AP=\Lambda$ ② 대칭행렬: $A=Q\Lambda Q^\mathsf{T}$ | 75분 |
-| 52 | 내적·Gram-Schmidt·QR | ① GS: 정규화→투영빼기→반복 ② $A=QR$ | 60분 |
-| 53 | 특이값분해 (SVD) | ① $A=U\Sigma V^\mathsf{T}$, rank-$k$ 근사 | 90분 |
-| 54 | 최소제곱·의사역행렬 | ① $A^\mathsf{T}A\hat{\mathbf{x}}=A^\mathsf{T}\mathbf{b}$ ② $A^\dagger$ (SVD로) | 60분 |
-| 55 | PCA·차원 축소 | ① 공분산행렬→고유값 분해→주성분 ② $X_k = X V_k$ | 60분 |
-| 56 | 놈·조건수·안정성 | ① 벡터놈·행렬놈 ② $\kappa(A)=\lVert A\rVert\lVert A^{-1}\rVert$ | 45분 |
-| 57 | **Phase 5 종합** | |
+| 50 | First-order ODE: separable·linear | ① separable: $\frac{dy}{dx}=g(x)h(y)$ → $\int\frac{dy}{h(y)}=\int g(x)dx$ ② linear: $y'+P(x)y=Q(x)$, integrating factor $\mu=e^{\int Pdx}$ → $y=\frac{1}{\mu}\int\mu Q dx$ | 75m |
+| 51 | First-order ODE: exact·homogeneous·Bernoulli | ① exact: $Mdx+Ndy=0$, $M_y=N_x$ → $\phi(x,y)=C$ ② homogeneous: substitute $v=y/x$ → separable ③ Bernoulli: substitute $v=y^{1-n}$ → linear | 90m |
+| 52 | Second-order linear ODE: homogeneous | ① characteristic equation $ar^2+br+c=0$ → distinct·repeated·complex roots ② Wronskian linear-independence test | 75m |
+| 53 | Second-order linear ODE: nonhomogeneous | ① undetermined coefficients: guess from $g(x)$ ② variation of parameters: $y_p=-y_1\!\int\!\frac{y_2 g}{W}dx + y_2\!\int\!\frac{y_1 g}{W}dx$ | 90m |
+| 54 | Laplace transform | ① $\mathcal{L}\{f\}=\int_0^\infty e^{-st}f(t)dt$, basic table ② $\mathcal{L}\{f'\}=s\mathcal{L}\{f\}-f(0)$ ③ ODE→algebra→partial fractions→inverse transform | 90m |
+| 55 | Systems of ODEs & phase plane | ① $\mathbf{x}'=A\mathbf{x}$ → eigenvalues·eigenvectors ② classify phase-plane stability ③ nonlinear: Jacobian linearization | 90m |
+| 56 | Series solutions & Frobenius | ① $y=\sum a_n x^n$ → recurrence ② Frobenius: $y=x^r\sum a_n x^n$, indicial equation | 75m |
+| 57 | Boundary value problems & Sturm–Liouville | ① $-(py')'+qy=\lambda wy$, eigenvalues·eigenfunctions ② orthogonality·generalized Fourier expansion | 90m |
+| 58 | Intro to PDE: separation of variables | ① heat·wave·Laplace → separate $X(x)T(t)$ → Fourier series solution | 90m |
+| 59 | **Phase 5 synthesis** | first-order→second-order→systems→Laplace→series→S-L→PDE — the solution chain | 60m |
 
 ---
 
-## Phase 6: 구조를 보는 눈 — 추상대수 (8세션, 약 13h)
+## Phase 6: The Eye for Structure — Abstract Algebra (8 sessions, 11.5h)
 
-> **핵심 질문:** "서로 다른 대상들이 사실은 똑같은 구조라는 걸 어떻게 포착하는가?"
+> **Core question:** "How do we grasp that different objects share the same structure?"
 
-| # | 도구 | 방법 절차 | 시간 |
+| # | Tool | Method procedure | Time |
 |:--:|------|-----------|:---:|
-| 58 | 군: 정의 + 예시 대량 | ① 4공리 체크 ② $\mathbb{Z}_n, S_n, D_n, \mathrm{GL}_n, \mathbb{Z}, \mathbb{R}^\times$ | 60분 |
-| 59 | 부분군·라그랑주·준동형 | ① $H\leq G$ 판정 ② $\lvert H\rvert \mid \lvert G\rvert$ ③ $G/\ker\varphi\cong\operatorname{im}\varphi$ | 75분 |
-| 60 | 군 작용·대칭으로 보기 | ① orbit·stabilizer·$\lvert G\rvert=\lvert G\cdot x\rvert\cdot\lvert G_x\rvert$ ② Burnside → 색칠 문제 | 90분 |
-| 61 | 환·아이디얼·몫환 | ① 환 공리 ② $I\trianglelefteq R$, $R/I$ 구성 | 75분 |
-| 62 | 체·다항식·대수적 확대 | ① 체: 0 아닌 모든 원소에 역원 ② $\mathbb{Q}(\sqrt{2})$, $\mathbb{F}_p$, $\mathbb{F}_{p^n}$ | 90분 |
-| 63 | 범주론 입문 | ① 대상·사상·함자·자연변환 ② $\mathbf{Set}, \mathbf{Grp}, \mathbf{Vect}, \mathbf{Top}$ | 120분 |
-| 64 | 범용성질·극한·쌍대성 | ① universal property ② 극한·쌍대극한 ③ 쌍대원리 | 120분 |
-| 65 | **Phase 6 종합** | |
+| 60 | Groups: definition + many examples | ① check the 4 axioms ② $\mathbb{Z}_n, S_n, D_n, \mathrm{GL}_n, \mathbb{Z}, \mathbb{R}^\times$ | 60m |
+| 61 | Subgroups·Lagrange·homomorphisms | ① test $H\leq G$ ② $\lvert H\rvert \mid \lvert G\rvert$ ③ $G/\ker\varphi\cong\operatorname{im}\varphi$ | 75m |
+| 62 | Group actions·seeing through symmetry | ① orbit·stabilizer·$\lvert G\rvert=\lvert G\cdot x\rvert\cdot\lvert G_x\rvert$ ② Burnside → counting colorings | 90m |
+| 63 | Rings·ideals·quotient rings | ① ring axioms ② $I\trianglelefteq R$, construct $R/I$ | 75m |
+| 64 | Fields·polynomials·algebraic extensions | ① field: every nonzero element has an inverse ② $\mathbb{Q}(\sqrt{2})$, $\mathbb{F}_p$, $\mathbb{F}_{p^n}$ | 90m |
+| 65 | Category theory: intro | ① objects·morphisms·functors·natural transformations ② $\mathbf{Set}, \mathbf{Grp}, \mathbf{Vect}, \mathbf{Top}$ | 120m |
+| 66 | Universal properties·limits·duality | ① universal property ② limits·colimits ③ duality principle | 120m |
+| 67 | **Phase 6 synthesis** | group → ring → field → category — the structural ladder | 60m |
 
 ---
 
-## Phase 7: 공간과 모양의 현대적 도구 — 위상·기하 (11세션, 약 21h)
+## Phase 7: Space & Shape — Topology & Geometry (10 sessions, 18h)
 
-> **핵심 질문:** "'가깝다'라는 개념만으로 공간의 모든 성질을 어떻게 기술하는가?"
+> **Core question:** "Using only the notion 'near,' how do we describe every property of space?"
 
-| # | 도구 | 방법 절차 | 시간 |
+| # | Tool | Method procedure | Time |
 |:--:|------|-----------|:---:|
-| 66 | 거리공간 → 위상공간 | ① 거리 공리→열린공→열린집합 ② 위상공간 공리 ③ 부분·곱·몫공간 | 90분 |
-| 67 | 연결성·컴팩트성 | ① 연결 ② 컴팩트·Heine-Borel ③ 컴팩트 위 연속함수 성질 | 90분 |
-| 68 | 호모토피·기본군 | ① $\pi_1(X,x_0)$: 루프 호모토피류 ② $\pi_1(S^1)=\mathbb{Z}$ 증명 | 120분 |
-| 69 | 피복공간·Seifert-van Kampen | ① 피복공간·리프팅 ② SvK → 곡면 기본군 | 120분 |
-| 70 | 호몰로지 입문 | ① 사슬복합체·$\partial^2=0$ ② $H_n=\ker\partial_n/\operatorname{im}\partial_{n+1}$ ③ 구·토러스·$\mathbb{RP}^2$ | 120분 |
-| 71 | 매끄러운 다양체 | ① 차트·아틀라스·접공간 ② 몰입·침몰·정칙값 정리 | 90분 |
-| 72 | 미분형식·드람 코호몰로지 | ① $k$-형식·$d$·$d^2=0$ ② $H^k_{dR}$, 일반화된 Stokes | 120분 |
-| 73 | 리만 계량·곡률 | ① $g_{ij}$·측지선 ② 곡률텐서·가우스-보네 | 120분 |
-| 74 | 올다발·접속 | ① $F\to E\to B$·주다발·벡터다발 ② 접속·곡률·게이지 이론 | 120분 |
-| 75 | **Phase 7 종합** | |
+| 68 | Metric spaces → topological spaces | ① metric axioms→open balls→open sets ② topological axioms ③ subspace·product·quotient | 90m |
+| 69 | Connectedness·compactness | ① connected ② compact·Heine–Borel ③ properties of continuous functions on compacta | 90m |
+| 70 | Homotopy·fundamental group | ① $\pi_1(X,x_0)$: loop homotopy classes ② prove $\pi_1(S^1)=\mathbb{Z}$ | 120m |
+| 71 | Covering spaces·Seifert–van Kampen | ① covering spaces·lifting ② SvK → fundamental groups of surfaces | 120m |
+| 72 | Homology: intro | ① chain complexes·$\partial^2=0$ ② $H_n=\ker\partial_n/\operatorname{im}\partial_{n+1}$ ③ sphere·torus·$\mathbb{RP}^2$ | 120m |
+| 73 | Smooth manifolds | ① charts·atlases·tangent spaces ② immersions·submersions·regular value theorem | 90m |
+| 74 | Differential forms·de Rham cohomology | ① $k$-forms·$d$·$d^2=0$ ② $H^k_{dR}$, generalized Stokes | 120m |
+| 75 | Riemannian metric·curvature | ① $g_{ij}$·geodesics ② curvature tensor·Gauss–Bonnet | 120m |
+| 76 | Fiber bundles·connections | ① $F\to E\to B$·principal bundles·vector bundles ② connections·curvature·gauge theory | 120m |
+| 77 | **Phase 7 synthesis** | point-set → algebraic → smooth → Riemannian — the geometry chain | 90m |
 
 ---
 
-## Phase 8: 불확실성의 현대적 도구 — 측도론 기반 확률 (11세션, 약 21h)
+## Phase 8: Modern Tools of Uncertainty — Measure-Theoretic Probability (11 sessions, 18.5h)
 
-> **핵심 질문:** "길이·넓이 개념을 어떻게 모든 집합으로 확장하는가?"
+> **Core question:** "How do we extend the notions of length and area to every set?"
 
-| # | 도구 | 방법 절차 | 시간 |
+| # | Tool | Method procedure | Time |
 |:--:|------|-----------|:---:|
-| 76 | 측도·$\sigma$-대수 | ① $\sigma$-대수·르베그 외측도 ② Carathéodory 가측성 ③ 르베그 측도 | 120분 |
-| 77 | 르베그 적분 | ① 단순함수→적분 ② 단조수렴·지배수렴·Fatou | 120분 |
-| 78 | $L^p$ 공간 | ① $\lVert f\rVert_p$, Hölder·Minkowski ② $L^p$ 완비성, $L^2$ Hilbert | 90분 |
-| 79 | 확률공간·확률변수·기댓값 | ① $(\Omega,\mathcal{F},P)$ ② $E(X)=\int X dP$ ③ 독립·분포 | 75분 |
-| 80 | 대수의 법칙·CLT (증명) | ① Markov·Chebyshev ② 약법칙·강법칙 ③ CLT: 특성함수+Lévy | 120분 |
-| 81 | 조건부 기대·마팅게일 | ① $\mathbb{E}[X\mid\mathcal{G}]$ ② 마팅게일·정지시간·수렴정리 | 120분 |
-| 82 | 마르코프 연쇄·에르고딕성 | ① 전이확률·Chapman-Kolmogorov ② $\pi P=\pi$·정상분포 | 90분 |
-| 83 | 브라운 운동·Itô 적분 | ① Wiener 과정 ② Itô 적분·Itô 공식 | 120분 |
-| 84 | 확률미분방정식·금융수학 | ① 기하 브라운 운동 ② Black-Scholes PDE | 90분 |
-| 85 | 정보이론 | ① 엔트로피·KL-발산·상호정보량 ② Shannon 정리 | 75분 |
-| 86 | **Phase 8 종합** | |
+| 78 | Measures·$\sigma$-algebras | ① $\sigma$-algebra·Lebesgue outer measure ② Carathéodory measurability ③ Lebesgue measure | 120m |
+| 79 | Lebesgue integral | ① simple functions→integral ② monotone·dominated convergence·Fatou | 120m |
+| 80 | $L^p$ spaces | ① $\lVert f\rVert_p$, Hölder·Minkowski ② $L^p$ completeness, $L^2$ Hilbert | 90m |
+| 81 | Probability spaces·random variables·expectation | ① $(\Omega,\mathcal{F},P)$ ② $E(X)=\int X dP$ ③ independence·distributions | 75m |
+| 82 | Laws of large numbers·CLT (proof) | ① Markov·Chebyshev ② weak·strong law ③ CLT: characteristic functions+Lévy | 120m |
+| 83 | Conditional expectation·martingales | ① $\mathbb{E}[X\mid\mathcal{G}]$ ② martingales·stopping times·convergence theorems | 120m |
+| 84 | Markov chains·ergodicity | ① transition probabilities·Chapman–Kolmogorov ② $\pi P=\pi$·stationary distribution | 90m |
+| 85 | Brownian motion·Itô integral | ① Wiener process ② Itô integral·Itô's formula | 120m |
+| 86 | SDEs·financial mathematics | ① geometric Brownian motion ② Black–Scholes PDE | 90m |
+| 87 | Information theory | ① entropy·KL divergence·mutual information ② Shannon's theorem | 75m |
+| 88 | **Phase 8 synthesis** | measure → integral → probability → stochastic — the uncertainty chain | 90m |
 
 ---
 
-## Phase 9: 계산과 최적화의 현대적 도구 (11세션, 약 17.5h)
+## Phase 9: Modern Tools of Computation & Optimization (11 sessions, 16.75h)
 
-> **핵심 질문:** "정확한 답이 불가능할 때, 어떻게 충분히 가까운 답을 얻는가?"
+> **Core question:** "When an exact answer is impossible, how do we get a close-enough one?"
 
-| # | 도구 | 방법 절차 | 시간 |
+| # | Tool | Method procedure | Time |
 |:--:|------|-----------|:---:|
-| 87 | 수치선형대수 | ① LU·QR·SVD 알고리즘 ② Jacobi·GS·CG 반복법 | 75분 |
-| 88 | 볼록 최적화 기초 | ① 볼록집합·볼록함수 ② $\nabla f=0$ = 최적해 ③ KKT 조건 | 90분 |
-| 89 | 경사하강법·뉴턴법 | ① GD·SGD·momentum·Adam ② 뉴턴: 2차 수렴 | 60분 |
-| 90 | ODE 수치해법 | ① Euler·RK4·Butcher 테이블 ② 강성·A-안정성·적응 스텝 | 75분 |
-| 91 | PDE 수치해법 개요 | ① 유한차분·유한요소 ② CFL·von Neumann 안정성 | 120분 |
-| 92 | 푸리에 해석 (이산·고속) | ① DFT→$O(N^2)$ ② FFT→$O(N\log N)$ ③ Shannon | 75분 |
-| 93 | 웨이블릿·압축 센싱 | ① Haar·다중해상도 ② $\ell^1$ 최소화 복원 | 90분 |
-| 94 | 확률적 알고리즘·MCMC | ① Monte Carlo ② Metropolis-Hastings·Gibbs ③ 수렴 진단 | 120분 |
-| 95 | 기계학습의 수학 | ① ERM ② PAC-학습·VC 차원·Rademacher | 120분 |
-| 96 | 신경망의 수학 | ① 보편근사정리 ② 역전파 ③ NTK | 90분 |
-| 97 | **Phase 9 종합** | |
+| 89 | Numerical linear algebra | ① LU·QR·SVD algorithms ② Jacobi·Gauss–Seidel·CG iteration | 75m |
+| 90 | Convex optimization: basics | ① convex sets·convex functions ② $\nabla f=0$ = optimum ③ KKT conditions | 90m |
+| 91 | Gradient descent·Newton's method | ① GD·SGD·momentum·Adam ② Newton: quadratic convergence | 60m |
+| 92 | Numerical ODE methods | ① Euler·RK4·Butcher tableaux ② stiffness·A-stability·adaptive steps | 75m |
+| 93 | Numerical PDE: overview | ① finite differences·finite elements ② CFL·von Neumann stability | 120m |
+| 94 | Fourier analysis (discrete·fast) | ① DFT→$O(N^2)$ ② FFT→$O(N\log N)$ ③ Shannon sampling | 75m |
+| 95 | Wavelets·compressed sensing | ① Haar·multiresolution ② $\ell^1$-minimization recovery | 90m |
+| 96 | Randomized algorithms·MCMC | ① Monte Carlo ② Metropolis–Hastings·Gibbs ③ convergence diagnostics | 120m |
+| 97 | Mathematics of machine learning | ① ERM ② PAC-learning·VC dimension·Rademacher | 120m |
+| 98 | Mathematics of neural networks | ① universal approximation ② backpropagation ③ NTK | 90m |
+| 99 | **Phase 9 synthesis** | optimization → discretization → learning — the computation chain | 90m |
 
 ---
 
-## Phase 10: 최전선 — 20~21세기 특수 주제 (12세션, 약 21h)
+## Phase 10: The Frontier — 20th–21st Century Topics (12 sessions, 20.5h)
 
-> **핵심 질문:** "이 도구들 너머에 무엇이 있는가?"
+> **Core question:** "What lies beyond these tools?"
 
-| # | 도구 | 방법 절차 | 시간 |
+| # | Tool | Method procedure | Time |
 |:--:|------|-----------|:---:|
-| 98 | 함수해석 | ① Banach·Hilbert ② Hahn-Banach·열린사상 ③ 스펙트럼 정리 | 120분 |
-| 99 | 작용소 대수·$C^*$-대수 | ① $B(H)$·Gelfand 변환 ② GNS 구성 ③ 양자역학 수학적 기초 | 120분 |
-| 100 | 대수기하 입문 | ① $V(I)$, Nullstellensatz ② 좌표환·자리스키 위상 | 120분 |
-| 101 | 스킴·층 | ① 층 정의 ② $\operatorname{Spec}R$ ③ Grothendieck 언어 | 120분 |
-| 102 | 표현론 | ① $\rho:G\to\mathrm{GL}(V)$ ② 기약표현·Schur·지표·문자표 | 90분 |
-| 103 | 리군·리대수 | ① $\exp:\mathfrak{g}\to G$ ② 킬링·Cartan·뿌리계 ③ Dynkin 도표 | 120분 |
-| 104 | 대수적 위상 심화 | ① 스펙트럴 열 ② 특성류 ③ Serre로 호모토피 군 | 120분 |
-| 105 | 심플렉틱 기하·거울대칭 | ① $\omega$·Darboux ② 해밀턴 역학 ③ Gromov-Witten·거울대칭 | 120분 |
-| 106 | 계산복잡도·P vs NP | ① 튜링기계·P·NP ② Cook-Levin·NP-완전 ③ 장벽들 | 90분 |
-| 107 | 양자컴퓨팅 수학 | ① 큐비트·양자게이트 ② Shor·Grover ③ 오류정정 | 120분 |
-| 108 | 랜덤행렬·자유확률 | ① Wigner 반원·Tracy-Widom ② Voiculescu 자유독립 ③ 신경망 연결 | 120분 |
-| 109 | **도구 발명가의 지도** | 전체 도구 의존성 그래프 + 미해결 문제 + 당신이 만들 것 | 90분 |
+| 100 | Functional analysis | ① Banach·Hilbert ② Hahn–Banach·open mapping ③ spectral theorem | 120m |
+| 101 | Operator algebras·$C^*$-algebras | ① $B(H)$·Gelfand transform ② GNS construction ③ mathematical foundations of quantum mechanics | 120m |
+| 102 | Algebraic geometry: intro | ① $V(I)$, Nullstellensatz ② coordinate ring·Zariski topology | 120m |
+| 103 | Schemes·sheaves | ① define sheaves ② $\operatorname{Spec}R$ ③ the language of Grothendieck | 120m |
+| 104 | Representation theory | ① $\rho:G\to\mathrm{GL}(V)$ ② irreducible representations·Schur·characters·character tables | 90m |
+| 105 | Lie groups·Lie algebras | ① $\exp:\mathfrak{g}\to G$ ② Killing·Cartan·root systems ③ Dynkin diagrams | 120m |
+| 106 | Advanced algebraic topology | ① spectral sequences ② characteristic classes ③ homotopy groups via Serre | 120m |
+| 107 | Symplectic geometry·mirror symmetry | ① $\omega$·Darboux ② Hamiltonian mechanics ③ Gromov–Witten·mirror symmetry | 120m |
+| 108 | Computational complexity·P vs NP | ① Turing machines·P·NP ② Cook–Levin·NP-completeness ③ barriers | 90m |
+| 109 | Mathematics of quantum computing | ① qubits·quantum gates ② Shor·Grover ③ error correction | 120m |
+| 110 | Random matrices·free probability | ① Wigner semicircle·Tracy–Widom ② Voiculescu free independence ③ connection to neural networks | 120m |
+| 111 | **The Map of the Tool Inventor** | full tool dependency graph + open problems + what you will build | 90m |
 
 ---
 
-## 이 커리큘럼의 철학
+## The Philosophy of This Curriculum
 
 ```
-수학은 문제를 뚫는 도구의 역사다.
+Mathematics is the history of tools that pierce problems.
 
-손에 익은 계산 → 증명으로 정당화 → 새로운 도구 발명 → 또 다른 문제 해결.
+Computation the hand remembers → justification by proof → inventing new tools → solving still more problems.
 
-Phase 1: 논리라는 칼을 벼린다.
-Phase 2: 고전 테크닉을 손에 새긴다. (증명은 나중에)
-Phase 3: 그 테크닉들이 왜 통하는지 증명한다.
-Phase 4~10: 그 토대 위에 현대 수학의 모든 도구를 쌓는다.
+Phase 1: Forge the blade of logic.
+Phase 2: Carve classical technique into the hand. (Proof comes later.)
+Phase 3: Prove why those techniques work.
+Phases 4–10: Build every modern tool on that foundation.
 
-109개 위대한 도구의 분해 매뉴얼.
-그다음에 무슨 도구를 만들지는 당신의 몫이다.
+101 great tools, disassembled into manuals, over 111 sessions.
+Which tool to build next is yours to decide.
 ```
