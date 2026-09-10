@@ -28,7 +28,8 @@ def new_canvas(size: Optional[Tuple[float, float]] = None):
 
 def simple_axes(ax, *, grid: bool = False, equal_aspect: bool = False) -> None:
     """Apply the canonical axis styling used by most session graphs."""
-    ax.grid(grid, alpha=0.15, lw=0.4)
+    if grid:
+        ax.grid(True, alpha=0.15, lw=0.4)
     for spine in ("top", "right"):
         ax.spines[spine].set_visible(False)
     if equal_aspect:
