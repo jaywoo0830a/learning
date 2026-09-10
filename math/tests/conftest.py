@@ -11,3 +11,10 @@ if REPO not in sys.path:
 import matplotlib  # noqa: E402
 
 matplotlib.use("Agg", force=True)
+
+# Register every @graph builder so `viz.registry` is populated for all tests.
+# The registry is the single source of truth for graph ids and canonical paths;
+# importing the spec modules runs their @graph decorators.
+from scripts.graphs import spec_14d_relations  # noqa: F401, E402
+from scripts.graphs import spec_14d1a           # noqa: F401, E402
+from scripts.graphs import spec_9b              # noqa: F401, E402

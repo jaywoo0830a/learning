@@ -11,56 +11,17 @@ from __future__ import annotations
 import os
 import re
 
-# Registry: graph id -> (session dir, absolute png path).
-# Built from viz.export.graph_path so filenames are canonical.
-from viz.export import graph_path as _graph_path
+# Graph id -> canonical output path, derived from the single registry.
+# Importing the spec modules runs their ``@graph`` decorators, populating
+# ``viz.registry``.  Keeping that import here means this module works both on
+# its own (tests) and from the build pipeline.
+from viz.registry import specs as _registry_specs
+from scripts.graphs import spec_14d_relations  # noqa: F401  (register)
+from scripts.graphs import spec_14d1a           # noqa: F401  (register)
+from scripts.graphs import spec_9b              # noqa: F401  (register)
 
-_KNOWN = [
-    ("14d-01-derivative-units", "14d", "01", "derivative-units"),
-    ("14d-02-motion-story", "14d", "02", "motion-story"),
-    ("14d1-03-linearization", "14d1", "03", "linearization"),
-    ("14d1-04-circle-ring", "14d1", "04", "circle-ring"),
-    ("14d1-05-sphere-shell", "14d1", "05", "sphere-shell"),
-    ("14d1-06-marginal-cost", "14d1", "06", "marginal-cost"),
-    ("14d1-07-elasticity", "14d1", "07", "elasticity"),
-    ("9b-01-line-forms", "9b", "01", "line-forms"),
-    ("9b-02-step-line-forms", "9b", "02", "step-line-forms"),
-    ("9b-03-parallel-perpendicular", "9b", "03", "parallel-perpendicular"),
-    ("9b-04-angle-between-lines", "9b", "04", "angle-between-lines"),
-    ("9b-05-midpoint-division", "9b", "05", "midpoint-division"),
-    ("9b-06-point-line-distance", "9b", "06", "point-line-distance"),
-    ("9b-07-step-distance-line", "9b", "07", "step-distance-line"),
-    ("9b-08-two-lines-distance", "9b", "08", "two-lines-distance"),
-    ("9b-09-point-circle-distance", "9b", "09", "point-circle-distance"),
-    ("9b-10-tangent-lines-circle", "9b", "10", "tangent-lines-circle"),
-    ("9b-11-circle-details", "9b", "11", "circle-details"),
-    ("9b-12-step-conic-circle", "9b", "12", "step-conic-circle"),
-    ("9b-13-ellipse-details", "9b", "13", "ellipse-details"),
-    ("9b-14-step-conic-ellipse", "9b", "14", "step-conic-ellipse"),
-    ("9b-15-parabola-details", "9b", "15", "parabola-details"),
-    ("9b-16-step-conic-parabola", "9b", "16", "step-conic-parabola"),
-    ("9b-17-hyperbola-details", "9b", "17", "hyperbola-details"),
-    ("9b-18-step-conic-hyperbola", "9b", "18", "step-conic-hyperbola"),
-    ("9b-19-conic-identification", "9b", "19", "conic-identification"),
-    ("9b-20-conic-comparison", "9b", "20", "conic-comparison"),
-    ("9b-21-parametric-motion", "9b", "21", "parametric-motion"),
-    ("9b-22-step-parametric", "9b", "22", "step-parametric"),
-    ("9b-23-triangle-area", "9b", "23", "triangle-area"),
-    ("9b-24-area-polygon", "9b", "24", "area-polygon"),
-    ("9b-25-point-reflection", "9b", "25", "point-reflection"),
-]
-
-# All `_KNOWN` entries are 4-tuples (gid, session, num, slug) -> canonical path.
-_GRAPH_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "graphs"))
-
-
-def _resolve(gid, session, num, slug):
-    del gid
-    return _graph_path(session, num, slug)
-
-
-KNOWN_GRAPHS = {gid: _resolve(gid, session, num, slug)
-                for gid, session, num, slug in _KNOWN}
+# Every registered graph maps to a canonical <GRAPH_ROOT>/<session>/<nn>-<slug>.png
+KNOWN_GRAPHS = {gid: s.path for gid, s in _registry_specs().items()}
 
 # Matches {{graph:any-chars-here}}
 _REF = re.compile(r"\{\{graph:([^}]+)\}\}")

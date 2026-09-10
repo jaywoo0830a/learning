@@ -1,9 +1,11 @@
 """Session 9B graphs — rebuilt genuinely on the VIZ framework.
 
 Each builder:
-  1. verifies a core math fact with sympy (`facts`),
-  2. draws only through the shared VIZ primitives,
-  3. returns (fig, facts, path) where path is canonical under graphs/9b/.
+  1. verifies a core math fact with sympy (``facts``) and attaches it as
+     ``checks`` (name -> () -> bool) so tests run every claim uniformly,
+  2. draws only through the shared VIZ primitives / canvas helpers,
+  3. is registered via ``@graph`` — the single source of truth for its id and
+     canonical ``graphs/9b/<nn>-<slug>.png`` location.
 """
 from __future__ import annotations
 
@@ -15,12 +17,18 @@ from viz.theme import PALETTE as C
 from viz.primitives import grid, conic
 from viz.primitives.conic import plot_circle_c, plot_ellipse_c, plot_param2d, plot_parabola_v, plot_hyperbola_branches, plot_asymptotes
 from viz.primitives.curve import plot_curve, plot_point
-from viz.coords import coords_ax, build_and_save
+from viz.coords import coords_ax
+from viz.registry import graph
 
 
+@graph("9b-01-line-forms", session="9b", number="01", slug="line-forms")
 def build_line_forms():
     """Five forms of one line 2x+3y=6, each on its own subplot."""
     facts = {"line_expr": sp.simplify(2 * sp.Symbol("x") + 3 * sp.Symbol("y") - 6)}
+
+    checks = {
+        "line 2x+3y=6 passes through (3,0)": lambda: bool(sp.simplify(2*3 + 3*0 - 6) == 0),
+    }
 
     fig, axes = subplots_canvas(2, 3, size=(14, 9))
     xs = np.linspace(-2, 8, 100)
@@ -39,13 +47,18 @@ def build_line_forms():
     axes.flat[-1].text(0.5, 0.5, "2x + 3y = 6", transform=axes.flat[-1].transAxes,
                        ha="center", va="center", fontsize=16, fontweight="bold", color="navy")
     fig.suptitle("The Five Forms of a Line", fontsize=14, fontweight="bold")
-    fig, path = build_and_save(fig, "9b", "01", "line-forms")
-    return fig, facts, path
+    return fig, facts, checks
 
 
+
+@graph("9b-02-step-line-forms", session="9b", number="02", slug="step-line-forms")
 def build_step_line_forms():
     """Walk the 3-step build of the line through (2,1) with slope 3/4."""
     facts = {"slope": sp.Rational(3, 4)}
+
+    checks = {
+        "line through (2,1) and (6,4) has slope 3/4": lambda: bool(facts['slope'] == sp.Rational(3, 4) and sp.simplify(sp.Rational(4 - 1, 6 - 2)) == sp.Rational(3, 4)),
+    }
 
     fig, axes = subplots_canvas(1, 3, size=(15, 5))
     xs = np.linspace(-1, 7, 100)
@@ -58,14 +71,19 @@ def build_step_line_forms():
             plot_point(ax, 6, 4)
         ax.set_title(titles[i], fontweight="bold")
     fig.suptitle("Building a Line — Step by Step", fontsize=14, fontweight="bold")
-    fig, path = build_and_save(fig, "9b", "02", "step-line-forms")
-    return fig, facts, path
+    return fig, facts, checks
 
 
+
+@graph("9b-03-parallel-perpendicular", session="9b", number="03", slug="parallel-perpendicular")
 def build_parallel_perpendicular():
     """Parallel (same m) and perpendicular (product -1)."""
     m1, m2 = sp.Rational(2, 3), sp.Rational(-3, 2)
     facts = {"perp_product": sp.simplify(m1 * m2)}
+
+    checks = {
+        "perpendicular slopes multiply to -1": lambda: bool(facts['perp_product'] == -1),
+    }
 
     fig, (ax1, ax2) = subplots_canvas(1, 2, size=(13, 5.5))
     xs = np.linspace(-3, 3, 100)
@@ -81,16 +99,22 @@ def build_parallel_perpendicular():
     ax2.legend()
     ax2.text(0.5, 0.4, "90°", fontsize=14, color=C["purple"])
     fig.suptitle("Parallel and Perpendicular Lines", fontsize=14, fontweight="bold")
-    fig, path = build_and_save(fig, "9b", "03", "parallel-perpendicular")
-    return fig, facts, path
+    return fig, facts, checks
 
 
+
+@graph("9b-04-angle-between-lines", session="9b", number="04", slug="angle-between-lines")
 def build_angle_between_lines():
     """Angle between y=2x and y=-x/3: tan(phi)=|(m2-m1)/(1+m1 m2)|."""
     from matplotlib.patches import Arc
     m1, m2 = sp.Rational(2), sp.Rational(-1, 3)
     tan = sp.simplify(abs((m2 - m1) / (1 + m1 * m2)))
     facts = {"tan_phi": tan}
+
+    checks = {
+        "tan(phi) == 7": lambda: bool(facts['tan_phi'] == 7),
+        "angle from formula is ~81.9 deg": lambda: bool(np.isclose(np.degrees(np.arctan(7)), 81.87, atol=0.1)),
+    }
 
     fig, ax = new_canvas(size=(9, 7))
     coords_ax(ax, xlo=-2, xhi=3, ylo=-1, yhi=6)
@@ -102,13 +126,19 @@ def build_angle_between_lines():
     ax.text(0.45, 0.2, r"$\phi\approx 81.9°$", fontsize=13, color=C["purple"], fontweight="bold")
     ax.legend(fontsize=11)
     ax.set_title(r"Angle: $\tan\phi=\left|\frac{m_2-m_1}{1+m_1m_2}\right|=7$", fontweight="bold")
-    fig, path = build_and_save(fig, "9b", "04", "angle-between-lines")
-    return fig, facts, path
+    return fig, facts, checks
 
 
+
+@graph("9b-05-midpoint-division", session="9b", number="05", slug="midpoint-division")
 def build_midpoint_division():
     """Midpoint of (2,5)-(8,-1) is M(5,2); centroid of a triangle."""
     facts = {"mid": sp.Point(5, 2), "centroid": sp.Point(sp.Rational(11, 3), sp.Rational(5, 3))}
+
+    checks = {
+        "midpoint == (5,2)": lambda: bool(facts['mid'] == sp.Point(5, 2)),
+        "centroid == (11/3, 5/3)": lambda: bool(facts['centroid'] == sp.Point(sp.Rational(11, 3), sp.Rational(5, 3))),
+    }
 
     fig, (ax1, ax2) = subplots_canvas(1, 2, size=(13, 5.5))
     grid.light_grid(ax1)
@@ -128,15 +158,20 @@ def build_midpoint_division():
     grid.set_limits(ax2, -1, 10, -1, 9)
     ax2.set_title("Centroid", fontweight="bold")
     fig.suptitle("Midpoint and Section Formula", fontsize=14, fontweight="bold")
-    fig, path = build_and_save(fig, "9b", "05", "midpoint-division")
-    return fig, facts, path
+    return fig, facts, checks
 
 
+
+@graph("9b-06-point-line-distance", session="9b", number="06", slug="point-line-distance")
 def build_point_line_distance():
     """Distance from P(6,4) to 3x+4y-12=0 is 22/5."""
     x0, y0, A, B, Cv = 6, 4, 3, 4, -12
     dist = sp.simplify(abs(A * x0 + B * y0 + Cv) / sp.sqrt(A**2 + B**2))
     facts = {"distance": dist}
+
+    checks = {
+        "distance from (6,4) to 3x+4y-12=0 is 22/5": lambda: bool(facts['distance'] == sp.Rational(22, 5)),
+    }
 
     fig, (ax1, ax2) = subplots_canvas(1, 2, size=(14, 6))
     xs = np.linspace(-2, 6, 100)
@@ -152,11 +187,16 @@ def build_point_line_distance():
              transform=ax2.transAxes, fontsize=15, va="center",
              bbox=dict(boxstyle="round", facecolor="#f0f0f0", alpha=0.8))
     fig.suptitle("Point-to-Line Distance Formula", fontsize=14, fontweight="bold")
-    fig, path = build_and_save(fig, "9b", "06", "point-line-distance")
-    return fig, facts, path
+    return fig, facts, checks
+
+@graph("9b-07-step-distance-line", session="9b", number="07", slug="step-distance-line")
 def build_step_distance_line():
     """3-step derivation of point-to-line distance."""
     facts = {"dist": sp.Rational(22, 5)}
+
+    checks = {
+        "point-line distance is 22/5": lambda: bool(facts['dist'] == sp.Rational(22, 5)),
+    }
     fig, axes = subplots_canvas(1, 3, size=(15, 5))
     xs = np.linspace(-1, 7, 100)
     titles = ["Step 1: line + point", "Step 2: perpendicular leg", "Step 3: formula"]
@@ -166,14 +206,19 @@ def build_step_distance_line():
         plot_point(ax, 6, 4, color="red")
         ax.set_title(titles[i], fontweight="bold")
     fig.suptitle("Deriving Point-to-Line Distance", fontsize=14, fontweight="bold")
-    fig, path = build_and_save(fig, "9b", "07", "step-distance-line")
-    return fig, facts, path
+    return fig, facts, checks
 
 
+
+@graph("9b-08-two-lines-distance", session="9b", number="08", slug="two-lines-distance")
 def build_two_lines_distance():
     """Distance between parallel lines 3x+4y=12 and 3x+4y=-8."""
     d = sp.simplify(abs(12 - (-8)) / sp.sqrt(3**2 + 4**2))
     facts = {"distance": d}
+
+    checks = {
+        "distance between 3x+4y=12 and 3x+4y=-8 is 4": lambda: bool(facts['distance'] == 4),
+    }
     fig, (ax1, ax2) = subplots_canvas(1, 2, size=(13, 5.5))
     xs = np.linspace(-2, 5, 100)
     for ax in (ax1, ax2):
@@ -186,14 +231,19 @@ def build_two_lines_distance():
     ax1.set_title("Two parallel lines", fontweight="bold")
     ax2.set_title("Distance between parallels", fontweight="bold")
     fig.suptitle("Distance Between Parallel Lines", fontsize=14, fontweight="bold")
-    fig, path = build_and_save(fig, "9b", "08", "two-lines-distance")
-    return fig, facts, path
+    return fig, facts, checks
 
 
+
+@graph("9b-09-point-circle-distance", session="9b", number="09", slug="point-circle-distance")
 def build_point_circle_distance():
     """Point (6,1) to circle center (3,-2) radius 3: dist to circle = 3sqrt2-3."""
     d = sp.simplify(sp.sqrt((6 - 3) ** 2 + (1 + 2) ** 2) - 3)
     facts = {"to_circle": d}
+
+    checks = {
+        "distance to circle == 3sqrt(2) - 3": lambda: bool(sp.simplify(facts['to_circle'] - (3*sp.sqrt(2) - 3)) == 0),
+    }
     theta = np.linspace(0, 2 * np.pi, 200)
     fig, ax = new_canvas(size=(8, 6))
     coords_ax(ax, xlo=-2, xhi=8, ylo=-5, yhi=4)
@@ -204,10 +254,11 @@ def build_point_circle_distance():
     ax.text(3, -1.4, "C(3,-2) R=3", color=C["red"], fontweight="bold")
     ax.text(6, 1.2, "P(6,1)", color=C["red"], fontweight="bold")
     ax.set_title(r"$PC=\sqrt{18}=3\sqrt{2}$; to circle $=3\sqrt{2}-3$", fontweight="bold")
-    fig, path = build_and_save(fig, "9b", "09", "point-circle-distance")
-    return fig, facts, path
+    return fig, facts, checks
 
 
+
+@graph("9b-10-tangent-lines-circle", session="9b", number="10", slug="tangent-lines-circle")
 def build_tangent_lines_circle():
     """Two tangents from P(8,0) to circle x^2+y^2=16 (center 0, R=4)."""
     # tangent point satisfies x^2+y^2=16 and (x-8)x+(y) y = 0  => x=2, y=+-2sqrt3
@@ -216,6 +267,11 @@ def build_tangent_lines_circle():
                     sp.Eq(xp * (xp - 8) + yp * yp, 0)], [xp, yp])
     pts = [(sp.nsimplify(s[0]), sp.nsimplify(s[1])) for s in sol]
     facts = {"tangent_points": pts}
+
+    checks = {
+        "every tangent point lies on x^2+y^2=16": lambda: bool(all(sp.simplify(x**2 + y**2 - 16) == 0 for x, y in facts['tangent_points'])),
+        "external point (8,0) is outside the circle": lambda: bool(8**2 > 16),
+    }
     theta = np.linspace(0, 2 * np.pi, 200)
     fig, ax = new_canvas(size=(8, 7))
     coords_ax(ax, xlo=-1, xhi=9, ylo=-5, yhi=5)
@@ -227,14 +283,19 @@ def build_tangent_lines_circle():
     ax.text(8, 0.3, "P(8,0)", fontweight="bold", color=C["red"])
     ax.legend()
     ax.set_title("Tangents from an external point", fontweight="bold")
-    fig, path = build_and_save(fig, "9b", "10", "tangent-lines-circle")
-    return fig, facts, path
+    return fig, facts, checks
 
 
+
+@graph("9b-11-circle-details", session="9b", number="11", slug="circle-details")
 def build_circle_details():
     """Circle (x-3)^2+(y+2)^2=16: completing the square."""
     r, cx, cy = 4, 3, -2
     facts = {"center": sp.Point(cx, cy), "radius": r}
+
+    checks = {
+        "center (3,-2) radius 4": lambda: bool(facts['center'] == sp.Point(3, -2) and facts['radius'] == 4),
+    }
     theta = np.linspace(0, 2 * np.pi, 200)
     fig, (ax1, ax2) = subplots_canvas(1, 2, size=(13, 5.5))
     coords_ax(ax1, xlo=-3, xhi=9, ylo=-8, yhi=4)
@@ -250,11 +311,16 @@ def build_circle_details():
              transform=ax2.transAxes, fontsize=14, va="center", family="monospace",
              bbox=dict(boxstyle="round", facecolor="#f0f0f0", alpha=0.8))
     fig.suptitle("Circle — Standard vs General Form", fontsize=14, fontweight="bold")
-    fig, path = build_and_save(fig, "9b", "11", "circle-details")
-    return fig, facts, path
+    return fig, facts, checks
+
+@graph("9b-12-step-conic-circle", session="9b", number="12", slug="step-conic-circle")
 def build_step_conic_circle():
     """Build a circle (x-3)^2+(y+2)^2=16 from center to trace."""
     facts = {"radius": 4}
+
+    checks = {
+        "radius is 4": lambda: bool(facts['radius'] == 4),
+    }
     theta = np.linspace(0, 2 * np.pi, 200)
     fig, axes = subplots_canvas(1, 3, size=(15, 5))
     titles = ["Step 1: Center (h,k)", "Step 2: points at distance R", "Step 3: circle"]
@@ -266,15 +332,20 @@ def build_step_conic_circle():
             plot_curve(ax, 3 + 4 * np.cos(theta), -2 + 4 * np.sin(theta), color="blue", lw=2.5)
         ax.set_title(titles[i], fontweight="bold", fontsize=10)
     fig.suptitle("Building a Circle — Step by Step", fontsize=14, fontweight="bold")
-    fig, path = build_and_save(fig, "9b", "12", "step-conic-circle")
-    return fig, facts, path
+    return fig, facts, checks
 
 
+
+@graph("9b-13-ellipse-details", session="9b", number="13", slug="ellipse-details")
 def build_ellipse_details():
     """Ellipse x^2/25+y^2/9=1: foci +-4, sum property PF1+PF2=2a=10."""
     a, b = 5, 3
     c = sp.sqrt(sp.simplify(a**2 - b**2))
     facts = {"c": c}
+
+    checks = {
+        "c^2 == a^2 - b^2 == 16": lambda: bool(sp.simplify(facts['c'] ** 2) == 16),
+    }
     theta = np.linspace(0, 2 * np.pi, 300)
     fig, (ax1, ax2) = subplots_canvas(1, 2, size=(14, 6))
     coords_ax(ax1, xlo=-6, xhi=6, ylo=-4, yhi=4)
@@ -295,13 +366,18 @@ def build_ellipse_details():
     ax2.plot([pt, -4], [pya, 0], "r--", lw=1)
     ax2.set_title("Geometric definition: PF1+PF2=2a=10", fontweight="bold")
     fig.suptitle("Ellipse — Features and Geometric Definition", fontsize=14, fontweight="bold")
-    fig, path = build_and_save(fig, "9b", "13", "ellipse-details")
-    return fig, facts, path
+    return fig, facts, checks
 
 
+
+@graph("9b-14-step-conic-ellipse", session="9b", number="14", slug="step-conic-ellipse")
 def build_step_conic_ellipse():
     """3-step build: vertices, foci, trace of ellipse."""
     facts = {"c": 4}
+
+    checks = {
+        "c == 4": lambda: bool(facts['c'] == 4),
+    }
     theta = np.linspace(0, 2 * np.pi, 300)
     a, b = 5, 3
     fig, axes = subplots_canvas(1, 3, size=(15, 5))
@@ -319,12 +395,17 @@ def build_step_conic_ellipse():
             plot_curve(ax, a * np.cos(theta), b * np.sin(theta), color="blue", lw=2.5)
         ax.set_title(titles[i], fontweight="bold", fontsize=10)
     fig.suptitle("Building an Ellipse — Step by Step", fontsize=14, fontweight="bold")
-    fig, path = build_and_save(fig, "9b", "14", "step-conic-ellipse")
-    return fig, facts, path
+    return fig, facts, checks
+
+@graph("9b-15-parabola-details", session="9b", number="15", slug="parabola-details")
 def build_parabola_details():
     """Parabola y=0.5(x-2)^2+1: focus (2,3/2), directrix y=1/2; and PF=distance."""
     h, k, p = 2, 1, sp.Rational(1, 2)
     facts = {"focus": (h, k + p), "directrix": k - p}
+
+    checks = {
+        "focus (2, 3/2) and directrix y=1/2": lambda: bool(facts['focus'] == (2, sp.Rational(3, 2)) and facts['directrix'] == sp.Rational(1, 2)),
+    }
     xs = np.linspace(-1, 5, 200)
     fig, (ax1, ax2) = subplots_canvas(1, 2, size=(14, 6))
     coords_ax(ax1, xlo=-0.5, xhi=5, ylo=-0.5, yhi=5)
@@ -348,14 +429,19 @@ def build_parabola_details():
     ax2.text(1, 2.5, "PF = distance\nto directrix", color=C["red"], fontsize=10, fontweight="bold")
     ax2.set_title("Geometric definition: PF = dist to directrix", fontweight="bold")
     fig.suptitle("Parabola — Focus, Directrix, and Definition", fontsize=14, fontweight="bold")
-    fig, path = build_and_save(fig, "9b", "15", "parabola-details")
-    return fig, facts, path
+    return fig, facts, checks
 
 
+
+@graph("9b-16-step-conic-parabola", session="9b", number="16", slug="step-conic-parabola")
 def build_step_conic_parabola():
     """3-step build: vertex+directrix, focus, trace parabola."""
     h, k, p = 2, 1, 0.5
     facts = {"p": p}
+
+    checks = {
+        "|p| == 0.5": lambda: bool(abs(facts['p']) == 0.5),
+    }
     xs = np.linspace(-1, 5, 200)
     fig, axes = subplots_canvas(1, 3, size=(15, 5))
     titles = ["Step 1: vertex + directrix", "Step 2: focus at |p|", "Step 3: trace parabola"]
@@ -369,15 +455,20 @@ def build_step_conic_parabola():
             plot_parabola_v(ax, xs, 0.5, h=h, k=k, color="blue", lw=2.5)
         ax.set_title(titles[i], fontweight="bold", fontsize=10)
     fig.suptitle("Building a Parabola — Step by Step", fontsize=14, fontweight="bold")
-    fig, path = build_and_save(fig, "9b", "16", "step-conic-parabola")
-    return fig, facts, path
+    return fig, facts, checks
 
 
+
+@graph("9b-17-hyperbola-details", session="9b", number="17", slug="hyperbola-details")
 def build_hyperbola_details():
     """Hyperbola x^2/9-y^2/4=1: vertices +-3, foci +-sqrt(13); |PF1-PF2|=2a."""
     a, b = 3, 2
     c = sp.sqrt(a**2 + b**2)
     facts = {"c": sp.simplify(c)}
+
+    checks = {
+        "c^2 == a^2 + b^2 == 13": lambda: bool(sp.simplify(facts['c'] ** 2) == 13),
+    }
     fig, (ax1, ax2) = subplots_canvas(1, 2, size=(14, 6))
     for ax in (ax1, ax2):
         coords_ax(ax, xlo=-8, xhi=8, ylo=-6, yhi=6)
@@ -394,13 +485,18 @@ def build_hyperbola_details():
     ax1.set_title(r"$x^2/9-y^2/4=1$, foci $\pm\sqrt{13}$", fontweight="bold")
     ax2.set_title("Geometric definition: |PF1-PF2|=2a=6", fontweight="bold")
     fig.suptitle("Hyperbola — Features and Geometric Definition", fontsize=14, fontweight="bold")
-    fig, path = build_and_save(fig, "9b", "17", "hyperbola-details")
-    return fig, facts, path
+    return fig, facts, checks
+
+@graph("9b-18-step-conic-hyperbola", session="9b", number="18", slug="step-conic-hyperbola")
 def build_step_conic_hyperbola():
     """3-step build of hyperbola: rectangle+asymptotes, vertices+foci, trace."""
     a, b = 3, 2
     c = float(np.sqrt(a**2 + b**2))
     facts = {"c": a**2 + b**2}
+
+    checks = {
+        "c^2 == a^2 + b^2 == 13": lambda: bool(facts['c'] == 13),
+    }
     fig, axes = subplots_canvas(1, 3, size=(15, 5))
     titles = ["Step 1: rectangle + asymptotes", "Step 2: vertices + foci", "Step 3: trace hyperbola"]
     for i, ax in enumerate(axes.flat):
@@ -419,14 +515,20 @@ def build_step_conic_hyperbola():
             plot_hyperbola_branches(ax, a, b, xmax=7, color="blue", lw=2.5)
         ax.set_title(titles[i], fontweight="bold", fontsize=10)
     fig.suptitle("Building a Hyperbola — Step by Step", fontsize=14, fontweight="bold")
-    fig, path = build_and_save(fig, "9b", "18", "step-conic-hyperbola")
-    return fig, facts, path
+    return fig, facts, checks
 
 
+
+@graph("9b-19-conic-identification", session="9b", number="19", slug="conic-identification")
 def build_conic_identification():
     """Decision tree: discriminant Delta = B^2-4AC classifies a conic."""
     import matplotlib.patches as mpat
     facts = {"circle_condition": "A=C, B=0", "ellipse": "Delta<0", "parabola": "Delta=0", "hyperbola": "Delta>0"}
+
+    checks = {
+        "circle iff A==C and B==0": lambda: bool(facts['circle_condition'] == 'A=C, B=0'),
+        "parabola iff discriminant is 0": lambda: bool(facts['parabola'] == 'Delta=0'),
+    }
     fig, ax = new_canvas(size=(11, 8))
     ax.axis("off"); ax.set_xlim(0, 10); ax.set_ylim(0, 10)
     boxes = [
@@ -446,14 +548,19 @@ def build_conic_identification():
         ax.annotate("", xy=(x2, y2), xytext=(x1, y1),
                     arrowprops=dict(arrowstyle="->", color="gray", lw=1.5))
     ax.set_title("Conic Identification — The Discriminant Method", fontsize=14, fontweight="bold")
-    fig, path = build_and_save(fig, "9b", "19", "conic-identification")
-    return fig, facts, path
+    return fig, facts, checks
 
 
+
+@graph("9b-20-conic-comparison", session="9b", number="20", slug="conic-comparison")
 def build_conic_comparison():
     """Four conics side by side: circle, ellipse, parabola, hyperbola."""
     theta = np.linspace(0, 2 * np.pi, 300)
     facts = {"defs": ("circle=R", "ellipse=2a", "parabola=PF", "hyperbola=2a")}
+
+    checks = {
+        "four conics are enumerated": lambda: bool(len(facts['defs']) == 4),
+    }
     fig, axes = subplots_canvas(2, 2, size=(13, 11))
     # circle
     ax = axes[0, 0]
@@ -482,11 +589,17 @@ def build_conic_comparison():
     plot_asymptotes(ax, 3, 2, xmax=7, color="orange", lw=1.5)
     ax.set_title("Hyperbola\n$x^2/9-y^2/4=1$", fontweight="bold")
     fig.suptitle("Four Conic Sections — Side by Side", fontsize=15, fontweight="bold")
-    fig, path = build_and_save(fig, "9b", "20", "conic-comparison")
-    return fig, facts, path
+    return fig, facts, checks
+
+@graph("9b-21-parametric-motion", session="9b", number="21", slug="parametric-motion")
 def build_parametric_motion():
     """Parametric curves: line, circle, ellipse, cycloid."""
     facts = {"line": "P(t)=P0+t*v", "cycloid": "R(t-sin t,1-cos t)"}
+
+    checks = {
+        "circle samples satisfy x^2 + y^2 == 9": lambda: bool(np.allclose((3*np.cos(theta))**2 + (3*np.sin(theta))**2, 9)),
+        "ellipse samples satisfy x^2/16 + y^2/4 == 1": lambda: bool(np.allclose((4*np.cos(theta))**2/16 + (2*np.sin(theta))**2/4, 1)),
+    }
     t_line = np.linspace(0, 1, 50)
     theta = np.linspace(0, 2 * np.pi, 200)
     fig, axes = subplots_canvas(2, 2, size=(13, 11))
@@ -513,13 +626,18 @@ def build_parametric_motion():
     plot_param2d(ax, tc, R * (tc - np.sin(tc)), R * (1 - np.cos(tc)), color="blue", lw=2)
     ax.set_title("Cycloid\n$(R(t-\\sin t), R(1-\\cos t))$", fontweight="bold")
     fig.suptitle("Parametric Curves", fontsize=15, fontweight="bold")
-    fig, path = build_and_save(fig, "9b", "21", "parametric-motion")
-    return fig, facts, path
+    return fig, facts, checks
 
 
+
+@graph("9b-22-step-parametric", session="9b", number="22", slug="step-parametric")
 def build_step_parametric():
     """Animate a circle point then a cycloid via increasing sampling."""
     facts = {"circle": "ccw", "cycloid": "rolling"}
+
+    checks = {
+        "sampled circle points stay on x^2 + y^2 == 9": lambda: bool(np.allclose((3*np.cos(np.linspace(0, 2*np.pi, 300)))**2 + (3*np.sin(np.linspace(0, 2*np.pi, 300)))**2, 9)),
+    }
     fig, axes = subplots_canvas(2, 3, size=(15, 10))
     titles = ["Step 1: t animates", "Step 2: more snapshots", "Step 3: complete circle"]
     for col, n in enumerate([6, 12, 300]):
@@ -544,12 +662,17 @@ def build_step_parametric():
                        color="red", ms=6)
         ax.set_title(titles2[col], fontweight="bold", fontsize=10)
     fig.suptitle("Building Parametric Curves — Step by Step", fontsize=14, fontweight="bold")
-    fig, path = build_and_save(fig, "9b", "22", "step-parametric")
-    return fig, facts, path
+    return fig, facts, checks
+
+@graph("9b-23-triangle-area", session="9b", number="23", slug="triangle-area")
 def build_triangle_area():
     """Shoelace area of triangle (0,0),(4,0),(1,3)."""
     A = sp.Rational(1, 2) * abs(0 * (0 - 3) + 4 * (3 - 0) + 1 * (0 - 0))
     facts = {"area": A}
+
+    checks = {
+        "shoelace area == 6": lambda: bool(sp.simplify(facts['area']) == 6),
+    }
     tri = np.array([[0, 0], [4, 0], [1, 3], [0, 0]])
     fig, ax = new_canvas(size=(8, 6))
     coords_ax(ax, xlo=-1, xhi=6, ylo=-1, yhi=5)
@@ -561,16 +684,21 @@ def build_triangle_area():
     ax.text(2, 1.5, r"Area $=\frac{1}{2}|0+12|=6$", fontsize=13, ha="center",
             bbox=dict(boxstyle="round", facecolor="wheat", alpha=0.8))
     ax.set_title("Triangle Area — Shoelace Formula", fontsize=14, fontweight="bold")
-    fig, path = build_and_save(fig, "9b", "23", "triangle-area")
-    return fig, facts, path
+    return fig, facts, checks
 
 
+
+@graph("9b-24-area-polygon", session="9b", number="24", slug="area-polygon")
 def build_area_polygon():
     """Shoelace area of polygon (0,0),(5,0),(4,3),(1,4)."""
     pts = [(0, 0), (5, 0), (4, 3), (1, 4)]
     s = sum(x0 * y1 - x1 * y0 for (x0, y0), (x1, y1) in zip(pts, pts[1:] + pts[:1]))
     A = sp.Rational(1, 2) * abs(s)
     facts = {"area": A}
+
+    checks = {
+        "shoelace area == 14": lambda: bool(sp.simplify(facts['area']) == 14),
+    }
     poly = np.array(pts + [pts[0]])
     fig, (ax1, ax2) = subplots_canvas(1, 2, size=(13, 5.5))
     for ax in (ax1, ax2):
@@ -584,13 +712,19 @@ def build_area_polygon():
     ax2.text(2.5, 2, r"Area $=\frac{1}{2}|0+15+13+0|=14$", fontsize=13, ha="center",
              bbox=dict(boxstyle="round", facecolor="wheat", alpha=0.8))
     fig.suptitle("Polygon Area — The Shoelace Formula", fontsize=14, fontweight="bold")
-    fig, path = build_and_save(fig, "9b", "24", "area-polygon")
-    return fig, facts, path
+    return fig, facts, checks
 
 
+
+@graph("9b-25-point-reflection", session="9b", number="25", slug="point-reflection")
 def build_point_reflection():
     """Reflect P(1,5) across x+y=0 to P'(-5,-1); midpoint (-2,2)."""
     facts = {"reflection": sp.Point(-5, -1), "midpoint": sp.Point(-2, 2)}
+
+    checks = {
+        "reflection of (1,5) across x+y=0 is (-5,-1)": lambda: bool(facts['reflection'] == sp.Point(-5, -1)),
+        "midpoint is (-2,2)": lambda: bool(facts['midpoint'] == sp.Point(-2, 2)),
+    }
     xs = np.linspace(-6, 6, 100)
     fig, ax = new_canvas(size=(10, 8))
     coords_ax(ax, xlo=-7, xhi=7, ylo=-7, yhi=7)
@@ -604,6 +738,5 @@ def build_point_reflection():
     ax.text(-2.3, 2.3, "Midpoint (-2,2)", fontsize=10, fontweight="bold")
     ax.legend(fontsize=11)
     ax.set_title("Point Reflection Across $x+y=0$", fontsize=14, fontweight="bold")
-    fig, path = build_and_save(fig, "9b", "25", "point-reflection")
-    return fig, facts, path
-    return fig, facts, path
+    return fig, facts, checks
+

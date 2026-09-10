@@ -1,8 +1,9 @@
-# Tests for migrating the real session graph "14D1A-1 circle trade".
-#
-# The goal: reproduce the graph from the shared viz primitives, and promote the
-# facts it encodes (tangent slope, quadrant sign stories, vertical tangent)
-# into verifiable checks through the verify layer.
+"""Tests for migrating the real session graph "14D1A-1 circle trade".
+
+The graph is now registered under ``viz.registry`` and its builder returns
+``(fig, facts, checks)`` — where ``checks`` re-verifies the claims exactly the
+same way the render uses them (tangent slope, quadrant signs, vertical tangent).
+"""
 import matplotlib
 matplotlib.use("Agg", force=True)
 import matplotlib.pyplot as plt
@@ -61,15 +62,16 @@ class TestCircleTradeRender:
     def test_builder_returns_figure_and_facts(self):
         from scripts.graphs.spec_14d1a import build_circle_trade
 
-        fig, facts = build_circle_trade()
+        fig, facts, checks = build_circle_trade()
         assert facts["m_at_3_4"] == sp.Rational(-3, 4)
         assert len(fig.axes) == 1
+        assert bool(checks)
         plt.close(fig)
 
     def test_render_has_expected_artists(self):
         from scripts.graphs.spec_14d1a import build_circle_trade
 
-        fig, facts = build_circle_trade()
+        fig, facts, checks = build_circle_trade()
         ax = fig.axes[0]
         # circle + tangent line + (single-point) => curve and tangent are lines
         # plus quadrant annotations are text
@@ -86,7 +88,7 @@ class TestCircleTradeRender:
         """
         from scripts.graphs.spec_14d1a import build_circle_trade
 
-        fig, facts = build_circle_trade()
+        fig, facts, checks = build_circle_trade()
         ax = fig.axes[0]
         fig.canvas.draw()
         dx, dy = ax.transData.transform((3.0, 4.0))

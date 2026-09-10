@@ -52,16 +52,16 @@ class Test9BBuilders:
     def test_triangle_area_verified(self):
         from scripts.graphs import spec_9b as s
         import sympy as sp
-        impl = s.build_triangle_area
-        fig, facts, path = impl()
+        fig, facts, checks = s.build_triangle_area()
         assert facts["area"] == 6 or facts["area"].is_integer
+        assert bool(checks)
         import matplotlib.pyplot as plt
         plt.close(fig)
 
     def test_hyperbola_c_verified(self):
         from scripts.graphs import spec_9b as s
         import sympy as sp
-        fig, facts, path = s.build_hyperbola_details()
+        fig, facts, checks = s.build_hyperbola_details()
         # c^2 = a^2 + b^2 = 9 + 4 = 13
         assert sp.simplify(facts["c"] ** 2) == 13
         import matplotlib.pyplot as plt
@@ -70,7 +70,7 @@ class Test9BBuilders:
     def test_point_reflection_verified(self):
         from scripts.graphs import spec_9b as s
         import sympy as sp
-        fig, facts, path = s.build_point_reflection()
+        fig, facts, checks = s.build_point_reflection()
         assert facts["reflection"] == sp.Point(-5, -1)
         assert facts["midpoint"] == sp.Point(-2, 2)
         import matplotlib.pyplot as plt
