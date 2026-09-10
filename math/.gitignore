@@ -7,5 +7,10 @@ __pycache__/
 # Matplotlib / test artifacts (generated, not committed)
 .mplconfig/
 
+# Build outputs — graphs and rendered markdown are generated artifacts
+graphs/
+build/
+scripts/graphs/*.png
+
 # Local dev scratch
 .env

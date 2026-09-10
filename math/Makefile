@@ -1,7 +1,7 @@
 # Development helpers for the math viz/verify core.
 # All commands run inside the Docker container so the host Python stays clean.
 
-.PHONY: build up run test shell clean run-sample
+.PHONY: build up run test shell clean run-sample graphs build-md
 
 # Build (or rebuild) the dev image.
 build:
@@ -18,6 +18,14 @@ test-collect:
 # Generate the verified demo graph (circle + tangent) into math/graphs/
 run-sample:
 	docker compose run --rm math python scripts/demo_circle_tangent.py
+
+# Regenerate all graphs (git-ignored) into math/graphs/
+graphs:
+	docker compose run --rm math python tools/build.py
+
+# Generate graphs then render markdown into build/rendered/ (source md untouched)
+build-md:
+	docker compose run --rm math python tools/build.py
 
 # Open a bash shell inside the container (for debugging).
 shell:
