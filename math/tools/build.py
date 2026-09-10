@@ -33,6 +33,8 @@ BUILDERS = {
 MARKDOWN_FILES = [
     "sessions/phase2/14D-relation-lens.md",
     "sessions/phase2/14D1-derivative-interpretation.md",
+    "sessions/phase2/9B-2d-functions-geometry.md",
+    "sessions/phase2/9C-3d-surfaces-geometry.md",
 ]
 
 RENDER_DIR = os.path.join(REPO, "build", "rendered")
@@ -45,7 +47,12 @@ def _import(name):
 
 
 def generate_graphs() -> dict:
-    """Rebuild every graph; return {id: abs_png_path}."""
+    """Rebuild every graph; return {id: abs_png_path}.
+
+    Individual ``(fig, facts, path)`` builders are saved to their canonical
+    path; bulk "spec" modules (9b, 9c) write their own graphs in place via a
+    ``build_all()`` that routes through the VIZ exporter.
+    """
     import matplotlib
     matplotlib.use("Agg", force=True)
     import matplotlib.pyplot as plt
@@ -54,6 +61,16 @@ def generate_graphs() -> dict:
     from viz.export import save_figure
 
     out = {}
+    # bulk modules first: they write their graphs in place via VIZ export.
+    from tools.build_markdown import KNOWN_GRAPHS
+    for modname, gid_key in (("scripts.graphs.spec_9b", "9b"),
+                             ("scripts.graphs.spec_9c", "9c")):
+        mod = _import(modname)
+        mod.build_all()
+        for gid, path in KNOWN_GRAPHS.items():
+            if gid.startswith(gid_key + "-"):
+                out[gid] = path
+    # individual builders
     for gid, builder_ref in BUILDERS.items():
         builder = _import(builder_ref)
         fig, facts, _ = builder()
@@ -76,8 +93,8 @@ def render_markdown() -> list:
             continue
         with open(src, encoding="utf-8") as fh:
             text = fh.read()
-        resolved = render_text(text, src)
         out = os.path.join(RENDER_DIR, os.path.basename(rel))
+        resolved = render_text(text, out)
         with open(out, "w", encoding="utf-8") as fh:
             fh.write(resolved)
         written.append(out)

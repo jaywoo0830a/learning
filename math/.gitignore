@@ -12,5 +12,11 @@ graphs/
 build/
 scripts/graphs/*.png
 
+# Legacy + scaffolding: graph PNGs and one-off port helpers are not committed
+sessions/**/graphs/
+scripts/graphs/port_*.py
+scripts/graphs/HEAD_*.py
+scripts/graphs/ASSEMBLE.py
+
 # Local dev scratch
 .env

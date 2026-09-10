@@ -26,7 +26,7 @@ A line through $(x_1,y_1)$ with slope $m$. Five ways to write it — each suited
 | ④ | **Intercept** | $\frac{x}{a} + \frac{y}{b} = 1$ | When $x$- and $y$-intercepts are known |
 | ⑤ | **General** | $Ax + By + C = 0$ | Distance formulas, intersection, systems |
 
-![The five forms of a line](graphs/0720/9B/9b-line-forms.png)
+![The five forms of a line]({{graph:9b-line-forms}})
 
 *Graph 9B-A1: The same line $2x+3y=6$ expressed in all five forms. Each form highlights a different feature — slope, intercepts, points, or the normal vector.*
 
@@ -55,7 +55,7 @@ $\frac{y-1}{x-2} = \frac{4-1}{6-2} = \frac{3}{4}$.
 
 > **Every form contains the same line.** Converting between them is a core skill — each form solves a different type of problem.
 
-![Converting between line forms](graphs/0720/9B/9b-step-line-forms.png)
+![Converting between line forms]({{graph:9b-step-line-forms}})
 
 *Graph 9B-S1: Building a line in three steps. Step 1 — Plot point (2,1) and use slope 3/4 to find a second point. Step 2 — Draw the line. Step 3 — Label all five forms on the same line.*
 
@@ -79,7 +79,7 @@ $y = \frac{2}{3}x$ is perpendicular to $y = -\frac{3}{2}x$, since $\frac{2}{3} \
 
 **Why $m_1 m_2 = -1$?** Rotating a line by $90°$ sends $\Delta x \to -\Delta y$ and $\Delta y \to \Delta x$, so the new slope is $-\frac{1}{m}$.
 
-![Parallel and perpendicular lines](graphs/0720/9B/9b-parallel-perpendicular.png)
+![Parallel and perpendicular lines]({{graph:9b-parallel-perpendicular}})
 
 *Graph 9B-A2: Left — Two parallel lines ($m=2$), same steepness, different heights. Right — Two perpendicular lines ($m=2/3$ and $m=-3/2$), the product of slopes equals $-1$.*
 
@@ -101,7 +101,7 @@ $\phi = \tan^{-1}(7) \approx 81.9°$.
 - If $1 + m_1 m_2 = 0$ (denominator zero), the lines are **perpendicular** ($\phi = 90°$).
 - If $m_1 = m_2$ (numerator zero), the lines are **parallel** ($\phi = 0°$).
 
-![Angle between two lines](graphs/0720/9B/9b-angle-between-lines.png)
+![Angle between two lines]({{graph:9b-angle-between-lines}})
 
 *Graph 9B-A3: The angle $\phi$ between lines $y=2x$ and $y=-x/3$ is $\tan^{-1}(7) \approx 81.9°$. The formula comes from the tangent subtraction identity.*
 
@@ -122,7 +122,7 @@ $P = \left(\frac{2(7)+1(1)}{3},\; \frac{2(8)+1(2)}{3}\right) = (5, 6)$.
 
 **Centroid of a triangle** (average of vertices): $G = \left(\frac{x_1+x_2+x_3}{3},\; \frac{y_1+y_2+y_3}{3}\right)$.
 
-![Midpoint and section formula](graphs/0720/9B/9b-midpoint-division.png)
+![Midpoint and section formula]({{graph:9b-midpoint-division}})
 
 *Graph 9B-A4: Left — Midpoint bisects the segment. Right — Section formula divides the segment in ratio 2:1. The centroid of the triangle is the average of its three vertices.*
 
@@ -165,11 +165,11 @@ $d = \frac{|3(3) + 4(4) - 10|}{\sqrt{3^2 + 4^2}} = \frac{|9 + 16 - 10|}{5} = \fr
 
 **Numerator intuition**: $Ax_0 + By_0 + C$ measures how "wrong" the point is — plug it into the line equation. If the point lies on the line, the expression equals $0$ and $d = 0$.
 
-![Point-to-line distance derivation](graphs/0720/9B/9b-point-line-distance-derivation.png)
+![Point-to-line distance derivation]({{graph:9b-point-line-distance-derivation}})
 
 *Graph 9B-B1: Deriving the point-to-line distance formula. Step 1 — The shortest path is perpendicular (red dashed). Step 2 — The normal vector (A,B) points perpendicular to the line. Step 3 — The distance is the projection length.*
 
-![Step-by-step distance calculation](graphs/0720/9B/9b-step-distance-line.png)
+![Step-by-step distance calculation]({{graph:9b-step-distance-line}})
 
 *Graph 9B-S2: Computing distance from (3,4) to 3x+4y=10 in three steps. Step 1 — Plot point and line. Step 2 — Draw perpendicular segment. Step 3 — Apply formula: |9+16−10|/5 = 3. The foot of the perpendicular is at (1.2, 1.6).*
 
@@ -186,7 +186,7 @@ $d = \frac{|15 - (-5)|}{\sqrt{9 + 16}} = \frac{20}{5} = 4$.
 
 **Why this works**: Pick any point on the first line, compute its distance to the second. The result is independent of which point you pick — hence the clean formula.
 
-![Distance between parallel lines](graphs/0720/9B/9b-two-lines-distance.png)
+![Distance between parallel lines]({{graph:9b-two-lines-distance}})
 
 *Graph 9B-B2: Two parallel lines $3x+4y-5=0$ and $3x+4y+15=0$ are 4 units apart. The perpendicular segment (red dashed) has length $|15-(-5)|/5 = 4$.*
 
@@ -206,7 +206,7 @@ $(1, 0)$ to circle $x^2 + y^2 = 9$: $\text{dist}(P, C) = 1$, $R = 3$. $d = 3 - 1
 
 **Case 3 — Point on the circle**: $d = 0$.
 
-![Point-to-circle distance](graphs/0720/9B/9b-point-circle-distance.png)
+![Point-to-circle distance]({{graph:9b-point-circle-distance}})
 
 *Graph 9B-B3: Left — P(5,0) outside the circle, distance = 5−3 = 2. Right — P(1,0) inside, distance = 3−1 = 2. The shortest path always passes through the center.*
 
@@ -227,7 +227,7 @@ $PC = 5$, $PT = \sqrt{25 - 4} = \sqrt{21}$.
 The tangent points satisfy $x^2 + y^2 = 4$ and the line from $(0,0)$ to $(x,y)$ being perpendicular to the line from $(5,0)$ to $(x,y)$.
 Solving: $T = \left(\frac{4}{5}, \pm\frac{2\sqrt{21}}{5}\right)$.
 
-![Tangent lines from a point to a circle](graphs/0720/9B/9b-tangent-lines-circle.png)
+![Tangent lines from a point to a circle]({{graph:9b-tangent-lines-circle}})
 
 *Graph 9B-B4: From P(5,0), two tangent lines touch the circle $x^2+y^2=4$ at symmetric points. The tangent length is $\sqrt{21} \approx 4.58$. Right triangles at each tangent point.*
 
@@ -258,11 +258,11 @@ $(x-3)^2 + (y+2)^2 = 16$. Center $(3, -2)$, radius $4$.
 
 **Circle through three points**: Solve a $3 \times 3$ system. If the points are $(x_1,y_1)$, $(x_2,y_2)$, $(x_3,y_3)$, plug each into $x^2+y^2+Dx+Ey+F=0$ and solve for $D, E, F$.
 
-![Circle — center, radius, and completing the square](graphs/0720/9B/9b-circle-details.png)
+![Circle — center, radius, and completing the square]({{graph:9b-circle-details}})
 
 *Graph 9B-C1: Circle $(x-3)^2+(y+2)^2=16$ with center (3,−2) and radius 4. The general form $x^2+y^2-6x+4y-3=0$ converts to standard form by completing the square in both x and y.*
 
-![Building a circle step by step](graphs/0720/9B/9b-step-conic-circle.png)
+![Building a circle step by step]({{graph:9b-step-conic-circle}})
 
 *Graph 9B-S3: Building a circle in three steps. Step 1 — Mark center (h,k). Step 2 — Draw all points at distance R. Step 3 — The circle with key features: center, radius, diameter, and the fact that $x^2$ and $y^2$ have equal coefficients.*
 
@@ -294,11 +294,11 @@ Eccentricity $e = \frac{4}{5} = 0.8$.
 
 **What if $b > a$?** Then the major axis is vertical. Swap roles: $c^2 = b^2 - a^2$, foci at $(h, k \pm c)$.
 
-![Ellipse with foci, vertices, and derivation](graphs/0720/9B/9b-ellipse-details.png)
+![Ellipse with foci, vertices, and derivation]({{graph:9b-ellipse-details}})
 
 *Graph 9B-C2: Ellipse $x^2/25 + y^2/9 = 1$. Left — All features labeled: center, vertices (±5,0), co-vertices (0,±3), foci (±4,0). Right — The constant-sum property: distance to F₁ + distance to F₂ = 2a = 10 for any point on the ellipse.*
 
-![Building an ellipse step by step](graphs/0720/9B/9b-step-conic-ellipse.png)
+![Building an ellipse step by step]({{graph:9b-step-conic-ellipse}})
 
 *Graph 9B-S4: Building an ellipse in three steps. Step 1 — Mark center, vertices ($\pm a$), co-vertices ($\pm b$). Step 2 — Mark foci at $(\pm c, 0)$ where $c^2=a^2-b^2$. Step 3 — Trace the ellipse: every point satisfies $PF_1+PF_2=2a$.*
 
@@ -329,11 +329,11 @@ Then $a = \frac{1}{4p}$, so $p = \frac{1}{4a}$.
 **Horizontal parabola**: $(y-k)^2 = 4p(x-h)$. Opens right if $p>0$, left if $p<0$.
 Focus $(h+p, k)$, directrix $x = h-p$.
 
-![Parabola — focus, directrix, and derivation of p](graphs/0720/9B/9b-parabola-details.png)
+![Parabola — focus, directrix, and derivation of p]({{graph:9b-parabola-details}})
 
 *Graph 9B-C3: Parabola $y = (x-2)^2/2 + 1$. Left — All features: vertex (2,1), focus (2, 1.5), directrix y=0.5, focal width |4p|=2. Right — The equidistance property: for any point on the parabola, distance to focus = distance to directrix.*
 
-![Building a parabola step by step](graphs/0720/9B/9b-step-conic-parabola.png)
+![Building a parabola step by step]({{graph:9b-step-conic-parabola}})
 
 *Graph 9B-S5: Building a parabola in three steps. Step 1 — Mark vertex (h,k) and directrix. Step 2 — Mark focus at distance |p| from vertex. Step 3 — Trace the parabola: every point is equidistant from focus and directrix.*
 
@@ -366,11 +366,11 @@ Asymptotes: $y = \pm\frac{2}{3}x$.
 
 **Vertical opening**: $\frac{(y-k)^2}{a^2} - \frac{(x-h)^2}{b^2} = 1$. Vertices at $(h, k \pm a)$, asymptotes $y-k = \pm\frac{a}{b}(x-h)$.
 
-![Hyperbola — foci, vertices, asymptotes, and derivation](graphs/0720/9B/9b-hyperbola-details.png)
+![Hyperbola — foci, vertices, asymptotes, and derivation]({{graph:9b-hyperbola-details}})
 
 *Graph 9B-C4: Hyperbola $x^2/9 - y^2/4 = 1$. Left — All features: center, vertices (±3,0), foci (±√13,0), asymptotes y=±(2/3)x. Right — The constant-difference property: |PF₁ − PF₂| = 2a = 6.*
 
-![Building a hyperbola step by step](graphs/0720/9B/9b-step-conic-hyperbola.png)
+![Building a hyperbola step by step]({{graph:9b-step-conic-hyperbola}})
 
 *Graph 9B-S6: Building a hyperbola in three steps. Step 1 — Draw the fundamental rectangle (±a, ±b) and its diagonals (asymptotes). Step 2 — Mark vertices (±a,0) and foci (±c,0). Step 3 — Trace both branches hugging the asymptotes.*
 
@@ -400,11 +400,11 @@ General second-degree equation: $Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0$.
 - $x^2 - y^2 = 0$ → $(x-y)(x+y)=0$ → two intersecting lines.
 - $x^2 = 0$ → a single line ($y$-axis, counted twice).
 
-![Conic identification flowchart](graphs/0720/9B/9b-conic-identification.png)
+![Conic identification flowchart]({{graph:9b-conic-identification}})
 
 *Graph 9B-C5: Identifying conics by discriminant $B^2-4AC$. Negative → ellipse (or circle). Zero → parabola. Positive → hyperbola. Complete the square to find the center/vertex and specific features.*
 
-![Four conics side by side](graphs/0720/9B/9b-conic-comparison.png)
+![Four conics side by side]({{graph:9b-conic-comparison}})
 
 *Graph 9B-C6: All four conic sections compared — Circle ($x^2+y^2=R^2$), Ellipse ($x^2/a^2+y^2/b^2=1$), Parabola ($y=x^2/(4p)$), Hyperbola ($x^2/a^2-y^2/b^2=1$). Each with its geometric definition labeled.*
 
@@ -463,11 +463,11 @@ At $t=2\pi$: $(2\pi R, 0)$ — back to the ground, one full arch.
 
 **Arch length** (one full rotation): $t \in [0, 2\pi]$, horizontal displacement = $2\pi R$.
 
-![Parametric curves — line, circle, ellipse, cycloid](graphs/0720/9B/9b-parametric-motion.png)
+![Parametric curves — line, circle, ellipse, cycloid]({{graph:9b-parametric-motion}})
 
 *Graph 9B-D1: Four parametric curves. Top-left — Line segment: uniform motion from A to B. Top-right — Circle: constant speed counterclockwise. Bottom-left — Ellipse: stretched circle. Bottom-right — Cycloid: a point on a rolling wheel traces arches.*
 
-![Building parametric curves step by step](graphs/0720/9B/9b-step-parametric.png)
+![Building parametric curves step by step]({{graph:9b-step-parametric}})
 
 *Graph 9B-S7: Parametric curves built in three stages each. Left column — The parameter t animates a point along the curve. Middle — Multiple snapshots show the motion. Right — The complete curve with direction arrows.*
 
@@ -496,7 +496,7 @@ Area = $\frac{1}{2}|0(0-3) + 4(3-0) + 1(0-0)| = \frac{1}{2}|12| = 6$.
 
 **Geometric interpretation**: Arrange coordinates in a column, repeat the first, multiply diagonally (down then up), take half the absolute difference.
 
-![Triangle area from coordinates — the shoelace formula](graphs/0720/9B/9b-triangle-area-coordinates.png)
+![Triangle area from coordinates — the shoelace formula]({{graph:9b-triangle-area-coordinates}})
 
 *Graph 9B-E1: Triangle with vertices (0,0), (4,0), (1,3). Area = 6 by the shoelace formula. The same result comes from $\frac{1}{2}\cdot\text{base}\cdot\text{height} = \frac{1}{2}\cdot4\cdot3 = 6$.*
 
@@ -518,7 +518,7 @@ $(4,3)$ → $4\cdot4 - 1\cdot3 = 13$
 $(1,4)$ → $1\cdot0 - 0\cdot4 = 0$
 Sum = $28$. Area = $\frac{1}{2}|28| = 14$.
 
-![Polygon area — the shoelace formula](graphs/0720/9B/9b-area-polygon.png)
+![Polygon area — the shoelace formula]({{graph:9b-area-polygon}})
 
 *Graph 9B-E2: The shoelace formula applied to a quadrilateral. Left — Vertices in counterclockwise order. Middle — The diagonal products. Right — Area = 14. This works for any simple polygon.*
 
@@ -538,7 +538,7 @@ $Ax_0+By_0+C = 1+5 = 6$, $A^2+B^2 = 2$.
 $P' = (1,5) - 2\cdot\frac{6}{2}\cdot(1,1) = (1,5) - (6,6) = (-5,-1)$.
 Check: midpoint $(-2, 2)$ lies on $y=-x$. ✓
 
-![Point reflection across a line](graphs/0720/9B/9b-point-reflection.png)
+![Point reflection across a line]({{graph:9b-point-reflection}})
 
 *Graph 9B-E3: Reflecting point (1,5) across the line x+y=0 gives (−5,−1). The line is the perpendicular bisector of the segment connecting point and its reflection. Midpoint (−2,2) lies on the line.*
 

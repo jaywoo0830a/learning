@@ -26,11 +26,11 @@ The coordinate planes divide space into 8 **octants** (like quadrants in 2D):
 
 **Plotting $(3, 2, 4)$**: From origin, go 3 units along $+x$, then 2 along $+y$, then 4 up along $+z$. The point floats in space.
 
-![The 3D coordinate system — axes, planes, and octants](graphs/0720/9C/9c-coordinate-system-3d.png)
+![The 3D coordinate system — axes, planes, and octants]({{graph:9c-coordinate-system-3d}})
 
 *Graph 9C-A1: The 3D coordinate system with the three axes (x red, y green, z blue), the three coordinate planes (xy, xz, yz), and a point (3,2,4) plotted in Octant I. The dashed lines show the perpendicular projections onto each coordinate plane.*
 
-![Building 3D coordinates step by step](graphs/0720/9C/9c-step-3d-coords.png)
+![Building 3D coordinates step by step]({{graph:9c-step-3d-coords}})
 
 *Graph 9C-S1: Plotting a point in 3D — three stages. Step 1 — Move along the x-axis to (3,0,0). Step 2 — Move parallel to y-axis to (3,2,0) on the xy-plane. Step 3 — Rise parallel to z-axis to the final point (3,2,4). The dashed box helps visualize the point's position in space.*
 
@@ -87,11 +87,11 @@ Result is along $+z$-axis — precisely the right-hand rule. ✓
 
 **Why cross product matters**: Finding normals to planes, computing areas, and describing rotations all use the cross product.
 
-![Dot product and cross product — geometric meaning](graphs/0720/9C/9c-vector-dot-cross.png)
+![Dot product and cross product — geometric meaning]({{graph:9c-vector-dot-cross}})
 
 *Graph 9C-A2: Left — Dot product: $\vec{u}\cdot\vec{v} = |\vec{u}||\vec{v}|\cos\theta$, measuring alignment. Right — Cross product: $\vec{u}\times\vec{v}$ is perpendicular to both, magnitude = area of parallelogram.*
 
-![Building vectors step by step](graphs/0720/9C/9c-step-vectors.png)
+![Building vectors step by step]({{graph:9c-step-vectors}})
 
 *Graph 9C-S2: Vectors in 3D — three stages. Step 1 — A vector as a directed segment from origin. Step 2 — Vector addition: tip-to-tail $\vec{u}+\vec{v}$. Step 3 — Cross product $\vec{u}\times\vec{v}$ is perpendicular to the plane containing $\vec{u}$ and $\vec{v}$.*
 
@@ -129,15 +129,15 @@ Using $A(1,0,0)$: $6(x-1) + 3(y-0) + 2(z-0) = 0$ → $6x + 3y + 2z = 6$.
 
 **Intercept form**: Divide by 6: $\frac{x}{1} + \frac{y}{2} + \frac{z}{3} = 1$. The plane cuts the axes at $x=1$, $y=2$, $z=3$.
 
-![A plane in 3D — intercepts and normal vector](graphs/0720/9C/9c-plane-intercept.png)
+![A plane in 3D — intercepts and normal vector]({{graph:9c-plane-intercept}})
 
 *Graph 9C-B1: The plane $2x+3y-z=6$ with its three intercepts (3,0,0), (0,2,0), (0,0,−6) and the normal vector $\vec{n}=(2,3,-1)$ perpendicular to every direction in the plane.*
 
-![Normal vector perpendicular to plane](graphs/0720/9C/9c-plane-normal.png)
+![Normal vector perpendicular to plane]({{graph:9c-plane-normal}})
 
 *Graph 9C-B2: The normal vector $\vec{n}=(a,b,c)$ is perpendicular to every line lying in the plane $ax+by+cz=d$. This is the defining property — analogous to how slope is perpendicular to the normal in 2D.*
 
-![Building a plane step by step](graphs/0720/9C/9c-step-plane.png)
+![Building a plane step by step]({{graph:9c-step-plane}})
 
 *Graph 9C-S3: Building a plane in three steps. Step 1 — Three points A(1,0,0), B(0,2,0), C(0,0,3). Step 2 — Vectors $\vec{AB}$ and $\vec{AC}$, cross product gives normal (6,3,2). Step 3 — The plane $6x+3y+2z=6$ with intercept form $\frac{x}{1}+\frac{y}{2}+\frac{z}{3}=1$.*
 
@@ -156,7 +156,7 @@ $D = \frac{|2+6+3-6|}{\sqrt{4+9+1}} = \frac{5}{\sqrt{14}} \approx 1.336$.
 
 **Geometric meaning**: The numerator is how "wrong" the point is — plug it into the plane equation. The denominator is the length of the normal vector, normalizing for the plane's orientation.
 
-![Point-to-plane distance](graphs/0720/9C/9c-point-plane-distance.png)
+![Point-to-plane distance]({{graph:9c-point-plane-distance}})
 
 *Graph 9C-B3: Distance from (1,2,3) to plane $2x+3y+z=6$ is $5/\sqrt{14}\approx 1.336$. The shortest segment (red dashed) is perpendicular to the plane — parallel to the normal vector (2,3,1).*
 
@@ -177,7 +177,7 @@ $$\cos\theta = \frac{|\vec{n}_1 \cdot \vec{n}_2|}{|\vec{n}_1||\vec{n}_2|} = \fra
 $\vec{n}_1=(1,1,1)$, $\vec{n}_2=(1,-1,0)$.
 $\cos\theta = \frac{|1-1+0|}{\sqrt{3}\cdot\sqrt{2}} = \frac{0}{\sqrt{6}} = 0$ → $\theta = 90°$. The planes are perpendicular.
 
-![Angle between two planes](graphs/0720/9C/9c-angle-planes.png)
+![Angle between two planes]({{graph:9c-angle-planes}})
 
 *Graph 9C-B4: The angle between two planes equals the angle between their normals. Left — Planes at 60°. Right — Perpendicular planes ($\vec{n}_1\cdot\vec{n}_2=0$).*
 
@@ -194,7 +194,7 @@ $D = \frac{|-7 - 5|}{\sqrt{4+1+4}} = \frac{12}{3} = 4$.
 
 **Compare to 2D**: $d = \frac{|C_2-C_1|}{\sqrt{A^2+B^2}}$ for parallel lines. Same pattern — one dimension up.
 
-![Distance between parallel planes](graphs/0720/9C/9c-distance-parallel-planes.png)
+![Distance between parallel planes]({{graph:9c-distance-parallel-planes}})
 
 *Graph 9C-B5: Two parallel planes $2x-y+2z=5$ and $2x-y+2z=-7$ are 4 units apart. The perpendicular segment (red dashed) has length $|−7−5|/3 = 4$.*
 
@@ -223,7 +223,7 @@ $(x^2-4x) + (y^2+6y) + (z^2-2z) = 11$.
 $(x-2)^2 + (y+3)^2 + (z-1)^2 = 11+4+9+1 = 25$.
 Center $(2,-3,1)$, radius $5$.
 
-![Sphere — center, radius, and completing the square](graphs/0720/9C/9c-sphere-details.png)
+![Sphere — center, radius, and completing the square]({{graph:9c-sphere-details}})
 
 *Graph 9C-C1: Sphere $(x-2)^2+(y+3)^2+(z-1)^2=25$ with center (2,−3,1) and radius 5. The wireframe shows the spherical surface. Three orthogonal great circles are highlighted.*
 
@@ -241,7 +241,7 @@ $(10, 0, 0)$ to $x^2+y^2+z^2=25$: $|PC|=10$, $R=5$, $d=5$.
 **Case 2 — Point inside** ($|PC| < R$): $d = R - |PC|$.
 $(2, 0, 0)$ to $x^2+y^2+z^2=25$: $|PC|=2$, $R=5$, $d=3$.
 
-![Point-to-sphere distance](graphs/0720/9C/9c-point-sphere-distance.png)
+![Point-to-sphere distance]({{graph:9c-point-sphere-distance}})
 
 *Graph 9C-C2: Left — P(10,0,0) outside, distance = 10−5 = 5. Right — P(2,0,0) inside, distance = 5−2 = 3. The shortest path always passes through the sphere's center.*
 
@@ -273,11 +273,11 @@ $z = x^2 + y^2$: The graph is a bowl opening upward. Minimum $z=0$ at $(0,0)$. R
 
 $z = \sqrt{1 - x^2 - y^2}$: The graph is the upper hemisphere. Range: $[0, 1]$.
 
-![Surface as a height map](graphs/0720/9C/9c-surface-height-map.png)
+![Surface as a height map]({{graph:9c-surface-height-map}})
 
 *Graph 9C-D1: $z=x^2+y^2$ as a height map. Each point (x,y) in the domain has a height z. The red point at (1, 1, 2) shows: feed (1,1) into the rule, get height 2. The surface is the collection of all such points.*
 
-![Building a 3D surface — wireframe to solid](graphs/0720/9C/9c-step-surface-build.png)
+![Building a 3D surface — wireframe to solid]({{graph:9c-step-surface-build}})
 
 *Graph 9C-S4: Building $z=x^2+y^2$ in three stages. Step 1 — Wireframe skeleton reveals the bowl shape's underlying grid. Step 2 — Fill in the faces to see the solid paraboloid. Step 3 — Add level curves (white rings at z=1,2,3,4) to visualize how the bowl expands. The red dot marks the minimum at (0,0,0).*
 
@@ -313,7 +313,7 @@ Domain: right half-plane minus the horizontal line $y=1$.
 ③ Shade the region that satisfies the inequality.
 ④ If multiple conditions, shade the intersection.
 
-![Domain regions in the xy-plane](graphs/0720/9C/9c-domain-regions.png)
+![Domain regions in the xy-plane]({{graph:9c-domain-regions}})
 
 *Graph 9C-D2: Four domain regions. Top-left — Closed disk $x^2+y^2 \leq 4$ (solid boundary). Top-right — Open half-plane $x+y>0$ (dashed boundary). Bottom-left — Plane minus unit circle. Bottom-right — Intersection of $x \geq 0$ and $y \neq 1$.*
 
@@ -373,7 +373,7 @@ $f(x,y)=c$ → $y = x^2 + c$.
 - For any $c$: a parabola $y=x^2$ shifted up by $c$.
 - All level curves have the same shape — the surface is a translation of one curve.
 
-![Level curves of four key surfaces](graphs/0720/9C/9c-level-curves-method.png)
+![Level curves of four key surfaces]({{graph:9c-level-curves-method}})
 
 *Graph 9C-E1: Level curves of four surfaces. Top-left — $z=x^2+y^2$: concentric circles, spacing reveals bowl steepness. Top-right — $z=x^2-y^2$: hyperbolas reveal saddle. Bottom-left — $z=\sqrt{x^2+y^2}$: evenly spaced circles = cone. Bottom-right — $z=y-x^2$: identical parabolas shifted = cylinder.*
 
@@ -389,15 +389,15 @@ $f(x,y)=c$ → $y = x^2 + c$.
 ④ **Crossing curves**: Level curves of different heights NEVER cross (a point can't have two heights). If your algebra gives crossing curves, you made an error — or $c=0$ is special (saddle).
 ⑤ **Maximum/Minimum**: A point surrounded by closed loops is a local peak (if $z$ increases inward) or pit (if $z$ decreases inward).
 
-![From level curves to 3D surface](graphs/0720/9C/9c-level-curves-to-surface.png)
+![From level curves to 3D surface]({{graph:9c-level-curves-to-surface}})
 
 *Graph 9C-E2: Building a surface from its level curves. Left column — Level curves $f(x,y)=c$ for evenly spaced c values. Right column — The corresponding 3D surface. Top: $z=x^2+y^2$ (bowl). Bottom: $z=x^2-y^2$ (saddle).*
 
-![Contour steepness — close curves vs far curves](graphs/0720/9C/9c-contour-steepness.png)
+![Contour steepness — close curves vs far curves]({{graph:9c-contour-steepness}})
 
 *Graph 9C-E3: How contour spacing reveals steepness. Left — Tightly packed level curves → steep slope. Right — Widely spaced level curves → gentle slope. The 3D view confirms: same height change over less horizontal distance = steeper.*
 
-![Building level curves step by step](graphs/0720/9C/9c-step-level-curves.png)
+![Building level curves step by step]({{graph:9c-step-level-curves}})
 
 *Graph 9C-S5: Systematic level curve analysis in three stages. Step 1 — Draw level curves for $c=-2,-1,0,1,2$. Step 2 — Color-code by height (blue=low, red=high). Step 3 — Reconstruct the 3D surface by stacking. The saddle $z=x^2-y^2$ emerges from hyperbolas.*
 
@@ -437,7 +437,7 @@ General quadric: $Ax^2 + By^2 + Cz^2 + Dx + Ey + Fz + G = 0$ (no cross-terms for
 - Missing variable: cylinder (extruded along that variable's axis).
 - Linear term on one side: paraboloid.
 
-![Quadric surface identification — the sign pattern chart](graphs/0720/9C/9c-quadric-identification.png)
+![Quadric surface identification — the sign pattern chart]({{graph:9c-quadric-identification}})
 
 *Graph 9C-F1: The six quadric surfaces identified by sign patterns. Each row shows: the equation form, the sign pattern, the surface, and a key cross-section. Use this as your reference for classification.*
 
@@ -459,7 +459,7 @@ Extends $\pm 2$ in $x$, $\pm 3$ in $y$, $\pm 1$ in $z$.
 Set $x=0$: $\frac{y^2}{9}+\frac{z^2}{1}=1$ — ellipse in $yz$-plane.
 Set $y=0$: $\frac{x^2}{4}+\frac{z^2}{1}=1$ — ellipse in $xz$-plane.
 
-![Ellipsoid with semi-axes](graphs/0720/9C/9c-ellipsoid-details.png)
+![Ellipsoid with semi-axes]({{graph:9c-ellipsoid-details}})
 
 *Graph 9C-F2: Ellipsoid $\frac{x^2}{4}+\frac{y^2}{9}+\frac{z^2}{1}=1$. Left — The full surface with semi-axes labeled. Right — Three orthogonal cross-sections, each an ellipse. The trace method reveals the shape from any viewing angle.*
 
@@ -480,7 +480,7 @@ Cross-section at $y=0$: $z=x^2$ → parabola in $xz$-plane.
 
 **Downward opening**: $z = -\frac{x^2}{a^2} - \frac{y^2}{b^2}$. Same shape, flipped over.
 
-![Elliptic paraboloid — the 3D bowl](graphs/0720/9C/9c-paraboloid-details.png)
+![Elliptic paraboloid — the 3D bowl]({{graph:9c-paraboloid-details}})
 
 *Graph 9C-F3: Elliptic paraboloid $z=x^2+2y^2$. Left — The bowl with vertex at origin. Right — Two cross-sections: at $x=0$ (steeper parabola, $z=2y^2$) and at $y=0$ (gentler parabola, $z=x^2$). Level curves (rings) show elliptical contours.*
 
@@ -501,7 +501,7 @@ Curves upward in the $x$-direction (parabola opening up), downward in the $y$-di
 At $y=0$: $z=x^2$ (smile). At $x=0$: $z=-y^2$ (frown). At $(0,0)$: saddle point.
 This surface cannot be "flattened" without tearing — it has negative Gaussian curvature.
 
-![Hyperbolic paraboloid — the saddle surface](graphs/0720/9C/9c-hyperbolic-paraboloid-details.png)
+![Hyperbolic paraboloid — the saddle surface]({{graph:9c-hyperbolic-paraboloid-details}})
 
 *Graph 9C-F4: Hyperbolic paraboloid $z=x^2-y^2$. Left — The saddle shape with key cross-sections. The red parabola opens upward (x-direction), the blue parabola opens downward (y-direction). Right — Level curves are hyperbolas, with the crossing lines at z=0 showing the saddle point.*
 
@@ -523,7 +523,7 @@ A cylinder has **one variable missing** from the equation. The surface is the 2D
 **Example**: $x^2 + y^2 = 1$ in 3D.
 In 2D it's a circle. In 3D it's an infinitely tall pipe. Every horizontal slice gives the same circle. $z$ can be ANY value.
 
-![Cylinders — four types of extruded curves](graphs/0720/9C/9c-cylinder-types.png)
+![Cylinders — four types of extruded curves]({{graph:9c-cylinder-types}})
 
 *Graph 9C-F5: Four types of cylinders. Top-left — Circular cylinder $x^2+y^2=1$ (extruded along z). Top-right — Sinusoidal cylinder $z=\sin x$ (extruded along y). Bottom-left — Elliptic cylinder $x^2/4+z^2/9=1$ (extruded along y). Bottom-right — Parabolic cylinder $y=x^2$ (extruded along z).*
 
@@ -550,11 +550,11 @@ The gap between them: $|z| < c$ has no real points — the equation gives a nega
 - One sheet: exactly ONE minus sign → connected.
 - Two sheets: exactly TWO minus signs → disconnected.
 
-![Hyperboloid of one sheet](graphs/0720/9C/9c-hyperboloid-one-sheet.png)
+![Hyperboloid of one sheet]({{graph:9c-hyperboloid-one-sheet}})
 
 *Graph 9C-F6: Hyperboloid of one sheet $x^2+y^2-z^2/4=1$. Left — The full cooling-tower shape with the elliptical waist at z=0. Right — Cross-sections: at z=0 (smallest ellipse), z=2 (larger ellipse), z=4 (even larger). The surface is connected.*
 
-![Hyperboloid of two sheets](graphs/0720/9C/9c-hyperboloid-two-sheets.png)
+![Hyperboloid of two sheets]({{graph:9c-hyperboloid-two-sheets}})
 
 *Graph 9C-F7: Hyperboloid of two sheets $-x^2-y^2+z^2/4=1$. Left — Two separate bowl-shaped pieces, opening along z-axis. Right — Cross-sections: no real points for |z|<2, ellipses for |z|>2, single points at z=±2. Note the gap between the two sheets.*
 
@@ -573,7 +573,7 @@ Two cones meeting at the origin (the **vertex**): one opening upward, one downwa
 
 **Elliptic cone**: $\frac{x^2}{a^2} + \frac{y^2}{b^2} = \frac{z^2}{c^2}$. Cross-sections are ellipses, not circles.
 
-![Double cone — two nappes meeting at origin](graphs/0720/9C/9c-cone-details.png)
+![Double cone — two nappes meeting at origin]({{graph:9c-cone-details}})
 
 *Graph 9C-F8: Double cone $z^2=x^2+y^2$. Left — Two nappes meeting at the vertex (origin). Right — Cross-sections at z=−2, −1, 0, 1, 2. At z=0, a single point. Radius grows linearly: r=|z|.*
 
@@ -581,7 +581,7 @@ Two cones meeting at the origin (the **vertex**): one opening upward, one downwa
 
 ## Example 23: Quadric Surface Gallery — Side-by-Side Comparison
 
-![All six quadric surfaces compared](graphs/0720/9C/9c-quadric-comparison.png)
+![All six quadric surfaces compared]({{graph:9c-quadric-comparison}})
 
 *Graph 9C-F9: All six quadric surfaces side by side with their equations and key cross-sections. Top row — Ellipsoid, Elliptic Paraboloid, Hyperbolic Paraboloid. Bottom row — Cylinder, Hyperboloid of 1 sheet, Double Cone. Each labeled with its sign pattern.*
 
@@ -599,11 +599,11 @@ Not all second-degree equations produce a "full" surface. Some degenerate into l
 | $x^2 - y^2 = 0$ | Two intersecting planes $y=\pm x$ | 2 |
 | $x^2 + y^2 + z^2 = -1$ | Empty set (no real points) | — |
 
-![Degenerate quadric surfaces](graphs/0720/9C/9c-degenerate-cases.png)
+![Degenerate quadric surfaces]({{graph:9c-degenerate-cases}})
 
 *Graph 9C-F10: Degenerate quadrics. Left — $x^2+y^2+z^2=0$ is just the origin. Middle — $x^2+y^2=0$ is the z-axis. Right — $x^2-y^2=0$ is two intersecting planes. These remind us that algebra and geometry must be checked together.*
 
-![Building quadric surfaces step by step](graphs/0720/9C/9c-step-quadrics.png)
+![Building quadric surfaces step by step]({{graph:9c-step-quadrics}})
 
 *Graph 9C-S6: Building quadric surfaces in three stages. Stage 1 — Wireframe skeleton shows the underlying grid. Stage 2 — Fill in faces to see the solid surface. Stage 3 — Add cross-sections (horizontal slices) to reveal internal structure. Shown: ellipsoid, paraboloid, and hyperboloid of one sheet.*
 
@@ -635,11 +635,11 @@ $D = \frac{|6|}{\sqrt{3}} = 2\sqrt{3} \approx 3.46$.
 $r = \sqrt{20 - 12} = \sqrt{8} = 2\sqrt{2} \approx 2.83$.
 Center: $(2, 2, 2)$ (since the normal direction is $(1,1,1)$, scaled by $D/|\vec{n}| = 2$).
 
-![Sphere–plane intersection — a circle](graphs/0720/9C/9c-sphere-plane-intersection.png)
+![Sphere–plane intersection — a circle]({{graph:9c-sphere-plane-intersection}})
 
 *Graph 9C-G1: Sphere $x^2+y^2+z^2=20$ intersected by plane $x+y+z=6$. The intersection is a circle (red) with center (2,2,2) and radius $2\sqrt{2}$. Distance from origin to plane determines the circle's size.*
 
-![Intersection step by step](graphs/0720/9C/9c-step-intersection.png)
+![Intersection step by step]({{graph:9c-step-intersection}})
 
 *Graph 9C-S7: Finding the intersection circle in three stages. Step 1 — The sphere alone. Step 2 — The plane slices through (orange). Step 3 — The intersection circle emerges (red). Key formula: $r = \sqrt{R^2 - D^2}$.*
 
@@ -658,7 +658,7 @@ The intersection is two curves, each an ellipse-like space curve.
 $(x(t), y(t), z(t)) = (\cos t,\; \sin t,\; \pm\sin t)$, $t \in [0, 2\pi]$.
 These are two ellipses at 45° to the axes, crossing at $(\pm1, 0, 0)$.
 
-![Intersecting cylinders](graphs/0720/9C/9c-cylinders-intersection.png)
+![Intersecting cylinders]({{graph:9c-cylinders-intersection}})
 
 *Graph 9C-G2: Two perpendicular cylinders $x^2+y^2=1$ (blue) and $x^2+z^2=1$ (orange). Their intersection (red) is a 3D curve — two crossing ellipses. This is a classic architectural form (groin vault).*
 
@@ -677,7 +677,7 @@ $t=\frac{10}{3}$: point $(\frac{10}{3}, \frac{10}{3}, \frac{5}{3})$ — the exit
 
 The line enters at $(0,0,5)$ (tangent or piercing depends on direction) and exits at $(\frac{10}{3}, \frac{10}{3}, \frac{5}{3})$.
 
-![Line–surface intersection](graphs/0720/9C/9c-line-surface-intersection.png)
+![Line–surface intersection]({{graph:9c-line-surface-intersection}})
 
 *Graph 9C-G3: A line intersecting a sphere. The parametric line passes through the sphere, entering at one point and exiting at another. The two intersection points are found by solving the quadratic in t.*
 
@@ -721,7 +721,7 @@ A surface defined by $F(x,y,z)=0$ (or $z=f(x,y)$) has:
 - $x \to -x$: $z = -xy$ → changed. $y \to -y$: changed.
 - $(x,y) \to (-x,-y)$: $z = (-x)(-y) = xy$ → unchanged → origin symmetry!
 
-![Symmetry in 3D surfaces](graphs/0720/9C/9c-symmetry-3d.png)
+![Symmetry in 3D surfaces]({{graph:9c-symmetry-3d}})
 
 *Graph 9C-H1: Symmetry types for 3D surfaces. Left — $z=x^2+y^2$ has $xz$ and $yz$ plane symmetry + rotational symmetry about z-axis. Middle — $x^2+y^2+z^2=1$ has all symmetries. Right — $z=xy$ has origin symmetry (180° rotation).*
 

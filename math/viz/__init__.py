@@ -11,7 +11,7 @@ Public API:
 - export: save_figure()
 """
 from .theme import PALETTE, DPI, FONTS, apply_matplotlib_defaults
-from .canvas import new_canvas, simple_axes
+from .canvas import new_canvas, simple_axes, subplots_canvas, new_axes3d
 from .export import save_figure, graph_path, GRAPH_ROOT
 
 __all__ = [
@@ -21,6 +21,8 @@ __all__ = [
     "apply_matplotlib_defaults",
     "new_canvas",
     "simple_axes",
+    "subplots_canvas",
+    "new_axes3d",
     "save_figure",
     "graph_path",
     "GRAPH_ROOT",
