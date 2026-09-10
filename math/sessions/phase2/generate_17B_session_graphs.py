@@ -466,7 +466,7 @@ def gaussian_scenes():
     _scene_save(fig, '17b-gaussian-scene5.png')
 
 def cardioid_arc_length():
-    """Cardioid r=1+cosθ with arc length L=8 (Practice 3)."""
+    """Cardioid r=1+cosθ with arc length L=8 (Graph 3)."""
     fig, ax = plt.subplots(figsize=(7.4, 7.4)); g(ax)
     th = np.linspace(0, 2*np.pi, 1000)
     r = 1 + np.cos(th)

@@ -124,49 +124,6 @@ $\log(x-3) < 2$: must have $x-3>0$, so $x>3$, IN ADDITION to $x-3<100$.
 ### Mistake 2: $|x| > a$ → $x > a$ only (forgetting $x < -a$)
 
 ### Mistake 3: Treating $\lfloor x \rfloor \geq 2$ as $x \geq 2$ without considering the step pattern
-
----
-
-## Practice 1
-
-Solve: $|2x-5| \geq 7$.
-
-→ Solutions: [Solutions](solutions/08B-solutions.md#practice-1)
-
----
-
-## Practice 2
-
-Solve: $\log_2(x^2-5x+6) \leq 1$. Check argument!
-
-→ Solutions: [Solutions](solutions/08B-solutions.md#practice-2)
-
----
-
-## Practice 3
-
-Solve: $\lfloor 2x \rfloor > 3$.
-
-→ Solutions: [Solutions](solutions/08B-solutions.md#practice-3)
-
----
-
-## Practice 4: Real Battle
-
-Solve $|x^2-4| \geq 3x$. Split into two cases from the absolute value, solve each quadratic inequality.
-
-→ Solutions: [Solutions](solutions/08B-solutions.md#practice-4)
-
----
-
-## Practice 5: Composition
-
-Invent an inequality whose solution is $x \in (-2,-1] \cup [1,3) \cup (3,\infty)$. Make it involve absolute values or logs.
-
-→ Solutions: [Solutions](solutions/08B-solutions.md#practice-5)
-
----
-
 ## Basic Drills
 
 **D1.** Solve $|x+2| < 6$.

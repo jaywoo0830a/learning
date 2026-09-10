@@ -1,97 +1,6 @@
 # Solutions — 18B: Power Series — Where Does It Converge?
 
 > Back to [18B — Power Series](../18B-power-series.md)
-
----
-
-## Practice 1
-
-**Find radius and interval for $\sum_{n=1}^\infty \frac{(x-2)^n}{3^n n}$.**
-
-① $c_n = \frac{1}{3^n n}$. Radius:
-
-$$R = \lim_{n\to\infty}\left|\frac{c_n}{c_{n+1}}\right| = \lim_{n\to\infty}\frac{3^{n+1}(n+1)}{3^n n} = \lim_{n\to\infty}3\cdot\frac{n+1}{n} = 3.$$
-
-② Center $a = 2$, so the interval is $(2-3,\, 2+3) = (-1, 5)$.
-
-③ **Endpoints**:
-- $x = 5$: $\sum \frac{3^n}{3^n n} = \sum \frac{1}{n}$ — diverges (harmonic).
-- $x = -1$: $\sum \frac{(-3)^n}{3^n n} = \sum \frac{(-1)^n}{n}$ — converges (alternating).
-
-> **Answer**: radius $R = 3$; interval of convergence $[-1, 5)$
-
----
-
-## Practice 2
-
-**Find a power series for $\ln(1-x^2)$.**
-
-① Known: $\ln(1+u) = \sum_{n=1}^\infty \frac{(-1)^{n+1}u^n}{n}$ for $|u|<1$.
-
-② Substitute $u = -x^2$:
-
-$$\ln(1-x^2) = \sum_{n=1}^\infty \frac{(-1)^{n+1}(-x^2)^n}{n} = \sum_{n=1}^\infty \frac{(-1)^{n+1}(-1)^n x^{2n}}{n} = -\sum_{n=1}^\infty \frac{x^{2n}}{n}.$$
-
-Valid for $|-x^2| < 1$, i.e. $|x| < 1$.
-
-> **Answer**: $\ln(1-x^2) = -\sum_{n=1}^\infty \frac{x^{2n}}{n}$, $|x|<1$
-
----
-
-## Practice 3
-
-**Differentiate $\sum_{n=0}^\infty \frac{x^n}{n!}$ term-by-term. What do you notice?**
-
-① $\frac{d}{dx}\sum_{n=0}^\infty \frac{x^n}{n!} = \sum_{n=1}^\infty \frac{n x^{n-1}}{n!} = \sum_{n=1}^\infty \frac{x^{n-1}}{(n-1)!}$.
-
-② Shift index $k = n-1$: $= \sum_{k=0}^\infty \frac{x^k}{k!}$ — **the same series**!
-
-③ So $f'(x) = f(x)$ with $f(0)=1$ — the unique solution is $f(x) = e^x$.
-
-> **Answer**: The derivative equals the original series, so $f' = f$, hence $\sum \frac{x^n}{n!} = e^x$
-
----
-
-## Practice 4: Real Battle
-
-**Find the interval of convergence for $\sum_{n=1}^\infty \frac{(2x+1)^n}{\sqrt{n}}$. Check both endpoints.**
-
-① Rewrite: $(2x+1)^n = 2^n\left(x+\tfrac12\right)^n$, so $c_n = \dfrac{2^n}{\sqrt{n}}$ and the center is $a=-\tfrac12$.
-
-$$R = \lim_{n\to\infty}\frac{2^n/\sqrt{n}}{2^{n+1}/\sqrt{n+1}} = \lim_{n\to\infty}\frac12\sqrt{\frac{n+1}{n}} = \frac12.$$
-
-Interval: $\left(-\tfrac12-\tfrac12,\;-\tfrac12+\tfrac12\right) = (-1,\,0)$.
-
-② **Endpoints**:
-- $x=0$: $\sum \dfrac{2^n(1/2)^n}{\sqrt{n}} = \sum \dfrac{1}{\sqrt{n}}$ — $p$-series with $p=\tfrac12\le1$: **diverges**.
-- $x=-1$: $\sum \dfrac{2^n(-1/2)^n}{\sqrt{n}} = \sum \dfrac{(-1)^n}{\sqrt{n}}$ — alternating, terms $\to0$ decreasing: **converges** (conditionally).
-
-> **Answer**: interval of convergence $\boxed{[-1,\,0)}$
-
-> **Connection**: the center hides inside $2x+1$ until you factor out $2^n$ — always rewrite $(cx+d)^n$ as $c^n(x+d/c)^n$ before reading off $a$ and $R$.
-
----
-
-## Practice 5: Real Battle — Series for $\pi$
-
-**Find a series for $\pi$. How many terms are needed to estimate $\pi$ to 3 decimal places?**
-
-① $\arctan x = \sum_{n=0}^\infty \frac{(-1)^n x^{2n+1}}{2n+1}$, $|x|\le 1$ (endpoint convergence by alternating test). At $x=1$:
-
-$$\frac{\pi}{4} = \arctan 1 = 1 - \frac13 + \frac15 - \frac17 + \cdots$$
-
-$$\pi = 4\left(1 - \frac13 + \frac15 - \frac17 + \cdots\right).$$
-
-② **Error**: the series for $\pi$ is alternating with $k$-th term magnitude $4/(2n+1)$ (the factor 4 multiplies everything). After $N$ terms the error is
-
-$$|R_N| \le \frac{4}{2N+1}.$$
-
-③ Need error $< 0.0005$ (3 decimal places): $\frac{4}{2N+1} < 0.0005 \Rightarrow 2N+1 > 8000 \Rightarrow N \ge 4000$.
-
-> **Answer**: $\pi = 4\sum_{n=0}^\infty \frac{(-1)^n}{2n+1}$ (the Leibniz series); about **4000 terms** are needed for 3 decimal places — this series converges extremely slowly. (More clever series for $\pi$ — e.g. Machin's formula — converge much faster.)
-
----
-
 ## Basic Drills
 
 ### D1. Find $R$ for $\sum_{n=0}^\infty \frac{x^n}{2^n}$.
@@ -332,9 +241,4 @@ Interval: $\ln(1+x)$ needs $x\in(-1,1]$, $\ln(1-x)$ needs $x\in[-1,1)$ → inter
 
 | Problem | Answer |
 |:--------|:-------|
-| Practice 1 | $R=3$, interval $[-1,5)$ |
-| Practice 2 | $\ln(1-x^2) = -\sum x^{2n}/n$, $|x|<1$ |
-| Practice 3 | $f'=f$ → $e^x$ |
-| Practice 4 | interval $[-2,4)$ |
-| Practice 5 | Leibniz $\pi$ series; ~4000 terms for 3 dp |
 | D1–D12 | see above |

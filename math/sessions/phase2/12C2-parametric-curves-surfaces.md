@@ -254,103 +254,6 @@ $L = \int_0^{2\pi} \sqrt{1 + \theta^2} \, d\theta$. (This integral involves $\si
     Parametric surfaces: plane, sphere, cylinder, torus.
     Normals via cross product of tangent vectors.
 ```
-
----
-
-## Practice 1
-
-Parametrize the line segment from $(3, -1, 4)$ to $(7, 2, 10)$.
-
-→ Reference: **Example 1**
-
-> Solutions: [Solutions](solutions/12C2-solutions.md#practice-1)
-
----
-
-## Practice 2
-
-An ellipse has semi-major axis 5 along the $x$-direction and semi-minor axis 3 along the $y$-direction. Write its parametric equation and verify that $\frac{x^2}{25} + \frac{y^2}{9} = 1$.
-
-→ Reference: **Example 2**
-
-> Solutions: [Solutions](solutions/12C2-solutions.md#practice-2)
-
----
-
-## Practice 3
-
-Find the arc length of the helix $\vec{r}(t) = (2\cos t,\; 2\sin t,\; 3t)$ for $t \in [0, 4\pi]$.
-
-→ Reference: **Example 3, 5**
-
-> Solutions: [Solutions](solutions/12C2-solutions.md#practice-3)
-
----
-
-## Practice 4
-
-A cubic Bézier curve has control points $\vec{P}_0 = (0, 0)$, $\vec{P}_1 = (1, 3)$, $\vec{P}_2 = (4, 3)$, $\vec{P}_3 = (5, 0)$. Where is the curve at $t = 0.5$?
-
-→ Reference: **Example 4**
-
-> Solutions: [Solutions](solutions/12C2-solutions.md#practice-4)
-
----
-
-## Practice 5
-
-Find the normal vector to the sphere $\vec{r}(\theta, \phi) = (R\sin\phi\cos\theta,\; R\sin\phi\sin\theta,\; R\cos\phi)$ at the point where $\theta = \pi/4$, $\phi = \pi/3$. Verify it points radially outward.
-
-→ Reference: **Example 6**, **Surface Normals** interlude
-
-> Solutions: [Solutions](solutions/12C2-solutions.md#practice-5)
-
----
-
-## Practice 6: Real Battle
-
-A curve is given by $\vec{r}(t) = (t\cos t,\; t\sin t,\; t)$ for $t \in [0, 4\pi]$. This is a **conical spiral** — it spirals outward as it climbs. Find its arc length between $t = 0$ and $t = 4\pi$.
-
-→ Reference: **Example 3B, 5**
-
-> Solutions: [Solutions](solutions/12C2-solutions.md#practice-6)
-
----
-
-## Practice 7: Cycloid Speed (🔗 9B)
-
-For the cycloid $\vec{r}(t) = (R(t - \sin t),\; R(1 - \cos t))$, find the speed at $t = \pi/2$ and $t = \pi$. Explain why the speed is zero at $t = 0$.
-
-→ Reference: **Example 4B**
-
-> Solutions: [Solutions](solutions/12C2-solutions.md#practice-7)
-
----
-
-## Practice 8: Surface Area of a Sphere (🔗 9C)
-
-Use the parametric form of the sphere from Example 6A to compute its surface area:
-$S = \iint |\vec{r}_\theta \times \vec{r}_\phi| \, d\theta\,d\phi$.
-
-→ Reference: **Example 6A**, **Surface Normals** interlude
-
-> Solutions: [Solutions](solutions/12C2-solutions.md#practice-8)
-
----
-
-## Practice 9: Bézier Curve as a Matrix (🔗 12C1)
-
-The cubic Bézier basis can be written in matrix form. Show that:
-$\vec{r}(t) = \begin{pmatrix} t^3 & t^2 & t & 1 \end{pmatrix}
-\begin{pmatrix} -1 & 3 & -3 & 1 \\ 3 & -6 & 3 & 0 \\ -3 & 3 & 0 & 0 \\ 1 & 0 & 0 & 0 \end{pmatrix}
-\begin{pmatrix} \vec{P}_0 \\ \vec{P}_1 \\ \vec{P}_2 \\ \vec{P}_3 \end{pmatrix}$.
-
-→ Reference: **Example 4**, **12C1 Example 1**
-
-> Solutions: [Solutions](solutions/12C2-solutions.md#practice-9)
-
----
-
 ## Basic Drills
 
 > Pure computation.
@@ -393,7 +296,7 @@ $\vec{r}(t) = \begin{pmatrix} t^3 & t^2 & t & 1 \end{pmatrix}
 
 **A3.** Compute the surface area of a torus with major radius $R = 4$ and minor radius $r = 1$. (Use the formula Area $= \iint |\vec{r}_\theta \times \vec{r}_\phi| \, d\theta \, d\phi$.)
 
-**A4.** Find the point on the cubic Bézier curve from Practice 4 where the tangent vector is horizontal.
+**A4.** Given a cubic Bézier curve, find the point where the tangent vector is horizontal.
 
 **A5.** A curve is defined implicitly by $x^2 + y^2 + z^2 = 1$ and $x + y + z = 0$ — the intersection of a sphere and a plane (a great circle). Parametrize this curve.
 

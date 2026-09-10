@@ -280,67 +280,6 @@ Every "obvious" calculus fact traces back to the **completeness of the real numb
     Nested intervals, Bolzano-Weierstrass, and the supremum property are
     Phase 3; Phase 2 assumes them as axioms (Session 22, Example 12).
 ```
-
----
-
-## Practice 1
-
-Verify Rolle's theorem for $f(x)=x^2-4x$ on $[0, 4]$. Find the $c$ where $f'(c)=0$.
-
-→ Reference: **Example 1**
-
-> Solutions: [Solutions](solutions/22-solutions.md#practice-1)
-
----
-
-## Practice 2
-
-Apply MVT to $f(x)=x^3$ on $[1, 3]$. Find the $c$ guaranteed by the theorem.
-
-→ Reference: **Example 2**
-
-> Solutions: [Solutions](solutions/22-solutions.md#practice-2)
-
----
-
-## Practice 3
-
-Prove: if $f'(x) < 0$ for all $x \in (a,b)$, then $f$ is strictly decreasing on $[a,b]$. (Mimic the proof of Corollary 2.)
-
-→ Reference: **Example 3**
-
-> Solutions: [Solutions](solutions/22-solutions.md#practice-3)
-
----
-
-## Practice 4
-
-Use FTC Part 2 to evaluate $\int_0^{\pi} \sin x\,dx$, and FTC Part 1 to find $\frac{d}{dx}\int_0^x \sin t\,dt$.
-
-→ Reference: **Example 5, 6**
-
-> Solutions: [Solutions](solutions/22-solutions.md#practice-4)
-
----
-
-## Practice 5
-
-Find the degree-3 Taylor polynomial for $f(x)=e^x$ at $a=0$. Bound the error when using this polynomial to estimate $e^{0.5}$.
-
-→ Reference: **Example 9, 10**
-
-> Solutions: [Solutions](solutions/22-solutions.md#practice-5)
-
----
-
-## Practice 6: Real Battle (Constructive)
-
-Prove that the equation $2^x = x^2$ has exactly three real solutions. (Hint: Let $f(x)=2^x-x^2$. Use IVT to find intervals where roots exist, and Rolle's theorem/MVT to argue there can't be more than three. Check $x=2$, $x=4$, and one negative $x$.)
-
-> Solutions: [Solutions](solutions/22-solutions.md#practice-6)
-
----
-
 ## Basic Drills
 
 > Apply the theorems. Verify conditions, find the guaranteed point, bound errors.

@@ -310,67 +310,6 @@ By the sequential criterion, each new function is continuous. ✓
     compositions of continuous functions are continuous.
     → polynomials and rational functions are continuous on their domains.
 ```
-
----
-
-## Practice 1
-
-Use ε-δ to prove $f(x)=5x-3$ is continuous at $x=2$. State δ in terms of ε.
-
-→ Reference: **Example 1**
-
-> Solutions: [Solutions](solutions/21-solutions.md#practice-1)
-
----
-
-## Practice 2
-
-Prove $f(x)=\sqrt{x}$ is continuous at $x=4$ using ε-δ. (Hint: $|\sqrt{x}-2| = \frac{|x-4|}{\sqrt{x}+2} \leq \frac{|x-4|}{2}$.)
-
-→ Reference: **Example 2**
-
-> Solutions: [Solutions](solutions/21-solutions.md#practice-2)
-
----
-
-## Practice 3
-
-Use IVT to prove $x^5 - 3x + 1 = 0$ has at least one real root. (Test $x=0$ and $x=1$.)
-
-→ Reference: **Example 5**
-
-> Solutions: [Solutions](solutions/21-solutions.md#practice-3)
-
----
-
-## Practice 4
-
-Using the limit definition of the derivative, find $f'(a)$ for $f(x)=\frac{1}{x}$ (for $a \neq 0$).
-
-→ Reference: **Example 7, 11**
-
-> Solutions: [Solutions](solutions/21-solutions.md#practice-4)
-
----
-
-## Practice 5
-
-Prove the product rule for three functions: $(fgh)' = f'gh + fg'h + fgh'$. (Apply the two-function product rule twice.)
-
-→ Reference: **Example 10**
-
-> Solutions: [Solutions](solutions/21-solutions.md#practice-5)
-
----
-
-## Practice 6: Real Battle (Constructive)
-
-A function $f$ satisfies $|f(x)-f(y)| \leq (x-y)^2$ for all real $x,y$. Prove: (a) $f$ is continuous everywhere. (b) $f$ is differentiable everywhere AND $f'(x)=0$ for all $x$. (c) Conclude that $f$ is constant. This is a classic "Lipschitz-squared implies constant" problem.
-
-> Solutions: [Solutions](solutions/21-solutions.md#practice-6)
-
----
-
 ## Basic Drills
 
 > ε-δ continuity proofs, derivative by definition, basic rule proofs.

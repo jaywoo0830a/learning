@@ -211,69 +211,6 @@ You must prove "for all natural numbers n, P(n)":
 └── (4) Is the claim actually false at some n?
         └── Check small cases BEFORE proving. (Mistake 3)
 ```
-
----
-
-## Practice 1
-
-**Prove $1 + 3 + 5 + \cdots + (2n-1) = n^2$** (the sum of the first $n$ odd numbers) by induction.
-
-→ Reference: **Example 4**
-
-> Solutions: [Solutions](solutions/04-solutions.md#practice-1)
-
----
-
-## Practice 2
-
-**Prove $2^n > n$ for all natural numbers $n$** by induction.
-
-→ Reference: **Examples 4, 5**
-
-> Solutions: [Solutions](solutions/04-solutions.md#practice-2)
-
----
-
-## Practice 3
-
-**Prove $1^2 + 2^2 + \cdots + n^2 = \frac{n(n+1)(2n+1)}{6}$** by induction.
-
-→ Reference: **Example 4**
-
-> Solutions: [Solutions](solutions/04-solutions.md#practice-3)
-
----
-
-## Practice 4: Trap
-
-**Someone tries to prove "$n < 100$ for all $n$" by induction.** They argue: if $k < 100$ then $k+1 < 101$ (true), so the chain rule "holds." Where does the induction fail?
-
-→ Reference: **Examples 3, 4**
-
-> Solutions: [Solutions](solutions/04-solutions.md#practice-4)
-
----
-
-## Practice 5
-
-**Fibonacci: $F_1=1$, $F_2=1$, $F_n = F_{n-1}+F_{n-2}$.** Prove $F_n < 2^n$ for all $n \geq 1$ by strong induction.
-
-→ Reference: **Example 7**
-
-> Solutions: [Solutions](solutions/04-solutions.md#practice-5)
-
----
-
-## Practice 6: Real Battle
-
-**A $2^k \times 2^k$ checkerboard with one square removed can be tiled by L-shaped trominoes.** Prove it by induction. (How do you tile a $2\times2$ board? How do you grow a $2^k$ tiling to a $2^{k+1}$ tiling?)
-
-→ Reference: **Example 6**
-
-> Solutions: [Solutions](solutions/04-solutions.md#practice-6)
-
----
-
 ## Basic Drills
 
 > Apply the 3-step induction template.
@@ -310,7 +247,7 @@ You must prove "for all natural numbers n, P(n)":
 
 **A2.** Prove that every integer $n \geq 2$ has a prime factor (strong induction — the key lemma used in Example 5 of Session 03!).
 
-**A3.** Prove that a $2^n \times 2^n$ board minus one square is tiled by L-trominoes (the full version of Practice 6).
+**A3.** Prove that a $2^n \times 2^n$ board minus one square is tiled by L-trominoes (the full, general statement and recursion of the tromino method).
 
 **A4.** Prove that every amount of postage $\geq 8$ cents can be made with 3-cent and 5-cent stamps.
 

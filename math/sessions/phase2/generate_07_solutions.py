@@ -49,7 +49,7 @@ def a_p1():
                 (0.6, 2.6), xytext=(-2.1, 5.4), fontsize=10.5, color='#222',
                 fontweight='bold', arrowprops=dict(arrowstyle='->', color='#222', lw=1.3))
     ax.set_xlim(-2.2, 4.2); ax.set_ylim(-6, 7)
-    ax.set_title('Practice 1: $x^3-4x^2+x+6 = (x+1)(x-2)(x-3)$', fontweight='bold')
+    ax.set_title('$x^3-4x^2+x+6 = (x+1)(x-2)(x-3)$', fontweight='bold')
     ax.set_xlabel('$x$'); ax.set_ylabel('$y$')
     ax.legend(fontsize=9, loc='lower right')
     fig.tight_layout()
@@ -73,7 +73,7 @@ def b_p3():
     ax.axhline(0, color='#888', lw=0.8, alpha=0.5); ax.axvline(0, color='#888', lw=0.8, alpha=0.5)
     ax.set_xlim(-6.3, 6.3); ax.set_ylim(-6.3, 6.3)
     ax.set_aspect('equal')
-    ax.set_title('Practice 3: $x^2+y^2=13$, $xy=6$ — four intersection points',
+    ax.set_title('$x^2+y^2=13$, $xy=6$ — four intersection points',
                  fontweight='bold')
     ax.set_xlabel('$x$'); ax.set_ylabel('$y$')
     ax.legend(fontsize=9, loc='upper right')

@@ -1,198 +1,4 @@
 # Solutions — 12C2: Parametric Curves and Surfaces — Drawing with Equations
-
----
-
-## Practice 1
-
-**Parametrize the line segment from $(3, -1, 4)$ to $(7, 2, 10)$.**
-
-$\vec{r}(t) = \vec{p}_1 + t(\vec{p}_2 - \vec{p}_1) = (3, -1, 4) + t(4, 3, 6)$.
-$\vec{r}(t) = (3 + 4t,\; -1 + 3t,\; 4 + 6t)$, $t \in [0, 1]$.
-
-> **Answer**: $\vec{r}(t) = (3+4t,\; -1+3t,\; 4+6t)$, $t \in [0, 1]$
-
-![3D line segment from (3,-1,4) to (7,2,10) with direction vector](graphs/12C2/p1-line-3d.png)
-
----
-
-## Practice 2
-
-**An ellipse has semi-major axis 5 along the $x$-direction and semi-minor axis 3 along the $y$-direction. Write its parametric equation and verify that $\frac{x^2}{25} + \frac{y^2}{9} = 1$.**
-
-$\vec{r}(t) = (5\cos t,\; 3\sin t)$, $t \in [0, 2\pi]$.
-
-Verification: $\frac{x^2}{25} + \frac{y^2}{9} = \frac{(5\cos t)^2}{25} + \frac{(3\sin t)^2}{9} = \frac{25\cos^2 t}{25} + \frac{9\sin^2 t}{9} = \cos^2 t + \sin^2 t = 1$. ✓
-
-> **Answer**: $\vec{r}(t) = (5\cos t,\; 3\sin t)$, $t \in [0, 2\pi]$
-
-![Ellipse with semi-axes a=5, b=3 and parametric verification](graphs/12C2/p2-ellipse.png)
-
----
-
-## Practice 3
-
-**Find the arc length of the helix $\vec{r}(t) = (2\cos t,\; 2\sin t,\; 3t)$ for $t \in [0, 4\pi]$.**
-
-$\vec{r}{\,}'(t) = (-2\sin t,\; 2\cos t,\; 3)$.
-Speed: $|\vec{r}{\,}'(t)| = \sqrt{(-2\sin t)^2 + (2\cos t)^2 + 3^2} = \sqrt{4(\sin^2 t + \cos^2 t) + 9} = \sqrt{4 + 9} = \sqrt{13}$.
-
-Arc length: $L = \int_0^{4\pi} \sqrt{13} \, dt = 4\pi\sqrt{13}$.
-
-> **Answer**: $L = 4\pi\sqrt{13}$
-
-![Helix (2cos t, 2sin t, 3t) with speed sqrt(13) and xy-projection](graphs/12C2/p3-helix.png)
-
----
-
-## Practice 4
-
-**A cubic Bézier curve has control points $\vec{P}_0 = (0, 0)$, $\vec{P}_1 = (1, 3)$, $\vec{P}_2 = (4, 3)$, $\vec{P}_3 = (5, 0)$. Where is the curve at $t = 0.5$?**
-
-$\vec{r}(t) = (1-t)^3\vec{P}_0 + 3(1-t)^2 t\vec{P}_1 + 3(1-t)t^2\vec{P}_2 + t^3\vec{P}_3$.
-
-At $t = 0.5$: $(1-t)^3 = 0.125$, $3(1-t)^2 t = 3 \cdot 0.25 \cdot 0.5 = 0.375$, $3(1-t)t^2 = 3 \cdot 0.5 \cdot 0.25 = 0.375$, $t^3 = 0.125$.
-
-$x$-coordinate: $0.125(0) + 0.375(1) + 0.375(4) + 0.125(5) = 0 + 0.375 + 1.5 + 0.625 = 2.5$.
-$y$-coordinate: $0.125(0) + 0.375(3) + 0.375(3) + 0.125(0) = 0 + 1.125 + 1.125 + 0 = 2.25$.
-
-$\vec{r}(0.5) = (2.5, 2.25)$.
-
-> **Answer**: $(2.5, 2.25)$
-
-![Cubic Bezier curve with control points and t=0.5 position](graphs/12C2/p4-bezier.png)
-
----
-
-## Practice 5
-
-**Find the normal vector to the sphere $\vec{r}(\theta, \phi) = (R\sin\phi\cos\theta,\; R\sin\phi\sin\theta,\; R\cos\phi)$ at the point where $\theta = \pi/4$, $\phi = \pi/3$. Verify it points radially outward.**
-
-Tangent vectors:
-$\vec{r}_\theta = (-R\sin\phi\sin\theta,\; R\sin\phi\cos\theta,\; 0)$.
-$\vec{r}_\phi = (R\cos\phi\cos\theta,\; R\cos\phi\sin\theta,\; -R\sin\phi)$.
-
-At $\theta = \pi/4$, $\phi = \pi/3$:
-$\sin\phi = \sqrt3/2$, $\cos\phi = 1/2$, $\sin\theta = \cos\theta = \sqrt2/2$.
-
-$\vec{r}_\theta = \left(-R\cdot\frac{\sqrt3}{2}\cdot\frac{\sqrt2}{2},\; R\cdot\frac{\sqrt3}{2}\cdot\frac{\sqrt2}{2},\; 0\right) = \left(-\frac{R\sqrt6}{4},\; \frac{R\sqrt6}{4},\; 0\right)$.
-$\vec{r}_\phi = \left(R\cdot\frac12\cdot\frac{\sqrt2}{2},\; R\cdot\frac12\cdot\frac{\sqrt2}{2},\; -R\cdot\frac{\sqrt3}{2}\right) = \left(\frac{R\sqrt2}{4},\; \frac{R\sqrt2}{4},\; -\frac{R\sqrt3}{2}\right)$.
-
-$\vec{n} = \vec{r}_\theta \times \vec{r}_\phi$:
-$\vec{n}_x = \frac{R\sqrt6}{4} \cdot \left(-\frac{R\sqrt3}{2}\right) - 0 \cdot \frac{R\sqrt2}{4} = -\frac{3R^2\sqrt2}{8}$.
-$\vec{n}_y = 0 \cdot \frac{R\sqrt2}{4} - \left(-\frac{R\sqrt6}{4}\right) \cdot \left(-\frac{R\sqrt3}{2}\right) = -\frac{3R^2\sqrt2}{8}$.
-$\vec{n}_z = \left(-\frac{R\sqrt6}{4}\right) \cdot \frac{R\sqrt2}{4} - \frac{R\sqrt6}{4} \cdot \frac{R\sqrt2}{4} = -\frac{R^2\sqrt{12}}{16} - \frac{R^2\sqrt{12}}{16} = -\frac{2R^2\sqrt{12}}{16} = -\frac{R^2\sqrt3}{4}$.
-
-Using the general formula: $\vec{n} = R^2\sin\phi \cdot (\sin\phi\cos\theta,\; \sin\phi\sin\theta,\; \cos\phi)$.
-At our point: $\vec{n} = R^2\cdot\frac{\sqrt3}{2}\left(\frac{\sqrt3}{2}\cdot\frac{\sqrt2}{2},\; \frac{\sqrt3}{2}\cdot\frac{\sqrt2}{2},\; \frac12\right) = \frac{R^2\sqrt3}{2}\left(\frac{\sqrt6}{4},\; \frac{\sqrt6}{4},\; \frac12\right)$.
-
-This is a positive scalar times the position vector, confirming the normal points radially outward ✓.
-
-> **Answer**: $\vec{n} \propto (\sin\phi\cos\theta,\; \sin\phi\sin\theta,\; \cos\phi)$ — radially outward
-
-![Sphere surface normal: tangent vectors and outward normal at a point](graphs/12C2/p5-sphere-normal.png)
-
----
-
-## Practice 6: Real Battle
-
-**A curve is given by $\vec{r}(t) = (t\cos t,\; t\sin t,\; t)$ for $t \in [0, 4\pi]$. This is a conical spiral. Find its arc length.**
-
-$\vec{r}{\,}'(t) = (\cos t - t\sin t,\; \sin t + t\cos t,\; 1)$.
-
-$|\vec{r}{\,}'(t)|^2 = (\cos t - t\sin t)^2 + (\sin t + t\cos t)^2 + 1^2$.
-$= \cos^2 t - 2t\cos t\sin t + t^2\sin^2 t + \sin^2 t + 2t\sin t\cos t + t^2\cos^2 t + 1$.
-$= (\cos^2 t + \sin^2 t) + t^2(\sin^2 t + \cos^2 t) + 1$.
-$= 1 + t^2 + 1 = t^2 + 2$.
-
-$|\vec{r}{\,}'(t)| = \sqrt{t^2 + 2}$.
-
-Arc length: $L = \int_0^{4\pi} \sqrt{t^2 + 2} \, dt$.
-
-Using $\int \sqrt{t^2 + a^2} \, dt = \frac{t}{2}\sqrt{t^2 + a^2} + \frac{a^2}{2}\ln\left|t + \sqrt{t^2 + a^2}\right| + C$ with $a = \sqrt2$:
-
-$L = \left[\frac{t}{2}\sqrt{t^2 + 2} + \ln\left|t + \sqrt{t^2 + 2}\right|\right]_0^{4\pi}$ (since $a^2/2 = 1$).
-
-$= \frac{4\pi}{2}\sqrt{16\pi^2 + 2} + \ln(4\pi + \sqrt{16\pi^2+2}) - \left(0 + \ln(\sqrt2)\right)$.
-$= 2\pi\sqrt{16\pi^2 + 2} + \ln\left(\frac{4\pi + \sqrt{16\pi^2+2}}{\sqrt2}\right)$.
-
-> **Answer**: $L = 2\pi\sqrt{16\pi^2+2} + \ln\left(\frac{4\pi + \sqrt{16\pi^2+2}}{\sqrt2}\right)$
-
-![Conical spiral wrapping around cone with xy-projection](graphs/12C2/p6-conical-spiral.png)
-
----
-
-## Practice 7: Cycloid Speed (🔗 9B)
-
-**For the cycloid $\vec{r}(t) = (R(t - \sin t),\; R(1 - \cos t))$, find the speed at $t = \pi/2$ and $t = \pi$. Explain why the speed is zero at $t = 0$.**
-
-$\vec{r}{\,}'(t) = (R(1 - \cos t),\; R\sin t)$.
-Speed: $|\vec{r}{\,}'(t)| = R\sqrt{(1-\cos t)^2 + \sin^2 t} = R\sqrt{2 - 2\cos t} = 2R|\sin(t/2)|$.
-
-At $t = \pi/2$: speed $= 2R|\sin(\pi/4)| = 2R \cdot \frac{\sqrt2}{2} = R\sqrt2$.
-At $t = \pi$: speed $= 2R|\sin(\pi/2)| = 2R \cdot 1 = 2R$.
-At $t = 0$: speed $= 2R|\sin 0| = 0$. The point on the rim is instantaneously at rest when it touches the ground — it's the point of contact with no relative motion (no slipping).
-
-> **Answer**: Speed at $t=\pi/2$: $R\sqrt2$, at $t=\pi$: $2R$, zero at $t=0$ due to no-slip contact
-
-![Cycloid: rolling wheel positions and speed graph 2R|sin(t/2)|](graphs/12C2/p7-cycloid.png)
-
----
-
-## Practice 8: Surface Area of a Sphere (🔗 9C)
-
-**Use the parametric form of the sphere to compute its surface area.**
-
-$\vec{r}(\theta, \phi) = (R\sin\phi\cos\theta,\; R\sin\phi\sin\theta,\; R\cos\phi)$, $\theta \in [0, 2\pi]$, $\phi \in [0, \pi]$.
-
-$\vec{r}_\theta = (-R\sin\phi\sin\theta,\; R\sin\phi\cos\theta,\; 0)$.
-$\vec{r}_\phi = (R\cos\phi\cos\theta,\; R\cos\phi\sin\theta,\; -R\sin\phi)$.
-
-$\vec{r}_\theta \times \vec{r}_\phi = \begin{vmatrix} \hat{i} & \hat{j} & \hat{k} \\ -R\sin\phi\sin\theta & R\sin\phi\cos\theta & 0 \\ R\cos\phi\cos\theta & R\cos\phi\sin\theta & -R\sin\phi \end{vmatrix}$.
-
-$\vec{n}_x = (R\sin\phi\cos\theta)(-R\sin\phi) - 0 \cdot (R\cos\phi\sin\theta) = -R^2\sin^2\phi\cos\theta$.
-$\vec{n}_y = 0 \cdot (R\cos\phi\cos\theta) - (-R\sin\phi\sin\theta)(-R\sin\phi) = -R^2\sin^2\phi\sin\theta$.
-$\vec{n}_z = (-R\sin\phi\sin\theta)(R\cos\phi\sin\theta) - (R\sin\phi\cos\theta)(R\cos\phi\cos\theta)$
-$= -R^2\sin\phi\cos\phi(\sin^2\theta + \cos^2\theta) = -R^2\sin\phi\cos\phi$.
-
-$|\vec{r}_\theta \times \vec{r}_\phi| = R^2\sqrt{\sin^4\phi(\cos^2\theta+\sin^2\theta) + \sin^2\phi\cos^2\phi}$
-$= R^2\sqrt{\sin^4\phi + \sin^2\phi\cos^2\phi} = R^2\sqrt{\sin^2\phi(\sin^2\phi + \cos^2\phi)} = R^2|\sin\phi|$.
-
-Since $\phi \in [0, \pi]$, $\sin\phi \ge 0$, so $|\vec{r}_\theta \times \vec{r}_\phi| = R^2\sin\phi$.
-
-Surface area: $S = \int_0^{2\pi} \int_0^{\pi} R^2\sin\phi \, d\phi \, d\theta = R^2 \cdot 2\pi \cdot [-\cos\phi]_0^{\pi} = 2\pi R^2 \cdot (1+1) = 4\pi R^2$. ✓
-
-> **Answer**: $S = 4\pi R^2$
-
-![Sphere surface area element and integration to 4pi R^2](graphs/12C2/p8-sphere-area.png)
-
----
-
-## Practice 9: Bézier Curve as a Matrix (🔗 12C1)
-
-**Show that the cubic Bézier basis can be written in matrix form.**
-
-The cubic Bézier: $\vec{r}(t) = (1-t)^3\vec{P}_0 + 3(1-t)^2 t\vec{P}_1 + 3(1-t)t^2\vec{P}_2 + t^3\vec{P}_3$.
-
-Expand each Bernstein polynomial:
-$(1-t)^3 = -t^3 + 3t^2 - 3t + 1$.
-$3(1-t)^2 t = 3(t - 2t^2 + t^3) = 3t^3 - 6t^2 + 3t$.
-$3(1-t)t^2 = 3(t^2 - t^3) = -3t^3 + 3t^2$.
-$t^3 = t^3$.
-
-Group by powers of $t$:
-$\vec{r}(t) = t^3(-\vec{P}_0 + 3\vec{P}_1 - 3\vec{P}_2 + \vec{P}_3) + t^2(3\vec{P}_0 - 6\vec{P}_1 + 3\vec{P}_2) + t(-3\vec{P}_0 + 3\vec{P}_1) + 1(\vec{P}_0)$.
-
-In matrix form:
-$\vec{r}(t) = \begin{pmatrix} t^3 & t^2 & t & 1 \end{pmatrix}
-\begin{pmatrix} -1 & 3 & -3 & 1 \\ 3 & -6 & 3 & 0 \\ -3 & 3 & 0 & 0 \\ 1 & 0 & 0 & 0 \end{pmatrix}
-\begin{pmatrix} \vec{P}_0 \\ \vec{P}_1 \\ \vec{P}_2 \\ \vec{P}_3 \end{pmatrix}$. ✓
-
-> **Answer**: Verified — the matrix matches the expanded Bernstein basis
-
-![Cubic Bezier basis in matrix form: Bernstein polynomial expansion](graphs/12C2/p9-bezier-matrix.png)
-
----
-
 ## Basic Drills
 
 ### D1. A line segment goes from $(1, 2)$ to $(4, 6)$. Write the parametric form $\vec{r}(t)$ for $t \in [0, 1]$.
@@ -364,9 +170,9 @@ With $R=4$, $r=1$: $S = 4\pi^2 \cdot 4 \cdot 1 = 16\pi^2$.
 
 ---
 
-### A4. Find the point on the cubic Bézier curve from Practice 4 where the tangent vector is horizontal.
+### A4. Find the point on the cubic Bézier curve where the tangent vector is horizontal.
 
-From Practice 4: $\vec{P}_0=(0,0)$, $\vec{P}_1=(1,3)$, $\vec{P}_2=(4,3)$, $\vec{P}_3=(5,0)$.
+For the Bézier control points $\vec{P}_0=(0,0)$, $\vec{P}_1=(1,3)$, $\vec{P}_2=(4,3)$, $\vec{P}_3=(5,0)$:
 
 $\vec{r}(t) = (1-t)^3(0,0) + 3(1-t)^2 t(1,3) + 3(1-t)t^2(4,3) + t^3(5,0)$.
 $x(t) = 3t(1-t)^2 + 12t^2(1-t) + 5t^3$.
@@ -403,7 +209,7 @@ $\vec{r}(t) = \left(\frac{\cos t}{\sqrt2} + \frac{\sin t}{\sqrt6},\; -\frac{\cos
 
 ### A6. Derive the formula for the surface area of a sphere of radius $R$ using the parametric form.
 
-See Practice 8 above. $|\vec{r}_\theta \times \vec{r}_\phi| = R^2\sin\phi$.
+$|\vec{r}_\theta \times \vec{r}_\phi| = R^2\sin\phi$.
 $S = \int_0^{2\pi}\int_0^{\pi} R^2\sin\phi \, d\phi\,d\theta = 2\pi R^2[-\cos\phi]_0^{\pi} = 2\pi R^2(1+1) = 4\pi R^2$.
 
 > **Answer**: $S = 4\pi R^2$

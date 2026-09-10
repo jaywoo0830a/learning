@@ -1,91 +1,4 @@
 # Solutions — 05: Counting Infinite Sets — Sizes of Infinity
-
----
-
-## Practice 1
-
-**Do the even numbers and the odd numbers have the same size?**
-
-Pairing: $2n \leftrightarrow 2n-1$ for each $n \geq 1$.
-
-$2 \leftrightarrow 1$, $4 \leftrightarrow 3$, $6 \leftrightarrow 5$, … Every even gets a unique odd, every odd is hit exactly once — a perfect pairing.
-
-> **Answer**: **Yes — same size** (bijection $2n \mapsto 2n-1$).
-
----
-
-## Practice 2
-
-**Do $\mathbb{N}$ and the multiples of 3 have the same size?**
-
-Pairing: $n \leftrightarrow 3n$. $1 \to 3$, $2 \to 6$, $3 \to 9$, … One-to-one, nothing skipped, nothing repeated.
-
-> **Answer**: **Yes — same size** (bijection $n \mapsto 3n$).
-
----
-
-## Practice 3
-
-**Which is bigger: all integers or all fractions?**
-
-Neither — they are the **same size**, both $\aleph_0$.
-
-- $\mathbb{Z}$ pairs with $\mathbb{N}$ (Example 3: $0, 1, -1, 2, -2, \dots$).
-- $\mathbb{Q}$ pairs with $\mathbb{N}$ (Example 4: the diagonal walk).
-
-Two sets each equal to $\mathbb{N}$ in size are equal to each other.
-
-> **Answer**: Same size ($\aleph_0$). Both countable.
-
----
-
-## Practice 4: Trap
-
-**"$\mathbb{N}$ and $\mathbb{Z}$ have the same size, but $\mathbb{Z}$ contains $\mathbb{N}$ — isn't that a contradiction?"**
-
-No. "Contains" is about *inclusion*; "same size" is about *pairing*. For infinite sets, a set can have the same size as a proper subset of itself — that's exactly what the bijection in Example 3 shows. The intuition "the part is smaller than the whole" is a finite-only rule.
-
-> **Answer**: No contradiction — infinite sets can be the same size as their proper subsets.
-
----
-
-## Practice 5
-
-**Prove $|\mathcal{P}(\mathbb{N})| > |\mathbb{N}|$** in the diagonal style.
-
-Suppose $f: \mathbb{N} \to \mathcal{P}(\mathbb{N})$ were a bijection (each $n$ maps to a subset $f(n)$). Build the set
-
-$$D = \{ n \in \mathbb{N} : n \notin f(n) \}.$$
-
-$D$ is a subset of $\mathbb{N}$, so if $f$ is onto, $D = f(k)$ for some $k$. Then:
-
-- If $k \in D$: by definition of $D$, $k \notin f(k) = D$ — contradiction.
-- If $k \notin D$: by definition of $D$, $k \in f(k) = D$ — contradiction.
-
-No such $k$ exists, so $f$ is not onto. No bijection exists.
-
-> **Answer**: $D$ is left out of every pairing — $\mathcal{P}(\mathbb{N})$ is uncountable, $|\mathcal{P}(\mathbb{N})| = 2^{\aleph_0} > \aleph_0$.
-
----
-
-## Practice 6: Real Battle
-
-**Is $|\mathbb{N} \times \mathbb{N}| = \aleph_0$?**
-
-Yes. Draw the pairs $(a,b)$ as lattice points and sweep the diagonals by $a+b$:
-
-- $a+b = 2$: $(1,1)$
-- $a+b = 3$: $(1,2)$, $(2,1)$
-- $a+b = 4$: $(1,3)$, $(2,2)$, $(3,1)$
-- $a+b = 5$: $(1,4)$, $(2,3)$, $(3,2)$, $(4,1)$
-- …
-
-Every pair appears on exactly one diagonal, and within each diagonal the ordering is clear. This gives a complete list — a bijection with $\mathbb{N}$.
-
-> **Answer**: **Yes — $|\mathbb{N} \times \mathbb{N}| = \aleph_0$** (diagonal sweep enumerates every pair).
-
----
-
 ## Basic Drills
 
 **D1.** Perfect squares $\{1,4,9,\dots\}$ — **same size** as $\mathbb{N}$ ($n \mapsto n^2$).
@@ -126,7 +39,7 @@ Interleave decimal digits: $0.a_1a_2a_3\dots$ and $0.b_1b_2b_3\dots$ map to $0.a
 Assume a list of all sequences $(a^{(1)}, a^{(2)}, \dots)$. Build $d$ with $d_n = a^{(n)}_n + 1$ (change each diagonal entry). $d$ differs from every listed sequence → not in the list. Contradiction.
 
 ### A7. No bijection between $S$ and $\mathcal{P}(S)$
-Generalize Practice 5: suppose $f: S \to \mathcal{P}(S)$ is onto. Let $D = \{x \in S : x \notin f(x)\}$. Then $D = f(d)$ for some $d$; check both memberships — each contradicts the other. No onto map exists.
+Generalize the diagonal argument: suppose $f: S \to \mathcal{P}(S)$ is onto. Let $D = \{x \in S : x \notin f(x)\}$. Then $D = f(d)$ for some $d$; check both memberships — each contradicts the other. No onto map exists.
 
 ### A8. Integer polynomials are countable
 For each degree $n$, polynomials of degree $n$ with integer coefficients form $\mathbb{Z}^{n+1}$, which is countable. Countable union of countable sets is countable → all integer polynomials countable. (Their roots — the algebraic numbers — are consequently countable too.)

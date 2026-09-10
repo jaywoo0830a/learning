@@ -200,71 +200,6 @@ You must prove "if P then Q" (or a claim that can be written as one):
 └── (4) None obvious? Try contradiction — it always has
          a concrete negation to start from.
 ```
-
----
-
-## Practice 1
-
-**Prove "if $n$ is odd, then $n^3$ is odd"** the same way as Example 1.
-
-→ Reference: **Example 1**
-
-> Solutions: [Solutions](solutions/03-solutions.md#practice-1)
-
----
-
-## Practice 2
-
-**Prove "if $3n+2$ is even, then $n$ is even"** the way Example 3 does.
-
-→ Reference: **Example 3**
-
-> Solutions: [Solutions](solutions/03-solutions.md#practice-2)
-
----
-
-## Practice 3
-
-**Prove "if $n^2$ is a multiple of 3, then $n$ is a multiple of 3."** Choose the template and justify the choice in one line.
-
-→ Reference: **Example 3**
-
-> Solutions: [Solutions](solutions/03-solutions.md#practice-3)
-
----
-
-## Practice 4: Trap
-
-**Prove "$n^2+n$ is even for all integers $n$"** without induction, Example 2 style.
-(Hint: split $n^2+n = n(n+1)$.)
-
-→ Reference: **Example 2**
-
-> Solutions: [Solutions](solutions/03-solutions.md#practice-4)
-
----
-
-## Practice 5
-
-**Prove "$\sqrt{3}$ cannot be written as a fraction"** the way Example 4 does.
-
-→ Reference: **Example 4**
-
-> Solutions: [Solutions](solutions/03-solutions.md#practice-5)
-
----
-
-## Practice 6: Real Battle
-
-**Prove "the sum of a rational and an irrational number is irrational."** Choose the template and justify.
-(Hint: if $a$ is rational and $b$ is irrational and $a+b$ were rational, then $b = (a+b)-a$ would be rational.)
-
-→ Reference: **Examples 4, 5**
-
-> Solutions: [Solutions](solutions/03-solutions.md#practice-6)
-
----
-
 ## Basic Drills
 
 > Choose a template and execute.
@@ -307,7 +242,7 @@ You must prove "if P then Q" (or a claim that can be written as one):
 
 **A5.** Prove: if $a$ and $b$ are odd, then $a^2 + b^2$ is even but not divisible by 4.
 
-**A6.** Prove: the difference of a rational and an irrational is irrational. (Adapt Practice 6.)
+**A6.** Prove: the difference of a rational and an irrational is irrational. (Mimic the template used for "rational minus rational", but state the case for exactly one irrational operand and think about where it breaks.)
 
 **A7.** Prove: if $x$ is irrational, then $\frac{1}{x}$ is irrational (for $x \neq 0$).
 

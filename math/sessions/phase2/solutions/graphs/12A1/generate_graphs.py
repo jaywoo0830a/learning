@@ -24,7 +24,7 @@ def save_fig(fig, name):
     plt.close(fig)
 
 # ═══════════════════════════════════════════════════════════
-# 01 — Practice 1: Division (3-i)/(2+i) = 1-i, Matrix
+# 01 — Graph 1: Division (3-i)/(2+i) = 1-i, Matrix
 # ═══════════════════════════════════════════════════════════
 def fig_p1_division_matrix():
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 5.5))
@@ -72,12 +72,12 @@ def fig_p1_division_matrix():
     ax2.axhline(0, color='black', lw=0.5); ax2.axvline(0, color='black', lw=0.5)
     ax2.set_title('Matrix M for z=1−i: det(M)=|z|²', fontweight='bold', fontsize=12)
 
-    fig.suptitle('Practice 1: Complex Division & Matrix-Determinant Verification', fontweight='bold', fontsize=14)
+    fig.suptitle('Complex Division & Matrix-Determinant Verification', fontweight='bold', fontsize=14)
     plt.tight_layout()
     save_fig(fig, 'p1-division-matrix.png')
 
 # ═══════════════════════════════════════════════════════════
-# 02 — Practice 2: z = 1-i, z⁸ = 16 (rotation cycle)
+# 02 — Graph 2: z = 1-i, z⁸ = 16 (rotation cycle)
 # ═══════════════════════════════════════════════════════════
 def fig_p2_polar_power():
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 6))
@@ -128,12 +128,12 @@ def fig_p2_polar_power():
     ax2.set_xlabel('Real'); ax2.set_ylabel('Imaginary')
     ax2.set_title('z⁸ = (√2)⁸·e^{−i·8π/4} = 16', fontweight='bold', fontsize=12)
 
-    fig.suptitle('Practice 2: Polar Form & De Moivre — Powers Spiral', fontweight='bold', fontsize=14)
+    fig.suptitle('Polar Form & De Moivre — Powers Spiral', fontweight='bold', fontsize=14)
     plt.tight_layout()
     save_fig(fig, 'p2-polar-power.png')
 
 # ═══════════════════════════════════════════════════════════
-# 03 — Practice 3: Cube Roots of −8
+# 03 — Graph 3: Cube Roots of −8
 # ═══════════════════════════════════════════════════════════
 def fig_p3_cube_roots_minus8():
     fig, ax = plt.subplots(figsize=(8, 7.5))
@@ -177,11 +177,11 @@ def fig_p3_cube_roots_minus8():
     ax.set_xlim(-3, 3.5); ax.set_ylim(-2.5, 2.5)
     ax.set_aspect('equal'); ax.grid(True, alpha=0.2)
     ax.set_xlabel('Real'); ax.set_ylabel('Imaginary')
-    ax.set_title('Practice 3: Three Cube Roots of −8 — Equilateral Triangle', fontweight='bold', fontsize=14)
+    ax.set_title('Three Cube Roots of −8 — Equilateral Triangle', fontweight='bold', fontsize=14)
     save_fig(fig, 'p3-cube-roots-minus8.png')
 
 # ═══════════════════════════════════════════════════════════
-# 04 — Practice 4: i³ Rotation (90° CW)
+# 04 — Graph 4: i³ Rotation (90° CW)
 # ═══════════════════════════════════════════════════════════
 def fig_p4_i3_rotation():
     fig, ax = plt.subplots(figsize=(7.5, 7.5))
@@ -213,11 +213,11 @@ def fig_p4_i3_rotation():
     ax.set_xlim(-4, 6); ax.set_ylim(-5, 5.5)
     ax.set_aspect('equal'); ax.grid(True, alpha=0.25)
     ax.set_xlabel('Real'); ax.set_ylabel('Imaginary')
-    ax.set_title('Practice 4: Multiplying by i³ Rotates 90° Clockwise', fontweight='bold', fontsize=14)
+    ax.set_title('Multiplying by i³ Rotates 90° Clockwise', fontweight='bold', fontsize=14)
     save_fig(fig, 'p4-i3-rotation.png')
 
 # ═══════════════════════════════════════════════════════════
-# 05 — Practice 5: z⁶ from z=−1+i√3
+# 05 — Graph 5: z⁶ from z=−1+i√3
 # ═══════════════════════════════════════════════════════════
 def fig_p5_z6_computation():
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 6))
@@ -264,12 +264,12 @@ def fig_p5_z6_computation():
     ax2.set_xlabel('Real'); ax2.set_ylabel('Imaginary')
     ax2.set_title('z⁶ = (2e^{i·2π/3})⁶ = 64', fontweight='bold', fontsize=12)
 
-    fig.suptitle('Practice 5: z⁶ = 64 — Rotation Returns to Positive Real', fontweight='bold', fontsize=14)
+    fig.suptitle('z⁶ = 64 — Rotation Returns to Positive Real', fontweight='bold', fontsize=14)
     plt.tight_layout()
     save_fig(fig, 'p5-z6-computation.png')
 
 # ═══════════════════════════════════════════════════════════
-# 06 — Practice 6: Cube Roots Triangle Area & 120° Rotation
+# 06 — Graph 6: Cube Roots Triangle Area & 120° Rotation
 # ═══════════════════════════════════════════════════════════
 def fig_p6_triangle_area():
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 6))
@@ -320,12 +320,12 @@ def fig_p6_triangle_area():
     ax2.set_xlabel('Real'); ax2.set_ylabel('Imaginary')
     ax2.set_title('120° Rotation ↔ Primitive Cube Root', fontweight='bold', fontsize=12)
 
-    fig.suptitle('Practice 6: Triangle Area & 120° Rotation Matrix Connection', fontweight='bold', fontsize=14)
+    fig.suptitle('Triangle Area & 120° Rotation Matrix Connection', fontweight='bold', fontsize=14)
     plt.tight_layout()
     save_fig(fig, 'p6-triangle-area.png')
 
 # ═══════════════════════════════════════════════════════════
-# 07 — Practice 7: M⁻¹ = 1/z Correspondence
+# 07 — Graph 7: M⁻¹ = 1/z Correspondence
 # ═══════════════════════════════════════════════════════════
 def fig_p7_inverse_correspondence():
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 6))
@@ -376,12 +376,12 @@ def fig_p7_inverse_correspondence():
     ax2.axhline(0, color='black', lw=0.5); ax2.axvline(0, color='black', lw=0.5)
     ax2.set_title('M⁻¹ = Matrix for 1/z', fontweight='bold', fontsize=12)
 
-    fig.suptitle('Practice 7: Matrix Inverse ≡ Complex Reciprocal', fontweight='bold', fontsize=14)
+    fig.suptitle('Matrix Inverse ≡ Complex Reciprocal', fontweight='bold', fontsize=14)
     plt.tight_layout()
     save_fig(fig, 'p7-inverse-correspondence.png')
 
 # ═══════════════════════════════════════════════════════════
-# 08 — Practice 8: Roots of Unity — Product & n-gon Area
+# 08 — Graph 8: Roots of Unity — Product & n-gon Area
 # ═══════════════════════════════════════════════════════════
 def fig_p8_roots_unity():
     fig, axes = plt.subplots(1, 3, figsize=(16, 5.5))
@@ -408,7 +408,7 @@ def fig_p8_roots_unity():
         ax.set_aspect('equal'); ax.set_xlim(-1.8, 1.8); ax.set_ylim(-1.8, 1.8)
         ax.set_xlabel('Re'); ax.set_ylabel('Im')
 
-    fig.suptitle('Practice 8: Roots of Unity = Regular n-gon, Product = (−1)^{n−1}, Sum = 0', fontweight='bold', fontsize=13)
+    fig.suptitle('Roots of Unity = Regular n-gon, Product = (−1)^{n−1}, Sum = 0', fontweight='bold', fontsize=13)
     plt.tight_layout()
     save_fig(fig, 'p8-roots-unity.png')
 

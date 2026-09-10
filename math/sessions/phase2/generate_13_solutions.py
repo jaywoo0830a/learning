@@ -43,7 +43,7 @@ def a1():
     ax.annotate(r'$\lim_{x\to2}\frac{x^3-8}{x-2} = 12$', (0.1, 25),
                 fontsize=12, color=GREEN, fontweight='bold')
     ax.set_xlim(0, 4); ax.set_ylim(0, 30)
-    ax.set_title('Practice 1: Difference of Cubes — $(x^3-8)/(x-2) = x^2+2x+4$, hole at $(2,12)$',
+    ax.set_title('Difference of Cubes — $(x^3-8)/(x-2) = x^2+2x+4$, hole at $(2,12)$',
                  fontweight='bold')
     ax.set_xlabel('$x$'); ax.set_ylabel('$y$')
     ax.legend(fontsize=10)
@@ -63,7 +63,7 @@ def a2():
     ax.annotate(r'$\lim_{x\to0}\frac{\sqrt{x+9}-3}{x} = \frac{1}{6}$', (-3.8, 0.30),
                 fontsize=12, color=GREEN, fontweight='bold')
     ax.set_xlim(-4, 4); ax.set_ylim(0.05, 0.45)
-    ax.set_title('Practice 2: Conjugate — $\\frac{\\sqrt{x+9}-3}{x} \\to \\frac{1}{6}$',
+    ax.set_title('Conjugate — $\\frac{\\sqrt{x+9}-3}{x} \\to \\frac{1}{6}$',
                  fontweight='bold')
     ax.set_xlabel('$x$'); ax.set_ylabel('$y$')
     ax.legend(fontsize=10, loc='upper right')
@@ -81,7 +81,7 @@ def a3():
     hole(ax, 0, 7/3)
     ax.annotate(r'$\to \frac{7}{3}$', (0.03, 7/3), textcoords="offset points",
                 xytext=(8, 10), fontsize=11, color=GREEN, fontweight='bold')
-    ax.set_title('Practice 3: Trig limit — $\\frac{\\sin 7x}{\\tan 3x} \\to \\frac{7}{3}$',
+    ax.set_title('Trig limit — $\\frac{\\sin 7x}{\\tan 3x} \\to \\frac{7}{3}$',
                  fontweight='bold')
     ax.set_xlabel('$x$'); ax.set_ylabel('$y$')
     ax.legend(fontsize=10)
@@ -115,7 +115,7 @@ def a4():
         ax.set_title(title, fontweight='bold', fontsize=11)
         ax.set_xlabel('$x$'); ax.set_ylabel('$y$')
         ax.set_ylim(L - 2.5, L + 2.5)
-    fig.suptitle('Practice 4: Three different $\\frac{0}{0}$ functions, all with limit $5$',
+    fig.suptitle('Three different $\\frac{0}{0}$ functions, all with limit $5$',
                  fontweight='bold', fontsize=13)
     fig.tight_layout(rect=[0, 0, 1, 0.93])
     fig.savefig(os.path.join(BASE, '13A', 'p4-three-holes.png'), bbox_inches='tight')
@@ -131,7 +131,7 @@ def a5():
     hole(ax, 0, 1.5)
     ax.annotate(r'$\to \frac{3}{2}$', (0.012, 1.5), textcoords="offset points",
                 xytext=(10, 8), fontsize=11, color=GREEN, fontweight='bold')
-    ax.set_title('Practice 5: Two standard limits — $\\frac{e^{3x}-1}{\\ln(1+2x)} \\to \\frac{3}{2}$',
+    ax.set_title('Two standard limits — $\\frac{e^{3x}-1}{\\ln(1+2x)} \\to \\frac{3}{2}$',
                  fontweight='bold')
     ax.set_xlabel('$x$'); ax.set_ylabel('$y$')
     ax.legend(fontsize=10)
@@ -150,7 +150,7 @@ def a6():
     ax.annotate('both branches meet at $(0,1)$', (0, 1), textcoords="offset points",
                 xytext=(12, -18), fontsize=10, color=GREEN, fontweight='bold')
     ax.axhline(1, color='#999', lw=0.8, ls=':', alpha=0.5)
-    ax.set_title('Practice 6: Piecewise — continuous at $x=0$ (left = right = 1)',
+    ax.set_title('Piecewise — continuous at $x=0$ (left = right = 1)',
                  fontweight='bold')
     ax.set_xlabel('$x$'); ax.set_ylabel('$y$')
     ax.set_ylim(-0.4, 3.3)
@@ -171,7 +171,7 @@ def b1():
     ax.annotate('horizontal asymptote $y=1$', (12, 1.045), fontsize=10,
                 color=GREEN, fontweight='bold')
     ax.set_xlim(1, 30); ax.set_ylim(0.9, 2.2)
-    ax.set_title('Practice 1: Radical at infinity — $\\frac{\\sqrt{4x^2+3x}}{2x-1} \\to 1$',
+    ax.set_title('Radical at infinity — $\\frac{\\sqrt{4x^2+3x}}{2x-1} \\to 1$',
                  fontweight='bold')
     ax.set_xlabel('$x$'); ax.set_ylabel('$y$')
     ax.legend(fontsize=10)
@@ -189,7 +189,7 @@ def b2():
     ax.annotate('ratio of leading coefficients $= \\frac{2}{3}$', (12, 0.718),
                 fontsize=10, color=GREEN, fontweight='bold')
     ax.set_xlim(1, 30); ax.set_ylim(0.4, 0.85)
-    ax.set_title('Practice 2: $\\frac{\\infty}{\\infty}$ — $\\frac{2x^3-5x+1}{3x^3+4x^2} \\to \\frac{2}{3}$',
+    ax.set_title('$\\frac{\\infty}{\\infty}$ — $\\frac{2x^3-5x+1}{3x^3+4x^2} \\to \\frac{2}{3}$',
                  fontweight='bold')
     ax.set_xlabel('$x$'); ax.set_ylabel('$y$')
     ax.legend(fontsize=10)
@@ -207,7 +207,7 @@ def b3():
     ax.annotate(r'$\infty-\infty \to 4$ via conjugate', (12, 4.45),
                 fontsize=10, color=GREEN, fontweight='bold')
     ax.set_xlim(1, 30); ax.set_ylim(3.2, 6.5)
-    ax.set_title('Practice 3: $\\infty-\\infty$ — $\\sqrt{x^2+5x}-\\sqrt{x^2-3x} \\to 4$',
+    ax.set_title('$\\infty-\\infty$ — $\\sqrt{x^2+5x}-\\sqrt{x^2-3x} \\to 4$',
                  fontweight='bold')
     ax.set_xlabel('$x$'); ax.set_ylabel('$y$')
     ax.legend(fontsize=10)
@@ -227,7 +227,7 @@ def b4():
     ax.annotate('squared denominator → both sides $0^+$', (0, 95), ha='center',
                 fontsize=10, color=GREEN, fontweight='bold')
     ax.set_xlim(-2, 2); ax.set_ylim(0, 120)
-    ax.set_title('Practice 4: $\\frac{1}{x^2} \\to +\\infty$ (two-sided)', fontweight='bold')
+    ax.set_title('$\\frac{1}{x^2} \\to +\\infty$ (two-sided)', fontweight='bold')
     ax.set_xlabel('$x$'); ax.set_ylabel('$y$')
     ax.legend(fontsize=10, loc='upper center')
     fig.tight_layout()
@@ -243,7 +243,7 @@ def b5():
     ax.axhline(np.e**10, color=GREEN, lw=1.4, ls='--', label=r'$e^{10} \approx 22026$')
     ax.annotate(r'$\to e^{10}$', (38, np.e**10 + 900), fontsize=11, color=GREEN, fontweight='bold')
     ax.set_xlim(0, 60); ax.set_ylim(0, 26000)
-    ax.set_title('Practice 5: The $e$ limit — $\\left(1+\\frac{5}{n}\\right)^{2n} \\to e^{10}$',
+    ax.set_title('The $e$ limit — $\\left(1+\\frac{5}{n}\\right)^{2n} \\to e^{10}$',
                  fontweight='bold')
     ax.set_xlabel('$n$'); ax.set_ylabel('$a_n$')
     ax.legend(fontsize=10)
@@ -282,7 +282,7 @@ def b6():
     ax2.annotate(r'$\to 0$  (ratio $= e^n/n! \to 0$)', (120, -22),
                  fontsize=10, color=GREEN, fontweight='bold')
     ax2.set_xlabel('$n$'); ax2.set_ylabel(r'$\log_{10}$ ratio')
-    ax2.set_title(r'Practice 6: $\frac{e^n+n^{100}}{2^n+n!} \to 0$', fontweight='bold')
+    ax2.set_title(r'$\frac{e^n+n^{100}}{2^n+n!} \to 0$', fontweight='bold')
     ax2.legend(fontsize=8, loc='upper right')
 
     fig.tight_layout()
@@ -303,7 +303,7 @@ def c1():
     ax.annotate(r'$\lim_{x\to2}f(x) = 4$ exists', (0.2, 3.1), fontsize=11,
                 color=GREEN, fontweight='bold')
     ax.set_xlim(0, 4); ax.set_ylim(1, 6.5)
-    ax.set_title('Practice 1: Removable discontinuity — $(x^2-4)/(x-2)$', fontweight='bold')
+    ax.set_title('Removable discontinuity — $(x^2-4)/(x-2)$', fontweight='bold')
     ax.set_xlabel('$x$'); ax.set_ylabel('$y$')
     ax.legend(fontsize=10)
     fig.tight_layout()
@@ -321,7 +321,7 @@ def c2():
     ax.annotate('meet at $(1,1)$ when $k=-1$', (1, 1), textcoords="offset points",
                 xytext=(12, -18), fontsize=10, color=GREEN, fontweight='bold')
     ax.set_xlim(0, 3); ax.set_ylim(-1, 8)
-    ax.set_title('Practice 2: Piecewise continuous at $x=1$ with $k=-1$', fontweight='bold')
+    ax.set_title('Piecewise continuous at $x=1$ with $k=-1$', fontweight='bold')
     ax.set_xlabel('$x$'); ax.set_ylabel('$y$')
     ax.legend(fontsize=10, loc='upper left')
     fig.tight_layout()
@@ -340,7 +340,7 @@ def c3():
     ax.annotate('squeezed to 0', (0, 0.55), ha='center', fontsize=11,
                 color=GREEN, fontweight='bold')
     ax.set_xlim(-1.2, 1.2); ax.set_ylim(-1, 1)
-    ax.set_title('Practice 3: Sandwich — $x^3\\cos(1/x^2) \\to 0$', fontweight='bold')
+    ax.set_title('Sandwich — $x^3\\cos(1/x^2) \\to 0$', fontweight='bold')
     ax.set_xlabel('$x$'); ax.set_ylabel('$y$')
     ax.legend(fontsize=9, loc='upper right')
     fig.tight_layout()
@@ -363,7 +363,7 @@ def c4():
     ax.annotate('sign change ⇒ root in $(0,2)$ by IVT', (1.0, 3.2), ha='center',
                 fontsize=11, color=GREEN, fontweight='bold')
     ax.set_xlim(0, 2); ax.set_ylim(-4, 18)
-    ax.set_title('Practice 4: IVT — a root of $x^5-2x^3+x-1$ must exist in $(0,2)$',
+    ax.set_title('IVT — a root of $x^5-2x^3+x-1$ must exist in $(0,2)$',
                  fontweight='bold')
     ax.set_xlabel('$x$'); ax.set_ylabel('$f(x)$')
     ax.legend(fontsize=9, loc='upper left')
@@ -382,7 +382,7 @@ def c5():
     ax.annotate(r'$a_1=3$', (1, 3.05), textcoords="offset points", xytext=(2, 8),
                 fontsize=10, color=RED, fontweight='bold')
     ax.set_xlim(0, 10); ax.set_ylim(2.8, 4.15)
-    ax.set_title('Practice 5: $a_{n+1}=\\frac{a_n+4}{2}$ converges to the fixed point $L=4$',
+    ax.set_title('$a_{n+1}=\\frac{a_n+4}{2}$ converges to the fixed point $L=4$',
                  fontweight='bold')
     ax.set_xlabel('$n$'); ax.set_ylabel('$a_n$')
     ax.legend(fontsize=10)
@@ -402,7 +402,7 @@ def c6():
     ax.annotate('all three meet at height 1', (0, 1), textcoords="offset points",
                 xytext=(14, -20), fontsize=10, color=GREEN, fontweight='bold')
     ax.set_xlim(-4, 1.5); ax.set_ylim(-0.3, 2.2)
-    ax.set_title('Practice 6: Three branches meeting at $(0,1)$ — continuous at $0$',
+    ax.set_title('Three branches meeting at $(0,1)$ — continuous at $0$',
                  fontweight='bold')
     ax.set_xlabel('$x$'); ax.set_ylabel('$y$')
     ax.legend(fontsize=9, loc='upper left')
@@ -464,7 +464,7 @@ def c7():
                 textcoords="offset points", xytext=(16, -20), fontsize=10,
                 color=GREEN, fontweight='bold')
     ax.set_xlim(-6, 6); ax.set_ylim(-0.8, 0.8)
-    ax.set_title('Practice 7: $\\frac{\\ \\frac{1}{x}-\\frac{1}{3}\\ }{x-3}$ — continuity restored at $k=-\\frac{1}{9}$',
+    ax.set_title('$\\frac{\\ \\frac{1}{x}-\\frac{1}{3}\\ }{x-3}$ — continuity restored at $k=-\\frac{1}{9}$',
                  fontweight='bold')
     ax.set_xlabel('$x$'); ax.set_ylabel('$y$')
     ax.legend(fontsize=10, loc='upper left')

@@ -299,69 +299,6 @@ You have a sentence made of claims:
     ├── all T → tautology. all F → contradiction.
     └── compare with another table → equivalence?
 ```
-
----
-
-## Practice 1
-
-**"If I lie, I get punished" AND "if I do not lie, I do not get punished."** Decide with a truth table whether this whole sentence is always true.
-
-→ Reference: **Examples 3, 6**
-
-> Solutions: [Solutions](solutions/01-solutions.md#practice-1)
-
----
-
-## Practice 2
-
-**When "$A$ implies $B$" is true, is it necessarily true that if $B$ is true then $A$ is true?** Test the claim with a table.
-
-→ Reference: **Example 3**
-
-> Solutions: [Solutions](solutions/01-solutions.md#practice-2)
-
----
-
-## Practice 3
-
-**"(A implies B) and (B implies A)"** — find the single connector that produces the same last column.
-
-→ Reference: **Examples 4, 7**
-
-> Solutions: [Solutions](solutions/01-solutions.md#practice-3)
-
----
-
-## Practice 4: Trap
-
-**"(A or B) and (not A)"** — find exactly the row(s) where this sentence is true.
-
-→ Reference: **Examples 2, 7**
-
-> Solutions: [Solutions](solutions/01-solutions.md#practice-4)
-
----
-
-## Practice 5
-
-**"(A and B) implies C" vs "(A implies C) or (B implies C)".** Compare the two last columns. Are they equivalent?
-
-→ Reference: **Examples 6, 7**
-
-> Solutions: [Solutions](solutions/01-solutions.md#practice-5)
-
----
-
-## Practice 6: Real Battle
-
-**"If $A$ is true then $B$ is true" and "if $B$ is true then $C$ is true"** are both true. Prove with a table that "if $A$ is true then $C$ is true" is always true.
-
-→ Reference: **Examples 3, 6**
-
-> Solutions: [Solutions](solutions/01-solutions.md#practice-6)
-
----
-
 ## Basic Drills
 
 > Pure computation — build the table, read the last column.

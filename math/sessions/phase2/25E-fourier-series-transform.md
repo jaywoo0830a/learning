@@ -312,57 +312,6 @@ $\hat{f}(\omega) = \int f(t)e^{-i\omega t}dt$ (no $1/2\pi$). $f(t) = \frac{1}{2\
     NMR: FID S(t) = Σ A_j e^{-t/T₂} e^{iω_j t} → FT → Lorentzian peaks at ω_j.
     X-ray crystallography: structure factors F_{hkl} = 3D FT of electron density.
 ```
-
----
-
-## Practice 1
-
-Compute the Fourier sine series for $f(t) = t$ on $[0, 1]$ with period $T=2$ (odd extension to $[-1, 1]$). Find the first three nonzero coefficients.
-
-→ Reference: **Example 2, 3**
-
-> Solutions: [Solutions](solutions/25E-solutions.md#practice-1)
-
----
-
-## Practice 2
-
-$f(t) = |t|$ on $[-1, 1]$, period $T=2$. This is an even function — use the cosine series shortcut. Compute $a_0, a_1, a_2, a_3$.
-
-→ Reference: **Example 4**
-
-> Solutions: [Solutions](solutions/25E-solutions.md#practice-2)
-
----
-
-## Practice 3
-
-Find the Fourier transform of the one-sided exponential decay: $f(t) = \begin{cases} e^{-at}, & t \geq 0 \\ 0, & t < 0 \end{cases}$, with $a > 0$. Sketch $|\hat{f}(\omega)|$.
-
-→ Reference: **Example 8**
-
-> Solutions: [Solutions](solutions/25E-solutions.md#practice-3)
-
----
-
-## Practice 4
-
-A piano string of length $L=0.65$ m, wave speed $c=330$ m/s, is struck at $t=0$ with initial shape $y(x,0) = 0.01\sin(\pi x/L)$ (pure fundamental) and zero initial velocity. Find $y(x,t)$ for all $t$. What is the fundamental frequency in Hz?
-
-→ Reference: **Example 11**
-
-> Solutions: [Solutions](solutions/25E-solutions.md#practice-4)
-
----
-
-## Practice 5: Real Battle — NMR Identification
-
-An NMR FID signal is measured: $S(t) = 3e^{-t/0.5}e^{i\cdot 2\pi\cdot 300\,t} + 1e^{-t/0.3}e^{i\cdot 2\pi\cdot 500\,t}$ (t in seconds, frequencies in Hz). (a) Write the Fourier transform $\hat{S}(\omega)$ in terms of Lorentzians. (b) Sketch the real-part spectrum. Label peak positions, heights, and widths. (c) Which nucleus has the longer $T_2$ relaxation time? (d) Bonus: if the two peaks were at 300 Hz and 305 Hz instead, would the FID show beats? At what beat frequency?
-
-> Solutions: [Solutions](solutions/25E-solutions.md#practice-5)
-
----
-
 ## Basic Drill (10)
 
 **D1.** Write the Fourier series formula for period $2L$. Define $a_0, a_n, b_n$.

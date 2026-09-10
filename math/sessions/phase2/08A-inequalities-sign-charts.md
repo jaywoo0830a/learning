@@ -119,49 +119,6 @@ Critical points: $x=-2$, $x=1$. $x<-2$: negative. $x>-2$: positive (including $x
 ### Mistake 1: Multiplying rational inequality by denominator without checking sign
 ### Mistake 2: Forgetting to exclude denominator zeros from solution
 ### Mistake 3: Thinking an even-power factor flips sign — it doesn't change sign when crossing its root
-
----
-
-## Practice 1
-
-Solve: $\frac{x+3}{x-2} < 0$. Sign chart, exclude denominator zero.
-
-→ Solutions: [Solutions](solutions/08A-solutions.md#practice-1)
-
----
-
-## Practice 2
-
-Solve: $x^3-2x^2-5x+6 \geq 0$. Factor using synthetic division.
-
-→ Solutions: [Solutions](solutions/08A-solutions.md#practice-2)
-
----
-
-## Practice 3
-
-Solve: $\frac{x^2-4}{x^2-1} \leq 0$. Factor both, sign chart.
-
-→ Solutions: [Solutions](solutions/08A-solutions.md#practice-3)
-
----
-
-## Practice 4: Real Battle
-
-Solve $\frac{x^2-3x+2}{x^2-4} \leq 0$. Factor both numerator and denominator. Watch for holes!
-
-→ Solutions: [Solutions](solutions/08A-solutions.md#practice-4)
-
----
-
-## Practice 5: Composition
-
-Design a rational inequality whose solution is $(-3,-1) \cup [2,\infty)$. Write it in the form $\frac{P(x)}{Q(x)} \geq 0$.
-
-→ Solutions: [Solutions](solutions/08A-solutions.md#practice-5)
-
----
-
 ## Basic Drills
 
 **D1.** Solve $2x-7 < 3$.

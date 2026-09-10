@@ -590,69 +590,6 @@ Check: midpoint $(-2, 2)$ lies on $y=-x$. ✓
 
 (5) Area: triangle (shoelace), polygon (extended shoelace). Point reflection.
 ```
-
----
-
-## Practice 1
-
-A line passes through $(1, 4)$ and $(5, -2)$. Write it in all five forms. What is its $x$-intercept?
-
-→ Reference: **Examples 1, 2**
-
-> Solutions: [Solutions](solutions/9B-solutions.md#practice-1)
-
----
-
-## Practice 2
-
-Find the acute angle between the lines $y = 3x + 1$ and $2x + y = 5$.
-
-→ Reference: **Example 4**
-
-> Solutions: [Solutions](solutions/9B-solutions.md#practice-2)
-
----
-
-## Practice 3
-
-Find the distance from $(2, -1)$ to the line $4x - 3y + 5 = 0$, and find the foot of the perpendicular.
-
-→ Reference: **Example 7**
-
-> Solutions: [Solutions](solutions/9B-solutions.md#practice-3)
-
----
-
-## Practice 4
-
-Find the center, vertices, foci, and eccentricity of $9x^2 + 25y^2 = 225$. Then draw the ellipse.
-
-→ Reference: **Example 12**
-
-> Solutions: [Solutions](solutions/9B-solutions.md#practice-4)
-
----
-
-## Practice 5
-
-A parabola has focus $(2, 1)$ and directrix $y = -3$. Find its equation in standard form and vertex form.
-
-→ Reference: **Example 13**
-
-> Solutions: [Solutions](solutions/9B-solutions.md#practice-5)
-
----
-
-## Practice 6: Real Battle
-
-A hyperbola has asymptotes $y = \pm\frac{4}{3}x$ and passes through $(5, 0)$. Find its equation, foci, and eccentricity. Then find the distance from the origin to either asymptote (they are the same).
-
-→ Reference: **Examples 7, 14**
-
-> Solutions: [Solutions](solutions/9B-solutions.md#practice-6)
-
----
-
 ## Basic Drills
 
 > Pure computation + 5 geometry-insight problems (marked ◆).

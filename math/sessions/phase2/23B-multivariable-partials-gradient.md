@@ -150,33 +150,6 @@ The tangent plane to $z=f(x,y)$ is NOT the same as the tangent plane to $F(x,y,z
 
 (3) Directional derivative: D_u f = ∇f·u (u unit). Tangent plane: z = f + ∇f·⟨x−a, y−b⟩.
 ```
-
----
-
-## Practice 1
-
-Find all first and second partials of $f(x,y)=x^3e^y+y\ln x$. Verify $f_{xy}=f_{yx}$.
-
----
-
-## Practice 2
-
-For $f(x,y)=x^2+3xy-y^2$ at $(2,-1)$: (a) $\nabla f$ (b) $D_{\vec{u}}f$ with $\vec{u}=\langle 3/5,4/5\rangle$ (c) direction of max increase and its value.
-
----
-
-## Practice 3
-
-Find the tangent plane to $z=x^2+xy$ at $(1,2,3)$. Use it to estimate $f(1.05, 1.95)$.
-
----
-
-## Practice 4: Real Battle
-
-A hiker at $(1,2)$ on $z=10-x^2-2y^2$ (hundreds of meters). (a) Walking east — up or down? Rate? (b) Quickest descent direction? (c) Tangent plane equation. (d) Estimate height at $(1.1, 1.9)$.
-
----
-
 ## Basic Drill (12)
 
 **D1.** $f_x$, $f_y$ for $f(x,y)=x^4y-3x^2+y^5$.

@@ -202,33 +202,6 @@ The divergence theorem requires a CLOSED surface (enclosing a volume). A hemisph
 
 (3) All three = FTC for higher dimensions: boundary integral = interior integral of a derivative.
 ```
-
----
-
-## Practice 1
-
-Compute $\int_C (x+y)\,dx + (x-y)\,dy$ along the line segment from $(0,0)$ to $(1,2)$.
-
----
-
-## Practice 2
-
-Verify Green's theorem for $\vec{F}=\langle y^2, x^2\rangle$ on the square $[0,1]\times[0,1]$.
-
----
-
-## Practice 3
-
-Use Stokes' theorem: $\vec{F}=\langle z,x,y\rangle$, $C$ = boundary of triangle $(1,0,0),(0,1,0),(0,0,1)$.
-
----
-
-## Practice 4: Real Battle
-
-Use the divergence theorem to compute flux of $\vec{F}=\langle x^2, y^2, z^2\rangle$ through the cube $[0,1]\times[0,1]\times[0,1]$. Compare with direct computation through the 6 faces.
-
----
-
 ## Basic Drill (10)
 
 **D1.** $\int_C (x+y)\,dx + (x-y)\,dy$, $C$: segment $(0,0)$ to $(1,2)$.

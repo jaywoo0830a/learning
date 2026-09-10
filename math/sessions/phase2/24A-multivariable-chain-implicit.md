@@ -159,33 +159,6 @@ Tangent plane: $2(x-1)+4(y-2)+6(z-3)=0$ → $x+2y+3z=14$.
 (2) Implicit — 2D: dy/dx = −F_x/F_y. 3D: ∂z/∂x = −F_x/F_z.
     Tangent plane to F(x,y,z)=0: ∇F·⟨x−x₀,y−y₀,z−z₀⟩ = 0.
 ```
-
----
-
-## Practice 1
-
-$z=x^2y$, $x=t^2$, $y=\sin t$. Find $dz/dt$ at $t=\pi$ using the chain rule.
-
----
-
-## Practice 2
-
-$z=f(x,y)$, $x=u^2-v^2$, $y=2uv$. Express $\partial z/\partial u$ and $\partial z/\partial v$.
-
----
-
-## Practice 3
-
-Find $dy/dx$ for $x^3+y^3=6xy$ via implicit differentiation with partials.
-
----
-
-## Practice 4: Real Battle
-
-The ideal gas law: $PV=nRT$ ($n,R$ constant). Find $\partial V/\partial T$ (pressure constant) and $\partial V/\partial P$ (temperature constant) via implicit differentiation of $F(P,V,T)=PV-nRT=0$.
-
----
-
 ## Basic Drill (12)
 
 **D1.** $z=x^2+y^2$, $x=e^t$, $y=e^{-t}$. Find $dz/dt$.

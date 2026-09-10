@@ -213,44 +213,6 @@ $\quad = \cos x\ln|\cos x| + x\sin x$.
 General: $y = c_1\cos x + c_2\sin x + \cos x\ln|\cos x| + x\sin x$.
 
 > **Up to here**: 2nd-order homogeneous → characteristic equation → 3 cases. Non-homogeneous → undetermined coefficients (form matching) or variation of parameters (general). Resonance when forcing frequency = natural frequency → amplitude grows linearly. Euler method = staircase approximation. Improved Euler averages slopes.
-
----
-
-## Practice 1
-
-Solve $y''-y'-2y=0$, $y(0)=1$, $y'(0)=0$.
-
-→ Solutions: [Solutions](solutions/19D-solutions.md#practice-1)
-
----
-
-## Practice 2
-
-Use Euler with $h=0.2$ to estimate $y(0.4)$ for $y'=y$, $y(0)=1$.
-
-→ Solutions: [Solutions](solutions/19D-solutions.md#practice-2)
-
----
-
-## Practice 3
-
-Solve $y''-3y'+2y = e^{3x}$. Find $y_h$, guess $y_p$, add them.
-
-→ Solutions: [Solutions](solutions/19D-solutions.md#practice-3)
-
----
-
-## Practice 4: Real Battle — Resonance
-
-A mass-spring system ($m=1$, $k=4$) is driven by $F(t) = 2\cos(2t)$.
-(a) Find the natural frequency $\omega_0$.
-(b) Write and solve the ODE $y''+4y = 2\cos(2t)$.
-(c) Describe the long-term behavior.
-
-→ Solutions: [Solutions](solutions/19D-solutions.md#practice-4)
-
----
-
 ## Basic Drills
 
 **D1.** Solve $y''+y'-6y=0$.

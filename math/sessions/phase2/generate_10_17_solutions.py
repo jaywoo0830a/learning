@@ -46,7 +46,7 @@ def a_p6():
     ax.annotate('$(2,72)$: $3^{x+2}-3^x=3^x(9-1)=8\\cdot 3^x$', (2, 72),
                 xytext=(0.35, 76), fontsize=10, color='#333', fontweight='bold')
     ax.set_xlim(0, 2.6); ax.set_ylim(0, 90)
-    ax.set_title('Practice 6: factor out $3^x$ — $8\\cdot 3^x=72 \\to x=2$',
+    ax.set_title('factor out $3^x$ — $8\\cdot 3^x=72 \\to x=2$',
                  fontweight='bold')
     ax.set_xlabel('$x$'); ax.set_ylabel('$y$')
     ax.legend(fontsize=10, loc='upper left')
@@ -68,7 +68,7 @@ def a_p9():
                 fontsize=11, color=GREEN, fontweight='bold')
     ax.set_xlim(-1/3 + 0.01, 1.6); ax.set_ylim(-7, 1.5)
     ax.axvline(1, color='#888', lw=1.0, ls=':'); ax.axvline(-1/3, color='#888', lw=1.0, ls=':')
-    ax.set_title('Practice 9: $\\log_{1/2}(3x+1) \\geq -2$ — argument $>0$ and base $<1$',
+    ax.set_title('$\\log_{1/2}(3x+1) \\geq -2$ — argument $>0$ and base $<1$',
                  fontweight='bold')
     ax.set_xlabel('$x$'); ax.set_ylabel('$y$')
     ax.legend(fontsize=9, loc='lower right')
@@ -89,7 +89,7 @@ def a_p10():
     ax.fill_betweenx(np.linspace(0, 1e-3, 2), 0, 1, color='none')
     ax.axvline(0, color='#888', lw=0.8, alpha=0.5)
     ax.set_xlim(-7, 2); ax.set_ylim(-14, 20)
-    ax.set_title('Practice 10: $t=5^x \\to t^2+5t-6=0 \\to t=1 \\to x=0$',
+    ax.set_title('$t=5^x \\to t^2+5t-6=0 \\to t=1 \\to x=0$',
                  fontweight='bold')
     ax.set_xlabel('$t$'); ax.set_ylabel('$y$')
     ax.legend(fontsize=10, loc='lower right')
@@ -108,7 +108,7 @@ def b_p1():
     ax.annotate('$t \\approx 19.3$ years\n$500(0.92)^t<100 \\to t>\\frac{\\ln 0.2}{\\ln 0.92}$',
                 (19.3, 100), xytext=(8, 190), fontsize=10, color='#333', fontweight='bold')
     ax.set_xlim(0, 30); ax.set_ylim(0, 520)
-    ax.set_title('Practice 1: exponential decay — falls below 100 g after ~19.3 years',
+    ax.set_title('exponential decay — falls below 100 g after ~19.3 years',
                  fontweight='bold')
     ax.set_xlabel('$t$ (years)'); ax.set_ylabel('$N$ (g)')
     ax.legend(fontsize=10, loc='upper right')
@@ -125,7 +125,7 @@ def b_p2():
     ax.annotate('$x \\approx 1.58$\n$x=\\frac{W(9\\ln 3)}{\\ln 3}$', (1.579, 9),
                 xytext=(0.6, 12.5), fontsize=10, color='#333', fontweight='bold')
     ax.set_xlim(0.2, 2.4); ax.set_ylim(0, 16)
-    ax.set_title('Practice 2: $x\\cdot 3^x=9$ — rearrange to $u e^u = 9\\ln 3$, apply $W$',
+    ax.set_title('$x\\cdot 3^x=9$ — rearrange to $u e^u = 9\\ln 3$, apply $W$',
                  fontweight='bold')
     ax.set_xlabel('$x$'); ax.set_ylabel('$y$')
     ax.legend(fontsize=10, loc='upper left')
@@ -146,7 +146,7 @@ def c_p1():
     ax.axhline(0, color='#888', lw=0.8, alpha=0.5); ax.axvline(0, color='#888', lw=0.8, alpha=0.5)
     ax.set_xlim(-2.3, 2.3); ax.set_ylim(-2.3, 2.3)
     ax.set_aspect('equal')
-    ax.set_title(r'Practice 1: cardioid $r=1+\cos\theta$ — area $=3\pi/2$',
+    ax.set_title(r'cardioid $r=1+\cos\theta$ — area $=3\pi/2$',
                  fontweight='bold')
     ax.set_xlabel('$x$'); ax.set_ylabel('$y$')
     fig.tight_layout()
@@ -170,7 +170,7 @@ def c_p4():
                 fontsize=10, color=RED, fontweight='bold')
     ax.text(0.5, 0.45, 'region', fontsize=11, color=GREEN, fontweight='bold')
     ax.set_xlim(-0.05, 1.2); ax.set_ylim(-1.35, 1.25)
-    ax.set_title('Practice 4: washer about $y=-1$ — $V=\\frac{29\\pi}{30}$',
+    ax.set_title('washer about $y=-1$ — $V=\\frac{29\\pi}{30}$',
                  fontweight='bold')
     ax.set_xlabel('$x$'); ax.set_ylabel('$y$')
     ax.legend(fontsize=9, loc='upper left')
@@ -193,7 +193,7 @@ def c_p5():
     ax.axhline(0, color='#888', lw=0.8, alpha=0.5); ax.axvline(0, color='#888', lw=0.8, alpha=0.5)
     ax.set_xlim(-6.6, 6.6); ax.set_ylim(-6.6, 6.6)
     ax.set_aspect('equal')
-    ax.set_title(r'Practice 5: Archimedean spiral $r=\theta$ — area $=4\pi^3/3$',
+    ax.set_title(r'Archimedean spiral $r=\theta$ — area $=4\pi^3/3$',
                  fontweight='bold')
     ax.set_xlabel('$x$'); ax.set_ylabel('$y$')
     fig.tight_layout()
@@ -218,7 +218,7 @@ def c_p6():
             fontweight='bold')
     ax.set_xlim(-0.5, 4.5); ax.set_ylim(-0.5, 4.2)
     ax.set_aspect('equal')
-    ax.set_title('Practice 6: $M = [[3,1],[1,2]]$, det $= 5$ — area of the image $= 5$',
+    ax.set_title('$M = [[3,1],[1,2]]$, det $= 5$ — area of the image $= 5$',
                  fontweight='bold')
     ax.set_xlabel('$x$'); ax.set_ylabel('$y$')
     ax.legend(fontsize=9, loc='lower right')

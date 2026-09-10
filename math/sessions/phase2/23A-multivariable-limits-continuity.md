@@ -161,45 +161,6 @@ $h(x,y)=\begin{cases} \frac{xy}{x^2+y^2}, & (x,y)\neq(0,0) \\ 0, & (0,0) \end{ca
 
 (3) Continuity: limit = f(a,b). Piecewise definition at origin — check the limit first.
 ```
-
----
-
-## Practice 1
-
-Find and sketch the domain: $f(x,y)=\sqrt{9-x^2-y^2} + \ln(x+y)$. List all conditions.
-
-→ Reference: **Example 3**
-
----
-
-## Practice 2
-
-Show $\lim_{(x,y)\to(0,0)} \frac{x^2-y^2}{x^2+y^2}$ DNE by testing at least three paths.
-
-→ Reference: **Example 5, 7**
-
----
-
-## Practice 3
-
-Use polar to prove $\lim_{(x,y)\to(0,0)} \frac{x^2y}{x^2+y^2} = 0$.
-
-→ Reference: **Example 6**
-
----
-
-## Practice 4: Real Battle
-
-Is $f(x,y)=\begin{cases} \frac{x^4}{x^4+y^2}, & (x,y)\neq(0,0) \\ 0, & (0,0) \end{cases}$ continuous at $(0,0)$? Test $y=mx^2$ paths.
-
----
-
-## Practice 5: Real Battle — Parametric Paths (🔗 12C2)
-
-Use the parametric path $\vec{r}(t) = (t, t^3)$ to test $\lim_{(x,y)\to(0,0)} \frac{x^2 y}{x^4 + y^2}$. Compare with straight-line paths $y=mx$. What does this tell you about the reliability of straight-line tests?
-
----
-
 ## Basic Drill (12)
 
 **D1.** Domain of $f(x,y)=\frac{1}{x-y}$. Sketch.

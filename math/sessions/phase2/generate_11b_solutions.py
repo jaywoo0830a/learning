@@ -45,7 +45,7 @@ def p3():
     xt=[0,np.pi/2,np.pi,3*np.pi/2,2*np.pi]; xl=['0','$\\pi/2$','$\\pi$','$3\\pi/2$','$2\\pi$']
     ax2.set_xticks(xt); ax2.set_xticklabels(xl,fontsize=8); ax2.set_xlabel('$x$')
 
-    fig.suptitle('Practice 3: $12\\sin x+5\\cos x = 13\\sin(x+\\phi)$',fontweight='bold',fontsize=12)
+    fig.suptitle('$12\\sin x+5\\cos x = 13\\sin(x+\\phi)$',fontweight='bold',fontsize=12)
     fig.tight_layout(pad=0.8)
     fig.savefig(os.path.join(OUT,'sol11b-p3-harmonic.png'),bbox_inches='tight')
     plt.close(fig)
@@ -67,7 +67,7 @@ def p4():
     ax.scatter(1,0,color='#d93025',s=70,zorder=6)
     ax.annotate('$0$\n$\\cos=1$',(1,0),textcoords="offset points",
                  xytext=(12,-18),fontsize=9,color='#d93025',fontweight='bold')
-    ax.set_title('Practice 4: $2\\cos^2 x-3\\cos x+1=0$',fontweight='bold',fontsize=11)
+    ax.set_title('$2\\cos^2 x-3\\cos x+1=0$',fontweight='bold',fontsize=11)
     fig.tight_layout()
     fig.savefig(os.path.join(OUT,'sol11b-p4-quadratic.png'),bbox_inches='tight')
     plt.close(fig)
@@ -89,7 +89,7 @@ def p8():
     ax.text((Bx+Cx)/2+0.5,(By+Cy)/2+0.2,'$a=7$',fontsize=12,fontweight='bold',color='#188038')
     ax.text(1.5,0.4,'$32.2°$',fontsize=9); ax.text(Bx-3.0,0.5,'$98.2°$',fontsize=9)
     ax.text(Cx-0.8,Cy-1.0,'$49.5°$',fontsize=9)
-    ax.set_title('Practice 8: Triangle $a=7,b=10,c=13$ — Area $=20\\sqrt{3}$',fontweight='bold',fontsize=12)
+    ax.set_title('Triangle $a=7,b=10,c=13$ — Area $=20\\sqrt{3}$',fontweight='bold',fontsize=12)
     fig.tight_layout()
     fig.savefig(os.path.join(OUT,'sol11b-p8-triangle.png'),bbox_inches='tight')
     plt.close(fig)

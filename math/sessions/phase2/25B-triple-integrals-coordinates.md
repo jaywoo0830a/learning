@@ -180,33 +180,6 @@ $\phi \in [0,\pi]$, NOT $[0,2\pi]$. $\phi$ is the polar angle from the $z$-axis.
 (1) Polar: dA = r·dr·dθ. Cylindrical: dV = r·dr·dθ·dz. Spherical: dV = ρ²sinφ·dρ·dφ·dθ.
 (2) Jacobian = determinant of partial derivatives. Measures local area/volume stretch.
 ```
-
----
-
-## Practice 1
-
-Use polar to compute $\iint_D \sqrt{x^2+y^2}\,dA$ over $x^2+y^2 \leq 4$.
-
----
-
-## Practice 2
-
-Find the volume of the solid bounded by the paraboloid $z=x^2+y^2$ and the plane $z=4$ (cylindrical).
-
----
-
-## Practice 3
-
-Use spherical to find volume inside $x^2+y^2+z^2=9$, above cone $z=\sqrt{x^2+y^2}$.
-
----
-
-## Practice 4: Real Battle
-
-Compute $\iint_D e^{(x+y)/(x-y)}\,dA$ over the trapezoid bounded by $x+y=1$, $x+y=2$, $x-y=0$, $x-y=1$. Use $u=x+y$, $v=x-y$.
-
----
-
 ## Basic Drill (12)
 
 **D1.** Convert $\int_0^1\int_0^{\sqrt{1-x^2}} (x^2+y^2)\,dy\,dx$ to polar (write limits, don't evaluate).

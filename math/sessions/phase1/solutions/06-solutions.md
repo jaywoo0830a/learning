@@ -1,86 +1,4 @@
 # Solutions — 06: Gödel's Incompleteness Theorem — Mathematics That Cannot Decide
-
----
-
-## Practice 1
-
-**With the symbol table ($0$=1, $+$=2, $\times$=3, $=$=4, $\neg$=5, $\forall$=6, $x$=7, $y$=8), compute the Gödel number of "$0 = 0$".**
-
-Code sequence: $0 \to 1$, $=$ → 4, $0 \to 1$ → $[1, 4, 1]$.
-
-Gödel number: $2^1 \times 3^4 \times 5^1 = 2 \times 81 \times 5 = 810$.
-
-> **Answer**: $2^1 \cdot 3^4 \cdot 5^1 = 810$.
-
----
-
-## Practice 2
-
-**Why can't a consistent system prove its own consistency? (Second Incompleteness, intuitive explanation.)**
-
-The system can express "I am consistent" as a sentence. If it proved that sentence, then — since it cannot prove $G$ (the sentence "I am not provable") — the system would have to conclude "$G$ is true but unprovable," which is itself a proof of $G$'s truth. In fact, proving "I am consistent" is essentially proving $G$ (in the right system), and we know $G$ is unprovable. So consistency is unprovable from inside.
-
-> **Answer**: Proving one's own consistency would amount to proving $G$, which is impossible. The system cannot certify itself from within.
-
----
-
-## Practice 3
-
-**The barber paradox ends "no such barber exists"; the Gödel sentence ends "the system cannot decide $G$." Why the same structure?**
-
-Both are self-referential and both collapse under their own logic:
-
-- Barber: the rule "shaves exactly the non-self-shavers" must apply to the barber himself. Applying it to himself gives a contradiction, so the object cannot exist.
-- Gödel: the sentence $G$ = "I am not provable" must apply to itself. Asking "is $G$ provable?" gives a contradiction either way, so the system cannot decide it.
-
-Both are the same loop — a description forced to include itself — producing an unavoidable limit.
-
-> **Answer**: Self-reference: assuming the object/system satisfies its own description leads to contradiction; the conclusion is a limit (nonexistence / undecidability).
-
----
-
-## Practice 4: Trap
-
-**"Can't I add $G$ as an axiom and close the gap?"**
-
-Adding $G$ as an axiom makes $G$ provable in the *extended* system. But the extended system has its own provability predicate, and the same diagonal construction produces a **new** sentence $G'$ = "I am not provable in the extended system." $G'$ is again true and unprovable there. The gap reappears at every level — no finite extension closes it.
-
-> **Answer**: Every extension produces a new Gödel sentence. Incompleteness is not a hole you can patch; it's a permanent feature.
-
----
-
-## Practice 5
-
-**Why is proof-checking mechanical?**
-
-A proof is a finite sequence of lines; each line is either an axiom or follows from earlier lines by an inference rule. Checking one rule application is a syntactic task:
-
-Modus ponens: if line $i$ is $P$ and line $j$ is $P \to Q$, then line $\ell$ may be $Q$. To check line $\ell$, compare shapes: does line $i$ match the left side of line $j$'s implication, and does line $\ell$ match the right side? No meaning is involved — just symbol matching.
-
-A computer (hence an arithmetic formula) can do this digit-by-digit check for every line. That's exactly what makes $\text{Provable}(x)$ expressible in arithmetic.
-
-> **Answer**: Proof-checking is string comparison — purely syntactic — so it's a computation, and computations are expressible in arithmetic.
-
----
-
-## Practice 6: Real Battle
-
-**Why is the Halting Problem structurally the same as Gödel's theorem? Where is the self-reference?**
-
-Halting Problem: assume a program $H(P, I)$ decides whether program $P$ halts on input $I$. Build a new program $D$ that, on input $P$, runs $H(P,P)$ and then does the opposite: loops forever if $H$ says "halts," halts if $H$ says "loops."
-
-Now run $D$ on itself: $D(D)$ halts iff $H$ predicts $D(D)$ doesn't halt — contradiction. No such $H$ exists.
-
-The structure matches Gödel exactly:
-- Gödel: $G$ = "I am not provable" — if the system proves it, contradiction.
-- Halting: $D$ = "I don't halt" (via the halting test) — if the decider says it halts, contradiction.
-
-Both smuggle **self-reference** ("this very program/sentence") into the question, and both conclude a hard limit: no complete proof system, no halting decider.
-
-> **Answer**: Both use self-reference ("about itself") to force a contradiction, proving that no system/program can answer every question about itself.
-
----
-
 ## Basic Drills
 
 **D1.** "$x = x$" → codes $[7,4,7]$ → $2^7 \cdot 3^4 \cdot 5^7 = 128 \cdot 81 \cdot 78125 = 810{,}000{,}000$.
@@ -124,7 +42,7 @@ All three are the same move: assume completeness, construct the item that contra
 
 ### A7. Halting Problem — the self-referential program
 Assume $H(P,I)$ decides halting. Define $D(P)$: run $H(P,P)$; if it says "halts," loop forever; if it says "loops," halt.
-Run $D(D)$: $D(D)$ halts ⟺ $H(D,D)$ says "loops" ⟺ $D(D)$ does not halt. Contradiction. So $H$ cannot exist. (This is the full version of Practice 6.)
+Run $D(D)$: $D(D)$ halts ⟺ $H(D,D)$ says "loops" ⟺ $D(D)$ does not halt. Contradiction. So $H$ cannot exist.
 
 ### A8. Same shape: uncountability and incompleteness
 - Uncountability: assume a complete list of reals; construct $d$ differing from every entry; contradiction.

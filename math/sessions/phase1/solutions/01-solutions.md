@@ -1,110 +1,4 @@
 # Solutions — 01: Judging the Truth of Sentences — Truth Tables
-
----
-
-## Practice 1
-
-**"If I lie, I get punished" AND "if I do not lie, I do not get punished" — is this whole sentence always true?**
-
-Let $A$ = "I lie", $B$ = "I get punished". The sentence is $(A \to B) \land (\neg A \to \neg B)$.
-
-| $A$ | $B$ | $A \to B$ | $\neg A$ | $\neg B$ | $\neg A \to \neg B$ | $(A \to B) \land (\neg A \to \neg B)$ |
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| T | T | T | F | F | T | T |
-| T | F | F | F | T | T | F |
-| F | T | T | T | F | F | F |
-| F | F | T | T | T | T | T |
-
-The last column is **not all T**. The sentence is not always true — it is true exactly when $A$ and $B$ agree (which is the "iff" column).
-
-> **Answer**: Not a tautology. True only when $A$ and $B$ have the same value (i.e., it equals $A \leftrightarrow B$).
-
----
-
-## Practice 2
-
-**When "$A$ implies $B$" is true, must "$B$ implies $A$" also be true?**
-
-Look only at rows where $A \to B$ is T: rows 1, 3, 4. Among these, which have $B$ = T? Rows 1 and 3. Row 3 is $B$=T with $A$=F — a counterexample.
-
-> **Answer**: The claim is **false**. $A \to B$ true does not force $B \to A$. (Row 3: $A$=F, $B$=T makes $A \to B$ true but $B \to A$ false.)
-
----
-
-## Practice 3
-
-**"(A implies B) and (B implies A)" — which single connector gives the same column?**
-
-| $A$ | $B$ | $A \to B$ | $B \to A$ | $(A \to B) \land (B \to A)$ |
-|:---:|:---:|:---:|:---:|:---:|
-| T | T | T | T | T |
-| T | F | F | T | F |
-| F | T | T | F | F |
-| F | F | T | T | T |
-
-The last column is T exactly when $A$ and $B$ match.
-
-> **Answer**: It equals **$A \leftrightarrow B$** ("iff"). "A iff B" is literally "A implies B and B implies A."
-
----
-
-## Practice 4: Trap
-
-**"(A or B) and (not A)" — in which rows is it true?**
-
-| $A$ | $B$ | $A \lor B$ | $\neg A$ | $(A \lor B) \land \neg A$ |
-|:---:|:---:|:---:|:---:|:---:|
-| T | T | T | F | F |
-| T | F | T | F | F |
-| F | T | T | T | **T** |
-| F | F | F | T | F |
-
-> **Answer**: True only when $A$=F and $B$=T — i.e., the sentence means "not $A$, and $B$".
-
----
-
-## Practice 5
-
-**"(A and B) implies C" vs "(A implies C) or (B implies C)" — equivalent?**
-
-| $A$ | $B$ | $C$ | $A\land B$ | $(A\land B)\to C$ | $A\to C$ | $B\to C$ | $(A\to C)\lor(B\to C)$ |
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| T | T | T | T | T | T | T | T |
-| T | T | F | T | F | F | F | F |
-| T | F | T | F | T | T | T | T |
-| T | F | F | F | T | F | T | T |
-| F | T | T | F | T | T | T | T |
-| F | T | F | F | T | T | F | T |
-| F | F | T | F | T | T | T | T |
-| F | F | F | F | T | T | T | T |
-
-The two last columns match.
-
-> **Answer**: **Yes — equivalent.** $(A \land B) \to C \equiv (A \to C) \lor (B \to C)$.
-
----
-
-## Practice 6: Real Battle
-
-**If $A \to B$ and $B \to C$ are both true, prove $A \to C$ is always true.**
-
-Consider only rows where both $A \to B$ and $B \to C$ are T. With $A,B,C$ there are 8 rows; the four where both implications hold are:
-
-| $A$ | $B$ | $C$ | $A\to B$ | $B\to C$ | $A\to C$ |
-|:---:|:---:|:---:|:---:|:---:|:---:|
-| T | T | T | T | T | **T** |
-| F | T | T | T | T | **T** |
-| F | F | T | T | T | **T** |
-| F | F | F | T | T | **T** |
-
-(Also check: row $A$=T, $B$=T, $C$=F fails $B\to C$; row $A$=T, $B$=F fails $A\to B$; etc.)
-
-In every row where both premises are true, $A \to C$ is true.
-
-> **Answer**: **Always true** — this is the *syllogism* (transitivity of implication).
-
----
-
 ## Basic Drills
 
 ### D1. Table for $A \land B$
@@ -211,7 +105,7 @@ Left: $(T \lor F)\land F = F$. Right: $T \lor (F\land F) = T$. Different.
 > **Answer**: **Not equivalent.** "or" does not distribute over "and" this way. ($\lor$ distributes over $\land$: $A \lor (B\land C) \equiv (A\lor B)\land(A\lor C)$ — that's the correct direction.)
 
 ### A6. $(A \to B) \land (B \to A)$
-Same as Practice 3 → equals **$A \leftrightarrow B$**.
+True exactly on the rows where the implication columns match → equals **$A \leftrightarrow B$**.
 
 ### A7. $A \to (B \land C)$ vs $(A\to B)\land(A\to C)$
 

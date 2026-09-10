@@ -129,41 +129,6 @@ $y = xy' + (y')^2$. $f(t)=t^2$.
 General: $y = cx + c^2$ (lines). Singular: $x = -2y'$, $y = -2(y')^2 + (y')^2 = -(y')^2$. Eliminate $y'$: $y = -\frac{x^2}{4}$ — a parabola that is tangent to every line $y=cx+c^2$.
 
 > **Up to here**: Homogeneous → $v=y/x$. Bernoulli → $v=y^{1-n}$. Exact → $\phi(x,y)=C$. Non-exact → find $\mu$. Orthogonal trajectories: flip slope to $-1/$slope. Riccati → known $y_1$ + $1/v$ substitution → linear. Clairaut → $y=cx+f(c)$ (general) + envelope (singular). Every substitution is a coordinate transformation (🔗 12C3).
-
----
-
-## Practice 1
-
-Solve: $\frac{dy}{dx} = \frac{y^2-x^2}{2xy}$. Homogeneous.
-
-→ Solutions: [Solutions](solutions/19C-solutions.md#practice-1)
-
----
-
-## Practice 2
-
-Solve: $y' + \frac{y}{x} = y^3$. Bernoulli.
-
-→ Solutions: [Solutions](solutions/19C-solutions.md#practice-2)
-
----
-
-## Practice 3
-
-Solve: $(2xy+1)dx + (x^2+3y^2)dy = 0$. Test for exactness.
-
-→ Solutions: [Solutions](solutions/19C-solutions.md#practice-3)
-
----
-
-## Practice 4
-
-Solve the Riccati equation $y' = y^2 - \frac{2}{x^2}$ using the known solution $y_1 = 1/x$.
-
-→ Solutions: [Solutions](solutions/19C-solutions.md#practice-4)
-
----
-
 ## Basic Drills
 
 **D1.** Solve $dy/dx = (y/x)^2 + y/x$. Homogeneous.

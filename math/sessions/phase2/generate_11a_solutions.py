@@ -37,7 +37,7 @@ def p3():
                     xytext=(0, -18 if yi < 0 else 12), ha='center', fontsize=7.5, color='#1a73e8')
 
     ax.set_ylim(-5.5, 3.5)
-    ax.set_title('Practice 3: $y = -3\\cos(2\\theta + \\pi/3) - 1$  (Amp=3, T=$\\pi$, shift=$-\\pi/6$)', fontweight='bold')
+    ax.set_title('$y = -3\\cos(2\\theta + \\pi/3) - 1$  (Amp=3, T=$\\pi$, shift=$-\\pi/6$)', fontweight='bold')
     ax.set_xlabel('$\\theta$'); ax.set_ylabel('$y$')
     ax.legend(fontsize=8)
     xt = [-np.pi/2, -np.pi/4, 0, np.pi/4, np.pi/2, 3*np.pi/4, np.pi]
@@ -76,7 +76,7 @@ def p5():
     ax2.set_title('$\\beta = \\arcsin\\frac{4}{5}$', fontweight='bold', fontsize=12)
     ax2.legend(fontsize=8, loc='lower right')
 
-    fig.suptitle('Practice 5: Right Triangles for Inverse Trig', fontweight='bold', fontsize=13)
+    fig.suptitle('Right Triangles for Inverse Trig', fontweight='bold', fontsize=13)
     fig.tight_layout(pad=0.5)
     fig.savefig(os.path.join(OUT, 'sol11a-p5-triangles.png'), bbox_inches='tight')
     plt.close(fig)

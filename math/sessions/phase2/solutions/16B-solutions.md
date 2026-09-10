@@ -1,126 +1,6 @@
 # Solutions — 16B: Advanced Integration
 
 > Back to [16B — Advanced Integration](../16B-advanced-integration.md)
-
----
-
-## Practice 1
-
-$\int x\sin x\,dx$
-
-Run the parts algorithm. LIATE: **A**lgebraic ($x$) beats **T**rig ($\sin x$).
-
-| Step | Action |
-|:---:|:---|
-| 1 | $u = x$ (Algebraic) |
-| 2 | $dv = \sin x\,dx$ |
-| 3 | $du = dx$ |
-| 4 | $v = \int \sin x\,dx = -\cos x$ |
-| 5 | $uv - \int v\,du = -x\cos x - \int (-\cos x)\,dx$ |
-| 6 | $= -x\cos x + \int \cos x\,dx = -x\cos x + \sin x + C$ |
-
-**Check**: $\frac{d}{dx}(-x\cos x + \sin x) = -\cos x + x\sin x + \cos x = x\sin x$. ✓
-
----
-
-## Practice 2
-
-$\int \cos^3 x\,dx$
-
-$n=3$ (odd power of cosine). Follow the "n odd" branch:
-
-1. **Peel**: $\cos^3 x = \cos x \cdot \cos^2 x$.
-2. **Convert**: $\cos^2 x = 1 - \sin^2 x$. So $\cos^3 x = \cos x(1-\sin^2 x)$.
-3. **$u$-sub**: $u = \sin x$, $du = \cos x\,dx$ — **exact match**.
-
-$\int \cos^3 x\,dx = \int \cos x(1-\sin^2 x)\,dx = \int (1-u^2)\,du$
-
-4. **Integrate**: $u - \frac{u^3}{3} + C$.
-5. **Back**: $\sin x - \frac{\sin^3 x}{3} + C$.
-
-**Check**: $\frac{d}{dx}(\sin x - \frac{\sin^3 x}{3}) = \cos x - \sin^2 x\cos x = \cos x(1-\sin^2 x) = \cos x\cos^2 x = \cos^3 x$. ✓
-
----
-
-## Practice 3
-
-$\int \frac{dx}{x^2+4}$
-
-### Method 1: Arctan formula directly
-
-$\int \frac{dx}{x^2+a^2} = \frac{1}{a}\arctan\left(\frac{x}{a}\right) + C$.
-
-Here $a=2$: $\int \frac{dx}{x^2+4} = \frac{1}{2}\arctan\left(\frac{x}{2}\right) + C$.
-
-### Method 2: Trig sub $x = 2\tan\theta$
-
-Form: $x^2+4 = x^2+2^2$ → $x=2\tan\theta$.
-
-1. $x = 2\tan\theta$, $dx = 2\sec^2\theta\,d\theta$.
-2. $x^2+4 = 4\tan^2\theta+4 = 4(\tan^2\theta+1) = 4\sec^2\theta$.
-3. Integral: $\int \frac{2\sec^2\theta\,d\theta}{4\sec^2\theta} = \int \frac{1}{2}\,d\theta = \frac{\theta}{2} + C$.
-4. Back-substitute: $\theta = \arctan(x/2)$ → $\frac{1}{2}\arctan\left(\frac{x}{2}\right) + C$.
-
-Both methods give the same answer. The arctan formula is faster.
-
----
-
-## Practice 4
-
-$\int \frac{x+1}{x^2-3x+2}\,dx$
-
-**Step 1**: Factor denominator: $x^2-3x+2 = (x-1)(x-2)$.
-
-Degree check: numerator degree (1) < denominator degree (2). No division needed.
-
-**Step 2**: Template for distinct linear factors:
-
-$\frac{x+1}{(x-1)(x-2)} = \frac{A}{x-1} + \frac{B}{x-2}$
-
-**Step 3**: Clear denominators: $x+1 = A(x-2) + B(x-1)$.
-
-**Step 4**: Solve by plugging roots:
-- Plug $x=1$: $1+1 = A(1-2) + B(0)$ → $2 = -A$ → $A = -2$.
-- Plug $x=2$: $2+1 = A(0) + B(2-1)$ → $3 = B$ → $B = 3$.
-
-(Alternative — match coefficients: $x+1 = (A+B)x + (-2A-B)$. So $A+B=1$, $-2A-B=1$. From first: $B=1-A$. Plug into second: $-2A-(1-A)=1$ → $-A-1=1$ → $A=-2$, $B=3$. Both methods agree.)
-
-**Step 5**: Integrate:
-
-$\int \frac{x+1}{x^2-3x+2}\,dx = \int \left(\frac{-2}{x-1} + \frac{3}{x-2}\right)dx$
-
-$= -2\ln|x-1| + 3\ln|x-2| + C = \ln\left|\frac{(x-2)^3}{(x-1)^2}\right| + C$.
-
----
-
-## Practice 5: Real Battle (Constructive)
-
-**(a) $\int \frac{x}{\sqrt{1-x^2}}\,dx$ — is there a faster way?**
-
-Yes! $u$-sub is much faster. Let $u = 1-x^2$, $du = -2x\,dx$ → $x\,dx = -\frac{du}{2}$.
-
-$\int \frac{x}{\sqrt{1-x^2}}\,dx = \int \frac{1}{\sqrt{u}} \cdot \left(-\frac{du}{2}\right) = -\frac{1}{2}\int u^{-1/2}\,du$
-
-$= -\frac{1}{2} \cdot \frac{u^{1/2}}{1/2} + C = -\sqrt{u} + C = -\sqrt{1-x^2} + C$.
-
-Trig sub would also work but takes much longer.
-
-**(b) $\int \frac{1}{\sqrt{1-x^2}}\,dx$ — was trig sub the right call?**
-
-Trig sub is perfect here — there's no $x$ in the numerator to absorb into $du$:
-
-$x = \sin\theta$, $dx = \cos\theta\,d\theta$. $\sqrt{1-x^2} = \cos\theta$.
-
-$\int \frac{1}{\sqrt{1-x^2}}\,dx = \int \frac{\cos\theta\,d\theta}{\cos\theta} = \int d\theta = \theta + C = \arcsin x + C$.
-
-A $u$-sub would fail because there's no $x\,dx$ to match $du$ for $u=1-x^2$. Trig sub is indeed the right call.
-
-**(c) One-sentence rule**:
-
-> When $\sqrt{a^2-x^2}$ appears, try $u$-sub ($u=a^2-x^2$) first if there's an $x$ in the numerator to make $du$; if the numerator has no $x$ (or the $x$ doesn't help), use trig sub $x=a\sin\theta$.
-
----
-
 ## Basic Drills
 
 ### B1. $\int x\cos x\,dx$
@@ -274,7 +154,7 @@ The constants differ by $-\frac{1}{4}$, which is absorbed into $+C$. Both answer
 
 ### B10. $\int \frac{x}{\sqrt{1-x^2}}\,dx$
 
-Decision: $u$-sub is faster (see Practice 5a).
+Decision: $u$-sub is faster — the numerator is (up to a sign) the derivative of the radicand.
 
 $u = 1-x^2$, $du = -2x\,dx$ → $x\,dx = -\frac{du}{2}$.
 

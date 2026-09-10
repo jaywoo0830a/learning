@@ -160,49 +160,6 @@ $\begin{cases} x+y=5 \\ xy=6 \end{cases}$. $x,y$ are roots of $t^2-5t+6=0$ → $
 ### Mistake 1: Not dividing first in partial fractions when degree(num) ≥ degree(den)
 ### Mistake 2: Forgetting to check all solutions satisfy ALL equations in a system
 ### Mistake 3: Missing the $x \neq$ restrictions from the original denominator
-
----
-
-## Practice 1
-
-Decompose: $\frac{5x-1}{(x+1)(x-2)}$.
-
-→ Solutions: [Solutions](solutions/07B-solutions.md#practice-1)
-
----
-
-## Practice 2
-
-Decompose: $\frac{x^2+3x}{(x-1)^2(x+2)}$.
-
-→ Solutions: [Solutions](solutions/07B-solutions.md#practice-2)
-
----
-
-## Practice 3
-
-Solve: $\begin{cases} x^2+y^2=13 \\ xy=6 \end{cases}$.
-
-→ Solutions: [Solutions](solutions/07B-solutions.md#practice-3)
-
----
-
-## Practice 4: Real Battle
-
-Decompose $\frac{x^3+2x^2+1}{x(x^2+1)}$ and solve $\begin{cases} xy+x+y=11 \\ x^2y+xy^2=30 \end{cases}$.
-
-→ Solutions: [Solutions](solutions/07B-solutions.md#practice-4)
-
----
-
-## Practice 5: Composition
-
-Create a system of two equations whose only solutions are $(1,2)$ and $(3,-1)$. Hint: each point must satisfy both equations.
-
-→ Solutions: [Solutions](solutions/07B-solutions.md#practice-5)
-
----
-
 ## Basic Drills
 
 **D1.** Decompose $\frac{4}{(x-1)(x+3)}$.

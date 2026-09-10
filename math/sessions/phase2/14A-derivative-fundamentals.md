@@ -201,69 +201,6 @@ $f'(x)=0$ at $x=3$ and $x=-1$. These are the $x$-coordinates where the tangent i
 
 (4) Tangent line: point (a,f(a)), slope f'(a), equation y−f(a)=f'(a)(x−a).
 ```
-
----
-
-## Practice 1
-
-Use the limit definition to find $f'(2)$ for $f(x)=x^2+3x$.
-
-→ Reference: **Example 1**
-
-> Solutions: [Solutions](solutions/14A-solutions.md#practice-1)
-
----
-
-## Practice 2
-
-Differentiate $f(x)=4x^5 - 3x^3 + 2x - 1 + \frac{1}{x}$. Use the 3-step procedure: split, pull constants, match dictionary.
-
-→ Reference: **Example 2, 4**
-
-> Solutions: [Solutions](solutions/14A-solutions.md#practice-2)
-
----
-
-## Practice 3
-
-Differentiate $g(x)=3e^x - 2\ln x + 5\sin x - \cos x$.
-
-→ Reference: **Example 3, 4, 6**
-
-> Solutions: [Solutions](solutions/14A-solutions.md#practice-3)
-
----
-
-## Practice 4
-
-Differentiate $h(x)=2^x + \log_3 x + \tan x$.
-
-→ Reference: **Example 5, 6**
-
-> Solutions: [Solutions](solutions/14A-solutions.md#practice-4)
-
----
-
-## Practice 5
-
-Find all $x$ where the tangent line to $f(x)=x^3-3x^2-9x+5$ is horizontal.
-
-→ Reference: **Example 8**
-
-> Solutions: [Solutions](solutions/14A-solutions.md#practice-5)
-
----
-
-## Practice 6: Real Battle
-
-Find the tangent line to $f(x)=x^2+\ln x$ at $x=1$. Write your answer in $y=mx+b$ form.
-
-→ Reference: **Example 7**
-
-> Solutions: [Solutions](solutions/14A-solutions.md#practice-6)
-
----
-
 ## Basic Drills
 
 > Run the 3-step procedure: split, pull constants, match dictionary.

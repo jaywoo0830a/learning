@@ -367,67 +367,6 @@ Left $\neq$ right, so the **two-sided limit does not exist** — no ε-δ chase 
     0 < a−x < δ); two-sided limit exists iff both sides exist and agree.
     Infinite limits: ∀M ∃δ with f(x)>M (different definition, not a number).
 ```
-
----
-
-## Practice 1
-
-Using the ε-δ definition, prove $\lim_{x \to 1} (4x-3) = 1$. State your choice of $\delta$ in terms of $\varepsilon$.
-
-→ Reference: **Example 2**
-
-> Solutions: [Solutions](solutions/20-solutions.md#practice-1)
-
----
-
-## Practice 2
-
-Prove $\lim_{x \to 3} x^2 = 9$ using the ε-δ definition. (Hint: $|x^2-9| = |x-3|\cdot|x+3|$. Restrict $\delta \leq 1$ to bound $|x+3|$.)
-
-→ Reference: **Example 3**
-
-> Solutions: [Solutions](solutions/20-solutions.md#practice-2)
-
----
-
-## Practice 3
-
-Prove $\lim_{n \to \infty} \frac{3n+2}{n} = 3$ using the ε-N definition. Find $N$ in terms of $\varepsilon$.
-
-→ Reference: **Example 5, 6**
-
-> Solutions: [Solutions](solutions/20-solutions.md#practice-3)
-
----
-
-## Practice 4
-
-Prove: if $\lim_{x \to a} f(x) = L$ and $L > 0$, then there exists $\delta > 0$ such that $f(x) > L/2$ for all $x$ with $0 < |x-a| < \delta$. (Hint: choose $\varepsilon = L/2$.)
-
-→ Reference: **Example 2**
-
-> Solutions: [Solutions](solutions/20-solutions.md#practice-4)
-
----
-
-## Practice 5
-
-Prove the product law for limits of sequences: if $\lim a_n = L$ and $\lim b_n = M$, then $\lim (a_n b_n) = LM$. (Hint: write $a_n b_n - LM = (a_n - L)b_n + L(b_n - M)$. Use the fact that convergent sequences are bounded.)
-
-→ Reference: **Example 8, 9**
-
-> Solutions: [Solutions](solutions/20-solutions.md#practice-5)
-
----
-
-## Practice 6: Real Battle (Constructive)
-
-A student claims: "$\lim_{x \to 0} \frac{x}{|x|}$ exists because the left and right limits are both finite numbers." (a) Compute the left-hand and right-hand limits. (b) Prove, using the ε-δ definition of a two-sided limit, that the two-sided limit does NOT exist. (c) Explain why the student's reasoning fails — what's the difference between "finite" and "equal"?
-
-> Solutions: [Solutions](solutions/20-solutions.md#practice-6)
-
----
-
 ## Basic Drills
 
 > Find δ or N. Prove simple limits.

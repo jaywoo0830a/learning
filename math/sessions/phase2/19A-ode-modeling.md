@@ -332,7 +332,7 @@ $$i(t) = \frac{E}{R}\left(1 - e^{-\frac{R}{L}t}\right).$$
 
 ### Mistake 1: Mixing — using the initial volume for rate out
 
-When the volume changes (Practice 4), rate out $= \frac{A}{V(t)} \times f_{\text{out}}$ with $V(t) = V_0 + (\text{in} - \text{out})t$. Using the constant initial volume is wrong — and don't forget to find when the tank overflows.
+When the volume changes over time, rate out $= \frac{A}{V(t)} \times f_{\text{out}}$ with $V(t) = V_0 + (\text{in} - \text{out})t$. Using the constant initial volume is wrong — and don't forget to find when the tank overflows.
 
 ### Mistake 2: Logistic — confusing $A$ or thinking the inflection is at $L$
 
@@ -349,102 +349,6 @@ The ODE is $T' = -k(T - T_{\text{env}})$ with $k > 0$, so $T$ approaches $T_{\te
 ### Mistake 5: Unit mismatch in physical models
 
 Torricelli (A11): hole area in $\text{cm}^2$ must become $\text{m}^2$ before plugging into $T = \frac{2\pi R^2\sqrt{H}}{a\sqrt{2g}}$ with $g = 9.8$. Always convert units first.
-
----
-
-## Practice 1
-
-A population doubles every 5 years and starts at 1000. Write the ODE and solution.
-
-<details>
-<summary>💡 Hint</summary>
-
-Exponential model: $P' = kP$. Doubling time $t_2 = \frac{\ln 2}{k} = 5$, so $k = \frac{\ln 2}{5}$. Then $P(t) = 1000e^{kt}$.
-
-</details>
-
-→ Solutions: [Solutions](solutions/19A-solutions.md#practice-1)
-
----
-
-## Practice 2
-
-A corpse at 32°C is found in a 20°C room. Normal body temp is 37°C. Cooling constant $k=0.1$. Estimate time of death.
-
-<details>
-<summary>💡 Hint</summary>
-
-$T(t) = 20 + (37-20)e^{-0.1t}$. Time of death is when $T = 32$: solve $32 = 20 + 17e^{-0.1t}$ for $t$.
-
-</details>
-
-→ Solutions: [Solutions](solutions/19A-solutions.md#practice-2)
-
----
-
-## Practice 3
-
-Solve the logistic ODE: $P'=0.2P(1-P/500)$, $P(0)=50$. Find $P(10)$.
-
-<details>
-<summary>💡 Hint</summary>
-
-$L=500$, $A = \frac{L-P_0}{P_0} = \frac{450}{50} = 9$. So $P(t) = \frac{500}{1+9e^{-0.2t}}$; plug in $t=10$.
-
-</details>
-
-→ Solutions: [Solutions](solutions/19A-solutions.md#practice-3)
-
----
-
-## Practice 4: Real Battle
-
-A 200L tank initially contains 100L pure water. Brine (2 kg/L salt) enters at 3 L/min. Mixture drains at 2 L/min. Find the amount of salt when the tank overflows.
-
-<details>
-<summary>💡 Hint</summary>
-
-Volume grows: $V(t) = 100 + t$, overflow at $V=200$ → $t=100$. Rate in $= 2\times3 = 6$; rate out $= \frac{A}{100+t}\times 2$. ODE: $A' + \frac{2}{100+t}A = 6$; integrate with integrating factor $(100+t)^2$.
-
-</details>
-
-→ Solutions: [Solutions](solutions/19A-solutions.md#practice-4)
-
----
-
-## Practice 5
-
-Draw the phase line for $y' = y^2 - 3y + 2 = (y-1)(y-2)$. Label each equilibrium as stable or unstable.
-
-<details>
-<summary>💡 Hint</summary>
-
-Equilibria at $y=1, 2$. Test one point per interval (e.g. $y=0, 1.5, 3$): $y=1$ is stable, $y=2$ is unstable.
-
-</details>
-
-→ Solutions: [Solutions](solutions/19A-solutions.md#practice-5)
-
----
-
-## Practice 6: Real Battle — Discrete vs Continuous (🔗 12B1)
-
-A population doubles every 3 hours.
-(a) Write the discrete model $a_{n+1}=ra_n$ and find $r$.
-(b) Write the continuous model $P'=kP$ and find $k$.
-(c) After 24 hours, what does each model predict? Are they the same? Why or why not?
-
-<details>
-<summary>💡 Hint</summary>
-
-(a) $r=2$ per 3-hour step. (b) $k = \frac{\ln 2}{3}$. (c) 24 hours = 8 steps: discrete gives $2^8 = 256$; continuous gives $e^{k\cdot24} = e^{8\ln2} = 256$. They agree because 24 is an exact multiple of the doubling time.
-
-</details>
-
-→ Solutions: [Solutions](solutions/19A-solutions.md#practice-6)
-
----
-
 ## Basic Drills
 
 > Stepping stones for the Advanced drills. Each D is **ONE component skill**; the Advanced problems (A1–A12) chain 2–3 of these. The *(→ A#)* tag says which Advanced problem this component feeds. If a component feels unfamiliar, it's worked out in the examples above.

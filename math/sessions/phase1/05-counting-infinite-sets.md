@@ -191,69 +191,6 @@ Are sets A and B the same size?
 │       contradict the assumption.
 └── (4) Powerset shortcut: |P(S)| > |S| for any S.
 ```
-
----
-
-## Practice 1
-
-**Do the even numbers and the odd numbers have the same size?** Show the pairing.
-
-→ Reference: **Example 2**
-
-> Solutions: [Solutions](solutions/05-solutions.md#practice-1)
-
----
-
-## Practice 2
-
-**Do the natural numbers and the multiples of 3 $\{3, 6, 9, 12, \dots\}$ have the same size?** Show the pairing.
-
-→ Reference: **Example 2**
-
-> Solutions: [Solutions](solutions/05-solutions.md#practice-2)
-
----
-
-## Practice 3
-
-**Which is bigger: all integers or all fractions?** Explain with a pairing or the diagonal argument.
-
-→ Reference: **Examples 3, 4**
-
-> Solutions: [Solutions](solutions/05-solutions.md#practice-3)
-
----
-
-## Practice 4: Trap
-
-**"$\mathbb{N}$ and $\mathbb{Z}$ have the same size, but $\mathbb{Z}$ contains $\mathbb{N}$. Isn't that a contradiction?"** Answer this objection.
-
-→ Reference: **Example 3**
-
-> Solutions: [Solutions](solutions/05-solutions.md#practice-4)
-
----
-
-## Practice 5
-
-**Prove $|\mathcal{P}(\mathbb{N})| > |\mathbb{N}|$** in the style of the diagonal argument. (Hint: suppose $f: \mathbb{N} \to \mathcal{P}(\mathbb{N})$ is a bijection and consider the set of $n$ such that $n \notin f(n)$.)
-
-→ Reference: **Example 5**
-
-> Solutions: [Solutions](solutions/05-solutions.md#practice-5)
-
----
-
-## Practice 6: Real Battle
-
-**Is $|\mathbb{N} \times \mathbb{N}|$ equal to $\aleph_0$?** Give an explicit pairing. (Hint: draw the pairs $(a,b)$ as a 2D grid and sweep the diagonals.)
-
-→ Reference: **Example 4**
-
-> Solutions: [Solutions](solutions/05-solutions.md#practice-6)
-
----
-
 ## Basic Drills
 
 > Decide the size, give the pairing.

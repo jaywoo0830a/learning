@@ -1,82 +1,4 @@
 # Solutions — 03: Three Proof Templates — Direct, Contrapositive, Contradiction
-
----
-
-## Practice 1
-
-**Prove "if $n$ is odd, then $n^3$ is odd"** — direct proof.
-
-Assume $n$ odd: $n = 2k+1$, $k$ integer.
-$n^3 = (2k+1)^3 = 8k^3 + 12k^2 + 6k + 1 = 2(4k^3 + 6k^2 + 3k) + 1$.
-$4k^3+6k^2+3k$ is an integer, so $n^3 = 2(\text{int}) + 1$ → odd.
-
-> **Answer**: Direct proof — written $n=2k+1$, cubed, factored out the 2.
-
----
-
-## Practice 2
-
-**Prove "if $3n+2$ is even, then $n$ is even"** — contrapositive.
-
-Contrapositive: "if $n$ is odd, then $3n+2$ is odd." Assume $n = 2k+1$.
-$3n+2 = 3(2k+1)+2 = 6k+5 = 2(3k+2)+1$ → odd.
-
-> **Answer**: Contrapositive proved — original follows.
-
----
-
-## Practice 3
-
-**Prove "if $n^2$ is a multiple of 3, then $n$ is a multiple of 3."**
-
-**Template choice**: contrapositive — "not a multiple of 3" is easy to write as two cases; "$n^2$ multiple of 3" is awkward to handle directly.
-
-Contrapositive: if $n$ is not a multiple of 3, then $n^2$ is not a multiple of 3.
-- $n = 3k+1$: $n^2 = 9k^2+6k+1 = 3(3k^2+2k)+1$ → remainder 1, not a multiple of 3.
-- $n = 3k+2$: $n^2 = 9k^2+12k+4 = 3(3k^2+4k+1)+1$ → remainder 1, not a multiple of 3.
-
-> **Answer**: Contrapositive, two cases ($n=3k+1$, $n=3k+2$) — both give remainder 1.
-
----
-
-## Practice 4: Trap
-
-**Prove "$n^2+n$ is even for all integers $n$" without induction.**
-
-Factor: $n^2 + n = n(n+1)$. The numbers $n$ and $n+1$ are consecutive — exactly one of them is even. The product of an even number with anything is even.
-
-> **Answer**: $n(n+1)$ contains an even factor → even.
-
----
-
-## Practice 5
-
-**Prove "$\sqrt{3}$ cannot be written as a fraction"** — contradiction.
-
-Assume $\sqrt{3} = \frac{a}{b}$ with integers $a,b$, $b\neq 0$, fraction fully reduced (no common factor).
-
-Square: $3 = \frac{a^2}{b^2}$ → $a^2 = 3b^2$. So $a^2$ is a multiple of 3 → by Practice 3, $a$ is a multiple of 3. Write $a = 3k$.
-
-Substitute: $(3k)^2 = 3b^2$ → $9k^2 = 3b^2$ → $b^2 = 3k^2$. So $b^2$ is a multiple of 3 → $b$ is a multiple of 3.
-
-**Contradiction**: $a$ and $b$ are both multiples of 3, so $\frac{a}{b}$ is not fully reduced — but we assumed it was.
-
-> **Answer**: $\sqrt{3}$ is irrational (proof by contradiction, exactly like $\sqrt{2}$).
-
----
-
-## Practice 6: Real Battle
-
-**Prove "the sum of a rational and an irrational is irrational."**
-
-**Template choice**: contradiction — "not expressible as a fraction" is easiest to attack by assuming the opposite.
-
-Assume $a$ rational, $b$ irrational, and suppose $a+b$ is rational. Then $b = (a+b) - a$ is a difference of two rationals — rational. But $b$ is irrational. Contradiction.
-
-> **Answer**: Contradiction. $a+b$ rational would force $b$ rational, contradicting the hypothesis.
-
----
-
 ## Basic Drills
 
 **D1.** $n$ even → $3n$ even: $n=2k$ → $3n=6k=2(3k)$. ✓ Direct.
@@ -95,7 +17,7 @@ Assume $a$ rational, $b$ irrational, and suppose $a+b$ is rational. Then $b = (a
 ## Advanced Drills
 
 ### A1. $n$ odd → $n^3$ odd
-Direct (Practice 1). Chosen because the odd form $2k+1$ cubes cleanly.
+Direct. Chosen because the odd form $2k+1$ cubes cleanly.
 
 ### A2. $n^2$ multiple of 5 → $n$ multiple of 5
 Contrapositive, four cases: $n=5k+1,5k+2,5k+3,5k+4$. Squaring each gives remainder $1,4,4,1$ mod 5 respectively — never 0. So $n^2$ not a multiple of 5.

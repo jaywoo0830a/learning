@@ -318,69 +318,6 @@ x → ∞ or x → −∞ (or denominator → 0 at a finite point):
 └── (B) x → finite a, denominator → 0 (numerator ≠ 0):
     └── sign analysis: 0^+ → +∞, 0^− → −∞; left ≠ right → DNE
 ```
-
----
-
-## Practice 1
-
-$\displaystyle \lim_{x\to\infty}\frac{\sqrt{4x^2+3x}}{2x-1}$. Factor out $x$ from the radical; watch the $\sqrt{x^2}=|x|$ issue.
-
-→ Reference: **Example 1, 2**
-
-> Solutions: [Solutions](solutions/13B-solutions.md#practice-1)
-
----
-
-## Practice 2
-
-$\displaystyle \lim_{x\to\infty}\frac{2x^3-5x+1}{3x^3+4x^2}$. Divide by highest power.
-
-→ Reference: **Example 1**
-
-> Solutions: [Solutions](solutions/13B-solutions.md#practice-2)
-
----
-
-## Practice 3
-
-$\displaystyle \lim_{x\to\infty}(\sqrt{x^2+5x}-\sqrt{x^2-3x})$. $\infty-\infty$ → rationalize.
-
-→ Reference: **Example 6**
-
-> Solutions: [Solutions](solutions/13B-solutions.md#practice-3)
-
----
-
-## Practice 4
-
-$\displaystyle \lim_{x\to 0}\frac{1}{x^2}$. Is the two-sided limit $+\infty$? Explain.
-
-→ Reference: **Example 4**
-
-> Solutions: [Solutions](solutions/13B-solutions.md#practice-4)
-
----
-
-## Practice 5
-
-$\displaystyle \lim_{n\to\infty}\left(1+\frac{5}{n}\right)^{2n}$. Rewrite using the $e^k$ rule.
-
-→ Reference: **Example 8**
-
-> Solutions: [Solutions](solutions/13B-solutions.md#practice-5)
-
----
-
-## Practice 6: Real Battle
-
-$\displaystyle \lim_{x\to\infty}\frac{e^x + x^{100}}{2^x + x!}$. Use the growth hierarchy.
-
-→ Reference: **Example 7**
-
-> Solutions: [Solutions](solutions/13B-solutions.md#practice-6)
-
----
-
 ## Basic Drills
 
 > Pure computation. Identify the form and evaluate.

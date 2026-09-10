@@ -304,69 +304,6 @@ $(fgh)' = f'gh + fg'h + fgh'$.
 
 (5) Concavity: f''>0→up, f''<0→down. Inflection: f''=0 AND sign change.
 ```
-
----
-
-## Practice 1
-
-Find $f''(x)$ for $f(x)=x^5-2x^3+x$. Show each step clearly.
-
-→ Reference: **Example 1**
-
-> Solutions: [Solutions](solutions/14C-solutions.md#practice-1)
-
----
-
-## Practice 2
-
-Find $f^{(4)}(x)$ for $f(x)=e^{2x}$. Use the exponential pattern: $k^n e^{kx}$.
-
-→ Reference: **Example 4**
-
-> Solutions: [Solutions](solutions/14C-solutions.md#practice-2)
-
----
-
-## Practice 3
-
-Find $f^{(57)}(\cos x)$. Use the trig cycle: divide by 4, take the remainder.
-
-→ Reference: **Example 5**
-
-> Solutions: [Solutions](solutions/14C-solutions.md#practice-3)
-
----
-
-## Practice 4
-
-Find $f^{(n)}(x)$ for $f(x)=\frac{1}{2x+1}$. Use the rational pattern formula.
-
-→ Reference: **Example 6**
-
-> Solutions: [Solutions](solutions/14C-solutions.md#practice-4)
-
----
-
-## Practice 5
-
-Find $\frac{d^2y}{dx^2}$ for $x^3+y^3=6xy$. (Implicit second derivative — find $dy/dx$ first, then differentiate again.)
-
-→ Reference: **Example 9**
-
-> Solutions: [Solutions](solutions/14C-solutions.md#practice-5)
-
----
-
-## Practice 6: Real Battle (Constructive)
-
-$f(x)=x^3-3x^2-9x+5$. (a) Find all $x$ where $f'(x)=0$ (critical points). (b) Find all $x$ where $f''(x)=0$ (possible inflection). (c) Determine intervals where $f$ is concave up and concave down. (d) Sketch the concavity behavior — where does the graph bend upward vs. downward?
-
-→ Reference: **Example 10**
-
-> Solutions: [Solutions](solutions/14C-solutions.md#practice-6)
-
----
-
 ## Basic Drills
 
 > Differentiate repeatedly. Spot the pattern for $n$-th derivatives.

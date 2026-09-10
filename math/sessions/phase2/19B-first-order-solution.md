@@ -127,49 +127,6 @@ $P_1 \approx 4208$ (stable), $P_2 \approx 792$ (unstable — extinction threshol
 ### Mistake 4: Forgetting the interval of validity
 
 **Wrong**: Solving $y'=y^2$, $y(0)=1$ and writing $y=1/(1-x)$ without noting it blows up at $x=1$. **Right**: Always check where the solution becomes undefined — the interval of validity contains the initial point and excludes singularities.
-
----
-
-## Practice 1
-
-Solve: $\frac{dy}{dx} = \frac{x^2}{y}$, $y(0)=3$.
-
-→ Solutions: [Solutions](solutions/19B-solutions.md#practice-1)
-
----
-
-## Practice 2
-
-Solve: $y' + 3y = 6$, $y(0)=2$. Find equilibrium.
-
-→ Solutions: [Solutions](solutions/19B-solutions.md#practice-2)
-
----
-
-## Practice 3
-
-Solve: $y' - \frac{2}{x}y = x^3$, $x>0$.
-
-→ Solutions: [Solutions](solutions/19B-solutions.md#practice-3)
-
----
-
-## Practice 4
-
-Find the interval of validity for $y' = y^2$, $y(0) = \frac{1}{2}$. At what $x$ does the solution blow up?
-
-→ Solutions: [Solutions](solutions/19B-solutions.md#practice-4)
-
----
-
-## Practice 5
-
-A population satisfies $P' = 0.2P(1-P/1000) - 50$ (harvesting constant rate 50). Find equilibria and determine which is stable. (🔗 19A)
-
-→ Solutions: [Solutions](solutions/19B-solutions.md#practice-5)
-
----
-
 ## Basic Drills
 
 **D1.** Solve $dy/dx = 2xy$. Separable.

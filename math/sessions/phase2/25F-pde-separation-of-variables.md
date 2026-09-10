@@ -326,57 +326,6 @@ The same pattern appears in:
     Wave: A_n from initial shape, B_n from initial velocity.
     Laplace: c_n from boundary data, scaled by 1/sinh(√λ_n b) or 1/R^n.
 ```
-
----
-
-## Practice 1
-
-Solve the heat equation $u_t = u_{xx}$ on $[0, \pi]$ with $u(0,t)=u(\pi,t)=0$ and $u(x,0) = \sin(2x)$. (Hint: the initial condition is ALREADY an eigenfunction — only one term survives.)
-
-→ Reference: **Example 3, 4**
-
-> Solutions: [Solutions](solutions/25F-solutions.md#practice-1)
-
----
-
-## Practice 2
-
-Solve the wave equation $y_{tt} = 4y_{xx}$ on $[0, 1]$ with $y(0,t)=y(1,t)=0$, $y(x,0) = \sin(\pi x)$, $y_t(x,0)=0$. Find the fundamental frequency and period.
-
-→ Reference: **Example 6**
-
-> Solutions: [Solutions](solutions/25F-solutions.md#practice-2)
-
----
-
-## Practice 3
-
-Solve Laplace's equation $u_{xx} + u_{yy} = 0$ on the square $[0,1]\times[0,1]$ with $u=0$ on three sides and $u(x,1) = \sin(\pi x)$ on the top. Find $u(x, 0.5)$.
-
-→ Reference: **Example 8**
-
-> Solutions: [Solutions](solutions/25F-solutions.md#practice-3)
-
----
-
-## Practice 4
-
-A copper bar ($\alpha = 1.14$ cm²/s) of length $L=10$ cm has ends in ice water ($0^\circ$C). Initial temperature: uniform $100^\circ$C. (a) Write the Fourier sine series for $f(x)=100$. (b) How long until the center temperature drops below $10^\circ$C? (Use only the $n=1$ term — it dominates at late times.)
-
-→ Reference: **Example 4, 5**
-
-> Solutions: [Solutions](solutions/25F-solutions.md#practice-4)
-
----
-
-## Practice 5: Real Battle — Drum Head (2D Wave Equation Preview)
-
-A circular drum head of radius $R=1$ has zero displacement at the edge. The wave equation in polar coordinates separates into $u(r,\theta,t) = R(r)\Theta(\theta)T(t)$. (a) The angular part gives $\Theta(\theta) = \cos(m\theta)$ or $\sin(m\theta)$. What values of $m$ are allowed and why? (b) The radial part satisfies Bessel's equation: $r^2R'' + rR' + (\lambda r^2 - m^2)R = 0$. The solutions finite at $r=0$ are Bessel functions $J_m(\sqrt{\lambda}r)$. The boundary condition $R(1)=0$ means $J_m(\sqrt{\lambda})=0$. For $m=0$, the first zero of $J_0$ is at $\sqrt{\lambda} \approx 2.405$. Find the fundamental frequency of the drum in terms of wave speed $c$. (c) Explain qualitatively why the fundamental mode of a drum is NOT a harmonic of higher modes (unlike a 1D string).
-
-> Solutions: [Solutions](solutions/25F-solutions.md#practice-5)
-
----
-
 ## Basic Drill (10)
 
 **D1.** Separate variables: assume $u(x,t)=X(x)T(t)$ for $u_t = 4u_{xx}$. Write the two ODEs.

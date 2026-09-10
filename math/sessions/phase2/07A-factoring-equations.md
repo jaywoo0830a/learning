@@ -199,49 +199,6 @@ $3x^2-12$ → pull 3: $3(x^2-4)=3(x-2)(x+2)$, don't factor $3x^2-12$ directly.
 
 ### Mistake 3: Counting a double root only once
 $(x-2)^2(x+1)=0$ has roots $2,2,-1$ — three roots (counting multiplicity).
-
----
-
-## Practice 1
-
-Factor completely: $x^3-4x^2+x+6$. Use rational root test + synthetic division.
-
-→ Solutions: [Solutions](solutions/07A-solutions.md#practice-1)
-
----
-
-## Practice 2
-
-Solve $x^4-13x^2+36=0$. Substitution $t=x^2$.
-
-→ Solutions: [Solutions](solutions/07A-solutions.md#practice-2)
-
----
-
-## Practice 3
-
-If $x=2$ is a root of $x^3-3x^2+kx+4=0$, find $k$ and all three roots. Then verify the answer with Vieta's formulas (sum, pairwise sum, product).
-
-→ Solutions: [Solutions](solutions/07A-solutions.md#practice-3)
-
----
-
-## Practice 4: Real Battle
-
-Solve $2x^4-5x^3+5x-2=0$. Hint: check $x=1$, synthetic divide, then look for a pattern in the cubic.
-
-→ Solutions: [Solutions](solutions/07A-solutions.md#practice-4)
-
----
-
-## Practice 5: Composition
-
-Create a cubic equation whose roots are 2, −3, and 5. Write it in expanded form $x^3+px^2+qx+r=0$ and verify with Vieta.
-
-→ Solutions: [Solutions](solutions/07A-solutions.md#practice-5)
-
----
-
 ## Basic Drills
 
 **D1.** Factor $x^2+8x+15$.

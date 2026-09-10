@@ -106,33 +106,6 @@ $\frac{1}{2}\int_0^2\int_0^1 (x+y)\,dy\,dx = \frac{1}{2}\int_0^2 [xy+\frac{y^2}{
 (2) To swap order: sketch region, redescribe, rewrite limits.
 (3) Type I (dy dx): vertical strips. Type II (dx dy): horizontal strips.
 ```
-
----
-
-## Practice 1
-
-Evaluate $\iint_D (2x+y)\,dA$, $D$ = triangle with vertices $(0,0),(2,0),(0,1)$.
-
----
-
-## Practice 2
-
-Swap order and evaluate: $\int_0^1 \int_{\sqrt{y}}^1 \sin(x^3)\,dx\,dy$.
-
----
-
-## Practice 3
-
-Find volume under $z=4-x^2-y^2$ over the square $[0,1]\times[0,1]$.
-
----
-
-## Practice 4: Real Battle
-
-A pond's region $D$: bounded by $y=x^2$ and $y=4$. Depth $d(x,y)=4-y$ meters. Find water volume. (a) Set up $dy\,dx$. (b) Evaluate. (c) Set up $dx\,dy$, verify same answer.
-
----
-
 ## Basic Drill (12)
 
 **D1.** $\int_0^1\int_0^2 (xy+1)\,dy\,dx$.

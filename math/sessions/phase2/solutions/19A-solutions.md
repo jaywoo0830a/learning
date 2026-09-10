@@ -1,105 +1,6 @@
 # Solutions — 19A: ODE Modeling — Translating Nature into Equations
 
 > Back to [19A — ODE Modeling](../19A-ode-modeling.md)
-
----
-
-## Practice 1
-
-**A population doubles every 5 years and starts at 1000. Write the ODE and solution.**
-
-① Exponential model: $P' = kP$ → $P(t) = P_0 e^{kt}$.
-
-② Doubling time: $t_2 = \frac{\ln 2}{k} = 5$ → $k = \frac{\ln 2}{5} \approx 0.1386$.
-
-③ With $P_0 = 1000$: $P(t) = 1000\,e^{0.1386\,t}$.
-
-> **Answer**: $P' = \frac{\ln 2}{5}P$, $P(t) = 1000\,e^{(\ln 2/5)t}$
-
----
-
-## Practice 2
-
-**A corpse at 32°C is found in a 20°C room. Normal body temp is 37°C. Cooling constant $k=0.1$. Estimate time of death.**
-
-① Newton cooling: $T(t) = T_{\text{env}} + (T_0 - T_{\text{env}})e^{-kt} = 20 + 17e^{-0.1t}$.
-
-② Set $T = 32$ (the found temperature): $32 = 20 + 17e^{-0.1t}$ → $e^{-0.1t} = \frac{12}{17}$.
-
-③ $t = -\frac{1}{0.1}\ln\frac{12}{17} = 10\ln\frac{17}{12} \approx 10(0.3483) \approx 3.48$ hours.
-
-> **Answer**: death occurred about **3.5 hours** before the body was found
-
----
-
-## Practice 3
-
-**Solve the logistic ODE: $P'=0.2P(1-P/500)$, $P(0)=50$. Find $P(10)$.**
-
-① $k=0.2$, $L=500$, $P_0=50$. $A = \frac{L-P_0}{P_0} = \frac{450}{50} = 9$.
-
-② $P(t) = \frac{L}{1+Ae^{-kt}} = \frac{500}{1+9e^{-0.2t}}$.
-
-③ $P(10) = \frac{500}{1+9e^{-2}} = \frac{500}{1+9(0.13534)} = \frac{500}{2.218} \approx 225.4$.
-
-> **Answer**: $P(t) = \frac{500}{1+9e^{-0.2t}}$; $P(10) \approx 225$
-
----
-
-## Practice 4: Real Battle
-
-**A 200L tank initially contains 100L pure water. Brine (2 kg/L salt) enters at 3 L/min. Mixture drains at 2 L/min. Find the amount of salt when the tank overflows.**
-
-① **Volume**: $V(t) = 100 + (3-2)t = 100 + t$. Overflow when $V = 200$ → $t = 100$ min.
-
-② **Rates**: rate in $= 2\cdot3 = 6$ kg/min. rate out $= \frac{A}{100+t}\cdot 2 = \frac{2A}{100+t}$ kg/min.
-
-③ **ODE**: $\frac{dA}{dt} = 6 - \frac{2A}{100+t}$, i.e. $A' + \frac{2}{100+t}A = 6$ (linear, $A(0)=0$).
-
-④ **Integrating factor**: $\mu = e^{\int \frac{2}{100+t}dt} = (100+t)^2$.
-$$\frac{d}{dt}\big[(100+t)^2 A\big] = 6(100+t)^2 \;\Rightarrow\; (100+t)^2 A = 2(100+t)^3 + C.$$
-$A(0)=0$: $0 = 2(100)^3 + C$ → $C = -2\times10^6$.
-
-$$A(t) = 2(100+t) - \frac{2\times10^6}{(100+t)^2}.$$
-
-⑤ At overflow $t=100$: $A(100) = 2(200) - \frac{2\times10^6}{200^2} = 400 - 50 = 350$ kg.
-
-> **Answer**: **350 kg** of salt when the tank overflows (at $t=100$ min)
-
----
-
-## Practice 5
-
-**Draw the phase line for $y' = y^2 - 3y + 2 = (y-1)(y-2)$. Label each equilibrium as stable or unstable.**
-
-① Equilibria: $f(y) = (y-1)(y-2) = 0$ → $y=1, 2$.
-
-② Sign of $f$: test $y=0$: $(+)(+)=+$; $y=1.5$: $(+)(-)=-$; $y=3$: $(+)(+)=+$.
-
-③ Arrows: $y<1$ moves right (toward 1); $1<y<2$ moves left (toward 1) → **$y=1$ stable**. $1<y<2$ moves left (away from 2); $y>2$ moves right (away from 2) → **$y=2$ unstable**.
-
-> **Answer**: $y=1$ stable (sink), $y=2$ unstable (source)
-
----
-
-## Practice 6: Real Battle — Discrete vs Continuous
-
-**A population doubles every 3 hours. (a) Discrete $a_{n+1}=ra_n$, find $r$. (b) Continuous $P'=kP$, find $k$. (c) After 24 hours, what does each predict? Same?**
-
-(a) Each 3-hour step doubles: $r = 2$.
-
-(b) $t_2 = \frac{\ln 2}{k} = 3$ → $k = \frac{\ln 2}{3} \approx 0.231$.
-
-(c) 24 hours = 8 doublings.
-- **Discrete**: $a_8 = a_0 \cdot 2^8 = 256\,a_0$.
-- **Continuous**: $P(24) = a_0 e^{0.231\cdot24} = a_0 e^{8\ln2} = a_0\cdot 2^8 = 256\,a_0$.
-
-**Same** — because $e^{kt} = e^{(\ln2/3)\cdot24} = 2^8$ exactly when 24 is an integer multiple of the doubling time (3 h). In general they differ (continuous is slightly ahead between doublings).
-
-> **Answer**: $r=2$; $k=\ln2/3$; both give $256\,a_0$ after 24 h — identical because 24 = 8 × 3 exactly
-
----
-
 ## Basic Drills
 
 ### D1. Solve $e^{-0.1t} = 0.4$ for $t$.
@@ -280,10 +181,4 @@ Both sides move toward $\pi$ → **stable**.
 
 | Problem | Answer |
 |:--------|:-------|
-| Practice 1 | $P(t)=1000e^{(\ln2/5)t}$ |
-| Practice 2 | $t=10\ln(17/12)\approx3.5$ h |
-| Practice 3 | $P(10)\approx225$ |
-| Practice 4 | $350$ kg at overflow |
-| Practice 5 | $y=1$ stable, $y=2$ unstable |
-| Practice 6 | both $256\,a_0$ |
 | A1–A12, D1–D12 | see above |

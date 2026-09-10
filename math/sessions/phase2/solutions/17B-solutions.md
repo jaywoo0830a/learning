@@ -1,115 +1,4 @@
 # Solutions — 17B: Arc Length, Surface Area, and Improper Integrals
-
----
-
-## Practice 1
-
-**Find the arc length of $y = \frac{2}{3}x^{3/2}$ from $x=0$ to $x=3$.**
-
-① $y' = x^{1/2}$, so $1+(y')^2 = 1+x$.
-
-② $L = \int_0^3 \sqrt{1+x}\,dx = \frac{2}{3}(1+x)^{3/2}\Big|_0^3 = \frac{2}{3}(4^{3/2}-1) = \frac{2}{3}(8-1)$.
-
-> **Answer**: $\frac{14}{3}$
-
-![Arc length of y=(2/3)x^{3/2}: L = 14/3](graphs/17B/p1-arc-length.png)
-
----
-
-## Practice 2 (🔗 12C2)
-
-**Arc length of the helix $\vec{r}(t) = (2\cos t, 2\sin t, 3t)$, $t \in [0, 4\pi]$.**
-
-① $\vec{r}{\,}'(t) = (-2\sin t, 2\cos t, 3)$.
-
-② Speed: $|\vec{r}{\,}'| = \sqrt{4\sin^2 t + 4\cos^2 t + 9} = \sqrt{4+9} = \sqrt{13}$ (constant).
-
-③ $L = \int_0^{4\pi}\sqrt{13}\,dt = 4\pi\sqrt{13}$.
-
-> **Answer**: $4\pi\sqrt{13}$
-
----
-
-## Practice 3 (🔗 12C3)
-
-**Arc length of the cardioid $r = 1 + \cos\theta$, $\theta \in [0, 2\pi]$.**
-
-① $\frac{dr}{d\theta} = -\sin\theta$. $(\frac{dr}{d\theta})^2 + r^2 = \sin^2\theta + (1+\cos\theta)^2 = 2+2\cos\theta = 4\cos^2(\theta/2)$.
-
-② $\sqrt{(\frac{dr}{d\theta})^2 + r^2} = 2|\cos(\theta/2)|$.
-
-③ $L = \int_0^{2\pi} 2|\cos(\theta/2)|\,d\theta$. Split at $\theta=\pi$ (where $\cos(\theta/2)$ changes sign):
-
-$L = 2\left[\int_0^\pi \cos(\theta/2)\,d\theta - \int_\pi^{2\pi}\cos(\theta/2)\,d\theta\right] = 2\left[2 - (0-2)\right] = 8$.
-
-> **Answer**: $8$
-
----
-
-## Practice 4
-
-**$\displaystyle \int_0^\infty \frac{dx}{x^2+1}$.**
-
-① Improper at $\infty$: $\int_0^b \frac{dx}{1+x^2} = \arctan x\Big|_0^b = \arctan b$.
-
-② Take $b \to \infty$: $\lim_{b\to\infty}\arctan b = \frac{\pi}{2}$.
-
-> **Answer**: $\frac{\pi}{2}$
-
-![Improper integral ∫₀^∞ dx/(1+x²) = π/2](graphs/17B/p4-improper.png)
-
----
-
-## Practice 5: Real Battle (🔗 12C2)
-
-**Cycloid arch: $x = t-\sin t$, $y = 1-\cos t$, $t\in[0,2\pi]$. Arc length, and compare with the straight chord.**
-
-① $\frac{dx}{dt} = 1-\cos t$, $\frac{dy}{dt} = \sin t$.
-
-② Speed$^2 = (1-\cos t)^2 + \sin^2 t = 2(1-\cos t) = 4\sin^2(t/2)$. Speed $= 2|\sin(t/2)|$.
-
-③ On $[0,2\pi]$, $\sin(t/2)\ge0$: $L = \int_0^{2\pi}2\sin(t/2)\,dt = 4[-\cos(t/2)]_0^{2\pi} = 4(1+1) = 8$.
-
-④ **Straight line**: start $(0,0)$, end $(2\pi,0)$ → length $2\pi \approx 6.28$.
-
-**Why is the cycloid longer?** The cycloid detours up to height 2 and back — the shortest path between the endpoints is the straight chord, and any curve that leaves the line must be longer. The ratio $8/(2\pi) \approx 1.27$ reflects the detour.
-
-> **Answer**: cycloid length $8$; straight chord $2\pi$; the cycloid is longer because it leaves the straight line (a non-straight path between two points is always longer)
-
----
-
-## Practice 6: Gabriel's Horn (🔗 12B2)
-
-**Verify: $y=1/x$, $x\in[1,\infty)$ rotated about $x$-axis gives $V=\pi$ but $S=\infty$. Why is this not a paradox?**
-
-① **Volume** (finite): $V = \pi\int_1^\infty \frac{1}{x^2}\,dx = \pi\left[-\frac{1}{x}\right]_1^\infty = \pi$.
-
-② **Surface area** (infinite): $S = 2\pi\int_1^\infty \frac{1}{x}\sqrt{1+\frac{1}{x^4}}\,dx \ge 2\pi\int_1^\infty\frac{1}{x}\,dx = \infty$.
-
-③ **Not a paradox — the $p$-test tells the story**: volume integrates $\frac{1}{x^2}$ ($p=2>1$, converges), while surface area integrates $\frac{1}{x}\cdot(\text{slant}\to 1) \sim \frac{1}{x}$ ($p=1$, diverges). Different powers — different convergence. Volume and surface area measure different things.
-
-> **Answer**: $V=\pi$ (finite), $S=\infty$ (divergent like the harmonic tail); the $p$-test explains why ($p=2$ vs $p=1$)
-
----
-
-## Practice 7: Real Battle (🔗 12C3, 12A2)
-
-**Sketch the proof that $\int_{-\infty}^\infty e^{-x^2}\,dx = \sqrt{\pi}$.**
-
-① Let $I = \int_{-\infty}^\infty e^{-x^2}\,dx$. Square: $I^2 = \int_{-\infty}^\infty\int_{-\infty}^\infty e^{-(x^2+y^2)}\,dx\,dy$.
-
-② The integrand $e^{-(x^2+y^2)}=e^{-r^2}$ has circular symmetry → switch to polar:
-
-$I^2 = \int_0^{2\pi}\int_0^\infty e^{-r^2}\,r\,dr\,d\theta$.
-
-③ **Where the extra $r$ comes from**: a small polar rectangle spans $dr$ radially and $d\theta$ angularly; its sides are $dr$ and $r\,d\theta$, so its area is $r\,dr\,d\theta$ — wider at larger $r$. (The 2D analog of $du=g'(x)dx$.)
-
-④ $I^2 = \int_0^{2\pi}d\theta \cdot \int_0^\infty r e^{-r^2}dr = 2\pi\cdot\left[-\frac12 e^{-r^2}\right]_0^\infty = 2\pi\cdot\frac12 = \pi$.
-
-> **Answer**: $I = \sqrt{\pi}$ (the factor $r$ comes from the polar area element $r\,dr\,d\theta$)
-
----
-
 ## Basic Drills
 
 ### D1. Arc length of $y=2x$ from $x=0$ to $x=3$.
@@ -292,9 +181,9 @@ $L = \int_1^e \frac{x^2+1}{2x}\,dx = \int_1^e\left(\frac{x}{2}+\frac{1}{2x}\righ
 
 ### A5. Prove $\int_{-\infty}^\infty e^{-x^2}\,dx = \sqrt{\pi}$.
 
-Same polar trick as Practice 7: square $I$, convert to polar with $r\,dr\,d\theta$, get $I^2=\pi$, so $I=\sqrt{\pi}$. The factor $r$ is the polar area element — a small polar rectangle has area $r\,dr\,d\theta$.
+Square $I$, convert to polar with $r\,dr\,d\theta$, get $I^2=\pi$, so $I=\sqrt{\pi}$. The factor $r$ is the polar area element — a small polar rectangle has area $r\,dr\,d\theta$.
 
-> **Answer**: $\sqrt{\pi}$ (see Practice 7 for the full proof)
+> **Answer**: $\sqrt{\pi}$
 
 ---
 

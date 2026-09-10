@@ -1,101 +1,6 @@
 # Solutions — 18C: Taylor Series — Approximating Any Function
 
 > Back to [18C — Taylor Series](../18C-taylor-series.md)
-
----
-
-## Practice 1
-
-**Find the Maclaurin series for $f(x)=xe^x$.**
-
-Multiply the known series for $e^x$ by $x$:
-
-$$xe^x = x\sum_{n=0}^\infty \frac{x^n}{n!} = \sum_{n=0}^\infty \frac{x^{n+1}}{n!} = \sum_{n=1}^\infty \frac{x^n}{(n-1)!} = x + x^2 + \frac{x^3}{2!} + \frac{x^4}{3!} + \cdots$$
-
-> **Answer**: $xe^x = \sum_{n=1}^\infty \frac{x^n}{(n-1)!}$, radius $\infty$
-
----
-
-## Practice 2
-
-**Find the Taylor series for $f(x)=\ln x$ centered at $a=1$.**
-
-$f(x) = \ln x = \ln(1 + (x-1))$. Use the Maclaurin series for $\ln(1+u)$ with $u = x-1$:
-
-$$\ln x = \sum_{n=1}^\infty \frac{(-1)^{n+1}(x-1)^n}{n} = (x-1) - \frac{(x-1)^2}{2} + \frac{(x-1)^3}{3} - \cdots$$
-
-Valid for $|x-1|<1$, i.e. $0 < x < 2$ (at $x=2$ it converges to $\ln 2$; at $x=0$ it diverges).
-
-> **Answer**: $\ln x = \sum_{n=1}^\infty \frac{(-1)^{n+1}}{n}(x-1)^n$, interval $(0,2]$
-
----
-
-## Practice 3
-
-**Evaluate $\lim_{x\to0}\frac{\cos x-1+x^2/2}{x^4}$.**
-
-$\cos x = 1 - \frac{x^2}{2} + \frac{x^4}{24} - \frac{x^6}{720} + \cdots$, so
-
-$$\frac{\cos x - 1 + \frac{x^2}{2}}{x^4} = \frac{\frac{x^4}{24} - \frac{x^6}{720} + \cdots}{x^4} = \frac{1}{24} - \frac{x^2}{720} + \cdots \to \frac{1}{24}.$$
-
-> **Answer**: $\frac{1}{24}$
-
----
-
-## Practice 4
-
-**Estimate $\int_0^{0.5} \sin(x^2)dx$ to 4 decimal places.**
-
-① $\sin(x^2) = \sum_{n=0}^\infty \frac{(-1)^n (x^2)^{2n+1}}{(2n+1)!} = \sum \frac{(-1)^n x^{4n+2}}{(2n+1)!}$.
-
-② Integrate term-by-term:
-
-$$\int_0^{0.5}\sin(x^2)\,dx = \sum_{n=0}^\infty \frac{(-1)^n (0.5)^{4n+3}}{(2n+1)!(4n+3)}.$$
-
-Terms: $\frac{1}{24} - \frac{1}{5376} + \frac{1}{2703360} - \cdots = 0.041667 - 0.000186 + 0.00000037 - \cdots$
-
-③ This is alternating; the first omitted term $3.7\times10^{-7}$ bounds the error — far below $0.00005$.
-
-> **Answer**: $\approx 0.0415$ (sum $= 0.041481\ldots$)
-
----
-
-## Practice 5: Real Battle
-
-**Find the Maclaurin series for $\arcsin x$, and use it to evaluate $\lim_{x\to0}\frac{\arcsin x - x}{x^3}$.**
-
-① Binomial series for $(1+u)^{-1/2} = 1 - \frac12 u + \frac{3}{8}u^2 - \frac{5}{16}u^3 + \cdots$; substitute $u = -x^2$:
-
-$$(1-x^2)^{-1/2} = 1 + \frac{x^2}{2} + \frac{3x^4}{8} + \frac{5x^6}{16} + \cdots = \sum_{n=0}^\infty \frac{1\cdot3\cdot5\cdots(2n-1)}{2^n n!}x^{2n}.$$
-
-② Integrate term-by-term:
-
-$$\arcsin x = \int_0^x \frac{dt}{\sqrt{1-t^2}} = \sum_{n=0}^\infty \frac{1\cdot3\cdots(2n-1)}{2^n n!(2n+1)}x^{2n+1} = x + \frac{x^3}{6} + \frac{3x^5}{40} + \frac{5x^7}{112} + \cdots$$
-
-③ Limit: $\frac{\arcsin x - x}{x^3} = \frac{\frac{x^3}{6} + \cdots}{x^3} \to \frac16$.
-
-> **Answer**: $\arcsin x = x + \frac{x^3}{6} + \frac{3x^5}{40} + \cdots$; $\lim = \frac16$
-
----
-
-## Practice 6: Real Battle — Error Analysis
-
-**How many terms of the Maclaurin series for $e^x$ are needed to approximate $e$ (i.e., $e^1$) with error less than $10^{-6}$? Compare with the actual error after that many terms.**
-
-① Lagrange remainder at $x=1$: $R_n(1) = \frac{e^c}{(n+1)!}$ for some $c\in(0,1)$, so
-
-$$|R_n(1)| \le \frac{e}{(n+1)!} \le \frac{3}{(n+1)!}.$$
-
-② Need $\frac{3}{(n+1)!} < 10^{-6}$, i.e. $(n+1)! > 3\times10^6$. Since $9! = 362880$ and $10! = 3628800 > 3\times10^6$, take $n+1 = 10$, i.e. $n = 9$.
-
-③ So keep terms up to $\frac{x^9}{9!}$ — that's **10 terms** ($k=0$ through $9$). Error $\le \frac{3}{10!} \approx 8.3\times10^{-7} < 10^{-6}$. ✓
-
-**Comparison with actual error**: $\sum_{k=10}^\infty \frac{1}{k!} \approx 2.73\times10^{-7}$ — comfortably under the bound, as expected.
-
-> **Answer**: $n=9$ (10 terms, up to $x^9/9!$)
-
----
-
 ## Basic Drills
 
 ### D1. Write the Maclaurin series for $e^{-x}$ (first 4 terms).
@@ -270,7 +175,7 @@ $(1-x^2)^{-1/2} = 1 + \frac{x^2}{2} + \frac{3x^4}{8} + \frac{5x^6}{16} + \cdots$
 
 $$\arcsin x = x + \frac{x^3}{6} + \frac{3x^5}{40} + \frac{5x^7}{112} + \cdots$$
 
-> **Answer**: $\arcsin x = \sum_{n=0}^\infty \frac{1\cdot3\cdots(2n-1)}{2^n n!(2n+1)}x^{2n+1}$ (same as Practice 5)
+> **Answer**: $\arcsin x = \sum_{n=0}^\infty \frac{1\cdot3\cdots(2n-1)}{2^n n!(2n+1)}x^{2n+1}$
 
 ### A7. How many terms of $\sin x$ series are needed to estimate $\sin(1)$ with error $<10^{-6}$?
 
@@ -341,10 +246,4 @@ $$= x - \frac{x^2}{2} + \left(-\frac16+\frac13\right)x^3 + \left(\frac16-\frac14
 
 | Problem | Answer |
 |:--------|:-------|
-| Practice 1 | $xe^x = \sum x^n/(n-1)!$ |
-| Practice 2 | $\ln x = \sum \frac{(-1)^{n+1}}{n}(x-1)^n$, $(0,2]$ |
-| Practice 3 | $\frac{1}{24}$ |
-| Practice 4 | $\approx 0.0415$ |
-| Practice 5 | $\arcsin x = x + x^3/6 + \cdots$; limit $\frac16$ |
-| Practice 6 | $n=9$ (10 terms) |
 | D1–D12 | see above |

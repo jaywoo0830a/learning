@@ -167,33 +167,6 @@ $\nabla f=\lambda\nabla g$ alone has infinitely many solutions. You MUST include
 
 (2) Lagrange: ∇f = λ∇g, g=c. 3 equations → (x,y,λ). λ = shadow price.
 ```
-
----
-
-## Practice 1
-
-Find and classify all critical points of $f(x,y)=x^3+y^3-3x-3y$.
-
----
-
-## Practice 2
-
-Find absolute max/min of $f(x,y)=x^2+2y^2$ on $x^2+y^2 \leq 1$.
-
----
-
-## Practice 3
-
-Use Lagrange to find the point on $3x+2y=12$ closest to the origin.
-
----
-
-## Practice 4: Real Battle
-
-Profit: $P(x,y)=30x+40y-2x^2-y^2-xy$. Constraint: $x+2y \leq 10$. (a) Unconstrained optimum. (b) If it violates constraint, use Lagrange on boundary. (c) Interpret $\lambda$.
-
----
-
 ## Basic Drill (12)
 
 **D1.** Find critical points: $f(x,y)=x^2+xy+y^2$.

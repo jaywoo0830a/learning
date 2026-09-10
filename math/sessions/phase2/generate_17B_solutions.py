@@ -44,7 +44,7 @@ def p1_arc_length():
                 (1.8, 2.9), xytext=(0.6, 3.4), fontsize=11, color='#222',
                 fontweight='bold', arrowprops=dict(arrowstyle='->', color='#222', lw=1.4))
     ax.set_xlim(0, 3.2); ax.set_ylim(0, 4.4)
-    ax.set_title('Practice 1: $y=\\frac{2}{3}x^{3/2}$ — arc length $=\\frac{14}{3}$',
+    ax.set_title('$y=\\frac{2}{3}x^{3/2}$ — arc length $=\\frac{14}{3}$',
                  fontweight='bold')
     ax.set_xlabel('$x$'); ax.set_ylabel('$y$')
     ax.legend(fontsize=10, loc='upper left')
@@ -64,7 +64,7 @@ def p4_improper():
                 (2.4, 0.35), xytext=(3.6, 0.72), fontsize=11, color='#222',
                 fontweight='bold', arrowprops=dict(arrowstyle='->', color='#222', lw=1.4))
     ax.set_xlim(0, 12); ax.set_ylim(0, 1.15)
-    ax.set_title('Practice 4: improper integral $\\int_0^\\infty \\frac{dx}{1+x^2}=\\frac{\\pi}{2}$',
+    ax.set_title('improper integral $\\int_0^\\infty \\frac{dx}{1+x^2}=\\frac{\\pi}{2}$',
                  fontweight='bold')
     ax.set_xlabel('$x$'); ax.set_ylabel('$y$')
     ax.legend(fontsize=10, loc='upper right')

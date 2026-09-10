@@ -274,52 +274,6 @@ $\vec{E} = -\nabla V$ (scalar potential). $\vec{B} = \nabla\times\vec{A}$ (vecto
 (5) Chemistry: MEP = V(r) from nuclei + electron density. E = −∇V determines reactivity.
     PES = U(q₁,...,qₙ). Reaction follows −∇U from saddle (TS) to minimum (product).
 ```
-
----
-
-## Practice 1
-
-Determine if each field is conservative. If yes, find the potential.
-(a) $\vec{F} = \langle 3x^2 y, x^3 + 2y \rangle$
-(b) $\vec{F} = \langle y\cos(xy), x\cos(xy) + 2y \rangle$
-(c) $\vec{F} = \langle y, -x \rangle$
-
----
-
-## Practice 2
-
-Find the potential $\phi$ for $\vec{F} = \langle 2xy + z^2, x^2 + 2yz, 2xz + y^2 + 1 \rangle$ in 3D. Verify by computing $\nabla\phi$.
-
----
-
-## Practice 3: Central Force Fields
-
-A vector field of the form $\vec{F} = f(r)\hat{r}$ where $r = \sqrt{x^2+y^2+z^2}$ and $\hat{r} = \langle x/r, y/r, z/r \rangle$ is called a central field.
-(a) Prove that ANY central field has zero curl: $\nabla\times(f(r)\hat{r}) = \vec{0}$. (Hint: use the product rule for curl.)
-(b) Show that the potential is $\phi(r) = \int f(r)\,dr$ (up to a constant).
-(c) For $f(r) = r^n$, find $\phi(r)$. For which values of $n$ does $\phi(r) \to 0$ as $r \to \infty$?
-
----
-
-## Practice 4: Gradient of a Radial Function
-
-Consider the scalar function $V(x,y,z) = \frac{z}{(x^2+y^2+z^2)^{3/2}}$ defined everywhere except the origin.
-(a) Compute $\vec{F} = -\nabla V$. Show that $\vec{F}$ is NOT a central field (it depends on direction, not just distance $r$).
-(b) Verify that $\nabla\times\vec{F} = \vec{0}$ everywhere except the origin.
-(c) Compute $\nabla\cdot\vec{F}$. Is $\vec{F}$ also solenoidal (divergence-free)?
-
----
-
-## Practice 5: Real Battle — Line Integral vs. Potential
-
-The vector field $\vec{F} = \langle 2x+y, x+2y, 0 \rangle$ is conservative (verify this).
-(a) Find the potential $\phi(x,y,z)$ such that $\vec{F} = \nabla\phi$.
-(b) Compute $\int_C \vec{F}\cdot d\vec{r}$ along the straight line from $(0,0,0)$ to $(2,3,0)$.
-(c) Compute the same integral along the parabolic path $y = \frac{3}{4}x^2$, $z=0$ from $(0,0,0)$ to $(2,3,0)$.
-(d) Verify that both answers equal $\phi(2,3,0) - \phi(0,0,0)$.
-
----
-
 ## Basic Drill (10)
 
 **D1.** Test for conservative: $\vec{F} = \langle y, x \rangle$. Find potential if yes.

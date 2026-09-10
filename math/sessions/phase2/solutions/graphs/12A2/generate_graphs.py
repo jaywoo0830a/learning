@@ -26,7 +26,7 @@ def save_fig(fig, name):
     plt.close(fig)
 
 # ═══════════════════════════════════════════════════════════
-# 01 — Practice 1: Determinant Zero = Collapse onto Line
+# 01 — Graph 1: Determinant Zero = Collapse onto Line
 # ═══════════════════════════════════════════════════════════
 def fig_p1_det_zero_collapse():
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 5.5))
@@ -63,12 +63,12 @@ def fig_p1_det_zero_collapse():
     ax2.set_aspect('equal'); ax2.grid(True, alpha=0.3)
     ax2.axhline(0, color='black', lw=0.5); ax2.axvline(0, color='black', lw=0.5)
 
-    fig.suptitle('Practice 1: det(A)=0 — Plane Collapses onto a Line', fontweight='bold', fontsize=14)
+    fig.suptitle('det(A)=0 — Plane Collapses onto a Line', fontweight='bold', fontsize=14)
     plt.tight_layout()
     save_fig(fig, 'p1-det-zero-collapse.png')
 
 # ═══════════════════════════════════════════════════════════
-# 02 — Practice 2: Solve Linear System by Matrix Inversion
+# 02 — Graph 2: Solve Linear System by Matrix Inversion
 # ═══════════════════════════════════════════════════════════
 def fig_p2_linear_system():
     fig, ax = plt.subplots(figsize=(7.5, 7.5))
@@ -100,11 +100,11 @@ def fig_p2_linear_system():
     ax.set_aspect('equal'); ax.grid(True, alpha=0.3)
     ax.axhline(0, color='black', lw=0.5); ax.axvline(0, color='black', lw=0.5)
     ax.set_xlabel('x'); ax.set_ylabel('y')
-    ax.set_title('Practice 2: Linear System — Intersection Point', fontweight='bold', fontsize=14)
+    ax.set_title('Linear System — Intersection Point', fontweight='bold', fontsize=14)
     save_fig(fig, 'p2-linear-system.png')
 
 # ═══════════════════════════════════════════════════════════
-# 03 — Practice 3: Cross Product in 3D
+# 03 — Graph 3: Cross Product in 3D
 # ═══════════════════════════════════════════════════════════
 def fig_p3_cross_product_3d():
     fig = plt.figure(figsize=(10, 8))
@@ -130,12 +130,12 @@ def fig_p3_cross_product_3d():
     ax.set_xlim([-12, 4]); ax.set_ylim([-3, 8]); ax.set_zlim([-3, 10])
     ax.set_xlabel('X'); ax.set_ylabel('Y'); ax.set_zlabel('Z')
     ax.legend(fontsize=9, loc='upper left')
-    ax.set_title('Practice 3: Cross Product — Perpendicular to Both Vectors', fontweight='bold', fontsize=13, pad=20)
+    ax.set_title('Cross Product — Perpendicular to Both Vectors', fontweight='bold', fontsize=13, pad=20)
     ax.view_init(elev=20, azim=-50)
     save_fig(fig, 'p3-cross-product-3d.png')
 
 # ═══════════════════════════════════════════════════════════
-# 04 — Practice 4: Triangle Area in 3D (½|cross|)
+# 04 — Graph 4: Triangle Area in 3D (½|cross|)
 # ═══════════════════════════════════════════════════════════
 def fig_p4_triangle_area_3d():
     fig = plt.figure(figsize=(10, 8))
@@ -163,12 +163,12 @@ def fig_p4_triangle_area_3d():
 
     ax.set_xlim([-1, 4]); ax.set_ylim([-1, 5]); ax.set_zlim([-1, 12])
     ax.set_xlabel('X'); ax.set_ylabel('Y'); ax.set_zlabel('Z')
-    ax.set_title('Practice 4: Triangle Area = ½|AB×AC| = 11/2', fontweight='bold', fontsize=13, pad=20)
+    ax.set_title('Triangle Area = ½|AB×AC| = 11/2', fontweight='bold', fontsize=13, pad=20)
     ax.view_init(elev=25, azim=-60)
     save_fig(fig, 'p4-triangle-area-3d.png')
 
 # ═══════════════════════════════════════════════════════════
-# 05 — Practice 5: Composition — Reflect×Rotate Both Orders
+# 05 — Graph 5: Composition — Reflect×Rotate Both Orders
 # ═══════════════════════════════════════════════════════════
 def fig_p5_composition():
     fig, axes = plt.subplots(1, 3, figsize=(15, 5.5))
@@ -214,12 +214,12 @@ def fig_p5_composition():
         ax.set_aspect('equal'); ax.grid(True, alpha=0.3)
         ax.axhline(0, color='black', lw=0.5); ax.axvline(0, color='black', lw=0.5)
 
-    fig.suptitle('Practice 5: Composition Order Matters — R₉₀Rx ≠ RxR₉₀', fontweight='bold', fontsize=13)
+    fig.suptitle('Composition Order Matters — R₉₀Rx ≠ RxR₉₀', fontweight='bold', fontsize=13)
     plt.tight_layout()
     save_fig(fig, 'p5-composition.png')
 
 # ═══════════════════════════════════════════════════════════
-# 06 — Practice 6: Vector Projection
+# 06 — Graph 6: Vector Projection
 # ═══════════════════════════════════════════════════════════
 def fig_p6_projection():
     fig, ax = plt.subplots(figsize=(7.5, 7.5))
@@ -251,11 +251,11 @@ def fig_p6_projection():
     ax.set_xlim(-0.5, 9); ax.set_ylim(-0.5, 13)
     ax.set_aspect('equal'); ax.grid(True, alpha=0.3)
     ax.axhline(0, color='black', lw=0.5); ax.axvline(0, color='black', lw=0.5)
-    ax.set_title('Practice 6: Vector Projection of (5,12) onto (3,4)', fontweight='bold', fontsize=14)
+    ax.set_title('Vector Projection of (5,12) onto (3,4)', fontweight='bold', fontsize=14)
     save_fig(fig, 'p6-projection.png')
 
 # ═══════════════════════════════════════════════════════════
-# 07 — Practice 7: Inverse Matrix Geometry
+# 07 — Graph 7: Inverse Matrix Geometry
 # ═══════════════════════════════════════════════════════════
 def fig_p7_inverse_matrix():
     fig, axes = plt.subplots(1, 4, figsize=(16, 4.5))
@@ -283,12 +283,12 @@ def fig_p7_inverse_matrix():
         ax.axhline(0, color='black', lw=0.3); ax.axvline(0, color='black', lw=0.3)
         ax.set_xlim(-2, 5); ax.set_ylim(-2, 5)
 
-    fig.suptitle('Practice 7: A⁻¹ Undoes A — A⁻¹(A(□)) = □', fontweight='bold', fontsize=13)
+    fig.suptitle('A⁻¹ Undoes A — A⁻¹(A(□)) = □', fontweight='bold', fontsize=13)
     plt.tight_layout()
     save_fig(fig, 'p7-inverse-matrix.png')
 
 # ═══════════════════════════════════════════════════════════
-# 08 — Practice 8: Parallelepiped Volume from Diagonal Matrix
+# 08 — Graph 8: Parallelepiped Volume from Diagonal Matrix
 # ═══════════════════════════════════════════════════════════
 def fig_p8_parallelepiped_3d():
     fig = plt.figure(figsize=(10, 8))
@@ -325,7 +325,7 @@ def fig_p8_parallelepiped_3d():
     ax.set_xlim([-0.5, 3]); ax.set_ylim([-0.5, 4]); ax.set_zlim([-0.5, 6])
     ax.set_xlabel('X'); ax.set_ylabel('Y'); ax.set_zlabel('Z')
     ax.legend(fontsize=9, loc='upper left')
-    ax.set_title('Practice 8: Parallelepiped — Volume = det(M) = 30', fontweight='bold', fontsize=13, pad=20)
+    ax.set_title('Parallelepiped — Volume = det(M) = 30', fontweight='bold', fontsize=13, pad=20)
     ax.view_init(elev=20, azim=-45)
     save_fig(fig, 'p8-parallelepiped-3d.png')
 

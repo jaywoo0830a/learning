@@ -291,46 +291,6 @@ Linear centers are **structurally unstable**. A small nonlinearity can turn a ce
 (5) Physics: Coupled oscillators → eigenvalue problem of K → normal modes.
     Chemistry: Reaction Jacobian → stable/unstable/oscillatory steady states.
 ```
-
----
-
-## Practice 1
-
-Write the state-space form $\dot{\vec{x}} = A\vec{x}$ for the ODE $2y''' - 3y'' + y' - 4y = 0$. What is the size of $A$? What is the characteristic equation of $A$?
-
----
-
-## Practice 2
-
-Solve $\dot{\vec{x}} = \begin{pmatrix} 3 & 4 \\ 1 & 3 \end{pmatrix}\vec{x}$ with $\vec{x}(0) = \begin{pmatrix} 1 \\ 0 \end{pmatrix}$. Find eigenvalues, eigenvectors, and the general solution.
-
----
-
-## Practice 3
-
-Classify the equilibrium $\vec{x}^* = (0,0)$ for $\dot{\vec{x}} = \begin{pmatrix} -2 & 5 \\ -1 & -2 \end{pmatrix}\vec{x}$. Use $\tau$ and $\Delta$ first, then verify by computing eigenvalues. Sketch the phase portrait (at least the stable/unstable directions).
-
----
-
-## Practice 4: Nonlinear System — Two Interacting Variables
-
-Consider the nonlinear system $\dot{x} = x(2 - x - y)$, $\dot{y} = y(3 - 2x - y)$.
-(a) Find all equilibria in the first quadrant ($x \geq 0, y \geq 0$).
-(b) Compute the Jacobian at each equilibrium.
-(c) Classify each equilibrium using eigenvalues.
-
----
-
-## Practice 5: Real Battle — Cubic Nonlinear Oscillator
-
-A nonlinear oscillator satisfies $\ddot{x} + x - \frac{1}{6}x^3 = 0$.
-(a) Write as a first-order system.
-(b) Find all equilibria.
-(c) Linearize around each equilibrium and classify.
-(d) One equilibrium is a saddle, one is a center. Which is which? Why can you be sure the center is genuine (not just an artifact of linearization)?
-
----
-
 ## Basic Drill (10)
 
 **D1.** Convert $y'' + 3y' + 2y = 0$ to state-space form. Write $A$.

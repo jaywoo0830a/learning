@@ -43,7 +43,7 @@ def a_p1():
     ax.annotate('$(2,10)$\n$f\'(2)=7$', (2, 10), xytext=(0.6, 11.5),
                 fontsize=10, color=RED, fontweight='bold')
     ax.set_xlim(-4, 2.6); ax.set_ylim(-5, 15)
-    ax.set_title('Practice 1: $f\'(2)=\\lim_{h\\to0}\\frac{f(2+h)-f(2)}{h}=7$',
+    ax.set_title('$f\'(2)=\\lim_{h\\to0}\\frac{f(2+h)-f(2)}{h}=7$',
                  fontweight='bold')
     ax.set_xlabel('$x$'); ax.set_ylabel('$y$')
     ax.legend(fontsize=10, loc='upper left')
@@ -66,7 +66,7 @@ def a_p5():
                 fontsize=10, color=RED, fontweight='bold')
     ax.set_xlim(-2.5, 4.5); ax.set_ylim(-30, 18)
     ax.axhline(0, color='#888', lw=0.8, alpha=0.5); ax.axvline(0, color='#888', lw=0.8, alpha=0.5)
-    ax.set_title('Practice 5: $f\'(x)=3(x-3)(x+1)$ — horizontal at $x=-1$ and $x=3$',
+    ax.set_title('$f\'(x)=3(x-3)(x+1)$ — horizontal at $x=-1$ and $x=3$',
                  fontweight='bold')
     ax.set_xlabel('$x$'); ax.set_ylabel('$y$')
     ax.legend(fontsize=9, loc='lower right')
@@ -83,7 +83,7 @@ def a_p6():
     ax.annotate('$(1,1)$\n$f\'(1)=2+1=3$', (1, 1), xytext=(1.05, -1.6),
                 fontsize=10, color=RED, fontweight='bold')
     ax.set_xlim(0.25, 2.4); ax.set_ylim(-3, 6)
-    ax.set_title('Practice 6: tangent at $x=1$ — $y=3x-2$', fontweight='bold')
+    ax.set_title('tangent at $x=1$ — $y=3x-2$', fontweight='bold')
     ax.set_xlabel('$x$'); ax.set_ylabel('$y$')
     ax.legend(fontsize=10, loc='upper left')
     fig.tight_layout()
@@ -108,7 +108,7 @@ def b_p4():
     ax.axhline(0, color='#888', lw=0.8, alpha=0.5); ax.axvline(0, color='#888', lw=0.8, alpha=0.5)
     ax.set_xlim(-3.6, 4.2); ax.set_ylim(-3.8, 3.8)
     ax.set_aspect('equal')
-    ax.set_title('Practice 4: implicit $y\'=\\frac{-(2x+y)}{x+2y}$ — at $(1,2)$ it is $-\\frac{4}{5}$',
+    ax.set_title('implicit $y\'=\\frac{-(2x+y)}{x+2y}$ — at $(1,2)$ it is $-\\frac{4}{5}$',
                  fontweight='bold')
     ax.set_xlabel('$x$'); ax.set_ylabel('$y$')
     ax.legend(fontsize=9, loc='upper left')
@@ -130,7 +130,7 @@ def b_p6():
                 arrowprops=dict(arrowstyle='->', color=RED, lw=1.6))
     ax.axhline(0, color='#888', lw=0.8, alpha=0.5); ax.axvline(0, color='#888', lw=0.8, alpha=0.5)
     ax.set_xlim(-4.5, 1.8); ax.set_ylim(-2, 7.5)
-    ax.set_title('Practice 6: $\\frac{dy}{dx}=\\frac{6t-3t^2}{2-2t}$ — at $t=1$ the tangent is vertical',
+    ax.set_title('$\\frac{dy}{dx}=\\frac{6t-3t^2}{2-2t}$ — at $t=1$ the tangent is vertical',
                  fontweight='bold')
     ax.set_xlabel('$x$'); ax.set_ylabel('$y$')
     ax.legend(fontsize=9, loc='upper left')
@@ -167,7 +167,7 @@ def c_p6():
             color=GREEN, fontweight='bold')
     ax.axhline(0, color='#888', lw=0.8, alpha=0.5); ax.axvline(0, color='#888', lw=0.8, alpha=0.5)
     ax.set_xlim(-2.4, 4.4); ax.set_ylim(-34, 20)
-    ax.set_title('Practice 6: $f\'=3(x-3)(x+1)$, $f\'\'=6(x-1)$ — max, min, inflection',
+    ax.set_title('$f\'=3(x-3)(x+1)$, $f\'\'=6(x-1)$ — max, min, inflection',
                  fontweight='bold')
     ax.set_xlabel('$x$'); ax.set_ylabel('$y$')
     ax.legend(fontsize=9, loc='upper right')

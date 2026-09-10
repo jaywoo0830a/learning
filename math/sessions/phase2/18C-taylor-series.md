@@ -122,99 +122,6 @@ When composing $\ln(1+u)$ with $u = \sin x$, you must keep enough terms of $u$ (
 ### Mistake 4: Confusing the degree with the number of terms
 
 The $n$-th degree Taylor polynomial $T_n$ contains $n+1$ terms (from the $x^0$ term through $x^n$). For error bounds, keeping terms up to $x^n$ leaves an error controlled by the $(n+1)$-st term.
-
----
-
-## Practice 1
-
-Find the Maclaurin series for $f(x)=xe^x$.
-
-<details>
-<summary>💡 Hint</summary>
-
-Multiply the known Maclaurin series for $e^x$ by $x$, then shift the index.
-
-</details>
-
-→ Solutions: [Solutions](solutions/18C-solutions.md#practice-1)
-
----
-
-## Practice 2
-
-Find the Taylor series for $f(x)=\ln x$ centered at $a=1$.
-
-<details>
-<summary>💡 Hint</summary>
-
-Write $\ln x = \ln(1 + (x-1))$ and use the Maclaurin series for $\ln(1+u)$ with $u = x-1$.
-
-</details>
-
-→ Solutions: [Solutions](solutions/18C-solutions.md#practice-2)
-
----
-
-## Practice 3
-
-Evaluate $\lim_{x\to0}\frac{\cos x-1+x^2/2}{x^4}$.
-
-<details>
-<summary>💡 Hint</summary>
-
-Write the first few terms of $\cos x$. After cancelling against the numerator, the first surviving power of $x$ decides the limit.
-
-</details>
-
-→ Solutions: [Solutions](solutions/18C-solutions.md#practice-3)
-
----
-
-## Practice 4
-
-Estimate $\int_0^{0.5} \sin(x^2)dx$ to 4 decimal places.
-
-<details>
-<summary>💡 Hint</summary>
-
-$\sin(x^2) = x^2 - \frac{x^6}{3!} + \frac{x^{10}}{5!} - \cdots$. Integrate term-by-term and evaluate at $\frac12$ — it's an alternating series, so the first omitted term bounds the error.
-
-</details>
-
-→ Solutions: [Solutions](solutions/18C-solutions.md#practice-4)
-
----
-
-## Practice 5: Real Battle (🔗 12B2, 13A, 18B)
-
-Find the Maclaurin series for $\arcsin x$, and use it to evaluate $\lim_{x\to0}\frac{\arcsin x - x}{x^3}$.
-
-<details>
-<summary>💡 Hint</summary>
-
-Expand $(1+u)^{-1/2}$ with the binomial series, substitute $u = -x^2$, then integrate. The first two terms of $\arcsin x$ are $x + \frac{x^3}{6}$.
-
-</details>
-
-→ Solutions: [Solutions](solutions/18C-solutions.md#practice-5)
-
----
-
-## Practice 6: Real Battle — Error Analysis (🔗 18B)
-
-How many terms of the Maclaurin series for $e^x$ are needed to approximate $e$ (i.e., $e^1$) with error less than $10^{-6}$? Compare with the actual error after that many terms.
-
-<details>
-<summary>💡 Hint</summary>
-
-Use the Lagrange remainder bound: at $x=1$ the remainder is controlled by $e/(n+1)!$. A crude bound on $e$ turns this into: find the smallest factorial that clears a known number.
-
-</details>
-
-→ Solutions: [Solutions](solutions/18C-solutions.md#practice-6)
-
----
-
 ## Basic Drills
 
 **D1.** Write the Maclaurin series for $e^{-x}$ (first 4 terms).
@@ -375,7 +282,7 @@ $\frac{\sin x}{x} = 1 - \frac{x^2}{3!} + \frac{x^4}{5!} - \cdots$; integrate to 
 <details>
 <summary>💡 Hint</summary>
 
-Same route as Practice 5: expand $(1-x^2)^{-1/2}$ binomially and integrate term-by-term.
+Binomial expansion route: expand $(1-x^2)^{-1/2}$ binomially and integrate term-by-term.
 
 </details>
 

@@ -218,69 +218,6 @@ Why is G true but unprovable?
 └── (4) Any fix (add G as axiom)? The new system has its own G'.
         The gap never closes.
 ```
-
----
-
-## Practice 1
-
-**With the symbol table of Example 4 ($0$=1, $+$=2, $\times$=3, $=$=4, $\neg$=5, $\forall$=6, $x$=7, $y$=8), compute the Gödel number of the sentence "$0 = 0$".**
-
-→ Reference: **Example 4**
-
-> Solutions: [Solutions](solutions/06-solutions.md#practice-1)
-
----
-
-## Practice 2
-
-**Gödel's Second Incompleteness Theorem says a system cannot prove its own consistency.** Use Example 7's result to explain, in your own words, why that follows intuitively.
-
-→ Reference: **Example 7**
-
-> Solutions: [Solutions](solutions/06-solutions.md#practice-2)
-
----
-
-## Practice 3
-
-**The barber paradox ends with "no such barber exists." The Gödel sentence ends with "this system cannot decide $G$."** Explain why both conclusions come from the same self-referential structure.
-
-→ Reference: **Examples 2, 3**
-
-> Solutions: [Solutions](solutions/06-solutions.md#practice-3)
-
----
-
-## Practice 4: Trap
-
-**"Can't I just write a bigger Gödel number, extend the system, and prove $G$?"** Answer this objection.
-
-→ Reference: **Examples 6, 7**
-
-> Solutions: [Solutions](solutions/06-solutions.md#practice-4)
-
----
-
-## Practice 5
-
-**Why is proof-checking "mechanical"?** Explain with a concrete example (e.g., modus ponens) why checking a proof is a syntactic task a computer could do — and therefore expressible in arithmetic.
-
-→ Reference: **Examples 4, 5**
-
-> Solutions: [Solutions](solutions/06-solutions.md#practice-5)
-
----
-
-## Practice 6: Real Battle
-
-**The Halting Problem: "no program can decide whether an arbitrary program eventually halts."** Explain why this is structurally the same as Gödel's theorem. Where is the self-reference?
-
-→ Reference: **Examples 2, 3, 6**
-
-> Solutions: [Solutions](solutions/06-solutions.md#practice-6)
-
----
-
 ## Basic Drills
 
 > Mechanical checks on the encoding and the argument.
@@ -325,7 +262,7 @@ Why is G true but unprovable?
 
 **A6.** Compare the barber paradox and the diagonal argument of Session 05. Where is the same "left-out element" idea?
 
-**A7.** The Halting Problem (Practice 6): write the self-referential program $H$ that halts iff it doesn't halt. Make the contradiction explicit.
+**A7.** The Halting Problem: write the self-referential program $H$ that halts iff it doesn't halt. Make the contradiction explicit.
 
 **A8.** Show that "$\mathbb{R}$ is uncountable" and "no system can prove all truths" both have the shape: assume a complete list/system, construct the left-out item.
 

@@ -374,69 +374,6 @@ Proof: $\frac{1}{x}-\frac{1}{a} = \frac{a-x}{ax} = \frac{-(x-a)}{ax}$, so the ex
 
 (5) Nested-fraction pattern: lim (1/x − 1/a)/(x−a) = −1/a²
 ```
-
----
-
-## Practice 1
-
-$\displaystyle \lim_{x\to 2}\frac{x^3-8}{x-2}$. Use the difference of cubes formula.
-
-→ Reference: **Example 2**
-
-> Solutions: [Solutions](solutions/13A-solutions.md#practice-1)
-
----
-
-## Practice 2
-
-$\displaystyle \lim_{x\to 0}\frac{\sqrt{x+9}-3}{x}$. Use the conjugate.
-
-→ Reference: **Example 3**
-
-> Solutions: [Solutions](solutions/13A-solutions.md#practice-2)
-
----
-
-## Practice 3
-
-$\displaystyle \lim_{x\to 0}\frac{\sin 7x}{\tan 3x}$. Use $\frac{\sin\square}{\square}\to1$ and $\frac{\tan\square}{\square}\to1$.
-
-→ Reference: **Example 4**
-
-> Solutions: [Solutions](solutions/13A-solutions.md#practice-3)
-
----
-
-## Practice 4: Composition
-
-Design three different $\frac{0}{0}$ rational functions whose limits are all 5 (at different $x=a$ values). Each must factor and cancel cleanly.
-
-→ Reference: **Example 2**
-
-> Solutions: [Solutions](solutions/13A-solutions.md#practice-4)
-
----
-
-## Practice 5
-
-$\displaystyle \lim_{x\to 0}\frac{e^{3x}-1}{\ln(1+2x)}$. Use two standard limits.
-
-→ Reference: **Example 5**
-
-> Solutions: [Solutions](solutions/13A-solutions.md#practice-5)
-
----
-
-## Practice 6: Real Battle
-
-$f(x) = \begin{cases} \frac{\sin x}{x}, & x < 0 \\ e^x, & x \geq 0 \end{cases}$. Find left and right limits at $x=0$. Is $f$ continuous there?
-
-→ Reference: **Example 10**
-
-> Solutions: [Solutions](solutions/13A-solutions.md#practice-6)
-
----
-
 ## Basic Drills
 
 > Pure computation. Identify the form and apply the right weapon.

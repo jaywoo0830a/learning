@@ -358,57 +358,6 @@ $|x^2-1|$: Breaks where $x^2-1=0 \to x=\pm1$.
 
 (5) Parametric: dy/dx = (dy/dt)/(dx/dt). Inverse: (f⁻¹)'(y) = 1/f'(x).
 ```
-
----
-
-## Practice 1
-
-$f(x)=x^3\cos x$. Run the product rule: $f=x^3$, $g=\cos x$. $f'=$?, $g'=$?, assemble.
-
-→ Solutions: [Solutions](solutions/14B-solutions.md#practice-1)
-
----
-
-## Practice 2
-
-$g(x)=\frac{e^x}{x^2+1}$. Run the quotient rule: top=$e^x$, bottom=$x^2+1$. Assemble numerator carefully.
-
-→ Solutions: [Solutions](solutions/14B-solutions.md#practice-2)
-
----
-
-## Practice 3
-
-$h(x)=\ln(\sin(x^2))$. Chain rule: how many layers? Peel from outside in. Multiply the chain.
-
-→ Solutions: [Solutions](solutions/14B-solutions.md#practice-3)
-
----
-
-## Practice 4
-
-$x^2+xy+y^2=7$. Find $\frac{dy}{dx}$ at $(1,2)$. Implicit: remember product rule on $xy$.
-
-→ Solutions: [Solutions](solutions/14B-solutions.md#practice-4)
-
----
-
-## Practice 5
-
-$y=(\cos x)^{\sin x}$. Log-diff: take $\ln$, simplify, differentiate, solve for $y'$.
-
-→ Solutions: [Solutions](solutions/14B-solutions.md#practice-5)
-
----
-
-## Practice 6: Real Battle
-
-$x=2t-t^2$, $y=3t^2-t^3$. Find $\frac{dy}{dx}$ at $t=1$ and the equation of the tangent line.
-
-→ Solutions: [Solutions](solutions/14B-solutions.md#practice-6)
-
----
-
 ## Basic Drills
 
 > Identify the structure. Apply the matching procedure.
