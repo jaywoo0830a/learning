@@ -28,7 +28,7 @@ A derivative is a fraction: $dy/dx$ carries **y-units per x-unit**. Writing the 
 
 **Worked**: $s(t) = \frac12 t^2$ meters. $s'(t) = t$, so at $t=2$: $s'(2) = 2$ m/s. Read it as a sentence: "at $t=2$, each extra second adds about 2 meters of position." The number 2 alone means nothing — 2 m/s is the whole story.
 
-![Units of the derivative: m/s for position, $/unit for cost](graphs/0821/14D1/14d1-derivative-units.png)
+![Units of the derivative: m/s for position, $/unit for cost](../../graphs/14d/01-derivative-units.png)
 
 *Graph 14D-1: Left — position vs time, tangent slope 4 m/s. Right — cost vs quantity, tangent slope 28 \$/unit. The same geometric object (a tangent) says completely different sentences depending on its units.*
 
@@ -1063,7 +1063,7 @@ $s(t) = t^3 - 6t^2 + 9t$ (meters, seconds, from 14C). $v(t) = s'(t) = 3(t-1)(t-3
 
 The two turning points ($t=1, 3$) and the one acceleration switch ($t=2$) chop time into exactly four stories.
 
-![Motion story from signs of v and a](graphs/0821/14D1/14d2-motion-story.png)
+![Motion story from signs of v and a](../../graphs/14d/02-motion-story.png)
 
 *Graph 14D-2: Top — $v(t)$ and $a(t)$ with zero crossings marked. Bottom — the motion timeline built purely from signs.*
 

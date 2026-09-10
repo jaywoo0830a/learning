@@ -31,7 +31,7 @@ Estimate $\sqrt{4.1}$ using $f(x)=\sqrt{x}$ at $a=4$:
 
 **The insight**: the error is **quadratic** in the step. Ten times smaller step → a hundred times smaller error. Engineers linearize because the price of the approximation is known and tiny when $f''$ is small.
 
-![Linearization: tangent approximates sqrt near 4](graphs/0821/14D1/14d3-linearization.png)
+![Linearization: tangent approximates sqrt near 4](../../graphs/14d1/03-linearization.png)
 
 *Graph 14D1-1: The tangent at $x=4$ and the zoom showing the gap at $x=4.1$ — error ≈ 0.00015, exactly the size the $f''$ bound predicts.*
 
@@ -73,11 +73,11 @@ Sphere: $V = \frac{4}{3}\pi r^3$. Differentiate: $\frac{dV}{dr} = 4\pi r^2$ — 
 
 Cube sanity check: a cube of side $s$ has $V=s^3$, so $\frac{dV}{ds} = 3s^2$ — *not* $6s^2$. Why? Growing the side by $ds$ thickens only 3 of the 6 faces. If instead the cube grows by its **half-side** $u = s/2$, then $V = 8u^3$ and $\frac{dV}{du} = 24u^2 = 6s^2$ — the full surface area. The derivative with respect to *which* growth dimension you use sets the meaning. (This is a preview of A2.)
 
-![Circle: ring area = circumference × dr](graphs/0821/14D1/14d4-circle-ring.png)
+![Circle: ring area = circumference × dr](../../graphs/14d1/04-circle-ring.png)
 
 *Graph 14D1-2: The ring of width $dr$ has area ≈ $2\pi r\,dr$ — differentiating area gives the circumference.*
 
-![Sphere: shell volume = surface area × dr](graphs/0821/14D1/14d5-sphere-shell.png)
+![Sphere: shell volume = surface area × dr](../../graphs/14d1/05-sphere-shell.png)
 
 *Graph 14D1-3 (3D): A spherical shell of thickness $dr$ has volume ≈ $4\pi r^2\,dr$ — differentiating volume gives the surface area.*
 
@@ -99,7 +99,7 @@ Set $MC = AC$: $2q+4 = q+4+\frac{144}{q}$ → $q^2 = 144$ → $q=12$. At $q=12$ 
 
 **The law**: marginal cost crosses average cost exactly at the average's minimum. Check: $AC'(q) = 1 - \frac{144}{q^2} = 0$ at $q=12$. ✓ (The tangent's slope at the crossing equals the average height — that can only happen where the average stops falling.)
 
-![Marginal cost as tangent slope; MC crosses AC at AC's minimum](graphs/0821/14D1/14d6-marginal-cost.png)
+![Marginal cost as tangent slope; MC crosses AC at AC's minimum](../../graphs/14d1/06-marginal-cost.png)
 
 *Graph 14D1-4: Left — the cost curve with its tangent at $q=12$; the tangent's slope is the cost of the next unit. Right — $MC$ and $AC$ cross at the minimum of $AC$.*
 
@@ -141,7 +141,7 @@ Demand: $q(p) = 500 - 10p$ (units sold at price $p$).
 
 **Revenue** $R = p\,q(p) = 500p - 10p^2$, so $R' = 500 - 20p = 0$ at $p=25$ — maximum revenue \$6250. Elasticity $E=-1$ is exactly where $R'=0$: to the left (inelastic) raising price raises revenue; to the right (elastic) raising price loses more demand than it gains.
 
-![Demand with elastic/inelastic regions; revenue maximized at E=-1](graphs/0821/14D1/14d7-elasticity.png)
+![Demand with elastic/inelastic regions; revenue maximized at E=-1](../../graphs/14d1/07-elasticity.png)
 
 *Graph 14D1-5: Left — demand with elastic and inelastic regions. Right — revenue peaks exactly where $E=-1$.*
 

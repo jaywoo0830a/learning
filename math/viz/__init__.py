@@ -12,7 +12,7 @@ Public API:
 """
 from .theme import PALETTE, DPI, FONTS, apply_matplotlib_defaults
 from .canvas import new_canvas, simple_axes
-from .export import save_figure
+from .export import save_figure, graph_path, GRAPH_ROOT
 
 __all__ = [
     "PALETTE",
@@ -22,4 +22,6 @@ __all__ = [
     "new_canvas",
     "simple_axes",
     "save_figure",
+    "graph_path",
+    "GRAPH_ROOT",
 ]
