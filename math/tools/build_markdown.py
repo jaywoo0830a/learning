@@ -23,82 +23,44 @@ _KNOWN = [
     ("14d1-05-sphere-shell", "14d1", "05", "sphere-shell"),
     ("14d1-06-marginal-cost", "14d1", "06", "marginal-cost"),
     ("14d1-07-elasticity", "14d1", "07", "elasticity"),
-    ("9b-angle-between-lines", "9b", "angle-between-lines"),
-    ("9b-area-polygon", "9b", "area-polygon"),
-    ("9b-circle-details", "9b", "circle-details"),
-    ("9b-conic-comparison", "9b", "conic-comparison"),
-    ("9b-conic-identification", "9b", "conic-identification"),
-    ("9b-ellipse-details", "9b", "ellipse-details"),
-    ("9b-hyperbola-details", "9b", "hyperbola-details"),
-    ("9b-line-forms", "9b", "line-forms"),
-    ("9b-midpoint-division", "9b", "midpoint-division"),
-    ("9b-parabola-details", "9b", "parabola-details"),
-    ("9b-parallel-perpendicular", "9b", "parallel-perpendicular"),
-    ("9b-parametric-motion", "9b", "parametric-motion"),
-    ("9b-point-circle-distance", "9b", "point-circle-distance"),
-    ("9b-point-line-distance-derivation", "9b", "point-line-distance-derivation"),
-    ("9b-point-reflection", "9b", "point-reflection"),
-    ("9b-step-conic-circle", "9b", "step-conic-circle"),
-    ("9b-step-conic-ellipse", "9b", "step-conic-ellipse"),
-    ("9b-step-conic-hyperbola", "9b", "step-conic-hyperbola"),
-    ("9b-step-conic-parabola", "9b", "step-conic-parabola"),
-    ("9b-step-distance-line", "9b", "step-distance-line"),
-    ("9b-step-line-forms", "9b", "step-line-forms"),
-    ("9b-step-parametric", "9b", "step-parametric"),
-    ("9b-tangent-lines-circle", "9b", "tangent-lines-circle"),
-    ("9b-triangle-area-coordinates", "9b", "triangle-area-coordinates"),
-    ("9b-two-lines-distance", "9b", "two-lines-distance"),
-    ("9c-angle-planes", "9c", "angle-planes"),
-    ("9c-cone-details", "9c", "cone-details"),
-    ("9c-contour-steepness", "9c", "contour-steepness"),
-    ("9c-coordinate-system-3d", "9c", "coordinate-system-3d"),
-    ("9c-cylinder-types", "9c", "cylinder-types"),
-    ("9c-cylinders-intersection", "9c", "cylinders-intersection"),
-    ("9c-degenerate-cases", "9c", "degenerate-cases"),
-    ("9c-distance-parallel-planes", "9c", "distance-parallel-planes"),
-    ("9c-domain-regions", "9c", "domain-regions"),
-    ("9c-ellipsoid-details", "9c", "ellipsoid-details"),
-    ("9c-hyperbolic-paraboloid-details", "9c", "hyperbolic-paraboloid-details"),
-    ("9c-hyperboloid-one-sheet", "9c", "hyperboloid-one-sheet"),
-    ("9c-hyperboloid-two-sheets", "9c", "hyperboloid-two-sheets"),
-    ("9c-level-curves-method", "9c", "level-curves-method"),
-    ("9c-level-curves-to-surface", "9c", "level-curves-to-surface"),
-    ("9c-line-surface-intersection", "9c", "line-surface-intersection"),
-    ("9c-paraboloid-details", "9c", "paraboloid-details"),
-    ("9c-plane-intercept", "9c", "plane-intercept"),
-    ("9c-plane-normal", "9c", "plane-normal"),
-    ("9c-point-plane-distance", "9c", "point-plane-distance"),
-    ("9c-point-sphere-distance", "9c", "point-sphere-distance"),
-    ("9c-quadric-comparison", "9c", "quadric-comparison"),
-    ("9c-quadric-identification", "9c", "quadric-identification"),
-    ("9c-sphere-details", "9c", "sphere-details"),
-    ("9c-sphere-plane-intersection", "9c", "sphere-plane-intersection"),
-    ("9c-step-3d-coords", "9c", "step-3d-coords"),
-    ("9c-step-intersection", "9c", "step-intersection"),
-    ("9c-step-level-curves", "9c", "step-level-curves"),
-    ("9c-step-plane", "9c", "step-plane"),
-    ("9c-step-quadrics", "9c", "step-quadrics"),
-    ("9c-step-surface-build", "9c", "step-surface-build"),
-    ("9c-step-vectors", "9c", "step-vectors"),
-    ("9c-surface-height-map", "9c", "surface-height-map"),
-    ("9c-symmetry-3d", "9c", "symmetry-3d"),
-    ("9c-vector-dot-cross", "9c", "vector-dot-cross"),
+    ("9b-01-line-forms", "9b", "01", "line-forms"),
+    ("9b-02-step-line-forms", "9b", "02", "step-line-forms"),
+    ("9b-03-parallel-perpendicular", "9b", "03", "parallel-perpendicular"),
+    ("9b-04-angle-between-lines", "9b", "04", "angle-between-lines"),
+    ("9b-05-midpoint-division", "9b", "05", "midpoint-division"),
+    ("9b-06-point-line-distance", "9b", "06", "point-line-distance"),
+    ("9b-07-step-distance-line", "9b", "07", "step-distance-line"),
+    ("9b-08-two-lines-distance", "9b", "08", "two-lines-distance"),
+    ("9b-09-point-circle-distance", "9b", "09", "point-circle-distance"),
+    ("9b-10-tangent-lines-circle", "9b", "10", "tangent-lines-circle"),
+    ("9b-11-circle-details", "9b", "11", "circle-details"),
+    ("9b-12-step-conic-circle", "9b", "12", "step-conic-circle"),
+    ("9b-13-ellipse-details", "9b", "13", "ellipse-details"),
+    ("9b-14-step-conic-ellipse", "9b", "14", "step-conic-ellipse"),
+    ("9b-15-parabola-details", "9b", "15", "parabola-details"),
+    ("9b-16-step-conic-parabola", "9b", "16", "step-conic-parabola"),
+    ("9b-17-hyperbola-details", "9b", "17", "hyperbola-details"),
+    ("9b-18-step-conic-hyperbola", "9b", "18", "step-conic-hyperbola"),
+    ("9b-19-conic-identification", "9b", "19", "conic-identification"),
+    ("9b-20-conic-comparison", "9b", "20", "conic-comparison"),
+    ("9b-21-parametric-motion", "9b", "21", "parametric-motion"),
+    ("9b-22-step-parametric", "9b", "22", "step-parametric"),
+    ("9b-23-triangle-area", "9b", "23", "triangle-area"),
+    ("9b-24-area-polygon", "9b", "24", "area-polygon"),
+    ("9b-25-point-reflection", "9b", "25", "point-reflection"),
 ]
 
-# graph id -> absolute png path.
-# - 14d entries are 4-tuples (gid, session, num, slug) -> graphs/<s>/<num>-<slug>.png
-# - 9x entries are 3-tuples (gid, session, slug)      -> graphs/<s>/<gid>.png
+# All `_KNOWN` entries are 4-tuples (gid, session, num, slug) -> canonical path.
 _GRAPH_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "graphs"))
 
-def _resolve(gid, session, rest):
-    if len(rest) == 2:  # (gnum, slug)
-        gnum, slug = rest
-        return _graph_path(session, gnum, slug)
-    slug = rest[0]      # (slug,) -> flat file named <gid>.png
-    return os.path.join(_GRAPH_ROOT, session, gid + ".png")
 
-KNOWN_GRAPHS = {gid: _resolve(gid, session, rest)
-                for gid, session, *rest in _KNOWN}
+def _resolve(gid, session, num, slug):
+    del gid
+    return _graph_path(session, num, slug)
+
+
+KNOWN_GRAPHS = {gid: _resolve(gid, session, num, slug)
+                for gid, session, num, slug in _KNOWN}
 
 # Matches {{graph:any-chars-here}}
 _REF = re.compile(r"\{\{graph:([^}]+)\}\}")

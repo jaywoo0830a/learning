@@ -22,10 +22,18 @@ def plot_curve(
     color: str = "blue",
     lw: float = 2.5,
     ls: str = "-",
+    marker: Optional[str] = None,
+    markersize: float = 6,
+    alpha: float = 1.0,
 ):
-    """Plot an x-y curve and return the Line2D artist."""
+    """Plot an x-y curve and return the Line2D artist.
+
+    Accepts optional ``marker``/``markersize``/``alpha`` for polylines whose
+    vertices should be shown (e.g. midpoint segments).
+    """
     c = PALETTE.get(color, color)
-    (line,) = ax.plot(x, y, color=c, lw=lw, ls=ls, label=label)
+    (line,) = ax.plot(x, y, color=c, lw=lw, ls=ls, label=label,
+                      marker=marker, markersize=markersize, alpha=alpha)
     if label:
         ax.legend()
     return line

@@ -37,3 +37,33 @@ def plot_param2d(ax, t, x, y, *, color: str = "blue", lw=2.5, label=None):
     c = PALETTE.get(color, color)
     (line,) = ax.plot(x, y, color=c, lw=lw, label=label)
     return line
+
+
+def plot_parabola_v(ax, xs, a, h=0.0, k=0.0, *, color="blue", lw=2.5, label=None):
+    """Vertical parabola y = a(x-h)^2 + k."""
+    c = PALETTE.get(color, color)
+    (line,) = ax.plot(xs, a * (xs - h) ** 2 + k, color=c, lw=lw, label=label)
+    return line
+
+
+def plot_hyperbola_branches(ax, a, b, *, xmax=8, color="blue", lw=2.5, n=200):
+    """Draw the two branches of x^2/a^2 - y^2/b^2 = 1."""
+    c = PALETTE.get(color, color)
+    xr = np.linspace(a, xmax, n)
+    yr = b * np.sqrt((xr / a) ** 2 - 1)
+    xl = np.linspace(-xmax, -a, n)
+    yl = b * np.sqrt((xl / a) ** 2 - 1)
+    lines = []
+    for X, Y in ((xr, yr), (xr, -yr), (xl, yl), (xl, -yl)):
+        (line,) = ax.plot(X, Y, color=c, lw=lw)
+        lines.append(line)
+    return lines
+
+
+def plot_asymptotes(ax, a, b, *, xmax=8, color="orange", lw=1.5, n=100):
+    """Draw the asymptotes y=+-(b/a)x for a hyperbola."""
+    c = PALETTE.get(color, color)
+    xa = np.linspace(-xmax, xmax, n)
+    (l1,) = ax.plot(xa, b / a * xa, color=c, ls="--", lw=lw)
+    (l2,) = ax.plot(xa, -b / a * xa, color=c, ls="--", lw=lw)
+    return [l1, l2]

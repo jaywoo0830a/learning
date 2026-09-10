@@ -12,6 +12,12 @@ graphs/
 build/
 scripts/graphs/*.png
 
+# The build-output `graphs/` rule above would also ignore source files inside
+# scripts/graphs/ — so explicitly re-include the .py sources there, keeping
+# the generated .png outputs ignored.
+!scripts/graphs/
+!scripts/graphs/*.py
+
 # Legacy + scaffolding: graph PNGs and one-off port helpers are not committed
 sessions/**/graphs/
 scripts/graphs/port_*.py

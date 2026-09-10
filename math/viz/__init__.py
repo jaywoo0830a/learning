@@ -13,6 +13,7 @@ Public API:
 from .theme import PALETTE, DPI, FONTS, apply_matplotlib_defaults
 from .canvas import new_canvas, simple_axes, subplots_canvas, new_axes3d
 from .export import save_figure, graph_path, GRAPH_ROOT
+from .coords import coords_ax, build_and_save
 
 __all__ = [
     "PALETTE",
@@ -26,4 +27,6 @@ __all__ = [
     "save_figure",
     "graph_path",
     "GRAPH_ROOT",
+    "coords_ax",
+    "build_and_save",
 ]

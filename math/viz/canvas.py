@@ -37,7 +37,11 @@ def subplots_canvas(rows: int, cols: int, *, size: Optional[Tuple[float, float]]
     apply_matplotlib_defaults()
     w, h = size if size is not None else (8.0, 5.0)
     fig, axes = plt.subplots(rows, cols, figsize=(w, h), subplot_kw={"projection": projection} if projection else None)
-    return fig, np.atleast_2d(axes)
+    # matplotlib: (1,1)->Axes, (1,n)->(n,) array, (m,n 1D-ish). Wrap a bare
+    # single Axes into (1,1) so callers can always use `.flat`.
+    if not isinstance(axes, (np.ndarray, list, tuple)):
+        axes = np.atleast_2d(axes)
+    return fig, axes
 
 
 def new_axes3d(fig):
