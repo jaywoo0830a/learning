@@ -1,0 +1,7 @@
+# Math core development dependencies.
+# Used only inside the Docker container (see Dockerfile).
+numpy==2.0.2
+matplotlib==3.9.4
+sympy==1.13.3
+z3-solver==4.13.4.0
+pytest==7.4.4

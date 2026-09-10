@@ -1,0 +1,11 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+
+# Matplotlib / test artifacts (generated, not committed)
+.mplconfig/
+
+# Local dev scratch
+.env

@@ -1,0 +1,12 @@
+services:
+  math:
+    build: .
+    image: math-viz-core:latest
+    container_name: math-viz-core
+    working_dir: /workspace/math
+    volumes:
+      - .:/workspace/math
+    environment:
+      - PYTHONPATH=/workspace/math
+      - MPLBACKEND=Agg
+    command: pytest -q

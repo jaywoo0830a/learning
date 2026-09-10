@@ -1,0 +1,7 @@
+# Everything under math/ is mounted into the container; a .env or local
+# helper directory here.
+**/__pycache__
+**/__pycache__/**
+.git
+.gitignore
+graph.json
