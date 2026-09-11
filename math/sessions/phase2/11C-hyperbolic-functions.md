@@ -24,7 +24,7 @@ Just as $(\cos\theta,\, \sin\theta)$ parametrizes the circle, the pair $(\cosh t
 - Every point on the circle satisfies $\cos^2\theta + \sin^2\theta = 1$.
 - Every point on the hyperbola satisfies $\cosh^2 t - \sinh^2 t = 1$.
 
-![Unit circle vs unit hyperbola — same parametrization idea](graphs/0728/11C/11c1-hyperbola-analogy.png)
+![Unit circle vs unit hyperbola — same parametrization idea]({{graph:11c-1-analogy}})
 
 *Graph 11C-1: Left — the unit circle $x^2+y^2=1$ with point $(\cos\theta,\sin\theta)$. Right — the unit hyperbola $x^2-y^2=1$ with point $(\cosh t,\sinh t)$. The shaded sector has area $t/2$ on both sides.*
 
@@ -52,7 +52,7 @@ $$\cosh^2 x - \sinh^2 x = \frac{e^{2x} + 2 + e^{-2x}}{4} - \frac{e^{2x} - 2 + e^
 
 **Parity**: $\cosh(-x) = \cosh x$ (even), $\sinh(-x) = -\sinh x$ (odd), $\tanh$ odd. And $\cosh 0 = 1$, $\sinh 0 = 0$, $\tanh 0 = 0$.
 
-![e^x split into its even part (cosh) and odd part (sinh)](graphs/0728/11C/11c3-even-odd-decomposition.png)
+![e^x split into its even part (cosh) and odd part (sinh)]({{graph:11c-2-even-odd}})
 
 *Graph 11C-2: Every function splits into an even part $\frac{f(x)+f(-x)}{2}$ and an odd part $\frac{f(x)-f(-x)}{2}$. For $f(x)=e^x$, those halves are exactly $\cosh x$ and $\sinh x$.*
 
@@ -71,9 +71,19 @@ $$\cosh^2 x - \sinh^2 x = \frac{e^{2x} + 2 + e^{-2x}}{4} - \frac{e^{2x} - 2 + e^
 | $\operatorname{csch} x$ | odd | $\mathbb{R}\setminus\{0\}$ | — | blows up at $x=0$ |
 | $\coth x$ | odd | $(-\infty,-1)\cup(1,\infty)$ | — | blows up at $x=0$; $\to\pm1$ |
 
-![cosh, sinh, tanh and their reciprocals](graphs/0728/11C/11c2-hyperbolic-graphs.png)
+![cosh x — even, dips to 1 at the origin]({{graph:11c-3a-cosh}})
 
-*Graph 11C-3: Top — $\cosh x$ (even, dips to 1 at the origin), $\sinh x$ (odd, through the origin), $\tanh x$ (odd, between $-1$ and $1$). Bottom — the reciprocal functions with their asymptote at $x=0$.*
+![sinh x — odd, through the origin]({{graph:11c-3b-sinh}})
+
+![tanh x — odd, squeezed between −1 and 1]({{graph:11c-3c-tanh}})
+
+![sech x — even, range between 0 and 1]({{graph:11c-3d-sech}})
+
+![csch x — odd, asymptote at x = 0]({{graph:11c-3e-csch}})
+
+![coth x — odd, asymptotes x = 0 and y = ±1]({{graph:11c-3f-coth}})
+
+*Graphs 11C-3a–f: The six hyperbolic functions, one graph each — $\cosh x$ (even, dips to 1 at the origin), $\sinh x$ (odd, through the origin), $\tanh x$ (odd, between $-1$ and $1$), and their reciprocals $\operatorname{sech} x$, $\operatorname{csch} x$, $\coth x$ (asymptote at $x=0$).*
 
 > **Geometric insight**: Only $\tanh$ (and $\coth$) are bounded. The graph of $\tanh$ is a smooth "S" — a compressed version of the shape you get by gluing two horizontal asymptotes with one vertical step.
 
@@ -151,7 +161,7 @@ $$\operatorname{arsinh} x = \ln\left(x + \sqrt{x^2+1}\right), \qquad \text{domai
 $$\operatorname{arcosh} x = \ln\left(x + \sqrt{x^2-1}\right), \qquad \text{domain } x \ge 1 \text{ (principal: } x \ge 0 \text{ branch)}.$$
 $$\operatorname{artanh} x = \frac{1}{2}\ln\left(\frac{1+x}{1-x}\right), \qquad \text{domain } |x| < 1.$$
 
-![Inverse hyperbolic functions — logarithmic graphs](graphs/0728/11C/11c5-inverse-hyperbolic.png)
+![Inverse hyperbolic functions — logarithmic graphs]({{graph:11c-4-inverse}})
 
 *Graph 11C-4: $\operatorname{arsinh} x$ (all reals), $\operatorname{arcosh} x$ (only $x\ge1$, two branches), $\operatorname{artanh} x$ (only $|x|<1$, blows up at $\pm1$).*
 
@@ -198,7 +208,7 @@ $$\int \frac{dx}{\sqrt{x^2+1}} = \operatorname{arsinh} x + C, \qquad \int \frac{
 
 **Catenary (hanging cable)**: a chain hanging under its own weight does not form a parabola — it forms $y = a\cosh\left(\frac{x}{a}\right)$. Near the bottom it looks parabolic (why? $\cosh x \approx 1 + \frac{x^2}{2}$), but it turns upward far faster.
 
-![Catenary — the hanging-cable curve](graphs/0728/11C/11c4-catenary.png)
+![Catenary — the hanging-cable curve]({{graph:11c-5-catenary}})
 
 *Graph 11C-5: The catenary $y = 3\cosh(x/3)$ with its minimum at $(0,3)$. Compare with a parabola that matches it near the bottom — the catenary rises faster away from the center.*
 

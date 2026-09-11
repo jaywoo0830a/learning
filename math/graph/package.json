@@ -1,0 +1,14 @@
+{
+  "name": "math-graph",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "math/graph — per-session figures for math/sessions, authored with @jaywoo0830a/logos.",
+  "scripts": {
+    "render": "logos render . --recursive --out ../graphs",
+    "list": "logos list . --recursive"
+  },
+  "dependencies": {
+    "@jaywoo0830a/logos": "github:jaywoo0830a/logos#0.1.0"
+  }
+}

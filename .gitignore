@@ -2,3 +2,4 @@ __pycache__/
 *.pyc
 *.pyo
 tools/katex-mcp/node_modules/
+math/graph/node_modules/

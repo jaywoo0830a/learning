@@ -12,6 +12,9 @@ graphs/
 build/
 scripts/graphs/*.png
 
+# Graph sketch package — installed deps (logos) are locked via package-lock.json
+graph/node_modules/
+
 # The build-output `graphs/` rule above would also ignore source files inside
 # scripts/graphs/ — so explicitly re-include the .py sources there, keeping
 # the generated .png outputs ignored.
