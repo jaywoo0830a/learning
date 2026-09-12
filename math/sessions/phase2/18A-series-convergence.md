@@ -33,7 +33,7 @@ $\displaystyle \sum_{n=0}^\infty ar^n = \frac{a}{1-r}$ **if and only if** $|r| <
 $\sum_{n=0}^\infty \frac{2}{3^n} = \frac{2}{1-1/3} = 3$.
 $\sum_{n=1}^\infty 5\left(-\frac{1}{2}\right)^n = \frac{5(-1/2)}{1-(-1/2)} = -\frac{5}{3}$.
 
-![Geometric series — convergence vs divergence](graphs/0721/18A/18a-geometric-series.png)
+![Geometric series — convergence vs divergence]({{graph:18a-1-geometric-series}})
 
 *Graph 18A-1: Left — Convergent geometric series $\sum (0.5)^n$: terms shrink, partial sums approach $S_\infty=2$. Right — Divergent geometric series $\sum (1.2)^n$: terms grow, partial sums diverge to infinity.*
 
@@ -57,7 +57,7 @@ $p=1$: harmonic series — **diverges** (very slowly).
 $p=2$: $\sum 1/n^2 = \pi^2/6 \approx 1.645$ — **converges**.
 $p=1/2$: $\sum 1/\sqrt{n}$ — **diverges**.
 
-![p-series and integral test](graphs/0721/18A/18a-p-series.png)
+![p-series and integral test]({{graph:18a-2-p-series}})
 
 *Graph 18A-2: Left — Partial sums of $\sum 1/n^p$ for $p=2$ (converges), $p=1$ (diverges), $p=1/2$ (diverges). Right — Integral test: $\sum 1/n^2$ converges because $\int_1^\infty 1/x^2\,dx$ converges.*
 
@@ -103,7 +103,7 @@ $\displaystyle \lim_{n\to\infty} \left|\frac{a_{n+1}}{a_n}\right| = \rho$.
 
 $\rho < 1$ → converges absolutely. $\rho > 1$ → diverges. $\rho = 1$ → inconclusive.
 
-![Ratio test visualization](graphs/0721/18A/18a-ratio-test.png)
+![Ratio test visualization]({{graph:18a-4-ratio-test}})
 
 *Graph 18A-4: Left — $\sum n!/n^n$: the ratio $a_{n+1}/a_n$ converges to $1/e < 1$, so the series converges. Right — $\sum n!/2^n$: the ratio grows without bound ($> 1$), so the series diverges.*
 
@@ -125,7 +125,7 @@ $\sum \left(\frac{n}{2n+1}\right)^n$: $\rho = \lim \frac{n}{2n+1} = \frac{1}{2} 
 
 If $a_n > 0$, $a_n$ decreasing, and $\lim a_n = 0$: $\sum (-1)^{n+1}a_n$ converges.
 
-![Alternating series — conditional convergence](graphs/0721/18A/18a-alternating-series.png)
+![Alternating series — conditional convergence]({{graph:18a-3-alternating-series}})
 
 *Graph 18A-3: Left — Alternating harmonic series $\sum (-1)^{n+1}/n$ converges to $\ln 2$. Terms alternate sign and shrink to zero; partial sums converge in a zigzag pattern. Right — Comparison of $\sum 1/n$ (divergent) vs $\sum (-1)^{n+1}/n$ (convergent conditional): the absolute series diverges while the alternating series converges.*
 

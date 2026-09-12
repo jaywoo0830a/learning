@@ -17,7 +17,7 @@ $T_1$ = tangent line. $T_2$ = tangent parabola (matches curvature). $T_3$ = matc
 $f(x)=\sin x$ at $a=0$:
 $T_1(x)=x$. $T_3(x)=x-\frac{x^3}{6}$. $T_5(x)=x-\frac{x^3}{6}+\frac{x^5}{120}$.
 
-![Taylor polynomials of sin x](graphs/0721/18C/18c-taylor-polynomials.png)
+![Taylor polynomials of sin x]({{graph:18c-taylor-polynomials}})
 
 *Graph 18C-1: Left — Taylor polynomials $T_1$, $T_3$, $T_5$, $T_7$ of $\sin x$ at $a=0$. Higher degree = better approximation over a wider interval. Right — Error $|\sin x - T_N(x)|$ on log scale: error decreases as degree increases, especially near the center.*
 
@@ -50,7 +50,7 @@ When $a=0$, it's called a **Maclaurin series**.
 
 > **Why these radii (🔗 18B):** $R=\infty$ for $e^x$, $\sin x$, $\cos x$ — no bad points anywhere. The three series with $R=1$ stop there because their *closed forms* have a bad point at distance 1 from the center: $\frac{1}{1-x}$ blows up at $x=1$; $\ln(1+x)$ at $x=-1$; and $\arctan x$ has complex bad points at $x=\pm i$ — the radius measures distance, not whether you can see the bad point on the real line.
 
-![Taylor approximations of e^x](graphs/0721/18C/18c-taylor-exp.png)
+![Taylor approximations of e^x]({{graph:18c-taylor-exp}})
 
 *Graph 18C-2: Left — Taylor polynomials $T_1$, $T_2$, $T_3$, $T_5$ of $e^x$ at $a=0$. Right — Error on log scale: exponential convergence near $x=0$.*
 

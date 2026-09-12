@@ -49,7 +49,7 @@ $\sum_{n=0}^\infty x^n$: $R = 1$. Converges for $|x|<1$, diverges for $|x|>1$. A
 
 **Root Test alternative:** when the coefficients are themselves powers, the Root Test is often shorter — the series converges when $\limsup \left|c_n(x-a)^n\right|^{1/n} = |x-a|\,\limsup|c_n|^{1/n} < 1$, giving $R = 1/\limsup|c_n|^{1/n}$. It shines exactly where the Ratio Test stalls (see Drill D16 and Advanced A7).
 
-![Radius and interval of convergence](graphs/0721/18B/18b-radius-convergence.png)
+![Radius and interval of convergence]({{graph:18b-radius-convergence}})
 
 *Graph 18B-1: Top-left — Three cases of radius of convergence. Top-right — Partial sums $S_N(x)$ of $\sum x^n$ converging to $1/(1-x)$ on $(-1,1)$. Bottom-left — Endpoint behavior of $\sum x^n/n$. Bottom-right — Interval of convergence reference.*
 
@@ -80,7 +80,7 @@ $\int \sum c_n(x-a)^n dx = C + \sum \frac{c_n}{n+1}(x-a)^{n+1}$.
 
 ---
 
-![Building series from geometric](graphs/0721/18B/18b-building-series.png)
+![Building series from geometric]({{graph:18b-building-series}})
 
 *Graph 18B-2: Three key series built from $1/(1-x)$. Left — $1/(1+x)$ by substituting $x\to -x$. Middle — $\ln(1+x)$ by integrating $1/(1+x)$. Right — $\arctan x$ by integrating $1/(1+x^2)$. All converge on $(-1,1)$ and partial sums approach the true function.*
 

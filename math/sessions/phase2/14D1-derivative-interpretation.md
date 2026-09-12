@@ -49,6 +49,10 @@ Given the graph of $f'(x) = 2x-4$ (a line), read the story of $f$ without knowin
 
 Two layers, two readings: the **height** of the $f'$ graph tells where $f$ rises/falls; the **slope** of the $f'$ graph tells where $f$ bends. A derivative graph is read twice — once as a sign chart, once as a slope.
 
+![Reading f′ twice: height gives direction, slope gives bending]({{graph:14d1-08-sign-story}})
+
+*Graph 14D1-2: One derivative graph, two readings. Left — read by **height**: $f'<0$ means $f$ falls, $f'>0$ means $f$ rises, and $f'=0$ marks the turn. Right — read by **slope**: because $f'$ climbs steadily ($f''=2>0$), the $f$ that produced it is concave up, so $x=2$ is a minimum and not a maximum.*
+
 > **How to think**: "Where is $f'$ positive?" is a question about $f$'s direction. "Where is $f'$ rising?" is a question about $f$'s curvature. Always know which of the two questions you are answering.
 
 **Lens reading**: $f'(x)$ is the degree of $f$'s relation to $x$. A negative degree is a *reversed* relation — each unit of $x$ buys a loss of $f$; a positive degree is a forward one. The slope of the $f'$ graph is the second degree — how fast the relation itself strengthens — so one derivative graph is two relations stacked: read once by height, once by slope.
@@ -73,13 +77,17 @@ Sphere: $V = \frac{4}{3}\pi r^3$. Differentiate: $\frac{dV}{dr} = 4\pi r^2$ — 
 
 Cube sanity check: a cube of side $s$ has $V=s^3$, so $\frac{dV}{ds} = 3s^2$ — *not* $6s^2$. Why? Growing the side by $ds$ thickens only 3 of the 6 faces. If instead the cube grows by its **half-side** $u = s/2$, then $V = 8u^3$ and $\frac{dV}{du} = 24u^2 = 6s^2$ — the full surface area. The derivative with respect to *which* growth dimension you use sets the meaning. (This is a preview of A2.)
 
+![The cube check: the driver decides how many faces count]({{graph:14d1-09-cube-driver}})
+
+*Graph 14D1-3: The cube check, drawn ($V=s^3$). Left — differentiating with respect to the side $s$ moves only the three faces whose normals point along $+x,+y,+z$, so the degree reads $3s^2$ (the dashed face is the hidden one, $z=s$). Right — differentiating with respect to the half-side $u=s/2$ moves both faces of every pair, so the very same solid reads $24u^2 = 6s^2$. The driver decides how many faces count.*
+
 ![Circle: ring area = circumference × dr]({{graph:14d1-04-circle-ring}})
 
-*Graph 14D1-2: The ring of width $dr$ has area ≈ $2\pi r\,dr$ — differentiating area gives the circumference.*
+*Graph 14D1-4: The ring of width $dr$ has area ≈ $2\pi r\,dr$ — differentiating area gives the circumference.*
 
 ![Sphere: shell volume = surface area × dr]({{graph:14d1-05-sphere-shell}})
 
-*Graph 14D1-3 (3D): A spherical shell of thickness $dr$ has volume ≈ $4\pi r^2\,dr$ — differentiating volume gives the surface area.*
+*Graph 14D1-5 (3D): A spherical shell of thickness $dr$ has volume ≈ $4\pi r^2\,dr$ — differentiating volume gives the surface area.*
 
 **Lens reading**: volume's degree of relation to a growth dimension is always the boundary facing that dimension. Choosing the driver is 14D's frame question: respect the side and only 3 faces answer ($3s^2$); respect the half-side and all 6 do ($6s^2$). Same object, different driver, different degree — the relation reads whichever driver you feed it.
 
@@ -101,7 +109,7 @@ Set $MC = AC$: $2q+4 = q+4+\frac{144}{q}$ → $q^2 = 144$ → $q=12$. At $q=12$ 
 
 ![Marginal cost as tangent slope; MC crosses AC at AC's minimum]({{graph:14d1-06-marginal-cost}})
 
-*Graph 14D1-4: Left — the cost curve with its tangent at $q=12$; the tangent's slope is the cost of the next unit. Right — $MC$ and $AC$ cross at the minimum of $AC$.*
+*Graph 14D1-6: Left — the cost curve with its tangent at $q=12$; the tangent's slope is the cost of the next unit. Right — $MC$ and $AC$ cross at the minimum of $AC$.*
 
 **Lens reading**: $MC$ is the degree of the cost–quantity relation at the margin; $AC$ is the *uniform* degree that would deliver the same total cost spread over all units. They meet exactly where the average's relation to $q$ pauses: the next unit costs what units cost on average — and from that point the average turns upward.
 
@@ -123,6 +131,10 @@ The same function $K$ gives two laws because there are two different "with respe
 
 **Why power = force × velocity is natural**: pushing twice as hard ($2F$) delivers energy twice as fast, and pushing at twice the speed ($2v$) does too. Each factor scales the rate of energy delivery.
 
+![One formula, two laws: momentum when the driver is v, power when it is t]({{graph:14d1-10-energy-two-meanings}})
+
+*Graph 14D1-7: One formula, two laws ($m=2$ kg, $F=6$ N, so $a=F/m=3$ m/s²). Left — with respect to $v$ the tangent's slope is $mv=6$, and the units of that slope (kg·m/s) name it momentum. Right — with respect to $t$ the slope is $Fv=6\cdot 4.5=27$, and its units (J/s) name it power. The curve did not change; only the driver did.*
+
 **Lens reading**: one quantity, two relations, because there are two possible drivers. Respect speed and the degree is momentum ($mv$); respect time and the degree chains through acceleration into power ($Fv$). The frame question — "with respect to what?" — is the relation lens's first question, and here one formula manufactures two laws from it.
 
 ---
@@ -143,7 +155,7 @@ Demand: $q(p) = 500 - 10p$ (units sold at price $p$).
 
 ![Demand with elastic/inelastic regions; revenue maximized at E=-1]({{graph:14d1-07-elasticity}})
 
-*Graph 14D1-5: Left — demand with elastic and inelastic regions. Right — revenue peaks exactly where $E=-1$.*
+*Graph 14D1-8: Left — demand with elastic and inelastic regions. Right — revenue peaks exactly where $E=-1$.*
 
 **Lens reading**: raw $\frac{dq}{dp}$ is demand's degree to price in units/\$; elasticity strips the units and reads the same relation in percentages — 1% of price buys $E$% of demand (14D's percentage form). Revenue's relation to price pauses exactly where the two percentage relations balance: at $E=-1$ the per-unit gain is eaten by the lost volume.
 
@@ -184,6 +196,10 @@ Demand: $q(p) = 500 - 10p$ (units sold at price $p$).
 ### Mistake 4: "Negative acceleration = decelerating"
 
 **Wrong**: "at $t=1.5$, $a<0$, so the object is slowing down." **Right**: at $t=1.5$, $v<0$ *and* $a<0$ — the object moves backward and is speeding up (in the backward direction). Slowing down happens when $v$ and $a$ have opposite signs.
+
+![Speeding up or slowing down: v and a must share a sign]({{graph:14d1-11-motion-signs}})
+
+*Graph 14D1-9: $v(t)=t^2-4t+3$ with $a(t)=v'(t)=2t-4$. Left — the four phases, each one told by comparing the two signs. Right — the two graphs together: the answer flips every time either curve crosses zero, so at $t=1.5$ (where $v<0$ and $a<0$ agree) the object is speeding up, not slowing down.*
 
 ### Mistake 5: Comparing elasticity without its sign
 
