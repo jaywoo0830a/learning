@@ -6,8 +6,9 @@
 //    18a-3-alternating-series   교대조화급수 → ln2 지그재그 + Σ1/n 발산 대비
 //    18a-4-ratio-test           비판정: Σn!/nⁿ 비 → 1/e(<1) vs Σn!/2ⁿ 비 → ∞(>1)
 //
-// ── 사용한 확장 (코어 수정 0) ────────────────────────────────────
+// ── 사용한 확장 (코어 수정 0 · 기준 logos 0.4.1) ────────────────────
 //   부분합 궤적 = 플러그인 `polyline` · 항 표시 = 플러그인 `stem`  (plugins/_math-extras.js)
+//   적분판정 띠 = 코어 `region.between`(두 번째 경계 기본 0 — 0.4.1)
 import { region } from '@jaywoo0830a/logos';
 import {
   BLUE, ORANGE, GREEN, RED, PURPLE, GRAY, LIGHT, ASYMP,
@@ -57,7 +58,7 @@ function pSeries() {
     );
   const right = s2p([0, 8], [0, 1.15], [520, 420], { axes: AX('n  /  x', 'value'), grid: { alpha: 0.28 } })
     .title('Integral test:  Σ 1/n²  vs  ∫₁^∞ 1/x² dx').add(
-      region.between((x) => 1 / (x * x), 0).on([1, 8]).fill(BLUE).opacity(0.16),
+      region.between((x) => 1 / (x * x)).on([1, 8]).fill(BLUE).opacity(0.16),
       stem(...termsOf((n) => 1 / (n * n), 1, 8)).color(ORANGE).stroke(1.2).size(2.6),
       curveOf((x) => 1 / (x * x), [1, 8], { color: BLUE, stroke: 2.4, n: 200 }),
       legendAt([2.4, 0.96], 'f(x) = 1/x²', BLUE),

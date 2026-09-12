@@ -1,16 +1,18 @@
 // math/graph/plugins/_math-extras.js — math/graph 전용 플러그인 (코어 수정 0)
 //
-// 왜 필요한가
+// 왜 필요한가 (기준 @jaywoo0830a/logos 0.4.1)
 //   시리즈/급수 그림(18A·18B·18C)은 매번 두 가지가 반복되는데 코어에 1급 빌더가 없다.
-//     · 부분합 궤적        — 여러 점을 잇는 **연속 폴리라인** (코어엔 선분만 있다)
-//     · 항(term) 표시       — 0 에서 aₙ 까지 **수직 stem** + 끝점 마커 (막대 region.bar 뿐)
+//     · 부분합 궤적        — 점 목록을 잇는 **연속 폴리라인**. 코어 `curve.piecewise` 는 구간별
+//                            **함수**라 점 목록을 잇지 못하고 `curve.spline` 은 매끄러운 곡선이다.
+//     · 항(term) 표시       — baseline(기본 0) 에서 aₙ 까지 **수직 stem** + 끝점 마커
 //   코어 파일을 고치는 대신 `use(mathExtras)` 한 줄로 두 빌더를 붙인다.
 //
 // 어떻게 붙는가 (PLUGIN.md ③ 새 빌더)
 //   `api.define('polyline', …)` · `api.define('stem', …)` →
 //   `plugins.polyline(…)` / `plugins.stem(…)` 로 즉시 사용. 두 클래스 다 Drawable 을
-//   상속하므로 `.color() .stroke() .dash() .opacity()` 체이닝이 코어와 동일하게 동작한다.
-import { Drawable, node } from '@jaywoo0830a/logos';
+//   상속하므로 `.color() .stroke() .dash() .opacity() .with()` 체이닝이 코어와 동일하다.
+//   좌표는 코어 `toPoint` 로 정규화한다 — `[x,y]` · `{x,y}` · `Point` 모두 허용.
+import { Drawable, node, toPoint } from '@jaywoo0830a/logos';
 
 /** 코어 도형과 같은 관례의 스타일 키 추출 */
 function styleOf(c) {
@@ -18,10 +20,10 @@ function styleOf(c) {
   for (const k of ['color', 'stroke', 'fill', 'dash', 'opacity', 'z']) if (c[k] !== undefined) s[k] = c[k];
   return s;
 }
-/** 인자를 [ [x,y], … ] 로 정규화 — `f([p1, p2])` 도 `f(p1, p2)` 도 허용 */
+/** 인자를 [ [x,y], … ] 로 정규화 — `f([p1, p2])` 도 `f(p1, p2)` 도 허용(각 점은 배열·객체·Point) */
 function toPairs(args) {
-  const list = (args.length === 1 && Array.isArray(args[0])) ? args[0] : args;
-  return list.map((p) => (Array.isArray(p) ? p : p.coords));
+  const list = args.length === 1 && Array.isArray(args[0]) ? args[0] : args;
+  return list.map((p) => toPoint(p).coords);
 }
 
 // ── polyline — 점을 잇는 연속 선 (부분합 궤적 등) ──────────────
@@ -43,12 +45,18 @@ export function polyline(...args) { return new Polyline(toPairs(args)); }
 export class Stem extends Drawable {
   /** @param {Array} pts 점 목록(Point 또는 [x,y]); y=값, x=인덱스 */
   constructor(pts, conf = {}) { super('stem', { pts, ...conf }); }
-  size(n) { return this.set({ size: n }); }     // 끝점 마커 크기(px)
-  marker(m) { return this.set({ marker: m }); } // 끝점 마커 모양
+  /** 끝점 마커 크기(px) */
+  size(n) { return this.set({ size: n }); }
+  /** 끝점 마커 — 모양 이름(`'circle'`) 또는 `{ shape, open }` (코어 `point.marker` 와 같은 규칙) */
+  marker(m) { return this.set({ marker: m }); }
+  /** stem 이 자라나는 기준선 (기본 0) */
   baseline(y) { return this.set({ baseline: y }); }
   toIR() {
     const c = this._conf;
     const base = c.baseline ?? 0;
+    const m = c.marker;
+    const shape = m && typeof m === 'object' ? m.shape || 'dot' : m || 'dot';
+    const open = !!(m && typeof m === 'object' && m.open);
     const out = [];
     for (const [x, y] of c.pts) {
       out.push(node('path', {
@@ -57,7 +65,7 @@ export class Stem extends Drawable {
         transforms: c.transforms, style: styleOf(c),
       }));
       out.push(node('point', {
-        x, y, marker: c.marker || 'dot', size: c.size ?? 3.2, color: c.color, style: styleOf(c),
+        x, y, marker: shape, open, size: c.size ?? 3.2, color: c.color, style: styleOf(c),
       }));
     }
     return out;
@@ -68,7 +76,7 @@ export function stem(...args) { return new Stem(toPairs(args)); }
 // ── 플러그인 본체 ─────────────────────────────────────────────
 const mathExtras = {
   name: 'math-extras',
-  version: '1.0.0',
+  version: '1.1.0',
   install(api) {
     api.define('polyline', polyline, { ctor: Polyline, aliases: ['line-through-points'] });
     api.define('stem', stem, { ctor: Stem, aliases: ['stems'] });

@@ -9,6 +9,6 @@
     "list": "logos list . --recursive"
   },
   "dependencies": {
-    "@jaywoo0830a/logos": "github:jaywoo0830a/logos#8de8cb972d02d589d644d7beb69e6ef8694b44a6"
+    "@jaywoo0830a/logos": "github:jaywoo0830a/logos#v0.4.1"
   }
 }

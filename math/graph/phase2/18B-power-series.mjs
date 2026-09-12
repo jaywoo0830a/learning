@@ -4,9 +4,10 @@
 //    18b-radius-convergence  (2×2) R 의 세 경우 · Σxⁿ 부분합 · 끝점 검사 · 수렴구간 표
 //    18b-building-series     (1×3) 1/(1−x) 에서 치환·적분으로 만든 세 급수
 //
-// ── 사용한 확장 (코어 수정 0) ────────────────────────────────────
+// ── 사용한 확장 (코어 수정 0 · 기준 logos 0.4.1) ────────────────────
 //   곡선 = 코어 `curve.fn` · 구간 막대 = 코어 `segment`.stroke · 열린/닫힌 끝점 =
 //   코어 `point.marker({ open })`. (plugins/_math-extras 는 여기서 쓰지 않는다.)
+//   꼬리 평탄화 = `_helpers.clampFn` — 코어 `.clip(region)` 이 아직 무효라서(헤더 참고).
 import {
   BLUE, ORANGE, GREEN, RED, PURPLE, GRAY, ASYMP,
   curveOf, segAt, markerAt, dotAt, labelAt, vlineAt, hlineAt, legendAt,

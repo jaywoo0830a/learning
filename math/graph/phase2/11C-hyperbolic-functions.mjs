@@ -1,76 +1,50 @@
-// math/graph/phase2/11C-hyperbolic-functions.mjs — 세션 11C(쌍곡선 함수) 그림 복원
+// math/graph/phase2/11C-hyperbolic-functions.mjs — 세션 11C(쌍곡선 함수) 그림
 //
 // ── 무엇을 하는가 ────────────────────────────────────────────────
-//   math/sessions/phase2/11C-hyperbolic-functions.md 의 그림 5장을
-//   @jaywoo0830a/logos DSL 만으로 다시 그린다. 삼각함수(11A/11B)의 "쌍둥이 우주"인
+//   math/sessions/phase2/11C-hyperbolic-functions.md 의 그림 10장을
+//   @jaywoo0830a/logos DSL 만으로 그린다. 삼각함수(11A/11B)의 "쌍둥이 우주"인
 //   쌍곡선 함수의 정의·그래프·역함수·응용(현수선)을 다룬다.
 //
 // ── figure 목록 (키 = 출력 파일명 = 마크다운 태그 id) ──────────────
 //    11c-1-analogy    단위원 vs 단위쌍곡선 — (cos,sin) ↔ (cosh,sinh) 파라미터화
-//    11c-2-even-odd   e^x = cosh x + sinh x — 짝함수부·홀함수부 분해
-//    11c-3-graphs     cosh·sinh·tanh(위) + sech·csch·coth(아래) — 2×3
+//    11c-2-even-odd   eˣ = cosh x + sinh x — 짝함수부·홀함수부 분해
+//    11c-3a…3f        cosh · sinh · tanh · sech · csch · coth — 낱개 6장
 //    11c-4-inverse    arsinh·arcosh·artanh — 로그 그래프 3종
 //    11c-5-catenary   현수선 y = 3cosh(x/3) vs 근처 포물선 비교
 //
+// ── 사용한 것 (코어 수정 0, 기준 @jaywoo0830a/logos 0.4.1) ──────────
+//   · 공용 별칭은 `./_helpers.mjs` 한 곳에서만 온다 — 로컬 `P`/`style`/`labelAt`/`segAt`
+//     사본을 이 파일에 다시 만들지 않는다(예전에는 11C 만의 복사본이 있었다).
+//   · 곡선 = 코어 `curve.fn` · 채운 부채꼴 = 코어 `polygon`(`polyAt`) · 쌍곡선 = 코어 `hyperbola`
+//   · 색 = 코어 `kit.palette.tab` 에서 파생한 이름(아래 6개 함수 색 매핑)
+//
 // ── mpl 대응 규칙 (11AB 예제와 같은 관례) ────────────────────────
-//   · 수식 라벨    `latexToText`(SVG <text> 폴백)가 `\cosh` 같은 명령을 지우므로
+//   · 수식 라벨    `\cosh` 같은 명령은 SVG <text> 폴백에서 지워지므로
 //                 유니코드 평문('cosh x', '√(x²+1)', '±1')을 쓴다.
 //   · 곡선        `curve.fn(f).on([a,b])` ← ax.plot(x, f(x))
 //   · 수직 점근선  `branchCurves()` 로 점근선 사이 구간마다 잘라 그리고 ±clip 클램프
-//   · 채운 부채꼴  `polygon(원점, 호의 표본 …).fill(c).opacity()` ← ax.fill(...)
+//   · 채운 부채꼴  `polyAt([원점, 호의 표본 …]).fill(c).opacity()` ← ax.fill(...)
 //   · 여러 패널    `subplots([...], { cols })` ← plt.subplots(rows, cols)
-//   · 범례        logos 에 legend 가 없어 **같은 색 라벨**로 대신한다.
+//   · 범례        코어 `annotate.legend()` 는 아직 자동 수집이 없어 **같은 색 라벨**로 대신한다.
+import { point, hyperbola } from '@jaywoo0830a/logos';
 import {
-  point, circle, polygon, segment, line, curve, hyperbola, annotate, kit,
-} from '@jaywoo0830a/logos';
+  BLUE, RED, GREEN, PURPLE, ORANGE, CYAN, NAVY, GOLD, GRAY, FAINT, ASYMP, BOX,
+  curveOf, segAt, dotAt, labelAt, vlineAt, hlineAt, circleAt, polyAt, legendAt,
+  plot2d, subplots, s2p, AX, OFF,
+} from './_helpers.mjs';
 
-// ── 색 — 함수마다 고정색 (그래프·라벨·범례가 같은 색을 공유) ──────────
-const COSH = '#2980b9';   // cosh — 파랑
-const SINH = '#e74c3c';   // sinh — 빨강
-const TANH = '#27ae60';   // tanh — 초록
-const SECH = '#9b59b6';   // sech — 보라
-const CSCH = '#e67e22';   // csch — 주황
-const COTH = '#1abc9c';   // coth — 청록
-const GRAY = '#999999', FAINT = '#dddddd', ASYMP = '#cccccc', HL = '#f1c40f', CIRC = '#2c3e50';
-const BOX = { facecolor: 'white', alpha: 0.85 };
+// ── 색 — 함수마다 고정색 (그래프·라벨·범례가 같은 색을 공유). 모두 코어 팔레트 이름에서 온다 ──
+const COSH = BLUE;     // cosh
+const SINH = RED;      // sinh
+const TANH = GREEN;    // tanh
+const SECH = PURPLE;   // sech
+const CSCH = ORANGE;   // csch
+const COTH = CYAN;     // coth
+const CIRC = NAVY;     // 기준 도형 — 단위원·단위쌍곡선
+const HL = GOLD;       // 부채꼴 채움 강조
 
-const { plot2d, subplots } = kit;
-
-// ── 미세 헬퍼 (전부 라이브러리 API 위의 얇은 별칭) ──────────────────
-const P = (v) => point(v[0], v[1]);
-const dotAt = (v, color, size = 5, shape = 'circle') => P(v).marker(shape).color(color).size(size);
-const style = (d, { color, stroke = 1, dash, opacity } = {}) => {
-  let s = d;
-  if (color !== undefined) s = s.color(color);
-  if (stroke !== undefined) s = s.stroke(stroke);
-  if (dash !== undefined) s = s.dash(dash);
-  if (opacity !== undefined) s = s.opacity(opacity);
-  return s;
-};
-const labelAt = (at, text, { color, font = 12, bold = false, anchor, box, dx, dy, rotate } = {}) => {
-  let t = annotate.text(P(at)).label(text).font(font);
-  if (color !== undefined) t = t.color(color);
-  if (bold) t = t.bold();
-  if (anchor) t = t.anchor(anchor);
-  if (box) t = t.box(box);
-  if (dx !== undefined || dy !== undefined) t = t.offset(dx || 0, dy || 0);
-  if (rotate !== undefined) t = t.rotate(rotate);
-  return t;
-};
-const segAt = (a, b, o) => style(segment(P(a), P(b)), o);
-const vlineAt = (x, o) => style(line.vertical(x), o);
-const hlineAt = (y, o) => style(line.horizontal(y), o);
-const circleAt = (c, r, o) => style(circle.center(P(c)).radius(r), o);
-const polyAt = (pts, fill, opacity = 0.15, o = {}) => {
-  let g = polygon(...pts.map(P)).fill(fill).opacity(opacity);
-  if (o.color !== undefined) g = g.color(o.color).stroke(o.stroke ?? 1);
-  return g;
-};
-const curveOf = (f, dom, { n, ...o } = {}) => {
-  let c = curve.fn(f).on(dom);
-  if (n) c = c.n(n);
-  return style(c, { stroke: 2, ...o });
-};
+// ── 이 파일 전용 (코어/공용 _helpers 에 없는 것만) ───────────────────
+/** x=0 같은 점근선을 가진 함수를 구간별로 잘라 그린다 (점근선 사이마다 별도 곡선 + ±clip 클램프) */
 const branchCurves = (f, xr, breaks, { clip = 8, eps = 0.004, ...o } = {}) => {
   const xs = [xr[0], ...breaks.filter((b) => b > xr[0] && b < xr[1]), xr[1]];
   const out = [];
@@ -80,8 +54,6 @@ const branchCurves = (f, xr, breaks, { clip = 8, eps = 0.004, ...o } = {}) => {
   }
   return out;
 };
-const legendAt = (at, text, color, { font = 11, anchor = 'start' } = {}) =>
-  labelAt(at, text, { color, font, bold: true, anchor });
 /** 호의 표본 점들 ← np.linspace(θ₁, θ₂) 뒤 (cos, sin) */
 const arcSamples = (r, d1, d2, n = 60) => Array.from({ length: n + 1 },
   (_, i) => [r * Math.cos(d1 + ((d2 - d1) * i) / n), r * Math.sin(d1 + ((d2 - d1) * i) / n)]);
@@ -90,12 +62,8 @@ const hyperSamples = (t, n = 60) => Array.from({ length: n + 1 },
   (_, i) => { const s = (t * i) / n; return [Math.cosh(s), Math.sinh(s)]; });
 const rad = (deg) => (deg * Math.PI) / 180;
 
-/** 정사각 패널 (equal) */
+/** 정사각 패널 (equal) — 11C 도식 전용 프리셋 */
 const s2 = (xr, yr, o = {}) => plot2d(xr, yr, { size: [480, 460], equal: true, ...o });
-/** 1×2 / 1×3 패널 */
-const s2p = (xr, yr, size = [520, 440], o = {}) => plot2d(xr, yr, { size, ...o });
-const OFF = { axes: false, grid: false };
-const AX = (x = 'x', y = 'y') => ({ x: { label: x }, y: { label: y } });
 
 // ══ 1. 단위원 vs 단위쌍곡선 ══════════════════════════════════════
 //   왼쪽: x²+y²=1, (cos θ, sin θ), 부채꼴 넓이 θ/2.
@@ -117,7 +85,7 @@ function analogy() {
     labelAt([c / 2, -0.16], 'cos θ', { color: COSH, font: 11, anchor: 'middle' }),
     labelAt([c + 0.05, s / 2], 'sin θ', { color: SINH, font: 11, anchor: 'start' }),
     labelAt([0.24, 0.12], 'θ', { font: 12, box: BOX }),
-    labelAt([0.45, 0.33], 'area = θ/2', { color: '#b8860b', font: 10, anchor: 'start' }),
+    labelAt([0.45, 0.33], 'area = θ/2', { color: GOLD, font: 10, anchor: 'start' }),
   );
 
   const right = s2([-1.4, 3.0], [-1.5, 2.2], OFF).title('x² − y² = 1').add(
@@ -132,7 +100,7 @@ function analogy() {
     labelAt([px, py], '(cosh t, sinh t)', { color: CIRC, font: 11, bold: true, dx: 6, dy: -12 }),
     labelAt([1, -0.16], 'x = 1', { color: COSH, font: 11, anchor: 'middle' }),
     labelAt([px + 0.05, py / 2], 'sinh t', { color: SINH, font: 11, anchor: 'start' }),
-    labelAt([1.15, 0.42], 'area = t/2', { color: '#b8860b', font: 10, anchor: 'start' }),
+    labelAt([1.15, 0.42], 'area = t/2', { color: GOLD, font: 10, anchor: 'start' }),
   );
   return subplots([left, right], { cols: 2, tight: true, title: 'Unit Circle vs Unit Hyperbola' });
 }

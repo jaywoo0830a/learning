@@ -12,11 +12,13 @@
 //    14d1-07-elasticity          (1×2) 탄력/비탄력 구간 + 매출 최대 (E = −1)
 //    14d1-11-motion-signs        (1×2) v 와 a 의 부호 — 빨라짐/느려짐 판별
 //
-// ── 사용한 확장 (코어 수정 0, 전부 _helpers 의 얇은 별칭) ────────
+// ── 사용한 확장 (코어 수정 0, 전부 _helpers 의 얇은 별칭 · 기준 logos 0.4.1) ────────
 //   곡선 = 코어 `curve.fn` · 링 = 코어 `region.annulus` · 부호 띠 = 코어 `region.bar`
 //   구 = 코어 `sphere`(3D)          · 등각 상자 = 코어 `polygon`
+//   색 = 코어 `kit.palette` 이름    · 좁은 범위 눈금 = 0.4.1 의 tick-step 자릿수 유도
 import { circle, polygon, region, sphere } from '@jaywoo0830a/logos';
 import {
+  palette,
   BLUE, ORANGE, GREEN, RED, PURPLE, GRAY, LIGHT, ASYMP,
   curveOf, segAt, markerAt, dotAt, labelAt, vlineAt, hlineAt, legendAt, barAt,
   s2p, plot3d, pair, single, AX, OFF, PANEL, P,
@@ -40,11 +42,11 @@ function linearization() {
       labelAt([4.15, 0.35], 'touch point x = 4', { color: RED, font: 9.5 }),
     );
 
-  // y 눈금은 끈다: 범위 폭이 0.012 뿐이라 niceStep 이 0.001 을 고르는데,
-  // 코어 fmtTick 이 소수 2자리로 반올림해 모든 눈금이 "2.02" 로 뭉개진다.
-  // → 눈금 대신 축 라벨에 범위를 적는다.
+  // 0.4.1 의 눈금 정밀도 수정(`fmtTick` 이 tick step 에서 자릿수를 유도) 덕분에 좁은 범위
+  // (폭 0.012)에서도 y 눈금이 "2.02" 로 뭉개지지 않는다 → 예전처럼 눈금을 끌 필요가 없다.
+  // (자릿수를 직접 정하고 싶으면 `axes({ y: { decimals: n } })`.)
   const right = s2p([4.08, 4.12], [2.019, 2.031], PANEL, {
-    axes: { x: { label: 'x' }, y: { label: 'y  (2.019 – 2.031)', ticks: false } },
+    axes: { x: { label: 'x' }, y: { label: 'y' } },
     grid: { alpha: 0.25 },
   })
     .title('Zoom at x = 4.1   (gap ≈ 1.5 × 10⁻⁴)')
@@ -102,11 +104,11 @@ function sphereShell() {
     .title('Shell of thickness dr :  ΔV ≈ 4πr² · dr')
     .add(
       // ① 바깥 구(r+dr)를 먼저 깔아 '껍질 띠'를 만든다 — 옅은 채움 + 얇은 점선
-      sphere.center(P([0, 0, 0])).radius(r + dr).fill('#cfe3f7').opacity(0.45)
-        .color('#a9cdea').stroke(0.9).dash([4, 3]),
+      sphere.center(P([0, 0, 0])).radius(r + dr).fill(palette.skyblue).opacity(0.45)
+        .color(palette.steel).stroke(0.9).dash([4, 3]),
       // ② 안쪽 구(r)를 나중에 그려 진한 공이 위로 온다 → 가장자리에 halo(껍질)가 남는다
       sphere.center(P([0, 0, 0])).radius(r).fill(BLUE).opacity(0.26)
-        .color('#5b9bd5').stroke(1.6),
+        .color(palette.skyblue).stroke(1.6),
       // ③ 반지름 r 과 껍질 두께 dr 을 같은 방향에 나란히
       segAt([0, 0, 0], [r, 0, 0], { color: RED, stroke: 1.8 }),
       segAt([r, 0, 0], [r + dr, 0, 0], { color: PURPLE, stroke: 1.8 }),
@@ -266,7 +268,8 @@ const cubeFace = (s, axis, at, { fill, opacity, dash, color, stroke } = {}) => {
 
 function cubeDriver() {
   const s = 2;
-  const TINT = { x: '#cfe0f2', y: '#e6eef7', z: '#dfe9f5' };
+  // 면 음영 — 세 면을 서로 다른 색으로 칠하지 않고 **같은 팔레트 색 + 면별 opacity** 로 구분한다.
+  const FACE = palette.skyblue;
   //  이 투영에서 보이는 면 = z=0(앞) · x=s(오른쪽) · y=s(위)
   //  가려진 면 = x=0 · y=0 · z=s  → 뒤에서 앞 순으로 그려 겹침 순서를 만든다
   const FACES = [
@@ -278,12 +281,12 @@ function cubeDriver() {
   const box = (driver, title, lines) => {
     const slabs = FACES.map((f) => {
       const tinted = driver === 'half' || f.at === s;
-      if (!tinted) return cubeFace(s, f.axis, f.at, { fill: 'none', color: '#7f9bbd', stroke: 1.2 });
+      if (!tinted) return cubeFace(s, f.axis, f.at, { fill: 'none', color: palette.steel, stroke: 1.2 });
       return cubeFace(s, f.axis, f.at, {
-        fill: TINT[f.axis],
+        fill: FACE,
         opacity: f.hidden ? 0.35 : 0.85,
         dash: f.hidden ? [5, 4] : undefined,
-        color: f.hidden ? LIGHT : '#6b8cb0',
+        color: f.hidden ? LIGHT : palette.steel,
         stroke: f.hidden ? 1 : 1.4,
       });
     });

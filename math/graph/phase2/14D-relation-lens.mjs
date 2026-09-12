@@ -4,7 +4,7 @@
 //    14d-01-derivative-units  (1×2) 같은 탄젠트, 다른 문장 — m/s vs $/unit
 //    14d-02-motion-story      (2×1) v·a 의 부호에서 읽는 운동 이야기 + 타임라인
 //
-// ── 사용한 확장 (코어 수정 0) ────────────────────────────────────
+// ── 사용한 확장 (코어 수정 0 · 기준 logos 0.4.1) ────────────────────
 //   곡선 = 코어 `curve.fn` · 접선 = 코어 `curve.fn`(직선) · 구간 막대 = 코어 `segment`.stroke
 import {
   BLUE, ORANGE, GREEN, RED, PURPLE, GRAY, ASYMP,

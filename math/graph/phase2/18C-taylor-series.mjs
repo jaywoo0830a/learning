@@ -4,9 +4,9 @@
 //    18c-taylor-polynomials  (1×2) sin x 의 T₁,T₃,T₅,T₇ + 로그 오차
 //    18c-taylor-exp          (1×2) eˣ 의 T₁,T₂,T₃,T₅ + 로그 오차
 //
-// ── 사용한 확장 (코어 수정 0) ────────────────────────────────────
+// ── 사용한 확장 (코어 수정 0 · 기준 logos 0.4.1) ────────────────────
 //   곡선 = 코어 `curve.fn` · 로그 오차 = `_helpers.log10Err`(선형축에 log₁₀ 값을 그린다 —
-//   코어에는 로그축이 없으므로 축 라벨로 명시한다).
+//   코어에는 로그축이 없으므로 축 라벨로 명시한다) · 꼬리 평탄화 = `_helpers.clampFn`.
 import {
   BLUE, ORANGE, GREEN, RED, PURPLE, GRAY,
   curveOf, labelAt, legendAt, seriesFn, fact, log10Err, clampFn, s2p, subplots, AX,
