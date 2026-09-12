@@ -6,6 +6,7 @@
 #   make build       그래프 렌더 + md 태그 치환 → math/build/rendered/
 #   make strict      build + 미해결 태그 있으면 실패 (CI)
 #   make serve       렌더 갤러리 서빙 (http://localhost:18080) 도커 · 패키지 serve.sh
+#   make send        빌드 + zip → 윈도우 바탕화면 (WSL)      옵션: make send ARGS="--svg-only"
 #   make clean       산출물 삭제
 #
 # 렌더는 가이드(WORKFLOW.md ③)대로 **패키지에 함께 설치되는 scripts/render.sh** 를 쓴다:
@@ -19,7 +20,7 @@
 NODE  ?= node
 LOGOS ?= graph/node_modules/@jaywoo0830a/logos/scripts
 
-.PHONY: install graph graph-host build strict serve clean
+.PHONY: install graph graph-host build strict serve send clean
 
 install:
 	cd graph && npm install
@@ -38,6 +39,9 @@ strict: graph
 
 serve:
 	bash $(LOGOS)/serve.sh graphs 18080
+
+send:
+	bash tools/send-to-windows.sh $(ARGS)
 
 clean:
 	rm -rf graphs build
