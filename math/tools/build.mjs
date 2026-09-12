@@ -7,10 +7,15 @@
 //      **상대경로**로 치환해 math/build/rendered/ 에 기록한다(원본 md 는 불변).
 //
 // ── 사용 ───────────────────────────────────────────────────────
-//   node math/tools/build.mjs                 # 렌더 + 치환 (기본)
+//   make build                                # 렌더(도커 · 패키지 render.sh) + 치환
+//   make strict                               # build + 미해결 태그/깨진 alt 면 실패
+//   node math/tools/build.mjs                 # 렌더(호스트 CLI) + 치환
 //   node math/tools/build.mjs --no-render      # 이미 렌더된 그래프로 치환만
 //   node math/tools/build.mjs --no-png         # 렌더 시 PNG 생략
 //   node math/tools/build.mjs --scale 2        # 렌더 PNG 배율
+//
+// 워크플로우(Makefile)에서는 **이미지 빌드(렌더)를 패키지의 scripts/render.sh(도커)** 가 맡고
+// 이 툴은 `--no-render` 로 태그 치환만 한다(가이드 WORKFLOW.md ③). 직접 실행하면 호스트 CLI 로 렌더한다.
 //
 // ── 태그 규약 ─────────────────────────────────────────────────
 //   ![alt]({{graph:<id>}})      <id> = 스케치의 figures 키 = 출력 파일명(확장자 제외)

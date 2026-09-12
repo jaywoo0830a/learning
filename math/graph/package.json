@@ -5,7 +5,8 @@
   "type": "module",
   "description": "math/graph — per-session figures for math/sessions, authored with @jaywoo0830a/logos.",
   "scripts": {
-    "render": "logos render . --recursive --out ../graphs",
+    "render": "cd .. && bash graph/node_modules/@jaywoo0830a/logos/scripts/render.sh -p . -s graph -o graphs -r --clean",
+    "render:host": "logos render . --recursive --out ../graphs",
     "list": "logos list . --recursive"
   },
   "dependencies": {
