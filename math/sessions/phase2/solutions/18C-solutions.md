@@ -1,244 +1,169 @@
 # Solutions — 18C: Taylor Series — Approximating Any Function
 
 > Back to [18C — Taylor Series](../18C-taylor-series.md)
+
 ## Basic Drills
 
-### D1. Write the Maclaurin series for $e^{-x}$ (first 4 terms).
+### D1. (§11.10 #14) Maclaurin series for $e^{-2x}$.
 
-Replace $x$ by $-x$: $1 - x + \frac{x^2}{2!} - \frac{x^3}{3!}$.
+Replace $x$ by $-2x$: $\sum\frac{(-2x)^n}{n!}=\sum\frac{(-1)^n 2^n x^n}{n!}$.
 
-> **Answer**: $e^{-x} = 1 - x + \frac{x^2}{2} - \frac{x^3}{6} + \cdots$
+> **Answer**: $1-2x+2x^2-\frac43x^3+\cdots$
 
-### D2. Write the Maclaurin series for $\cos(2x)$ (first 4 nonzero terms).
+### D2. (§11.10 #16) Maclaurin series for $\sin 3x$.
 
-$\cos(2x) = 1 - \frac{(2x)^2}{2!} + \frac{(2x)^4}{4!} - \frac{(2x)^6}{6!} + \cdots = 1 - 2x^2 + \frac{2}{3}x^4 - \frac{4}{45}x^6 + \cdots$
+$\sum(-1)^n\frac{(3x)^{2n+1}}{(2n+1)!}$.
 
-> **Answer**: $1 - 2x^2 + \frac23 x^4 - \frac4{45}x^6$
+> **Answer**: $3x-\frac{27x^3}{3!}+\frac{243x^5}{5!}-\cdots$
 
-### D3. Find the 3rd-degree Taylor polynomial of $f(x)=\sqrt{x}$ at $a=4$.
+### D3. (§11.11 #3) $T_3(x)$ for $f(x)=e^x$ at $a=1$.
 
-$f(4)=2$, $f'(x)=\frac{1}{2\sqrt{x}}$ → $f'(4)=\frac14$, $f''(x)=-\frac{1}{4x^{3/2}}$ → $f''(4)=-\frac{1}{32}$, $f'''(x)=\frac{3}{8x^{5/2}}$ → $f'''(4)=\frac{3}{256}$.
+All derivatives equal $e^x$, so $f^{(n)}(1)=e$.
 
-$$T_3(x) = 2 + \frac14(x-4) - \frac{1}{32\cdot2}(x-4)^2 + \frac{3}{256\cdot6}(x-4)^3 = 2 + \frac{x-4}{4} - \frac{(x-4)^2}{64} + \frac{(x-4)^3}{512}.$$
+> **Answer**: $T_3(x)=e+e(x-1)+\frac{e}{2}(x-1)^2+\frac{e}{6}(x-1)^3$
 
-> **Answer**: $T_3(x) = 2 + \frac{x-4}{4} - \frac{(x-4)^2}{64} + \frac{(x-4)^3}{512}$
+### D4. (§11.10 #12) $\ln(1+x)$, $R$.
 
-### D4. Find the Maclaurin series for $\frac{1}{1+x^2}$ and its radius.
+> **Answer**: $\sum_{n=1}^\infty\frac{(-1)^{n+1}x^n}{n}$, $R=1$
 
-$\frac{1}{1+x^2} = \frac{1}{1-(-x^2)} = \sum_{n=0}^\infty (-x^2)^n = \sum_{n=0}^\infty (-1)^n x^{2n}$, radius $1$ (geometric in $x^2$).
+### D5. (§11.10 #13) $\cos x$, $R$.
 
-> **Answer**: $\sum (-1)^n x^{2n}$, $R=1$
+> **Answer**: $\sum_{n=0}^\infty\frac{(-1)^n x^{2n}}{(2n)!}$, $R=\infty$
 
-### D5. Find the Maclaurin series for $\ln(1-x)$.
+### D6. (§11.11 #5) $T_3(x)$ for $\cos x$ at $a=\frac{\pi}{2}$.
 
-$\ln(1-x) = -\sum_{n=1}^\infty \frac{x^n}{n} = -x - \frac{x^2}{2} - \frac{x^3}{3} - \cdots$
+$f=0$, $f'=-\sin=-1$, $f''=-\cos=0$, $f'''=\sin=1$ at $\pi/2$.
 
-> **Answer**: $\ln(1-x) = -\sum_{n=1}^\infty \frac{x^n}{n}$
+> **Answer**: $T_3(x)=-\left(x-\frac{\pi}{2}\right)+\frac{1}{6}\left(x-\frac{\pi}{2}\right)^3$
 
-### D6. Compute $\lim_{x\to0}\frac{e^x-1}{x}$.
+### D7. (§11.10 #18) $x\cos x$.
 
-$e^x - 1 = x + \frac{x^2}{2} + \cdots$, so $\frac{e^x-1}{x} = 1 + \frac{x}{2} + \cdots \to 1$.
+> **Answer**: $\sum_{n=0}^\infty\frac{(-1)^n x^{2n+1}}{(2n)!}$
 
-> **Answer**: $1$
+### D8. (§11.10 #11) $(1-x)^{-2}$.
 
-### D7. Find $T_2(x)$ (2nd-degree Taylor) for $f(x)=\tan x$ at $a=0$.
+> **Answer**: $\sum_{n=0}^\infty(n+1)x^n$, $|x|<1$
 
-$\tan x = x + \frac{x^3}{3} + \cdots$ is an odd function, so there is **no $x^2$ term**: $T_2(x) = x$.
+### D9. (§11.10 #42) $e^{3x}-e^{2x}$.
 
-> **Answer**: $T_2(x) = x$
+> **Answer**: $\sum_{n=0}^\infty\frac{(3^n-2^n)x^n}{n!}$
 
-### D8. Write the binomial series for $\frac{1}{\sqrt{1+x}} = (1+x)^{-1/2}$ (first 3 terms).
+### D10. (§11.11 #25) Terms for $e^{0.1}$ within $10^{-5}$.
 
-$(1+x)^{-1/2} = 1 + \left(-\frac12\right)x + \frac{(-\frac12)(-\frac32)}{2}x^2 + \cdots = 1 - \frac{x}{2} + \frac{3x^2}{8} + \cdots$
+Need $\frac{(0.1)^{n+1}}{(n+1)!}<10^{-5}$. For $n=3$: $\frac{10^{-4}}{24}\approx4.2\times10^{-6}<10^{-5}$; $n=2$ gives $\frac{10^{-3}}{6}\approx1.7\times10^{-4}$, too big.
 
-> **Answer**: $1 - \frac{x}{2} + \frac{3x^2}{8} + \cdots$
+> **Answer**: 4 terms (through $x^3$, $n=3$)
 
-### D9. Multiply the series for $e^x$ and $e^{-x}$. What do you get?
+### D11. (§11.10 #40) $\sin\left(\frac{\pi x}{4}\right)$.
 
-$e^x \cdot e^{-x} = e^0 = 1$. (Cauchy product: $\sum_n \left(\sum_{k=0}^n \frac{(-1)^k}{k!(n-k)!}\right)x^n$; the inner sum is $0$ for $n\ge1$ and $1$ for $n=0$.)
+> **Answer**: $\sum_{n=0}^\infty\frac{(-1)^n}{ (2n+1)!}\left(\frac{\pi}{4}\right)^{2n+1}x^{2n+1}$
 
-> **Answer**: $1$ — all non-constant terms cancel
+### D12. (§11.10 #44) $x^2\ln(1+x^3)$.
 
-### D10. Estimate $\cos(0.2)$ to 4 decimal places.
+$\ln(1+u)=\sum(-1)^{n-1}\frac{u^n}{n}$ with $u=x^3$, then multiply by $x^2$.
 
-$\cos(0.2) = 1 - \frac{(0.2)^2}{2!} + \frac{(0.2)^4}{4!} - \cdots = 1 - 0.02 + 0.0000667 - \cdots = 0.9800667$
+> **Answer**: $\sum_{n=1}^\infty\frac{(-1)^{n-1}x^{3n+2}}{n}$
 
-Next term $\frac{(0.2)^6}{6!} \approx 8.9\times10^{-9}$, negligible.
+### D13. (§11.10 #47) $\sin^2 x$.
 
-> **Answer**: $\cos(0.2) \approx 0.9801$
+$\sin^2x=\frac12(1-\cos2x)=\frac12\sum_{n=1}^\infty(-1)^{n+1}\frac{(2x)^{2n}}{(2n)!}$.
 
-### D11. Write the first 3 nonzero terms of $(1+2x)^{1/3}$.
+> **Answer**: $\sum_{n=1}^\infty\frac{(-1)^{n+1}2^{2n-1}x^{2n}}{(2n)!}$
 
-$\binom{1/3}{1} = \frac13$, $\binom{1/3}{2} = \frac{(1/3)(-2/3)}{2} = -\frac19$, $\binom{1/3}{3} = \frac{(1/3)(-2/3)(-5/3)}{6} = \frac{5}{81}$.
+### D14. (§11.10 #3) $f^{(n)}(0)=(n+1)!$.
 
-$$(1+2x)^{1/3} = 1 + \frac13(2x) - \frac19(2x)^2 + \frac{5}{81}(2x)^3 + \cdots = 1 + \frac{2x}{3} - \frac{4x^2}{9} + \frac{40x^3}{81} + \cdots$$
+$c_n=\frac{(n+1)!}{n!}=n+1$.
 
-> **Answer**: $1 + \frac{2x}{3} - \frac{4x^2}{9} + \frac{40x^3}{81}$
+> **Answer**: $f(x)=\sum_{n=0}^\infty(n+1)x^n=\frac{1}{(1-x)^2}$, $R=1$
 
-### D12. Find the Taylor series for $f(x)=x^3-2x^2+3x-4$ at $a=1$.
+### D15. (§11.11 #27) $\sin x\approx x-\frac{x^3}{6}$ within $0.01$.
 
-$f(1) = -2$; $f'(x)=3x^2-4x+3$, $f'(1)=2$; $f''(x)=6x-4$, $f''(1)=2$; $f'''(x)=6$, $f'''(1)=6$; higher derivatives $0$.
+Alternating: $|R_3|\le\frac{|x|^5}{120}<0.01$ gives $|x|<(1.2)^{1/5}$.
 
-$$T(x) = -2 + 2(x-1) + \frac{2}{2}(x-1)^2 + \frac{6}{6}(x-1)^3 = -2 + 2(x-1) + (x-1)^2 + (x-1)^3.$$
+> **Answer**: $|x|\lesssim1.037$
 
-> **Answer**: $-2 + 2(x-1) + (x-1)^2 + (x-1)^3$ (check: expands back to $x^3-2x^2+3x-4$)
+### D16. (§11.10 #35) $\sqrt[4]{1-x}$.
 
-### D13. Expand $\ln(1+\sin x)$ to order $x^4$.
+$(1+u)^{1/4}=1+\frac u4-\frac{3u^2}{32}+\frac{7u^3}{128}-\cdots$ with $u=-x$.
 
-$u = \sin x = x-\frac{x^3}{6}+O(x^5)$. Then
-
-$$\ln(1+u) = u-\frac{u^2}{2}+\frac{u^3}{3}-\frac{u^4}{4}+O(u^5),$$
-$$u^2 = x^2-\frac{x^4}{3}+O(x^6), \quad u^3 = x^3+O(x^5), \quad u^4 = x^4+O(x^6).$$
-
-Collect:
-
-$$\ln(1+\sin x) = \left(x-\frac{x^3}{6}\right) - \frac12\left(x^2-\frac{x^4}{3}\right) + \frac{x^3}{3} - \frac{x^4}{4} + O(x^5)$$
-$$= x - \frac{x^2}{2} + \frac{x^3}{6} - \frac{x^4}{12} + O(x^5).$$
-
-> **Answer**: $\ln(1+\sin x) = x-\frac{x^2}{2}+\frac{x^3}{6}-\frac{x^4}{12}+\cdots$ — the $x^4$ coefficient receives contributions from *three* places ($u^2$, $u^3$, $u^4$); dropping any one of them corrupts the answer.
-
-### D14. Estimate $\sqrt{4.1}$ and bound the error.
-
-$f(x)=x^{1/2}$: $f(4)=2$, $f'(4)=\frac14$, $f''(4)=-\frac{1}{32}$.
-
-$$T_2(4.1) = 2 + \frac14(0.1) - \frac{1}{32}\cdot\frac{(0.1)^2}{2} = 2 + 0.025 - 0.00015625 = 2.02484375.$$
-
-$f'''(x)=\frac{3}{8}x^{-5/2}$, maximum on $[4,4.1]$ at $x=4$: $M=\frac{3}{8\cdot32}=\frac{3}{256}$.
-
-$$|R_2| \le \frac{M}{3!}(0.1)^3 = \frac{3}{256}\cdot\frac{10^{-3}}{6} \approx 1.95\times10^{-6}.$$
-
-> **Answer**: $\sqrt{4.1}\approx 2.02484375$ with error $<2\times10^{-6}$ (actual $\sqrt{4.1}=2.02484567\ldots$). No alternating shortcut here — the Lagrange bound with $M$ is what guarantees the digits.
-
-### D15. Why does $\sum (-1)^n x^{2n}$ stop at $|x|<1$ when $\frac{1}{1+x^2}$ is smooth everywhere?
-
-The denominator $1+x^2$ vanishes at $x=\pm i$ — bad points **off the real line**, at distance $|i|=1$ from the center. The radius is the distance to the nearest singular point, visible or not (18B). The function is smooth along the real axis, but the series cannot represent it past the complex singularity.
-
-> **Answer**: the nearest singularities are $\pm i$; $R=1$ regardless of their invisibility on the real line.
-
-### D16. Find $c_2$ and $c_3$ for the series equal to $\sin x$ near 0.
-
-Differentiate $\sum c_n x^n = \sin x$ twice: $\sum_{n\ge2} n(n-1)c_n x^{n-2} = -\sin x$. Set $x=0$: only $n=2$ survives → $2\cdot1\cdot c_2 = 0$ → $c_2=0$.
-
-Three times: $\sum_{n\ge3} n(n-1)(n-2)c_n x^{n-3} = -\cos x$. At $x=0$: $3\cdot2\cdot1\cdot c_3 = -\cos 0 = -1$ → $c_3 = -\frac16$.
-
-> **Answer**: $c_2=0$, $c_3=-\frac{1}{6}$ — matching $\sin x = x-\frac{x^3}{6}+\cdots$. This is the coefficient derivation of Example 2 in action: the series is forced by the derivatives.
+> **Answer**: $1-\frac x4-\frac{3x^2}{32}-\frac{7x^3}{128}-\cdots$, $R=1$
 
 ---
 
 ## Advanced Drills
 
-### A1. Find the Maclaurin series for $\sinh x = \frac{e^x-e^{-x}}{2}$.
+### A1. (§11.10 #49) $\sinh x$.
 
-$\frac{1}{2}\left(\sum \frac{x^n}{n!} - \sum \frac{(-x)^n}{n!}\right)$: even powers cancel, odd powers double:
+$\frac{e^x-e^{-x}}{2}$: even powers cancel.
 
-$$\sinh x = \sum_{n=0}^\infty \frac{x^{2n+1}}{(2n+1)!} = x + \frac{x^3}{6} + \frac{x^5}{120} + \cdots$$
+> **Answer**: $\sum_{n=0}^\infty\frac{x^{2n+1}}{(2n+1)!}$, $R=\infty$
 
-> **Answer**: $\sinh x = \sum_{n=0}^\infty \frac{x^{2n+1}}{(2n+1)!}$, all positive terms, radius $\infty$
+### A2. (§11.10 #50) $\tanh^{-1}x$.
 
-### A2. Prove $e^{i\theta} = \cos\theta + i\sin\theta$.
+$\tanh^{-1}x=\frac12\left[\ln(1+x)-\ln(1-x)\right]=\frac12\left[\sum(-1)^{n-1}\frac{x^n}{n}+\sum\frac{x^n}{n}\right]$; even powers cancel.
 
-$$e^{i\theta} = \sum_{n=0}^\infty \frac{(i\theta)^n}{n!}.$$
+> **Answer**: $\sum_{n=0}^\infty\frac{x^{2n+1}}{2n+1}$, $|x|<1$
 
-Separate even/odd $n$ (using $i^{2k} = (-1)^k$, $i^{2k+1} = (-1)^k i$):
+### A3. (§11.10 #21) $x^5+2x^3+x$ at $a=2$.
 
-$$e^{i\theta} = \sum_{k=0}^\infty \frac{(-1)^k\theta^{2k}}{(2k)!} + i\sum_{k=0}^\infty \frac{(-1)^k\theta^{2k+1}}{(2k+1)!} = \cos\theta + i\sin\theta.$$
+$f(2)=50$, $f'(2)=105$, $f''(2)=184$, $f'''(2)=252$, $f^{(4)}(2)=240$, $f^{(5)}(2)=120$.
 
-> **Answer**: the real part sums to $\cos\theta$, the imaginary part to $\sin\theta$ — Euler's formula
+> **Answer**: $50+105(x-2)+92(x-2)^2+42(x-2)^3+10(x-2)^4+(x-2)^5$
 
-### A3. Find the Taylor series for $f(x)=\frac{1}{x}$ about $a=2$.
+### A4. (§11.10 #24) $\frac1x$ at $a=-3$.
 
-$\frac{1}{x} = \frac{1}{2+(x-2)} = \frac12\cdot\frac{1}{1+(x-2)/2} = \frac12\sum_{n=0}^\infty \left(-\frac{x-2}{2}\right)^n = \sum_{n=0}^\infty \frac{(-1)^n}{2^{n+1}}(x-2)^n$.
+$\frac1x=-\frac13\cdot\frac{1}{1-\frac{x+3}{3}}=-\sum_{n=0}^\infty\frac{(x+3)^n}{3^{n+1}}$.
 
-Valid for $\left|\frac{x-2}{2}\right|<1$, i.e. $0<x<4$ (radius $2$).
+> **Answer**: $-\sum_{n=0}^\infty\frac{(x+3)^n}{3^{n+1}}$, $R=3$
 
-> **Answer**: $\frac{1}{x} = \sum_{n=0}^\infty \frac{(-1)^n}{2^{n+1}}(x-2)^n$, radius $2$
+### A5. (§11.11 #30) Error $<0.0002$ for $f(5)$.
 
-### A4. Evaluate $\lim_{x\to0}\frac{\tan x - x}{x^3}$.
+Taylor at $a=4$: $\sum\frac{(-1)^n(x-4)^n}{3^n(n+1)}$. The degree-5 remainder at $x=5$ is bounded by the next term, $\frac{1}{3^6\cdot7}=\frac{1}{5103}\approx1.96\times10^{-4}<2\times10^{-4}$.
 
-$\tan x = x + \frac{x^3}{3} + \frac{2x^5}{15} + \cdots$, so $\frac{\tan x - x}{x^3} = \frac{\frac{x^3}{3} + \cdots}{x^3} \to \frac13$.
+> **Answer**: $|R_5|\le\frac{1}{5103}<0.0002$
 
-> **Answer**: $\frac13$
+### A6. (§11.10 #37) $\frac{1}{(2+x)^3}$.
 
-### A5. Compute $\int_0^1 \frac{\sin x}{x}dx$ to 4 decimal places.
+$\frac{1}{(2+x)^3}=\frac18\left(1+\frac x2\right)^{-3}=\frac18\sum\binom{-3}{n}\left(\frac x2\right)^n$, and $\binom{-3}{n}=(-1)^n\frac{(n+2)(n+1)}{2}$.
 
-$\frac{\sin x}{x} = 1 - \frac{x^2}{3!} + \frac{x^4}{5!} - \frac{x^6}{7!} + \cdots$
+> **Answer**: $\sum_{n=0}^\infty\frac{(-1)^n(n+2)(n+1)x^n}{16\cdot2^n}$, $R=2$
 
-$$\int_0^1 \frac{\sin x}{x}dx = 1 - \frac{1}{3\cdot3!} + \frac{1}{5\cdot5!} - \frac{1}{7\cdot7!} + \cdots = 1 - \frac{1}{18} + \frac{1}{600} - \frac{1}{35280} + \cdots$$
+### A7. (§11.11 #59) $\lim_{x\to0}\frac{\sin x-x}{x^3}$.
 
-$= 0.946083\ldots$; alternating, error $\le \frac{1}{35280} \approx 2.8\times10^{-5} < 0.00005$.
+$\sin x=x-\frac{x^3}{6}+\cdots$, so the quotient is $-\frac16+\cdots$
 
-> **Answer**: $\approx 0.9461$
+> **Answer**: $-\frac16$
 
-### A6. Find the Maclaurin series for $\arcsin x$.
+### A8. (§11.11 #26) $\ln1.4$ within $0.001$.
 
-$(1-x^2)^{-1/2} = 1 + \frac{x^2}{2} + \frac{3x^4}{8} + \frac{5x^6}{16} + \cdots$; integrate:
+At $x=0.4$ the series alternates; need $\frac{0.4^{n+1}}{n+1}<0.001$. $\frac{0.4^6}{6}\approx6.8\times10^{-4}<10^{-3}$.
 
-$$\arcsin x = x + \frac{x^3}{6} + \frac{3x^5}{40} + \frac{5x^7}{112} + \cdots$$
+> **Answer**: 5 terms
 
-> **Answer**: $\arcsin x = \sum_{n=0}^\infty \frac{1\cdot3\cdots(2n-1)}{2^n n!(2n+1)}x^{2n+1}$
+### A9. (§11.11 #57) $\sqrt x$, $a=1$, $n=3$, $0.9\le x\le1.1$.
 
-### A7. How many terms of $\sin x$ series are needed to estimate $\sin(1)$ with error $<10^{-6}$?
+$f(1)=1$, $f'(1)=\frac12$, $f''(1)=-\frac14$, $f'''(1)=\frac38$. $|f^{(4)}(x)|=\frac{15}{16}x^{-7/2}\le\frac{15}{16}(0.9)^{-7/2}\approx1.36$.
 
-For $0\le x\le1$ the series is alternating with decreasing terms, so after keeping up to $x^{2n+1}$ the error is $\le \frac{1}{(2n+3)!}$.
+> **Answer**: $T_3=1+\frac{x-1}{2}-\frac{(x-1)^2}{8}+\frac{(x-1)^3}{16}$, $|R_3|\le\frac{1.36}{24}(0.1)^4\approx5.7\times10^{-6}$
 
-Need $\frac{1}{(2n+3)!} < 10^{-6}$: $9! = 362880 < 10^6$, $10! = 3628800 > 10^6$, so take $2n+3 \ge 10$, i.e. keep up to $x^9/9!$ — **5 terms** ($n=0,\dots,4$). Error $\le \frac{1}{11!} \approx 2.5\times10^{-8}$.
+### A10. (§11.11 #60) $F=\frac{mgR^2}{(R+h)^2}$.
 
-> **Answer**: 5 terms (up to $x^9/9!$)
+$F=mg\left(1+\frac hR\right)^{-2}=mg\left[1-\frac{2h}{R}+\frac{3h^2}{R^2}-\cdots\right]$. Alternating error $<1\%$ needs $\frac{2h}{R}<0.01$.
 
-### A8. Find the sum: $1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\cdots$.
+> **Answer**: $h<0.005R=32$ km
 
-$\ln(1+x) = x - \frac{x^2}{2} + \frac{x^3}{3} - \cdots$; at $x=1$: $1 - \frac12 + \frac13 - \frac14 + \cdots = \ln 2$.
+### A11. (§11 Review #62) $f(x)=e^{x^2}$.
 
-> **Answer**: $\ln 2 \approx 0.6931$
+$e^{x^2}=\sum\frac{x^{2n}}{n!}$, so the coefficient of $x^{2n}$ satisfies $\frac{f^{(2n)}(0)}{(2n)!}=\frac{1}{n!}$.
 
-### A9. Derive the Taylor series for $\frac{1}{(1-x)^2}$.
+> **Answer**: $f^{(2n)}(0)=\frac{(2n)!}{n!}$
 
-$\frac{1}{1-x} = \sum x^n$; $\frac{1}{(1-x)^2} = \frac{d}{dx}\frac{1}{1-x} = \sum_{n=1}^\infty n x^{n-1} = \sum_{n=0}^\infty (n+1)x^n$.
+### A12. (§11.11 #39) Newton's method is quadratic.
 
-> **Answer**: $\frac{1}{(1-x)^2} = \sum_{n=0}^\infty (n+1)x^n$, $|x|<1$
+Taylor with $n=1$ at $a=x_n$: $0=f(r)=f(x_n)+f'(x_n)(r-x_n)+\frac{f''(\xi)}{2}(r-x_n)^2$. Using $x_{n+1}=x_n-\frac{f(x_n)}{f'(x_n)}$,
+$$|r-x_{n+1}|=\frac{|f''(\xi)|}{2|f'(x_n)|}|r-x_n|^2\le\frac{M}{2K}|r-x_n|^2.$$
 
-### A10. Prove that $e$ is irrational.
-
-Assume $e = \frac{p}{q}$ with integers $p, q > 0$.
-
-① For any $n \ge q$, multiply $e = \sum_{k=0}^n \frac{1}{k!} + R_n$ by $n!$:
-
-$$n!\,e - \sum_{k=0}^n \frac{n!}{k!} = n!\,R_n.$$
-
-The left side is an integer: $n!\,e = n!\frac{p}{q}$ is an integer when $n\ge q$, and each $\frac{n!}{k!}$ is an integer.
-
-② Bound the remainder: $R_n = \frac{e^c}{(n+1)!}$ for some $c\in(0,1)$, so $0 < n!R_n \le \frac{3n!}{(n+1)!} = \frac{3}{n+1} < 1$ for $n \ge 3$.
-
-③ Contradiction: an integer strictly between $0$ and $1$ is impossible. Hence $e$ is irrational.
-
-> **Answer**: the integer-vs-fraction contradiction proves $e\notin\mathbb{Q}$
-
-### A11. Evaluate $\lim_{x\to 0}\frac{\sin x - x + x^3/6}{x^5}$. How many terms are needed?
-
-$\sin x = x - \frac{x^3}{6} + \frac{x^5}{120} - \frac{x^7}{5040} + \cdots$, so
-
-$$\frac{\sin x - x + \frac{x^3}{6}}{x^5} = \frac{\frac{x^5}{120} - \frac{x^7}{5040} + \cdots}{x^5} \to \frac{1}{120}.$$
-
-Terms needed: up to $x^5$ — i.e. **3 terms** of $\sin x$ ($x$, $x^3/6$, $x^5/120$).
-
-> **Answer**: $\frac{1}{120}$ (3 terms of the sine series)
-
-### A12. Find the Maclaurin series for $\ln(1+\sin x)$ up to $x^4$.
-
-① $u = \sin x = x - \frac{x^3}{6} + O(x^5)$; $\ln(1+u) = u - \frac{u^2}{2} + \frac{u^3}{3} - \frac{u^4}{4} + O(u^5)$.
-
-② Compute each power up to $x^4$:
-- $u^2 = x^2 - \frac{x^4}{3} + O(x^6)$
-- $u^3 = x^3 + O(x^5)$
-- $u^4 = x^4 + O(x^6)$
-
-③ Substitute:
-
-$$\ln(1+\sin x) = \left(x-\frac{x^3}{6}\right) - \frac12\left(x^2 - \frac{x^4}{3}\right) + \frac13 x^3 - \frac14 x^4 + O(x^5)$$
-
-$$= x - \frac{x^2}{2} + \left(-\frac16+\frac13\right)x^3 + \left(\frac16-\frac14\right)x^4 + O(x^5) = x - \frac{x^2}{2} + \frac{x^3}{6} - \frac{x^4}{12} + O(x^5).$$
-
-> **Answer**: $\ln(1+\sin x) = x - \frac{x^2}{2} + \frac{x^3}{6} - \frac{x^4}{12} + \cdots$
+> **Answer**: $|x_{n+1}-r|\le\frac{M}{2K}|x_n-r|^2$
 
 ---
 
@@ -246,4 +171,7 @@ $$= x - \frac{x^2}{2} + \left(-\frac16+\frac13\right)x^3 + \left(\frac16-\frac14
 
 | Problem | Answer |
 |:--------|:-------|
-| D1–D12 | see above |
+| D1–D6 | series/taylor polynomials for $e^{-2x},\sin3x,e^x,\ln(1+x),\cos x,\cos x$ at $\pi/2$ |
+| D7–D12 | $x\cos x$, $(1-x)^{-2}$, $e^{3x}-e^{2x}$, 4 terms, $\sin\frac{\pi x}{4}$, $x^2\ln(1+x^3)$ |
+| D13–D16 | $\sin^2x$, $\frac{1}{(1-x)^2}$, $|x|\lesssim1.037$, $\sqrt[4]{1-x}$ |
+| A1–A12 | see above |

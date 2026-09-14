@@ -6,9 +6,11 @@
 
 > 💡 **Stuck?** Every problem has a collapsible **Hint** below it — click it only when you need a nudge.
 
+> **Source.** Every example and drill below is taken from Stewart, *Calculus*, Chapter 11 (Sections 11.10–11.11). Each item cites its section and exercise number.
+
 ---
 
-## Example 1: Taylor Polynomials — The Idea (🔗 14C)
+## Example 1: Taylor Polynomials — The Idea (§11.11 Ex 1, 🔗 14C)
 
 A Taylor polynomial $T_n(x)$ matches $f$ and its first $n$ derivatives at $x=a$ (🔗 14C for higher derivatives).
 
@@ -23,21 +25,21 @@ $T_1(x)=x$. $T_3(x)=x-\frac{x^3}{6}$. $T_5(x)=x-\frac{x^3}{6}+\frac{x^5}{120}$.
 
 ---
 
-## Example 2: The Taylor Series Formula — Where the $n!$ Comes From
+## Example 2: The Taylor Series Formula — Where the $n!$ Comes From (§11.10)
 
-Suppose $f(x) = \sum c_k(x-a)^k$ near $a$. Differentiate both sides $k$ times and set $x=a$: all terms of degree $<k$ have already died, and every term of degree $>k$ still contains $(x-a)$, so it vanishes at $x=a$. The sole survivor is $k!\,c_k$, hence
+Suppose $f(x) = \sum c_k(x-a)^k$ near $a$. Differentiate both sides $k$ times and set $x=a$: every term of degree $<k$ has already died, and every term of degree $>k$ still contains $(x-a)$, so it vanishes at $x=a$. The sole survivor is $k!\,c_k$, hence
 
 $$f^{(k)}(a) = k!\,c_k \quad\Rightarrow\quad c_k = \frac{f^{(k)}(a)}{k!}.$$
 
-The coefficients are **forced** — there is no freedom. Equivalently (**uniqueness**): if any power series equals $f$ near $a$, it must be this one. That is the license behind every shortcut in this session — substitution, multiplication, and integration all produce *some* correct series, and uniqueness guarantees it is *the* Taylor series.
+The coefficients are **forced** — there is no freedom. Equivalently (**uniqueness**): if any power series equals $f$ near $a$, it must be this one. That is the license behind every shortcut below — substitution, multiplication, and integration all produce *some* correct series, and uniqueness guarantees it is *the* Taylor series.
 
-$$f(x) = \displaystyle \sum_{n=0}^\infty \frac{f^{(n)}(a)}{n!}(x-a)^n.$$
+$$f(x) = \sum_{n=0}^\infty \frac{f^{(n)}(a)}{n!}(x-a)^n.$$
 
-When $a=0$, it's called a **Maclaurin series**.
+When $a=0$, it is called a **Maclaurin series**.
 
 ---
 
-## Example 3: Maclaurin Series — The Six You Must Memorize
+## Example 3: Maclaurin Series — The Six You Must Memorize (§11.10 Ex 2, Ex 5, Ex 6)
 
 | Function | Maclaurin Series | Radius |
 |:--------:|:-----------------|:------:|
@@ -48,7 +50,7 @@ When $a=0$, it's called a **Maclaurin series**.
 | $\ln(1+x)$ | $\sum_{n=1}^\infty \frac{(-1)^{n+1}x^n}{n}$ | $1$ |
 | $\arctan x$ | $\sum_{n=0}^\infty \frac{(-1)^n x^{2n+1}}{2n+1}$ | $1$ |
 
-> **Why these radii (🔗 18B):** $R=\infty$ for $e^x$, $\sin x$, $\cos x$ — no bad points anywhere. The three series with $R=1$ stop there because their *closed forms* have a bad point at distance 1 from the center: $\frac{1}{1-x}$ blows up at $x=1$; $\ln(1+x)$ at $x=-1$; and $\arctan x$ has complex bad points at $x=\pm i$ — the radius measures distance, not whether you can see the bad point on the real line.
+> **Why these radii (🔗 18B):** $R=\infty$ for $e^x$, $\sin x$, $\cos x$ — no bad points anywhere. The three series with $R=1$ stop there because their closed forms have a bad point at distance 1 from the center: $\frac{1}{1-x}$ blows up at $x=1$; $\ln(1+x)$ at $x=-1$; and $\arctan x$ has complex bad points at $x=\pm i$ — the radius measures distance, not visibility.
 
 ![Taylor approximations of e^x]({{graph:18c-taylor-exp}})
 
@@ -56,51 +58,68 @@ When $a=0$, it's called a **Maclaurin series**.
 
 ---
 
-## Example 4: Building New Taylor Series
+## Example 4: Building New Taylor Series (§11.10 Ex 8, Ex 9, Ex 10)
 
-**Substitution**: Replace $x$ with something.
+**Substitution**: replace $x$ with something.
 $\sin(x^2) = \sum (-1)^n \frac{(x^2)^{2n+1}}{(2n+1)!} = \sum (-1)^n \frac{x^{4n+2}}{(2n+1)!}$.
 
 **Multiply/divide by $x$**:
 $\frac{\sin x}{x} = \sum (-1)^n \frac{x^{2n}}{(2n+1)!}$.
 
-**Binomial series** (🔗 12B2): $(1+x)^k = \sum_{n=0}^\infty \binom{k}{n}x^n = 1+kx+\frac{k(k-1)}{2!}x^2+\cdots$, $|x|<1$.
+**Binomial series**: $(1+x)^k = \sum_{n=0}^\infty \binom{k}{n}x^n = 1+kx+\frac{k(k-1)}{2!}x^2+\cdots$, $|x|<1$.
 
-$\sqrt{1+x} = (1+x)^{1/2} = 1+\frac{x}{2}-\frac{x^2}{8}+\frac{x^3}{16}-\cdots$.
-$\frac{1}{\sqrt{1-x^2}} = (1-x^2)^{-1/2} = 1+\frac{x^2}{2}+\frac{3x^4}{8}+\cdots$.
+$\frac{1}{\sqrt{4-x}} = \frac{1}{2}\left(1-\frac{x}{4}\right)^{-1/2} = \frac12\sum_{n=0}^\infty \binom{-1/2}{n}\left(-\frac{x}{4}\right)^n$.
+
+$x\cos x = x\sum_{n=0}^\infty \frac{(-1)^n x^{2n}}{(2n)!} = \sum_{n=0}^\infty \frac{(-1)^n x^{2n+1}}{(2n)!}$.
+
+$\ln(1+3x^2) = \sum_{n=1}^\infty \frac{(-1)^{n+1}(3x^2)^n}{n} = \sum_{n=1}^\infty \frac{(-1)^{n+1}3^n x^{2n}}{n}$.
 
 ---
 
-## Example 5: Error Bound — Lagrange Remainder
+## Example 5: Error Bound — Taylor's Inequality (§11.11 Ex 1, Ex 2)
 
 $f(x) = T_n(x) + R_n(x)$ where $R_n(x) = \frac{f^{(n+1)}(c)}{(n+1)!}(x-a)^{n+1}$ for some $c$ between $a$ and $x$.
 
-**Where it comes from:** for $n=0$ this is exactly the Mean Value Theorem — $f(x)-f(a)=f'(c)(x-a)$. Lagrange's formula is the same statement after matching $n+1$ derivatives instead of one: the leftover of the *next* derivative, evaluated somewhere in between. Because $c$ is unknown, in practice you replace $f^{(n+1)}(c)$ by its maximum $M$ over the interval between $a$ and $x$ (Mistake 2) — and for alternating series the simpler "first omitted term" bound is available instead.
+**Taylor's Inequality**: if $|f^{(n+1)}(t)|\le M$ on the interval between $a$ and $x$, then
+$$|R_n(x)| \le \frac{M}{(n+1)!}|x-a|^{n+1}.$$
 
-For alternating series: $|R_n| \le |\text{first omitted term}|$.
+**Where it comes from:** for $n=0$ this is exactly the Mean Value Theorem. Lagrange's formula is the same statement after matching $n+1$ derivatives instead of one: the leftover of the *next* derivative, evaluated somewhere in between.
 
-**Estimate $e^{0.1}$ to 4 decimal places** using $n=3$: $1+0.1+\frac{0.01}{2}+\frac{0.001}{6}=1.105167$.
-Error bound: $|R_3| \le \frac{e^{0.1}(0.1)^4}{24} \le \frac{3\cdot10^{-4}}{24} = 0.0000125 < 0.00005$. Good!
+For an **alternating** series: $|R_n| \le |\text{first omitted term}|$.
 
----
+**Estimate $\sqrt[3]{x}$ at $a=8$ by $T_2$ (§11.11 Ex 1):**
+$f(8)=2$, $f'(8)=\frac{1}{12}$, $f''(8)=-\frac{1}{144}$, so $T_2(x)=2+\frac{x-8}{12}-\frac{(x-8)^2}{288}$.
+On $7\le x\le 9$, $|f'''(x)|=\frac{10}{27}x^{-8/3}\le\frac{10}{27}7^{-8/3}\approx0.0021$, so
+$|R_2(x)|\le\frac{0.0021}{6}|x-8|^3\le0.00035$. The approximation is good to about $3\times10^{-4}$.
 
-## Example 6: Limits Using Taylor Series (🔗 13A)
-
-$\displaystyle \lim_{x\to0}\frac{\sin x - x}{x^3} = \lim_{x\to0}\frac{(x-\frac{x^3}{6}+\frac{x^5}{120}-\cdots)-x}{x^3} = -\frac{1}{6}$.
-
-$\displaystyle \lim_{x\to0}\frac{e^x-1-x}{x^2} = \frac{1}{2}$.
-
-**Why this works**: Taylor series reveal exactly how fast numerator and denominator approach 0. The lowest surviving power of $x$ determines the limit.
+**Estimate $\sin 12^\circ$ by $T_5$ (§11.11 Ex 2):** with $x=\frac{\pi}{15}$, $|R_5|\le\frac{1}{6!}|x|^6<10^{-6}$, so six decimals are safe.
 
 ---
 
-## Example 7: Definite Integrals Using Series (🔗 18B, 16A)
+## Example 6: Limits Using Taylor Series (§11.10 Ex 14, 🔗 13A)
 
-$\int_0^1 e^{-x^2}dx = \int_0^1\left(1-x^2+\frac{x^4}{2!}-\frac{x^6}{3!}+\cdots\right)dx = 1-\frac{1}{3}+\frac{1}{5\cdot2!}-\frac{1}{7\cdot3!}+\cdots$.
+$$\lim_{x\to0}\frac{e^x-1-x}{x^2} = \lim_{x\to0}\frac{\left(1+x+\frac{x^2}{2}+\cdots\right)-1-x}{x^2} = \frac12.$$
+
+**Why this works**: the series shows exactly how fast numerator and denominator approach 0. The lowest surviving power of $x$ decides the limit.
+
+---
+
+## Example 7: Definite Integrals Using Series (§11.10 Ex 13, 🔗 18B, 16A)
+
+$$\int_0^1 e^{-x^2}dx = \int_0^1\left(1-x^2+\frac{x^4}{2!}-\frac{x^6}{3!}+\cdots\right)dx = 1-\frac{1}{3}+\frac{1}{5\cdot2!}-\frac{1}{7\cdot3!}+\cdots$$
 
 Term-by-term integration (🔗 18B) gives an alternating series — easy to estimate to any accuracy.
 
-> **Up to here**: Taylor polynomial matches derivatives. Maclaurin series = Taylor at 0. Six must-memorize. Substitution/multiply/integrate to build new ones. Error bound via Lagrange or alternating first-term.
+---
+
+## Example 8: Multiplication and Division of Series (§11.10 Ex 15)
+
+**Multiply** the known series and collect like powers:
+$e^x\sin x = \left(1+x+\frac{x^2}{2}+\cdots\right)\left(x-\frac{x^3}{6}+\cdots\right) = x+x^2+\frac{x^3}{3}-\frac{x^5}{30}+\cdots$
+
+**Divide** by solving for the unknown coefficients: $\tan x = x+\frac{x^3}{3}+\frac{2x^5}{15}+\cdots$
+
+> **Up to here**: Taylor polynomial matches derivatives. Maclaurin = Taylor at 0. Six must-memorize series. Substitution / multiply / divide / integrate to build new ones. Error bound via Taylor's Inequality or the alternating first-term rule.
 
 ---
 
@@ -108,121 +127,107 @@ Term-by-term integration (🔗 18B) gives an alternating series — easy to esti
 
 ### Mistake 1: Forgetting the factorial in the Taylor formula
 
-**Wrong**: $f(x) = \sum f^{(n)}(a)(x-a)^n$. The correct formula divides by $n!$:
-$f(x) = \sum \frac{f^{(n)}(a)}{n!}(x-a)^n$. Without the factorial, $\sin x$ would not come out right.
+**Wrong**: $f(x) = \sum f^{(n)}(a)(x-a)^n$. The correct formula divides by $n!$: $f(x) = \sum \frac{f^{(n)}(a)}{n!}(x-a)^n$.
 
-### Mistake 2: Using the Lagrange remainder without bounding the derivative
+### Mistake 2: Using the remainder without bounding the derivative
 
-$R_n = \frac{f^{(n+1)}(c)}{(n+1)!}(x-a)^{n+1}$ requires a bound $|f^{(n+1)}(c)| \le M$ **on the whole interval between $a$ and $x$**. Plugging in the center value instead of the max is a common error.
+$R_n = \frac{f^{(n+1)}(c)}{(n+1)!}(x-a)^{n+1}$ requires a bound $|f^{(n+1)}(c)| \le M$ **on the whole interval between $a$ and $x$**. Plugging in the center value instead of the maximum is a common error.
 
 ### Mistake 3: Dropping terms when composing series
 
-When composing $\ln(1+u)$ with $u = \sin x$, you must keep enough terms of $u$ (and its powers) to reach the requested order — e.g. to get $x^4$ you need $u^2$ to order $x^4$ too, because $u$ itself starts at $x$.
+When composing $\ln(1+u)$ with $u = \sin x$, keep enough terms of $u$ (and its powers) to reach the requested order — to get $x^4$ you also need $u^2$ to order $x^4$, because $u$ itself starts at $x$.
 
 ### Mistake 4: Confusing the degree with the number of terms
 
-The $n$-th degree Taylor polynomial $T_n$ contains $n+1$ terms (from the $x^0$ term through $x^n$). For error bounds, keeping terms up to $x^n$ leaves an error controlled by the $(n+1)$-st term.
+$T_n$ contains $n+1$ terms (from $x^0$ through $x^n$). Keeping terms up to $x^n$ leaves an error controlled by the $(n+1)$-st term.
+
+---
+
+## What We Just Did
+
+```
+(1) T_n matches f and its first n derivatives at a. Coeffs forced: c_n = f^(n)(a)/n!.
+(2) Six Maclaurin series: e^x, sin x, cos x, 1/(1-x), ln(1+x), arctan x.
+(3) Build new series by substitution, multiply/divide, differentiate, integrate.
+(4) Error via Taylor's Inequality M|x-a|^(n+1)/(n+1)!; alternating ⇒ first omitted term.
+(5) Limits and integrals: expand, keep the lowest surviving power.
+```
+
+---
+
 ## Basic Drills
 
-**D1.** Write the Maclaurin series for $e^{-x}$ (first 4 terms).
+**D1.** (§11.10 #14) Maclaurin series for $e^{-2x}$.
 
-**D2.** Write the Maclaurin series for $\cos(2x)$ (first 4 nonzero terms).
+**D2.** (§11.10 #16) Maclaurin series for $\sin 3x$.
 
-**D3.** Find the 3rd-degree Taylor polynomial of $f(x)=\sqrt{x}$ at $a=4$.
+**D3.** (§11.11 #3) Find $T_3(x)$ for $f(x)=e^x$ at $a=1$.
 
 <details>
 <summary>💡 Hint</summary>
 
-Compute $f(4), f'(4), f''(4), f'''(4)$ from $f(x)=x^{1/2}$ — remember $f''$ and $f'''$ come with negative/alternating signs.
+Every derivative of $e^x$ equals $e^x$, so all the values at $a=1$ are $e$.
 
 </details>
 
-**D4.** Find the Maclaurin series for $\frac{1}{1+x^2}$ and its radius.
+**D4.** (§11.10 #12) Maclaurin series and radius for $\ln(1+x)$.
 
-**D5.** Find the Maclaurin series for $\ln(1-x)$.
+**D5.** (§11.10 #13) Maclaurin series and radius for $\cos x$.
 
-**D6.** Compute $\lim_{x\to0}\frac{e^x-1}{x}$.
+**D6.** (§11.11 #5) Find $T_3(x)$ for $f(x)=\cos x$ at $a=\frac{\pi}{2}$.
 
 <details>
 <summary>💡 Hint</summary>
 
-Expand $e^x = 1+x+\frac{x^2}{2!}+\cdots$. Subtract the $1$, divide by $x$, and let $x\to0$.
+$\cos(\pi/2)=0$, $f'(\pi/2)=-1$, $f''(\pi/2)=0$, $f'''(\pi/2)=1$.
 
 </details>
 
-**D7.** Find $T_2(x)$ (2nd-degree Taylor) for $f(x)=\tan x$ at $a=0$.
+**D7.** (§11.10 #18) Maclaurin series for $x\cos x$.
+
+**D8.** (§11.10 #11) Maclaurin series for $(1-x)^{-2}$.
+
+**D9.** (§11.10 #42) Maclaurin series for $e^{3x}-e^{2x}$.
+
+**D10.** (§11.11 #25) How many terms of the Maclaurin series for $e^x$ estimate $e^{0.1}$ within $10^{-5}$?
 
 <details>
 <summary>💡 Hint</summary>
 
-$\tan x$ is odd, so all even-degree coefficients vanish — the $x^2$ term is $0$.
+Need $\frac{(0.1)^{n+1}}{(n+1)!}<10^{-5}$. Test $n=2,3$.
 
 </details>
 
-**D8.** Write the binomial series for $\frac{1}{\sqrt{1+x}} = (1+x)^{-1/2}$ (first 3 terms).
+**D11.** (§11.10 #40) Maclaurin series for $\sin\left(\frac{\pi x}{4}\right)$.
 
-**D9.** Multiply the series for $e^x$ and $e^{-x}$. What do you get?
+**D12.** (§11.10 #44) Maclaurin series for $x^2\ln(1+x^3)$.
 
-**D10.** Estimate $\cos(0.2)$ to 4 decimal places.
+**D13.** (§11.10 #47) Maclaurin series for $\sin^2 x$.
 
 <details>
 <summary>💡 Hint</summary>
 
-$\cos(0.2) = 1 - \frac{(0.2)^2}{2!} + \frac{(0.2)^4}{4!} - \cdots$ — alternating, so the next term bounds the error.
+Use $\sin^2 x=\frac12(1-\cos 2x)$.
 
 </details>
 
-**D11.** Write the first 3 nonzero terms of $(1+2x)^{1/3}$.
+**D14.** (§11.10 #3) If $f^{(n)}(0)=(n+1)!$, find the Maclaurin series and identify $f$.
 
 <details>
 <summary>💡 Hint</summary>
 
-Compute $\binom{1/3}{1}$, $\binom{1/3}{2}$, $\binom{1/3}{3}$ and plug $u=2x$ into $(1+u)^{1/3}$.
+$c_n=\frac{f^{(n)}(0)}{n!}=n+1$.
 
 </details>
 
-**D12.** Find the Taylor series for $f(x)=x^3-2x^2+3x-4$ at $a=1$.
+**D15.** (§11.11 #27) For which $x$ is $\sin x\approx x-\frac{x^3}{6}$ accurate to within $0.01$?
+
+**D16.** (§11.10 #35) Binomial series for $\sqrt[4]{1-x}$.
 
 <details>
 <summary>💡 Hint</summary>
 
-$f$ is cubic, so $f^{(4)} = 0$ — the series stops after the $(x-1)^3$ term. Compute $f(1), f'(1), f''(1), f'''(1)$.
-
-</details>
-
-**D13.** Expand $\ln(1+\sin x)$ to order $x^4$.
-
-<details>
-<summary>💡 Hint</summary>
-
-Substitute $u=\sin x$ into the $\ln(1+u)$ series. Because $u$ starts at $x$, you must keep $u^2$ to order $x^4$ as well — the powers interact.
-
-</details>
-
-**D14.** Estimate $\sqrt{4.1}$ and bound the error.
-
-<details>
-<summary>💡 Hint</summary>
-
-Use the degree-2 Taylor polynomial of $\sqrt{x}$ at $a=4$ with the Lagrange remainder. This is **not** an alternating series, so the first-omitted-term shortcut does not apply. Compute $f'''$ and take its maximum on $[4,\,4.1]$; the bound is $M|x-a|^3/3!$.
-
-</details>
-
-**D15.** The series $\sum_{n=0}^\infty (-1)^n x^{2n}$ converges only for $|x|<1$, yet its closed form $\frac{1}{1+x^2}$ is smooth on the whole real line. Explain the discrepancy.
-
-<details>
-<summary>💡 Hint</summary>
-
-Ask where the denominator vanishes — the "bad points" do not lie on the real axis, but the radius only measures distance, not visibility.
-
-</details>
-
-**D16.** A power series $\sum c_n x^n$ equals $\sin x$ for all $x$ in $(-1,1)$. Without memorizing the answer, find $c_2$ and $c_3$.
-
-<details>
-<summary>💡 Hint</summary>
-
-Differentiate both sides twice (and three times), then plug $x=0$. The left side contributes derivatives of $\sin x$; the right side collapses to a factorial times one coefficient.
+$(1+u)^{1/4}=1+\frac{u}{4}-\frac{3u^2}{32}+\frac{7u^3}{128}-\cdots$ with $u=-x$.
 
 </details>
 
@@ -232,111 +237,55 @@ Differentiate both sides twice (and three times), then plug $x=0$. The left side
 
 ## Advanced Drills
 
-**A1.** Find the Maclaurin series for $\sinh x = \frac{e^x-e^{-x}}{2}$.
+**A1.** (§11.10 #49) Maclaurin series for $\sinh x=\frac{e^x-e^{-x}}{2}$.
+
+**A2.** (§11.10 #50) Show $\tanh^{-1} x=\sum_{n=0}^\infty \frac{x^{2n+1}}{2n+1}$ using $\tanh^{-1}x=\frac12\ln\left(\frac{1+x}{1-x}\right)$.
+
+**A3.** (§11.10 #21) Taylor series for $f(x)=x^5+2x^3+x$ at $a=2$.
+
+**A4.** (§11.10 #24) Taylor series for $f(x)=\frac{1}{x}$ at $a=-3$.
 
 <details>
 <summary>💡 Hint</summary>
 
-Subtract the series for $e^{-x}$ from $e^x$: even powers cancel, odd powers double.
+$\frac1x=-\frac{1}{3}\cdot\frac{1}{1-\frac{x+3}{3}}$ — geometric in $(x+3)$.
 
 </details>
 
-**A2.** Prove $e^{i\theta} = \cos\theta + i\sin\theta$.
+**A5.** (§11.11 #30) Given $f^{(n)}(4)=\frac{(-1)^n n!}{3^n(n+1)}$, show the fifth-degree Taylor polynomial approximates $f(5)$ with error $<0.0002$.
+
+**A6.** (§11.10 #37) Binomial series and radius for $\frac{1}{(2+x)^3}$.
+
+**A7.** (§11.11 #59) Evaluate $\lim_{x\to0}\frac{\sin x-x}{x^3}$ with a series.
+
+**A8.** (§11.11 #26) How many terms of the Maclaurin series for $\ln(1+x)$ estimate $\ln 1.4$ within $0.001$?
 
 <details>
 <summary>💡 Hint</summary>
 
-Plug $x = i\theta$ into $e^x = \sum \frac{x^n}{n!}$ and split the sum into even and odd $n$ (using $i^{2k} = (-1)^k$).
+At $x=0.4$ the series alternates; the first omitted term must be below $0.001$.
 
 </details>
 
-**A3.** Find the Taylor series for $f(x)=\frac{1}{x}$ about $a=2$.
+**A9.** (§11.11 #57) For $f(x)=\sqrt{x}$, $a=1$, $n=3$, estimate the error on $0.9\le x\le1.1$.
+
+**A10.** (§11.11 #60) Expand $F=\frac{mgR^2}{(R+h)^2}$ in powers of $h/R$; for which $h$ is $F\approx mg$ accurate to 1%?
 
 <details>
 <summary>💡 Hint</summary>
 
-$\frac{1}{x} = \frac{1}{2+(x-2)} = \frac12\cdot\frac{1}{1+(x-2)/2}$ — geometric series.
+$F=mg\left(1+\frac{h}{R}\right)^{-2}=mg\left[1-\frac{2h}{R}+\frac{3h^2}{R^2}-\cdots\right]$. Use the alternating bound with $R=6400$ km.
 
 </details>
 
-**A4.** Evaluate $\lim_{x\to0}\frac{\tan x - x}{x^3}$.
+**A11.** (§11 Review #62) If $f(x)=e^{x^2}$, show $f^{(2n)}(0)=\frac{(2n)!}{n!}$.
+
+**A12.** (§11.11 #39) Use Taylor's Inequality with $n=1$, $a=x_n$, $x=r$ to prove Newton's method is quadratic: $|x_{n+1}-r|\le\frac{M}{2K}|x_n-r|^2$.
 
 <details>
 <summary>💡 Hint</summary>
 
-$\tan x = x + \frac{x^3}{3} + \frac{2x^5}{15} + \cdots$.
-
-</details>
-
-**A5.** Compute $\int_0^1 \frac{\sin x}{x}dx$ to 4 decimal places.
-
-<details>
-<summary>💡 Hint</summary>
-
-$\frac{\sin x}{x} = 1 - \frac{x^2}{3!} + \frac{x^4}{5!} - \cdots$; integrate to $\sum \frac{(-1)^n}{(2n+1)!(2n+1)}$ — alternating series.
-
-</details>
-
-**A6.** Find the Maclaurin series for $\arcsin x$.
-
-<details>
-<summary>💡 Hint</summary>
-
-Binomial expansion route: expand $(1-x^2)^{-1/2}$ binomially and integrate term-by-term.
-
-</details>
-
-**A7.** How many terms of $\sin x$ series are needed to estimate $\sin(1)$ with error $<10^{-6}$?
-
-<details>
-<summary>💡 Hint</summary>
-
-At $x=1$ it's alternating: keeping up to $x^{2n+1}$ leaves error $\le \frac{1}{(2n+3)!}$. Find the smallest $2n+3$ with $(2n+3)! > 10^6$.
-
-</details>
-
-**A8.** Find the sum: $1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\cdots$.
-
-<details>
-<summary>💡 Hint</summary>
-
-Evaluate $\ln(1+x) = x - \frac{x^2}{2} + \frac{x^3}{3} - \cdots$ at $x=1$.
-
-</details>
-
-**A9.** Derive the Taylor series for $\frac{1}{(1-x)^2}$.
-
-<details>
-<summary>💡 Hint</summary>
-
-$\frac{d}{dx}\frac{1}{1-x} = \frac{1}{(1-x)^2}$; differentiate $\sum x^n$ term by term and re-index.
-
-</details>
-
-**A10.** Prove that $e$ is irrational.
-
-<details>
-<summary>💡 Hint</summary>
-
-For $n \ge q$, $n!e$ and each $n!/k!$ are integers, so $n!R_n = n!e - \sum_{k=0}^n n!/k!$ is an integer. But $0 < n!R_n \le \frac{3}{n+1} < 1$ — contradiction.
-
-</details>
-
-**A11.** (🔗 13A, 18B) Evaluate $\lim_{x\to 0}\frac{\sin x - x + x^3/6}{x^5}$. How many terms are needed?
-
-<details>
-<summary>💡 Hint</summary>
-
-$\sin x = x - \frac{x^3}{6} + \frac{x^5}{120} - \frac{x^7}{5040} + \cdots$ — the first three terms cancel, leaving $\frac{x^5}{120}$.
-
-</details>
-
-**A12.** Find the Maclaurin series for $\ln(1+\sin x)$ up to $x^4$.
-
-<details>
-<summary>💡 Hint</summary>
-
-Substitute $u=\sin x$ into the $\ln(1+u)$ series. Because $u$ itself starts at $x$, each power $u^k$ contributes to several orders of $x$ — keep every $u^k$ only up to the order you need, but do keep all of them.
+Write $0=f(r)=f(x_n)+f'(x_n)(r-x_n)+\frac{f''(\xi)}{2}(r-x_n)^2$ and use the definition of $x_{n+1}$.
 
 </details>
 
@@ -357,7 +306,7 @@ Substitute $u=\sin x$ into the $\ln(1+u)$ series. Because $u$ itself starts at $
 | $\frac{1}{1-x} = 1 + x + x^2 + x^3 + \cdots$ | "one over one minus x equals one plus x plus x squared ..." | geometric series — converges for |x|<1 |
 | $\ln(1+x) = x - \frac{x^2}{2} + \frac{x^3}{3} - \cdots$ | "ln of one plus x equals x minus x squared over 2 plus x cubed over 3 ..." | Maclaurin series for natural log — alternating, converges for -1<x≤1 |
 | Lagrange remainder | "Lagrange remainder" | R_n = f^{(n+1)}(ξ)/(n+1)! · (x-a)^{n+1} — bounds error of Taylor polynomial |
-| $|R_n| \leq \frac{M}{(n+1)!}|x-a|^{n+1}$ | "absolute remainder less than or equal to M over n+1 factorial times x minus a to the n+1" | error bound — M = max of |f^{(n+1)}| on the interval |
+| $|R_n| \leq \frac{M}{(n+1)!}|x-a|^{n+1}$ | "absolute remainder less than or equal to M over n+1 factorial times x minus a to the n+1" | Taylor's Inequality — M = max of |f^{(n+1)}| on the interval |
 
 ---
 
@@ -368,5 +317,5 @@ Substitute $u=\sin x$ into the $\ln(1+u)$ series. Because $u$ itself starts at $
 | infinite polynomial matching derivatives | Taylor series | $\sum \frac{f^{(n)}(a)}{n!}(x-a)^n$ |
 | Taylor series at 0 | Maclaurin series | $\sum \frac{f^{(n)}(0)}{n!}x^n$ |
 | error of n-th degree approximation | Lagrange remainder | $R_n = \frac{f^{(n+1)}(\xi)}{(n+1)!}(x-a)^{n+1}$ |
+| bounding the remainder | Taylor's Inequality | $|R_n| \leq \frac{M}{(n+1)!}|x-a|^{n+1}$ |
 | product 1·2·3·...·n | factorial | $n!$ |
-| bounding the remainder | error estimation | $|R_n| \leq \frac{M}{(n+1)!}|x-a|^{n+1}$ |

@@ -1,179 +1,156 @@
 # Solutions — 18A: Infinite Series — Does It Converge?
 
 > Back to [18A — Infinite Series](../18A-series-convergence.md)
+
 ## Basic Drills
 
-### D1. $\sum_{n=0}^\infty \left(\frac{2}{5}\right)^n$. Sum if convergent.
+### D1. (§11.2 #5) The partial sums are $S_n=2-3(0.8)^n$. Find the sum.
 
-Geometric with $a=1$, $r=\frac25$. $|r|<1$: $S = \frac{1}{1-2/5} = \frac{5}{3}$.
+$(0.8)^n\to0$, so $S_n\to2$.
 
-> **Answer**: $\frac{5}{3}$
+> **Answer**: converges to $2$
 
-### D2. $\sum_{n=1}^\infty \frac{1}{n^3}$. $p$-series — converge or diverge?
+### D2. (§11.2 #23) $3-4+\frac{16}{3}-\frac{64}{9}+\cdots$
 
-$p = 3 > 1$ → **converges**.
-
-> **Answer**: converges
-
-### D3. $\sum_{n=1}^\infty \frac{1}{\sqrt[3]{n}}$. $p$-series.
-
-$\frac{1}{\sqrt[3]{n}} = \frac{1}{n^{1/3}}$, so $p = \frac13 \le 1$ → **diverges**.
+Geometric with $a=3$, $r=-\frac43$. $|r|=\frac43\ge1$, so it diverges.
 
 > **Answer**: diverges
 
-### D4. Apply the Divergence Test to $\sum_{n=1}^\infty \frac{n}{n+1}$.
+### D3. (§11.2 #25) $10-2+0.4-0.08+\cdots$
 
-$\lim a_n = \lim \frac{n}{n+1} = 1 \neq 0$ → **diverges** (by the Divergence Test — no need for anything fancier).
+$a=10$, $r=-\frac15$, $|r|<1$: $S=\frac{10}{1+1/5}=\frac{10}{6/5}=\frac{25}{3}$.
 
-> **Answer**: diverges
+> **Answer**: $\frac{25}{3}$
 
-### D5. $\sum_{n=1}^\infty \frac{2}{n^2+1}$. Compare to $p$-series.
+### D4. (§11.2 #35) $\frac25+\frac{4}{25}+\frac{8}{125}+\cdots$
 
-$\frac{2}{n^2+1} \le \frac{2}{n^2}$ and $\sum \frac{2}{n^2}$ converges ($p=2$) → **converges**.
+$a=\frac25$, $r=\frac25$: $S=\frac{2/5}{1-2/5}=\frac{2/5}{3/5}=\frac23$.
 
-> **Answer**: converges
+> **Answer**: $\frac23$
 
-### D6. $\sum_{n=1}^\infty \frac{(-1)^{n}}{n^2+1}$. Absolute convergence?
+### D5. (§11.2 #37) $\sum_{n=1}^\infty\frac{2+n}{1-2n}$
 
-$\sum |a_n| = \sum \frac{1}{n^2+1}$ converges (compare to $\sum \frac{1}{n^2}$) → **absolutely convergent**.
-
-> **Answer**: absolutely convergent
-
-### D7. $\sum_{n=1}^\infty \frac{5^n}{n!}$. Ratio test.
-
-$\rho = \lim \frac{5}{n+1} = 0 < 1$ → **converges**.
-
-> **Answer**: converges
-
-### D8. $\sum_{n=1}^\infty \frac{1}{n\ln n}$. Integral test.
-
-$\int_2^\infty \frac{dx}{x\ln x} = \ln(\ln x)\Big|_2^\infty = \infty$ → **diverges**.
+$a_n=\frac{2+n}{1-2n}\to-\frac12\neq0$, so the series diverges by the Divergence Test.
 
 > **Answer**: diverges
 
-### D9. Telescoping: $\sum_{n=1}^\infty \frac{2}{(2n-1)(2n+1)}$.
+### D6. (§11.2 #19) Telescoping: $\sum_{n=1}^\infty\frac{3}{n(n+3)}$
 
-Partial fractions: $\frac{2}{(2n-1)(2n+1)} = \frac{1}{2n-1} - \frac{1}{2n+1}$.
+$\frac{3}{n(n+3)}=\frac1n-\frac1{n+3}$. Then $S_N=1+\frac12+\frac13-\frac{1}{N+1}-\frac{1}{N+2}-\frac{1}{N+3}\to\frac{11}{6}$.
 
-$S_N = \left(1-\frac13\right)+\left(\frac13-\frac15\right)+\cdots+\left(\frac{1}{2N-1}-\frac{1}{2N+1}\right) = 1 - \frac{1}{2N+1} \to 1$.
+> **Answer**: converges to $\frac{11}{6}$
 
-> **Answer**: converges to $1$
+### D7. (§11.3 #3) $\sum_{n=1}^\infty n^{-3}$
 
-### D10. Root test on $\sum_{n=1}^\infty \left(1+\frac{1}{n}\right)^{-n^2}$.
+$p$-series with $p=3>1$.
 
-$\sqrt[n]{|a_n|} = \left(1+\frac1n\right)^{-n} \to e^{-1} = \frac1e < 1$ → **converges**.
+> **Answer**: converges
 
-> **Answer**: converges ($\rho = 1/e$)
+### D8. (§11.3 #4) $\sum_{n=1}^\infty n^{-0.3}$
 
-### D11. $\sum_{n=1}^\infty \frac{n^{10}}{10^n}$. Ratio test — which dominates, polynomial or exponential?
+$p$-series with $p=0.3\le1$.
 
-$\rho = \lim \frac{(n+1)^{10}/10^{n+1}}{n^{10}/10^n} = \frac{1}{10}\lim\left(\frac{n+1}{n}\right)^{10} = \frac{1}{10} < 1$ → **converges**. The **exponential $10^n$ dominates** the polynomial $n^{10}$.
+> **Answer**: diverges
 
-> **Answer**: converges — exponential beats polynomial
+### D9. (§11.3 #23) Integral test: $\sum_{n=2}^\infty\frac{1}{n\ln n}$
 
-### D12. $\sum_{n=1}^\infty \frac{n\cos(n\pi)}{n^3+1}$. Determine absolute vs conditional convergence.
+$\int_2^\infty\frac{dx}{x\ln x}=\left[\ln(\ln x)\right]_2^\infty=\infty$.
 
-$\cos(n\pi) = (-1)^n$, so $a_n = \frac{(-1)^n n}{n^3+1}$. Absolute: $\sum \frac{n}{n^3+1} \le \sum \frac{n}{n^3} = \sum \frac{1}{n^2}$, which converges → **absolutely convergent**.
+> **Answer**: diverges
 
-> **Answer**: absolutely convergent
+### D10. (§11.4 #7) $\sum_{n=1}^\infty\frac{1}{n^3+8}$
+
+$\frac{1}{n^3+8}\le\frac{1}{n^3}$ and $\sum\frac{1}{n^3}$ converges.
+
+> **Answer**: converges
+
+### D11. (§11.6 #3) Ratio: $\sum_{n=1}^\infty\frac{n}{5^n}$
+
+$\rho=\lim\frac{n+1}{5n}=\frac15<1$.
+
+> **Answer**: converges
+
+### D12. (§11.6 #21) Root: $\sum_{n=1}^\infty\left(\frac{n^2+1}{2n^2+1}\right)^n$
+
+$\rho=\lim\frac{n^2+1}{2n^2+1}=\frac12<1$.
+
+> **Answer**: converges
 
 ---
 
 ## Advanced Drills
 
-### A1. Determine convergence of $\sum_{n=2}^\infty \frac{1}{n(\ln n)^2}$.
+### A1. (§11.3 #31) For which $p$ does $\sum_{n=2}^\infty\frac{1}{n(\ln n)^p}$ converge?
 
-$\int_2^\infty \frac{dx}{x(\ln x)^2}$; $u=\ln x$: $\int_{\ln 2}^\infty \frac{du}{u^2} = \left[-\frac{1}{u}\right]_{\ln 2}^\infty = \frac{1}{\ln 2}$, finite → **converges**.
+$u=\ln x$ gives $\int_2^\infty\frac{du}{u^p}$, which converges iff $p>1$.
 
-> **Answer**: converges (to a finite value $< 1/\ln 2 \approx 1.44$; the series value is not $1/\ln 2$, the integral only decides convergence)
+> **Answer**: converges iff $p>1$
 
-### A2. $\sum_{n=1}^\infty \frac{n!}{2^n}$. Determine convergence.
+### A2. (§11.6 #14) $\sum_{n=1}^\infty\frac{n!}{n^n}$
 
-$\rho = \lim \frac{(n+1)!}{2^{n+1}}\cdot\frac{2^n}{n!} = \lim \frac{n+1}{2} = \infty > 1$ → **diverges**.
-
-> **Answer**: diverges
-
-### A3. $\sum_{n=1}^\infty \frac{\sin n}{n^2}$. Determine convergence.
-
-$\left|\frac{\sin n}{n^2}\right| \le \frac{1}{n^2}$ and $\sum \frac{1}{n^2}$ converges → $\sum \left|\frac{\sin n}{n^2}\right|$ converges → **absolutely convergent** (hence convergent).
-
-> **Answer**: converges absolutely
-
-### A4. $\sum_{n=1}^\infty \frac{(-1)^n n}{n^2+1}$. Determine convergence; absolute or conditional?
-
-① **Alternating test**: $a_n = \frac{n}{n^2+1}$. For $x \ge 1$, $f(x) = \frac{x}{x^2+1}$ has $f'(x) = \frac{1-x^2}{(x^2+1)^2} < 0$, so $a_n \searrow 0$ → **converges**.
-
-② **Absolute**: $\sum \frac{n}{n^2+1}$ behaves like $\sum \frac{1}{n}$ → **diverges** (e.g., $\frac{n}{n^2+1} \ge \frac{n}{2n^2} = \frac{1}{2n}$ for $n\ge1$).
-
-> **Answer**: converges **conditionally**
-
-### A5. $\sum_{n=1}^\infty \left(\frac{n}{n+1}\right)^{n^2}$. Determine convergence.
-
-$\sqrt[n]{|a_n|} = \left(\frac{n}{n+1}\right)^n = \left(1 - \frac{1}{n+1}\right)^n \to \frac{1}{e} < 1$ → **converges**.
-
-> **Answer**: converges ($\rho = 1/e$)
-
-### A6. Determine all $x$ where $\sum_{n=1}^\infty \frac{x^n}{n}$ converges.
-
-Ratio test: $|x| \lim \frac{n}{n+1} = |x|$ → converges for $|x| < 1$, diverges for $|x| > 1$. Radius $R=1$.
-
-Endpoints:
-- $x = 1$: $\sum \frac1n$ — harmonic, **diverges**.
-- $x = -1$: $\sum \frac{(-1)^n}{n}$ — alternating, **converges**.
-
-> **Answer**: converges for all $x \in [-1, 1)$
-
-### A7. $\sum_{n=1}^\infty \frac{1\cdot3\cdot5\cdots(2n-1)}{n!\,3^n}$. Determine convergence.
-
-$\frac{a_{n+1}}{a_n} = \frac{1\cdot3\cdots(2n+1)}{(n+1)!3^{n+1}} \cdot \frac{n!3^n}{1\cdot3\cdots(2n-1)} = \frac{2n+1}{(n+1)\cdot3} \to \frac{2}{3} < 1$ → **converges**.
-
-> **Answer**: converges ($\rho = 2/3$)
-
-### A8. Prove $\sum_{n=1}^\infty \frac{1}{n^2}$ converges.
-
-① For $n \ge 2$: $n^2 \ge n(n-1) > 0$, so $\frac{1}{n^2} \le \frac{1}{n(n-1)}$.
-
-② $\sum_{n=2}^\infty \frac{1}{n(n-1)} = \sum_{n=2}^\infty \left(\frac{1}{n-1} - \frac{1}{n}\right)$ telescopes to $1$ (only the first term survives).
-
-③ Since $\sum \frac{1}{n(n-1)}$ converges, so does $\sum \frac{1}{n^2}$ (in fact $\sum_{n=1}^\infty \frac{1}{n^2} \le 1 + 1 = 2$).
-
-> **Answer**: $\frac{1}{n^2} \le \frac{1}{n(n-1)}$ for $n\ge2$; the comparison series telescopes to $1$ → converges
-
-### A9. $\sum_{n=1}^\infty \frac{\ln n}{n^2}$. Determine convergence.
-
-For large $n$, $\ln n \le n^{1/2}$ (log grows slower than any positive power). So $\frac{\ln n}{n^2} \le \frac{n^{1/2}}{n^2} = \frac{1}{n^{1.5}}$. $\sum \frac{1}{n^{1.5}}$ converges ($p = 1.5 > 1$) → **converges**.
+$\rho=\lim\frac{n^n}{(n+1)^n}=\lim\left(1+\frac1n\right)^{-n}=\frac1e<1$.
 
 > **Answer**: converges
 
-### A10. True or false: if $\sum a_n$ converges, then $\sum a_n^2$ converges?
+### A3. (§11.5 #29) $\sum_{n=1}^\infty\frac{1+2\sin n}{n^3}$
 
-**False.** Take $a_n = \frac{(-1)^n}{\sqrt{n}}$:
-- $\sum a_n = \sum \frac{(-1)^n}{\sqrt{n}}$ converges (alternating, $1/\sqrt{n} \searrow 0$).
-- $\sum a_n^2 = \sum \frac{1}{n}$ — the harmonic series, **diverges**.
+$\left|\frac{1+2\sin n}{n^3}\right|\le\frac{3}{n^3}$ and $\sum\frac{1}{n^3}$ converges.
 
-> **Answer**: False — the counterexample $\sum \frac{(-1)^n}{\sqrt{n}}$ converges while its square-series diverges
+> **Answer**: absolutely convergent
 
-### A11. Determine convergence of $\sum_{n=1}^\infty \frac{\sqrt{n}}{\sqrt{n^3+1}}$.
+### A4. (§11.5 #30) $\sum_{n=1}^\infty(-1)^{n-1}\frac{n}{n^2+4}$
 
-The general term behaves like $\frac{\sqrt{n}}{\sqrt{n^3}} = \frac{1}{n}$, so try $b_n = \frac{1}{n}$:
+$b_n=\frac{n}{n^2+4}$ decreases to $0$, so the alternating series converges. But $\sum\frac{n}{n^2+4}$ behaves like $\sum\frac1n$ (limit comparison, ratio $\to1$), which diverges.
 
-$$\lim_{n\to\infty}\frac{\sqrt{n}/\sqrt{n^3+1}}{1/n} = \lim_{n\to\infty}\frac{n\sqrt{n}}{\sqrt{n^3+1}} = 1 > 0.$$
+> **Answer**: conditionally convergent
 
-$\sum \frac1n$ diverges → the series **diverges**.
+### A5. (§11.7 #31) $\sum_{n=1}^\infty\left(\frac{n}{n+1}\right)^{n^2}$
 
-> **Answer**: diverges (limit-comparison with $b_n = 1/n$, limit $=1$)
+$\rho=\lim\left(\frac{n}{n+1}\right)^n=\lim\left(1-\frac{1}{n+1}\right)^n=\frac1e<1$.
 
-### A12. Determine convergence of $\sum_{n=2}^\infty \frac{\ln n}{n(\ln n)^2-1}$.
+> **Answer**: converges
 
-① $f(x) = \frac{\ln x}{x(\ln x)^2 - 1}$ is positive and (eventually) decreasing → integral test applies.
+### A6. (§11.5 #46) For which $p$ does $\sum_{n=1}^\infty\frac{(-1)^{n-1}}{n^p}$ converge?
 
-② Substitute $u = \ln x$, $du = \frac{dx}{x}$, so $dx = e^u du$ and the $e^u$ in the denominator cancels:
+$b_n=n^{-p}$ must decrease to $0$, which happens exactly when $p>0$.
 
-$$\int \frac{\ln x}{x(\ln x)^2-1}\,dx = \int \frac{u\,e^u\,du}{e^u u^2 - 1} = \int \frac{u}{u^2-1}\,du = \frac12\ln(u^2-1) \to \infty \text{ as } u\to\infty.$$
+> **Answer**: converges iff $p>0$
 
-③ The integral diverges → the **series diverges**.
+### A7. (§11.7 #13) $\sum_{n=1}^\infty\frac{1\cdot3\cdot5\cdots(2n-1)}{2\cdot5\cdot8\cdots(3n-1)}$
+
+$\left|\frac{a_{n+1}}{a_n}\right|=\frac{2n+1}{3n+2}\to\frac23<1$.
+
+> **Answer**: converges
+
+### A8. (§11.4 #54) Prove: if $a_n\ge0$ and $\sum a_n$ converges, then $\sum a_n^2$ converges.
+
+Since $\sum a_n$ converges, $a_n\to0$; hence $0\le a_n\le1$ for all $n\ge N$. Then $a_n^2\le a_n$ for $n\ge N$, so $\sum a_n^2$ converges by the Direct Comparison Test.
+
+> **Answer**: proved by comparison with $\sum a_n$
+
+### A9. (§11.4 #48) If $a_n,b_n>0$, $\sum b_n$ converges, and $a_n/b_n\to0$, prove $\sum a_n$ converges.
+
+$\frac{a_n}{b_n}\to0$ means $a_n\le b_n$ eventually, so comparison applies. Applied to $\frac{\ln n}{n^3}$: take $b_n=\frac{1}{n^2}$, then $\frac{a_n}{b_n}=\frac{\ln n}{n}\to0$ and $\sum\frac{1}{n^2}$ converges.
+
+> **Answer**: $\sum\frac{\ln n}{n^3}$ converges
+
+### A10. (§11.6 #39) Ratio Test inconclusive?
+
+Inconclusive means $\rho=1$. (a) $\frac{1}{n^3}$ and (d) $\frac{\sqrt n}{1+n^2}$ have $\rho=1$ — both are $p$-series in disguise and converge. (b) $\rho=\frac12$ (converges); (c) $\rho=3$ (diverges).
+
+> **Answer**: (a) and (d)
+
+### A11. (§11.7 #12) $\sum_{n=1}^\infty\frac{\sqrt{n^4+1}}{n^3+n}$
+
+$a_n\sim\frac{n^2}{n^3}=\frac1n$; limit comparison with $\sum\frac1n$ (ratio $\to1$) shows divergence.
 
 > **Answer**: diverges
+
+### A12. (§11.3 #42) How many terms to get $\sum_{n=2}^\infty\frac{1}{n(\ln n)^2}$ within $0.01$?
+
+$R_N\le\int_N^\infty\frac{dx}{x(\ln x)^2}=\frac{1}{\ln N}$. Need $\frac{1}{\ln N}<0.01$, i.e. $N>e^{100}$.
+
+> **Answer**: more than $e^{100}\approx2.7\times10^{43}$ terms
 
 ---
 
@@ -181,4 +158,8 @@ $$\int \frac{\ln x}{x(\ln x)^2-1}\,dx = \int \frac{u\,e^u\,du}{e^u u^2 - 1} = \i
 
 | Problem | Convergence | Key test |
 |:--------|:-----------:|:--------:|
-| D1–D12 | see above | — |
+| D1–D6 | 2, diverge, 25/3, 2/3, diverge, 11/6 | geometric / telescoping / divergence |
+| D7–D9 | converge, diverge, diverge | p-series / integral |
+| D10–D12 | converge, converge, converge | comparison / ratio / root |
+| A1–A6 | see above | integral / ratio / comparison / alternating / root |
+| A7–A12 | see above | ratio / proof / limit comparison |

@@ -1,239 +1,180 @@
 # Solutions — 18B: Power Series — Where Does It Converge?
 
 > Back to [18B — Power Series](../18B-power-series.md)
+
 ## Basic Drills
 
-### D1. Find $R$ for $\sum_{n=0}^\infty \frac{x^n}{2^n}$.
+### D1. (§11.8 #3) Radius and interval of $\sum_{n=1}^\infty \frac{x^n}{n}$.
 
-This is geometric in $\frac{x}{2}$: converges for $\left|\frac{x}{2}\right|<1$, i.e. $|x|<2$.
+$R=\lim\frac{n+1}{n}=1$. At $x=1$ the harmonic series diverges; at $x=-1$ the alternating series converges.
 
-> **Answer**: $R = 2$
+> **Answer**: $R=1$, interval $[-1,1)$
 
-### D2. Find $R$ for $\sum_{n=1}^\infty \frac{n x^n}{3^n}$.
+### D2. (§11.8 #7) $\sum_{n=1}^\infty \frac{n}{5^n}x^n$.
 
-$c_n = \frac{n}{3^n}$: $R = \lim \frac{n/3^n}{(n+1)/3^{n+1}} = 3\lim\frac{n}{n+1} = 3$.
+$R=\lim\frac{n/5^n}{(n+1)/5^{n+1}}=5$. At $x=\pm5$ the terms do not go to $0$.
 
-> **Answer**: $R = 3$
+> **Answer**: $R=5$, interval $(-5,5)$
 
-### D3. Find interval for $\sum_{n=0}^\infty \frac{(-1)^n x^n}{n+1}$.
+### D3. (§11.8 #12) $\sum_{n=1}^\infty \frac{(-1)^n x^n}{n^2}$.
 
-$R = \lim \frac{1/(n+1)}{1/(n+2)} = 1$. Endpoints:
-- $x=1$: $\sum \frac{(-1)^n}{n+1}$ — converges (alternating).
-- $x=-1$: $\sum \frac{1}{n+1}$ — diverges (harmonic).
+$R=1$. At $x=\pm1$ the terms are $\pm1/n^2$ — a convergent $p$-series.
 
-> **Answer**: interval $(-1, 1]$
+> **Answer**: $R=1$, interval $[-1,1]$
 
-### D4. Write $\frac{1}{1+2x}$ as a power series. For which $x$?
+### D4. (§11.8 #13) $\sum_{n=0}^\infty \frac{x^n}{n!}$.
 
-$\frac{1}{1+2x} = \frac{1}{1-(-2x)} = \sum_{n=0}^\infty (-2x)^n = \sum_{n=0}^\infty (-2)^n x^n$, valid for $|-2x|<1$, i.e. $|x|<\frac12$.
+$\frac{c_n}{c_{n+1}}=n+1\to\infty$.
 
-> **Answer**: $\sum (-2)^n x^n$, $|x| < \frac12$
+> **Answer**: $R=\infty$
 
-### D5. Find a series for $\frac{1}{(1-x)^2}$.
+### D5. (§11.8 #21) $\sum_{n=0}^\infty \frac{(x-2)^n}{n^2+1}$.
 
-$\frac{d}{dx}\frac{1}{1-x} = \frac{1}{(1-x)^2} = \frac{d}{dx}\sum_{n=0}^\infty x^n = \sum_{n=1}^\infty n x^{n-1} = \sum_{n=0}^\infty (n+1)x^n$.
+$R=1$. At $x=3$: $\sum\frac{1}{n^2+1}$ converges; at $x=1$: $\sum\frac{(-1)^n}{n^2+1}$ converges.
 
-> **Answer**: $\frac{1}{(1-x)^2} = \sum_{n=0}^\infty (n+1)x^n$, $|x|<1$
+> **Answer**: $R=1$, interval $[1,3]$
 
-### D6. Find a series for $\ln(1-x)$.
+### D6. (§11.8 #4) $\sum_{n=1}^\infty (-1)^n n x^n$.
 
-$-\ln(1-x) = \int \frac{dx}{1-x} = \int \sum x^n dx = \sum \frac{x^{n+1}}{n+1} = \sum_{n=1}^\infty \frac{x^n}{n}$. So $\ln(1-x) = -\sum_{n=1}^\infty \frac{x^n}{n}$.
+$R=\lim\frac{n}{n+1}=1$. At $x=\pm1$ the terms are $\pm n$ and do not go to $0$.
 
-> **Answer**: $\ln(1-x) = -\sum_{n=1}^\infty \frac{x^n}{n}$, $|x|<1$
+> **Answer**: $R=1$, interval $(-1,1)$
 
-### D7. Evaluate $\sum_{n=1}^\infty \frac{n}{2^n}$.
+### D7. (§11.9 #3) $\frac{1}{1+x}$.
 
-$\sum_{n=1}^\infty n x^n = x\sum n x^{n-1} = x\cdot\frac{1}{(1-x)^2} = \frac{x}{(1-x)^2}$ (using D5). At $x=\frac12$:
+$\frac{1}{1-(-x)}=\sum(-1)^n x^n$.
 
-$\sum \frac{n}{2^n} = \frac{1/2}{(1/2)^2} = 2$.
+> **Answer**: $\sum_{n=0}^\infty(-1)^n x^n$, $|x|<1$
+
+### D8. (§11.9 #5) $\frac{1}{1-x^2}$.
+
+$\sum(x^2)^n=\sum x^{2n}$.
+
+> **Answer**: $\sum_{n=0}^\infty x^{2n}$, $|x|<1$
+
+### D9. (§11.9 #7) $\frac{2}{3-x}$.
+
+$\frac23\cdot\frac{1}{1-x/3}=\frac23\sum\left(\frac{x}{3}\right)^n$.
+
+> **Answer**: $\sum_{n=0}^\infty \frac{2x^n}{3^{n+1}}$, $|x|<3$
+
+### D10. (§11.9 #15a) $\frac{1}{(1+x)^2}$.
+
+Differentiate $\frac{1}{1+x}=\sum(-1)^n x^n$: $-\frac{1}{(1+x)^2}=\sum(-1)^n n x^{n-1}$, so $\frac{1}{(1+x)^2}=\sum(-1)^n(n+1)x^n$.
+
+> **Answer**: $\sum_{n=0}^\infty(-1)^n(n+1)x^n$, $R=1$
+
+### D11. (§11.9 #16a) $\ln(1-x)$.
+
+$\ln(1-x)=-\int\frac{dx}{1-x}=-\sum\frac{x^{n+1}}{n+1}=-\sum_{n=1}^\infty\frac{x^n}{n}$.
+
+> **Answer**: $-\sum_{n=1}^\infty\frac{x^n}{n}$, interval $[-1,1)$
+
+### D12. (§11.9 #46b) $\sum_{n=1}^\infty \frac{n}{2^n}$.
+
+From $\sum n x^n=\frac{x}{(1-x)^2}$, set $x=\frac12$: $\frac{1/2}{(1/2)^2}=2$.
 
 > **Answer**: $2$
 
-### D8. Find interval for $\sum_{n=1}^\infty \frac{(x+1)^n}{n^2}$.
+### D13. (§11.9 #27) $\int \frac{t}{1-t^8}\,dt$.
 
-$R=1$, center $-1$. Endpoints: $x=0$: $\sum \frac{1}{n^2}$ converges; $x=-2$: $\sum \frac{(-1)^n}{n^2}$ converges (absolutely).
+$\frac{t}{1-t^8}=t\sum t^{8n}=\sum t^{8n+1}$, so the integral is $\sum\frac{t^{8n+2}}{8n+2}+C$.
 
-> **Answer**: interval $[-2, 0]$
+> **Answer**: $\sum_{n=0}^\infty\frac{t^{8n+2}}{8n+2}+C$, $R=1$
 
-### D9. Differentiate the series for $\sin x = \sum (-1)^n \frac{x^{2n+1}}{(2n+1)!}$.
+### D14. (§11.8 #16) $\sum_{n=1}^\infty 2^n n^2 x^n$.
 
-$\frac{d}{dx}\sin x = \sum (-1)^n \frac{(2n+1)x^{2n}}{(2n+1)!} = \sum_{n=0}^\infty \frac{(-1)^n x^{2n}}{(2n)!} = \cos x$. ✓
+$R=\lim\frac{2^n n^2}{2^{n+1}(n+1)^2}=\frac12$.
 
-> **Answer**: $\cos x = \sum \frac{(-1)^n x^{2n}}{(2n)!}$ — term-by-term differentiation recovers the cosine series
+> **Answer**: $R=\frac12$
 
-### D10. Find $R$ for $\sum_{n=0}^\infty \frac{(2n)!}{(n!)^2}x^n$.
+### D15. (§11.8 #31) $\sum_{n=1}^\infty n!(2x-1)^n$.
 
-$\frac{c_{n+1}}{c_n} = \frac{(2n+2)!}{(n+1)!(n+1)!}\cdot\frac{n!n!}{(2n)!} = \frac{(2n+2)(2n+1)}{(n+1)^2} \to 4$. So $R = \frac{1}{4}$.
+Write $2x-1=2\left(x-\frac12\right)$, so $c_n=n!\,2^n$ and $\frac{c_n}{c_{n+1}}=\frac{1}{2(n+1)}\to0$.
 
-> **Answer**: $R = \frac14$
+> **Answer**: $R=0$ (converges only at $x=\frac12$)
 
-### D11. Find a power series for $\frac{x}{(1-x)^2}$.
+### D16. (§11.8 #25) $\sum_{n=1}^\infty \frac{(x-2)^n}{n^n}$.
 
-$\frac{x}{(1-x)^2} = x\cdot\sum_{n=0}^\infty (n+1)x^n = \sum_{n=0}^\infty (n+1)x^{n+1} = \sum_{n=1}^\infty n x^n$.
+$\frac{c_n}{c_{n+1}}=\frac{(n+1)^{n+1}}{n^n}=(n+1)\left(1+\frac1n\right)^n\to\infty$.
 
-> **Answer**: $\frac{x}{(1-x)^2} = \sum_{n=1}^\infty n x^n$, $|x|<1$
-
-### D12. Evaluate $\sum_{n=0}^\infty \frac{(-1)^n}{2^n}$.
-
-$\sum \left(-\frac12\right)^n = \frac{1}{1-(-1/2)} = \frac{1}{3/2} = \frac23$.
-
-> **Answer**: $\frac23$
-
-### D13. Evaluate $1 - \frac12 + \frac13 - \frac14 + \cdots$ — and justify that the endpoint is allowed.
-
-This is $\sum_{n=1}^\infty \frac{(-1)^{n+1}}{n}$, i.e. the series for $\ln(1+x)$ at $x=1$. The interval of the $\ln(1+x)$ series is $(-1,1]$ — at $x=1$ the alternating series converges, at $x=-1$ it is the harmonic series. Since $x=1$ lies inside the interval, the value is legitimate:
-
-$$1-\frac12+\frac13-\frac14+\cdots = \ln 2.$$
-
-> **Answer**: $\ln 2$ — endpoint values are only trustworthy after the endpoint check.
-
-### D14. Write $\sum_{n=1}^\infty n x^{n-1}$ starting from $n=0$, then evaluate $\sum_{n=1}^\infty \frac{n}{2^{n-1}}$.
-
-Shift $k=n-1$: $\sum_{n=1}^\infty n x^{n-1} = \sum_{k=0}^\infty (k+1)x^k$. This is the derivative of the geometric series:
-
-$$\sum_{k=0}^\infty (k+1)x^k = \frac{1}{(1-x)^2}, \qquad |x|<1.$$
-
-At $x=\frac12$: $\sum_{n=1}^\infty \frac{n}{2^{n-1}} = \frac{1}{(1-\frac12)^2} = 4$.
-
-> **Answer**: $4$
-
-### D15. Evaluate $\sum_{n=1}^\infty \frac{n^2}{2^n}$.
-
-Split $n^2 = n(n-1)+n$. Differentiating the geometric series twice:
-
-$$\sum_{n=0}^\infty n(n-1)x^{n-2} = \frac{2}{(1-x)^3} \;\Rightarrow\; \sum_{n=1}^\infty n(n-1)x^n = \frac{2x^2}{(1-x)^3},$$
-$$\sum_{n=1}^\infty n x^n = \frac{x}{(1-x)^2}.$$
-
-At $x=\frac12$: $\sum \frac{n(n-1)}{2^n} = \frac{2\cdot\frac14}{(\frac12)^3} = 4$ and $\sum \frac{n}{2^n} = \frac{\frac12}{(\frac12)^2} = 2$. Total $4+2=6$.
-
-> **Answer**: $6$ — $n^2=n(n-1)+n$ decomposes any polynomial-in-$n$ sum into derivatives of the geometric series.
-
-### D16. Find $R$ for $\sum_{n=0}^\infty \left(\frac{x}{2}\right)^{n^2}$.
-
-The coefficients are $c_k = 2^{-k}$ when $k$ is a perfect square and $c_k=0$ otherwise. The ratio test is helpless (infinitely many zero coefficients). Root test:
-
-$$\limsup_{k\to\infty}\left|c_k x^k\right|^{1/k} = \left|\frac{x}{2}\right| \quad (\text{limit over square indices}).$$
-
-Convergence when $\left|\frac{x}{2}\right|<1$, i.e. $|x|<2$.
-
-> **Answer**: $R=2$ — the root test handles "gappy" series where the ratio test cannot even start.
+> **Answer**: $R=\infty$
 
 ---
 
 ## Advanced Drills
 
-### A1. Find the interval for $\sum_{n=1}^\infty \frac{n(x+3)^n}{4^n}$.
+### A1. (§11.8 #23) $\sum_{n=2}^\infty \frac{(x+2)^n}{2^n \ln n}$.
 
-$c_n = \frac{n}{4^n}$: $R = \lim \frac{n/4^n}{(n+1)/4^{n+1}} = 4$. Center $-3$ → interval $(-7, 1)$.
+$R=2$ about $-2$, so $(-4,0)$. At $x=0$: $\sum\frac{1}{\ln n}$ diverges (compare to $\frac1n$); at $x=-4$: $\sum\frac{(-1)^n}{\ln n}$ converges.
 
-Endpoints:
-- $x=1$: $\sum \frac{n\cdot4^n}{4^n} = \sum n$ — diverges (terms $\to\infty$).
-- $x=-7$: $\sum \frac{n(-4)^n}{4^n} = \sum (-1)^n n$ — diverges (terms $\to\infty$, not even $\to 0$).
+> **Answer**: $R=2$, interval $[-4,0)$
 
-> **Answer**: interval $(-7, 1)$ — both endpoints excluded
+### A2. (§11.9 #13) $\frac{2x-4}{x^2-4x+3}$.
 
-### A2. Find a power series for $\frac{x}{1+x-2x^2}$.
+$\frac{2x-4}{(x-1)(x-3)}=\frac{1}{x-1}+\frac{1}{x-3}=-\frac{1}{1-x}-\frac13\cdot\frac{1}{1-x/3}$.
 
-① Factor: $1+x-2x^2 = (1-x)(1+2x)$.
+> **Answer**: $-\sum_{n=0}^\infty x^n-\frac13\sum_{n=0}^\infty\left(\frac{x}{3}\right)^n$, interval $(-1,1)$
 
-② Partial fractions: $\frac{x}{(1-x)(1+2x)} = \frac{A}{1-x} + \frac{B}{1+2x}$.
-$x = A(1+2x) + B(1-x)$ → $A+B=0$, $2A-B=1$ → $A=\frac13$, $B=-\frac13$.
+### A3. (§11.9 #22) $x^2\arctan(x^3)$.
 
-③ Geometric series: $\frac{1}{3}\sum x^n - \frac{1}{3}\sum (-2x)^n = \sum \frac{1-(-2)^n}{3}x^n$.
+$\arctan u=\sum(-1)^n\frac{u^{2n+1}}{2n+1}$ with $u=x^3$, then multiply by $x^2$.
 
-> **Answer**: $\frac{x}{1+x-2x^2} = \sum_{n=0}^\infty \frac{1-(-2)^n}{3}x^n$, $|x|<\frac12$
+> **Answer**: $\sum_{n=0}^\infty\frac{(-1)^n x^{6n+5}}{2n+1}$, $|x|<1$
 
-### A3. Evaluate $\lim_{x\to0}\frac{e^x-1-x}{x^2}$.
+### A4. (§11.9 #46a) Show $\sum_{n=1}^\infty n x^{n-1}=\frac{1}{(1-x)^2}$, then $\sum\frac{n}{2^n}=2$.
 
-$e^x = 1+x+\frac{x^2}{2}+\frac{x^3}{6}+\cdots$, so $\frac{e^x-1-x}{x^2} = \frac{\frac{x^2}{2}+\cdots}{x^2} \to \frac12$.
+Differentiate $\sum x^n=\frac{1}{1-x}$ to get $\sum n x^{n-1}=\frac{1}{(1-x)^2}$. Multiplying by $x$: $\sum n x^n=\frac{x}{(1-x)^2}$. At $x=\frac12$: $\frac{1/2}{1/4}=2$.
 
-> **Answer**: $\frac12$
+> **Answer**: $2$
 
-### A4. Prove $\sum_{n=1}^\infty \frac{n}{3^n} = \frac{3}{4}$.
+### A5. (§11.8 #26) $\sum_{n=1}^\infty \frac{(2x-1)^n}{5^n\sqrt n}$.
 
-$\sum_{n=0}^\infty x^n = \frac{1}{1-x}$; differentiate: $\sum_{n=1}^\infty n x^{n-1} = \frac{1}{(1-x)^2}$, so $\sum_{n=1}^\infty n x^n = \frac{x}{(1-x)^2}$.
+$R=\frac52$ about $x=\frac12$, so $-\frac34<x<\frac74$. At $x=\frac74$: $\sum\frac{1}{\sqrt n}$ diverges; at $x=-\frac34$: $\sum\frac{(-1)^n}{\sqrt n}$ converges.
 
-At $x=\frac13$: $\frac{1/3}{(1-1/3)^2} = \frac{1/3}{(2/3)^2} = \frac{1/3}{4/9} = \frac{3}{4}$.
+> **Answer**: $R=\frac52$, interval $\left[-\frac34,\frac74\right)$
 
-> **Answer**: $\sum \frac{n}{3^n} = \frac34$ ✓
+### A6. (§11.9 #34) $\int_0^{0.3} \frac{x^2}{1+x^4}\,dx$.
 
-### A5. Find the interval for $\sum_{n=1}^\infty \frac{(x-1)^n}{n\cdot5^n}$.
+$\frac{x^2}{1+x^4}=\sum(-1)^n x^{4n+2}$; integrating, $\sum(-1)^n\frac{(0.3)^{4n+3}}{4n+3}=0.009-0.0000312+\cdots$
 
-$R=5$, center $1$ → interval $(-4, 6)$.
-- $x=6$: $\sum \frac{1}{n}$ — diverges.
-- $x=-4$: $\sum \frac{(-1)^n}{n}$ — converges.
+> **Answer**: $\approx0.008969$
 
-> **Answer**: interval $[-4, 6)$
+### A7. (§11.8 #39) $\sum_{n=0}^\infty \frac{(n!)^k}{(kn)!}x^n$.
 
-### A6. Express $\int_0^{1/2} \frac{dx}{1+x^4}$ as a series. Compute to 4 decimal places.
+$\frac{c_n}{c_{n+1}}=\frac{(n+1)^k}{(kn+k)(kn+k-1)\cdots(kn+1)}\to\frac{1}{k^k}$.
 
-$\frac{1}{1+x^4} = \sum_{n=0}^\infty (-1)^n x^{4n}$, so
+> **Answer**: $R=k^k$
 
-$$\int_0^{1/2}\frac{dx}{1+x^4} = \sum_{n=0}^\infty (-1)^n \frac{(1/2)^{4n+1}}{4n+1}.$$
+### A8. (§11.9 #37) $f(x)=\sum\frac{x^n}{n!}$: show $f'=f$ and identify $f$.
 
-Terms: $\frac12 - \frac{1}{5\cdot32} + \frac{1}{9\cdot512} - \frac{1}{13\cdot8192} + \cdots = 0.5 - 0.00625 + 0.000217 - 0.0000094 + \cdots$
+$f'(x)=\sum_{n=1}^\infty\frac{n x^{n-1}}{n!}=\sum_{n=1}^\infty\frac{x^{n-1}}{(n-1)!}=f(x)$, and $f(0)=1$. The unique solution is $f(x)=e^x$.
 
-Alternating: after $0.5 - 0.00625 + 0.000217 = 0.493967$, the next term ($\approx 9.4\times10^{-6}$) bounds the error, well under $0.00005$.
+> **Answer**: $f=e^x$
 
-> **Answer**: $\sum_{n=0}^\infty \frac{(-1)^n}{4n+1}\left(\frac12\right)^{4n+1} \approx 0.4940$
+### A9. (§11.8 #43) $f(x)=1+2x+x^2+2x^3+\cdots$.
 
-### A7. Find all $x$ for which $\sum_{n=0}^\infty \frac{n!\,(x-2)^n}{n^n}$ converges.
+$f=\sum x^{2n}+2\sum x^{2n+1}=\frac{1}{1-x^2}+\frac{2x}{1-x^2}=\frac{1+2x}{1-x^2}$.
 
-**Ratio**: $\frac{a_{n+1}}{a_n} = \frac{(n+1)!\,(x-2)^{n+1}/(n+1)^{n+1}}{n!(x-2)^n/n^n} = \left(\frac{n}{n+1}\right)^n |x-2| \to \frac{|x-2|}{e}$.
+> **Answer**: $f(x)=\frac{1+2x}{1-x^2}$, interval $(-1,1)$
 
-So the series converges for $|x-2| < e$, i.e. $R = e$.
+### A10. (§11.9 #25) $\ln\left(\frac{1+x}{1-x}\right)$.
 
-**Stirling check**: $\frac{n!}{n^n} \sim \sqrt{2\pi n}\,e^{-n}$, so $\sqrt[n]{|a_n|} \to \frac{|x-2|}{e}$ — same radius $e$.
+$\ln(1+x)-\ln(1-x)=\sum(-1)^{n-1}\frac{x^n}{n}+\sum\frac{x^n}{n}$; even powers cancel.
 
-> **Answer**: converges for $|x-2| < e$ (radius $R = e$, center $2$)
+> **Answer**: $2\sum_{n=0}^\infty\frac{x^{2n+1}}{2n+1}$, interval $(-1,1)$
 
-### A8. A power series satisfies $f'(x)=f(x)$ with $f(0)=1$. Find the series and identify $f$.
+### A11. (§11.9 #16c) Express $\ln 2$ as a series.
 
-Let $f = \sum_{n=0}^\infty c_n x^n$, $c_0 = f(0) = 1$. Then $f' = \sum_{n=1}^\infty n c_n x^{n-1} = \sum_{k=0}^\infty (k+1)c_{k+1}x^k$.
+Set $x=\frac12$ in $\ln(1-x)=-\sum\frac{x^n}{n}$: $\ln\frac12=-\sum\frac{(1/2)^n}{n}$, so $\ln2=\sum_{n=1}^\infty\frac{1}{n\,2^n}$.
 
-Equating $f' = f$: $(k+1)c_{k+1} = c_k$, so $c_{k+1} = \frac{c_k}{k+1}$ → $c_n = \frac{1}{n!}$.
+> **Answer**: $\ln2=\sum_{n=1}^\infty\frac{1}{n\,2^n}$
 
-> **Answer**: $f(x) = \sum_{n=0}^\infty \frac{x^n}{n!} = e^x$
+### A12. (§11.8 #46) Radius of $\sum c_n x^{2n}$ if $\sum c_n x^n$ has radius $R$.
 
-### A9. Find the radius for $\sum_{n=0}^\infty \binom{2n}{n}x^n$.
+Let $u=x^2$. Convergence requires $|u|<R$, i.e. $|x|<\sqrt R$.
 
-$\frac{c_{n+1}}{c_n} = \frac{\binom{2n+2}{n+1}}{\binom{2n}{n}} = \frac{(2n+2)(2n+1)}{(n+1)(n+1)} \to 4$, so $R = \frac14$.
-
-> **Answer**: $R = \frac14$
-
-### A10. Multiply the series for $e^x$ by itself. Show the result is the series for $e^{2x}$.
-
-$(e^x)^2 = \left(\sum \frac{x^n}{n!}\right)\left(\sum \frac{x^n}{n!}\right) = \sum_{n=0}^\infty \left(\sum_{k=0}^n \frac{1}{k!}\frac{1}{(n-k)!}\right)x^n$.
-
-Inner sum: $\frac{1}{n!}\sum_{k=0}^n \frac{n!}{k!(n-k)!} = \frac{1}{n!}\sum_{k=0}^n \binom{n}{k} = \frac{2^n}{n!}$ (binomial theorem).
-
-So $(e^x)^2 = \sum \frac{2^n}{n!}x^n = e^{2x}$. ✓
-
-> **Answer**: Cauchy product gives $\sum \frac{2^n}{n!}x^n = e^{2x}$
-
-### A11. Find the radius and interval of convergence for $\sum_{n=1}^\infty \frac{(3x-1)^n}{n\cdot 2^n}$.
-
-Rewrite: $\frac{(3x-1)^n}{n2^n} = \frac{3^n}{n2^n}\left(x-\frac13\right)^n$. Center $a=\frac13$.
-
-$R = \lim \frac{c_n}{c_{n+1}} = \lim \frac{3^n/(n2^n)}{3^{n+1}/((n+1)2^{n+1})} = \frac23 \lim \frac{n+1}{n} = \frac23$.
-
-Interval: $\left(\frac13 - \frac23,\, \frac13 + \frac23\right) = \left(-\frac13,\, 1\right)$.
-- $x=1$: $\sum \frac{1}{n}$ — diverges.
-- $x=-\frac13$: $\sum \frac{(-1)^n}{n}$ — converges.
-
-> **Answer**: radius $\frac23$, interval $[-\frac13, 1)$
-
-### A12. Find a power series for $\ln\left(\frac{1+x}{1-x}\right)$. What is its interval of convergence?
-
-$\ln\frac{1+x}{1-x} = \ln(1+x) - \ln(1-x) = \sum_{n=1}^\infty \frac{(-1)^{n+1}x^n}{n} + \sum_{n=1}^\infty \frac{x^n}{n}$.
-
-Odd $n$: $(-1)^{n+1} = 1$, terms double: $\frac{2x^n}{n}$. Even $n$: $(-1)^{n+1} = -1$, terms cancel.
-
-So $\ln\frac{1+x}{1-x} = 2\sum_{k=0}^\infty \frac{x^{2k+1}}{2k+1} = 2\left(x + \frac{x^3}{3} + \frac{x^5}{5} + \cdots\right)$.
-
-Interval: $\ln(1+x)$ needs $x\in(-1,1]$, $\ln(1-x)$ needs $x\in[-1,1)$ → intersection $(-1,1)$; both endpoints diverge (the log blows up).
-
-> **Answer**: $\ln\frac{1+x}{1-x} = 2\sum_{k=0}^\infty \frac{x^{2k+1}}{2k+1}$, interval $(-1,1)$
+> **Answer**: $\sqrt R$
 
 ---
 
@@ -241,4 +182,7 @@ Interval: $\ln(1+x)$ needs $x\in(-1,1]$, $\ln(1-x)$ needs $x\in[-1,1)$ → inter
 
 | Problem | Answer |
 |:--------|:-------|
-| D1–D12 | see above |
+| D1–D6 | $R=1,[-1,1)$ · $5,(-5,5)$ · $1,[-1,1]$ · $\infty$ · $1,[1,3]$ · $1,(-1,1)$ |
+| D7–D11 | geometric-based series from $\frac{1}{1-x}$ |
+| D12–D16 | $2$ · $\sum\frac{t^{8n+2}}{8n+2}$ · $\frac12$ · $0$ · $\infty$ |
+| A1–A12 | see above |

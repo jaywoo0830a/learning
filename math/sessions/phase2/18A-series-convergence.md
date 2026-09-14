@@ -6,19 +6,28 @@
 
 > 💡 **Stuck?** Every problem has a collapsible **Hint** below it — click it only when you need a nudge.
 
+> **Source.** Every example and drill below is taken from Stewart, *Calculus*, Chapter 11 (Sections 11.2–11.7). Each item cites its section and exercise number.
+
 ---
 
 ## Part A: What Is a Series?
 
 ---
 
-## Example 1: From Sequence to Series
+## Example 1: From Partial Sums to a Series (§11.2 Ex 1)
 
-A **series** $\sum_{n=1}^\infty a_n$ is the limit of **partial sums** $S_N = \sum_{n=1}^N a_n$.
+A **series** $\sum_{n=1}^\infty a_n$ is the limit of its **partial sums** $S_N = \sum_{n=1}^N a_n$.
+
+Suppose we only know that the sum of the first $n$ terms is
+$$S_n = \frac{2n}{3n+5}.$$
+Then the sum of the series is the limit of these partial sums:
+$$\sum_{n=1}^\infty a_n = \lim_{n\to\infty} S_n = \lim_{n\to\infty}\frac{2n}{3n+5} = \frac{2}{3}.$$
 
 If $\lim_{N\to\infty} S_N = S$ (finite), the series **converges** to $S$. Otherwise it **diverges**.
 
-**Divergence Test** (🔗 13C): If $\lim a_n \neq 0$, the series diverges. But $\lim a_n = 0$ does NOT guarantee convergence — the harmonic series $\sum 1/n$ proves this.
+**Divergence Test** (§11.2 Ex 9, 🔗 13C): if $\lim_{n\to\infty} a_n \neq 0$, the series diverges.
+$$\sum_{n=1}^\infty \frac{n^2}{5n^2+4}: \quad \lim_{n\to\infty}\frac{n^2}{5n^2+4} = \frac15 \neq 0 \;\Rightarrow\; \text{diverges.}$$
+A limit of $0$ proves nothing — the harmonic series has $a_n\to 0$ and still diverges.
 
 ---
 
@@ -26,12 +35,13 @@ If $\lim_{N\to\infty} S_N = S$ (finite), the series **converges** to $S$. Otherw
 
 ---
 
-## Example 2: Geometric Series (🔗 12B1)
+## Example 2: Geometric Series (§11.2 Ex 3, Ex 4)
 
-$\displaystyle \sum_{n=0}^\infty ar^n = \frac{a}{1-r}$ **if and only if** $|r| < 1$. Diverges if $|r| \ge 1$.
+$$\sum_{n=1}^\infty ar^{n-1} = \frac{a}{1-r} \quad \text{if and only if } |r|<1. \qquad \text{Diverges if } |r|\ge 1.$$
 
-$\sum_{n=0}^\infty \frac{2}{3^n} = \frac{2}{1-1/3} = 3$.
-$\sum_{n=1}^\infty 5\left(-\frac{1}{2}\right)^n = \frac{5(-1/2)}{1-(-1/2)} = -\frac{5}{3}$.
+$5-\frac{10}{3}+\frac{20}{9}-\frac{40}{27}+\cdots$: $a=5$, $r=-\frac23$, so $\frac{5}{1-(-2/3)}=3$.
+
+$\sum_{n=1}^\infty 2^{2n}3^{1-n}=\sum_{n=1}^\infty 3\left(\frac43\right)^n$: $r=\frac43\ge1$ → diverges.
 
 ![Geometric series — convergence vs divergence]({{graph:18a-1-geometric-series}})
 
@@ -39,23 +49,25 @@ $\sum_{n=1}^\infty 5\left(-\frac{1}{2}\right)^n = \frac{5(-1/2)}{1-(-1/2)} = -\f
 
 ---
 
-## Example 3: Telescoping Series (🔗 12B2)
+## Example 3: Telescoping Series (§11.2 Ex 2, Ex 10)
 
-Terms cancel in pairs — only first and last survive.
+When terms cancel in pairs, only the first and last survive.
 
-$\displaystyle \sum_{n=1}^\infty \frac{1}{n(n+1)} = \sum_{n=1}^\infty\left(\frac{1}{n}-\frac{1}{n+1}\right)$.
+$$\sum_{n=1}^\infty \frac{1}{n(n+1)} = \sum_{n=1}^\infty\left(\frac1n-\frac1{n+1}\right), \qquad S_N = 1-\frac{1}{N+1} \to 1.$$
 
-$S_N = (1-\frac{1}{2})+(\frac{1}{2}-\frac{1}{3})+\cdots+(\frac{1}{N}-\frac{1}{N+1}) = 1-\frac{1}{N+1} \to 1$.
+$$\sum_{n=1}^\infty\left(\frac{3}{n(n+1)}+\frac{1}{2^n}\right) = 3\sum\frac{1}{n(n+1)}+\sum\frac{1}{2^n} = 3\cdot1+1 = 4.$$
 
 ---
 
-## Example 4: $p$-Series (🔗 12B2, 17B)
+## Example 4: $p$-Series and the Integral Test (§11.3 Ex 1, Ex 2, Ex 4)
 
-$\displaystyle \sum_{n=1}^\infty \frac{1}{n^p}$ converges $\iff p > 1$.
+$$\sum_{n=1}^\infty \frac{1}{n^p} \text{ converges} \iff p>1.$$
 
-$p=1$: harmonic series — **diverges** (very slowly).
-$p=2$: $\sum 1/n^2 = \pi^2/6 \approx 1.645$ — **converges**.
-$p=1/2$: $\sum 1/\sqrt{n}$ — **diverges**.
+**Integral Test**: if $f$ is positive, continuous, decreasing on $[1,\infty)$ and $f(n)=a_n$, then $\sum f(n)$ and $\int_1^\infty f(x)\,dx$ converge or diverge together.
+
+$\sum\frac{1}{n^2+1}$: $\int_1^\infty\frac{dx}{x^2+1}=\frac{\pi}{4}$ converges → series converges.
+
+$\sum\frac{\ln n}{n}$: $f(x)=\frac{\ln x}{x}$ decreases for $x>e$, and $\int_1^\infty\frac{\ln x}{x}\,dx$ diverges → diverges.
 
 ![p-series and integral test]({{graph:18a-2-p-series}})
 
@@ -65,85 +77,95 @@ $p=1/2$: $\sum 1/\sqrt{n}$ — **diverges**.
 
 ## Part C: Convergence Tests — The Workflow
 
-> **Decision order**: Divergence Test → Geometric? → Telescoping? → $p$-series? → Integral Test → Comparison → Limit Comparison → Ratio → Root → Alternating.
+> **Decision order** (§11.7): Divergence Test → Geometric? → Telescoping? → $p$-series? → Integral Test → Comparison → Limit Comparison → Ratio → Root → Alternating.
 
 ---
 
-## Example 5: Integral Test (🔗 17B)
+## Example 5: Comparison Test (§11.4 Ex 1, Ex 2)
 
-If $f(x)$ is positive, continuous, decreasing: $\sum f(n)$ and $\int_1^\infty f(x)dx$ **both converge or both diverge**.
+Given $0\le a_n\le b_n$: if $\sum b_n$ converges then $\sum a_n$ converges; if $\sum a_n$ diverges then $\sum b_n$ diverges.
 
-$\sum_{n=1}^\infty \frac{1}{n^2+1}$: compare to $\int_1^\infty \frac{dx}{x^2+1} = \frac{\pi}{4}$ (converges). → Converges.
+$\sum\frac{5}{2n^2+4n+3}$: $\frac{5}{2n^2+4n+3}\le\frac{5}{2n^2}$ and $\sum\frac{1}{n^2}$ converges → converges.
 
----
-
-## Example 6: Comparison Test
-
-Given $0 \le a_n \le b_n$: if $\sum b_n$ converges, $\sum a_n$ converges. If $\sum a_n$ diverges, $\sum b_n$ diverges.
-
-$\sum_{n=1}^\infty \frac{1}{n^2+3n}$: $\frac{1}{n^2+3n} \le \frac{1}{n^2}$. $\sum 1/n^2$ converges → converges.
-
-$\sum_{n=1}^\infty \frac{n}{n^2+1}$: $\frac{n}{n^2+1} \ge \frac{n}{n^2+n^2} = \frac{1}{2n}$. Diverges by harmonic.
+$\sum\frac{\ln k}{k}$: for $k\ge3$, $\frac{\ln k}{k}\ge\frac1k$, and $\sum\frac1k$ diverges → diverges.
 
 ---
 
-## Example 7: Limit Comparison Test
+## Example 6: Limit Comparison Test (§11.4 Ex 3, Ex 4)
 
-$\lim_{n\to\infty} \frac{a_n}{b_n} = L$ with $0 < L < \infty$ → both converge or both diverge.
+If $\lim_{n\to\infty}\frac{a_n}{b_n}=L$ with $0<L<\infty$, the two positive series share their fate.
 
-$\sum \frac{n^2+1}{n^3+5}$: choose $b_n = 1/n$ (harmonic). $\lim \frac{a_n}{b_n} = 1$. → Diverges.
+$\sum\frac{1}{2^n-1}$: take $b_n=\frac{1}{2^n}$. Then $\frac{a_n}{b_n}=\frac{2^n}{2^n-1}\to1$ → converges.
+
+$\sum\frac{2n^2+3n}{\sqrt{5+n^5}}$: dominant parts give $b_n=\frac{2n^2}{n^{5/2}}=\frac{2}{n^{1/2}}$, a divergent $p$-series with $p=\frac12$ → diverges.
 
 ---
 
-## Example 8: Ratio Test (🔗 12B1)
+## Example 7: Ratio Test (§11.6 Ex 1, Ex 2)
 
-The ratio test generalizes the geometric series intuition: a series converges if, eventually, each term is at most $r<1$ times the previous term.
+$$\lim_{n\to\infty}\left|\frac{a_{n+1}}{a_n}\right|=\rho. \quad \rho<1 \Rightarrow \text{converges}, \quad \rho>1 \Rightarrow \text{diverges}, \quad \rho=1 \Rightarrow \text{no information.}$$
 
-$\displaystyle \lim_{n\to\infty} \left|\frac{a_{n+1}}{a_n}\right| = \rho$.
+$\sum(-1)^n\frac{n^3}{3^n}$: $\rho=\lim\frac{(n+1)^3}{3n^3}=\frac13<1$ → converges (absolutely).
 
-$\rho < 1$ → converges absolutely. $\rho > 1$ → diverges. $\rho = 1$ → inconclusive.
+$\sum\frac{n^n}{n!}$: $\rho=\lim\frac{(n+1)^{n+1}}{(n+1)!}\cdot\frac{n!}{n^n}=\lim\left(1+\frac1n\right)^n=e>1$ → diverges.
 
 ![Ratio test visualization]({{graph:18a-4-ratio-test}})
 
 *Graph 18A-4: Left — $\sum n!/n^n$: the ratio $a_{n+1}/a_n$ converges to $1/e < 1$, so the series converges. Right — $\sum n!/2^n$: the ratio grows without bound ($> 1$), so the series diverges.*
 
-$\sum \frac{2^n}{n!}$: $\rho = \lim \frac{2^{n+1}/(n+1)!}{2^n/n!} = \lim \frac{2}{n+1} = 0 < 1$ → converges.
+---
 
-$\sum \frac{n!}{n^n}$: $\rho = \lim \frac{(n+1)!/(n+1)^{n+1}}{n!/n^n} = \lim \left(\frac{n}{n+1}\right)^n = \frac{1}{e} < 1$ → converges.
+## Example 8: Root Test (§11.6 Ex 4, Ex 5)
+
+$$\lim_{n\to\infty}\sqrt[n]{|a_n|}=\rho, \text{ with the same criteria as the Ratio Test.}$$
+
+$\sum\left(\frac{2n+3}{3n+2}\right)^n$: $\rho=\frac23<1$ → converges.
+
+$\sum\left(\frac{n}{n+1}\right)^n$: $\rho=1$, so the Root Test says nothing; but $\left(\frac{n}{n+1}\right)^n\to\frac1e\neq0$, so the Divergence Test gives divergence.
 
 ---
 
-## Example 9: Root Test
+## Example 9: Alternating Series Test (§11.5 Ex 1)
 
-$\displaystyle \lim_{n\to\infty} \sqrt[n]{|a_n|} = \rho$. Same criteria as ratio test.
+If $b_n>0$, $b_{n+1}\le b_n$, and $\lim b_n=0$, then $\sum(-1)^{n-1}b_n$ converges.
 
-$\sum \left(\frac{n}{2n+1}\right)^n$: $\rho = \lim \frac{n}{2n+1} = \frac{1}{2} < 1$ → converges.
+$\sum_{n=1}^\infty\frac{(-1)^{n-1}}{n}=1-\frac12+\frac13-\cdots$ converges.
 
----
-
-## Example 10: Alternating Series Test
-
-If $a_n > 0$, $a_n$ decreasing, and $\lim a_n = 0$: $\sum (-1)^{n+1}a_n$ converges.
+**Error bound**: $|S-S_N|\le b_{N+1}$ — the error is at most the first omitted term.
 
 ![Alternating series — conditional convergence]({{graph:18a-3-alternating-series}})
 
 *Graph 18A-3: Left — Alternating harmonic series $\sum (-1)^{n+1}/n$ converges to $\ln 2$. Terms alternate sign and shrink to zero; partial sums converge in a zigzag pattern. Right — Comparison of $\sum 1/n$ (divergent) vs $\sum (-1)^{n+1}/n$ (convergent conditional): the absolute series diverges while the alternating series converges.*
 
-**Error bound**: $|S - S_N| \le a_{N+1}$. The error after $N$ terms is at most the first omitted term.
+---
 
-$\sum_{n=1}^\infty \frac{(-1)^{n+1}}{n} = \ln 2$. $a_n = 1/n \searrow 0$ → converges (conditionally).
+## Example 10: Absolute vs Conditional Convergence (§11.5 Ex 5, Ex 6, Ex 7)
+
+- $\sum|a_n|$ converges → $\sum a_n$ converges **absolutely** (rearrangement never changes the sum).
+- $\sum a_n$ converges but $\sum|a_n|$ diverges → **conditionally convergent** (rearrangement can change the sum).
+
+$\sum(-1)^{n-1}\frac{1}{n^2}$: $\sum\frac{1}{n^2}$ converges → absolutely convergent.
+
+$\sum(-1)^{n-1}\frac1n$: $\sum\frac1n$ diverges → conditionally convergent.
+
+$\sum\frac{\cos n}{n^2}$: not alternating, but $\left|\frac{\cos n}{n^2}\right|\le\frac{1}{n^2}$ → absolutely convergent.
 
 ---
 
-## Example 11: Absolute vs Conditional Convergence
+## Example 11: The Strategy in Action (§11.7 Ex 1–6)
 
-$\sum |a_n|$ converges → $\sum a_n$ converges **absolutely** (rearrangement doesn't matter).
-$\sum a_n$ converges but $\sum |a_n|$ diverges → **conditionally convergent** (rearrangement can change the sum!).
+Classify by form, then pick the test.
 
-$\sum \frac{(-1)^{n+1}}{n^2}$: $\sum 1/n^2$ converges → absolutely convergent.
-$\sum \frac{(-1)^{n+1}}{n}$: $\sum 1/n$ diverges → conditionally convergent.
+| Series | Form | Test | Verdict |
+|:--|:--|:--|:--|
+| $\sum\frac{n-1}{2n+1}$ | $a_n\not\to0$ | Divergence | diverges |
+| $\sum\frac{\sqrt{n^3+1}}{3n^3+4n^2+2}$ | algebraic | Limit Comparison, $b_n=\frac{1}{3n^{3/2}}$ | converges |
+| $\sum n e^{-n^2}$ | integrable $f$ | Integral | converges |
+| $\sum(-1)^n\frac{n^2}{n^4+1}$ | alternating | Alternating, abs. via $\sum 1/n^2$ | converges absolutely |
+| $\sum\frac{2^k}{k!}$ | factorial | Ratio | converges |
+| $\sum\frac{1}{2+3^n}$ | like geometric | Comparison, $\sum 1/3^n$ | converges |
 
-> **Up to here**: 10 convergence tests. Geometric: $|r|<1$. $p$-series: $p>1$. Integral/Comparison/Limit Comparison/Ratio/Root/Alternating + Divergence Test.
+> **Up to here**: 10 convergence tests. Geometric: $|r|<1$. $p$-series: $p>1$. Integral / Comparison / Limit Comparison / Ratio / Root / Alternating + Divergence Test.
 
 ---
 
@@ -155,7 +177,11 @@ $\sum \frac{(-1)^{n+1}}{n}$: $\sum 1/n$ diverges → conditionally convergent.
 
 ### Mistake 2: Ratio test gives $\rho=1$ and you conclude divergence
 
-**Wrong**. $\rho=1$ is inconclusive. Try comparison or integral test.
+**Wrong**. $\rho=1$ is inconclusive. Try comparison or the integral test.
+
+### Mistake 3: Root test gives $\rho=1$ and you stop thinking
+
+At $\rho=1$ the Root Test says nothing, yet $\sum\left(\frac{n}{n+1}\right)^n$ still diverges — because its terms tend to $1/e$, not $0$.
 
 ---
 
@@ -163,62 +189,59 @@ $\sum \frac{(-1)^{n+1}}{n}$: $\sum 1/n$ diverges → conditionally convergent.
 
 ```
 (1) Series = limit of partial sums. Divergence Test: a_n →/ 0 ⇒ diverges.
-(2) Geometric: Σar^n = a/(1-r), |r|<1. Telescoping: Σ(b_n-b_{n+1}). p-series: Σ1/n^p, p>1.
-(3) Integral Test: Σf(n) ↔ ∫f(x)dx. Comparison: bound by known series.
-(4) Ratio/Root: limit < 1 ⇒ converges. Alternating: decreasing+→0 ⇒ converges.
-(5) Absolute convergence ⇒ convergence. Conditional: rearrangements matter.
+(2) Geometric: Σar^{n-1} = a/(1-r), |r|<1. Telescoping: terms cancel. p-series: Σ1/n^p, p>1.
+(3) Integral Test: Σf(n) ↔ ∫f(x)dx. Comparison / Limit Comparison: bound by a known series.
+(4) Ratio / Root: ρ<1 ⇒ converges, ρ>1 ⇒ diverges, ρ=1 ⇒ no information.
+(5) Alternating: decreasing + →0 ⇒ converges, error ≤ first omitted term.
+(6) Absolute convergence ⇒ convergence. Conditional: rearrangements matter.
 ```
+
+---
+
 ## Basic Drills
 
-**D1.** $\sum_{n=0}^\infty \left(\frac{2}{5}\right)^n$. Sum if convergent.
+**D1.** (§11.2 #5) The partial sums are $S_n=2-3(0.8)^n$. Find the sum.
 
-**D2.** $\sum_{n=1}^\infty \frac{1}{n^3}$. $p$-series — converge or diverge?
+**D2.** (§11.2 #23) $3-4+\frac{16}{3}-\frac{64}{9}+\cdots$. Converge or diverge?
 
-**D3.** $\sum_{n=1}^\infty \frac{1}{\sqrt[3]{n}}$. $p$-series.
+**D3.** (§11.2 #25) $10-2+0.4-0.08+\cdots$. Sum if convergent.
 
-**D4.** Apply the Divergence Test to $\sum_{n=1}^\infty \frac{n}{n+1}$.
+**D4.** (§11.2 #35) $\frac25+\frac{4}{25}+\frac{8}{125}+\cdots$. Sum if convergent.
 
-**D5.** $\sum_{n=1}^\infty \frac{2}{n^2+1}$. Compare to $p$-series.
+**D5.** (§11.2 #37) $\sum_{n=1}^\infty\frac{2+n}{1-2n}$. Converge or diverge?
 
-**D6.** $\sum_{n=1}^\infty \frac{(-1)^{n}}{n^2+1}$. Absolute convergence?
-
-**D7.** $\sum_{n=1}^\infty \frac{5^n}{n!}$. Ratio test.
-
-**D8.** $\sum_{n=1}^\infty \frac{1}{n\ln n}$. Integral test.
-
-**D9.** Telescoping: $\sum_{n=1}^\infty \frac{2}{(2n-1)(2n+1)}$.
+**D6.** (§11.2 #19) Telescoping: $\sum_{n=1}^\infty\frac{3}{n(n+3)}$.
 
 <details>
 <summary>💡 Hint</summary>
 
-Partial fractions: $\frac{2}{(2n-1)(2n+1)} = \frac{1}{2n-1} - \frac{1}{2n+1}$. Write out $S_N$ — which terms survive?
+$\frac{3}{n(n+3)} = \frac1n-\frac1{n+3}$. Write out $S_N$ and see which terms survive.
 
 </details>
 
-**D10.** Root test on $\sum_{n=1}^\infty \left(1+\frac{1}{n}\right)^{-n^2}$.
+**D7.** (§11.3 #3) $p$-series: $\sum_{n=1}^\infty n^{-3}$.
+
+**D8.** (§11.3 #4) $p$-series: $\sum_{n=1}^\infty n^{-0.3}$.
+
+**D9.** (§11.3 #23) Integral test: $\sum_{n=2}^\infty\frac{1}{n\ln n}$.
 
 <details>
 <summary>💡 Hint</summary>
 
-$\sqrt[n]{a_n} = \left(1+\frac1n\right)^{-n}$. What famous limit is that?
+$\int_1^\infty\frac{dx}{x\ln x}$. Substitute $u=\ln x$, so $du=dx/x$.
 
 </details>
 
-**D11.** $\sum_{n=1}^\infty \frac{n^{10}}{10^n}$. Ratio test — which dominates, polynomial or exponential?
+**D10.** (§11.4 #7) Comparison: $\sum_{n=1}^\infty\frac{1}{n^3+8}$.
+
+**D11.** (§11.6 #3) Ratio: $\sum_{n=1}^\infty\frac{n}{5^n}$.
+
+**D12.** (§11.6 #21) Root: $\sum_{n=1}^\infty\left(\frac{n^2+1}{2n^2+1}\right)^n$.
 
 <details>
 <summary>💡 Hint</summary>
 
-$\frac{a_{n+1}}{a_n} = \frac{1}{10}\left(\frac{n+1}{n}\right)^{10} \to \frac{1}{10}$ — the $\left(\frac{n+1}{n}\right)^{10}$ factor tends to $1$.
-
-</details>
-
-**D12.** $\sum_{n=1}^\infty \frac{n\cos(n\pi)}{n^3+1}$. Determine absolute vs conditional convergence.
-
-<details>
-<summary>💡 Hint</summary>
-
-$\cos(n\pi) = (-1)^n$. For absolute convergence, compare $\sum \frac{n}{n^3+1}$ to a $p$-series.
+$\sqrt[n]{a_n}=\frac{n^2+1}{2n^2+1}$. What is its limit?
 
 </details>
 
@@ -228,111 +251,112 @@ $\cos(n\pi) = (-1)^n$. For absolute convergence, compare $\sum \frac{n}{n^3+1}$ 
 
 ## Advanced Drills
 
-**A1.** Determine convergence of $\sum_{n=2}^\infty \frac{1}{n(\ln n)^2}$.
+**A1.** (§11.3 #31) For which $p$ does $\sum_{n=2}^\infty\frac{1}{n(\ln n)^p}$ converge?
 
 <details>
 <summary>💡 Hint</summary>
 
-$u = \ln x$ turns $\int \frac{dx}{x(\ln x)^2}$ into $\int \frac{du}{u^2}$, which converges.
+Integral test with $u=\ln x$ turns it into $\int u^{-p}\,du$ — a $p$-integral.
 
 </details>
 
-**A2.** $\sum_{n=1}^\infty \frac{n!}{2^n}$. Determine convergence.
+**A2.** (§11.6 #14) $\sum_{n=1}^\infty\frac{n!}{n^n}$. Determine convergence.
 
 <details>
 <summary>💡 Hint</summary>
 
-$\frac{a_{n+1}}{a_n} = \frac{n+1}{2}$ — this grows without bound, so $\rho = \infty > 1$.
+$\frac{a_{n+1}}{a_n}=\frac{n^n}{(n+1)^n}=\left(1+\frac1n\right)^{-n}$.
 
 </details>
 
-**A3.** $\sum_{n=1}^\infty \frac{\sin n}{n^2}$. Determine convergence.
+**A3.** (§11.5 #29) $\sum_{n=1}^\infty\frac{1+2\sin n}{n^3}$. Determine convergence.
 
 <details>
 <summary>💡 Hint</summary>
 
-$\left|\frac{\sin n}{n^2}\right| \le \frac{1}{n^2}$ — compare to a converging $p$-series to get absolute convergence.
+$|1+2\sin n|\le3$, so the terms are bounded by $3/n^3$.
 
 </details>
 
-**A4.** $\sum_{n=1}^\infty \frac{(-1)^n n}{n^2+1}$. Determine convergence; absolute or conditional?
+**A4.** (§11.5 #30) $\sum_{n=1}^\infty(-1)^{n-1}\frac{n}{n^2+4}$. Absolute or conditional?
 
 <details>
 <summary>💡 Hint</summary>
 
-$a_n = \frac{n}{n^2+1}$ is decreasing (check $f'(x) = \frac{1-x^2}{(x^2+1)^2} < 0$) and $\to 0$. For absolute convergence, $\frac{n}{n^2+1}$ behaves like $\frac1n$.
+$b_n=\frac{n}{n^2+4}$ decreases to $0$, so the series converges. Compare $\sum b_n$ to the harmonic series.
 
 </details>
 
-**A5.** $\sum_{n=1}^\infty \left(\frac{n}{n+1}\right)^{n^2}$. Determine convergence.
+**A5.** (§11.7 #31) $\sum_{n=1}^\infty\left(\frac{n}{n+1}\right)^{n^2}$. Determine convergence.
 
 <details>
 <summary>💡 Hint</summary>
 
-$\sqrt[n]{a_n} = \left(\frac{n}{n+1}\right)^n = \left(1 - \frac{1}{n+1}\right)^n \to \frac1e < 1$.
+$\sqrt[n]{a_n}=\left(\frac{n}{n+1}\right)^n=\left(1-\frac{1}{n+1}\right)^n\to\frac1e$.
 
 </details>
 
-**A6.** Determine all $x$ where $\sum_{n=1}^\infty \frac{x^n}{n}$ converges.
+**A6.** (§11.5 #46) For which $p$ does $\sum_{n=1}^\infty\frac{(-1)^{n-1}}{n^p}$ converge?
 
 <details>
 <summary>💡 Hint</summary>
 
-Ratio test gives radius $R=1$. The two endpoints must be checked separately: $x=1$ is harmonic, $x=-1$ is alternating.
+Check the two conditions of the Alternating Series Test for $b_n=n^{-p}$.
 
 </details>
 
-**A7.** $\sum_{n=1}^\infty \frac{1\cdot3\cdot5\cdots(2n-1)}{n!\,3^n}$. Determine convergence.
+**A7.** (§11.7 #13) $\sum_{n=1}^\infty\frac{1\cdot3\cdot5\cdots(2n-1)}{2\cdot5\cdot8\cdots(3n-1)}$. Determine convergence.
 
 <details>
 <summary>💡 Hint</summary>
 
-The next numerator factor is $2n+1$, so $\frac{a_{n+1}}{a_n} = \frac{2n+1}{3(n+1)} \to \frac23$.
+The next factor is $2n+1$ on top and $3n+2$ on the bottom.
 
 </details>
 
-**A8.** Prove $\sum_{n=1}^\infty \frac{1}{n^2}$ converges.
+**A8.** (§11.4 #54) Prove: if $a_n\ge0$ and $\sum a_n$ converges, then $\sum a_n^2$ converges.
 
 <details>
 <summary>💡 Hint</summary>
 
-For $n \ge 2$: $\frac{1}{n^2} \le \frac{1}{n(n-1)}$. Then $\frac{1}{n(n-1)} = \frac{1}{n-1} - \frac{1}{n}$ — a telescoping series.
+Use $a_n\to0$ to get $a_n\le1$ eventually, then $a_n^2\le a_n$.
 
 </details>
 
-**A9.** $\sum_{n=1}^\infty \frac{\ln n}{n^2}$. Determine convergence.
+**A9.** (§11.4 #48) If $a_n,b_n>0$, $\sum b_n$ converges, and $a_n/b_n\to0$, prove $\sum a_n$ converges. Apply it to $\sum\frac{\ln n}{n^3}$.
 
 <details>
 <summary>💡 Hint</summary>
 
-For large $n$, $\ln n \le n^{1/2}$ (logs grow slower than any power). So $\frac{\ln n}{n^2} \le \frac{1}{n^{3/2}}$.
+For the application choose $b_n=\frac{1}{n^2}$ and compute $\frac{a_n}{b_n}=\frac{\ln n}{n}\to0$.
 
 </details>
 
-**A10.** True or false: if $\sum a_n$ converges, then $\sum a_n^2$ converges?
+**A10.** (§11.6 #39) For which series is the Ratio Test inconclusive?
+(a) $\sum\frac{1}{n^3}$ (b) $\sum\frac{n}{2^n}$ (c) $\sum\frac{(-3)^{n-1}}{\sqrt n}$ (d) $\sum\frac{\sqrt n}{1+n^2}$
 
 <details>
 <summary>💡 Hint</summary>
 
-$\sum \frac{(-1)^n}{\sqrt{n}}$ converges (alternating). What is $\sum a_n^2$?
+Inconclusive means $\rho=1$. All four are algebraic or rational in $n$ — which two are also $p$-series in disguise?
 
 </details>
 
-**A11.** Determine convergence of $\sum_{n=1}^\infty \frac{\sqrt{n}}{\sqrt{n^3+1}}$.
+**A11.** (§11.7 #12) $\sum_{n=1}^\infty\frac{\sqrt{n^4+1}}{n^3+n}$. Determine convergence.
 
 <details>
 <summary>💡 Hint</summary>
 
-The general term behaves like $\frac{\sqrt{n}}{\sqrt{n^3}} = \frac{1}{n}$. Use limit comparison with $b_n = \frac1n$.
+Keep the highest powers: $\frac{n^2}{n^3}=\frac1n$. Limit-compare with the harmonic series.
 
 </details>
 
-**A12.** (🔗 17B) Determine convergence of $\sum_{n=2}^\infty \frac{\ln n}{n(\ln n)^2-1}$.
+**A12.** (§11.3 #42) How many terms of $\sum_{n=2}^\infty\frac{1}{n(\ln n)^2}$ give the sum within $0.01$?
 
 <details>
 <summary>💡 Hint</summary>
 
-With $u = \ln x$: $dx = e^u du$ and $x(\ln x)^2 - 1 = e^u u^2 - 1$. The $e^u$ factors cancel, leaving $\int \frac{u}{u^2-1}du$.
+Remainder bound: $R_N\le\int_N^\infty\frac{dx}{x(\ln x)^2}=\frac{1}{\ln N}$. Solve $\frac{1}{\ln N}<0.01$.
 
 </details>
 
@@ -347,13 +371,13 @@ With $u = \ln x$: $dx = e^u du$ and $x(\ln x)^2 - 1 = e^u u^2 - 1$. The $e^u$ fa
 | $\sum_{n=1}^{\infty} a_n$ converges | "the series converges" | partial sums approach a finite limit |
 | $\sum a_n$ diverges | "the series diverges" | partial sums → ∞, −∞, or oscillate |
 | $\lim_{n\to\infty} a_n \neq 0$ | "limit of a n does not equal zero" | Divergence Test: if limit ≠ 0, series MUST diverge (but limit=0 does NOT guarantee convergence!) |
-| geometric series | "geometric series" | $\sum ar^n$ — converges to $a/(1-r)$ if |r|<1 |
+| geometric series | "geometric series" | $\sum ar^{n-1}$ — converges to $a/(1-r)$ if |r|<1 |
 | $p$-series | "p series" | $\sum 1/n^p$ — converges if p>1, diverges if p≤1 |
 | Integral Test | "integral test" | compare series to $\int f(x)dx$ where $f(n)=a_n$ — same convergence behavior |
 | Comparison Test | "comparison test" / "direct comparison" | term-by-term ≤ known series — if bigger converges, smaller also converges |
 | Limit Comparison Test | "limit comparison test" | if $\lim a_n/b_n = c > 0$ (finite), series share convergence fate |
-| Ratio Test | "ratio test" | $\lim |a_{n+1}/a_n| = L$: L<1→converges, L>1→diverges, L=1→inconclusive |
-| Root Test | "root test" | $\lim \sqrt[n]{|a_n|} = L$ — same criteria as Ratio Test |
+| Ratio Test | "ratio test" | $\lim |a_{n+1}/a_n| = \rho$: ρ<1→converges, ρ>1→diverges, ρ=1→inconclusive |
+| Root Test | "root test" | $\lim \sqrt[n]{|a_n|} = \rho$ — same criteria as Ratio Test |
 | Alternating Series Test | "alternating series test" | terms decrease to 0 in absolute value → converges |
 | absolutely / conditionally convergent | "absolutely convergent" / "conditionally convergent" | ∑|a_n| converges / ∑|a_n| diverges but ∑a_n converges |
 

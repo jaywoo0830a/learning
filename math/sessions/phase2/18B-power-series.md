@@ -6,29 +6,31 @@
 
 > 💡 **Stuck?** Every problem has a collapsible **Hint** below it — click it only when you need a nudge.
 
----
-
-## Example 1: What Is a Power Series?
-
-$\displaystyle \sum_{n=0}^\infty c_n(x-a)^n = c_0 + c_1(x-a) + c_2(x-a)^2 + \cdots$
-
-$a$ = center. The series is a **function of $x$**. Question: for which $x$ does it converge?
+> **Source.** Every example and drill below is taken from Stewart, *Calculus*, Chapter 11 (Sections 11.8–11.9). Each item cites its section and exercise number.
 
 ---
 
-## Example 2: Radius of Convergence (🔗 18A)
+## Example 1: What Is a Power Series? (§11.8)
+
+$$\sum_{n=0}^\infty c_n(x-a)^n = c_0 + c_1(x-a) + c_2(x-a)^2 + \cdots$$
+
+$a$ is the **center**. The series is a **function of $x$**. The question: for which $x$ does it converge?
+
+---
+
+## Example 2: Radius of Convergence (§11.8 Ex 1–3, 🔗 18A)
 
 Use the **Ratio Test** (or Root Test) from 18A on the terms:
 
-$\displaystyle \lim_{n\to\infty}\left|\frac{c_{n+1}(x-a)^{n+1}}{c_n(x-a)^n}\right| = |x-a|\lim_{n\to\infty}\left|\frac{c_{n+1}}{c_n}\right| < 1$.
+$$\lim_{n\to\infty}\left|\frac{c_{n+1}(x-a)^{n+1}}{c_n(x-a)^n}\right| = |x-a|\lim_{n\to\infty}\left|\frac{c_{n+1}}{c_n}\right| < 1.$$
 
-**Radius** $R = \displaystyle \lim_{n\to\infty}\left|\frac{c_n}{c_{n+1}}\right|$ (if the limit exists).
+**Radius**: $$R = \lim_{n\to\infty}\left|\frac{c_n}{c_{n+1}}\right| \quad \text{(if the limit exists).}$$
 
-**Where this formula comes from:** name $L=\lim|c_{n+1}/c_n|$. The ratio line above says the series converges when $|x-a|\,L<1$, i.e. when $|x-a|<1/L$. The radius is nothing but the ratio test solved for $|x-a|$: $R=1/L$.
+**Where this formula comes from:** name $L=\lim|c_{n+1}/c_n|$. The ratio line says the series converges when $|x-a|\,L<1$, that is when $|x-a|<1/L$. So $R=1/L$ is just the Ratio Test solved for $|x-a|$.
 
-**Why convergence is symmetric about the center:** the test compares only the *distance* $|x-a|$ against one fixed number. The verdict is always "inside a disk of radius $R$ around $a$" — a power series can never converge in a lopsided or disconnected region. This is a theorem about power series, not a coincidence of the examples.
+**Why convergence is symmetric about the center:** the test compares only the *distance* $|x-a|$ against one fixed number, so the verdict is always "inside a disk of radius $R$ around $a$". A power series can never converge in a lopsided region.
 
-**Where $R$ usually comes from — the nearest bad point:** when the series represents a known function, the radius is (typically) the distance from $a$ to the **nearest singular point** of that function.
+**Where $R$ usually comes from — the nearest bad point:** the radius is (typically) the distance from $a$ to the nearest **singular point** of the closed form.
 
 | Series | Closed form | Nearest bad point | $R$ |
 |:---:|:---:|:---:|:---:|
@@ -37,17 +39,15 @@ $\displaystyle \lim_{n\to\infty}\left|\frac{c_{n+1}(x-a)^{n+1}}{c_n(x-a)^n}\righ
 | $\ln(1+x)$ series | $\ln(1+x)$ | $x=-1$ (log of 0) | $1$ |
 | $\arctan x$ series | $\arctan x$ | $x=\pm i$ (complex!) | $1$ |
 
-The last row deserves a second look: the arctangent series stops at $R=1$ even though the function is smooth on the entire real line — the bad points of $\frac{1}{1+x^2}$ are $x=\pm i$, at distance 1 from the center. The radius measures distance, not visibility.
+The last row: the arctangent series stops at $R=1$ even though the function is smooth on the whole real line — the bad points of $\frac{1}{1+x^2}$ are $x=\pm i$, at distance 1 from the center. The radius measures distance, not visibility.
 
-$\sum_{n=0}^\infty \frac{x^n}{n!}$: $R = \lim \frac{1/n!}{1/(n+1)!} = \lim (n+1) = \infty$. **Converges for all $x$.** This is $e^x$!
+$\sum_{n=1}^\infty \frac{(x-3)^n}{n}$: $R=\lim\frac{n+1}{n}=1$. (Intervals in Example 3.)
 
-$\sum_{n=0}^\infty n!\,x^n$: $R = \lim \frac{n!}{(n+1)!} = \lim \frac{1}{n+1} = 0$. **Converges only at $x=0$.**
+$\sum_{n=0}^\infty n!\,x^n$: $R=\lim\frac{n!}{(n+1)!}=\lim\frac{1}{n+1}=0$. **Converges only at $x=0$.**
 
-$\sum_{n=0}^\infty x^n$: $R = 1$. Converges for $|x|<1$, diverges for $|x|>1$. At $x=\pm1$: check separately (both diverge).
+$\sum_{n=0}^\infty \frac{x^n}{(2n)!}$: $R=\lim\frac{(2n)!}{(2n+2)!}=\lim\frac{1}{(2n+2)(2n+1)}=0 \Rightarrow R=\infty$. **Converges for all $x$.**
 
-**Connection to geometric series** (🔗 12B1): This is the geometric series $\sum r^n$ with $r=x$. The radius $R=1$ comes directly from the geometric condition $|r|<1$.
-
-**Root Test alternative:** when the coefficients are themselves powers, the Root Test is often shorter — the series converges when $\limsup \left|c_n(x-a)^n\right|^{1/n} = |x-a|\,\limsup|c_n|^{1/n} < 1$, giving $R = 1/\limsup|c_n|^{1/n}$. It shines exactly where the Ratio Test stalls (see Drill D16 and Advanced A7).
+**Root Test alternative:** when the coefficients are themselves powers, the Root Test is shorter: $R = 1/\limsup |c_n|^{1/n}$. It shines exactly where the Ratio Test stalls.
 
 ![Radius and interval of convergence]({{graph:18b-radius-convergence}})
 
@@ -55,45 +55,60 @@ $\sum_{n=0}^\infty x^n$: $R = 1$. Converges for $|x|<1$, diverges for $|x|>1$. A
 
 ---
 
-## Example 3: Interval of Convergence — Check the Endpoints
+## Example 3: Interval of Convergence — Check the Endpoints (§11.8 Ex 4, Ex 5)
 
-For $\sum \frac{x^n}{n}$: $R=1$. At $x=1$: $\sum 1/n$ diverges. At $x=-1$: $\sum (-1)^n/n$ converges (alternating).
-**Interval**: $[-1, 1)$.
+$\sum_{n=0}^\infty \frac{(-3)^n x^n}{\sqrt{n+1}}$: the ratio gives $3|x|<1$, so $R=\frac13$. At $x=\frac13$: $\sum\frac{(-1)^n}{\sqrt{n+1}}$ converges (alternating). At $x=-\frac13$: $\sum\frac{1}{\sqrt{n+1}}$ diverges ($p=\frac12$). **Interval**: $\left(-\frac13,\frac13\right]$.
 
-For $\sum \frac{x^n}{n^2}$: $R=1$. At $x=\pm1$: $\sum 1/n^2$ converges.
-**Interval**: $[-1, 1]$.
+$\sum_{n=0}^\infty \frac{n(x+2)^n}{3^{n+1}}$: the ratio gives $\frac{|x+2|}{3}<1$, so $R=3$ and $-5<x<1$. At $x=1$: $\frac13\sum n$ diverges; at $x=-5$: $\frac13\sum(-1)^n n$ diverges. **Interval**: $(-5,1)$.
 
 ---
 
-## Example 4: Differentiation and Integration Term-by-Term (🔗 14A, 16A)
+## Example 4: Differentiation and Integration Term-by-Term (§11.9 Ex 4, 🔗 14A, 16A)
 
-Within the radius of convergence, you can differentiate and integrate a power series **term by term** (🔗 14A for differentiation rules, 16A for FTC):
+Inside the radius you may differentiate and integrate a power series term by term:
 
-$\frac{d}{dx}\sum c_n(x-a)^n = \sum n c_n(x-a)^{n-1}$.
-$\int \sum c_n(x-a)^n dx = C + \sum \frac{c_n}{n+1}(x-a)^{n+1}$.
+$$\frac{d}{dx}\sum c_n(x-a)^n = \sum n c_n(x-a)^{n-1}, \qquad \int \sum c_n(x-a)^n\,dx = C + \sum \frac{c_n}{n+1}(x-a)^{n+1}.$$
 
-**The radius of convergence stays the same**, but **the endpoints may change**.
+**The radius stays the same**, but **the endpoints may change**.
 
-**Why term-by-term is allowed:** inside the radius the series converges **absolutely** (18A), and absolutely convergent series can be differentiated and integrated term by term without changing the sum. The radius of the derived series also cannot grow, because differentiating or integrating the closed form does not move its singular points.
+Starting from $\frac{1}{1-x}=\sum x^n$ and differentiating:
+$$\frac{1}{(1-x)^2}=1+2x+3x^2+\cdots=\sum_{n=1}^\infty n x^{n-1}=\sum_{n=0}^\infty (n+1)x^n, \qquad R=1.$$
 
-**Endpoints really do move — concrete example:** $\sum x^n/n^2$ has interval $[-1,1]$, but its derivative $\sum x^{n-1}/n$ diverges at $x=1$ (harmonic series) — differentiation **lost** the right endpoint. Integration can gain endpoints. This is why endpoints must be re-checked after every term-by-term operation (Mistake 3).
+**Why term-by-term is allowed:** inside the radius the series converges **absolutely** (18A), and absolutely convergent series can be differentiated and integrated term by term without changing the sum. The radius cannot grow, because differentiating the closed form does not move its singular points.
+
+**Endpoints really do move:** $\sum x^n/n^2$ has interval $[-1,1]$, but its derivative $\sum x^{n-1}/n$ diverges at $x=1$ — differentiation **lost** the right endpoint. Integration can gain endpoints. Re-check endpoints after every term-by-term operation.
 
 ---
+
+## Example 5: Building New Series from $\frac{1}{1-x}$ (§11.9 Ex 1, Ex 2, Ex 5, Ex 6, 🔗 12B1)
+
+The geometric series $\sum x^n$ is the foundation. Substitute, differentiate, integrate.
+
+$\frac{1}{1-x} = \sum_{n=0}^\infty x^n$, $|x|<1$.
+
+Replace $x$ with $-x^2$: $\frac{1}{1+x^2} = \sum_{n=0}^\infty (-1)^n x^{2n}$.
+
+Factor a 2: $\frac{1}{x+2} = \frac12\cdot\frac{1}{1+\frac{x}{2}} = \sum_{n=0}^\infty \frac{(-1)^n x^n}{2^{n+1}}$.
+
+Integrate $\frac{1}{1+x}$: $\ln(1+x) = \sum_{n=1}^\infty \frac{(-1)^{n-1}x^n}{n}$.
+
+Integrate $\frac{1}{1+x^2}$: $\arctan x = \sum_{n=0}^\infty \frac{(-1)^n x^{2n+1}}{2n+1}$.
 
 ![Building series from geometric]({{graph:18b-building-series}})
 
 *Graph 18B-2: Three key series built from $1/(1-x)$. Left — $1/(1+x)$ by substituting $x\to -x$. Middle — $\ln(1+x)$ by integrating $1/(1+x)$. Right — $\arctan x$ by integrating $1/(1+x^2)$. All converge on $(-1,1)$ and partial sums approach the true function.*
 
-## Example 5: Building New Series from $\frac{1}{1-x}$ (🔗 12B1, 12C1)
+---
 
-The geometric series $\sum x^n$ from 12B1 is the foundation. By substituting, differentiating, and integrating, we build many series — similar to how 12C1 builds transformations from basic matrices.
+## Example 6: Functions Defined by Power Series (§11.9 Ex 8)
 
-$\frac{1}{1-x} = \sum_{n=0}^\infty x^n$, $|x|<1$.
+Some functions are *defined* by a series. The Bessel function of order 0:
 
-Replace $x$ with $-x$: $\frac{1}{1+x} = \sum (-1)^n x^n$.
-Replace $x$ with $x^2$: $\frac{1}{1-x^2} = \sum x^{2n}$.
-Integrate: $\int \frac{1}{1-x}dx = -\ln(1-x) = \sum \frac{x^{n+1}}{n+1}$. So $\ln(1+x) = \sum_{n=1}^\infty \frac{(-1)^{n+1}x^n}{n}$.
-Integrate $\frac{1}{1+x^2}$: $\arctan x = \sum_{n=0}^\infty \frac{(-1)^n x^{2n+1}}{2n+1}$.
+$$J_0(x)=\sum_{n=0}^\infty \frac{(-1)^n x^{2n}}{2^{2n}(n!)^2}.$$
+
+Ratio: $\left|\frac{a_{n+1}}{a_n}\right|=\frac{x^2}{4(n+1)^2}\to0$ for every $x$, so the **domain is all of $\mathbb{R}$**.
+
+Differentiate term by term: $J_0'(x)=\sum_{n=1}^\infty \frac{(-1)^n 2n\,x^{2n-1}}{2^{2n}(n!)^2}$.
 
 ---
 
@@ -101,7 +116,7 @@ Integrate $\frac{1}{1+x^2}$: $\arctan x = \sum_{n=0}^\infty \frac{(-1)^n x^{2n+1
 
 ### Mistake 1: Forgetting to check the endpoints
 
-**Wrong**: "$R=1$, so the interval is $(-1,1)$." The radius only guarantees convergence on $(a-R, a+R)$. The endpoints must be **checked separately** — e.g. $\sum x^n/n$ has interval $[-1,1)$, not $(-1,1)$.
+**Wrong**: "$R=1$, so the interval is $(-1,1)$." The radius only guarantees convergence on $(a-R,a+R)$. The endpoints must be **checked separately** — e.g. $\sum x^n/n$ has interval $[-1,1)$.
 
 ### Mistake 2: Confusing the ratio with the radius
 
@@ -109,11 +124,11 @@ If the ratio test gives $\lim |c_{n+1}/c_n| = L$, the radius is $R = 1/L$, **not
 
 ### Mistake 3: Differentiating or integrating outside the radius
 
-Term-by-term operations are only valid **inside** the radius of convergence. Differentiating can also change which endpoints converge (e.g. $\sum x^n/n^2$ vs its derivative $\sum x^{n-1}/n$).
+Term-by-term operations are only valid **inside** the radius. Differentiating can also change which endpoints converge.
 
 ### Mistake 4: Treating the power series as a finite polynomial
 
-You cannot plug in $x$ values outside the radius, and you cannot truncate arbitrarily without an error bound. A power series is a function only where it converges.
+You cannot plug in $x$ values outside the radius, and you cannot truncate arbitrarily without an error bound.
 
 ---
 
@@ -121,118 +136,80 @@ You cannot plug in $x$ values outside the radius, and you cannot truncate arbitr
 
 ```
 (1) Power series: Σc_n(x-a)^n. Center a. Radius R from Ratio/Root test.
-(2) Interval of convergence: (-R,R) guaranteed. Check endpoints separately.
+(2) Interval of convergence: (a-R, a+R) guaranteed. Check endpoints separately.
 (3) Term-by-term differentiation/integration preserves R.
-(4) Build new series from geometric: substitute, differentiate, integrate.
+(4) R is the distance from a to the nearest bad point of the closed form.
+(5) Build new series from geometric: substitute, factor, differentiate, integrate.
 ```
+
+---
+
 ## Basic Drills
 
-**D1.** Find $R$ for $\sum_{n=0}^\infty \frac{x^n}{2^n}$.
+**D1.** (§11.8 #3) Radius and interval of $\sum_{n=1}^\infty \frac{x^n}{n}$.
 
-**D2.** Find $R$ for $\sum_{n=1}^\infty \frac{n x^n}{3^n}$.
+**D2.** (§11.8 #7) Radius and interval of $\sum_{n=1}^\infty \frac{n}{5^n}x^n$.
 
-**D3.** Find interval for $\sum_{n=0}^\infty \frac{(-1)^n x^n}{n+1}$.
+**D3.** (§11.8 #12) Radius and interval of $\sum_{n=1}^\infty \frac{(-1)^n x^n}{n^2}$.
 
 <details>
 <summary>💡 Hint</summary>
 
-The radius is $1$. At one endpoint the terms alternate; at the other they behave like a $p$-series. Classify each with the 18A tests.
+$R=1$. At $x=\pm1$ the terms are $\pm 1/n^2$ — a convergent $p$-series.
 
 </details>
 
-**D4.** Write $\frac{1}{1+2x}$ as a power series. For which $x$?
+**D4.** (§11.8 #13) Radius of $\sum_{n=0}^\infty \frac{x^n}{n!}$.
 
-**D5.** Find a series for $\frac{1}{(1-x)^2}$.
+**D5.** (§11.8 #21) Radius and interval of $\sum_{n=0}^\infty \frac{(x-2)^n}{n^2+1}$.
 
 <details>
 <summary>💡 Hint</summary>
 
-$\frac{d}{dx}\left(\frac{1}{1-x}\right) = \frac{1}{(1-x)^2}$ — differentiate the geometric series term-by-term.
+$R=1$. At both endpoints the terms behave like $1/n^2$ or $(-1)^n/n^2$.
 
 </details>
 
-**D6.** Find a series for $\ln(1-x)$.
+**D6.** (§11.8 #4) Radius and interval of $\sum_{n=1}^\infty (-1)^n n x^n$.
+
+**D7.** (§11.9 #3) A power series for $\frac{1}{1+x}$.
+
+**D8.** (§11.9 #5) A power series for $\frac{1}{1-x^2}$.
+
+**D9.** (§11.9 #7) A power series for $\frac{2}{3-x}$.
+
+**D10.** (§11.9 #15a) A power series for $\frac{1}{(1+x)^2}$.
 
 <details>
 <summary>💡 Hint</summary>
 
-$\int\frac{dx}{1-x} = -\ln(1-x)$ — integrate the geometric series $\frac{1}{1-x}=\sum x^n$ term-by-term, keeping the minus sign.
+Start from $\frac{1}{1+x}=\sum(-1)^n x^n$ and differentiate.
 
 </details>
 
-**D7.** Evaluate $\sum_{n=1}^\infty \frac{n}{2^n}$.
+**D11.** (§11.9 #16a) A power series for $\ln(1-x)$.
+
+**D12.** (§11.9 #46b) Evaluate $\sum_{n=1}^\infty \frac{n}{2^n}$.
+
+**D13.** (§11.9 #27) $\int \frac{t}{1-t^8}\,dt$ as a power series.
+
+**D14.** (§11.8 #16) Radius of $\sum_{n=1}^\infty 2^n n^2 x^n$.
+
+**D15.** (§11.8 #31) Radius of $\sum_{n=1}^\infty n!(2x-1)^n$.
 
 <details>
 <summary>💡 Hint</summary>
 
-The factor $n$ is the fingerprint of a differentiated power. Differentiate the geometric series once and look for the matching $x$.
+Write it as $\sum c_n (x-\tfrac12)^n$ first. What is $\lim c_n/c_{n+1}$?
 
 </details>
 
-**D8.** Find interval for $\sum_{n=1}^\infty \frac{(x+1)^n}{n^2}$.
-
-**D9.** Differentiate the series for $\sin x = \sum (-1)^n \frac{x^{2n+1}}{(2n+1)!}$.
-
-**D10.** Find $R$ for $\sum_{n=0}^\infty \frac{(2n)!}{(n!)^2}x^n$.
+**D16.** (§11.8 #25) Radius of $\sum_{n=1}^\infty \frac{(x-2)^n}{n^n}$.
 
 <details>
 <summary>💡 Hint</summary>
 
-The ratio of consecutive coefficients collapses to a ratio of quadratics — take its limit, and remember the radius is the reciprocal of that limit.
-
-</details>
-
-**D11.** Find a power series for $\frac{x}{(1-x)^2}$.
-
-<details>
-<summary>💡 Hint</summary>
-
-Write $\frac{x}{(1-x)^2} = x\cdot\frac{1}{(1-x)^2}$ and multiply the series from D5 by $x$.
-
-</details>
-
-**D12.** Evaluate $\sum_{n=0}^\infty \frac{(-1)^n}{2^n}$.
-
-<details>
-<summary>💡 Hint</summary>
-
-$\sum \left(-\frac12\right)^n$ with $r = -\frac12$. Sum $= \frac{1}{1-r}$.
-
-</details>
-
-**D13.** Evaluate $1 - \frac12 + \frac13 - \frac14 + \cdots$ — and justify that the endpoint you used is actually allowed.
-
-<details>
-<summary>💡 Hint</summary>
-
-This is a series you already know, evaluated at one specific $x$. Before trusting the value, confirm that the interval of convergence includes that $x$.
-
-</details>
-
-**D14.** Write $\sum_{n=1}^\infty n x^{n-1}$ starting from $n=0$, and use the result to evaluate $\sum_{n=1}^\infty \frac{n}{2^{n-1}}$.
-
-<details>
-<summary>💡 Hint</summary>
-
-Shift the index ($k=n-1$), then recognize the new series as a derivative of the geometric series. Choose the $x$ that matches $2^{n-1}$.
-
-</details>
-
-**D15.** Evaluate $\sum_{n=1}^\infty \frac{n^2}{2^n}$.
-
-<details>
-<summary>💡 Hint</summary>
-
-Write $n^2 = n(n-1) + n$: the $n(n-1)$ piece comes from differentiating the geometric series **twice**, the $n$ piece from differentiating **once**. Then evaluate at the $x$ that matches $2^n$.
-
-</details>
-
-**D16.** Find $R$ for $\sum_{n=0}^\infty \left(\frac{x}{2}\right)^{n^2}$.
-
-<details>
-<summary>💡 Hint</summary>
-
-The coefficients are $c_k = 2^{-k}$ when $k$ is a perfect square and $0$ otherwise — the ratio test cannot even start. The root test can: consider $\sqrt[k]{|c_k x^k|}$.
+$\frac{c_n}{c_{n+1}}=\frac{(n+1)^{n+1}}{n^n}=(n+1)\left(1+\frac1n\right)^n$.
 
 </details>
 
@@ -242,111 +219,83 @@ The coefficients are $c_k = 2^{-k}$ when $k$ is a perfect square and $0$ otherwi
 
 ## Advanced Drills
 
-**A1.** Find the interval for $\sum_{n=1}^\infty \frac{n(x+3)^n}{4^n}$.
+**A1.** (§11.8 #23) Radius and interval of $\sum_{n=2}^\infty \frac{(x+2)^n}{2^n \ln n}$.
 
 <details>
 <summary>💡 Hint</summary>
 
-$R = 4$, center $-3$. At both endpoints the general term does NOT tend to $0$ — both diverge.
+Center $-2$, $R=2$, so $(-4,0)$. At $x=0$ the terms are $1/\ln n$; at $x=-4$ they alternate.
 
 </details>
 
-**A2.** Find a power series for $\frac{x}{1+x-2x^2}$.
+**A2.** (§11.9 #13) Partial fractions first: a power series for $\frac{2x-4}{x^2-4x+3}$.
 
 <details>
 <summary>💡 Hint</summary>
 
-$1+x-2x^2 = (1-x)(1+2x)$. Split into partial fractions $\frac{A}{1-x} + \frac{B}{1+2x}$, then use the geometric series for each.
+$x^2-4x+3=(x-1)(x-3)$ and $\frac{2x-4}{(x-1)(x-3)}=\frac{1}{x-1}+\frac{1}{x-3}$.
 
 </details>
 
-**A3.** Evaluate $\lim_{x\to0}\frac{e^x-1-x}{x^2}$.
+**A3.** (§11.9 #22) A power series for $x^2\arctan(x^3)$.
 
 <details>
 <summary>💡 Hint</summary>
 
-$e^x = 1 + x + \frac{x^2}{2} + \cdots$ — the numerator's lowest power of $x$ decides the limit.
+Use $\arctan u=\sum(-1)^n u^{2n+1}/(2n+1)$ with $u=x^3$, then multiply by $x^2$.
 
 </details>
 
-**A4.** Prove $\sum_{n=1}^\infty \frac{n}{3^n} = \frac{3}{4}$.
+**A4.** (§11.9 #46a) Show $\sum_{n=1}^\infty n x^{n-1}=\frac{1}{(1-x)^2}$ and use it to prove $\sum_{n=1}^\infty \frac{n}{2^n}=2$.
+
+**A5.** (§11.8 #26) Radius and interval of $\sum_{n=1}^\infty \frac{(2x-1)^n}{5^n\sqrt n}$.
 
 <details>
 <summary>💡 Hint</summary>
 
-Differentiate $\sum x^n = \frac{1}{1-x}$ to get $\sum n x^{n-1}$, then set $x = \frac13$.
+$R=\frac52$ about $x=\frac12$; endpoints $x=\frac74$ (diverges) and $x=-\frac34$ (alternating).
 
 </details>
 
-**A5.** Find the interval for $\sum_{n=1}^\infty \frac{(x-1)^n}{n\cdot5^n}$.
+**A6.** (§11.9 #34) Use a series to compute $\int_0^{0.3} \frac{x^2}{1+x^4}\,dx$ to six decimals.
 
 <details>
 <summary>💡 Hint</summary>
 
-$R=5$, center $1$: endpoints $x=6$ (harmonic) and $x=-4$ (alternating).
+$\frac{x^2}{1+x^4}=\sum(-1)^n x^{4n+2}$; an alternating series gives the error bound.
 
 </details>
 
-**A6.** Express $\int_0^{1/2} \frac{dx}{1+x^4}$ as a series. Compute to 4 decimal places.
+**A7.** (§11.8 #39) Find the radius for $\sum_{n=0}^\infty \frac{(n!)^k}{(kn)!}x^n$, $k$ a positive integer.
 
 <details>
 <summary>💡 Hint</summary>
 
-$\frac{1}{1+x^4} = 1 - x^4 + x^8 - \cdots$ is geometric with ratio $-x^4$. Integrate term-by-term — the result is an alternating series, so the first omitted term bounds the error.
+$\frac{c_n}{c_{n+1}}=\frac{(n+1)^k}{(kn+k)(kn+k-1)\cdots(kn+1)}\to\frac{1}{k^k}$.
 
 </details>
 
-**A7.** Find all $x$ for which $\sum_{n=0}^\infty \frac{n!\,(x-2)^n}{n^n}$ converges.
+**A8.** (§11.9 #37) Show $f(x)=\sum \frac{x^n}{n!}$ satisfies $f'=f$ and identify $f$.
+
+**A9.** (§11.8 #43) For $f(x)=1+2x+x^2+2x^3+\cdots$ (coefficients $c_{2n}=1$, $c_{2n+1}=2$), find the interval and a formula.
 
 <details>
 <summary>💡 Hint</summary>
 
-The ratio limit is $\lim \left(\frac{n}{n+1}\right)^n |x-2| = \frac{|x-2|}{e}$ — the radius is $e$. Stirling gives the same answer via the root test.
+$f(x)=\sum x^{2n}+2\sum x^{2n+1}=1/(1-x^2)+2x/(1-x^2)$.
 
 </details>
 
-**A8.** A power series satisfies $f'(x)=f(x)$ with $f(0)=1$. Find the series and identify $f$.
+**A10.** (§11.9 #25) A power series for $\ln\left(\frac{1+x}{1-x}\right)$ and its interval.
+
+**A11.** (§11.9 #16c) Put $x=\frac12$ in the series for $\ln(1-x)$ to express $\ln 2$ as a series.
+
+**A12.** (§11.8 #46) If $\sum c_n x^n$ has radius $R$, what is the radius of $\sum c_n x^{2n}$?
 
 <details>
 <summary>💡 Hint</summary>
 
-Write $f = \sum c_n x^n$ and equate coefficients of $f'$ and $f$: $(n+1)c_{n+1} = c_n$.
-
-</details>
-
-**A9.** Find the radius for $\sum_{n=0}^\infty \binom{2n}{n}x^n$.
-
-<details>
-<summary>💡 Hint</summary>
-
-$\frac{c_{n+1}}{c_n} = \frac{\binom{2n+2}{n+1}}{\binom{2n}{n}} = \frac{(2n+2)(2n+1)}{(n+1)^2} \to 4$.
-
-</details>
-
-**A10.** Multiply the series for $e^x$ by itself. Show the result is the series for $e^{2x}$.
-
-<details>
-<summary>💡 Hint</summary>
-
-The $x^n$ coefficient is $\sum_{k=0}^n \frac{1}{k!(n-k)!}$. Factor out $\frac{1}{n!}$ — the rest is $\sum \binom{n}{k} = 2^n$.
-
-</details>
-
-**A11.** (🔗 18A) Find the radius and interval of convergence for $\sum_{n=1}^\infty \frac{(3x-1)^n}{n\cdot 2^n}$.
-
-<details>
-<summary>💡 Hint</summary>
-
-After rewriting, $R = \lim \frac{c_n}{c_{n+1}} = \frac23$ with center $\frac13$. Endpoints: $x=1$ (harmonic) and $x=-\frac13$ (alternating).
-
-</details>
-
-**A12.** Find a power series for $\ln\left(\frac{1+x}{1-x}\right)$. What is its interval of convergence?
-
-<details>
-<summary>💡 Hint</summary>
-
-Add $\sum \frac{(-1)^{n+1}x^n}{n}$ and $\sum \frac{x^n}{n}$: odd powers double, even powers cancel. The interval is where BOTH series converge — check the endpoints.
+The variable is now $u=x^2$. Convergence needs $|u|<R$, i.e. $x^2<R$.
 
 </details>
 
