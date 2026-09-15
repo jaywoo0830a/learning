@@ -6,6 +6,8 @@
 #   make build       그래프 렌더 + md 태그 치환 → math/build/rendered/
 #   make strict      build + 미해결 태그 있으면 실패 (CI)
 #   make serve       렌더 갤러리 서빙 (http://localhost:18080) 도커 · 패키지 serve.sh
+#   make serve-host  빌드산출(zip: graphs + build/rendered) 임시 HTTP 서버 → SSH 터널 다운로드
+#                    옵션: make serve-host ARGS="--no-build --svg-only --port 18081"
 #   make send        빌드 + zip → 윈도우 바탕화면 (WSL)      옵션: make send ARGS="--svg-only"
 #   make clean       산출물 삭제
 #
@@ -20,7 +22,7 @@
 NODE  ?= node
 LOGOS ?= graph/node_modules/@jaywoo0830a/logos/scripts
 
-.PHONY: install graph graph-host build strict serve send clean
+.PHONY: install graph graph-host build strict serve serve-host send clean
 
 install:
 	cd graph && npm install
@@ -39,6 +41,9 @@ strict: graph
 
 serve:
 	bash $(LOGOS)/serve.sh graphs 18080
+
+serve-host:
+	bash tools/serve-to-host.sh $(ARGS)
 
 send:
 	bash tools/send-to-windows.sh $(ARGS)
