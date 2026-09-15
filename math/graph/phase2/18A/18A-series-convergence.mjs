@@ -12,7 +12,7 @@
 //   항(stem)과 부분합 궤적(polyline)만 `./_plugin.mjs` — 코어에 1급 빌더가 없다
 //   (코어 `curve.piecewise` 는 구간별 함수, `curve.spline` 은 매끄러운 곡선이라 점 목록을 직선으로 잇지 못한다)
 //   순수 JS 수학(termsOf·partialSums)은 `./_helper.mjs`
-import { annotate, curve, kit, line, plugins, point, region, use } from '@jaywoo0830a/logos';
+import { annotate, curve, kit, line, plugins, point, region, use, tex } from '@jaywoo0830a/logos';
 import mathExtras from './_plugin.mjs';
 import { partialSums, termsOf } from './_helper.mjs';
 
@@ -40,9 +40,9 @@ function geometricSeries() {
       plugins.polyline(...sums).color(red).stroke(2.2),
       ...sums.map(([x, y]) => point(x, y).dot().color(red).size(4)),
       line.horizontal(2).color(red).stroke(1.2).dash([5, 4]),
-      annotate.text([8.7, 2.08]).label('S∞ = 2').font(10.5).color(red).bold().anchor('end'),
-      legend([0.3, 2.28], 'aₙ = (0.5)ⁿ', blue),
-      legend([0.3, 2.05], 'Sₙ = partial sums', red),
+      annotate.text([8.7, 2.08]).label(tex`S_{\infty} = 2`).font(10.5).color(red).bold().anchor('end'),
+      legend([0.3, 2.28], tex`a_n = (0.5)^{n}`, blue),
+      legend([0.3, 2.05], tex`S_n\ \text{= partial sums}`, red),
     );
   const divSums = partialSums(div, 0, 8);
   const right = plot2d([0, 9], [0, 22], { size: [520, 420], axes: AX('n', 'aₙ , Sₙ'), grid: { alpha: 0.28 } })
@@ -50,9 +50,9 @@ function geometricSeries() {
       plugins.stem(...termsOf(div, 0, 8)).color(orange).stroke(1.2).size(2.6),
       plugins.polyline(...divSums).color(red).stroke(2.2),
       ...divSums.map(([x, y]) => point(x, y).dot().color(red).size(4)),
-      legend([0.4, 20.6], 'aₙ = (1.2)ⁿ', orange),
+      legend([0.4, 20.6], tex`a_n = (1.2)^{n}`, orange),
       legend([0.4, 19.0], 'Sₙ = partial sums', red),
-      annotate.text([6.5, 12]).label('Sₙ → ∞  (r > 1)').font(10.5).color(red).bold().anchor('middle'),
+      annotate.text([6.5, 12]).label(tex`S_n \to \infty\;\;(r > 1)`).font(10.5).color(red).bold().anchor('middle'),
     );
   return subplots([left, right], { cols: 2, tight: true, title: 'Geometric Series — Converge vs Diverge' });
 }
@@ -66,19 +66,19 @@ function pSeries() {
       plugins.polyline(...partialSums((n) => 1 / n, 1, 50)).color(green).stroke(2.2),
       plugins.polyline(...partialSums((n) => n ** -2, 1, 50)).color(blue).stroke(2.4),
       line.horizontal(Math.PI ** 2 / 6).color(blue).stroke(1).dash([5, 4]).opacity(0.7),
-      legend([30, 14.2], 'p = 1/2  → diverges', red),
-      legend([30, 4.6], 'p = 1  → diverges', green),
-      legend([40, 1.95], 'p = 2  → π²/6 ≈ 1.645', blue),
+      legend([30, 14.2], tex`p = 1/2\ \to\ \text{diverges}`, red),
+      legend([30, 4.6], tex`p = 1\ \to\ \text{diverges}`, green),
+      legend([40, 1.95], tex`p = 2\ \to\ \pi^{2}/6 \approx 1.645`, blue),
     );
   const right = plot2d([0, 8], [0, 1.15], { size: [520, 420], axes: AX('n  /  x', 'value'), grid: { alpha: 0.28 } })
     .title('Integral test:  Σ 1/n²  vs  ∫₁^∞ 1/x² dx').add(
       region.between((x) => 1 / (x * x)).on([1, 8]).fill(blue).opacity(0.16),
       plugins.stem(...termsOf((n) => 1 / (n * n), 1, 8)).color(orange).stroke(1.2).size(2.6),
       curve.fn((x) => 1 / (x * x)).on([1, 8]).color(blue).stroke(2.4).n(200),
-      legend([2.4, 0.96], 'f(x) = 1/x²', blue),
-      legend([2.4, 0.84], 'aₙ = 1/n²  (stems)', orange),
-      annotate.text([4.6, 0.30]).label('∫₁^∞ 1/x² dx = 1').font(10.5).color(blue).bold().anchor('middle').box(true),
-      annotate.text([4.6, 0.12]).label('→ Σ 1/n² converges').font(10.5).color(blue).bold().anchor('middle'),
+      legend([2.4, 0.96], tex`f(x) = 1/x^{2}`, blue),
+      legend([2.4, 0.84], tex`a_n = 1/n^{2}\ \text{(stems)}`, orange),
+      annotate.text([4.6, 0.30]).label(tex`\int_{1}^{\infty} 1/x^{2}\,dx = 1`).font(10.5).color(blue).bold().anchor('middle').box(true),
+      annotate.text([4.6, 0.12]).label(tex`\to\ \textstyle\sum 1/n^{2}\ \text{converges}`).font(10.5).color(blue).bold().anchor('middle'),
     );
   return subplots([left, right], { cols: 2, tight: true, title: 'p-Series and the Integral Test' });
 }
@@ -93,7 +93,7 @@ function alternatingSeries() {
       plugins.polyline(...S).color(blue).stroke(1.8),
       ...S.map(([x, y]) => point(x, y).dot().color(blue).size(3.4)),
       line.horizontal(Math.LN2).color(red).stroke(1.2).dash([5, 4]),
-      annotate.text([24, Math.LN2 + 0.04]).label('ln 2 ≈ 0.693').font(10.5).color(red).bold().anchor('end'),
+      annotate.text([24, Math.LN2 + 0.04]).label(tex`\ln 2 \approx 0.693`).font(10.5).color(red).bold().anchor('end'),
       annotate.text([12, 1.1]).label('partial sums zigzag in').font(10.5).color(blue).anchor('middle'),
     );
   const right = plot2d([0, 25], [0, 4], { size: [520, 420], axes: AX('N', 'S_N'), grid: { alpha: 0.28 } })
@@ -101,8 +101,8 @@ function alternatingSeries() {
       plugins.polyline(...partialSums((n) => 1 / n, 1, 24)).color(green).stroke(2.2),
       plugins.polyline(...S).color(blue).stroke(2.2),
       line.horizontal(Math.LN2).color(red).stroke(1).dash([5, 4]).opacity(0.6),
-      legend([18, 3.3], 'Σ 1/n  (diverges)', green),
-      legend([24, 0.95], 'Σ (−1)ⁿ⁺¹/n  (→ ln 2)', blue, 10.5, 'end'),
+      legend([18, 3.3], tex`\textstyle\sum 1/n\ \text{(diverges)}`, green),
+      legend([24, 0.95], tex`\textstyle\sum (-1)^{n+1}/n\ (\to \ln 2)`, blue, 10.5, 'end'),
     );
   return subplots([left, right], { cols: 2, tight: true, title: 'Alternating Series and Conditional Convergence' });
 }
@@ -118,8 +118,8 @@ function ratioTest() {
       ...convTerms.map(([x, y]) => point(x, y).dot().color(blue).size(3)),
       line.horizontal(1).color(ASYMP).stroke(1).dash([4, 4]),
       line.horizontal(Math.exp(-1)).color(red).stroke(1.2).dash([5, 4]),
-      annotate.text([20, 1.03]).label('ρ = 1').font(10.5).color(gray).anchor('end'),
-      annotate.text([20, Math.exp(-1) + 0.035]).label('1/e ≈ 0.368').font(10.5).color(red).bold().anchor('end'),
+      annotate.text([20, 1.03]).label(tex`\rho = 1`).font(10.5).color(gray).anchor('end'),
+      annotate.text([20, Math.exp(-1) + 0.035]).label(tex`1/e \approx 0.368`).font(10.5).color(red).bold().anchor('end'),
     );
   const rDiv = (n) => (n + 1) / 2;
   const divTerms = termsOf(rDiv, 1, 10);
@@ -128,8 +128,8 @@ function ratioTest() {
       plugins.polyline(...divTerms).color(orange).stroke(2.2),
       ...divTerms.map(([x, y]) => point(x, y).dot().color(orange).size(3)),
       line.horizontal(1).color(red).stroke(1.2).dash([5, 4]),
-      annotate.text([10, 1.12]).label('ρ = 1').font(10.5).color(red).bold().anchor('end'),
-      annotate.text([5.5, 4.8]).label('ratio → ∞').font(10.5).color(orange).anchor('middle'),
+      annotate.text([10, 1.12]).label(tex`\rho = 1`).font(10.5).color(red).bold().anchor('end'),
+      annotate.text([5.5, 4.8]).label(tex`\text{ratio} \to \infty`).font(10.5).color(orange).anchor('middle'),
     );
   return subplots([left, right], { cols: 2, tight: true, title: 'Ratio Test' });
 }

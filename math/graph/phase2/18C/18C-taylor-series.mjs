@@ -10,7 +10,7 @@
 //   라벨  `annotate.text([x, y]).label(t).font(n).color(c).anchor()` (배열 좌표 허용)
 //   색    `kit.palette.tab` 을 구조분해 — 이름 그대로 쓴다(hex 하드코딩 없음)
 //   순수 JS 수학(fact·seriesFn·log10Err·clampFn)만 `./_helper.mjs` (다른 폴더와 공유하지 않는다)
-import { annotate, curve, kit } from '@jaywoo0830a/logos';
+import { annotate, curve, kit, tex } from '@jaywoo0830a/logos';
 import { clampFn, fact, log10Err, seriesFn } from './_helper.mjs';
 
 const { plot2d, subplots, palette } = kit;
@@ -25,16 +25,16 @@ const legend = (at, text, color, font = 10) => annotate.text(at).label(text).fon
 
 // ── sin x 의 테일러 다항식 T_{2K+1}(x) ──────────────────────────
 const sinT = (K) => seriesFn((n, x) => ((-1) ** n) * x ** (2 * n + 1) / fact(2 * n + 1), 0, K);
-const SIN_TERMS = [[0, blue, 'T₁'], [1, green, 'T₃'], [2, orange, 'T₅'], [3, purple, 'T₇']];
+const SIN_TERMS = [[0, blue, tex`T_1`], [1, green, tex`T_3`], [2, orange, tex`T_5`], [3, purple, tex`T_7`]];
 
 /** 왼쪽: 다항식이 sin x 에 겹쳐지는 모습 */
 function panelSinPoly() {
   const dom = [-3.1, 3.1];
   const draws = [curve.fn(Math.sin).on(dom).color(red).stroke(2.8).n(320)];
   for (const [K, c] of SIN_TERMS) draws.push(curve.fn(clampFn(sinT(K), -3.25, 3.25)).on(dom).color(c).stroke(1.8).n(320));
-  draws.push(legend([-3.0, 3.0], 'sin x', red));
+  draws.push(legend([-3.0, 3.0], tex`\sin x`, red));
   for (const [K, c, name] of SIN_TERMS) draws.push(legend([-2.1 + K * 0.65, 3.0], name, c));
-  draws.push(annotate.text([0, -3.0]).label('T₁ = tangent, T₃ = +curl, T₅·T₇ = closer further out').font(9).color(gray).anchor('middle'));
+  draws.push(annotate.text([0, -3.0]).label(tex`T_1\ \text{= tangent},\ T_3\ \text{= +curl},\ T_5,T_7\ \text{= closer further out}`).font(9).color(gray).anchor('middle'));
   return panel(dom, [-3.3, 3.3], 'y').title('Taylor polynomials of sin x  at  a = 0').add(...draws);
 }
 
@@ -50,14 +50,14 @@ function panelSinError() {
 
 // ── eˣ 의 테일러 다항식 T_N(x) ──────────────────────────────────
 const expT = (N) => seriesFn((n, x) => x ** n / fact(n), 0, N);
-const EXP_TERMS = [[1, blue, 'T₁'], [2, green, 'T₂'], [3, orange, 'T₃'], [5, purple, 'T₅']];
+const EXP_TERMS = [[1, blue, tex`T_1`], [2, green, tex`T_2`], [3, orange, tex`T_3`], [5, purple, tex`T_5`]];
 
 /** 왼쪽: eˣ 근사 */
 function panelExpPoly() {
   const dom = [-2, 2];
   const draws = [curve.fn(Math.exp).on(dom).color(red).stroke(2.8).n(320)];
   for (const [N, c] of EXP_TERMS) draws.push(curve.fn(clampFn(expT(N), -1.15, 7.9)).on(dom).color(c).stroke(1.8).n(320));
-  draws.push(legend([-1.95, 7.4], 'eˣ', red));
+  draws.push(legend([-1.95, 7.4], tex`e^{x}`, red));
   for (const [i, [, c, name]] of EXP_TERMS.entries()) draws.push(legend([-1.15 + i * 0.75, 7.4], name, c));
   return panel(dom, [-1.2, 8], 'y').title('Taylor polynomials of eˣ  at  a = 0').add(...draws);
 }

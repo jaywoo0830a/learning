@@ -17,7 +17,7 @@
 //   곡선 curve.fn(f).on(dom) · 링 region.annulus · 부호 띠 region.bar · 구간 region.between
 //   구 sphere(3D) · 등각 상자 polygon(+toPoint) · 선분 segment([x,y,z],[x,y,z]) · 라벨 annotate.text
 //   색 kit.palette.* (0.4.1 tick-step 자릿수 유도 덕분에 좁은 범위 눈금도 그대로 쓴다)
-import { annotate, circle, curve, kit, line, point, polygon, region, segment, sphere, toPoint } from '@jaywoo0830a/logos';
+import { annotate, circle, curve, kit, line, point, polygon, region, segment, sphere, toPoint, tex } from '@jaywoo0830a/logos';
 
 const { plot2d, plot3d, subplots, palette } = kit;
 const { blue, green, orange, purple, red, gray } = palette.tab;
@@ -49,7 +49,7 @@ function linearization() {
       curve.fn(L).on([0, 9]).color(red).stroke(1.8).dash([6, 4]).n(2),
       line.vertical(4).color(ASYMP).stroke(1).dash([4, 4]),
       point(4, 2).dot().color(red).size(4.5),
-      legend([1.1, 3.25], 'L(x) = 2 + (x − 4)/4', red),
+      legend([1.1, 3.25], tex`L(x) = 2 + (x-4)/4`, red),
       annotate.text([4.15, 0.35]).label('touch point x = 4').font(9.5).color(red),
     );
 
@@ -64,9 +64,9 @@ function linearization() {
       segment([4.1, f(4.1)], [4.1, L(4.1)]).color(gray).stroke(1.6),
       point(4.1, L(4.1)).marker('circle', { open: true }).color(red).size(4.5),
       point(4.1, f(4.1)).marker('circle').color(blue).size(4.5),
-      annotate.text([4.1002, 2.0288]).label('L(4.1) = 2.025').font(9.5).color(red),
-      annotate.text([4.1002, 2.0207]).label('√4.1 = 2.024846').font(9.5).color(blue),
-      annotate.text([4.09, 2.02485]).label('error ≈ 1.5 × 10⁻⁴').font(9).color(gray).anchor('end'),
+      annotate.text([4.1002, 2.0288]).label(tex`L(4.1) = 2.025`).font(9.5).color(red),
+      annotate.text([4.1002, 2.0207]).label(tex`\sqrt{4.1} = 2.024846`).font(9.5).color(blue),
+      annotate.text([4.09, 2.02485]).label(tex`\text{error} \approx 1.5 \times 10^{-4}`).font(9).color(gray).anchor('end'),
     );
 
   return pair(left, right, 'Linearization — the tangent is the best linear model');
@@ -88,10 +88,10 @@ function circleRing() {
       point(0, 0).dot().color(red).size(4),
       point(r, 0).marker('circle').color(blue).size(4),
       point(r + dr, 0).marker('circle', { open: true }).color(blue).size(4),
-      annotate.text([1.0, 0.16]).label('r').font(12).color(red).bold(),
-      annotate.text([2.14, 0.62]).label('dr').font(10).color(blue),
-      annotate.text([-2.75, 2.5]).label('A(r) = πr²').font(10).color(gray),
-      annotate.text([-2.75, 2.2]).label("A′(r) = 2πr  =  circumference").font(10).color(blue).bold(),
+      annotate.text([1.0, 0.16]).label(tex`r`).font(12).color(red).bold(),
+      annotate.text([2.14, 0.62]).label(tex`dr`).font(10).color(blue),
+      annotate.text([-2.75, 2.5]).label(tex`A(r) = \pi r^{2}`).font(10).color(gray),
+      annotate.text([-2.75, 2.2]).label(tex`A'(r) = 2\pi r\ \text{= circumference}`).font(10).color(blue).bold(),
       annotate.text([-2.75, 1.9]).label('the ring is a stretched circumference').font(9.5).color(gray),
     );
 
@@ -118,12 +118,12 @@ function sphereShell() {
       segment([0, 0, 0], [r, 0, 0]).color(red).stroke(1.8),
       segment([r, 0, 0], [r + dr, 0, 0]).color(purple).stroke(1.8),
       point(0, 0, 0).dot().color(red).size(3.5),
-      annotate.text([r * 0.52, 0, 0.14]).label('r').font(12).color(red).bold(),
-      annotate.text([r + dr * 0.5, 0, -0.1]).label('dr').font(10.5).color(purple),
-      annotate.text([0, 0, r + 0.42]).label('r + dr').font(10.5).color(purple).bold(),
+      annotate.text([r * 0.52, 0, 0.14]).label(tex`r`).font(12).color(red).bold(),
+      annotate.text([r + dr * 0.5, 0, -0.1]).label(tex`dr`).font(10.5).color(purple),
+      annotate.text([0, 0, r + 0.42]).label(tex`r + dr`).font(10.5).color(purple).bold(),
       // ④ 설명 3줄 — 같은 3D 앵커에 px 오프셋(offset)으로 쌓아 겹침을 막는다
-      annotate.text([-2.15, -1.75, 0]).label('V(r) = 4/3 πr³').font(10).color(gray).offset(0, -30),
-      annotate.text([-2.15, -1.75, 0]).label("V′(r) = 4πr²  =  surface area").font(10.5).color(blue).bold().offset(0, -14),
+      annotate.text([-2.15, -1.75, 0]).label(tex`V(r) = \tfrac{4}{3}\pi r^{3}`).font(10).color(gray).offset(0, -30),
+      annotate.text([-2.15, -1.75, 0]).label(tex`V'(r) = 4\pi r^{2}\ \text{= surface area}`).font(10.5).color(blue).bold().offset(0, -14),
       annotate.text([-2.15, -1.75, 0]).label('the shell is a stretched surface').font(9.5).color(gray),
     );
 
@@ -144,7 +144,7 @@ function marginalCost() {
       curve.fn(C).on(LEFT_X).color(green).stroke(2.6).n(200),
       curve.fn((q) => MC0 * q).on([4, 21]).color(red).stroke(1.8).dash([6, 4]).n(2),
       point(q0, C(q0)).dot().color(red).size(4.5),
-      annotate.text([12.4, 200]).label("C'(12) = 28 $/unit").font(10.5).color(red).bold(),
+      annotate.text([12.4, 200]).label(tex`C'(12) = 28\ \text{\$/unit}`).font(10.5).color(red).bold(),
       legend([2.6, 700], 'slope here = price of the NEXT unit', red, 9.5),
       annotate.text([0.4, 715]).label('C ($)').font(9.5).color(gray),
       annotate.text([11, 90]).label('q (units)').font(9.5).color(gray).anchor('middle'),
@@ -159,10 +159,10 @@ function marginalCost() {
       curve.fn(AC).on([3, 22]).color(blue).stroke(2.4).n(200),
       line.vertical(q0).color(ASYMP).stroke(1).dash([4, 4]),
       point(q0, MC0).dot().color(purple).size(5),
-      annotate.text([5.6, 53]).label('MC = 2q + 4').font(10.5).color(red).bold(),
-      annotate.text([6.0, 46]).label('AC = q + 4 + 144/q').font(10.5).color(blue).bold(),
-      annotate.text([13.2, 35.5]).label('meet at q = 12  ($28)').font(10).color(purple).bold(),
-      annotate.text([13, 12]).label("AC'(12) = 0 — the average stops falling").font(9).color(gray),
+      annotate.text([5.6, 53]).label(tex`MC = 2q + 4`).font(10.5).color(red).bold(),
+      annotate.text([6.0, 46]).label(tex`AC = q + 4 + 144/q`).font(10.5).color(blue).bold(),
+      annotate.text([13.2, 35.5]).label(tex`\text{meet at } q = 12\ (\$28)`).font(10).color(purple).bold(),
+      annotate.text([13, 12]).label(tex`AC'(12) = 0\ \text{— the average stops falling}`).font(9).color(gray),
       annotate.text([21.5, 56]).label('$ / unit').font(9.5).color(gray).anchor('end'),
       annotate.text([12.5, 6.5]).label('q (units)').font(9.5).color(gray).anchor('middle'),
     );
@@ -186,9 +186,9 @@ function elasticity() {
       curve.fn(q).on([0, 50]).color(blue).stroke(2.6).n(2),
       line.vertical(pStar).color(ASYMP).stroke(1).dash([4, 4]),
       point(pStar, qStar).dot().color(purple).size(5),
-      annotate.text([7, 300]).label('inelastic  (|E| < 1)').font(10).color(blue).bold(),
-      annotate.text([48, 480]).label('elastic  (|E| > 1)').font(10).color(red).bold().anchor('end'),
-      annotate.text([pStar + 0.6, 150]).label('E = −1  at p = 25').font(10).color(purple).bold(),
+      annotate.text([7, 300]).label(tex`\text{inelastic } (|E| < 1)`).font(10).color(blue).bold(),
+      annotate.text([48, 480]).label(tex`\text{elastic } (|E| > 1)`).font(10).color(red).bold().anchor('end'),
+      annotate.text([pStar + 0.6, 150]).label(tex`E = -1\ \text{at } p = 25`).font(10).color(purple).bold(),
     );
 
   const right = plot2d([0, 50], [0, 6600], { size: PANEL, axes: AX('price p ($)', 'revenue R ($)'), grid: { alpha: 0.25 } })
@@ -199,10 +199,10 @@ function elasticity() {
       region.between(0, R).on([pStar, 50]).fill(red).opacity(0.10),
       line.vertical(pStar).color(ASYMP).stroke(1).dash([4, 4]),
       point(pStar, rStar).dot().color(purple).size(5),
-      annotate.text([pStar + 1.2, 6320]).label('R = 6250 max').font(10.5).color(purple).bold(),
-      annotate.text([26.8, 4600]).label("R'(p) = 500 − 20p = 0").font(9.5).color(gray),
-      annotate.text([5, 900]).label('raise price → revenue up').font(9).color(blue),
-      annotate.text([47, 900]).label('raise price → revenue down').font(9).color(red).anchor('end'),
+      annotate.text([pStar + 1.2, 6320]).label(tex`R = 6250\ \text{max}`).font(10.5).color(purple).bold(),
+      annotate.text([26.8, 4600]).label(tex`R'(p) = 500 - 20p = 0`).font(9.5).color(gray),
+      annotate.text([5, 900]).label(tex`\text{raise price} \to \text{revenue up}`).font(9).color(blue),
+      annotate.text([47, 900]).label(tex`\text{raise price} \to \text{revenue down}`).font(9).color(red).anchor('end'),
     );
 
   return pair(left, right, 'Elasticity — Where a Price Hike Still Raises Revenue');
@@ -226,11 +226,11 @@ function signStory() {
       curve.fn(fp).on([-1.5, 5.5]).color(blue).stroke(2.6).n(2),
       line.vertical(x0).color(ASYMP).stroke(1).dash([4, 4]),
       point(x0, 0).dot().color(purple).size(4.5),
-      annotate.text([0.35, 7.7]).label('f′(x) = 2x − 4').font(10.5).color(blue).bold(),
-      annotate.text([0.35, 6.4]).label('slope = 2  →  f″ = 2 > 0').font(9.5).color(gray),
-      annotate.text([0.35, -7.7]).label('f′ < 0  →  f falls').font(10).color(red).bold(),
-      annotate.text([2.3, 6.8]).label('f′ > 0  →  f rises').font(10).color(blue).bold(),
-      annotate.text([2.2, -1.8]).label('f′(2) = 0  →  f is flat').font(9.5).color(purple),
+      annotate.text([0.35, 7.7]).label(tex`f'(x) = 2x - 4`).font(10.5).color(blue).bold(),
+      annotate.text([0.35, 6.4]).label(tex`\text{slope} = 2\ \to\ f'' = 2 > 0`).font(9.5).color(gray),
+      annotate.text([0.35, -7.7]).label(tex`f' < 0\ \to\ \text{f falls}`).font(10).color(red).bold(),
+      annotate.text([2.3, 6.8]).label(tex`f' > 0\ \to\ \text{f rises}`).font(10).color(blue).bold(),
+      annotate.text([2.2, -1.8]).label(tex`f'(2) = 0\ \to\ \text{f is flat}`).font(9.5).color(purple),
     );
 
   const right = plot2d([-0.9, 5], [-5.5, 6.5], { size: PANEL, axes: AX('x', 'f(x)'), grid: { alpha: 0.25 } })
@@ -240,9 +240,9 @@ function signStory() {
       segment([0.6, -4], [3.4, -4]).color(red).stroke(1.8).dash([6, 4]),   // 최소점의 접선
       line.vertical(2).color(ASYMP).stroke(1).dash([4, 4]),
       point(2, -4).dot().color(green).size(4.5),
-      annotate.text([0.15, 6.0]).label('f(x) = x² − 4x  (the +C is free)').font(10.5).color(green).bold(),
-      annotate.text([0.15, 5.0]).label('falls → rises: minimum at x = 2').font(9.5).color(gray),
-      annotate.text([2.15, -3.2]).label('f′ = 0 and f″ > 0  →  minimum').font(9.5).color(purple),
+      annotate.text([0.15, 6.0]).label(tex`f(x) = x^{2} - 4x\ \text{(the +C is free)}`).font(10.5).color(green).bold(),
+      annotate.text([0.15, 5.0]).label(tex`\text{falls} \to \text{rises: minimum at } x = 2`).font(9.5).color(gray),
+      annotate.text([2.15, -3.2]).label(tex`f' = 0\ \text{and}\ f'' > 0\ \to\ \text{minimum}`).font(9.5).color(purple),
       annotate.text([0.62, -4.75]).label('tangent: slope 0').font(9).color(red),
     );
 
@@ -301,14 +301,14 @@ function cubeDriver() {
 
   const left = box('side', 'dV/ds = 3s² — respect the side s', [
     annotate.text([-0.75, 3.5]).label('only 3 faces move (normals +x, +y, +z)').font(10).color(blue).bold(),
-    annotate.text([-0.75, 3.12]).label('dV/ds collects 3s² — three faces of area s²').font(9.5).color(gray),
+    annotate.text([-0.75, 3.12]).label(tex`\text{dV/ds collects } 3s^{2}\ \text{— three faces of area } s^{2}`).font(9.5).color(gray),
     annotate.text([-0.75, -0.25]).label('front face stays put; dashed = the hidden face at z = s').font(9).color(gray),
   ]);
 
   const right = box('half', 'dV/du = 24u² = 6s² — respect the half-side u = s/2', [
     annotate.text([-0.75, 3.5]).label('all 6 faces move — two per direction').font(10).color(green).bold(),
     annotate.text([-0.75, 3.12]).label('a half-side step pushes both faces of every pair').font(9.5).color(gray),
-    annotate.text([-0.75, -0.25]).label('front face moves too: 6s² appears only for this driver').font(9).color(gray),
+    annotate.text([-0.75, -0.25]).label(tex`\text{front face moves too: } 6s^{2}\ \text{appears only for this driver}`).font(9).color(gray),
   ]);
 
   return pair(left, right, 'The Cube Check — the Driver Decides How Many Faces Count');
@@ -332,8 +332,8 @@ function energyTwoMeanings() {
       curve.fn((v) => K(v0) + slopeV * (v - v0)).on([1.5, 4.5]).color(red).stroke(1.8).dash([6, 4]).n(2),
       line.vertical(v0).color(ASYMP).stroke(1).dash([4, 4]),
       point(v0, K(v0)).dot().color(red).size(4.5),
-      annotate.text([0.5, 19.2]).label('K(v) = ½ m v²,  m = 2 kg').font(10.5).color(green).bold(),
-      annotate.text([0.5, 17.0]).label('slope = m v = 6  →  p (momentum)').font(10).color(red).bold(),
+      annotate.text([0.5, 19.2]).label(tex`K(v) = \tfrac{1}{2}mv^{2},\;\; m = 2\,\mathrm{kg}`).font(10.5).color(green).bold(),
+      annotate.text([0.5, 17.0]).label(tex`\text{slope} = mv = 6\ \to\ p\ \text{(momentum)}`).font(10).color(red).bold(),
       annotate.text([0.5, 15.0]).label('J ÷ (m/s) = kg·m/s').font(9.5).color(gray),
       annotate.text([3.05, 3.4]).label('tangent at v = 3').font(9).color(gray),
     );
@@ -345,8 +345,8 @@ function energyTwoMeanings() {
       curve.fn((t) => Kt(t0) + slopeT * (t - t0)).on([0.75, 2.2]).color(red).stroke(1.8).dash([6, 4]).n(2),
       line.vertical(t0).color(ASYMP).stroke(1).dash([4, 4]),
       point(t0, Kt(t0)).dot().color(red).size(4.5),
-      annotate.text([0.15, 43]).label('K(t) = ½ m a²t²,  a = F/m = 3').font(10.5).color(green).bold(),
-      annotate.text([0.15, 37.5]).label('slope = F v = 6 · 4.5 = 27  →  P').font(10).color(red).bold(),
+      annotate.text([0.15, 43]).label(tex`K(t) = \tfrac{1}{2}ma^{2}t^{2},\;\; a = F/m = 3`).font(10.5).color(green).bold(),
+      annotate.text([0.15, 37.5]).label(tex`\text{slope} = Fv = 6 \cdot 4.5 = 27\ \to\ P`).font(10).color(red).bold(),
       annotate.text([0.15, 32.5]).label('J ÷ s = W  (watts)').font(9.5).color(gray),
       annotate.text([1.62, 15]).label('tangent at t = 1.5').font(9).color(gray),
       annotate.text([1.62, 5.5]).label('same J, different driver').font(9).color(gray),
@@ -381,8 +381,8 @@ function motionSigns() {
       line.vertical(3).color(ASYMP).stroke(1).dash([4, 4]),
       point(1, 0).dot().color(gray).size(4),
       point(3, 0).dot().color(gray).size(4),
-      annotate.text([0.6, 5.7]).label('v > 0: forward    v < 0: backward').font(10).color(blue).bold(),
-      annotate.text([0.6, 4.95]).label('v = 0 at t = 1 and t = 3').font(9.5).color(gray),
+      annotate.text([0.6, 5.7]).label(tex`v > 0\text{: forward}\quad v < 0\text{: backward}`).font(10).color(blue).bold(),
+      annotate.text([0.6, 4.95]).label(tex`v = 0\ \text{at } t = 1\ \text{and}\ t = 3`).font(9.5).color(gray),
       ...PHASES.map((p) => annotate.text([(p.from + p.to) / 2, -1.6]).label(p.text)
         .font(9).color(p.kind === 'slow' ? SLOW : FAST).anchor('middle')),
     );
@@ -396,12 +396,12 @@ function motionSigns() {
       curve.fn(v).on([0, 4.4]).color(blue).stroke(2.6).n(200),
       line.vertical(2).color(ASYMP).stroke(1).dash([4, 4]),
       point(2, -1).dot().color(purple).size(4.5),
-      annotate.text([0.55, 5.5]).label('a(t) = 2t − 4').font(10.5).color(orange).bold(),
-      annotate.text([0.55, 4.75]).label('v(t) = t² − 4t + 3').font(10.5).color(blue).bold(),
-      annotate.text([0.5, 3.6]).label('v · a > 0 → speeding up;   v · a < 0 → slowing down').font(9).color(gray),
-      annotate.text([1.06, 0.4]).label('v = 0').font(9).color(gray),
-      annotate.text([3.06, 0.4]).label('v = 0').font(9).color(gray),
-      annotate.text([2.15, -3.6]).label('a = 0 at t = 2  (v is at its minimum)').font(9).color(purple),
+      annotate.text([0.55, 5.5]).label(tex`a(t) = 2t - 4`).font(10.5).color(orange).bold(),
+      annotate.text([0.55, 4.75]).label(tex`v(t) = t^{2} - 4t + 3`).font(10.5).color(blue).bold(),
+      annotate.text([0.5, 3.6]).label(tex`v \cdot a > 0 \to \text{speeding up};\;\; v \cdot a < 0 \to \text{slowing down}`).font(9).color(gray),
+      annotate.text([1.06, 0.4]).label(tex`v = 0`).font(9).color(gray),
+      annotate.text([3.06, 0.4]).label(tex`v = 0`).font(9).color(gray),
+      annotate.text([2.15, -3.6]).label(tex`a = 0\ \text{at } t = 2\ \text{(v is at its minimum)}`).font(9).color(purple),
     );
 
   return pair(left, right, 'Speeding Up or Slowing Down — It Depends on Two Signs');

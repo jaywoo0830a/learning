@@ -11,7 +11,7 @@
 //   라벨   annotate.text([x,y]).label(t).font(n).color(c).bold().anchor()
 //   색     kit.palette.tab 구조분해
 //   순수 JS 수학(seriesFn·clampFn)만 ./_helper.mjs (다른 폴더와 공유하지 않는다)
-import { annotate, curve, kit, line, point, segment } from '@jaywoo0830a/logos';
+import { annotate, curve, kit, line, point, segment, tex } from '@jaywoo0830a/logos';
 import { clampFn, seriesFn } from './_helper.mjs';
 
 const { plot2d, subplots, palette } = kit;
@@ -28,9 +28,9 @@ const AXx = (x) => ({ x: { label: x }, y: { label: false, ticks: false } });
 // ── TL : 반지름의 세 가지 경우 (R=1 · R=∞ · R=0) ────────────────
 function panelRadiusCases() {
   const cases = [
-    { y: 2.3, color: blue, half: 1, name: 'Σ xⁿ', tag: 'R = 1' },
-    { y: 1.3, color: green, half: 3, name: 'Σ xⁿ/n!', tag: 'R = ∞' },
-    { y: 0.3, color: orange, half: 0, name: 'Σ n! xⁿ', tag: 'R = 0' },
+    { y: 2.3, color: blue, half: 1, name: tex`\sum x^{n}`, tag: tex`R = 1` },
+    { y: 1.3, color: green, half: 3, name: tex`\sum x^{n}/n!`, tag: tex`R = \infty` },
+    { y: 0.3, color: orange, half: 0, name: tex`\sum n!x^{n}`, tag: tex`R = 0` },
   ];
   const draws = [];
   for (const c of cases) {
@@ -66,11 +66,11 @@ function panelGeomPartials() {
       curve.fn(clampFn(Sg(1), -0.95, 5.9)).on(dom).color(blue).stroke(1.6).n(240),
       curve.fn(clampFn(Sg(3), -0.95, 5.9)).on(dom).color(green).stroke(1.6).n(240),
       curve.fn(clampFn(Sg(7), -0.95, 5.9)).on(dom).color(orange).stroke(1.6).n(240),
-      annotate.text([-0.77, 5.5]).label('1/(1−x)  (true sum)').font(10).color(red).bold(),
-      annotate.text([-0.77, 5.0]).label('S₁').font(10).color(blue).bold(),
-      annotate.text([-0.52, 5.0]).label('S₃').font(10).color(green).bold(),
-      annotate.text([-0.28, 5.0]).label('S₇').font(10).color(orange).bold(),
-      annotate.text([0.4, 0.45]).label('converges only for |x| < 1').font(9).color(gray).anchor('middle'),
+      annotate.text([-0.77, 5.5]).label(tex`1/(1-x)\ \text{(true sum)}`).font(10).color(red).bold(),
+      annotate.text([-0.77, 5.0]).label(tex`S_1`).font(10).color(blue).bold(),
+      annotate.text([-0.52, 5.0]).label(tex`S_3`).font(10).color(green).bold(),
+      annotate.text([-0.28, 5.0]).label(tex`S_7`).font(10).color(orange).bold(),
+      annotate.text([-0.4, 0.45]).label(tex`\text{converges only for } |x| < 1`).font(9).color(gray).anchor('middle'),
     );
 }
 
@@ -85,20 +85,20 @@ function panelEndpoints() {
       ...Ns.map((N) => point(N, SN(0.9, N)).dot().color(green).size(2.6)),
       ...Ns.map((N) => point(N, SN(-1, N)).dot().color(blue).size(2.6)),
       line.horizontal(-Math.LN2).color(blue).stroke(1).dash([4, 4]).opacity(0.7),
-      annotate.text([59, 4.7]).label('x = 1 :  harmonic  →  diverges').font(9.5).color(red).bold().anchor('end'),
-      annotate.text([59, 2.75]).label('x = 0.9 :  →  −ln(0.1) ≈ 2.303').font(9.5).color(green).anchor('end'),
-      annotate.text([59, -1.05]).label('x = −1 :  →  −ln 2 ≈ −0.693').font(9.5).color(blue).anchor('end'),
+      annotate.text([59, 4.7]).label(tex`x = 1:\ \text{harmonic}\ \to\ \text{diverges}`).font(9.5).color(red).bold().anchor('end'),
+      annotate.text([59, 2.75]).label(tex`x = 0.9:\ \to\ -\ln(0.1) \approx 2.303`).font(9.5).color(green).anchor('end'),
+      annotate.text([59, -1.05]).label(tex`x = -1:\ \to\ -\ln 2 \approx -0.693`).font(9.5).color(blue).anchor('end'),
     );
 }
 
 // ── BR : 수렴구간 요약표 (● 수렴 · ○ 발산) ──────────────────────
 function panelIntervalTable() {
   const rows = [
-    { y: 4.2, name: 'Σ xⁿ', lo: -1, hi: 1, loOpen: true, hiOpen: true, tag: 'R = 1' },
-    { y: 3.3, name: 'Σ xⁿ/n', lo: -1, hi: 1, loOpen: false, hiOpen: true, tag: 'R = 1' },
-    { y: 2.4, name: 'Σ xⁿ/n²', lo: -1, hi: 1, loOpen: false, hiOpen: false, tag: 'R = 1' },
-    { y: 1.5, name: 'Σ xⁿ/n!', lo: -2.8, hi: 2.8, loOpen: true, hiOpen: true, tag: 'R = ∞' },
-    { y: 0.6, name: 'Σ n!(x−1)ⁿ', lo: 1, hi: 1, loOpen: false, hiOpen: false, tag: 'R = 0' },
+    { y: 4.2, name: tex`\sum x^{n}`, lo: -1, hi: 1, loOpen: true, hiOpen: true, tag: tex`R = 1` },
+    { y: 3.3, name: tex`\sum x^{n}/n`, lo: -1, hi: 1, loOpen: false, hiOpen: true, tag: tex`R = 1` },
+    { y: 2.4, name: tex`\sum x^{n}/n^{2}`, lo: -1, hi: 1, loOpen: false, hiOpen: false, tag: tex`R = 1` },
+    { y: 1.5, name: tex`\sum x^{n}/n!`, lo: -2.8, hi: 2.8, loOpen: true, hiOpen: true, tag: tex`R = \infty` },
+    { y: 0.6, name: tex`\sum n!(x-1)^{n}`, lo: 1, hi: 1, loOpen: false, hiOpen: false, tag: tex`R = 0` },
   ];
   const draws = [];
   for (const r of rows) {
@@ -138,8 +138,8 @@ function buildingSeries() {
       curve.fn(g1).on(d1).color(red).stroke(2.6).n(240),
       ...[[1, blue], [3, green], [7, orange], [15, purple]].map(([N, c]) =>
         curve.fn(clampFn(seriesFn((n, x) => (-1) ** n * x ** n, 0, N), 0.02, 6.9)).on(d1).color(c).stroke(1.6).n(240)),
-      annotate.text([-0.8, 6.55]).label('1/(1+x)').font(9.5).color(red).bold(),
-      annotate.text([-0.05, 6.55]).label('S₁, S₃, S₇, S₁₅').font(9.5).color(blue).bold(),
+      annotate.text([-0.8, 6.55]).label(tex`\frac{1}{1+x}`).font(9.5).color(red).bold(),
+      annotate.text([-0.05, 6.55]).label(tex`S_1, S_3, S_7, S_{15}`).font(9.5).color(blue).bold(),
     );
 
   // ② ln(1+x) = Σ (−1)ⁿ⁺¹ xⁿ/n   (적분)
@@ -152,9 +152,9 @@ function buildingSeries() {
       ...[[1, blue], [2, green], [5, orange], [20, purple]].map(([N, c]) =>
         curve.fn(clampFn(seriesFn((n, x) => ((-1) ** (n + 1)) * x ** n / n, 1, N), -2.25, 1.55)).on(d2).color(c).stroke(1.6).n(240)),
       line.vertical(-1).color(ASYMP).stroke(1).dash([4, 4]),
-      annotate.text([-0.86, 1.45]).label('ln(1+x)').font(9.5).color(red).bold(),
-      annotate.text([-0.86, 1.15]).label('partial sums  S₁, S₂, S₅, S₂₀').font(9.5).color(blue).bold(),
-      annotate.text([0.95, -2.05]).label('x = −1 : log 0').font(9).color(gray).anchor('end'),
+      annotate.text([-0.86, 1.45]).label(tex`\ln(1+x)`).font(9.5).color(red).bold(),
+      annotate.text([-0.86, 1.15]).label(tex`\text{partial sums } S_1, S_2, S_5, S_{20}`).font(9.5).color(blue).bold(),
+      annotate.text([0.95, -2.05]).label(tex`x = -1:\ \log 0`).font(9).color(gray).anchor('end'),
     );
 
   // ③ arctan x = Σ (−1)ⁿ x^{2n+1}/(2n+1)   (1/(1+x²) 적분, 반지름 1)
@@ -167,9 +167,9 @@ function buildingSeries() {
         curve.fn(clampFn(seriesFn((n, x) => ((-1) ** n) * x ** (2 * n + 1) / (2 * n + 1), 0, K), -1.35, 1.35)).on(d3).color(c).stroke(1.6).n(240)),
       line.vertical(-1).color(ASYMP).stroke(1).dash([4, 4]),
       line.vertical(1).color(ASYMP).stroke(1).dash([4, 4]),
-      annotate.text([-1.1, 1.28]).label('arctan x').font(9.5).color(red).bold(),
-      annotate.text([-1.1, 1.02]).label('partial sums  S₁, S₂, S₃, S₅').font(9.5).color(blue).bold(),
-      annotate.text([0, -1.3]).label('|x| < 1   (bad points at x = ±i)').font(9).color(gray).anchor('middle'),
+      annotate.text([-1.1, 1.28]).label(tex`\arctan x`).font(9.5).color(red).bold(),
+      annotate.text([-1.1, 1.02]).label(tex`\text{partial sums } S_1, S_2, S_3, S_5`).font(9.5).color(blue).bold(),
+      annotate.text([0, -1.3]).label(tex`|x| < 1\ \text{(bad points at } x = \pm i\text{)}`).font(9).color(gray).anchor('middle'),
     );
 
   return subplots([s1, s2, s3], { cols: 3, tight: true, title: 'Building New Series from 1/(1−x)' });

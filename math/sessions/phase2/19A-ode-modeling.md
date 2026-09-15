@@ -70,6 +70,12 @@ $y' = x+y$: the slope field shows curves that look like $-x-1+Ce^x$.
 
 *Graph 19A-1: Slope fields with solution curves. Left — $y' = x+y$: solutions are $y = -x-1+Ce^x$ and the dashed line $y=-x-1$ is the nullcline (where slope = 0). Right — $y' = y-2x$ (§9.2 #11): the solution through $(1,0)$ follows the flow. Short segments show the slope at each grid point.*
 
+**Numerical preview — Euler's method** (§9.2): when no formula exists, *follow the field* — start at the initial point and step along the local slope. The red dashed curve below is the built-in RK4 solver, which lands exactly on the exact solution $e^x$; Euler's staircase (drawn by hand in the drills D11–D12, analyzed for error in A11) approaches it as $h \to 0$.
+
+![Euler's method vs exact solution]({{graph:19a-6-euler-method}})
+
+*Graph 19A-6: Euler's method for $y'=y$, $y(0)=1$ (§9.2 #19). Steps of size $h=0.8$ and $h=0.4$ vs the exact curve $y=e^x$; at $x=1.6$ the Euler values are $3.24$ and $3.84$ against the exact $4.95$. Halving $h$ roughly halves the error — Euler is a first-order method.*
+
 ---
 
 ## Part C: The Exponential Model — Growth and Decay

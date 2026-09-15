@@ -8,7 +8,7 @@
 //   이 폴더에는 헬퍼 파일이 없다 — 아래 별칭은 전부 이 파일 안의 1줄 프리셋이다.
 //   곡선 curve.fn(f).on(dom) (접선도 같은 API) · 구간 막대 segment([x,y],[x,y]).stroke(16)
 //   기준선 line.vertical/horizontal · 마커 point(x,y).dot() · 라벨 annotate.text([x,y])
-import { annotate, curve, kit, line, point, segment } from '@jaywoo0830a/logos';
+import { annotate, curve, kit, line, point, segment, tex } from '@jaywoo0830a/logos';
 
 const { plot2d, subplots, palette } = kit;
 const { blue, green, orange, purple, red, gray } = palette.tab;
@@ -37,7 +37,7 @@ function derivativeUnits() {
       curve.fn(s).on([0, 6]).color(blue).stroke(2.6).n(200),
       curve.fn((t) => 4 * t - 8).on([2.5, 5.5]).color(red).stroke(1.8).dash([6, 4]).n(2),
       point(4, s(4)).dot().color(red).size(4.5),
-      annotate.text([4.15, 6.4]).label("s'(4) = 4 m/s").font(11).color(red).bold(),
+      annotate.text([4.15, 6.4]).label(tex`s'(4) = 4\ \mathrm{m/s}`).font(11).color(red).bold(),
       legend([1.3, 17.2], 'tangent: “each extra second adds ≈ 4 m”', red, 9.5),
     );
 
@@ -49,7 +49,7 @@ function derivativeUnits() {
       curve.fn(C).on([0, 22]).color(green).stroke(2.6).n(200),
       curve.fn((q) => 28 * q).on([4, 21]).color(red).stroke(1.8).dash([6, 4]).n(2),
       point(12, C(12)).dot().color(red).size(4.5),
-      annotate.text([12.4, 250]).label("C'(12) = 28 $/unit").font(11).color(red).bold(),
+      annotate.text([12.4, 250]).label(tex`C'(12) = 28\ \text{\$/unit}`).font(11).color(red).bold(),
       legend([0.6, 720], 'tangent: “the next unit costs ≈ $28”', red, 9.5),
     );
 
@@ -72,8 +72,8 @@ function motionStory() {
       point(1, 0).dot().color(blue).size(4),
       point(3, 0).dot().color(blue).size(4),
       point(2, 0).dot().color(orange).size(4),
-      annotate.text([0.25, 8.7]).label('v').font(11).color(blue).bold(),
-      annotate.text([0.25, -7.0]).label('a').font(11).color(orange).bold(),
+      annotate.text([0.25, 8.7]).label(tex`v`).font(11).color(blue).bold(),
+      annotate.text([0.25, -7.0]).label(tex`a`).font(11).color(orange).bold(),
       annotate.text([1, 5.2]).label('turning point').font(9).color(blue).anchor('middle'),
       annotate.text([3, 5.2]).label('turning point').font(9).color(blue).anchor('middle'),
       annotate.text([2, -3.6]).label('a changes sign').font(9).color(orange).anchor('middle'),
@@ -82,10 +82,10 @@ function motionStory() {
   // 아래: 부호에서 만든 타임라인 (0<t<1 · 1<t<2 · 2<t<3 · t>3)
   //   각 구간 = 색 띠(굵은 segment) + 부호 두 줄. 요소를 먼저 모아 한 번에 add 한다.
   const bands = [
-    { x0: 0, x1: 1, color: blue, sign: 'v +   a −', story: 'forward, slowing' },
-    { x0: 1, x1: 2, color: orange, sign: 'v −   a −', story: 'backward, speeding up' },
-    { x0: 2, x1: 3, color: purple, sign: 'v −   a +', story: 'backward, slowing' },
-    { x0: 3, x1: 4, color: green, sign: 'v +   a +', story: 'forward, speeding up' },
+    { x0: 0, x1: 1, color: blue, sign: tex`v{+}\;\;a{-}`, story: 'forward, slowing' },
+    { x0: 1, x1: 2, color: orange, sign: tex`v{-}\;\;a{-}`, story: 'backward, speeding up' },
+    { x0: 2, x1: 3, color: purple, sign: tex`v{-}\;\;a{+}`, story: 'backward, slowing' },
+    { x0: 3, x1: 4, color: green, sign: tex`v{+}\;\;a{+}`, story: 'forward, speeding up' },
   ];
   const bandParts = bands.flatMap((b) => {
     const mid = (b.x0 + b.x1) / 2;

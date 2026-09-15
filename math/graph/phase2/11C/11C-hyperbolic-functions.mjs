@@ -12,8 +12,8 @@
 //   부채꼴 polygon(...pts.map(toPoint)) · 선분 segment([x,y],[x,y]) · 기준선 line.vertical/horizontal
 //   마커 point(x,y).dot() · 라벨 annotate.text([x,y]).label()…
 //   색 kit.palette.tab 구조분해 · 표본 생성(순수 JS 수학)만 ./_helper.mjs
-import { annotate, circle, curve, hyperbola, kit, line, point, polygon, segment, toPoint } from '@jaywoo0830a/logos';
-import { arcSamples, hyperSamples, rad } from './_helper.mjs';
+import { annotate, circle, curve, hyperbola, kit, line, point, polygon, sector, segment, toPoint, tex } from '@jaywoo0830a/logos';
+import { hyperSamples, rad } from './_helper.mjs';
 
 const { plot2d, subplots, palette } = kit;
 const { blue, red, green, purple, orange, cyan, gray } = palette.tab;
@@ -33,8 +33,7 @@ const panel = (xr, yr, size = [430, 400]) => plot2d(xr, yr, { size, axes: AX(), 
 const square = (xr, yr) => plot2d(xr, yr, { size: [480, 460], equal: true, axes: false, grid: false });
 /** 범례 대신 같은 색 라벨 */
 const legend = (at, text, color, font = 11) => annotate.text(at).label(text).font(font).color(color).bold();
-/** 채운 부채꼴 — 코어 polygon + toPoint (배열 좌표 허용) */
-const sector = (pts, fill, opacity = 0.2) => polygon(...pts.map(toPoint)).fill(fill).opacity(opacity);
+// 채운 부채꼴(원)은 코어 `sector.circular(O, r, a0, a1)` — 헬퍼 삭제(0.5.0 공식 API 전환)
 /** x=0 등 점근선을 가진 함수를 구간마다 잘라 코어 curve 배열로 (점근선 사이마다 별도 곡선 + ±클램프) */
 const branchCurves = (f, xr, breaks, { clip = 8, eps = 0.004, color, stroke = 2.4 } = {}) => {
   const xs = [xr[0], ...breaks.filter((b) => b > xr[0] && b < xr[1]), xr[1]];
@@ -55,22 +54,22 @@ function analogy() {
   const px = Math.cosh(t), py = Math.sinh(t);
 
   const left = square([-1.7, 1.7], [-1.5, 1.7]).title('x² + y² = 1').add(
-    sector([[0, 0], ...arcSamples(1, 0, rad(theta)), [0, 0]], GOLD, 0.2),
+    sector.circular([0, 0], 1, 0, rad(theta)).fill(GOLD).opacity(0.2),
     circle.center(point(0, 0)).radius(1).color(NAVY).stroke(1.8),
     line.horizontal(0).color(gray).stroke(0.6), line.vertical(0).color(gray).stroke(0.6),
     segment([0, 0], [c, s]).color(NAVY).stroke(1.6),
     segment([c, 0], [c, s]).color(SINH).stroke(1.4).dash([4, 3]),
     segment([0, 0], [c, 0]).color(COSH).stroke(1.8),
     point(c, s).dot().color(NAVY).size(5.5),
-    annotate.text([c, s]).label('(cos θ, sin θ)').font(11).color(NAVY).bold().offset(6, -12),
-    annotate.text([c / 2, -0.16]).label('cos θ').font(11).color(COSH).anchor('middle'),
-    annotate.text([c + 0.05, s / 2]).label('sin θ').font(11).color(SINH),
-    annotate.text([0.24, 0.12]).label('θ').font(12).box(BOX),
-    annotate.text([0.45, 0.33]).label('area = θ/2').font(10).color(GOLD),
+    annotate.text([c, s]).label(tex`(\cos\theta,\ \sin\theta)`).font(11).color(NAVY).bold().offset(6, -12),
+    annotate.text([c / 2, -0.16]).label(tex`\cos\theta`).font(11).color(COSH).anchor('middle'),
+    annotate.text([c + 0.05, s / 2]).label(tex`\sin\theta`).font(11).color(SINH),
+    annotate.text([0.24, 0.12]).label(tex`\theta`).font(12).box(BOX),
+    annotate.text([0.45, 0.33]).label(tex`\text{area} = \theta/2`).font(10).color(GOLD),
   );
 
   const right = square([-1.4, 3.0], [-1.5, 2.2]).title('x² − y² = 1').add(
-    sector([[0, 0], [1, 0], ...hyperSamples(t)], GOLD, 0.2),
+    polygon(...[[0, 0], [1, 0], ...hyperSamples(t)].map(toPoint)).fill(GOLD).opacity(0.2),
     hyperbola.center(point(0, 0)).semi(1, 1).color(NAVY).stroke(1.8),
     line.horizontal(0).color(gray).stroke(0.6), line.vertical(0).color(gray).stroke(0.6),
     segment([0, 0], [px, py]).color(NAVY).stroke(1.6),
@@ -78,10 +77,10 @@ function analogy() {
     segment([0, 0], [1, 0]).color(COSH).stroke(1.8),
     point(px, py).dot().color(NAVY).size(5.5),
     point(1, 0).dot().color(COSH).size(4),
-    annotate.text([px, py]).label('(cosh t, sinh t)').font(11).color(NAVY).bold().offset(6, -12),
-    annotate.text([1, -0.16]).label('x = 1').font(11).color(COSH).anchor('middle'),
-    annotate.text([px + 0.05, py / 2]).label('sinh t').font(11).color(SINH),
-    annotate.text([1.15, 0.42]).label('area = t/2').font(10).color(GOLD),
+    annotate.text([px, py]).label(tex`(\cosh t,\ \sinh t)`).font(11).color(NAVY).bold().offset(6, -12),
+    annotate.text([1, -0.16]).label(tex`x = 1`).font(11).color(COSH).anchor('middle'),
+    annotate.text([px + 0.05, py / 2]).label(tex`\sinh t`).font(11).color(SINH),
+    annotate.text([1.15, 0.42]).label(tex`\text{area} = t/2`).font(10).color(GOLD),
   );
   return subplots([left, right], { cols: 2, tight: true, title: 'Unit Circle vs Unit Hyperbola' });
 }
@@ -95,8 +94,8 @@ function evenOdd() {
     curve.fn((x) => Math.exp(-x)).on(xr).color(FAINT).stroke(1.4).dash([5, 4]),
     line.horizontal(0).color(gray).stroke(0.5), line.vertical(0).color(gray).stroke(0.5),
     point(0, 1).dot().color(NAVY).size(4),
-    legend([-2.1, 3.8], 'eˣ', NAVY),
-    legend([-2.1, 3.35], 'e⁻ˣ', gray),
+    legend([-2.1, 3.8], tex`e^{x}`, NAVY),
+    legend([-2.1, 3.35], tex`e^{-x}`, gray),
   );
   const p2 = panel(xr, yr).title('cosh x  (even part)').add(
     curve.fn((x) => (Math.exp(x) + Math.exp(-x)) / 2).on(xr).color(COSH).stroke(2.4).n(300),
@@ -104,14 +103,14 @@ function evenOdd() {
     line.horizontal(0).color(gray).stroke(0.5), line.vertical(0).color(gray).stroke(0.5),
     point(0, 1).dot().color(COSH).size(4.5),
     annotate.text([0, 1]).label('min 1 at x = 0').font(10).color(COSH).anchor('middle').offset(0, 16),
-    legend([-2.1, 3.8], '(eˣ + e⁻ˣ)/2', COSH),
+    legend([-2.1, 3.8], tex`(e^{x} + e^{-x})/2`, COSH),
   );
   const p3 = panel(xr, yr).title('sinh x  (odd part)').add(
     curve.fn((x) => (Math.exp(x) - Math.exp(-x)) / 2).on(xr).color(SINH).stroke(2.4).n(300),
     line.horizontal(0).color(gray).stroke(0.5), line.vertical(0).color(gray).stroke(0.5),
     point(0, 0).dot().color(SINH).size(4.5),
     annotate.text([0.15, -0.75]).label('through origin').font(10).color(SINH),
-    legend([-2.1, 3.8], '(eˣ − e⁻ˣ)/2', SINH),
+    legend([-2.1, 3.8], tex`(e^{x} - e^{-x})/2`, SINH),
   );
   return subplots([p1, p2, p3], { cols: 3, tight: true, title: 'Splitting eˣ into Even and Odd Parts' });
 }
@@ -142,8 +141,8 @@ const sinhGraph = () => smoothFig('sinh x  (odd)', Math.sinh, SINH, [-8, 8]).add
 const tanhGraph = () => smoothFig('tanh x  (odd, → ±1)', Math.tanh, TANH, [-1.6, 1.6]).add(
   line.horizontal(1).color(ASYMP).stroke(1).dash([5, 5]),
   line.horizontal(-1).color(ASYMP).stroke(1).dash([5, 5]),
-  annotate.text([2.3, 1.18]).label('y = 1').font(9).color(gray).anchor('end'),
-  annotate.text([2.3, -1.18]).label('y = −1').font(9).color(gray).anchor('end'),
+  annotate.text([2.3, 1.18]).label(tex`y = 1`).font(9).color(gray).anchor('end'),
+  annotate.text([2.3, -1.18]).label(tex`y = -1`).font(9).color(gray).anchor('end'),
 );
 const sechGraph = () => smoothFig('sech x  (even, 0 < y ≤ 1)', (x) => 1 / Math.cosh(x), SECH, [-0.5, 1.4]).add(
   line.horizontal(1).color(SECH).stroke(1).dash([3, 3]).opacity(0.6),
@@ -178,7 +177,7 @@ function inverseGraphs() {
     line.vertical(-1).color(ASYMP).stroke(1.3).dash([5, 5]),
     line.horizontal(0).color(gray).stroke(0.5), line.vertical(0).color(gray).stroke(0.5),
     point(0, 0).dot().color(TANH).size(4.5),
-    annotate.text([0.6, 1.6]).label('|x| < 1').font(10).color(TANH).anchor('middle'),
+    annotate.text([0.6, 1.6]).label(tex`|x| < 1`).font(10).color(TANH).anchor('middle'),
   );
   return subplots([p1, p2, p3], { cols: 3, tight: true, title: 'Inverse Hyperbolic Functions' });
 }
@@ -194,9 +193,9 @@ function catenary() {
       curve.fn(par).on([-6, 6]).color(SINH).stroke(2).dash([6, 4]),
       line.horizontal(3).color(gray).stroke(0.6).dash([2, 2]),
       point(0, 3).dot().color(COSH).size(5),
-      annotate.text([0, 3]).label('min (0, 3)').font(11).color(COSH).bold().offset(8, 12),
-      legend([-6.2, 12.4], 'y = 3cosh(x/3)', COSH),
-      legend([-6.2, 11.4], 'y = 3 + x²/6', SINH, 11),
+      annotate.text([0, 3]).label(tex`\text{min } (0, 3)`).font(11).color(COSH).bold().offset(8, 12),
+      legend([-6.2, 12.4], tex`y = 3\cosh(x/3)`, COSH),
+      legend([-6.2, 11.4], tex`y = 3 + x^{2}/6`, SINH, 11),
       annotate.text([4.4, 8.2]).label('catenary rises faster').font(10).color(COSH).anchor('middle'),
     );
 }
