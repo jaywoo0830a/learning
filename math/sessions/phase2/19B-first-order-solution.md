@@ -44,6 +44,10 @@ $y(2)=0$: $0 + 0 = 4 + C$ → $C = -4$. $y + y^2 = x^2 - 4$.
 
 **Domain restriction**: the solution exists only where $1+2y \neq 0$, i.e., $y \neq -1/2$. The initial condition $y(2)=0$ is safe.
 
+![Separable solution families]({{graph:19b-1-separable-family}})
+
+*Graph 19B-1: Implicit solution families from separation. Left — $y' = x/y$ gives $y^2 = x^2 + C$ (hyperbolas); the initial condition $y(0)=-3$ picks $C=9$ and the **negative branch** $y=-\sqrt{x^2+9}$. Right — $\frac{dy}{dx}=\frac{x^2}{y^2}$ gives $y^3=x^3+C$; $y(0)=2$ picks $C=8$.*
+
 ---
 
 ## Example 3: Mixing Problems with Separable ODE (§9.3 Ex 13–16)
@@ -108,6 +112,10 @@ $e^{3x}y = \frac{1}{2}e^{2x} + C$. $y = \frac{1}{2}e^{-x} + Ce^{-3x}$.
 
 As $x\to\infty$: $y \to 0$ (both terms decay). The particular solution $y_p = \frac{1}{2}e^{-x}$ is the "steady" behavior; $Ce^{-3x}$ is the transient.
 
+![Integrating factor — transient vs steady]({{graph:19b-2-integrating-factor}})
+
+*Graph 19B-2: Solutions of $y' + 3y = e^{-x}$: $y = \frac{1}{2}e^{-x} + Ce^{-3x}$ for $C = 2, 0.8, -0.4$. No matter what $C$ is, the transient $Ce^{-3x}$ dies out fast and every curve collapses onto the steady part $\frac{1}{2}e^{-x}$ (dashed red).*
+
 ---
 
 ## Example 6: The Logistic Equation — Full Derivation (§9.3, §9.4)
@@ -160,6 +168,10 @@ $-\frac{1}{y} = x - 1$ → $y = \frac{1}{1-x}$.
 
 **General rule**: the **interval of validity** is the largest interval containing $x_0$ where the solution exists and is differentiable. It stops at the nearest singularity of the ODE or the solution.
 
+![Interval of validity — finite-time blow-up]({{graph:19b-4-interval-validity}})
+
+*Graph 19B-4: The solution $y = 1/(1-x)$ of $y'=y^2$, $y(0)=1$ (shaded region). It blows up at $x=1$, so the interval of validity is $(-\infty, 1)$ — even though the formula also defines a (separate) branch for $x > 1$.*
+
 ---
 
 ## Example 9: Mixing with Variable Volume (§9.3 Ex 16, §9.5)
@@ -177,6 +189,10 @@ $A(t) = (100+t) + \frac{C}{(100+t)^2}$. $A(0)=30$: $30 = 100 + C/10000$ → $C =
 $A(t) = (100+t) - \frac{700000}{(100+t)^2}$.
 
 As $t\to\infty$: $A \approx 100+t$ (the amount grows because the tank is filling up), but the **concentration** $A/V = A/(100+t) \to 1$ g/L (approaches the inflow concentration).
+
+![Mixing — fixed vs variable volume]({{graph:19b-3-mixing}})
+
+*Graph 19B-3: Mixing problems. Left — fixed volume (§9.3 Ex 13): $A(t) = 200 - 170e^{-t/50}$ approaches the steady state $200$ g. Right — variable volume (§9.3 Ex 16): the amount $A(t)$ tracks the growing volume $V(t) = 100+t$, while the concentration $A/V \to 1$ g/L.*
 
 ---
 
