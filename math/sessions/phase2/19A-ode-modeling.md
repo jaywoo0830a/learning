@@ -68,7 +68,7 @@ $y' = x+y$: the slope field shows curves that look like $-x-1+Ce^x$.
 
 ![Slope field with solution curves]({{graph:19a-1-slope-field}})
 
-*Graph 19A-1: Slope field for $y' = x+y$. Short line segments show the slope at each grid point. Solution curves (colored) follow the flow of the field like a river.*
+*Graph 19A-1: Slope fields with solution curves. Left — $y' = x+y$: solutions are $y = -x-1+Ce^x$ and the dashed line $y=-x-1$ is the nullcline (where slope = 0). Right — $y' = y-2x$ (§9.2 #11): the solution through $(1,0)$ follows the flow. Short segments show the slope at each grid point.*
 
 ---
 
