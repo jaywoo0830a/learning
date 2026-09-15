@@ -6,13 +6,19 @@
 
 > 💡 **Stuck?** Every problem has a collapsible **Hint** below it — click it only when you need a nudge.
 
+> **Source.** Every example and drill below is drawn from Stewart, *Calculus*, Chapter 9 (Sections 9.1–9.2). Each item cites its section and exercise number.
+
 ---
 
-## Example 1: What Is a Differential Equation?
+## Part A: What Is a Differential Equation?
+
+---
+
+## Example 1: Definition and Vocabulary (§9.1)
 
 An **ordinary differential equation (ODE)** is an equation whose unknown is a *function*, and which involves that function's derivatives. Instead of "find the number $x$", the question is **"find the function $y(t)$ whose rate of change behaves in a specified way."**
 
-**Why they matter**: Nature rarely hands you a quantity — it hands you a *rate rule*. A population grows proportionally to itself; a hot object cools proportionally to the temperature gap; a tank's salt changes as inflow minus outflow. Each "how fast" statement is a differential equation, and *solving* it converts the rate-rule into the quantity itself. This session is about that translation (modeling); 19B is the full solving toolbox.
+**Why they matter**: Nature rarely hands you a quantity — it hands you a *rate rule*. A population grows proportionally to itself; a hot object cools proportionally to the temperature gap; a tank's salt changes as inflow minus outflow. Each "how fast" statement is a differential equation, and *solving* it converts the rate-rule into the quantity itself.
 
 **Notation**:
 - $y' = \frac{dy}{dx}$ — first derivative (rate of change).
@@ -22,13 +28,10 @@ An **ordinary differential equation (ODE)** is an equation whose unknown is a *f
 **Order** = the highest derivative that appears:
 - $\frac{dy}{dx} = ky$ — **1st order** (only $y'$).
 - $y'' + y = 0$ — **2nd order** (contains $y''$).
-- $y' = x + y$ — 1st order, with the independent variable $x$ appearing on the right.
 
-(If the unknown function had several variables, the derivatives would be partial — a **PDE**. Those appear later in the curriculum.)
+**What "solving" means**: a **solution** is a *function* that makes the equation true for every input in its domain. Checking a candidate answer is purely mechanical: substitute and verify.
 
-**What "solving" means**: a **solution** is a *function* that makes the equation true for every input in its domain. Checking a candidate answer is a purely mechanical job: substitute and verify.
-
-**Worked check** — is $y = 3e^{2x}$ a solution of $y' = 2y$?
+**Worked check** (§9.1 Ex 1–6 style) — is $y = 3e^{2x}$ a solution of $y' = 2y$?
 
 ① Differentiate: $y' = 3\cdot2e^{2x} = 6e^{2x}$.
 ② Right side: $2y = 2\cdot3e^{2x} = 6e^{2x}$.
@@ -41,208 +44,229 @@ An **ordinary differential equation (ODE)** is an equation whose unknown is a *f
 **Method — Verify a proposed solution in 3 steps:**
 
 (1) **Differentiate** the candidate to produce every derivative appearing in the ODE.
-
 (2) **Substitute** the candidate and its derivatives into the equation.
-
 (3) **Simplify** and check that both sides are identical for all inputs.
 
-> **Geometric insight**: An ODE is a *rule for slopes*. The equation $y' = f(x,y)$ says: at every point $(x,y)$ in the plane, any solution curve passing through that point must have slope $f(x,y)$. Example 2 draws exactly this — a slope field is a differential equation turned into a picture.
 
 ---
 
-## Example 2: Slope Fields — Seeing Solutions Before Solving
+## Part B: Seeing Solutions Before Solving
+
+---
+
+## Example 2: Direction (Slope) Fields (§9.2)
 
 For $\frac{dy}{dx} = f(x,y)$, draw a short line segment with slope $f(x,y)$ at each grid point $(x,y)$. **Solution curves follow the field.**
 
-$\frac{dy}{dx} = x+y$: the slope field shows curves that look like $-x-1+Ce^x$.
+$y' = x+y$: the slope field shows curves that look like $-x-1+Ce^x$.
 
-**Verify the claimed shape**: $y = -x-1+Ce^x$ → $y' = -1+Ce^x$. Right side: $x + y = x + (-x-1+Ce^x) = -1+Ce^x$. ✓ They match, so these curves really do follow the field.
+**Verify**: $y = -x-1+Ce^x$ → $y' = -1+Ce^x$. Right side: $x + y = x + (-x-1+Ce^x) = -1+Ce^x$. ✓
 
 **How to read the field**: at each grid point, draw a short segment with slope $f(x,y)$ — where the segments are steep the solution is changing fast, where they are flat ($f=0$) the solution is momentarily constant, and curves follow the stream of segments like a river follows its current.
 
-![Slope field with solution curves](graphs/0721/19A/slope-field.png)
+**Slope field for $y' = y - 2x$** (§9.2 #11): pass through $(1,0)$. The field shows curves that rise for large $y$, fall for large $x$. The solution through $(1,0)$ follows the flow.
+
+![Slope field with solution curves]({{graph:19a-1-slope-field}})
+
+*Graph 19A-1: Slope field for $y' = x+y$. Short line segments show the slope at each grid point. Solution curves (colored) follow the flow of the field like a river.*
 
 ---
 
-## Example 3: Exponential Model — $y' = ky$
+## Part C: The Exponential Model — Growth and Decay
 
-**Setup**: the rate of change is proportional to the amount itself. (More individuals → more births per hour → faster growth.)
+---
 
-**Solve by separation of variables** (🔗 16A):
+## Example 3: The Population Growth Model (§9.1)
 
-① Separate: $\frac{dy}{dt} = ky$ → $\frac{dy}{y} = k\,dt$ (valid for $y \neq 0$).
-② Integrate both sides (FTC): $\int\frac{dy}{y} = \int k\,dt$ → $\ln|y| = kt + C_1$.
-③ Exponentiate: $|y| = e^{kt+C_1} = e^{C_1}e^{kt}$. Absorb the sign into the constant: $y = Ce^{kt}$.
+**Setup**: the rate of change is proportional to the amount itself. A population $P(t)$ grows at a rate proportional to its size:
 
-So $\frac{dy}{dt} = ky$ ⟹ $y(t) = Ce^{kt}$; with $y(0) = y_0$, $C = y_0$ and $y = y_0e^{kt}$.
+$$\frac{dP}{dt} = kP \tag{1}$$
+
+where $k$ is the proportionality constant. If $k>0$, the population increases; if $k<0$, it decreases. As $P(t)$ increases, $dP/dt$ becomes larger — the growth rate itself accelerates.
+
+**Solve by separation of variables** (§9.3, 🔗 16A):
+
+① Separate: $\frac{dP}{dt} = kP$ → $\frac{dP}{P} = k\,dt$ (valid for $P \neq 0$).
+② Integrate both sides (FTC): $\int\frac{dP}{P} = \int k\,dt$ → $\ln|P| = kt + C$.
+③ Exponentiate: $|P| = e^{kt+C} = e^{C}e^{kt}$. Absorb the sign into the constant: $P = Ae^{kt}$.
+
+With $P(0) = P_0$: $A = P_0$, so
+
+$$P(t) = P_0 e^{kt}. \tag{2}$$
+
+**Significance of $A$** (§9.1): $P(0) = Ae^{k\cdot 0} = A$, so $A$ is the initial population. The **relative growth rate** $\frac{dP/dt}{P} = k$ is constant — a population with constant relative growth rate must grow exponentially.
 
 $k>0$: exponential growth (population, compound interest). $k<0$: exponential decay (radiation, cooling).
 
 **Doubling time**: $t_2 = \frac{\ln 2}{k}$. **Half-life**: $t_{1/2} = \frac{\ln 2}{|k|}$.
 
-![Exponential growth and decay — 3D surface, 2D families, 1D log-scale](graphs/0721/19A/growth-decay.png)
+![Exponential growth and decay]({{graph:19a-2-growth-decay}})
 
-*Graph 19A-2: 3D — the surface $y = e^{kt}$ over the $(t, k)$ plane. When $k>0$ the surface rises; $k<0$ it falls; $k=0$ it's flat. 2D — families of growth (red, $k=0.5$) and decay (blue, $k=-0.5$) with different starting values. 1D — log-scale reveals doubling time and half-life are the same horizontal distance: $\ln 2 / |k| \approx 1.39$.*
+*Graph 19A-2: Families of exponential solutions $P = Ae^{kt}$. Left — growth ($k>0$): curves rise, doubling time $t_2 = \ln 2/k$ is the same horizontal distance for all curves. Right — decay ($k<0$): curves fall toward zero, half-life $t_{1/2} = \ln 2/|k|$.*
 
 Bacteria double every 3 hours. $k = \frac{\ln 2}{3} \approx 0.231$. From 1000: $P(t)=1000e^{0.231t}$.
 
 **Method — Building a model in 3 steps:**
 
 (1) **Name the quantity.** Decide what function $y(t)$ you are tracking (population, temperature, amount, current...).
-
 (2) **Write its rate of change.** Either a proportionality law ($y' = ky$) or a balance law: $\frac{dy}{dt} = \text{rate in} - \text{rate out}$.
-
 (3) **Attach the initial condition** $y(0) = y_0$, then solve and interpret (doubling time, steady state, etc.).
 
 > This 3-step loop is the whole session. Every example below is just a different "rate in / rate out" or "proportional to" story.
 
 ---
 
-## Example 4: Continuous Compound Interest
+## Example 4: Continuous Compound Interest (§9.1)
 
 This is Example 3 with a new name: the balance changes proportionally to itself.
 
-**Solve**: $\frac{dA}{dt} = rA$ → separate: $\frac{dA}{A} = r\,dt$ → $\ln A = rt + C$ → $A(t) = Ce^{rt}$. With $A(0) = P$: $C = P$, so $A(t) = Pe^{rt}$.
+$\frac{dA}{dt} = rA$ → $A(t) = Pe^{rt}$. With $P = \$1000$ at 5% continuous for 10 years:
 
-\$1000 at 5% continuous for 10 years: $A = 1000e^{0.05\cdot10} = 1000e^{0.5} \approx 1000(1.6487) \approx \$1648.72$.
+$$A = 1000e^{0.05\cdot10} = 1000e^{0.5} \approx \$1648.72.$$
 
-**Compare with yearly compounding** (🔗 12B1): $1000(1.05)^{10} \approx \$1628.89$. Continuous pays more because interest earns interest *every instant* — the exact bridge between the two is Example 10 ($r = e^k$).
+**Compare with yearly compounding** (🔗 12B1): $1000(1.05)^{10} \approx \$1628.89$. Continuous pays more because interest earns interest *every instant* — the bridge is $r = e^k$ (Example 10).
 
 ---
 
-## Example 5: Newton's Law of Cooling
+## Part D: Linear "Approach" Models — Steady State
 
-**Setup**: a hot object cools proportionally to the temperature gap between it and the room.
+---
+
+## Example 5: Newton's Law of Cooling (§9.1)
+
+**Setup** (§9.1): a hot object cools proportionally to the temperature gap between it and the room.
+
+$$\frac{dT}{dt} = -k(T - T_{\text{env}}).$$
 
 **Solve by substitution** — reduce to Example 3:
 
 ① Let $u = T - T_{\text{env}}$ (the "excess temperature"). Since $T_{\text{env}}$ is constant, $u' = T'$.
 ② The ODE becomes $u' = -ku$, so by Example 3: $u = Ce^{-kt}$.
-③ Back-substitute: $T(t) = T_{\text{env}} + Ce^{-kt}$. With $T(0) = T_0$: $C = T_0 - T_{\text{env}}$.
+③ Back-substitute: $T(t) = T_{\text{env}} + (T_0 - T_{\text{env}})e^{-kt}$.
 
 $$T(t) = T_{\text{env}} + (T_0 - T_{\text{env}})e^{-kt}.$$
 
-**Worked example** — Coffee at 90°C in a 20°C room; after 5 min it is 60°C. Find $k$:
+**Worked example** (§9.1 style) — Coffee at 90°C in a 20°C room; after 5 min it is 60°C. Find $k$:
 
 ① Plug in: $60 = 20 + (90-20)e^{-5k} = 20 + 70e^{-5k}$.
-② Isolate the exponential: $70e^{-5k} = 40$ → $e^{-5k} = \frac{40}{70} = \frac47$.
-③ Take $\ln$ and solve: $-5k = \ln\frac47$ → $k = \frac15\ln\frac74 \approx 0.112$ per min.
+② Isolate: $40 = 70e^{-5k}$ → $e^{-5k} = \frac{4}{7}$.
+③ Solve: $k = -\frac{1}{5}\ln\frac{4}{7} = \frac{1}{5}\ln\frac{7}{4} \approx 0.112\;\text{min}^{-1}$.
 
-> **Interpretation**: the excess temperature $T - T_{\text{env}}$ halves every $\frac{\ln 2}{k} \approx 6.2$ minutes — the "half-life of the gap."
+After 15 min: $T(15) = 20 + 70e^{-15k} = 20 + 70\left(\frac{4}{7}\right)^3 \approx 20 + 70(0.187) \approx 33.1°\text{C}$.
 
----
-
-## Example 6: Mixing Problems
-
-Tank: 100L water, 0.5 kg/L salt enters at 2 L/min, drains at 2 L/min.
-
-$\frac{dA}{dt} = \text{rate in} - \text{rate out} = (0.5)(2) - \frac{A}{100}(2) = 1 - \frac{A}{50}$, i.e. $\frac{dA}{dt} + \frac{A}{50} = 1$, with $A(0) = 0$.
-
-**Solve (linear 1st-order, 3 steps):**
-
-① **Homogeneous part**: $\frac{dA}{dt} + \frac{A}{50} = 0$ → $A_h = Ce^{-t/50}$ (Example 3 with $k=-\frac1{50}$).
-② **One particular solution**: the right side is the constant $1$, so try $A_p = c$: plug in → $\frac{c}{50} = 1$ → $c = 50$.
-③ **General + initial condition**: $A(t) = 50 + Ce^{-t/50}$; $A(0)=0$ → $0 = 50 + C$ → $C = -50$.
-
-$$A(t) = 50\left(1 - e^{-t/50}\right).$$
-
-**Interpret**: as $t\to\infty$, $A \to 50$ kg — the steady state where rate in = rate out ($1 = \frac{A}{50}$). After one time constant ($t=50$ min) it has covered $1-e^{-1} \approx 63.2\%$ of the way: $A(50) \approx 31.6$ kg.
-
-**Method — Mixing problems in 3 steps:**
-
-(1) **Track the volume** $V(t)$ — constant if inflow = outflow, otherwise $V(t) = V_0 + (\text{in} - \text{out})t$.
-
-(2) **Write the two rates**: rate in $= c_{\text{in}} \times f_{\text{in}}$; rate out $= \frac{A(t)}{V(t)} \times f_{\text{out}}$ (concentration $\times$ flow).
-
-(3) **Set** $\frac{dA}{dt} = \text{rate in} - \text{rate out}$ and solve (linear 1st-order — 19B has the full toolbox).
+**Long-term**: $T \to T_{\text{env}} = 20°\text{C}$ (the room always wins).
 
 ---
 
-## Example 7: Logistic Growth — The S-Curve
+## Example 6: Mixing — Salt in a Tank (§9.1, §9.3)
 
-$\frac{dP}{dt} = kP\left(1 - \frac{P}{L}\right)$. $L$ = carrying capacity.
+**Setup** (§9.3 Ex 13–16 style): A tank holds 200 L of brine with 30 g of salt. Pure water enters at 5 L/min; the well-stirred mixture drains at 5 L/min (constant volume).
 
-**Behavior**: When $P$ is small, near-exponential $P' \approx kP$. As $P \to L$, growth slows to zero.
+Let $A(t)$ = grams of salt at time $t$.
 
-**Verify the solution** (the full derivation is in 19B): candidate $P(t) = \frac{L}{1 + Ae^{-kt}}$.
+**Build the ODE** (3-step method):
+- Rate in = $0$ (pure water).
+- Rate out = $\frac{A(t)}{200}\times 5 = \frac{A}{40}$ g/min (concentration × flow rate).
 
-① Differentiate (chain rule): $P' = \frac{L\,A\,k\,e^{-kt}}{(1+Ae^{-kt})^2}$.
-② Right side: $kP\left(1-\frac{P}{L}\right) = k\cdot\frac{L}{1+Ae^{-kt}}\cdot\frac{Ae^{-kt}}{1+Ae^{-kt}} = \frac{kLAe^{-kt}}{(1+Ae^{-kt})^2}$.
-③ Both sides match ✓ — the candidate really is a solution.
+$$\frac{dA}{dt} = 0 - \frac{A}{40} = -\frac{A}{40}, \quad A(0) = 30.$$
 
-**Pinning $A$ with $P(0)=P_0$**: $P_0 = \frac{L}{1+A}$ → $1+A = \frac{L}{P_0}$ → $A = \frac{L-P_0}{P_0}$.
+This is $y' = -by$ from Example 3! Solution: $A(t) = 30e^{-t/40}$.
 
-**Example**: $P_0=100$, $L=1000$, $k=0.5$: $A = \frac{900}{100} = 9$, so $P(t)=\frac{1000}{1+9e^{-0.5t}}$.
+After 1 hour ($t = 60$): $A(60) = 30e^{-60/40} = 30e^{-1.5} \approx 6.7$ g.
 
-**Inflection (fastest growth)**: $P'' = 0$ occurs at $P = \frac{L}{2} = 500$. Growth is slow near $P=0$ (few individuals) and near $P=L$ (no room left), so the maximum growth rate sits in the middle — exactly at half the capacity.
+**If inflow has salt**: suppose 0.5 g/L enters at 5 L/min. Then rate in = $0.5\times5 = 2.5$ g/min:
 
-![Logistic curve](graphs/0721/19A/logistic.png)
+$$\frac{dA}{dt} = 2.5 - \frac{A}{40}.$$
 
----
-
-## Example 8: Radioactive Decay Chain
-
-**Setup**: $A$ decays into $B$, which decays into $C$: $A \xrightarrow{k_1} B \xrightarrow{k_2} C$.
-
-- $\frac{dA}{dt} = -k_1A$ — $A$ only leaves.
-- $\frac{dB}{dt} = k_1A - k_2B$ — $B$ is born from $A$, dies into $C$.
-
-① **Solve for $A$** (Example 3): $A(t) = A_0e^{-k_1t}$.
-
-② **Solve for $B$**: substitute $A$ into the $B$-equation to get a linear 1st-order ODE:
-$\frac{dB}{dt} + k_2B = k_1A_0e^{-k_1t}$, with $B(0)=0$.
-
-Integrating factor $e^{k_2t}$: $\frac{d}{dt}\left(e^{k_2t}B\right) = k_1A_0e^{(k_2-k_1)t}$.
-
-Integrate: $e^{k_2t}B = \frac{k_1A_0}{k_2-k_1}e^{(k_2-k_1)t} + C$ → $B(t) = \frac{k_1A_0}{k_2-k_1}e^{-k_1t} + Ce^{-k_2t}$.
-
-$B(0)=0$ fixes $C = -\frac{k_1A_0}{k_2-k_1}$:
-
-$$B(t) = \frac{k_1A_0}{k_2-k_1}\left(e^{-k_1t} - e^{-k_2t}\right) \quad (k_1 \neq k_2).$$
-
-**Shape**: $B$ starts at 0, is fed by $A$, peaks, then dies away. Peak time: set $B' = 0$ → $t_{\max} = \frac{\ln(k_2/k_1)}{k_2-k_1}$.
+This is the **approach model** $y' = a - by$. Steady state: $A_{ss} = \frac{2.5}{1/40} = 100$ g. Solution: $A(t) = 100 + (30-100)e^{-t/40} = 100 - 70e^{-t/40}$. As $t\to\infty$, $A\to 100$ g.
 
 ---
 
-## Example 9: Phase Line — 1D Autonomous Systems (🔗 15A)
-
-An **autonomous** ODE has no explicit $t$: $\frac{dy}{dt} = f(y)$. The behavior depends only on $y$.
-
-**Phase line**: Draw the $y$-axis, mark equilibria ($f(y)=0$), and indicate direction of motion.
-
-$y' = y(1-y)(y-2)$:
-- Equilibria: $y=0,1,2$.
-- Sign of $f(y)$: $y<0$ → $f>0$ (positive, moving right), $0<y<1$ → $f<0$, $1<y<2$ → $f>0$, $y>2$ → $f<0$.
-- Stability: $y=0$ (stable, attracts), $y=1$ (unstable, repels), $y=2$ (stable, attracts).
-
-![Phase line — 1D autonomous stability](graphs/0721/19A/phase-line.png)
-
-*Graph 19A-Phase: The phase line for $y' = y(1-y)(y-2)$. Left — 3D view showing solution curves over $(t,y)$. Middle — the 1D phase line with arrows showing direction. Right — time traces $y(t)$ for different initial conditions converge to or diverge from equilibria.*
-
-> **🔗 Bridge to 15A (Curve Analysis)**: The phase line is the ODE version of the **first derivative test** from 15A. In 15A, you find where $f'(x)=0$ (critical points) and check sign of $f'$. Here, you find where $f(y)=0$ (equilibria) and check sign of $f$. Same logic — different context. The phase line also connects to the **sign chart** method from 08A (inequalities): mark zeros, test intervals, read sign.
-
-**Method — Phase line in 3 steps:**
-
-(1) **Find equilibria**: solve $f(y) = 0$.
-
-(2) **Test one point per interval** between equilibria to get the sign of $f(y)$.
-
-(3) **Draw arrows**: $f>0$ → move right (up on a vertical line), $f<0$ → move left (down). Where arrows point in on both sides → **stable** (sink); where they point out on both sides → **unstable** (source).
+## Part E: Nonlinear Models — Logistic Growth
 
 ---
 
-## Example 10: Discrete vs Continuous Growth — Same DNA (🔗 12B1)
+## Example 7: The Logistic Equation (§9.1, §9.4)
 
-**Discrete (12B1)**: $a_{n+1} = r a_n$, $a_n = a_0 r^n$. Population multiplies each generation.
-**Continuous (19A)**: $\frac{dy}{dt} = ky$, $y(t) = y_0 e^{kt}$. Population grows every instant.
+**Setup** (§9.4): Exponential growth can't continue forever — resources are limited. If $P(t)$ is the population and $L$ is the **carrying capacity**, the logistic model is:
 
-**The connection**: $r = e^k$ (or equivalently $k = \ln r$).
+$$\frac{dP}{dt} = kP\left(1 - \frac{P}{L}\right).$$
 
-| Concept | Discrete (12B1) | Continuous (19A) |
+- When $P \ll L$: $\frac{dP}{dt} \approx kP$ (exponential growth).
+- When $P = L$: $\frac{dP}{dt} = 0$ (equilibrium — the population stabilizes).
+- When $P > L$: $\frac{dP}{dt} < 0$ (population decreases back toward $L$).
+
+**Solution** (separable, full derivation in 19B §9.3):
+
+$$P(t) = \frac{L}{1 + Ae^{-kt}}, \quad A = \frac{L - P_0}{P_0}.$$
+
+This is an **S-shaped (sigmoid) curve**. The **inflection point** (fastest growth) occurs at $P = L/2$.
+
+![Logistic growth curve]({{graph:19a-3-logistic}})
+
+*Graph 19A-3: Logistic growth $P(t) = L/(1+Ae^{-kt})$ with $L=1000$, $P_0=100$. The S-curve starts near exponential (dashed red), then levels off at $L$. The inflection at $P=L/2=500$ (dot) is where growth is fastest.*
+
+**Worked example**: $L = 1000$, $P_0 = 100$, $k = 0.3$. Then $A = \frac{1000-100}{100} = 9$, and $P(t) = \frac{1000}{1+9e^{-0.3t}}$. Inflection when $P=500$: $1+9e^{-0.3t}=2$ → $t = \frac{\ln 9}{0.3} \approx 7.3$.
+
+**Harvesting** (§9.4 Ex 19–20): if a constant rate $H$ is removed, $\frac{dP}{dt} = kP(1-P/L) - H$. This can create new equilibria or drive the population to extinction if $H$ is too large.
+
+---
+
+## Part F: Qualitative Analysis — Phase Lines
+
+---
+
+## Example 8: Autonomous Equations and the Phase Line
+
+For $y' = f(y)$ (no explicit $x$ on the right), the slope depends only on $y$. **Equilibrium solutions** occur where $f(y) = 0$.
+
+**The phase line** (1D stability diagram):
+1. Mark equilibria on a $y$-number line.
+2. In each interval, test the sign of $f(y)$ → draw arrows ($\uparrow$ if $f>0$, $\downarrow$ if $f<0$).
+3. **Stable (sink)**: arrows point *toward* the equilibrium — nearby solutions converge.
+4. **Unstable (source)**: arrows point *away* — nearby solutions diverge.
+
+**Example**: $y' = y(1-y)$ (§9.4 logistic without carrying capacity notation). Equilibria at $y=0$ and $y=1$.
+
+- $y < 0$: $f(y) = y(1-y) < 0$ → $\downarrow$.
+- $0 < y < 1$: $f(y) > 0$ → $\uparrow$ (toward 1).
+- $y > 1$: $f(y) < 0$ → $\downarrow$ (toward 1).
+
+So $y=0$ is **unstable** (source) and $y=1$ is **stable** (sink).
+
+![Phase line for autonomous ODE]({{graph:19a-4-phase-line}})
+
+*Graph 19A-4: Phase line for $y' = y(1-y)$. Left — the slope field: solution curves rise toward $y=1$ from below, fall toward $y=1$ from above. Right — the phase line: $y=0$ is a source (arrows out), $y=1$ is a sink (arrows in).*
+
+**For the logistic equation** $P' = kP(1-P/L)$: $P=0$ (unstable) and $P=L$ (stable). Every positive initial population approaches $L$.
+
+---
+
+## Example 9: Multiple Equilibria — When Stability Gets Interesting (§9.4)
+
+$y' = y(1-y)(y-2)$: equilibria at $y=0, 1, 2$.
+
+Test signs in each interval:
+- $y<0$: $(-)(+)(-) = +$ → $\uparrow$
+- $0<y<1$: $(+)(+)(-) = -$ → $\downarrow$
+- $1<y<2$: $(+)(-)(-) = +$ → $\uparrow$
+- $y>2$: $(+)(-)(+) = -$ → $\downarrow$
+
+Stability: $y=0$ **stable** (sink), $y=1$ **unstable** (source), $y=2$ **stable** (sink). Two basins of attraction!
+
+---
+
+## Part G: Bridges — Discrete ↔ Continuous, Circuits, Draining
+
+---
+
+## Example 10: Discrete vs Continuous Growth (🔗 12B1)
+
+| | Discrete (12B1) | Continuous (19A) |
 |:---|:---|:---|
 | Growth rule | $a_{n+1} = r a_n$ | $y' = ky$ |
 | Solution | $a_n = a_0 r^n$ | $y(t) = y_0 e^{kt}$ |
-| Doubling | $n_2 = \frac{\ln 2}{\ln r}$ steps (solve $r^{n_2}=2$) | $t_2 = \frac{\ln 2}{k}$ |
+| Doubling | $n_2 = \frac{\ln 2}{\ln r}$ steps | $t_2 = \frac{\ln 2}{k}$ |
 | Relation | $r = e^k$, $k = \ln r$ | — |
 
 **Example**: 5% annual interest
@@ -251,7 +275,7 @@ $y' = y(1-y)(y-2)$:
 
 **Same result** — same mathematics, different formulations.
 
-> **🔗 12B1 Connection**: The infinite geometric series $S_\infty = \frac{a_1}{1-r}$ converges when $|r|<1$. The continuous analogue: the integral $\int_0^\infty y_0 e^{-kt}\,dt = \frac{y_0}{k}$ converges when $k>0$ (decay). The discrete/continuous bridge $r = e^k$ makes these two formulas equivalent.
+> **🔗 12B1 Connection**: The infinite geometric series $S_\infty = \frac{a_1}{1-r}$ converges when $|r|<1$. The continuous analogue: $\int_0^\infty y_0 e^{-kt}\,dt = \frac{y_0}{k}$ converges when $k>0$ (decay). The bridge $r = e^k$ makes these equivalent.
 
 ---
 
@@ -265,36 +289,38 @@ For a cylindrical tank of radius $R$: $V = \pi R^2 y$, so $\pi R^2 \frac{dy}{dt}
 
 Separable: $\frac{dy}{\sqrt{y}} = -\frac{a\sqrt{2g}}{\pi R^2}\,dt$. Integrate: $2\sqrt{y} = -\frac{a\sqrt{2g}}{\pi R^2}t + C$.
 
-If $y(0)=H$: $2\sqrt{H} = C$. Then $\sqrt{y} = \sqrt{H} - \frac{a\sqrt{2g}}{2\pi R^2}t$.
+If $y(0)=H$: $\sqrt{y} = \sqrt{H} - \frac{a\sqrt{2g}}{2\pi R^2}t$.
 
 **Drain time**: set $y=0$ → $T = \frac{2\pi R^2\sqrt{H}}{a\sqrt{2g}}$.
 
-**Numeric example** (this is A11): $R = 0.5$ m, $H = 2$ m, hole $a = 2\,\text{cm}^2 = 2\times10^{-4}\,\text{m}^2$, $g = 9.8$:
+**Numeric example** (A11): $R = 0.5$ m, $H = 2$ m, hole $a = 2\,\text{cm}^2 = 2\times10^{-4}\,\text{m}^2$, $g = 9.8$:
 
 $T = \frac{2\pi(0.5)^2\sqrt{2}}{(2\times10^{-4})\sqrt{2(9.8)}} \approx \frac{2.2213}{8.854\times10^{-4}} \approx 2509$ s $\approx 42$ min.
 
-**Units sanity check**: $\frac{\text{m}^2\cdot\sqrt{\text{m}}}{\text{m}^2\cdot\sqrt{\text{m}/\text{s}^2}} = \frac{\text{m}^{5/2}}{\text{m}^{5/2}/\text{s}} = \text{s}$ ✓ — the formula really outputs a time, provided you convert everything to SI first.
+**Units sanity check**: $\frac{\text{m}^2\cdot\sqrt{\text{m}}}{\text{m}^2\cdot\sqrt{\text{m}/\text{s}^2}} = \frac{\text{m}^{5/2}}{\text{m}^{5/2}/\text{s}} = \text{s}$ ✓ — the formula outputs time when everything is in SI.
 
 ---
 
-## Example 12: RL Circuit — The Electrical Cousin
+## Example 12: RL Circuit — The Electrical Cousin (§9.3 Ex 4)
 
-An RL circuit has a resistor $R$ and inductor $L$ in series with a voltage source $E(t)$. Kirchhoff's voltage law says the drops across $R$ and $L$ must balance the source:
+An RL circuit has a resistor $R$ and inductor $L$ in series with a voltage source $E(t)$. Kirchhoff's voltage law:
 
-$$L\frac{di}{dt} + Ri = E(t) \quad\Longleftrightarrow\quad \frac{di}{dt} = \frac{E(t) - Ri}{L}.$$
+$$L\frac{dI}{dt} + RI = E(t) \quad\Longleftrightarrow\quad \frac{dI}{dt} = \frac{E(t) - RI}{L}.$$
 
-The inductor resists sudden changes in current; the resistor dissipates energy. For **constant** $E$ with $i(0)=0$:
+**Worked example** (§9.3 Ex 4): $R = 12\,\Omega$, $L = 4$ H, $E = 60$ V (constant), $I(0)=0$.
 
-$$i(t) = \frac{E}{R}\left(1 - e^{-\frac{R}{L}t}\right).$$
+$$4\frac{dI}{dt} + 12I = 60 \quad\Longrightarrow\quad \frac{dI}{dt} = 15 - 3I.$$
 
-- **Steady state**: $i \to \frac{E}{R}$ (the inductor becomes a plain wire; only $R$ limits the current).
-- **Time constant**: $\tau = \frac{L}{R}$ — the time to reach $1 - e^{-1} \approx 63.2\%$ of steady state.
+This is the approach model $y' = a - by$ with $a=15$, $b=3$. Steady state: $I_{ss} = 15/3 = 5$ A.
 
-**Example**: $R = 2\,\Omega$, $L = 1\,\text{H}$, $E = 10\,\text{V}$: $i(t) = 5(1-e^{-2t})$, $i_{ss} = 5$ A, $\tau = 0.5$ s, and $i(0.5) = 5(1-e^{-1}) \approx 3.16$ A.
+Solution: $I(t) = 5(1 - e^{-3t})$.
 
-![RL circuit current approaching steady state](graphs/0721/19A/rl-circuit.png)
+- **Steady state**: $I \to \frac{E}{R} = 5$ A (the inductor becomes a plain wire).
+- **Time constant**: $\tau = \frac{L}{R} = \frac{4}{12} = \frac{1}{3}$ s — the time to reach $1 - e^{-1} \approx 63.2\%$ of steady state.
 
-*Graph 19A-5: Left — current $i(t) = 5(1-e^{-2t})$ rises to the steady state $5$ A; the dashed line marks the time constant $\tau = L/R = 0.5$ s, where the current reaches $63.2\%$ of its final value. Right — the circuit: battery $E$, resistor $R$, inductor $L$ in series.*
+![RL circuit current approaching steady state]({{graph:19a-5-rl-circuit}})
+
+*Graph 19A-5: Current $I(t) = 5(1-e^{-3t})$ rises to the steady state $5$ A. The dashed line marks the time constant $\tau = L/R = 1/3$ s, where the current reaches $63.2\%$ of its final value.*
 
 > **Geometric insight**: Newton's cooling, the mixing tank, and the RL circuit are all the **same** linear model $y' = a - by$: $y$ starts at some value and runs exponentially toward a steady state $a/b$. One formula, three physical settings — temperature, salt, current.
 
@@ -317,12 +343,11 @@ $$i(t) = \frac{E}{R}\left(1 - e^{-\frac{R}{L}t}\right).$$
 (5) Logistic y' = ky(1−y/L) → L/(1+Ae^{−kt}). S-curve, inflection at P = L/2.
 
 (6) Phase line (autonomous y'=f(y)): equilibria f(y)=0; sign of f gives direction;
-    stable = sink (arrows in), unstable = source (arrows out). = 1D version of 15A's
-    first-derivative test.
+    stable = sink (arrows in), unstable = source (arrows out).
 
 (7) Discrete ↔ continuous: a_{n+1} = r a_n vs y' = ky, bridged by r = e^k (k = ln r).
 
-(8) Torricelli: drain rate ∝ √(depth) (energy conservation). RL circuit: L di/dt + Ri = E,
+(8) Torricelli: drain rate ∝ √(depth) (energy conservation). RL circuit: L dI/dt + RI = E,
     current approaches E/R with time constant L/R.
 ```
 
@@ -349,117 +374,36 @@ The ODE is $T' = -k(T - T_{\text{env}})$ with $k > 0$, so $T$ approaches $T_{\te
 ### Mistake 5: Unit mismatch in physical models
 
 Torricelli (A11): hole area in $\text{cm}^2$ must become $\text{m}^2$ before plugging into $T = \frac{2\pi R^2\sqrt{H}}{a\sqrt{2g}}$ with $g = 9.8$. Always convert units first.
+
+---
+
 ## Basic Drills
 
-> Stepping stones for the Advanced drills. Each D is **ONE component skill**; the Advanced problems (A1–A12) chain 2–3 of these. The *(→ A#)* tag says which Advanced problem this component feeds. If a component feels unfamiliar, it's worked out in the examples above.
+> All problems from Stewart, *Calculus*, Ch.9. (section 9.x #n).
 
-**D1.** Solve $e^{-0.1t} = 0.4$ for $t$. Give the exact ($\ln$) form and an approximation. *(→ A1, A5, A6)*
+**D1.** (9.1 #6) Verify that $y = \sin x - \cos x$ solves $y' + y = 2\sin x$.
 
-<details>
-<summary>💡 Hint</summary>
+**D2.** (9.1 #7) Verify that $y = \frac{2}{3}e^x + e^{-2x}$ solves $y' + 2y = 2e^x$.
 
-$\ln$ both sides: $-0.1t = \ln 0.4$ → $t = -10\ln 0.4 = 10\ln 2.5 \approx 9.16$.
+**D3.** (9.1 #9) Verify that $y = \sqrt{x}$ solves $xy' - y = 0$.
 
-</details>
+**D4.** (9.1 #18a) Show that $y = (\ln x + C)/x$ solves $x^2y' + xy = 1$.
 
-**D2.** Radium-226 has half-life 1600 years. Write $N(t) = N_0e^{-kt}$ with $k$ filled in, and find the fraction remaining after 3200 years. *(→ A1)*
+**D5.** (9.1 #19b) Verify that all members of $y = 1/(x+C)$ solve $y' = -y^2$.
 
-<details>
-<summary>💡 Hint</summary>
+**D6.** (9.2 #9) Sketch a direction field for $y' = \frac{1}{2}y$. Then sketch three solution curves.
 
-$k = \frac{\ln 2}{1600}$. After 3200 yr = 2 half-lives: $N = N_0e^{-2\ln2} = \frac{N_0}{4}$.
+**D7.** (9.2 #10) Sketch a direction field for $y' = x - y + 1$. Then sketch three solution curves.
 
-</details>
+**D8.** (9.1 #19a) What can you say about a solution of $y' = -y^2$ just by looking at the ODE?
 
-**D3.** Solve $y' = -0.05y$, $y(0)=200$. Find $y(20)$. *(→ A2)*
+**D9.** (9.1 #19d) Find the solution of $y' = -y^2$, $y(0) = 0.5$.
 
-<details>
-<summary>💡 Hint</summary>
+**D10.** (9.2 #11) Sketch the direction field of $y' = y - 2x$. Sketch the solution curve through $(1,0)$.
 
-$y(t) = 200e^{-0.05t}$; $y(20) = 200e^{-1} \approx 73.6$.
+**D11.** (9.2 #19a) Use Euler's method with $h=0.2$ to estimate $y(0.4)$ for $y'=y$, $y(0)=1$.
 
-</details>
-
-**D4.** A 100L tank holds 200 kg of salt; pure water flushes it at 5 L/min (constant volume). Write $A' = \text{rate in} - \text{rate out}$ and simplify it to the form $A' = -bA$. *(→ A2, A4, A10)*
-
-<details>
-<summary>💡 Hint</summary>
-
-Rate out $= \frac{A}{100}\times5 = \frac{A}{20}$ → $A' = -\frac{A}{20}$ ($b = \frac{1}{20}$).
-
-</details>
-
-**D5.** For $P' = 0.4P(1-P/800)$ with $P(0)=200$: (a) what is $L$? (b) what is $A$ in $P(t) = \frac{L}{1+Ae^{-kt}}$? *(→ A3, A6)*
-
-<details>
-<summary>💡 Hint</summary>
-
-$L = 800$; $A = \frac{L-P_0}{P_0} = \frac{600}{200} = 3$.
-
-</details>
-
-**D6.** $P(t) = \frac{800}{1+3e^{-0.4t}}$ has its inflection at $P = \frac{L}{2} = 400$. Write and solve the equation you get from setting $P(t) = 400$. *(→ A3)*
-
-<details>
-<summary>💡 Hint</summary>
-
-$\frac{800}{1+3e^{-0.4t}} = 400$ → $1+3e^{-0.4t} = 2$ → $e^{-0.4t} = \frac13$ → $t = \frac{\ln 3}{0.4} \approx 2.75$.
-
-</details>
-
-**D7.** For $y' = 3 - 0.5y$ with $y(0)=0$: what is the steady state $y_{ss}$? Write $y(t) = y_{ss}(1-e^{-bt})$. *(→ A7, A8, A10)*
-
-<details>
-<summary>💡 Hint</summary>
-
-$y_{ss} = \frac{3}{0.5} = 6$; $y(t) = 6(1-e^{-0.5t})$.
-
-</details>
-
-**D8.** Newton's cooling: $T(t) = 30 + 50e^{-kt}$ with $T(5) = 60$. First isolate $e^{-5k}$, then solve for $k$. *(→ A5)*
-
-<details>
-<summary>💡 Hint</summary>
-
-$60 = 30 + 50e^{-5k}$ → $e^{-5k} = \frac35$ → $k = \frac15\ln\frac53 \approx 0.102$.
-
-</details>
-
-**D9.** Solve both for $t$ (exact $\ln$ forms): (a) $100e^{0.2t} = 900$ (b) $\frac{1000}{1+9e^{-0.2t}} = 900$. *(→ A9)*
-
-<details>
-<summary>💡 Hint</summary>
-
-(a) $e^{0.2t} = 9$ → $t = 5\ln 9$. (b) $1+9e^{-0.2t} = \frac{10}{9}$ → $e^{-0.2t} = \frac1{81}$ → $t = 5\ln 81$.
-
-</details>
-
-**D10.** A lake: $P' = 10 - \frac{P}{10^4}$, $P(0)=0$. Find the steady state $P_{ss}$ and write $P(t) = P_{ss}(1-e^{-bt})$. *(→ A10)*
-
-<details>
-<summary>💡 Hint</summary>
-
-$P_{ss} = 10\times10^4 = 10^5$; $b = 10^{-4}$, so $P(t) = 10^5\left(1-e^{-t/10^4}\right)$.
-
-</details>
-
-**D11.** Convert $2\,\text{cm}^2$ to $\text{m}^2$, then plug $R = 0.5$ m, $H = 2$ m, $a$ (converted), $g = 9.8$ into $T = \frac{2\pi R^2\sqrt{H}}{a\sqrt{2g}}$ and evaluate $T$. *(→ A11)*
-
-<details>
-<summary>💡 Hint</summary>
-
-$2\,\text{cm}^2 = 2\times10^{-4}\,\text{m}^2$. $T = \frac{2\pi(0.25)\sqrt2}{(2\times10^{-4})\sqrt{19.6}} \approx 2509$ s $\approx 42$ min.
-
-</details>
-
-**D12.** Find all equilibria (don't classify yet): (a) $y' = y(y-3)(y+1)$ (b) $y' = y\sin y$ on $0<y<2\pi$. *(→ A12)*
-
-<details>
-<summary>💡 Hint</summary>
-
-(a) $y = -1, 0, 3$. (b) Since $y>0$: $\sin y = 0$ → $y = \pi$ inside the open interval.
-
-</details>
+**D12.** (9.2 #21) Use Euler's method with $h=0.5$ to compute $y_1,y_2,y_3,y_4$ for $y'=y-2x$, $y(1)=0$.
 
 > Solutions: [Solutions](solutions/19A-solutions.md#basic-drill)
 
@@ -467,113 +411,29 @@ $2\,\text{cm}^2 = 2\times10^{-4}\,\text{m}^2$. $T = \frac{2\pi(0.25)\sqrt2}{(2\t
 
 ## Advanced Drills
 
-**A1.** Carbon-14 half-life 5730 years. A fossil has 15% original C-14. How old?
+**A1.** (9.1 #13) Show that $y = -t\cos t - t$ solves $t\frac{dy}{dt} = y + t^2\sin t$, $y(\pi)=0$.
 
-<details>
-<summary>💡 Hint</summary>
+**A2.** (9.1 #14) Show that $y = 5e^{2x}+x$ solves $y'-2y = 1-2x$, $y(0)=5$.
 
-$N(t)=N_0e^{-kt}$ with $k=\frac{\ln 2}{5730}$. Set $0.15=e^{-kt}$ and solve: $t = 5730\cdot\frac{\ln(1/0.15)}{\ln 2}$.
+**A3.** (9.1 #15) For what $r$ does $y=e^{rx}$ solve $2y''+y'-y=0$? Show the family also works.
 
-</details>
+**A4.** (9.1 #26) Coffee at 95C in a 20C room. (a) When does it cool fastest? (b) Write ODE and IC.
 
-**A2.** A tank initially has 100L of 2 kg/L salt. Pure water enters at 5 L/min, drains at 5 L/min. Find salt after 20 min.
+**A5.** (9.1 #27) Learning curve $dP/dt = k(M-P)$. (a) When fastest? (b) Why reasonable? (c) Sketch.
 
-<details>
-<summary>💡 Hint</summary>
+**A6.** (9.2 #25) Euler for $y'+3x^2y=6x^2$, $y(0)=3$. (a) Euler $h=0.1$. (b) Verify $y=2+e^{-x^3}$. (c) Error.
 
-Volume constant at 100L, initial salt $200$ kg. $A' = 0 - \frac{A}{100}\cdot5 = -\frac{A}{20}$, so $A(t)=200e^{-t/20}$; at $t=20$: $200e^{-1}$.
+**A7.** (9.2 #27) RC circuit: $R=5$, $C=0.05$, $E=60$. (a) Direction field. (b) Limiting charge? (c) Equilibrium?
 
-</details>
+**A8.** (9.2 #28) Coffee 95C, room 20C. Cools 1C/min at $T=70C$. (a) Find $k$. (b) Euler $h=2$ for $T(10)$.
 
-**A3.** Logistic: $P'=0.4P(1-P/800)$, $P(0)=200$. Find inflection time (when $P=L/2$).
+**A9.** (9.1 #28) Von Bertalanffy: $dL/dt = k(L_\infty - L)$. (a) Write ODE. (b) Sketch.
 
-<details>
-<summary>💡 Hint</summary>
+**A10.** (9.2 #17) Direction field for $y'=y^3-4y$. For what $c$ does $\lim_{t\to\infty}y(t)$ exist?
 
-$A=(800-200)/200=3$, so $P(t)=\frac{800}{1+3e^{-0.4t}}$. Set $P=400$: $1+3e^{-0.4t}=2$, so $t = \frac{\ln 3}{0.4}$.
+**A11.** (9.2 #19c) Euler for $y'=y$, $y(0)=1$: $h=0.4,0.2,0.1$. Errors? What when $h$ halves?
 
-</details>
-
-**A4.** Two tanks in series: tank 1 drains into tank 2. Write the system of ODEs.
-
-<details>
-<summary>💡 Hint</summary>
-
-Each tank gets its own balance: $A_1' = \text{in}_1 - \text{out}_1$; $A_2' = (\text{outflow from tank 1}) - \text{out}_2$. The outflow of tank 1 is the inflow of tank 2.
-
-</details>
-
-**A5.** Newton cooling: object at 80° in 30° room. At $t=5$, $T=60$. Find $k$, then find $T(15)$.
-
-<details>
-<summary>💡 Hint</summary>
-
-$T(t)=30+50e^{-kt}$. $T(5)=60$: $e^{-5k}=\frac35$, so $k=\frac15\ln\frac53$. Then $T(15)=30+50e^{-15k}$.
-
-</details>
-
-**A6.** A rumor spreads logistically. 10 people know at $t=0$, 100 know at $t=2$, $L=5000$. Find $k$.
-
-<details>
-<summary>💡 Hint</summary>
-
-$A=(5000-10)/10=499$, so $P(t)=\frac{5000}{1+499e^{-kt}}$. Use $P(2)=100$ to solve $499e^{-2k}=49$, so $k=\frac12\ln\frac{499}{49}$.
-
-</details>
-
-**A7.** Drug concentration: $\frac{dC}{dt} = -kC + D$ (constant infusion $D$). Find equilibrium $C_{ss}$.
-
-<details>
-<summary>💡 Hint</summary>
-
-At equilibrium $\frac{dC}{dt}=0$: $-kC_{ss}+D=0$, so $C_{ss}=D/k$.
-
-</details>
-
-**A8.** Terminal velocity: $m\frac{dv}{dt}=mg-kv$. Find $v(t)$ and terminal speed.
-
-<details>
-<summary>💡 Hint</summary>
-
-It's an approach model with $v(0)=0$: $v(t)=\frac{mg}{k}\left(1-e^{-(k/m)t}\right)$. Terminal speed $= mg/k$.
-
-</details>
-
-**A9.** Compare exponential vs logistic: both start at 100, $k=0.2$, but logistic has $L=1000$. Find $t$ when logistic reaches 900 vs exponential reaches 900.
-
-<details>
-<summary>💡 Hint</summary>
-
-Logistic $A=9$: $\frac{1000}{1+9e^{-0.2t}}=900$ → $e^{-0.2t}=\frac19\cdot\frac{1}{9}$, so $t=5\ln81$. Exponential: $100e^{0.2t}=900$ → $t=5\ln9$.
-
-</details>
-
-**A10.** A lake (10⁶ m³) receives polluted water (0.1 kg/m³) at 100 m³/day, drains at same rate. Initially clean. Write ODE, find pollution after 1 year.
-
-<details>
-<summary>💡 Hint</summary>
-
-$P' = 0.1\times100 - \frac{P}{10^6}\times100 = 10 - \frac{P}{10^4}$. Steady state $10^5$ kg: $P(t)=10^5(1-e^{-t/10^4})$; use $t=365$.
-
-</details>
-
-**A11.** Torricelli: A cylindrical tank (radius 0.5 m, height 2 m) drains through a 2 cm² hole. Find drain time. Use $g=9.8$.
-
-<details>
-<summary>💡 Hint</summary>
-
-$T = \frac{2\pi R^2\sqrt{H}}{a\sqrt{2g}}$ with $R=0.5$, $H=2$, $g=9.8$, and $a=2\times10^{-4}$ m² (convert cm²!).
-
-</details>
-
-**A12.** For $y' = y\sin y$ on $0<y<2\pi$, find all equilibria and classify stability using the phase line.
-
-<details>
-<summary>💡 Hint</summary>
-
-$y\sin y=0$: since $y>0$, only $\sin y=0$ → $y=\pi$ inside $(0,2\pi)$. Just left of $\pi$, $\sin y>0$ (rising toward $\pi$); just right, $\sin y<0$ (falling back) — stable.
-
-</details>
+**A12.** (9.1 #19c) A solution of $y'=-y^2$ NOT in the family $y=1/(x+C)$?
 
 > Solutions: [Solutions](solutions/19A-solutions.md#advanced-drill)
 
@@ -624,7 +484,6 @@ Step 5: Qualitatively — slope field first; then phase line: equilibria f(y)=0,
 | $a_{n+1}=ra_n$ | "a n plus one equals r a n" | discrete growth — geometric sequence (12B1) |
 | $r = e^k$ | "r equals e to the k" | bridge between discrete ratio and continuous rate |
 
-
 ---
 
 ## Terminology
@@ -643,3 +502,4 @@ Step 5: Qualitatively — slope field first; then phase line: equilibria f(y)=0,
 | unstable equilibrium | repellor / source | nearby solutions diverge from it |
 | discrete growth (12B1) | geometric sequence | $a_{n+1}=ra_n$, $a_n = a_0r^n$ |
 | continuous ↔ discrete bridge | $r = e^k$ | $r$ (ratio) = $e^k$ (continuous rate) |
+> **Geometric insight**: An ODE is a *rule for slopes*. The equation $y' = f(x,y)$ says: at every point $(x,y)$ in the plane, any solution curve passing through that point must have slope $f(x,y)$. Example 2 draws exactly this — a slope field is a differential equation turned into a picture.
