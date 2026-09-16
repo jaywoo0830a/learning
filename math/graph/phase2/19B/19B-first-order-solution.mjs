@@ -29,7 +29,7 @@ const legend = (at, text, color, font = 10.5, anchor = 'start') =>
 //   오른쪽: y³ = x³ + C — §9.3 Ex 1: y(0)=2 → C=8
 function separableFamily() {
   const left = plot2d([-4, 4], [-5.5, 5.5], { size: [520, 440], axes: AX('x', 'y'), grid: { alpha: 0.25 } })
-    .title('implicit family  y² = x² + C').add(
+    .title(tex`\text{implicit family}\;\; y^{2} = x^{2} + C`).add(
       // 다른 해족 원본들 (C = 1, −4) — curve.implicit 이 창 전체를 marching squares 로 스캔
       curve.implicit((x, y) => y * y - x * x - 1).color(LIGHT).stroke(1.3),
       curve.implicit((x, y) => y * y - x * x + 4).color(LIGHT).stroke(1.3),
@@ -41,7 +41,7 @@ function separableFamily() {
       legend([-3.8, -4.8], tex`C = 9:\; y = -\sqrt{x^{2}+9}`, red),
     );
   const right = plot2d([-3, 3], [-3.5, 3.5], { size: [520, 440], axes: AX('x', 'y'), grid: { alpha: 0.25 } })
-    .title('family  y³ = x³ + C').add(
+    .title(tex`\text{family}\;\; y^{3} = x^{3} + C`).add(
       curve.implicit((x, y) => y ** 3 - x ** 3 + 8).color(LIGHT).stroke(1.3),
       curve.implicit((x, y) => y ** 3 - x ** 3).color(LIGHT).stroke(1.3),
       curve.fn((x) => Math.cbrt(x ** 3 + 8)).on([-3, 3]).color(blue).stroke(2.4),
@@ -77,11 +77,11 @@ function integratingFactor() {
 function mixing() {
   const A1 = (t) => 200 - 170 * Math.exp(-t / 50);
   const left = plot2d([0, 250], [0, 220], { size: [520, 440], axes: AX('t (min)', 'A (g)'), grid: { alpha: 0.28 } })
-    .title('fixed volume — A → 200 g').add(
+    .title(tex`\text{fixed volume --- } A \to 200\,\text{g}`).add(
       curve.fn(A1).on([0, 250]).color(blue).stroke(2.4),
       line.horizontal(200).color(ASYMP).stroke(1.2).dash([5, 4]),
       point(0, 30).dot().color(purple).size(4.5),
-      annotate.text([245, 207]).label('steady state = inflow 1 g/L × 200 L').font(10).color(gray).anchor('end'),
+      annotate.text([245, 207]).label(tex`\text{steady state = inflow } 1\,\text{g/L} \times 200\,\text{L}`).font(10).color(gray).anchor('end'),
       legend([35, 70], tex`A(t) = 200 - 170e^{-t/50}`, blue),
     );
   const A2 = (t) => 100 + t - 700000 / (100 + t) ** 2;

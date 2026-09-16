@@ -43,21 +43,21 @@ function linearization() {
   const L = (x) => 2 + (x - 4) / 4;
 
   const left = plot2d([0, 9], [0, 3.4], { size: PANEL, axes: AX('x', 'y'), grid: { alpha: 0.25 } })
-    .title('f(x) = √x  and its tangent at x = 4')
+    .title(tex`f(x) = \sqrt{x} \;\text{and its tangent at } x = 4`)
     .add(
       curve.fn(f).on([0, 9]).color(blue).stroke(2.6).n(240),
       curve.fn(L).on([0, 9]).color(red).stroke(1.8).dash([6, 4]).n(2),
       line.vertical(4).color(ASYMP).stroke(1).dash([4, 4]),
       point(4, 2).dot().color(red).size(4.5),
       legend([1.1, 3.25], tex`L(x) = 2 + (x-4)/4`, red),
-      annotate.text([4.15, 0.35]).label('touch point x = 4').font(9.5).color(red),
+      annotate.text([4.15, 0.35]).label(tex`\text{touch point } x = 4`).font(9.5).color(red),
     );
 
   // 0.4.1 의 눈금 정밀도 수정(fmtTick 이 tick step 에서 자릿수를 유도) 덕분에 좁은 범위
   // (폭 0.012)에서도 y 눈금이 "2.02" 로 뭉개지지 않는다 → 예전처럼 눈금을 끌 필요가 없다.
   // (자릿수를 직접 정하고 싶으면 axes({ y: { decimals: n } }).)
   const right = plot2d([4.08, 4.12], [2.019, 2.031], { size: PANEL, axes: AX('x', 'y'), grid: { alpha: 0.25 } })
-    .title('Zoom at x = 4.1   (gap ≈ 1.5 × 10⁻⁴)')
+    .title(tex`\text{Zoom at } x = 4.1 \;\; (\text{gap} \approx 1.5 \times 10^{-4})`)
     .add(
       curve.fn(f).on([4.08, 4.12]).color(blue).stroke(2.4).n(120),
       curve.fn(L).on([4.08, 4.12]).color(red).stroke(1.8).dash([6, 4]).n(2),
@@ -79,7 +79,7 @@ function circleRing() {
   const r = 2, dr = 0.22;
 
   const p = plot2d([-3.0, 3.6], [-2.8, 2.8], { size: [560, 460], axes: AX('x', 'y'), grid: { alpha: 0.2 }, equal: true })
-    .title('Ring of width dr :  ΔA ≈ 2πr · dr')
+    .title(tex`\text{Ring of width } dr:\; \Delta A \approx 2\pi r \cdot dr`)
     .add(
       region.annulus(O, r, r + dr).fill(blue).opacity(0.28),
       circle.center(O).radius(r).color(blue).stroke(2.2),
@@ -106,7 +106,7 @@ function sphereShell() {
   const r = 2.0, dr = 0.30;
 
   const p = plot3d({ elev: 14, azim: -52, size: [560, 440] })
-    .title('Shell of thickness dr :  ΔV ≈ 4πr² · dr')
+    .title(tex`\text{Shell of thickness } dr:\; \Delta V \approx 4\pi r^{2} \cdot dr`)
     .add(
       // ① 바깥 구(r+dr)를 먼저 깔아 '껍질 띠'를 만든다 — 옅은 채움 + 얇은 점선
       sphere.center(point(0, 0, 0)).radius(r + dr).fill(palette.skyblue).opacity(0.45)
@@ -139,15 +139,15 @@ function marginalCost() {
   const LEFT_X = [0, 22], LEFT_Y = [0, 750];
 
   const left = plot2d(LEFT_X, LEFT_Y, { size: PANEL, axes: AX('quantity q (units)', 'cost C ($)'), grid: { alpha: 0.25 } })
-    .title('C(q) = q² + 4q + 144  —  tangent at q = 12')
+    .title(tex`C(q) = q^{2} + 4q + 144 \;\text{--- tangent at } q = 12`)
     .add(
       curve.fn(C).on(LEFT_X).color(green).stroke(2.6).n(200),
       curve.fn((q) => MC0 * q).on([4, 21]).color(red).stroke(1.8).dash([6, 4]).n(2),
       point(q0, C(q0)).dot().color(red).size(4.5),
       annotate.text([12.4, 200]).label(tex`C'(12) = 28\ \text{\$/unit}`).font(10.5).color(red).bold(),
       legend([2.6, 700], 'slope here = price of the NEXT unit', red, 9.5),
-      annotate.text([0.4, 715]).label('C ($)').font(9.5).color(gray),
-      annotate.text([11, 90]).label('q (units)').font(9.5).color(gray).anchor('middle'),
+      annotate.text([0.4, 715]).label(tex`C\;(\$)`).font(9.5).color(gray),
+      annotate.text([11, 90]).label(tex`q\;(\text{units})`).font(9.5).color(gray).anchor('middle'),
     );
 
   const MC = (q) => 2 * q + 4;
@@ -163,8 +163,8 @@ function marginalCost() {
       annotate.text([6.0, 46]).label(tex`AC = q + 4 + 144/q`).font(10.5).color(blue).bold(),
       annotate.text([13.2, 35.5]).label(tex`\text{meet at } q = 12\ (\$28)`).font(10).color(purple).bold(),
       annotate.text([13, 12]).label(tex`AC'(12) = 0\ \text{— the average stops falling}`).font(9).color(gray),
-      annotate.text([21.5, 56]).label('$ / unit').font(9.5).color(gray).anchor('end'),
-      annotate.text([12.5, 6.5]).label('q (units)').font(9.5).color(gray).anchor('middle'),
+      annotate.text([21.5, 56]).label(tex`\$\,/\,\text{unit}`).font(9.5).color(gray).anchor('end'),
+      annotate.text([12.5, 6.5]).label(tex`q\;(\text{units})`).font(9.5).color(gray).anchor('middle'),
     );
 
   return pair(left, right, 'Marginal Cost — the Cost of the Next Unit');
@@ -179,7 +179,7 @@ function elasticity() {
   const pStar = 25, qStar = q(pStar), rStar = R(pStar);   // E = −1, R 최대 = 6250
 
   const left = plot2d([0, 50], [0, 520], { size: PANEL, axes: AX('price p ($)', 'quantity q'), grid: { alpha: 0.25 } })
-    .title('Demand q(p) = 500 − 10p')
+    .title(tex`\text{Demand}\;\; q(p) = 500 - 10p`)
     .add(
       region.between(0, q).on([0, pStar]).fill(blue).opacity(0.12),    // |E| < 1
       region.between(0, q).on([pStar, 50]).fill(red).opacity(0.12),    // |E| > 1
@@ -192,7 +192,7 @@ function elasticity() {
     );
 
   const right = plot2d([0, 50], [0, 6600], { size: PANEL, axes: AX('price p ($)', 'revenue R ($)'), grid: { alpha: 0.25 } })
-    .title('Revenue R(p) = 500p − 10p²')
+    .title(tex`\text{Revenue}\;\; R(p) = 500p - 10p^{2}`)
     .add(
       curve.fn(R).on([0, 50]).color(green).stroke(2.6).n(200),
       region.between(0, R).on([0, pStar]).fill(blue).opacity(0.10),
@@ -218,7 +218,7 @@ function signStory() {
   const x0 = 2;                             // f′(x0) = 0
 
   const left = plot2d([-1.5, 5.5], [-9, 9], { size: PANEL, axes: AX('x', 'f′(x)'), grid: { alpha: 0.25 } })
-    .title('Read by height — the sign of f′ is the direction of f')
+    .title(tex`\text{Read by height --- the sign of } f' \text{ is the direction of } f`)
     .add(
       barAt(-1.5, x0, -9, 0, red, 0.07),    // f′ < 0 인 사분면
       barAt(x0, 5.5, 0, 9, blue, 0.07),     // f′ > 0 인 사분면
@@ -234,7 +234,7 @@ function signStory() {
     );
 
   const right = plot2d([-0.9, 5], [-5.5, 6.5], { size: PANEL, axes: AX('x', 'f(x)'), grid: { alpha: 0.25 } })
-    .title('Read by slope — f′ rising means f bends upward')
+    .title(tex`\text{Read by slope --- } f' \text{ rising means } f \text{ bends upward}`)
     .add(
       curve.fn(f).on([-0.9, 5]).color(green).stroke(2.6).n(200),
       segment([0.6, -4], [3.4, -4]).color(red).stroke(1.8).dash([6, 4]),   // 최소점의 접선
@@ -243,7 +243,7 @@ function signStory() {
       annotate.text([0.15, 6.0]).label(tex`f(x) = x^{2} - 4x\ \text{(the +C is free)}`).font(10.5).color(green).bold(),
       annotate.text([0.15, 5.0]).label(tex`\text{falls} \to \text{rises: minimum at } x = 2`).font(9.5).color(gray),
       annotate.text([2.15, -3.2]).label(tex`f' = 0\ \text{and}\ f'' > 0\ \to\ \text{minimum}`).font(9.5).color(purple),
-      annotate.text([0.62, -4.75]).label('tangent: slope 0').font(9).color(red),
+      annotate.text([0.62, -4.75]).label(tex`\text{tangent: slope } 0`).font(9).color(red),
     );
 
   return pair(left, right, "The Story of f′ — Height Tells Direction, Slope Tells Bending");
@@ -300,9 +300,9 @@ function cubeDriver() {
   };
 
   const left = box('side', 'dV/ds = 3s² — respect the side s', [
-    annotate.text([-0.75, 3.5]).label('only 3 faces move (normals +x, +y, +z)').font(10).color(blue).bold(),
+    annotate.text([-0.75, 3.5]).label(tex`\text{only 3 faces move (normals } +x,\,+y,\,+z\text{)}`).font(10).color(blue).bold(),
     annotate.text([-0.75, 3.12]).label(tex`\text{dV/ds collects } 3s^{2}\ \text{— three faces of area } s^{2}`).font(9.5).color(gray),
-    annotate.text([-0.75, -0.25]).label('front face stays put; dashed = the hidden face at z = s').font(9).color(gray),
+    annotate.text([-0.75, -0.25]).label(tex`\text{front face stays put; dashed = the hidden face at } z = s`).font(9).color(gray),
   ]);
 
   const right = box('half', 'dV/du = 24u² = 6s² — respect the half-side u = s/2', [
@@ -326,7 +326,7 @@ function energyTwoMeanings() {
   const t0 = 1.5, slopeT = F * a * t0;         // K′(t) = F·v = 27 (일률)
 
   const left = plot2d([0, 4.5], [0, 20], { size: PANEL, axes: AX('v (m/s)', 'K (J)'), grid: { alpha: 0.25 } })
-    .title('Respect v — the tangent’s slope is momentum')
+    .title(tex`\text{Respect } v \text{ --- the tangent's slope is momentum}`)
     .add(
       curve.fn(K).on([0, 4.5]).color(green).stroke(2.6).n(200),
       curve.fn((v) => K(v0) + slopeV * (v - v0)).on([1.5, 4.5]).color(red).stroke(1.8).dash([6, 4]).n(2),
@@ -334,12 +334,12 @@ function energyTwoMeanings() {
       point(v0, K(v0)).dot().color(red).size(4.5),
       annotate.text([0.5, 19.2]).label(tex`K(v) = \tfrac{1}{2}mv^{2},\;\; m = 2\,\mathrm{kg}`).font(10.5).color(green).bold(),
       annotate.text([0.5, 17.0]).label(tex`\text{slope} = mv = 6\ \to\ p\ \text{(momentum)}`).font(10).color(red).bold(),
-      annotate.text([0.5, 15.0]).label('J ÷ (m/s) = kg·m/s').font(9.5).color(gray),
-      annotate.text([3.05, 3.4]).label('tangent at v = 3').font(9).color(gray),
+      annotate.text([0.5, 15.0]).label(tex`\text{J} \div (\text{m/s}) = \text{kg}\cdot\text{m/s}`).font(9.5).color(gray),
+      annotate.text([3.05, 3.4]).label(tex`\text{tangent at } v = 3`).font(9).color(gray),
     );
 
   const right = plot2d([0, 2.2], [0, 45], { size: PANEL, axes: AX('t (s)', 'K (J)'), grid: { alpha: 0.25 } })
-    .title('Respect t — the tangent’s slope is power')
+    .title(tex`\text{Respect } t \text{ --- the tangent's slope is power}`)
     .add(
       curve.fn(Kt).on([0, 2.2]).color(green).stroke(2.6).n(200),
       curve.fn((t) => Kt(t0) + slopeT * (t - t0)).on([0.75, 2.2]).color(red).stroke(1.8).dash([6, 4]).n(2),
@@ -347,8 +347,8 @@ function energyTwoMeanings() {
       point(t0, Kt(t0)).dot().color(red).size(4.5),
       annotate.text([0.15, 43]).label(tex`K(t) = \tfrac{1}{2}ma^{2}t^{2},\;\; a = F/m = 3`).font(10.5).color(green).bold(),
       annotate.text([0.15, 37.5]).label(tex`\text{slope} = Fv = 6 \cdot 4.5 = 27\ \to\ P`).font(10).color(red).bold(),
-      annotate.text([0.15, 32.5]).label('J ÷ s = W  (watts)').font(9.5).color(gray),
-      annotate.text([1.62, 15]).label('tangent at t = 1.5').font(9).color(gray),
+      annotate.text([0.15, 32.5]).label(tex`\text{J} \div \text{s} = \text{W} \;\;(\text{watts})`).font(9.5).color(gray),
+      annotate.text([1.62, 15]).label(tex`\text{tangent at } t = 1.5`).font(9).color(gray),
       annotate.text([1.62, 5.5]).label('same J, different driver').font(9).color(gray),
     );
 
@@ -372,7 +372,7 @@ function motionSigns() {
   const bands = (y0, y1) => PHASES.map((p) => barAt(p.from, p.to, y0, y1, p.kind === 'slow' ? SLOW : FAST, 0.06));
 
   const left = plot2d([0, 4.4], [-2, 6], { size: PANEL, axes: AX('t (s)', 'v (m/s)'), grid: { alpha: 0.25 } })
-    .title('v(t) = t² − 4t + 3 — the four phases')
+    .title(tex`v(t) = t^{2} - 4t + 3 \;\text{--- the four phases}`)
     .add(
       ...bands(-2, 6),
       line.horizontal(0).color(ASYMP).stroke(1),
@@ -388,7 +388,7 @@ function motionSigns() {
     );
 
   const right = plot2d([0, 4.4], [-4, 6], { size: PANEL, axes: AX('t (s)', 'v , a'), grid: { alpha: 0.25 } })
-    .title('Speeding up needs v and a to agree in sign')
+    .title(tex`\text{Speeding up needs } v \text{ and } a \text{ to agree in sign}`)
     .add(
       ...bands(-4, 6),
       line.horizontal(0).color(ASYMP).stroke(1),

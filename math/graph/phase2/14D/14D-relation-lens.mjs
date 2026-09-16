@@ -32,7 +32,7 @@ function derivativeUnits() {
   // 왼쪽: s(t) = ½t² — t=4 에서 접선 기울기 4 m/s
   const s = (t) => 0.5 * t * t;
   const left = plot2d([0, 6], [-2, 18], { size: PANEL_W, axes: AX('time t (s)', 'position s (m)'), grid: { alpha: 0.25 } })
-    .title('s(t) = ½t²  —  m/s')
+    .title(tex`s(t) = \tfrac{1}{2}t^{2} \;\text{--- m/s}`)
     .add(
       curve.fn(s).on([0, 6]).color(blue).stroke(2.6).n(200),
       curve.fn((t) => 4 * t - 8).on([2.5, 5.5]).color(red).stroke(1.8).dash([6, 4]).n(2),
@@ -44,7 +44,7 @@ function derivativeUnits() {
   // 오른쪽: C(q) = q² + 4q + 144 — q=12 에서 접선 기울기 28 $/unit
   const C = (q) => q * q + 4 * q + 144;
   const right = plot2d([0, 22], [0, 750], { size: PANEL_W, axes: AX('quantity q (units)', 'cost C ($)'), grid: { alpha: 0.25 } })
-    .title('C(q) = q² + 4q + 144  —  $/unit')
+    .title(tex`C(q) = q^{2} + 4q + 144 \;\text{--- \$/unit}`)
     .add(
       curve.fn(C).on([0, 22]).color(green).stroke(2.6).n(200),
       curve.fn((q) => 28 * q).on([4, 21]).color(red).stroke(1.8).dash([6, 4]).n(2),
@@ -62,7 +62,7 @@ function motionStory() {
   const a = (t) => 6 * t - 12;
 
   const top = plot2d([0, 4], [-8, 10], { size: PANEL_TOP, axes: AX('time t (s)', 'v , a'), grid: { alpha: 0.25 } })
-    .title('v(t) = 3t² − 12t + 9   and   a(t) = 6t − 12')
+    .title(tex`v(t) = 3t^{2} - 12t + 9 \quad\text{and}\quad a(t) = 6t - 12`)
     .add(
       curve.fn(v).on([0, 4]).color(blue).stroke(2.6).n(200),
       curve.fn(a).on([0, 4]).color(orange).stroke(2.2).n(200),

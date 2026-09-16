@@ -35,7 +35,7 @@ function geometricSeries() {
   const conv = (n) => 0.5 ** n, div = (n) => 1.2 ** n;
   const sums = partialSums(conv, 0, 8);
   const left = plot2d([0, 9], [0, 2.4], { size: [520, 420], axes: AX('n', 'aₙ , Sₙ'), grid: { alpha: 0.28 } })
-    .title('Σ (0.5)ⁿ  — converges').add(
+    .title(tex`\sum (0.5)^{n} \;\text{--- converges}`).add(
       plugins.stem(...termsOf(conv, 0, 8)).color(blue).stroke(1.3).size(3),
       plugins.polyline(...sums).color(red).stroke(2.2),
       ...sums.map(([x, y]) => point(x, y).dot().color(red).size(4)),
@@ -46,7 +46,7 @@ function geometricSeries() {
     );
   const divSums = partialSums(div, 0, 8);
   const right = plot2d([0, 9], [0, 22], { size: [520, 420], axes: AX('n', 'aₙ , Sₙ'), grid: { alpha: 0.28 } })
-    .title('Σ (1.2)ⁿ  — diverges').add(
+    .title(tex`\sum (1.2)^{n} \;\text{--- diverges}`).add(
       plugins.stem(...termsOf(div, 0, 8)).color(orange).stroke(1.2).size(2.6),
       plugins.polyline(...divSums).color(red).stroke(2.2),
       ...divSums.map(([x, y]) => point(x, y).dot().color(red).size(4)),
@@ -61,7 +61,7 @@ function geometricSeries() {
 //   왼쪽: Σ1/nᵖ 부분합 — p=2 수렴(π²/6), p=1·p=1/2 발산. 오른쪽: Σ1/n² ≤ 1 + ∫1/x² dx.
 function pSeries() {
   const left = plot2d([0, 51], [0, 15], { size: [520, 420], axes: AX('N', 'S_N'), grid: { alpha: 0.28 } })
-    .title('Partial sums of Σ 1/nᵖ').add(
+    .title(tex`\text{Partial sums of } \sum 1/n^{p}`).add(
       plugins.polyline(...partialSums((n) => n ** -0.5, 1, 50)).color(red).stroke(2.2),
       plugins.polyline(...partialSums((n) => 1 / n, 1, 50)).color(green).stroke(2.2),
       plugins.polyline(...partialSums((n) => n ** -2, 1, 50)).color(blue).stroke(2.4),
@@ -71,7 +71,7 @@ function pSeries() {
       legend([40, 1.95], tex`p = 2\ \to\ \pi^{2}/6 \approx 1.645`, blue),
     );
   const right = plot2d([0, 8], [0, 1.15], { size: [520, 420], axes: AX('n  /  x', 'value'), grid: { alpha: 0.28 } })
-    .title('Integral test:  Σ 1/n²  vs  ∫₁^∞ 1/x² dx').add(
+    .title(tex`\text{Integral test: } \sum 1/n^{2} \;\text{vs}\; \int_{1}^{\infty} \frac{1}{x^{2}}\,dx`).add(
       region.between((x) => 1 / (x * x)).on([1, 8]).fill(blue).opacity(0.16),
       plugins.stem(...termsOf((n) => 1 / (n * n), 1, 8)).color(orange).stroke(1.2).size(2.6),
       curve.fn((x) => 1 / (x * x)).on([1, 8]).color(blue).stroke(2.4).n(200),
@@ -89,7 +89,7 @@ function alternatingSeries() {
   const alt = (n) => ((-1) ** (n + 1)) / n;
   const S = partialSums(alt, 1, 24);
   const left = plot2d([0, 25], [0, 1.2], { size: [520, 420], axes: AX('N', 'S_N'), grid: { alpha: 0.28 } })
-    .title('Σ (−1)ⁿ⁺¹/n  →  ln 2').add(
+    .title(tex`\sum (-1)^{n+1}/n \;\to\; \ln 2`).add(
       plugins.polyline(...S).color(blue).stroke(1.8),
       ...S.map(([x, y]) => point(x, y).dot().color(blue).size(3.4)),
       line.horizontal(Math.LN2).color(red).stroke(1.2).dash([5, 4]),
@@ -97,7 +97,7 @@ function alternatingSeries() {
       annotate.text([12, 1.1]).label('partial sums zigzag in').font(10.5).color(blue).anchor('middle'),
     );
   const right = plot2d([0, 25], [0, 4], { size: [520, 420], axes: AX('N', 'S_N'), grid: { alpha: 0.28 } })
-    .title('Σ 1/n (diverges)  vs  Σ (−1)ⁿ⁺¹/n (converges)').add(
+    .title(tex`\sum 1/n \;\text{(diverges)}\;\; \text{vs} \;\; \sum (-1)^{n+1}/n \;\text{(converges)}`).add(
       plugins.polyline(...partialSums((n) => 1 / n, 1, 24)).color(green).stroke(2.2),
       plugins.polyline(...S).color(blue).stroke(2.2),
       line.horizontal(Math.LN2).color(red).stroke(1).dash([5, 4]).opacity(0.6),
@@ -113,7 +113,7 @@ function ratioTest() {
   const rConv = (n) => (n / (n + 1)) ** n;
   const convTerms = termsOf(rConv, 1, 20);
   const left = plot2d([1, 20], [0.3, 1.08], { size: [520, 420], axes: AX('n', 'aₙ₊₁ / aₙ'), grid: { alpha: 0.28 } })
-    .title('Σ n!/nⁿ :  ratio → 1/e < 1  → converges').add(
+    .title(tex`\sum n!/n^{n} :\; \text{ratio} \to 1/e < 1 \;\to\; \text{converges}`).add(
       plugins.polyline(...convTerms).color(blue).stroke(2.2),
       ...convTerms.map(([x, y]) => point(x, y).dot().color(blue).size(3)),
       line.horizontal(1).color(ASYMP).stroke(1).dash([4, 4]),
@@ -124,7 +124,7 @@ function ratioTest() {
   const rDiv = (n) => (n + 1) / 2;
   const divTerms = termsOf(rDiv, 1, 10);
   const right = plot2d([1, 10], [0, 6], { size: [520, 420], axes: AX('n', 'aₙ₊₁ / aₙ'), grid: { alpha: 0.28 } })
-    .title('Σ n!/2ⁿ :  ratio grows > 1  → diverges').add(
+    .title(tex`\sum n!/2^{n} :\; \text{ratio grows} > 1 \;\to\; \text{diverges}`).add(
       plugins.polyline(...divTerms).color(orange).stroke(2.2),
       ...divTerms.map(([x, y]) => point(x, y).dot().color(orange).size(3)),
       line.horizontal(1).color(red).stroke(1.2).dash([5, 4]),

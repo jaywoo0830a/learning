@@ -53,7 +53,7 @@ function analogy() {
   const c = Math.cos(rad(theta)), s = Math.sin(rad(theta));
   const px = Math.cosh(t), py = Math.sinh(t);
 
-  const left = square([-1.7, 1.7], [-1.5, 1.7]).title('x² + y² = 1').add(
+  const left = square([-1.7, 1.7], [-1.5, 1.7]).title(tex`x^{2} + y^{2} = 1`).add(
     sector.circular([0, 0], 1, 0, rad(theta)).fill(GOLD).opacity(0.2),
     circle.center(point(0, 0)).radius(1).color(NAVY).stroke(1.8),
     line.horizontal(0).color(gray).stroke(0.6), line.vertical(0).color(gray).stroke(0.6),
@@ -68,7 +68,7 @@ function analogy() {
     annotate.text([0.45, 0.33]).label(tex`\text{area} = \theta/2`).font(10).color(GOLD),
   );
 
-  const right = square([-1.4, 3.0], [-1.5, 2.2]).title('x² − y² = 1').add(
+  const right = square([-1.4, 3.0], [-1.5, 2.2]).title(tex`x^{2} - y^{2} = 1`).add(
     polygon(...[[0, 0], [1, 0], ...hyperSamples(t)].map(toPoint)).fill(GOLD).opacity(0.2),
     hyperbola.center(point(0, 0)).semi(1, 1).color(NAVY).stroke(1.8),
     line.horizontal(0).color(gray).stroke(0.6), line.vertical(0).color(gray).stroke(0.6),
@@ -89,7 +89,7 @@ function analogy() {
 //   e^x = cosh x + sinh x. cosh 는 짝함수부, sinh 는 홀함수부.
 function evenOdd() {
   const xr = [-2.2, 2.2], yr = [-2.6, 4.2];
-  const p1 = panel(xr, yr).title('eˣ = cosh x + sinh x').add(
+  const p1 = panel(xr, yr).title(tex`e^{x} = \cosh x + \sinh x`).add(
     curve.fn(Math.exp).on(xr).color(NAVY).stroke(2.4).n(300),
     curve.fn((x) => Math.exp(-x)).on(xr).color(FAINT).stroke(1.4).dash([5, 4]),
     line.horizontal(0).color(gray).stroke(0.5), line.vertical(0).color(gray).stroke(0.5),
@@ -97,15 +97,15 @@ function evenOdd() {
     legend([-2.1, 3.8], tex`e^{x}`, NAVY),
     legend([-2.1, 3.35], tex`e^{-x}`, gray),
   );
-  const p2 = panel(xr, yr).title('cosh x  (even part)').add(
+  const p2 = panel(xr, yr).title(tex`\cosh x \;\; (\text{even part})`).add(
     curve.fn((x) => (Math.exp(x) + Math.exp(-x)) / 2).on(xr).color(COSH).stroke(2.4).n(300),
     line.horizontal(1).color(COSH).stroke(1).dash([3, 3]).opacity(0.6),
     line.horizontal(0).color(gray).stroke(0.5), line.vertical(0).color(gray).stroke(0.5),
     point(0, 1).dot().color(COSH).size(4.5),
-    annotate.text([0, 1]).label('min 1 at x = 0').font(10).color(COSH).anchor('middle').offset(0, 16),
+    annotate.text([0, 1]).label(tex`\text{min 1 at } x = 0`).font(10).color(COSH).anchor('middle').offset(0, 16),
     legend([-2.1, 3.8], tex`(e^{x} + e^{-x})/2`, COSH),
   );
-  const p3 = panel(xr, yr).title('sinh x  (odd part)').add(
+  const p3 = panel(xr, yr).title(tex`\sinh x \;\; (\text{odd part})`).add(
     curve.fn((x) => (Math.exp(x) - Math.exp(-x)) / 2).on(xr).color(SINH).stroke(2.4).n(300),
     line.horizontal(0).color(gray).stroke(0.5), line.vertical(0).color(gray).stroke(0.5),
     point(0, 0).dot().color(SINH).size(4.5),
@@ -132,7 +132,7 @@ function branchFig(title, f, color) {
 const coshGraph = () => smoothFig('cosh x  (even, min 1)', Math.cosh, COSH, [-1, 8]).add(
   line.horizontal(1).color(COSH).stroke(1).dash([3, 3]).opacity(0.6),
   point(0, 1).dot().color(COSH).size(4.5),
-  annotate.text([0, 1]).label('min 1 at x = 0').font(10).color(COSH).anchor('middle').offset(0, 16),
+  annotate.text([0, 1]).label(tex`\text{min 1 at } x = 0`).font(10).color(COSH).anchor('middle').offset(0, 16),
 );
 const sinhGraph = () => smoothFig('sinh x  (odd)', Math.sinh, SINH, [-8, 8]).add(
   point(0, 0).dot().color(SINH).size(4.5),
@@ -147,7 +147,7 @@ const tanhGraph = () => smoothFig('tanh x  (odd, → ±1)', Math.tanh, TANH, [-1
 const sechGraph = () => smoothFig('sech x  (even, 0 < y ≤ 1)', (x) => 1 / Math.cosh(x), SECH, [-0.5, 1.4]).add(
   line.horizontal(1).color(SECH).stroke(1).dash([3, 3]).opacity(0.6),
   point(0, 1).dot().color(SECH).size(4.5),
-  annotate.text([0, 1.32]).label('max 1 at x = 0').font(10).color(SECH).anchor('middle'),
+  annotate.text([0, 1.32]).label(tex`\text{max 1 at } x = 0`).font(10).color(SECH).anchor('middle'),
 );
 const cschGraph = () => branchFig('csch x  (odd)', (x) => 1 / Math.sinh(x), CSCH);
 const cothGraph = () => branchFig('coth x  (odd)', (x) => 1 / Math.tanh(x), COTH).add(
@@ -158,20 +158,20 @@ const cothGraph = () => branchFig('coth x  (odd)', (x) => 1 / Math.tanh(x), COTH
 // ══ 4. 역쌍곡선 함수 (로그 그래프) ══════════════════════════════════
 //   arsinh: 모든 실수 / arcosh: x≥1 / artanh: |x|<1 (수직 점근 x=±1).
 function inverseGraphs() {
-  const p1 = panel([-4, 4], [-3, 3]).title('arsinh x = ln(x + √(x²+1))').add(
+  const p1 = panel([-4, 4], [-3, 3]).title(tex`\operatorname{arsinh} x = \ln\!\left(x + \sqrt{x^{2}+1}\right)`).add(
     curve.fn(Math.asinh).on([-4, 4]).color(SINH).stroke(2.4).n(300),
     line.horizontal(0).color(gray).stroke(0.5), line.vertical(0).color(gray).stroke(0.5),
     point(0, 0).dot().color(SINH).size(4.5),
-    annotate.text([3.6, 2.4]).label('all real x').font(10).color(SINH).anchor('end'),
+    annotate.text([3.6, 2.4]).label(tex`\text{all real } x`).font(10).color(SINH).anchor('end'),
   );
-  const p2 = panel([-0.5, 6], [-0.5, 3]).title('arcosh x = ln(x + √(x²−1))').add(
+  const p2 = panel([-0.5, 6], [-0.5, 3]).title(tex`\operatorname{arcosh} x = \ln\!\left(x + \sqrt{x^{2}-1}\right)`).add(
     curve.fn(Math.acosh).on([1, 6]).color(COSH).stroke(2.4).n(300),
     line.vertical(1).color(ASYMP).stroke(1.2).dash([5, 5]),
     line.horizontal(0).color(gray).stroke(0.5), line.vertical(0).color(gray).stroke(0.5),
     point(1, 0).dot().color(COSH).size(4.5),
-    annotate.text([1.12, 0.28]).label('starts at (1, 0)').font(10).color(COSH),
+    annotate.text([1.12, 0.28]).label(tex`\text{starts at } (1,\,0)`).font(10).color(COSH),
   );
-  const p3 = panel([-1.4, 1.4], [-3, 3]).title('artanh x = ½ ln((1+x)/(1−x))').add(
+  const p3 = panel([-1.4, 1.4], [-3, 3]).title(tex`\operatorname{artanh} x = \tfrac{1}{2}\,\ln\!\left(\frac{1+x}{1-x}\right)`).add(
     ...branchCurves(Math.atanh, [-0.999, 0.999], [], { color: TANH, clip: 2.9, eps: 0 }),
     line.vertical(1).color(ASYMP).stroke(1.3).dash([5, 5]),
     line.vertical(-1).color(ASYMP).stroke(1.3).dash([5, 5]),
@@ -188,7 +188,7 @@ function catenary() {
   const cat = (x) => 3 * Math.cosh(x / 3);
   const par = (x) => 3 + (x * x) / 6;              // cosh(x/3) ≈ 1 + x²/18 에서 유도
   return plot2d([-6.5, 6.5], [0, 13], { size: [640, 460], axes: AX(), grid: { alpha: 0.3 } })
-    .title('Catenary y = 3cosh(x/3) vs Parabola').add(
+    .title(tex`\text{Catenary}\;\; y = 3\cosh(x/3) \;\; \text{vs Parabola}`).add(
       curve.fn(cat).on([-6, 6]).color(COSH).stroke(2.6).n(400),
       curve.fn(par).on([-6, 6]).color(SINH).stroke(2).dash([6, 4]),
       line.horizontal(3).color(gray).stroke(0.6).dash([2, 2]),

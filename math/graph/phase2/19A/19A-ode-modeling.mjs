@@ -60,7 +60,7 @@ function slopeField() {
 function growthDecay() {
   const LN2 = Math.LN2;
   const left = plot2d([0, 3], [0, 4.2], { size: [520, 420], axes: AX('t', 'P'), grid: { alpha: 0.28 } })
-    .title('Growth:  P = Aeᵏᵗ,  k > 0').add(
+    .title(tex`\text{Growth:}\;\; P = Ae^{kt},\; k > 0`).add(
       curve.fn((t) => Math.exp(0.5 * t)).on([0, 3]).color(blue).stroke(2.2),
       curve.fn((t) => Math.exp(t)).on([0, 1.45]).color(orange).stroke(2.2),
       curve.fn((t) => 0.6 * Math.exp(t)).on([0, 1.85]).color(green).stroke(2.2),
@@ -72,7 +72,7 @@ function growthDecay() {
       annotate.text([LN2 + 0.1, 0.25]).label(tex`t_2 = \ln 2/k`).font(10).color(red).bold(),
     );
   const right = plot2d([0, 4], [0, 1.2], { size: [520, 420], axes: AX('t', 'P'), grid: { alpha: 0.28 } })
-    .title('Decay:  P = Aeᵏᵗ,  k < 0').add(
+    .title(tex`\text{Decay:}\;\; P = Ae^{kt},\; k < 0`).add(
       curve.fn((t) => Math.exp(-0.5 * t)).on([0, 4]).color(blue).stroke(2.2),
       curve.fn((t) => Math.exp(-t)).on([0, 4]).color(orange).stroke(2.2),
       line.vertical(LN2).color(red).stroke(1.2).dash([5, 4]),
@@ -92,7 +92,7 @@ function logistic() {
   const P = (t) => L / (1 + 9 * Math.exp(-k * t));
   const tInf = Math.log(9) / k;                 // P = L/2 인 시각
   return plot2d([0, 10], [0, 1150], { size: [760, 480], axes: AX('t', 'P(t)'), grid: { alpha: 0.28 } })
-    .title('Logistic Growth  —  L = 1000,  P₀ = 100').add(
+    .title(tex`\text{Logistic Growth --- } L = 1000,\; P_{0} = 100`).add(
       curve.fn(P).on([0, 10]).color(blue).stroke(2.4),
       curve.fn((t) => P0 * Math.exp(k * t)).on([0, 2.05]).color(red).stroke(1.6).dash([5, 4]),
       line.horizontal(L).color(ASYMP).stroke(1.3).dash([5, 4]),
@@ -142,7 +142,7 @@ function rlCircuit() {
   const I = (t) => 5 * (1 - Math.exp(-3 * t));
   const tau = 1 / 3;
   return plot2d([0, 2.5], [0, 5.8], { size: [760, 480], axes: AX('t (s)', 'I (A)'), grid: { alpha: 0.28 } })
-    .title('RL Circuit  —  I(t) = 5(1 − e⁻³ᵗ)').add(
+    .title(tex`\text{RL Circuit --- } I(t) = 5\left(1 - e^{-3t}\right)`).add(
       curve.fn(I).on([0, 2.5]).color(blue).stroke(2.4),
       line.horizontal(5).color(ASYMP).stroke(1.3).dash([5, 4]),
       line.vertical(tau).color(red).stroke(1.2).dash([5, 4]),

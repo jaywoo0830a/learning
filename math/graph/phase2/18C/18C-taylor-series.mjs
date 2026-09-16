@@ -17,8 +17,13 @@ const { plot2d, subplots, palette } = kit;
 const { blue, green, orange, purple, red, gray } = palette.tab;
 
 /** 이 세션의 패널 프리셋 — 크기·격자는 고정, y축 라벨만 바꾼다(코어 plot2d 옵션 위에 얹음) */
-const panel = (xr, yr, yLabel) =>
-  plot2d(xr, yr, { size: [520, 400], axes: { x: { label: 'x' }, y: { label: yLabel } }, grid: { alpha: 0.25 } });
+const panel = (xr, yr, yLabel) => {
+  // 0.5.1: axes.y.label 경로는 문자열만 받고, Sym 은 scene.ylabel 이 KaTeX 로 조판한다
+  const axes = { x: { label: 'x' } };
+  if (typeof yLabel === 'string') axes.y = { label: yLabel };
+  const sc = plot2d(xr, yr, { size: [520, 400], axes, grid: { alpha: 0.25 } });
+  return yLabel && typeof yLabel !== 'string' ? sc.ylabel(yLabel) : sc;
+};
 
 /** 범례 대신 같은 색 라벨 — 코어 annotate.text 체이닝의 1줄 별칭(이 파일 안에서만) */
 const legend = (at, text, color, font = 10) => annotate.text(at).label(text).font(font).color(color).bold();
@@ -35,7 +40,7 @@ function panelSinPoly() {
   draws.push(legend([-3.0, 3.0], tex`\sin x`, red));
   for (const [K, c, name] of SIN_TERMS) draws.push(legend([-2.1 + K * 0.65, 3.0], name, c));
   draws.push(annotate.text([0, -3.0]).label(tex`T_1\ \text{= tangent},\ T_3\ \text{= +curl},\ T_5,T_7\ \text{= closer further out}`).font(9).color(gray).anchor('middle'));
-  return panel(dom, [-3.3, 3.3], 'y').title('Taylor polynomials of sin x  at  a = 0').add(...draws);
+  return panel(dom, [-3.3, 3.3], 'y').title(tex`\text{Taylor polynomials of } \sin x \;\text{ at } a = 0`).add(...draws);
 }
 
 /** 오른쪽: 로그 오차 |sin x − T_N(x)| */
@@ -45,7 +50,7 @@ function panelSinError() {
   for (const [K, c] of SIN_TERMS) draws.push(curve.fn(clampFn(log10Err(Math.sin, sinT(K)), -11.9, 1.4)).on(dom).color(c).stroke(1.8).n(320));
   for (const [i, [, c, name]] of SIN_TERMS.entries()) draws.push(legend([0.3 + i * 0.45, 1.35], name, c));
   draws.push(annotate.text([3.05, -11.2]).label('error plunges near the center').font(9).color(gray).anchor('end'));
-  return panel(dom, [-12, 1.5], 'log₁₀ |sin x − T_N(x)|').title('Error on log scale').add(...draws);
+  return panel(dom, [-12, 1.5], tex`\log_{10}\left|\sin x - T_{N}(x)\right|`).title('Error on log scale').add(...draws);
 }
 
 // ── eˣ 의 테일러 다항식 T_N(x) ──────────────────────────────────
@@ -59,7 +64,7 @@ function panelExpPoly() {
   for (const [N, c] of EXP_TERMS) draws.push(curve.fn(clampFn(expT(N), -1.15, 7.9)).on(dom).color(c).stroke(1.8).n(320));
   draws.push(legend([-1.95, 7.4], tex`e^{x}`, red));
   for (const [i, [, c, name]] of EXP_TERMS.entries()) draws.push(legend([-1.15 + i * 0.75, 7.4], name, c));
-  return panel(dom, [-1.2, 8], 'y').title('Taylor polynomials of eˣ  at  a = 0').add(...draws);
+  return panel(dom, [-1.2, 8], 'y').title(tex`\text{Taylor polynomials of } e^{x} \;\text{ at } a = 0`).add(...draws);
 }
 
 /** 오른쪽: 로그 오차 |eˣ − T_N(x)| */
@@ -69,7 +74,7 @@ function panelExpError() {
   for (const [N, c] of EXP_TERMS) draws.push(curve.fn(clampFn(log10Err(Math.exp, expT(N)), -8.9, 0.9)).on(dom).color(c).stroke(1.8).n(320));
   for (const [i, [, c, name]] of EXP_TERMS.entries()) draws.push(legend([0.25 + i * 0.45, 0.85], name, c));
   draws.push(annotate.text([1.95, -8.4]).label('error plunges near the center').font(9).color(gray).anchor('end'));
-  return panel(dom, [-9, 1], 'log₁₀ |eˣ − T_N(x)|').title('Error on log scale').add(...draws);
+  return panel(dom, [-9, 1], tex`\log_{10}\left|e^{x} - T_{N}(x)\right|`).title('Error on log scale').add(...draws);
 }
 
 // ── figure 레지스트리 ───────────────────────────────────────────

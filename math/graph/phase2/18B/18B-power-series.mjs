@@ -38,7 +38,7 @@ function panelRadiusCases() {
     draws.push(annotate.text([2.85, c.y + 0.26]).label(c.tag).font(10).color(c.color).bold().anchor('end'));
     if (c.half === 0) {
       draws.push(point(0, c.y).dot().color(c.color).size(5.5));
-      draws.push(annotate.text([0.4, c.y]).label('converges only at x = 0').font(9).color(c.color));
+      draws.push(annotate.text([0.4, c.y]).label(tex`\text{converges only at } x = 0`).font(9).color(c.color));
     } else {
       draws.push(segment([-c.half, c.y], [c.half, c.y]).color(c.color).stroke(6.5));
       if (c.half === 1) {                    // 끝점은 따로 판정 — 빈 원
@@ -46,7 +46,7 @@ function panelRadiusCases() {
         draws.push(point(1, c.y).marker('circle', { open: true }).color(c.color).size(4.5));
         draws.push(annotate.text([2.85, c.y - 0.4]).label('endpoints: check separately').font(9).color(c.color).anchor('end'));
       } else {
-        draws.push(annotate.text([2.85, c.y - 0.4]).label('converges for every x').font(9).color(c.color).anchor('end'));
+        draws.push(annotate.text([2.85, c.y - 0.4]).label(tex`\text{converges for every } x`).font(9).color(c.color).anchor('end'));
       }
     }
   }
@@ -60,7 +60,7 @@ function panelGeomPartials() {
   const Sg = (N) => seriesFn((n, x) => x ** n, 0, N);
   const dom = [-0.8, 0.8];
   return plot2d(dom, [-1, 6], { size: P2, axes: AX('x', 'S_N(x)'), grid: { alpha: 0.25 } })
-    .title('Partial sums: Σ xⁿ → 1/(1−x)')
+    .title(tex`\text{Partial sums: } \sum x^{n} \to \frac{1}{1-x}`)
     .add(
       curve.fn((x) => 1 / (1 - x)).on(dom).color(red).stroke(2.6).n(240),
       curve.fn(clampFn(Sg(1), -0.95, 5.9)).on(dom).color(blue).stroke(1.6).n(240),
@@ -79,7 +79,7 @@ function panelEndpoints() {
   const SN = (x, N) => { let s = 0; for (let n = 1; n <= N; n++) s += x ** n / n; return s; };
   const Ns = Array.from({ length: 60 }, (_, i) => i + 1);
   return plot2d([0, 60], [-1.4, 5], { size: P2, axes: AX('N', 'S_N'), grid: { alpha: 0.25 } })
-    .title('Endpoint check:  Σ xⁿ/n   at   x = 1, −1, 0.9')
+    .title(tex`\text{Endpoint check: } \sum x^{n}/n \;\text{ at } x = 1,\,-1,\,0.9`)
     .add(
       ...Ns.map((N) => point(N, SN(1, N)).dot().color(red).size(2.6)),
       ...Ns.map((N) => point(N, SN(0.9, N)).dot().color(green).size(2.6)),
@@ -133,7 +133,7 @@ function buildingSeries() {
   const g1 = (x) => 1 / (1 + x);
   const d1 = [-0.85, 0.85];
   const s1 = plot2d(d1, [-0.6, 7], { size: P3, axes: AX('x', 'value'), grid: { alpha: 0.25 } })
-    .title('1/(1+x)   ←   x → −x')
+    .title(tex`\frac{1}{1+x} \;\;\leftarrow\;\; x \to -x`)
     .add(
       curve.fn(g1).on(d1).color(red).stroke(2.6).n(240),
       ...[[1, blue], [3, green], [7, orange], [15, purple]].map(([N, c]) =>
@@ -146,7 +146,7 @@ function buildingSeries() {
   const g2 = (x) => Math.log(1 + x);
   const d2 = [-0.9, 1.0];
   const s2 = plot2d(d2, [-2.3, 1.6], { size: P3, axes: AX('x', 'value'), grid: { alpha: 0.25 } })
-    .title('ln(1+x)   ←   ∫ 1/(1+x) dx')
+    .title(tex`\ln(1+x) \;\;\leftarrow\;\; \int \frac{1}{1+x}\,dx`)
     .add(
       curve.fn(g2).on(d2).color(red).stroke(2.6).n(240),
       ...[[1, blue], [2, green], [5, orange], [20, purple]].map(([N, c]) =>
@@ -160,7 +160,7 @@ function buildingSeries() {
   // ③ arctan x = Σ (−1)ⁿ x^{2n+1}/(2n+1)   (1/(1+x²) 적분, 반지름 1)
   const d3 = [-1.15, 1.15];
   const s3 = plot2d(d3, [-1.4, 1.4], { size: P3, axes: AX('x', 'value'), grid: { alpha: 0.25 } })
-    .title('arctan x   ←   ∫ 1/(1+x²) dx')
+    .title(tex`\arctan x \;\;\leftarrow\;\; \int \frac{1}{1+x^{2}}\,dx`)
     .add(
       curve.fn(Math.atan).on(d3).color(red).stroke(2.6).n(240),
       ...[[0, blue], [1, green], [2, orange], [4, purple]].map(([K, c]) =>
