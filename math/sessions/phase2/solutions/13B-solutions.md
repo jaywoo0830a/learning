@@ -1,217 +1,217 @@
-# Solutions — 13B: Limits at Infinity — Growth, Dominance, and the Number $e$
+# Solutions — 13B: Limits at Infinity — Degree Races, Asymptotes, and Growth
+
+> Back to [13B — Limits at Infinity](../13B-limits-at-infinity.md)
+
+> **Source.** Every solution below matches an item in Stewart, *Calculus*, Sections 2.6 and 2.2. Each heading cites its exercise number.
+
 ## Basic Drills
 
-### D1. $\displaystyle \lim_{x\to\infty}\frac{5x^2-3}{2x^2+1}$ — divide by $x^2$.
+### D1. (§2.6 #15) $\displaystyle\lim_{x\to\infty}\frac{4x+3}{5x-1}$ — divide by $x$.
 
-$\frac{5-\frac{3}{x^2}}{2+\frac{1}{x^2}} \to \frac{5}{2}$.
+$$\frac{4+\frac3x}{5-\frac1x}\longrightarrow\frac{4}{5}.$$
 
-> **Answer**: $\frac{5}{2}$
+> **Answer**: $\frac{4}{5}$
 
 ---
 
-### D2. $\displaystyle \lim_{x\to\infty}\frac{x+1}{x^3-2}$ — compare degrees.
+### D2. (§2.6 #16) $\displaystyle\lim_{x\to\infty}\frac{-2}{3x+7}$ — compare degrees.
 
-Deg(num)$=1$ < Deg(den)$=3$ → $0$.
+$\deg(\text{num})=0<\deg(\text{den})=1$, so the limit is $0$.
 
 > **Answer**: $0$
 
 ---
 
-### D3. $\displaystyle \lim_{x\to\infty}\frac{2x^3}{x^2+4}$ — leading term dominates.
+### D3. (§2.6 #13) $\displaystyle\lim_{x\to\infty}\frac{2x^2-7}{5x^2+x-3}$ — divide by $x^2$.
 
-Deg(num)$=3$ > Deg(den)$=2$ → $\frac{2x^3}{x^2} = 2x \to +\infty$.
+$$\frac{2-\frac{7}{x^2}}{5+\frac1x-\frac{3}{x^2}}\longrightarrow\frac{2}{5}.$$
 
-> **Answer**: $+\infty$
-
----
-
-### D4. $\displaystyle \lim_{x\to-\infty}\frac{4x^2}{2x^2-5}$ — even powers.
-
-Divide by $x^2$: $\frac{4}{2} = 2$ (same as $x\to+\infty$, since $x^2>0$).
-
-> **Answer**: $2$
+> **Answer**: $\frac{2}{5}$
 
 ---
 
-### D5. $\displaystyle \lim_{x\to 0^+}\frac{1}{x^3}$ — sign of the denominator.
+### D4. (§2.6 #17) $\displaystyle\lim_{t\to-\infty}\frac{3t^2+t}{t^3-4t+1}$ — compare degrees.
 
-For $x\to 0^+$, $x^3\to 0^+$ (positive). $\frac{1}{0^+} = +\infty$.
-
-> **Answer**: $+\infty$
-
----
-
-### D6. $\displaystyle \lim_{x\to 0}\frac{1}{x^4}$ — even denominator.
-
-$x^4\to 0^+$ from both sides → $\frac{1}{0^+} = +\infty$.
-
-> **Answer**: $+\infty$
-
----
-
-### D7. $\displaystyle \lim_{x\to\infty}\left(\sqrt{x^2+2x}-x\right)$ — conjugate.
-
-$\frac{2x}{\sqrt{x^2+2x}+x} = \frac{2}{\sqrt{1+\frac{2}{x}}+1} \to \frac{2}{1+1} = 1$.
-
-> **Answer**: $1$
-
----
-
-### D8. $\displaystyle \lim_{n\to\infty}\left(1+\frac{2}{n}\right)^n$ — standard $e$ limit.
-
-$\left[\left(1+\frac{2}{n}\right)^{n/2}\right]^2 \to e^2$.
-
-> **Answer**: $e^2$
-
----
-
-### D9. $\displaystyle \lim_{x\to\infty}\frac{\ln x}{x^{0.5}}$ — growth hierarchy.
-
-Log beats any positive power, in the "loses" direction: $\frac{\ln x}{x^{0.5}}\to 0$.
+$\deg(\text{num})=2<\deg(\text{den})=3$, so the limit is $0$.
 
 > **Answer**: $0$
 
 ---
 
-### D10. $\displaystyle \lim_{n\to\infty}n^{1/n}$ — standard limit.
+### D5. (§2.6 #18) $\displaystyle\lim_{t\to-\infty}\frac{6t^2+t-5}{9-2t^2}$ — ratio of leading coefficients.
 
-$n^{1/n}\to 1$.
+Degrees are equal, so the limit is $\dfrac{6}{-2}=-3$.
 
-> **Answer**: $1$
+> **Answer**: $-3$
 
 ---
 
-### D11. $\displaystyle \lim_{x\to\infty}\frac{\ \frac{2x+1}{x}\ }{\ \frac{x}{x+1}\ }$ — flip the bottom, then use the degree rule (→ Example 11).
+### D6. (§2.6 #20) $\displaystyle\lim_{x\to\infty}\frac{3x^3-8x+2}{4x^3-5x^2-2}$.
 
-① Flip the denominator fraction and multiply:
-$\frac{2x+1}{x}\cdot\frac{x+1}{x}$.
+Equal degrees: the limit is the ratio of leading coefficients, $\dfrac34$.
 
-② Take each factor separately:
-$\frac{2x+1}{x} = 2+\frac{1}{x}\to 2$, and $\frac{x+1}{x} = 1+\frac{1}{x}\to 1$.
+> **Answer**: $\frac{3}{4}$
 
-③ Product: $2\cdot1 = 2$.
+---
 
-> **Answer**: $2$
+### D7. (§2.6 #21) $\displaystyle\lim_{x\to\infty}\frac{4-\sqrt{x}}{2+\sqrt{x}}$ — divide by $\sqrt{x}$.
 
-![Complex fraction at infinity: (2x+1)(x+1)/x² approaches y = 2](graphs/13B/d11-complex-fraction.png)
+$$\frac{\frac{4}{\sqrt{x}}-1}{\frac{2}{\sqrt{x}}+1}\longrightarrow\frac{-1}{1}=-1.$$
+
+> **Answer**: $-1$
+
+---
+
+### D8. (§2.6 #29) $\displaystyle\lim_{t\to\infty}\left(\sqrt{25t^2+2}-5t\right)$ — conjugate.
+
+$$\frac{(25t^2+2)-25t^2}{\sqrt{25t^2+2}+5t}=\frac{2}{\sqrt{25t^2+2}+5t}\longrightarrow 0 .$$
+
+> **Answer**: $0$
+
+---
+
+### D9. (§2.6 #32) $\displaystyle\lim_{x\to\infty}\left(x-\sqrt{x}\right)$ — factor out $\sqrt{x}$.
+
+$x-\sqrt{x}=\sqrt{x}\,(\sqrt{x}-1)\to\infty$.
+
+> **Answer**: $\infty$
+
+---
+
+### D10. (§2.6 #37) $\displaystyle\lim_{x\to\infty}\frac{1-e^{x}}{1+2e^{x}}$ — divide by $e^x$.
+
+$$\frac{e^{-x}-1}{e^{-x}+2}\longrightarrow\frac{0-1}{0+2}=-\frac12.$$
+
+> **Answer**: $-\frac{1}{2}$
+
+---
+
+### D11. (§2.2 #29) $\displaystyle\lim_{x\to5^+}\frac{x+1}{x-5}$ — track the denominator's sign.
+
+As $x\to5^+$, the numerator $\to6>0$ and the denominator $\to0^+$. So the quotient $\to+\infty$.
+
+> **Answer**: $+\infty$
+
+---
+
+### D12. (§2.2 #31) $\displaystyle\lim_{x\to2}\frac{x^2}{(x-2)^2}$ — squared denominator.
+
+$(x-2)^2\to0^+$ from both sides and the numerator $\to4>0$, so both one-sided limits are $+\infty$.
 
 ---
 
 ## Advanced Drills
 
-### A1. $\displaystyle \lim_{x\to-\infty}\frac{\sqrt{9x^2+2}}{3x+1}$ — handle $\sqrt{x^2}=|x|$ carefully.
+### A1. (§2.6 #14) $\displaystyle\lim_{x\to\infty}\sqrt{\frac{9x^3+8x-4}{3-5x+x^3}}$ — inside limit first.
 
-$\sqrt{9x^2+2} = |x|\sqrt{9+\frac{2}{x^2}}$. For $x\to-\infty$, $|x| = -x$:
+Inside: equal degrees, leading ratio $\dfrac91=9$. So the limit is $\sqrt{9}=3$.
 
-$\frac{-x\sqrt{9+\frac{2}{x^2}}}{x\left(3+\frac{1}{x}\right)} = \frac{-\sqrt{9+\frac{2}{x^2}}}{3+\frac{1}{x}} \to \frac{-\sqrt{9}}{3} = \frac{-3}{3} = -1$.
-
-> **Answer**: $-1$
+> **Answer**: $3$
 
 ---
 
-### A2. $\displaystyle \lim_{x\to\infty}\frac{\sqrt{x^2+1}+\sqrt{x^2-1}}{x}$ — factor $x$ from both radicals.
+### A2. (§2.6 #22) $\displaystyle\lim_{u\to-\infty}\frac{(u^2+1)(2u^2-1)}{(u^2+2)^2}$ — expand the leading terms.
 
-$\frac{x\sqrt{1+\frac{1}{x^2}} + x\sqrt{1-\frac{1}{x^2}}}{x} = \sqrt{1+\frac{1}{x^2}} + \sqrt{1-\frac{1}{x^2}} \to 1+1 = 2$.
+Numerator $=2u^4+u^2-1$; denominator $=u^4+4u^2+4$. Both have degree $4$:
+
+$$\frac{2u^4+u^2-1}{u^4+4u^2+4}\longrightarrow\frac{2}{1}=2 .$$
 
 > **Answer**: $2$
 
 ---
 
-### A3. $\displaystyle \lim_{x\to 2}\frac{x^2-3x+2}{x^2-4}$ — $\frac{0}{0}$, factor and cancel.
+### A3. (§2.6 #23) $\displaystyle\lim_{x\to\infty}\frac{\sqrt{x+3x^2}}{4x-1}$.
 
-$\frac{(x-1)(x-2)}{(x-2)(x+2)} = \frac{x-1}{x+2} \to \frac{1}{4}$.
+For $x>0$, $\sqrt{3x^2+x}=x\sqrt{3+\frac1x}$, so
 
-> **Answer**: $\frac14$
+$$\frac{x\sqrt{3+\frac1x}}{4x-1}=\frac{\sqrt{3+\frac1x}}{4-\frac1x}\longrightarrow\frac{\sqrt3}{4}.$$
 
----
-
-### A4. $\displaystyle \lim_{x\to\infty}\left(\frac{x+2}{x-1}\right)^{3x}$ — write as a $1^\infty$ form.
-
-$\frac{x+2}{x-1} = 1 + \frac{3}{x-1}$.
-
-$\left(1+\frac{3}{x-1}\right)^{3x} = \left[\left(1+\frac{3}{x-1}\right)^{x-1}\right]^{\frac{3x}{x-1}}$.
-
-The inner bracket $\to e^3$ (form $\left(1+\frac{3}{m}\right)^m$ with $m = x-1$), and $\frac{3x}{x-1}\to 3$.
-
-So the limit is $(e^3)^3 = e^9$.
-
-> **Answer**: $e^9$
+> **Answer**: $\frac{\sqrt3}{4}$
 
 ---
 
-### A5. $\displaystyle \lim_{x\to 0^+}\frac{\ln(\sin x)}{\ln x}$ — which dominates?
+### A4. (§2.6 #24) $\displaystyle\lim_{t\to\infty}\frac{t+3}{\sqrt{2t^2-1}}$.
 
-Both go to $-\infty$. Use $\sin x \sim x$ near $0$:
+Divide by $t$ (positive): $\dfrac{1+\frac3t}{\sqrt{2-\frac{1}{t^2}}}\longrightarrow\dfrac{1}{\sqrt2}=\dfrac{\sqrt2}{2}$.
 
-$\frac{\ln(\sin x)}{\ln x} = \frac{\ln x + \ln\left(\frac{\sin x}{x}\right)}{\ln x} = 1 + \frac{\ln\left(\frac{\sin x}{x}\right)}{\ln x}$.
-
-Now $\frac{\sin x}{x}\to 1$, so $\ln\left(\frac{\sin x}{x}\right)\to 0$, while the denominator $\ln x \to -\infty$.
-
-The second term $\to \frac{0}{-\infty} = 0$. Limit $= 1$.
-
-> **Answer**: $1$
+> **Answer**: $\frac{\sqrt2}{2}$
 
 ---
 
-### A6. $\displaystyle \lim_{x\to\infty}\frac{3^x + 2^x}{5^x - 4^x}$ — factor out the dominant term.
+### A5. (§2.6 #25) $\displaystyle\lim_{x\to\infty}\frac{\sqrt{1+4x^{6}}}{2-x^{3}}$.
 
-$\frac{3^x\left(1+\left(\frac{2}{3}\right)^x\right)}{5^x\left(1-\left(\frac{4}{5}\right)^x\right)} = \left(\frac{3}{5}\right)^x \cdot \frac{1+\left(\frac{2}{3}\right)^x}{1-\left(\frac{4}{5}\right)^x}$.
+For $x>0$, $\sqrt{4x^6}=2x^3$, so the ratio is $\dfrac{2x^3}{2-x^3}\to\dfrac{2}{-1}=-2$.
 
-$\left(\frac{3}{5}\right)^x\to 0$ (base $<1$), and the fraction $\to \frac{1+0}{1-0} = 1$. → $0\cdot 1 = 0$.
+> **Answer**: $-2$
+
+---
+
+### A6. (§2.6 #26) $\displaystyle\lim_{x\to-\infty}\frac{\sqrt{1+4x^{6}}}{2-x^{3}}$.
+
+Now $x<0$, so $\sqrt{4x^6}=2|x^3|=-2x^3$. The ratio is $\dfrac{-2x^3}{2-x^3}\to\dfrac{-2}{-1}=2$.
+
+> **Answer**: $2$ — the sign flips versus A5 (this is the $\sqrt{x^2}=|x|$ caution)
+
+---
+
+### A7. (§2.6 #30) $\displaystyle\lim_{x\to-\infty}\left(\sqrt{4x^2+3x}+2x\right)$.
+
+Conjugate: $\dfrac{(4x^2+3x)-4x^2}{\sqrt{4x^2+3x}-2x}=\dfrac{3x}{\sqrt{4x^2+3x}-2x}$.
+
+For $x<0$, $\sqrt{4x^2+3x}=-x\sqrt{4+\frac3x}$, so the denominator is $-x\sqrt{4+\frac3x}-2x\approx-2x-2x=-4x$. Hence
+
+$$\frac{3x}{-4x}\longrightarrow-\frac34.$$
+
+> **Answer**: $-\frac34$
+
+---
+
+### A8. (§2.6 #31) $\displaystyle\lim_{x\to\infty}\left(\sqrt{x^2+ax}-\sqrt{x^2+bx}\right)$.
+
+Conjugate: $\dfrac{(x^2+ax)-(x^2+bx)}{\sqrt{x^2+ax}+\sqrt{x^2+bx}}=\dfrac{(a-b)x}{\sqrt{x^2+ax}+\sqrt{x^2+bx}}$.
+
+Divide by $x$: $\dfrac{a-b}{\sqrt{1+\frac ax}+\sqrt{1+\frac bx}}\longrightarrow\dfrac{a-b}{2}$.
+
+> **Answer**: $\frac{a-b}{2}$
+
+---
+
+### A9. (§2.6 #36) $\displaystyle\lim_{x\to\infty}\frac{\sin^2 x}{x^2+1}$ — squeeze.
+
+$0\le\sin^2 x\le1$, so $0\le\dfrac{\sin^2 x}{x^2+1}\le\dfrac{1}{x^2+1}$. Both bounds $\to0$, so the limit is $0$.
 
 > **Answer**: $0$
 
 ---
 
-### A7. $\displaystyle \lim_{x\to\infty}\left(\sqrt[3]{x^3+x^2}-x\right)$ — rationalize with $a^3-b^3$.
+### A10. (§2.6 #41) $\displaystyle\lim_{x\to\infty}\left[\ln(1+x^2)-\ln(1+x)\right]$.
 
-Use $a^3-b^3 = (a-b)(a^2+ab+b^2)$ with $a = \sqrt[3]{x^3+x^2}$, $b = x$:
+Combine: $\ln\dfrac{1+x^2}{1+x}$. As $x\to\infty$ the inside grows like $x$, so the logarithm $\to\infty$.
 
-$a - b = \frac{a^3-b^3}{a^2+ab+b^2} = \frac{x^2}{(x^3+x^2)^{2/3} + x(x^3+x^2)^{1/3} + x^2}$.
-
-Divide numerator and denominator by $x^2$:
-
-$\frac{1}{\left(1+\frac{1}{x}\right)^{2/3} + \left(1+\frac{1}{x}\right)^{1/3} + 1} \to \frac{1}{1+1+1} = \frac13$.
-
-> **Answer**: $\frac13$
+> **Answer**: $\infty$
 
 ---
 
-### A8. $\displaystyle \lim_{x\to 1}\frac{\sqrt{x+3}-2}{\sqrt{x}-1}$ — conjugate both.
+### A11. (§2.6 #48) Asymptotes of $y=\dfrac{2x^2+1}{3x^2+2x-1}$.
 
-Numerator: $\sqrt{x+3}-2 = \frac{x-1}{\sqrt{x+3}+2}$.
-Denominator: $\sqrt{x}-1 = \frac{x-1}{\sqrt{x}+1}$.
+Horizontal: equal degrees, leading ratio $\dfrac23$, so $y=\dfrac23$.
 
-Ratio: $\frac{\sqrt{x}+1}{\sqrt{x+3}+2} \to \frac{1+1}{\sqrt{4}+2} = \frac{2}{4} = \frac12$.
+Vertical: $3x^2+2x-1=(3x-1)(x+1)=0$ gives $x=\dfrac13$ and $x=-1$; the numerator is nonzero at both. So the vertical asymptotes are $x=\dfrac13$ and $x=-1$.
 
-> **Answer**: $\frac12$
-
----
-
-### A9. $\displaystyle \lim_{n\to\infty}\left(\frac{n^2+1}{n^2}\right)^{n^2}$ — rewrite as a $1^\infty$ form.
-
-$\frac{n^2+1}{n^2} = 1+\frac{1}{n^2}$, so the limit is $\lim_{n\to\infty}\left(1+\frac{1}{n^2}\right)^{n^2} = e$.
-
-> **Answer**: $e$
+> **Answer**: horizontal $y=\frac23$; vertical $x=\frac13$ and $x=-1$
 
 ---
 
-### A10. $\displaystyle \lim_{x\to 0}\frac{1-\cos x}{x\sin x}$ — combine two standard limits.
+## Answer Check
 
-$\frac{1-\cos x}{x\sin x} = \frac{1-\cos x}{x^2} \cdot \frac{x}{\sin x} \to \frac12 \cdot 1 = \frac12$.
+| Problem | Answer |
+|:--------|:-------|
+| D1–D4 | $\frac45$; $0$; $\frac25$; $0$ |
+| D5–D8 | $-3$; $\frac34$; $-1$; $0$ |
+| D9–D12 | $\infty$; $-\frac12$; $+\infty$; $+\infty$ |
+| A1–A4 | $3$; $2$; $\frac{\sqrt3}{4}$; $\frac{\sqrt2}{2}$ |
+| A5–A8 | $-2$; $2$; $-\frac34$; $\frac{a-b}{2}$ |
+| A9–A11 | $0$; $\infty$; horiz. $y=\frac23$, vert. $x=\frac13,-1$ |
 
-> **Answer**: $\frac12$
 
----
-
-### A11. $\displaystyle \lim_{x\to\infty}\frac{\ \frac{1}{x+1}-\frac{1}{x}\ }{\ \frac{1}{x^2}\ }$ — combine the difference of reciprocals first (→ Example 11).
-
-① Combine the numerator over $x(x+1)$:
-$\frac{1}{x+1}-\frac{1}{x} = \frac{x-(x+1)}{x(x+1)} = \frac{-1}{x(x+1)}$.
-
-② Divide by $\frac{1}{x^2}$ (multiply by $x^2$):
-$\frac{-1}{x(x+1)}\cdot x^2 = -\frac{x}{x+1}$.
-
-③ As $x\to\infty$: $-\frac{x}{x+1} = -\frac{1}{1+1/x} \to -1$.
-
-> **Answer**: $-1$
+> **Answer**: $+\infty$

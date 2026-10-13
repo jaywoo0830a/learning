@@ -1,8 +1,12 @@
-# Session 13B: Limits at Infinity — Growth, Dominance, and the Number $e$
+# Session 13B: Limits at Infinity — Degree Races, Asymptotes, and Growth
 
 **Phase 2 — Classical Techniques | 75 min**
 
-*Prerequisites: 13A (algebraic limits), 10B (exponential growth rates), 12B (sequences intuition)*
+*Prerequisites: 13A (algebraic limits), 10B (exponential growth rates), 12B1 (sequences intuition)*
+
+> 💡 **Stuck?** Every problem has a collapsible **Hint** below it — click it only when you need a nudge.
+
+> **Source.** Every example and drill below is drawn from Stewart, *Calculus*, Section 2.6 (Limits at Infinity; Horizontal Asymptotes) and Section 2.2 (The Limit of a Function, infinite limits). Each item cites its example or exercise number in those sections. The degree rule, the $x\to-\infty$ radical caution, and the infinite-limit notation are Stewart's; the graphs redraw Stewart's Figures 1, 8, 11, and 12 of §2.6. The closing preview on the number $e$ is §11.6.
 
 ---
 
@@ -10,30 +14,41 @@
 
 ---
 
-## Example 1: The Race of Polynomials
+## Example 1: The Race of Polynomials (§2.6 Ex 3, Figure 1)
 
-When $x\to\infty$, both numerator and denominator blow up. The winner of this race is the term with the **highest degree**. Divide everything by that term and watch the rest vanish.
+When $x\to\infty$, both numerator and denominator blow up, and the winner is the term of **highest degree**. Stewart's Example 3 evaluates
 
-$\displaystyle \lim_{x\to\infty}\frac{3x^2+2x-1}{x^2+5}$.
+$$\lim_{x\to\infty}\frac{3x^2-x-2}{5x^2+4x-1}.$$
 
-① $\frac{\infty}{\infty}$ form. Divide numerator and denominator by $x^2$ (the highest power):
-$\displaystyle \frac{3 + \frac{2}{x} - \frac{1}{x^2}}{1 + \frac{5}{x^2}}$.
-② As $x\to\infty$: $\frac{2}{x}\to0$, $\frac{1}{x^2}\to0$, $\frac{5}{x^2}\to0$.
-③ → $\frac{3+0-0}{1+0} = 3$.
+① Form $\frac{\infty}{\infty}$. Divide numerator and denominator by the highest power of the denominator, $x^2$:
 
----
+$$\frac{3-\frac1x-\frac{2}{x^2}}{5+\frac4x-\frac1{x^2}}.$$
 
-**The Rational Function Rule for $x\to\pm\infty$**:
+② As $x\to\infty$, every $\frac{1}{x}$ and $\frac{1}{x^2}$ term goes to $0$.
+
+③ The limit is the ratio of the surviving leading coefficients:
+
+$$\lim_{x\to\infty}\frac{3x^2-x-2}{5x^2+4x-1}=\frac{3}{5}.$$
+
+Stewart's Figure 1 makes the same point for $f(x)=\dfrac{x^2-1}{x^2+1}$: the graph flattens onto the horizontal line $y=1$.
+
+![Horizontal asymptote — the graph flattens onto y = 1]({{graph:13b-1-horizontal-asymptote}})
+
+*Graph 13B-1: $\dfrac{x^2-1}{x^2+1}$ rises from $-1$ at the origin toward the horizontal asymptote $y=1$. Both $x\to\infty$ and $x\to-\infty$ give the same height.*
+
+**The Rational Function Rule for $x\to\pm\infty$:**
 
 | Degree comparison | Limit |
 |:-----------------:|:-----:|
-| numerator degree > denominator degree | $\pm\infty$ (sign from leading terms) |
-| numerator degree = denominator degree | ratio of leading coefficients |
-| numerator degree < denominator degree | $0$ |
+| $\deg(\text{num}) > \deg(\text{den})$ | $\pm\infty$ (sign from the leading terms) |
+| $\deg(\text{num}) = \deg(\text{den})$ | ratio of the leading coefficients |
+| $\deg(\text{num}) < \deg(\text{den})$ | $0$ |
 
-$\displaystyle \lim_{x\to\infty}\frac{2x^3-x}{x^2+4}$: deg(num)=3 > deg(den)=2 → $\frac{2x^3}{x^2}=2x \to \infty$.
+![Degree comparison — three cases]({{graph:13b-2-degree-cases}})
 
-$\displaystyle \lim_{x\to\infty}\frac{x^2+1}{x^3-2}$: deg(num)=2 < deg(den)=3 → $\frac{x^2}{x^3}=\frac{1}{x} \to 0$.
+*Graph 13B-2: Three rational functions, one per case. Top-heavy ($\deg$ num $>\deg$ den) runs off to $+\infty$; balanced degrees settle on the ratio $3$; bottom-heavy ($\deg$ num $<\deg$ den) flattens onto $0$.*
+
+> **Geometric insight**: Dividing by the highest power is not algebra for its own sake — it isolates the one term that decides the race. Every lower-degree term becomes $\frac{1}{x^k}\to0$ and disappears.
 
 ---
 
@@ -41,308 +56,293 @@ $\displaystyle \lim_{x\to\infty}\frac{x^2+1}{x^3-2}$: deg(num)=2 < deg(den)=3 �
 
 ---
 
-## Example 2: When $x$ Is Negative
+## Example 2: Two Horizontal Asymptotes from One Function (§2.6 Ex 4)
 
-$\displaystyle \lim_{x\to-\infty}\frac{3x^2+x}{2x^2-1}$.
-Divide by $x^2$ → $\frac{3}{2}$. Same as $x\to\infty$ because $x^2$ dominates and is always positive.
+Stewart's Example 4 finds the horizontal asymptotes of
 
-$\displaystyle \lim_{x\to-\infty}\frac{2x^3+1}{x^2+1}$.
-Deg(num)=3 > deg(den)=2. Leading terms: $\frac{2x^3}{x^2} = 2x$. As $x\to-\infty$, $2x \to -\infty$.
+$$f(x)=\frac{\sqrt{2x^2+1}}{3x-5}.$$
 
-**Critical trap** — $\sqrt{x^2} = |x|$, not $x$:
+Divide numerator and denominator by $x$ — the highest power in the denominator.
 
-$\displaystyle \lim_{x\to-\infty}\frac{\sqrt{4x^2+1}}{x}$.
+**For $x\to\infty$**, $\sqrt{x^2}=x$ (since $x>0$):
 
-① $\sqrt{4x^2+1} = \sqrt{x^2(4+1/x^2)} = |x|\sqrt{4+1/x^2}$.
-② For $x\to-\infty$, $|x| = -x$.
-③ So $\frac{\sqrt{4x^2+1}}{x} = \frac{-x\sqrt{4+1/x^2}}{x} = -\sqrt{4+1/x^2} \to -2$.
+$$\frac{\sqrt{2x^2+1}}{3x-5}=\frac{\sqrt{2+\frac{1}{x^2}}}{3-\frac5x}\longrightarrow\frac{\sqrt{2}}{3}.$$
 
-![Horizontal asymptote — limit at infinity](graphs/0808/13B/13b-horizontal-asymptote.png)
+**For $x\to-\infty$**, the caution bites: $\sqrt{x^2}=|x|=-x$ (since $x<0$). So dividing the numerator by $x$ produces a minus sign:
 
-*Graph 13D: As x→∞ or x→-∞, the graph of a rational function approaches its horizontal asymptote y = (ratio of leading coefficients). The limit from both sides gives the same value.*
+$$\frac{\sqrt{2x^2+1}}{x}=\frac{\sqrt{2x^2+1}}{-\sqrt{x^2}}=-\sqrt{2+\frac{1}{x^2}},$$
 
----
+$$\lim_{x\to-\infty}\frac{\sqrt{2x^2+1}}{3x-5}=\frac{-\sqrt{2}}{3}.$$
 
-## Part C: Denominator → 0 — The $\pm\infty$ Sign Chase
+The graph therefore has **two** horizontal asymptotes, $y=\frac{\sqrt2}{3}$ and $y=-\frac{\sqrt2}{3}$.
 
----
+![Radical with two horizontal asymptotes]({{graph:13b-3-radical-asymptotes}})
 
-## Example 3: Sign Analysis for Vertical Asymptotes
+*Graph 13B-3: $\dfrac{\sqrt{2x^2+1}}{3x-5}$ approaches $+\frac{\sqrt2}{3}$ on the right and $-\frac{\sqrt2}{3}$ on the left. The vertical asymptote at $x=\frac53$ splits the two branches.*
 
-When the denominator → 0 but the numerator does NOT → 0, the limit is $\pm\infty$. The sign depends on which side you approach from.
+**The rule to memorize**: for $x\to-\infty$, always write $\sqrt{x^2}=|x|=-x$. Dropping the minus sign is the single most common error in this section.
 
-$\displaystyle \lim_{x\to 2^+}\frac{1}{x-2}$: denominator → $0^+$ (tiny positive). $\frac{1}{0^+} \to +\infty$.
-$\displaystyle \lim_{x\to 2^-}\frac{1}{x-2}$: denominator → $0^-$ (tiny negative). $\frac{1}{0^-} \to -\infty$.
-
-Two-sided: the left and right disagree → **limit does not exist**.
+> **Geometric insight**: A square root is always non-negative, but $x$ is negative on the left. The quotient flips sign exactly because the numerator cannot — that is the whole content of the caution.
 
 ---
 
-## Example 4: Squared Denominator — Always $+\infty$
-
-$\displaystyle \lim_{x\to 1}\frac{x+2}{(x-1)^2}$.
-
-Denominator $(x-1)^2 \to 0^+$ from BOTH sides (a square is never negative). Numerator $\to 3$.
-$\frac{3}{0^+} \to +\infty$. Both sides agree → **limit = $+\infty$**.
-
-**Rule**: If the denominator is squared (or any even power) and the numerator is positive near the point, both one-sided limits are $+\infty$.
+## Part C: $\infty-\infty$ — Conjugate or Common Denominator
 
 ---
 
-## Example 5: Sign Table for Messy Denominators
+## Example 3: The Difference of Two Growing Quantities (§2.6 Ex 5)
 
-$\displaystyle \lim_{x\to -1}\frac{x}{(x+1)(x-2)}$.
+Both terms go to infinity, so the difference is undecided. Merge them into a single expression and look again.
 
-① $x\to -1^+$: numerator $\to -1$. Denominator: $(0^+)(-3) = 0^-$. → $\frac{-1}{0^-} \to +\infty$.
-② $x\to -1^-$: numerator $\to -1$. Denominator: $(0^-)(-3) = 0^+$. → $\frac{-1}{0^+} \to -\infty$.
-③ Left $\neq$ right → **limit does not exist**.
+Stewart's Example 5:
 
----
+$$\lim_{x\to\infty}\left(\sqrt{x^2+1}-x\right).$$
 
-## Part D: $\infty-\infty$ — Rationalize or Common Denominator
+① Form $\infty-\infty$. Multiply by the conjugate $\sqrt{x^2+1}+x$:
 
----
+$$\left(\sqrt{x^2+1}-x\right)\cdot\frac{\sqrt{x^2+1}+x}{\sqrt{x^2+1}+x}
+=\frac{(x^2+1)-x^2}{\sqrt{x^2+1}+x}=\frac{1}{\sqrt{x^2+1}+x}.$$
 
-## Example 6: The $\infty-\infty$ Race
+② The denominator grows without bound (it is bigger than $x$), so
 
-Both terms go to infinity. Which one is bigger? Merge them into one expression to find out.
+$$\lim_{x\to\infty}\left(\sqrt{x^2+1}-x\right)=\lim_{x\to\infty}\frac{1}{\sqrt{x^2+1}+x}=0 .$$
 
-$\displaystyle \lim_{x\to\infty}(\sqrt{x^2+x}-x)$.
+**A second shape** — a difference of two radicals:
 
-① $\infty-\infty$ form. **Multiply by the conjugate**:
-$\frac{(\sqrt{x^2+x}-x)(\sqrt{x^2+x}+x)}{\sqrt{x^2+x}+x} = \frac{(x^2+x)-x^2}{\sqrt{x^2+x}+x} = \frac{x}{\sqrt{x^2+x}+x}$.
-② Divide numerator and denominator by $x$:
-$\frac{1}{\sqrt{1+1/x}+1} \to \frac{1}{1+1} = \frac{1}{2}$.
+$$\lim_{x\to\infty}\left(\sqrt{x^2+3x}-\sqrt{x^2-2x}\right)
+=\lim_{x\to\infty}\frac{(x^2+3x)-(x^2-2x)}{\sqrt{x^2+3x}+\sqrt{x^2-2x}}
+=\lim_{x\to\infty}\frac{5x}{\sqrt{x^2+3x}+\sqrt{x^2-2x}}.$$
 
----
+Divide by $x$: $\dfrac{5}{\sqrt{1+\frac3x}+\sqrt{1-\frac2x}}\longrightarrow\dfrac{5}{1+1}=\dfrac52.$
 
-$\displaystyle \lim_{x\to\infty}(\sqrt{x^2+3x}-\sqrt{x^2-2x})$.
-
-① Conjugate: $\frac{(x^2+3x)-(x^2-2x)}{\sqrt{x^2+3x}+\sqrt{x^2-2x}} = \frac{5x}{\sqrt{x^2+3x}+\sqrt{x^2-2x}}$.
-② Divide by $x$: $\frac{5}{\sqrt{1+3/x}+\sqrt{1-2/x}} \to \frac{5}{1+1} = \frac{5}{2}$.
+> **Geometric insight**: The conjugate converts $\infty-\infty$ into a quotient whose denominator grows faster than the numerator — so the answer is $0$. When the numerator keeps a surviving $x$, the answer is a finite ratio instead.
 
 ---
 
-## Part E: Growth Rate Hierarchy — Who Beats Whom
+## Part D: Infinite Limits at Infinity — Running Off the Top
 
 ---
 
-## Example 7: The Pecking Order at Infinity
+## Example 4: When the Value Itself Runs Away (§2.6 Ex 9–12, Figures 11–12)
 
-From slowest to fastest as $x\to\infty$:
+Sometimes the limit is not a number at all. Stewart writes
 
-$$\ln x \;\ll\; x^{0.0001} \;\ll\; x \;\ll\; x^2 \;\ll\; x^{100} \;\ll\; 1.01^x \;\ll\; e^x \;\ll\; x!$$
+$$\lim_{x\to\infty}f(x)=\infty$$
 
-**Every function to the right eventually overtakes every function to the left.**
+to mean the values of $f(x)$ become arbitrarily large.
 
-$\displaystyle \lim_{x\to\infty}\frac{e^x}{x^{100}} = \infty$. Exponential beats any polynomial, no matter how large the exponent.
+**Example 9**: $\displaystyle\lim_{x\to\infty}x^3=\infty$ and $\displaystyle\lim_{x\to-\infty}x^3=-\infty$ — the sign of an odd power follows $x$.
 
-$\displaystyle \lim_{x\to\infty}\frac{\ln x}{x^{0.0001}} = 0$. Even the tiniest power of $x$ beats the logarithm.
+**Example 10**: $\displaystyle\lim_{x\to\infty}(x^2-x)=\lim_{x\to\infty}x(x-1)=\infty$ — the Limit Laws do not apply to $\infty-\infty$, but factoring settles it.
 
-$\displaystyle \lim_{x\to\infty}\frac{2^x}{x!} = 0$. Factorial beats any exponential base.
+**Example 11**: $\displaystyle\lim_{x\to\infty}\frac{x^2+x}{3-x}=\lim_{x\to\infty}\frac{x+1}{\frac3x-1}=-\infty$, because the numerator grows while the denominator approaches $-1$.
 
-$\displaystyle \lim_{x\to\infty}\frac{x^{100}}{1.01^x} = 0$. Even $1.01^x$ — growing at just 1% per step — eventually overtakes $x^{100}$.
+**Example 12** uses the same limits to sketch $y=(x-2)^4(x+1)^3(x-1)$: the four powers decide the sign at each end, giving $\infty$ at both $x\to\infty$ and $x\to-\infty$.
 
----
+Stewart's Figures 11 and 12 compare the *rates*: $e^x$ is already far above $x^3$ for large $x$, and the gap keeps widening.
 
-## Part F: The Number $e$ as a Limit
+![Growth race — e^x overtakes x^3]({{graph:13b-4-growth-race}})
 
----
+*Graph 13B-4: $y=e^x$ (red) and $y=x^3$ (blue). For $x>3$ the exponential is already many times larger, and the ratio $e^x/x^3\to\infty$. Exponential growth beats every polynomial.*
 
-## Example 8: The Classic $e$ Limit and Its Variants
+**Growth hierarchy** (slowest to fastest as $x\to\infty$):
 
-$\displaystyle \lim_{n\to\infty}\left(1+\frac{1}{n}\right)^n = e$.
+$$\ln x \;\ll\; x^{0.0001} \;\ll\; x \;\ll\; x^2 \;\ll\; x^{100} \;\ll\; 1.01^{x} \;\ll\; e^{x} \;\ll\; x! .$$
 
-**Variant 1 — Constant in numerator**: $\displaystyle \lim_{n\to\infty}\left(1+\frac{k}{n}\right)^n = e^k$.
-
-Proof: $\left(1+\frac{k}{n}\right)^n = \left[\left(1+\frac{k}{n}\right)^{n/k}\right]^k \to e^k$.
-
-**Variant 2 — $x\to0$ form**: $\displaystyle \lim_{x\to0}(1+x)^{1/x} = e$.
-
-**Variant 3 — Rational tweak**:
-$\displaystyle \lim_{n\to\infty}\left(\frac{n+1}{n}\right)^n = \lim_{n\to\infty}\left(1+\frac{1}{n}\right)^n = e$.
-
-$\displaystyle \lim_{n\to\infty}\left(\frac{n+3}{n-1}\right)^n$:
-
-① $\frac{n+3}{n-1} = 1 + \frac{4}{n-1}$.
-② $\left(1+\frac{4}{n-1}\right)^{n} = \left(1+\frac{4}{n-1}\right)^{n-1} \cdot \left(1+\frac{4}{n-1}\right)$.
-③ First factor $\to e^4$, second factor $\to 1$. → $e^4$.
+> **Geometric insight**: "Infinite limit at infinity" is a statement about the *rate* of growth, not about a value. The hierarchy ranks those rates: any exponential outruns any polynomial, and any positive power outruns the logarithm.
 
 ---
 
-## Example 9: Additional Standard Limits at a Glance
-
-| Limit | Value | Meaning |
-|:------|:-----:|:--------|
-| $\displaystyle \lim_{n\to\infty}\frac{\ln n}{n}$ | $0$ | log $\ll$ linear |
-| $\displaystyle \lim_{n\to\infty}n^{1/n}$ | $1$ | $n$th root → 1 |
-| $\displaystyle \lim_{n\to\infty}\frac{a^n}{n!}$ | $0$ | factorial $\gg$ exponential |
-| $\displaystyle \lim_{x\to0^+}x\ln x$ | $0$ | $0$ beats $\ln$ |
-| $\displaystyle \lim_{x\to0}\frac{a^x-1}{x}$ | $\ln a$ | derivative of $a^x$ |
-| $\displaystyle \lim_{x\to0}\frac{(1+x)^k-1}{x}$ | $k$ | derivative of $(1+x)^k$ |
-
-> **Up to here**: $\frac{\infty}{\infty}$ = divide by highest power, compare degrees. $x\to-\infty$: $\sqrt{x^2}=|x|$.
-> Denominator→0: sign analysis. $\infty-\infty$: rationalize or common denominator.
-> Growth hierarchy: factorial ≫ exp ≫ polynomial ≫ log. $e$ as a limit: $(1+k/n)^n \to e^k$.
+## Part E: Exponentials, Inverse Trig, and Oscillation at Infinity
 
 ---
 
-## Example 10: Slant Asymptotes — When the Degrees Differ by One
+## Example 5: The Three Behaviours at Infinity (§2.6 Ex 6–8)
 
-When deg(num) = deg(den) + 1, the rational function has **no horizontal asymptote** — instead it hugs a **slant (oblique) line** $y = mx+b$ found by polynomial division.
+Not every function at infinity settles, blows up, or vanishes — some oscillate.
 
-**$f(x) = \frac{x^2+1}{x-1}$ as $x\to\pm\infty$.**
+**Stewart's Example 6** substitutes $t=\frac{1}{x-2}$, so $t\to\infty$ as $x\to2^+$:
 
-① Polynomial division: $\frac{x^2+1}{x-1} = x + 1 + \frac{2}{x-1}$.
-② As $x\to\infty$: $\frac{2}{x-1}\to 0$, so $f(x) - (x+1) \to 0$ — the graph approaches the line $y = x+1$.
-③ Same for $x\to-\infty$. The slant asymptote is $y = x+1$.
+$$\lim_{x\to2^+}\arctan\!\left(\frac{1}{x-2}\right)=\lim_{t\to\infty}\arctan t=\frac{\pi}{2}.$$
 
-**The limit form** (an $\infty-\infty$ gap, Example 6 style):
+**Stewart's Example 7** uses the exponential end behaviour $e^x\to0$ as $x\to-\infty$ (equation (6) of §2.6). With $t=\frac1x\to-\infty$ as $x\to0^-$:
 
-$\displaystyle \lim_{x\to\infty}\left[\frac{x^2+1}{x-1} - (x+1)\right] = \lim_{x\to\infty}\frac{2}{x-1} = 0$.
+$$\lim_{x\to0^-}e^{1/x}=\lim_{t\to-\infty}e^{t}=0 .$$
 
-![Slant asymptote: (x^2+1)/(x-1) approaches y=x+1](graphs/0808/13B/13b-slant-asymptote.png)
+**Stewart's Example 8**: $\displaystyle\lim_{x\to\infty}\sin x$ does **not** exist — the values oscillate between $1$ and $-1$ forever and never settle.
 
-> **Insight**: A slant asymptote is the "$\infty-\infty$" limit applied to the gap $f(x) - (mx+b)$. Divide first, then measure how far the graph is from the line. Degrees differing by exactly 1 → the gap $\to 0$; differing by more → the gap blows up.
+The three behaviours, side by side:
 
----
+| Function at $x\to\infty$ | Limit | Reason |
+|:---:|:---:|------|
+| $\arctan x$ | $\frac{\pi}{2}$ | inverse tangent saturates |
+| $e^{-x}$ | $0$ | exponential decay |
+| $\sin x$ | DNE | oscillation between $-1$ and $1$ |
 
-## Part G: Complex Fractions at Infinity — The Big-Fraction Rules
+**A mixed case** — the oscillation dies because a decaying factor multiplies it:
 
----
+$$\lim_{x\to\infty}e^{-x}\cos 3x=0, \qquad\text{because } -e^{-x}\le e^{-x}\cos 3x\le e^{-x}\ \text{and both bounds}\to0 .$$
 
-## Example 11: Nested Fractions as $x\to\infty$
-
-The three tricks from 13A (combine & flip, multiply by LCD) work here too — but now they feed into the **degree rule** instead of factor-cancel.
-
-**$\displaystyle \lim_{x\to\infty}\frac{\ \frac{x+1}{x-1}\ }{\ \frac{2x+3}{x}\ }$.**
-
-① Both the numerator and the denominator are themselves fractions. **Flip the bottom and multiply** (Trick 1):
-$\frac{x+1}{x-1}\cdot\frac{x}{2x+3}$.
-
-② Now each factor is a plain rational function. Take limits separately with the degree rule:
-$\frac{x+1}{x-1} \to \frac{1}{1} = 1$ and $\frac{x}{2x+3} \to \frac{1}{2}$.
-
-③ Product: $1\cdot\frac{1}{2} = \frac{1}{2}$.
-
-![Complex fraction at infinity: x(x+1)/((x−1)(2x+3)) approaches y = 1/2](graphs/0808/13B/13b-complex-fraction.png)
-
-*Graph 13G: the big fraction $\frac{\frac{x+1}{x-1}}{\frac{2x+3}{x}} = \frac{x(x+1)}{(x-1)(2x+3)}$ flattens out to the horizontal asymptote $y=\frac{1}{2}$.*
+> **Geometric insight**: At infinity, a bounded oscillating factor ($\sin$, $\cos$) can be tamed only by a factor that decays to $0$. Without such a factor the oscillation wins and the limit does not exist.
 
 ---
 
-**$\displaystyle \lim_{x\to\infty}\frac{\ \frac{3}{x}-\frac{2}{x^2}\ }{2-\frac{5}{x}}$.**
-
-① Watch the inner fractions: the numerator $\frac{3}{x}-\frac{2}{x^2}\to0$, the denominator $2-\frac{5}{x}\to2$.
-② → $\frac{0}{2} = 0$. No flipping needed — the little fractions just vanish.
+## Part F: Infinite Limits at a Finite Point — Vertical Asymptotes
 
 ---
 
-**$\displaystyle \lim_{x\to\infty}\frac{\ \frac{2x+1}{x}\ }{\ \frac{x}{x+1}\ }$.**
+## Example 6: When the Denominator Goes to Zero (§2.2 #29–43)
 
-① Flip and multiply: $\frac{2x+1}{x}\cdot\frac{x+1}{x}$.
-② $\frac{2x+1}{x} = 2+\frac{1}{x}\to2$; $\frac{x+1}{x} = 1+\frac{1}{x}\to1$.
-③ → $2\cdot1 = 2$.
+A different kind of infinite limit happens when $x$ approaches a *finite* point and the denominator goes to $0$ while the numerator does not. Stewart's §2.2 exercise bank drills this sign chase.
+
+**#29 and #30** — the same function from two sides:
+
+$$\lim_{x\to5^+}\frac{x+1}{x-5}=+\infty \quad(\text{numerator}\to6>0,\ \text{denominator}\to0^+),$$
+$$\lim_{x\to5^-}\frac{x+1}{x-5}=-\infty \quad(\text{denominator}\to0^-).$$
+
+Because the two one-sided limits differ, $\displaystyle\lim_{x\to5}\frac{x+1}{x-5}$ does not exist — there is a vertical asymptote at $x=5$.
+
+![Vertical asymptote — sign chase at x = 2]({{graph:13b-5-vertical-asymptote}})
+
+*Graph 13B-5: The same sign chase, drawn for $\dfrac{1}{x-2}$: the value shoots up to $+\infty$ from the right and down to $-\infty$ from the left, so the vertical line $x=2$ is an asymptote and the two-sided limit does not exist.*
+
+**#31** — a **squared** denominator is always positive near the point:
+
+$$\lim_{x\to2}\frac{x^2}{(x-2)^2}=+\infty,$$
+
+because $(x-2)^2\to0^+$ from *both* sides, so the two one-sided limits agree.
+
+**#43** — the sign chase again, on a cubic denominator:
+
+$$\lim_{x\to1^-}\frac{1}{x^3-1}=-\infty, \qquad \lim_{x\to1^+}\frac{1}{x^3-1}=+\infty .$$
+
+**#41 and #42** turn the chase around: find the vertical asymptotes of a rational function by setting the denominator to $0$ (after cancelling any common factor with the numerator).
+
+> **Geometric insight**: $\frac{\text{nonzero}}{0}$ is not a number — it is a sign statement. An even power of the vanishing factor gives the same sign on both sides (so the limit is $+\infty$ or $-\infty$); an odd power flips the sign (so the two-sided limit does not exist).
 
 ---
 
-**Real battle — a nested fraction meets the $e$ limit**:
+## Part G: Finding Horizontal and Vertical Asymptotes
 
-$\displaystyle \lim_{x\to\infty}\left(\frac{x+\frac{1}{x}}{x}\right)^x$.
+---
 
-① Simplify the base FIRST: $\frac{x+1/x}{x} = 1 + \frac{1}{x^2}$.
-② $\left(1+\frac{1}{x^2}\right)^x = \left[\left(1+\frac{1}{x^2}\right)^{x^2}\right]^{1/x}$.
-③ The bracket $\to e$ (the standard $e$ limit with $n=x^2$), then raised to the power $\frac{1}{x}\to0$: $e^0 = 1$.
-→ **1**.
+## Example 7: The Full Asymptote Hunt (§2.6 #47–52)
 
-> **Insight**: At infinity, a nested fraction is still a rational function in disguise. Flip-and-multiply turns it into a product of plain rational functions, and the degree rule finishes the job. If a power has a nested-fraction base, simplify the base FIRST — then hunt for the $e$ form $(1+k/n)^n\to e^k$.
+For a rational function, the two kinds of asymptote are found by two different limits.
+
+**Horizontal asymptote**: evaluate $\displaystyle\lim_{x\to\pm\infty}f(x)$ with the degree rule (Part A).
+
+**Vertical asymptote**: find where the denominator is $0$ but the numerator is not — the sign chase of Part F.
+
+**Worked example — #47**: $y=\dfrac{5+4x}{x+3}$.
+
+- Horizontal: $\deg$ num $=\deg$ den $=1$, so the limit is $\dfrac41=4$. The line $y=4$ is the horizontal asymptote.
+- Vertical: the denominator is $0$ at $x=-3$ and the numerator there is $5+4(-3)=-7\neq0$. The line $x=-3$ is the vertical asymptote.
+
+**#52** mixes in an exponential: $y=\dfrac{2e^x}{e^x-5}$ has a horizontal asymptote found by dividing by $e^x$:
+
+$$\lim_{x\to\infty}\frac{2}{1-5e^{-x}}=2, \qquad \lim_{x\to-\infty}\frac{2e^x}{e^x-5}=\frac{0}{0-5}=0,$$
+
+so this curve has **two** horizontal asymptotes, $y=2$ and $y=0$, plus a vertical asymptote at $x=\ln 5$.
+
+> **Geometric insight**: A rational function can have at most one horizontal asymptote on each side and any number of vertical ones. The horizontal one comes from the degree race; each vertical one sits where a surviving denominator factor hits $0$.
+
+---
+
+## Part H: Preview — The Number $e$ as a Limit (🔗 12B1, 18A)
+
+---
+
+## Example 8: $1^\infty$ and the Constant $e$ (§11.6)
+
+One more shape appears at infinity: a base that goes to $1$ raised to a power that goes to $\infty$. The classic case defines $e$ itself,
+
+$$\lim_{n\to\infty}\left(1+\frac1n\right)^n=e \qquad(\text{Stewart §11.6, with the constant } e \approx 2.71828\ldots).$$
+
+The general pattern — **a constant in the numerator** — is
+
+$$\lim_{n\to\infty}\left(1+\frac{k}{n}\right)^n=e^{k}.$$
+
+**Why**: write $\left(1+\frac{k}{n}\right)^n=\left[\left(1+\frac{k}{n}\right)^{n/k}\right]^{k}$. The bracket is the defining form of $e$ (with $n/k\to\infty$), and raising to the fixed power $k$ gives $e^k$.
+
+**A rational tweak**:
+
+$$\lim_{n\to\infty}\left(\frac{n+3}{n-1}\right)^n:\qquad \frac{n+3}{n-1}=1+\frac{4}{n-1},$$
+
+$$\left(1+\frac{4}{n-1}\right)^{n}=\left(1+\frac{4}{n-1}\right)^{n-1}\cdot\left(1+\frac{4}{n-1}\right)\longrightarrow e^{4}\cdot1=e^{4}.$$
+
+> **Geometric insight**: This is the same "growth race" of Part D, now written as a power. The limit $e$ is the exchange rate between continuous compounding and the integer step $n$ — the subject of §11.6 and of Session 18A.
 
 ---
 
 ## Common Mistakes
 
-### Mistake 1: Forgetting $\sqrt{x^2} = |x|$ when $x\to-\infty$
+### Mistake 1: Forgetting $\sqrt{x^2}=|x|$ when $x\to-\infty$
 
-**Wrong**: $\frac{\sqrt{x^2+1}}{x} = \sqrt{1+1/x^2} \to 1$ as $x\to-\infty$. **Right**: $|x| = -x$ for $x<0$, so it's $-\sqrt{1+1/x^2} \to -1$.
+**Wrong**: $\dfrac{\sqrt{x^2+1}}{x}=\sqrt{1+1/x^2}\to1$ as $x\to-\infty$. **Right**: for $x<0$, $|x|=-x$, so the expression is $-\sqrt{1+1/x^2}\to-1$. The sign flips because the square root cannot be negative.
 
-### Mistake 2: Saying $0\cdot\infty = 0$
+### Mistake 2: Saying $0\cdot\infty=0$ or $\infty-\infty=0$
 
-**Wrong**. $0\cdot\infty$ is indeterminate. Convert to a quotient first.
+**Wrong.** Both are indeterminate. Rewrite as a quotient (for $0\cdot\infty$) or conjugate / combine (for $\infty-\infty$) before deciding.
 
-### Mistake 3: Claiming $\frac{1}{0} = \infty$ without checking signs
+### Mistake 3: Writing $\frac{1}{0}=\infty$ without a sign
 
-**Wrong**. It could be $+\infty$, $-\infty$, or neither (if left and right differ).
+**Wrong.** It could be $+\infty$, $-\infty$, or neither — check which side the denominator approaches from, and whether the two sides agree.
 
-### Mistake 4: Forgetting to flip the denominator in a big fraction
+### Mistake 4: Using the Limit Laws on infinite limits
 
-**Wrong**: $\frac{\ \frac{x+1}{x-1}\ }{\ \frac{2x+3}{x}\ } = \frac{x+1}{x-1}\cdot\frac{2x+3}{x}$ (kept the bottom as-is). **Right**: dividing by a fraction means multiplying by its **reciprocal**: $\frac{x+1}{x-1}\cdot\frac{x}{2x+3}\to\frac{1}{2}$. Flipping the wrong fraction changes the answer (here you would get $2$ instead of $\frac{1}{2}$).
+**Wrong**: splitting $\lim_{x\to\infty}(x^2-x)$ into $\infty-\infty$ and applying Law 2. **Right**: the laws require the individual limits to *exist* (be finite numbers); $\infty$ is not a number. Factor, divide, or conjugate first.
 
 ---
 
 ## What We Just Did
 
 ```
-(1) ∞/∞ rational: divide by highest power → degree comparison rule.
+(1) ∞/∞ rational: divide by the highest power → degree comparison.  (§2.6 Ex 3)
+    deg(num) > deg(den) → ±∞ ; = → ratio of leading coefficients ; < → 0.
 
-(2) x→-∞: √(x²) = |x| = -x (when x<0). Watch odd-degree signs.
+(2) x→−∞: √(x²) = |x| = −x (since x < 0). Watch odd-degree signs.    (§2.6 Ex 4)
 
-(3) Denominator→0: sign analysis from left and right.
-    Squared denominator → always +∞ (if numerator > 0).
+(3) ∞−∞: conjugate (for √A−√B) or common denominator (for fractions). (§2.6 Ex 5)
 
-(4) ∞-∞: conjugate (for √A-√B) or common denominator (for fractions).
-    Growth hierarchy: factorial > exp > poly > log.
+(4) Infinite limits: at infinity → growth-rate comparison (e^x ≫ x³ ≫ ln x);  (§2.6 Ex 9–12)
+    at a finite point → sign chase when the denominator → 0.        (§2.2 #29–43)
 
-(5) e as a limit: (1+k/n)^n → e^k. (1+x)^{1/x} → e.
-    Standard limits: lnn/n → 0, n^{1/n} → 1.
+(5) Asymptotes: horizontal from lim_{x→±∞}; vertical where a surviving  (§2.6 #47–52)
+    denominator factor hits 0.
 
-(6) Complex fractions: flip the bottom & multiply → degree rule on each factor.
-    Inner fractions → 0 or → constant; simplify a power's base before hunting e.
+(6) 1^∞: (1+k/n)^n → e^k.  (§11.6, preview of 18A)
 ```
 
 ---
 
-## Decision Tree — Choosing the Weapon at Infinity
-
-```
-x → ∞ or x → −∞ (or denominator → 0 at a finite point):
-├── (A) x → ±∞:
-│   ├── Rational? → degree rule:
-│   │   deg(num) > deg(den)     → ±∞ (sign of leading terms)
-│   │   deg(num) = deg(den)     → ratio of leading coefficients
-│   │   deg(num) = deg(den)+1   → SLANT asymptote (divide)
-│   │   deg(num) < deg(den)     → 0
-│   ├── Radicals? → factor out x; √(x²) = |x| = −x when x < 0
-│   ├── ∞ − ∞? → conjugate (√A−√B) or common denominator
-│   ├── 1^∞? → (1 + k/n)^n → e^k
-│   └── Mixed growth (e^x, x^n, ln x, n!)? → hierarchy: n! ≫ e^x ≫ x^n ≫ ln x
-└── (B) x → finite a, denominator → 0 (numerator ≠ 0):
-    └── sign analysis: 0^+ → +∞, 0^− → −∞; left ≠ right → DNE
-```
 ## Basic Drills
 
-> Pure computation. Identify the form and evaluate.
+> Pure fluency: identify the form, apply the degree rule or the sign chase. One clean move per item.
 
-**D1.** $\displaystyle \lim_{x\to\infty}\frac{5x^2-3}{2x^2+1}$. Divide by $x^2$.
+**D1.** (§2.6 #15) Evaluate $\displaystyle\lim_{x\to\infty}\frac{4x+3}{5x-1}$. Divide by $x$.
 
-**D2.** $\displaystyle \lim_{x\to\infty}\frac{x+1}{x^3-2}$. Compare degrees.
+**D2.** (§2.6 #16) Evaluate $\displaystyle\lim_{x\to\infty}\frac{-2}{3x+7}$. Compare degrees.
 
-**D3.** $\displaystyle \lim_{x\to\infty}\frac{2x^3}{x^2+4}$. Leading term dominates.
+**D3.** (§2.6 #13) Evaluate $\displaystyle\lim_{x\to\infty}\frac{2x^2-7}{5x^2+x-3}$. Divide by $x^2$.
 
-**D4.** $\displaystyle \lim_{x\to-\infty}\frac{4x^2}{2x^2-5}$. Even powers — same as $+\infty$.
+**D4.** (§2.6 #17) Evaluate $\displaystyle\lim_{t\to-\infty}\frac{3t^2+t}{t^3-4t+1}$. Compare degrees.
 
-**D5.** $\displaystyle \lim_{x\to 0^+}\frac{1}{x^3}$. Sign of denominator?
+**D5.** (§2.6 #18) Evaluate $\displaystyle\lim_{t\to-\infty}\frac{6t^2+t-5}{9-2t^2}$. Ratio of leading coefficients.
 
-**D6.** $\displaystyle \lim_{x\to 0}\frac{1}{x^4}$. Squared (even) denominator.
+**D6.** (§2.6 #20) Evaluate $\displaystyle\lim_{x\to\infty}\frac{3x^3-8x+2}{4x^3-5x^2-2}$.
 
-**D7.** $\displaystyle \lim_{x\to\infty}(\sqrt{x^2+2x}-x)$. Conjugate.
+**D7.** (§2.6 #21) Evaluate $\displaystyle\lim_{x\to\infty}\frac{4-\sqrt{x}}{2+\sqrt{x}}$. Divide by $\sqrt{x}$.
 
-**D8.** $\displaystyle \lim_{n\to\infty}\left(1+\frac{2}{n}\right)^n$. Standard $e$ limit.
+**D8.** (§2.6 #29) Evaluate $\displaystyle\lim_{t\to\infty}\left(\sqrt{25t^2+2}-5t\right)$. Conjugate.
 
-**D9.** $\displaystyle \lim_{x\to\infty}\frac{\ln x}{x^{0.5}}$. Growth hierarchy.
+**D9.** (§2.6 #32) Evaluate $\displaystyle\lim_{x\to\infty}\left(x-\sqrt{x}\right)$. Factor out $\sqrt{x}$.
 
-**D10.** $\displaystyle \lim_{n\to\infty}n^{1/n}$. Standard limit.
+**D10.** (§2.6 #37) Evaluate $\displaystyle\lim_{x\to\infty}\frac{1-e^{x}}{1+2e^{x}}$. Divide by $e^x$.
 
-**D11.** $\displaystyle \lim_{x\to\infty}\frac{\ \frac{2x+1}{x}\ }{\ \frac{x}{x+1}\ }$. Flip the bottom, then use the degree rule on each factor. (→ Example 11)
+**D11.** (§2.2 #29) Evaluate $\displaystyle\lim_{x\to5^+}\frac{x+1}{x-5}$. Track the sign of the denominator.
+
+**D12.** (§2.2 #31) Evaluate $\displaystyle\lim_{x\to2}\frac{x^2}{(x-2)^2}$. Note the squared denominator.
 
 > Solutions: [Solutions](solutions/13B-solutions.md#basic-drill)
 
@@ -350,29 +350,40 @@ x → ∞ or x → −∞ (or denominator → 0 at a finite point):
 
 ## Advanced Drills
 
-> Multi-step reasoning required.
+> Chains two or three moves: radicals at $-\infty$, difference of radicals, and the asymptote hunt.
 
-**A1.** $\displaystyle \lim_{x\to-\infty}\frac{\sqrt{9x^2+2}}{3x+1}$. Handle $\sqrt{x^2}=|x|$ carefully.
+**A1.** (§2.6 #14) Evaluate $\displaystyle\lim_{x\to\infty}\sqrt{\frac{9x^3+8x-4}{3-5x+x^3}}$. Take the inside limit first.
 
-**A2.** $\displaystyle \lim_{x\to\infty}\frac{\sqrt{x^2+1}+\sqrt{x^2-1}}{x}$. Factor $x$ from both radicals.
+**A2.** (§2.6 #22) Evaluate $\displaystyle\lim_{u\to-\infty}\frac{(u^2+1)(2u^2-1)}{(u^2+2)^2}$. Expand the leading terms.
 
-**A3.** $\displaystyle \lim_{x\to 2}\frac{x^2-3x+2}{x^2-4}$. $\frac{0}{0}$ form — factor and cancel, then evaluate.
+**A3.** (§2.6 #23) Evaluate $\displaystyle\lim_{x\to\infty}\frac{\sqrt{x+3x^2}}{4x-1}$.
 
-**A4.** $\displaystyle \lim_{x\to\infty}\left(\frac{x+2}{x-1}\right)^{3x}$. Write as $(1+\frac{3}{x-1})^{3x}$ → $e$ form.
+**A4.** (§2.6 #24) Evaluate $\displaystyle\lim_{t\to\infty}\frac{t+3}{\sqrt{2t^2-1}}$.
 
-**A5.** $\displaystyle \lim_{x\to 0^+}\frac{\ln(\sin x)}{\ln x}$. Both → $-\infty$. Use L'Hôpital-like intuition: which dominates?
+**A5.** (§2.6 #25) Evaluate $\displaystyle\lim_{x\to\infty}\frac{\sqrt{1+4x^{6}}}{2-x^{3}}$.
 
-**A6.** $\displaystyle \lim_{x\to\infty}\frac{3^x + 2^x}{5^x - 4^x}$. Factor out the dominant term.
+**A6.** (§2.6 #26) Evaluate $\displaystyle\lim_{x\to-\infty}\frac{\sqrt{1+4x^{6}}}{2-x^{3}}$. Compare with A5.
 
-**A7.** $\displaystyle \lim_{x\to\infty}(\sqrt[3]{x^3+x^2}-x)$. Rationalize using $a^3-b^3$ identity.
+**A7.** (§2.6 #30) Evaluate $\displaystyle\lim_{x\to-\infty}\left(\sqrt{4x^2+3x}+2x\right)$. Conjugate, and use $\sqrt{x^2}=-x$.
 
-**A8.** $\displaystyle \lim_{x\to 1}\frac{\sqrt{x+3}-2}{\sqrt{x}-1}$. Conjugate both numerator and denominator.
+**A8.** (§2.6 #31) Evaluate $\displaystyle\lim_{x\to\infty}\left(\sqrt{x^2+ax}-\sqrt{x^2+bx}\right)$ for constants $a,b$.
 
-**A9.** $\displaystyle \lim_{n\to\infty}\left(\frac{n^2+1}{n^2}\right)^{n^2}$. Rewrite as $(1+\frac{1}{n^2})^{n^2}$.
+**A9.** (§2.6 #36) Evaluate $\displaystyle\lim_{x\to\infty}\frac{\sin^2 x}{x^2+1}$. Squeeze.
 
-**A10.** $\displaystyle \lim_{x\to 0}\frac{1-\cos x}{x\sin x}$. Use $\frac{1-\cos x}{x^2}\to\frac{1}{2}$ and $\frac{\sin x}{x}\to1$.
+**A10.** (§2.6 #41) Evaluate $\displaystyle\lim_{x\to\infty}\left[\ln(1+x^2)-\ln(1+x)\right]$. Combine the logarithms.
 
-**A11.** $\displaystyle \lim_{x\to\infty}\frac{\ \frac{1}{x+1}-\frac{1}{x}\ }{\ \frac{1}{x^2}\ }$. Combine the difference of reciprocals first, then divide. (→ Example 11)
+**A11.** (§2.6 #48) Find the horizontal and vertical asymptotes of $y=\dfrac{2x^2+1}{3x^2+2x-1}$.
+
+<details>
+<summary>💡 Hint</summary>
+
+For **A5/A6**, $\sqrt{4x^6}=2|x^3|$. When $x<0$, $|x^3|=-x^3$ — that single sign is the difference between the two answers.
+
+For **A8**, multiply by the conjugate first, then divide numerator and denominator by $x$.
+
+For **A11**, factor the denominator $3x^2+2x-1=(3x-1)(x+1)$ to locate the vertical asymptotes, then compare degrees for the horizontal one.
+
+</details>
 
 > Solutions: [Solutions](solutions/13B-solutions.md#advanced-drill)
 
@@ -381,19 +392,19 @@ x → ∞ or x → −∞ (or denominator → 0 at a finite point):
 ## Today's Procedure
 
 ```
-Step 1: ∞/∞ → divide by highest power. Compare degrees.
-         If equal: ratio of leading coefficients.
-         If numerator higher: ±∞ (check sign).
-         If denominator higher: 0.
+Step 1: x → ±∞ with a rational function → divide by the highest power.
+    Compare degrees: num > den → ±∞ ; num = den → ratio ; num < den → 0.   (§2.6 Ex 3)
 
-Step 2: x→-∞ → √(x²) = |x| = -x. Watch odd-degree signs.
+Step 2: x → −∞ with a radical → √(x²) = |x| = −x. Watch the sign.        (§2.6 Ex 4)
 
-Step 3: Denominator→0 (numerator ≠ 0) → sign analysis.
-         Even-power denominator → always same sign on both sides.
+Step 3: ∞ − ∞ → conjugate (√A − √B) or common denominator.               (§2.6 Ex 5)
+    0 · ∞ → rewrite as a quotient.
 
-Step 4: Standard limits: (1+k/n)^n → e^k. n^{1/n} → 1. lnn/n → 0.
-         Growth hierarchy: factorial ≫ exp ≫ poly ≫ log.
-         Slant asymptote: deg(num)=deg(den)+1 → divide, graph follows y=mx+b.
+Step 4: Denominator → 0 at a finite point → sign chase from each side.
+    Even power → same sign both sides; odd power → sign flips (DNE).      (§2.2 #29–43)
+
+Step 5: Asymptotes — horizontal from lim_{x→±∞}; vertical where a surviving
+    denominator factor is 0.                                              (§2.6 #47–52)
 ```
 
 ---
@@ -402,16 +413,18 @@ Step 4: Standard limits: (1+k/n)^n → e^k. n^{1/n} → 1. lnn/n → 0.
 
 | Symbol | Reads as | Meaning |
 |:---:|:---:|------|
-| $\lim_{x \to \infty} f(x) = L$ | "limit as x goes to infinity of f of x equals L" | horizontal asymptote at y = L |
-| $\lim_{x \to -\infty} f(x) = L$ | "limit as x goes to negative infinity" | end behavior as x → -∞ |
-| $\deg(P) < \deg(Q)$ | "degree of P less than degree of Q" | rational function → 0 as x → ±∞ |
+| $\lim_{x \to \infty} f(x) = L$ | "limit as x goes to infinity of f of x equals L" | horizontal asymptote at $y=L$ (§2.6 Def 1) |
+| $\lim_{x \to -\infty} f(x) = L$ | "limit as x goes to negative infinity" | end behaviour on the left (§2.6 Def 2) |
+| $\deg(P) < \deg(Q)$ | "degree of P less than degree of Q" | rational function $\to 0$ |
 | $\deg(P) = \deg(Q)$ | "degrees equal" | limit = ratio of leading coefficients |
-| $\deg(P) > \deg(Q)$ | "degree of P greater than degree of Q" | limit = ±∞ — check leading coefficient signs |
-| leading coefficient | "leading coefficient" | coefficient of highest-degree term — dominates at infinity |
-| $\frac{\ln x}{x} \to 0$ | "ln x over x goes to zero as x goes to infinity" | logarithm grows slower than any positive power |
-| $\frac{x}{e^x} \to 0$ | "x over e to the x goes to zero" | exponential dominates any polynomial |
-| slant asymptote | "slant asymptote" / "oblique asymptote" | deg(num) = deg(den)+1 — polynomial long division gives line |
-| end behavior model | "end behavior model" | leading term dominates — ignore lower-order terms at infinity |
+| $\deg(P) > \deg(Q)$ | "degree of P greater than degree of Q" | limit = $\pm\infty$ — check the leading signs |
+| leading coefficient | "leading coefficient" | coefficient of the highest-degree term |
+| $\lim_{x\to\infty}f(x)=\infty$ | "limit is infinity" | values grow without bound (§2.6 infinite limits) |
+| $\sqrt{x^2}=\lvert x\rvert$ | "root of x squared equals absolute x" | equals $x$ for $x>0$, $-x$ for $x<0$ |
+| horizontal asymptote | "horizontal asymptote" | the line $y=L$ the graph flattens onto |
+| vertical asymptote | "vertical asymptote" | the line $x=a$ where the value runs to $\pm\infty$ |
+| growth hierarchy | "growth rate hierarchy" | $x! \gg e^x \gg x^n \gg \ln x$ |
+| $1^\infty$ | "one to the infinity" | indeterminate; the form that produces $e$ (§11.6) |
 
 ---
 
@@ -419,12 +432,19 @@ Step 4: Standard limits: (1+k/n)^n → e^k. n^{1/n} → 1. lnn/n → 0.
 
 | What we call it | Math term | Notation |
 |:---------------:|:---------:|:--------:|
-| divide by highest power | dominant term method | divide by $x^{\deg}$ |
-| degree comparison | degree test for rational functions | deg(num) vs deg(den) |
+| divide by highest power | dominant-term method | divide by $x^{\deg}$ |
+| degree comparison | degree test for rational functions | $\deg(\text{num})$ vs $\deg(\text{den})$ |
 | sign chase | sign analysis | $0^+$, $0^-$ |
 | squared denominator | even-power denominator | $(x-a)^{2k}$ |
-| rationalize | rationalization | multiply by conjugate |
-| growth hierarchy | asymptotic growth rates | factorial $\gg$ exp $\gg$ poly $\gg$ log |
-| $e$ as a limit | Euler's limit definition | $(1+1/n)^n \to e$ |
-| indeterminate | indeterminate form | $\frac{\infty}{\infty}$, $\infty-\infty$ |
-| slant asymptote | oblique asymptote | $y=mx+b$ via polynomial division |
+| conjugate | rationalization | multiply by $\sqrt{A}+B$ |
+| growth hierarchy | asymptotic growth rates | $x!\gg e^x\gg x^n\gg\ln x$ |
+| end behaviour | behaviour as $x\to\pm\infty$ | leading term dominates |
+| $e$ as a limit | Euler's limit definition | $(1+k/n)^n\to e^k$ |
+| horizontal asymptote | horizontal asymptote | $y=L$ from $\lim_{x\to\pm\infty}f$ |
+| vertical asymptote | vertical asymptote | $x=a$ from $\frac{\text{nonzero}}{0}$ |
+| indeterminate | indeterminate form | $\frac{\infty}{\infty}$, $\infty-\infty$, $0\cdot\infty$, $1^\infty$ |
+
+
+
+
+
