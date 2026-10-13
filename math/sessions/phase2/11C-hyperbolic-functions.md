@@ -4,9 +4,9 @@
 
 *Prerequisites: 11A (trig foundations), 11B (identities, Euler's formula), 10A (exponentials & logarithms)*
 
-> Trigonometric functions came from the circle. Hyperbolic functions come from the hyperbola — yet they are built from nothing but $e^x$ (10A) and obey identities that mirror everything from 11B. Where 11B ended with Euler's formula $e^{i\theta} = \cos\theta + i\sin\theta$, 11C starts with its no-$i$ twin: $e^x = \cosh x + \sinh x$. Same algebra, parallel universe.
-
 > 💡 **Stuck?** Every problem has a collapsible **Hint** below it — click it only when you need a nudge.
+
+> **Source.** Every example and drill below is drawn from Stewart, *Calculus*, Section 3.11 (Hyperbolic Functions). Each item cites its example or exercise number in that section. The definitions, the identity list, and the derivative tables are Stewart's; the graphs redraw Stewart's Figures 1–10.
 
 ---
 
@@ -14,53 +14,103 @@
 
 ---
 
-## Example 1: The Analogy — Circle vs Hyperbola
+## Example 1: The Analogy — Circle vs Hyperbola (§3.11, Figures 6–7)
 
 The unit circle is $x^2 + y^2 = 1$. The **unit hyperbola** is $x^2 - y^2 = 1$.
 
-Just as $(\cos\theta,\, \sin\theta)$ parametrizes the circle, the pair $(\cosh t,\, \sinh t)$ parametrizes the **right branch** of the hyperbola. The number $t$ is not an ordinary angle — it is a **hyperbolic angle**: for the circle, the parameter $\theta$ (in radians) equals the arc length and twice the sector area; for the hyperbola, $t$ equals twice the sector area (there is no arc-length version — the hyperbola has infinite length).
+The point $(\cos t,\ \sin t)$ runs around the circle because $\cos^2 t + \sin^2 t = 1$. Stewart defines the hyperbolic functions so that the point $(\cosh t,\ \sinh t)$ runs along the right branch of the hyperbola because $\cosh^2 t - \sinh^2 t = 1$ and $\cosh t \ge 1$ (Figures 6 and 7). The number $t$ is not an angle: it equals **twice the area** of the shaded sector — the same area interpretation that radians give on the circle.
 
-**The parallel that matters**:
-- Every point on the circle satisfies $\cos^2\theta + \sin^2\theta = 1$.
+**The parallel that matters:**
+- Every point on the circle satisfies $\cos^2 t + \sin^2 t = 1$.
 - Every point on the hyperbola satisfies $\cosh^2 t - \sinh^2 t = 1$.
 
 ![Unit circle vs unit hyperbola — same parametrization idea]({{graph:11c-1-analogy}})
 
-*Graph 11C-1: Left — the unit circle $x^2+y^2=1$ with point $(\cos\theta,\sin\theta)$. Right — the unit hyperbola $x^2-y^2=1$ with point $(\cosh t,\sinh t)$. The shaded sector has area $t/2$ on both sides.*
+*Graph 11C-1: Left — the unit circle $x^2+y^2=1$ with the point $(\cos t,\sin t)$. Right — the unit hyperbola $x^2-y^2=1$ with the point $(\cosh t,\sinh t)$. On both sides the shaded sector has area $t/2$.*
 
-> **Geometric insight**: The minus sign in $x^2 - y^2 = 1$ is the whole story. It flips a circle into a hyperbola, and every identity in 11C will inherit that single sign change.
+> **Geometric insight**: The minus sign in $x^2 - y^2 = 1$ is the whole story. It turns a circle into a hyperbola, and every identity in 11C inherits that single sign change.
 
 ---
 
-## Example 2: Definitions via $e^x$ — The Six Hyperbolic Functions (🔗 10A)
+## Example 2: Definitions via $e^x$, and the Values They Give (§3.11 Definitions box, Ex 1–10)
+
+Stewart defines all six functions from the two exponentials $e^x$ and $e^{-x}$:
 
 $$\cosh x = \frac{e^x + e^{-x}}{2} \qquad \sinh x = \frac{e^x - e^{-x}}{2}$$
 
-(Read: "kosh", "sinch". The rest: "tanch", "setch", "cosetch", "cotanch".)
-
 $$\tanh x = \frac{\sinh x}{\cosh x}, \qquad \operatorname{sech} x = \frac{1}{\cosh x}, \qquad \operatorname{csch} x = \frac{1}{\sinh x}, \qquad \coth x = \frac{\cosh x}{\sinh x}.$$
 
-**Two consequences drop out immediately:**
+(Read: "kosh", "sinch", "tanch", "setch", "cosetch", "cotanch".)
 
-**(1) $e^x$ splits into $\cosh + \sinh$** — add the definitions:
+**Values straight from the definition** (Exercises 1–6):
+
+$$\sinh 0 = \frac{1-1}{2} = 0, \qquad \cosh 0 = \frac{1+1}{2} = 1, \qquad \tanh 0 = 0.$$
+
+$$\cosh(\ln 5) = \frac{5 + 1/5}{2} = \frac{13}{5}, \qquad \sinh(\ln 4) = \frac{4 - 1/4}{2} = \frac{15}{8}.$$
+
+**Rewriting in terms of $e^x$** (Exercises 7–10): add and subtract the two definitions to get the no-$i$ twin of Euler's formula (🔗 11B),
+
 $$e^x = \cosh x + \sinh x, \qquad e^{-x} = \cosh x - \sinh x.$$
 
-Compare with 11B's Euler formula: $e^{i\theta} = \cos\theta + i\sin\theta$. Same pattern, **no $i$**.
+Combine the two to convert any $a\,e^x + b\,e^{-x}$ back into $\cosh$ and $\sinh$:
 
-**(2) The core identity** — square and subtract:
-$$\cosh^2 x - \sinh^2 x = \frac{e^{2x} + 2 + e^{-2x}}{4} - \frac{e^{2x} - 2 + e^{-2x}}{4} = \frac{4}{4} = 1.$$
+$$8\sinh x + 5\cosh x = 8\cdot\frac{e^x - e^{-x}}{2} + 5\cdot\frac{e^x + e^{-x}}{2} = \frac{13}{2}e^x - \frac{3}{2}e^{-x}.$$
 
-**Parity**: $\cosh(-x) = \cosh x$ (even), $\sinh(-x) = -\sinh x$ (odd), $\tanh$ odd. And $\cosh 0 = 1$, $\sinh 0 = 0$, $\tanh 0 = 0$.
+$$\sinh(\ln x) = \frac{x - 1/x}{2} = \frac{x^2 - 1}{2x}.$$
+
+**Parity** (Exercises 11–12): $\cosh(-x) = \cosh x$ (even), $\sinh(-x) = -\sinh x$ (odd), and $\tanh$ is odd.
 
 ![e^x split into its even part (cosh) and odd part (sinh)]({{graph:11c-2-even-odd}})
 
-*Graph 11C-2: Every function splits into an even part $\frac{f(x)+f(-x)}{2}$ and an odd part $\frac{f(x)-f(-x)}{2}$. For $f(x)=e^x$, those halves are exactly $\cosh x$ and $\sinh x$.*
+*Graph 11C-2: Every function splits into an even part $\frac{f(x)+f(-x)}{2}$ and an odd part $\frac{f(x)-f(-x)}{2}$. For $f(x)=e^x$ those halves are exactly $\cosh x$ and $\sinh x$.*
 
-> **Geometric insight**: $\cosh$ is the even half of $e^x$; $\sinh$ is the odd half. Removing the $i$ from Euler's formula un-bounds the functions: $\sinh$ and $\cosh$ grow exponentially, while $\sin$ and $\cos$ stay trapped in $[-1,1]$.
+> **Geometric insight**: $\cosh$ is the even half of $e^x$; $\sinh$ is the odd half. Removing the $i$ from Euler's formula unbounds the functions: $\sinh$ and $\cosh$ grow exponentially, while $\sin$ and $\cos$ stay trapped in $[-1,1]$.
 
 ---
 
-## Example 3: Values and Graphs
+## Part B: Identities — The Parallel Universe
+
+---
+
+## Example 3: The Core Identity and Its Family (§3.11 Ex 1, Identities box, Ex 11–23)
+
+Stewart's **Example 1** proves the core identity directly from the definitions:
+
+$$\cosh^2 x - \sinh^2 x = \left(\frac{e^x+e^{-x}}{2}\right)^2 - \left(\frac{e^x-e^{-x}}{2}\right)^2 = \frac{e^{2x}+2+e^{-2x}}{4} - \frac{e^{2x}-2+e^{-2x}}{4} = \frac{4}{4} = 1.$$
+
+Divide both sides by $\cosh^2 x$ to get Example 1(b), and by $\sinh^2 x$ to get Exercise 17:
+
+$$1 - \tanh^2 x = \operatorname{sech}^2 x, \qquad \coth^2 x - 1 = \operatorname{csch}^2 x.$$
+
+**Every 11B trig identity has a hyperbolic twin.** Stewart's identity box and Exercises 11–23 give the pattern (**Osborne's rule**): **a minus sign in the trig column becomes a plus in the hyperbolic column exactly when a product of two sines is involved.**
+
+| 11B (trig) | 11C (hyperbolic) | §3.11 |
+|:---|:---|:---:|
+| $\cos^2 t + \sin^2 t = 1$ | $\cosh^2 x - \sinh^2 x = 1$ | Ex 1 |
+| $\cos 2t = \cos^2 t - \sin^2 t$ | $\cosh 2x = \cosh^2 x + \sinh^2 x$ | Ex 20 |
+| $\sin 2t = 2\sin t\cos t$ | $\sinh 2x = 2\sinh x\cosh x$ | Ex 19 |
+| $1 + \tan^2 t = \sec^2 t$ | $1 - \tanh^2 x = \operatorname{sech}^2 x$ | Ex 1 |
+| $\cot^2 t + 1 = \csc^2 t$ | $\coth^2 x - 1 = \operatorname{csch}^2 x$ | Ex 17 |
+| $\cos(A+B) = \cos A\cos B - \sin A\sin B$ | $\cosh(x+y) = \cosh x\cosh y + \sinh x\sinh y$ | Ex 16 |
+
+**Addition formulas from $e^{x+y} = e^x e^y$** (Exercises 15, 16): multiply $(\cosh x + \sinh x)(\cosh y + \sinh y)$ and match the even and odd parts:
+
+$$\sinh(x+y) = \sinh x\cosh y + \cosh x\sinh y,$$
+$$\cosh(x+y) = \cosh x\cosh y + \sinh x\sinh y.$$
+
+Divide the two to get Stewart's Exercise 18:
+
+$$\tanh(x+y) = \frac{\tanh x + \tanh y}{1 + \tanh x\,\tanh y}.$$
+
+**Double angle** (Exercises 19, 20): $\sinh 2x = 2\sinh x\cosh x$ and $\cosh 2x = \cosh^2 x + \sinh^2 x = 2\cosh^2 x - 1 = 1 + 2\sinh^2 x$.
+
+> **Geometric insight**: Trig identities live on a circle where $\sin^2 + \cos^2 = 1$; hyperbolic identities live on a hyperbola where $\cosh^2 - \sinh^2 = 1$. One sign carries all the difference.
+
+---
+
+## Example 4: Graphs and Limits (§3.11 Figures 1–3, Ex 26–27)
+
+Stewart builds the graphs in Figures 1–3 by adding the two pieces $\frac12 e^x$ and $\pm\frac12 e^{-x}$:
 
 | function | parity | range | special values | behavior |
 |:---:|:---:|:---:|:---:|------|
@@ -85,138 +135,121 @@ $$\cosh^2 x - \sinh^2 x = \frac{e^{2x} + 2 + e^{-2x}}{4} - \frac{e^{2x} - 2 + e^
 
 *Graphs 11C-3a–f: The six hyperbolic functions, one graph each — $\cosh x$ (even, dips to 1 at the origin), $\sinh x$ (odd, through the origin), $\tanh x$ (odd, between $-1$ and $1$), and their reciprocals $\operatorname{sech} x$, $\operatorname{csch} x$, $\coth x$ (asymptote at $x=0$).*
 
-> **Geometric insight**: Only $\tanh$ (and $\coth$) are bounded. The graph of $\tanh$ is a smooth "S" — a compressed version of the shape you get by gluing two horizontal asymptotes with one vertical step.
+**Limits from the definitions** (Exercise 27): as $x\to\infty$, $e^{-x}\to 0$, so
+
+$$\lim_{x\to\infty}\tanh x = \lim_{x\to\infty}\frac{e^x - e^{-x}}{e^x + e^{-x}} = 1, \qquad \lim_{x\to-\infty}\tanh x = -1, \qquad \lim_{x\to\infty}\operatorname{sech} x = 0.$$
+
+> **Geometric insight**: Only $\tanh$ (and $\coth$) are bounded. The graph of $\tanh$ is a smooth "S" — two horizontal asymptotes glued by one vertical step.
 
 ---
 
-## Part B: Identities — The Parallel Universe
+## Part C: Calculus and Applications (🔗 14A, 16A)
 
 ---
 
-## Example 4: The Core Identity and Its Family (🔗 11B)
+## Example 5: Derivatives of the Hyperbolic Functions (§3.11 Table 1, Ex 2, Ex 28)
 
-Every identity from 11B has a hyperbolic twin. The pattern: **every minus sign in the trig column becomes a plus in the hyperbolic column — exactly when a product of two sines is involved.**
+Stewart differentiates the definitions directly — for instance
 
-| 11B (trig) | 11C (hyperbolic) |
-|:---|:---|
-| $\cos^2\theta + \sin^2\theta = 1$ | $\cosh^2 x - \sinh^2 x = 1$ |
-| $\cos 2\theta = \cos^2\theta - \sin^2\theta$ | $\cosh 2x = \cosh^2 x + \sinh^2 x$ |
-| $\sin 2\theta = 2\sin\theta\cos\theta$ | $\sinh 2x = 2\sinh x\cosh x$ |
-| $1 + \tan^2\theta = \sec^2\theta$ | $1 - \tanh^2 x = \operatorname{sech}^2 x$ |
-| $\cot^2\theta + 1 = \csc^2\theta$ | $\coth^2 x - 1 = \operatorname{csch}^2 x$ |
+$$\frac{d}{dx}(\sinh x) = \frac{d}{dx}\left(\frac{e^x - e^{-x}}{2}\right) = \frac{e^x + e^{-x}}{2} = \cosh x,$$
 
-**Deriving $\cosh 2x$ from scratch** (the sign is the only change):
+and collects the results in **Table 1**:
 
-$\cosh 2x = \cosh^2 x + \sinh^2 x = 2\cosh^2 x - 1 = 1 + 2\sinh^2 x$.
+$$\frac{d}{dx}\sinh x = \cosh x, \qquad \frac{d}{dx}\cosh x = \sinh x, \qquad \frac{d}{dx}\tanh x = \operatorname{sech}^2 x,$$
 
-> **Geometric insight**: Trig identities live on a circle where $\sin^2 + \cos^2 = 1$; hyperbolic identities live on a hyperbola where $\cosh^2 - \sinh^2 = 1$. One sign carries all the difference.
+$$\frac{d}{dx}\operatorname{csch} x = -\operatorname{csch} x\,\coth x, \qquad \frac{d}{dx}\operatorname{sech} x = -\operatorname{sech} x\,\tanh x, \qquad \frac{d}{dx}\coth x = -\operatorname{csch}^2 x.$$
 
----
+**Example 2 in the text**: with $y = \cosh\sqrt{x}$ and the Chain Rule,
 
-## Example 5: Addition Formulas — $e^x = \cosh x + \sinh x$ (🔗 11B Example 14)
+$$\frac{dy}{dx} = \sinh\sqrt{x}\cdot\frac{d}{dx}\sqrt{x} = \frac{\sinh\sqrt{x}}{2\sqrt{x}}.$$
 
-11B derived the sum formulas from $e^{i(A+B)} = e^{iA}e^{iB}$. Do the same with $e^{x+y} = e^x e^y$:
+**More from Exercises 35–46**:
 
-$$e^{x+y} = (\cosh x + \sinh x)(\cosh y + \sinh y) = \underbrace{(\cosh x\cosh y + \sinh x\sinh y)}_{\text{even part}} + \underbrace{(\sinh x\cosh y + \cosh x\sinh y)}_{\text{odd part}}.$$
+$$\frac{d}{dx}\cosh 3x = 3\sinh 3x, \qquad \frac{d}{dx}\sinh(x^2) = 2x\cosh(x^2), \qquad \frac{d}{dx}\sinh^2 x = 2\sinh x\cosh x = \sinh 2x.$$
 
-Matching even and odd parts:
+$$\frac{d}{dx}\tanh\sqrt{x} = \frac{\operatorname{sech}^2\sqrt{x}}{2\sqrt{x}}, \qquad \frac{d}{dx}\operatorname{sech}(\tanh x) = -\operatorname{sech}(\tanh x)\,\tanh(\tanh x)\,\operatorname{sech}^2 x.$$
 
-$$\sinh(x+y) = \sinh x\cosh y + \cosh x\sinh y \qquad \text{— same as } \sin(A+B).$$
-$$\cosh(x+y) = \cosh x\cosh y + \sinh x\sinh y \qquad \text{— note the } \mathbf{+} \text{ (trig uses } - \text{).}$$
+**Compare with trig**: $\frac{d}{dx}\cos x = -\sin x$ carries a minus; $\frac{d}{dx}\cosh x = \sinh x$ does not. The hyperbola's sign change removes the minus from the circular pair — that is the payoff of the hyperbolic construction.
 
-**Difference versions**: replace $y$ with $-y$ (using parity): $\sinh(x-y) = \sinh x\cosh y - \cosh x\sinh y$; $\cosh(x-y) = \cosh x\cosh y - \sinh x\sinh y$.
-
-> **Geometric insight**: Only $\sinh$ "remembers" its oddness in the cross terms. $\cosh$ is even, so its formula must be symmetric in $x, y$ — forcing the plus sign.
+> **Geometric insight**: These six formulas are the "native" answers to the hyperbolic integrals $\int \cosh x\,dx = \sinh x + C$ and $\int \operatorname{sech}^2 x\,dx = \tanh x + C$, which 16A meets again through trig substitution.
 
 ---
 
-## Example 6: Osborne's Rule — Trig to Hyperbolic in One Step
+## Example 6: Inverse Hyperbolic Functions — Logarithmic Forms (§3.11 Ex 3, Formulas 3–5)
 
-**Osborne's rule**: Take any identity from 11B. Replace $\sin \to \sinh$, $\cos \to \cosh$, $\tan \to \tanh$ (and reciprocals accordingly). Then **flip the sign of every term that is a product of two sines**.
+$\sinh$ and $\tanh$ are one-to-one (Figures 1 and 3); $\cosh$ is not, so Stewart restricts its domain to $[0,\infty)$ (Figure 2) before inverting. This gives **Formulas 2**:
 
-**Why it works**: from Euler's formula, $\cos(ix) = \cosh x$ and $\sin(ix) = i\sinh x$. Substituting $\theta = ix$ into a trig identity, each $\sin$ contributes an $i$ — so a term containing a product of two sines picks up $i^2 = -1$.
+$$y = \sinh^{-1} x \iff \sinh y = x, \quad y = \cosh^{-1} x \iff \cosh y = x \text{ and } y \ge 0, \quad y = \tanh^{-1} x \iff \tanh y = x.$$
 
-**Examples:**
-- $\sin(A+B) = \sin A\cos B + \cos A\sin B$ — each term has one sine → no flip → $\sinh(A+B) = \sinh A\cosh B + \cosh A\sinh B$. ✓
-- $\cos 2\theta = \cos^2\theta - \sin^2\theta$ — the $-\sin^2$ term is a product of two sines → flip → $\cosh 2x = \cosh^2 x + \sinh^2 x$. ✓
-- $1 + \tan^2\theta = \sec^2\theta$ — $\tan^2\theta$ hides a product of two sines ($\sin^2\theta/\cos^2\theta$) → flip → $1 - \tanh^2 x = \operatorname{sech}^2 x$. ✓
+**Stewart's Example 3** derives the logarithmic form of $\sinh^{-1}$. Let $y = \sinh^{-1} x$, so $x = \sinh y = \frac{e^y - e^{-y}}{2}$. Multiply by $2e^y$:
 
-> **Geometric insight**: The rule is a shortcut for the $i$'s. Every time a trig identity "uses" a pair of sines, the hyperbola's minus sign flips it.
+$$e^{2y} - 2x\,e^y - 1 = 0.$$
 
----
+This is a quadratic in $e^y$, so $e^y = x \pm \sqrt{x^2+1}$. Since $e^y > 0$ while $x - \sqrt{x^2+1} < 0$, the minus sign is inadmissible, and
 
-## Example 7: Inverse Hyperbolic Functions — Logarithmic Forms (🔗 11A)
+$$\sinh^{-1} x = \ln\left(x + \sqrt{x^2+1}\right), \qquad x \in \mathbb{R}.$$
 
-Just as $\arcsin$ asks "what angle gives this sine?", $\operatorname{arsinh}$ asks "what input $x$ gives this hyperbolic value?"
+The same trick gives **Formulas 4 and 5** (Exercises 30–31):
 
-**Derive $\operatorname{arsinh}$**: solve $y = \sinh x = \frac{e^x - e^{-x}}{2}$ for $x$:
-
-$2y = e^x - e^{-x}$ → multiply by $e^x$: $e^{2x} - 2y e^x - 1 = 0$ → $e^x = y \pm \sqrt{y^2 + 1}$.
-
-Since $e^x > 0$ and $y - \sqrt{y^2+1} < 0$, take the $+$: $x = \ln\left(y + \sqrt{y^2+1}\right)$.
-
-$$\operatorname{arsinh} x = \ln\left(x + \sqrt{x^2+1}\right), \qquad \text{domain } \mathbb{R}.$$
-
-**The other two** (same trick):
-$$\operatorname{arcosh} x = \ln\left(x + \sqrt{x^2-1}\right), \qquad \text{domain } x \ge 1 \text{ (principal: } x \ge 0 \text{ branch)}.$$
-$$\operatorname{artanh} x = \frac{1}{2}\ln\left(\frac{1+x}{1-x}\right), \qquad \text{domain } |x| < 1.$$
+$$\cosh^{-1} x = \ln\left(x + \sqrt{x^2-1}\right), \quad x \ge 1; \qquad \tanh^{-1} x = \frac{1}{2}\ln\left(\frac{1+x}{1-x}\right), \quad -1 < x < 1.$$
 
 ![Inverse hyperbolic functions — logarithmic graphs]({{graph:11c-4-inverse}})
 
-*Graph 11C-4: $\operatorname{arsinh} x$ (all reals), $\operatorname{arcosh} x$ (only $x\ge1$, two branches), $\operatorname{artanh} x$ (only $|x|<1$, blows up at $\pm1$).*
+*Graph 11C-4: $\operatorname{arsinh} x$ (all reals), $\operatorname{arcosh} x$ (only $x\ge1$), $\operatorname{artanh} x$ (only $|x|<1$, blows up at $\pm1$).*
 
-> **Geometric insight**: Unlike $\arcsin$/$\arccos$ (which are bounded because $\sin$/$\cos$ are bounded), $\operatorname{arsinh}$ is defined everywhere — because $\sinh$ grows without bound. Domain problems only appear where the original function is bounded ($\cosh \ge 1$, $|\tanh| < 1$).
-
----
-
-## Part C: Calculus and Applications Preview (🔗 14A, 16A)
+> **Geometric insight**: Unlike $\arcsin$ and $\arccos$ (bounded because $\sin$ and $\cos$ are bounded), $\operatorname{arsinh}$ is defined everywhere — because $\sinh$ grows without bound. Domain restrictions appear only where the original function is bounded: $\cosh \ge 1$ and $|\tanh| < 1$.
 
 ---
 
-## Example 8: Derivatives — No Sign Changes
+## Example 7: Derivatives of the Inverse Hyperbolic Functions (§3.11 Table 6, Ex 4, Ex 5)
 
-From the definitions, using 14A's rules:
+Stewart collects the results in **Table 6**:
 
-$$\frac{d}{dx}\sinh x = \cosh x, \qquad \frac{d}{dx}\cosh x = \sinh x, \qquad \frac{d}{dx}\tanh x = \operatorname{sech}^2 x.$$
+$$\frac{d}{dx}\sinh^{-1} x = \frac{1}{\sqrt{1+x^2}}, \qquad \frac{d}{dx}\cosh^{-1} x = \frac{1}{\sqrt{x^2-1}}, \qquad \frac{d}{dx}\tanh^{-1} x = \frac{1}{1-x^2},$$
 
-**Compare with trig**: $\frac{d}{dx}\cos x = -\sin x$ has a minus sign; $\frac{d}{dx}\cosh x = \sinh x$ does **not**. The hyperbola's sign change removes the annoying minus from calculus — this is the payoff of the hyperbolic construction.
+$$\frac{d}{dx}\operatorname{csch}^{-1} x = -\frac{1}{|x|\sqrt{x^2+1}}, \qquad \frac{d}{dx}\operatorname{sech}^{-1} x = -\frac{1}{x\sqrt{1-x^2}}, \qquad \frac{d}{dx}\coth^{-1} x = \frac{1}{1-x^2}.$$
 
-**Reciprocals** (by the quotient rule):
-$$\frac{d}{dx}\operatorname{csch} x = -\operatorname{csch} x\,\coth x, \quad \frac{d}{dx}\operatorname{sech} x = -\operatorname{sech} x\,\tanh x, \quad \frac{d}{dx}\coth x = -\operatorname{csch}^2 x.$$
+**Stewart's Example 4** proves the first formula. Let $y = \sinh^{-1} x$, so $\sinh y = x$. Differentiate implicitly:
 
-**Inverse derivatives** (via $\frac{dy}{dx} = 1\big/\frac{dx}{dy}$):
-$$\frac{d}{dx}\operatorname{arsinh} x = \frac{1}{\sqrt{x^2+1}}, \qquad \frac{d}{dx}\operatorname{arcosh} x = \frac{1}{\sqrt{x^2-1}}, \qquad \frac{d}{dx}\operatorname{artanh} x = \frac{1}{1-x^2}.$$
+$$\cosh y\,\frac{dy}{dx} = 1 \quad\Rightarrow\quad \frac{dy}{dx} = \frac{1}{\cosh y} = \frac{1}{\sqrt{1+\sinh^2 y}} = \frac{1}{\sqrt{1+x^2}},$$
 
-> **Geometric insight**: These three inverse-derivative formulas are the "native" answers to $\int \frac{dx}{\sqrt{x^2+1}}$, $\int \frac{dx}{\sqrt{x^2-1}}$, $\int \frac{dx}{1-x^2}$ — integrals that 16A's trig substitution handles with $\tan$, $\sec$, $\sin$. The hyperbolic functions make the answers immediate.
+using $\cosh^2 y - \sinh^2 y = 1$ and $\cosh y \ge 0$.
 
----
+**Stewart's Example 5** combines Table 6 with the Chain Rule:
 
-## Example 9: Integrals — The Bridge to Trig Substitution (🔗 16A)
+$$\frac{d}{dx}\left[\tanh^{-1}(\sin x)\right] = \frac{1}{1-\sin^2 x}\cdot\cos x = \frac{\cos x}{\cos^2 x} = \sec x.$$
 
-$$\int \sinh x\,dx = \cosh x + C, \qquad \int \cosh x\,dx = \sinh x + C, \qquad \int \operatorname{sech}^2 x\,dx = \tanh x + C.$$
+**More from Exercises 47–53**:
 
-And the famous ones (reverse of the inverse derivatives):
-$$\int \frac{dx}{\sqrt{x^2+1}} = \operatorname{arsinh} x + C, \qquad \int \frac{dx}{\sqrt{x^2-1}} = \operatorname{arcosh} x + C, \qquad \int \frac{dx}{1-x^2} = \operatorname{artanh} x + C.$$
+$$\frac{d}{dx}\sinh^{-1}(-2x) = \frac{-2}{\sqrt{1+4x^2}}, \qquad \frac{d}{dx}\tanh^{-1}(x^3) = \frac{3x^2}{1-x^6}.$$
 
-**Example**: $\displaystyle \int_0^1 \frac{dx}{\sqrt{x^2+1}} = \operatorname{arsinh} 1 - \operatorname{arsinh} 0 = \ln(1+\sqrt{2}) \approx 0.8814$.
-
-> **Geometric insight**: In 16A you will meet these as "trig substitution" integrals. Knowing the hyperbolic route gives you two tools for the same job — choose whichever makes the algebra cleaner.
+> **Geometric insight**: These three derivative formulas are the native answers to $\int \frac{dx}{\sqrt{1+x^2}}$, $\int \frac{dx}{\sqrt{x^2-1}}$, and $\int \frac{dx}{1-x^2}$ — the integrals 16A handles by trig substitution. The hyperbolic route makes the answers immediate.
 
 ---
 
-## Example 10: Applications — Catenary and the Sigmoid
+## Example 8: Applications — Catenary, Waves, and Terminal Velocity (§3.11 Figures 4–5, Ex 56–62)
 
-**Catenary (hanging cable)**: a chain hanging under its own weight does not form a parabola — it forms $y = a\cosh\left(\frac{x}{a}\right)$. Near the bottom it looks parabolic (why? $\cosh x \approx 1 + \frac{x^2}{2}$), but it turns upward far faster.
+**Catenary (Figure 4, Exercises 58–61).** A heavy flexible cable hanging between two points at the same height takes the shape $y = c + a\cosh(x/a)$, called a **catenary** (Latin *catena*, "chain"). Exercise 60 verifies that $y = \frac{T}{\rho g}\cosh\left(\frac{\rho g x}{T}\right)$ satisfies the hanging-cable equation
+
+$$\frac{d^2 y}{dx^2} = \frac{\rho g}{T}\sqrt{1 + \left(\frac{dy}{dx}\right)^2}.$$
+
+Exercise 59's telephone line $y = 20\cosh(x/20) - 15$ has slope $\sinh(x/20)$; at the right-hand pole, $x = 7$, the slope is $\sinh(0.35) \approx 0.357$.
 
 ![Catenary — the hanging-cable curve]({{graph:11c-5-catenary}})
 
-*Graph 11C-5: The catenary $y = 3\cosh(x/3)$ with its minimum at $(0,3)$. Compare with a parabola that matches it near the bottom — the catenary rises faster away from the center.*
+*Graph 11C-5: The catenary $y = 3\cosh(x/3)$ with its minimum at $(0,3)$, compared with a parabola that matches it near the bottom — the catenary rises faster away from the center.*
 
-**Sigmoid (machine learning)**: $y = \tanh x$ has range $(-1,1)$, is increasing, and satisfies
-$$y' = 1 - y^2, \qquad y(0) = 0.$$
-This is the logistic differential equation (🔗 19) — it models population growth with a carrying capacity of $1$, and $\tanh$ is one of the standard activation functions in neural networks.
+**Water waves (Figure 5, Exercise 57).** A wave of length $L$ over water of depth $d$ moves at
 
-> **Geometric insight**: "Where do hyperbolic functions appear in the real world?" — anywhere a quantity saturates (tanh), anything hanging under gravity (cosh), and anything built from two opposing exponentials (sinh: relativistic velocity addition, etc.).
+$$v = \sqrt{\frac{gL}{2\pi}\tanh\left(\frac{2\pi d}{L}\right)}.$$
+
+In deep water $d/L \to \infty$ and $\tanh \to 1$, so $v \approx \sqrt{gL/(2\pi)}$ — the depth drops out.
+
+**Gateway Arch (Exercise 56).** The central curve is $y = 211.49 - 20.96\cosh(0.03291765\,x)$, $|x| \le 91.20$; at the center $x=0$ the height is $211.49 - 20.96 \approx 190.5$ m.
+
+**Falling object (Exercise 62).** A falling object's velocity is modeled by $v(t) = \sqrt{\frac{mg}{k}}\tanh\left(t\sqrt{\frac{gk}{m}}\right)$. As $t\to\infty$, $\tanh \to 1$, so the terminal velocity is $\sqrt{mg/k}$.
+
+> **Geometric insight**: "Where do hyperbolic functions appear?" — anything hanging under gravity (cosh), anything that saturates (tanh), and any quantity built from two opposing exponentials (sinh).
 
 ---
 
@@ -224,23 +257,23 @@ This is the logistic differential equation (🔗 19) — it models population gr
 
 ### Mistake 1: $\cosh^2 x + \sinh^2 x = 1$
 
-**Wrong.** The identity is $\cosh^2 x - \sinh^2 x = 1$. There is no "hyperbolic unit circle" — the points $(\cosh x, \sinh x)$ lie on the **hyperbola** $x^2 - y^2 = 1$.
+**Wrong.** Stewart's Example 1(a) gives $\cosh^2 x - \sinh^2 x = 1$. There is no "hyperbolic unit circle" — the points $(\cosh x, \sinh x)$ lie on the **hyperbola** $x^2 - y^2 = 1$.
 
 ### Mistake 2: $\cosh(x+y)$ with a minus sign
 
-$\cosh(x+y) = \cosh x\cosh y + \sinh x\sinh y$ — the sign is **plus**, unlike $\cos(A+B) = \cos A\cos B - \sin A\sin B$. Only $\cosh(x-y)$ has the minus.
+Exercise 16 gives $\cosh(x+y) = \cosh x\cosh y + \sinh x\sinh y$ — the sign is **plus**, unlike $\cos(A+B) = \cos A\cos B - \sin A\sin B$. Only $\cosh(x-y)$ has the minus.
 
 ### Mistake 3: Forgetting $\cosh x \ge 1$
 
-$\cosh$ never goes below $1$. So $\cosh x = 0$ or $\cosh x = \frac12$ have **no solutions**, while $\sinh x$ can equal anything.
+$\cosh$ never goes below $1$ (Figure 2). So $\cosh x = 0$ and $\cosh x = \frac12$ have **no solutions**, while $\sinh x$ can equal anything.
 
-### Mistake 4: Misapplying Osborne's rule
+### Mistake 4: Forgetting the domains of the inverses
 
-Only **products of two sines** flip sign. $\sin(A+B) = \sin A\cos B + \cos A\sin B$ has single sines — no flip. But $\sin^2\theta$ or $\tan^2\theta$ (which hides a product of two sines) flip.
+Formula 4 needs $x \ge 1$; Formula 5 needs $|x| < 1$. $\sinh^{-1}$ is the only one defined on all of $\mathbb{R}$ (Figures 8–10).
 
-### Mistake 5: Forgetting the domains of inverse hyperbolics
+### Mistake 5: Sign slips in the derivative tables
 
-$\operatorname{arcosh}$ needs $x \ge 1$; $\operatorname{artanh}$ needs $|x| < 1$. $\operatorname{arsinh}$ is the only one defined on all of $\mathbb{R}$.
+In Table 1 only $\sinh$ and $\cosh$ avoid a minus sign; the other four derivatives each carry one. In Table 6, $\coth^{-1}$ shares the formula $\frac{1}{1-x^2}$ with $\tanh^{-1}$.
 
 ---
 
@@ -248,43 +281,71 @@ $\operatorname{arcosh}$ needs $x \ge 1$; $\operatorname{artanh}$ needs $|x| < 1$
 
 ```
 (1) Hyperbolic = trig of the hyperbola x²−y²=1. (cosh t, sinh t) parametrize it just as
-    (cos θ, sin θ) parametrize the circle. t = hyperbolic angle = 2 × sector area.
-(2) Built from e^x (10A): cosh x = (e^x+e^−x)/2, sinh x = (e^x−e^−x)/2.
-    e^x = cosh x + sinh x — the no-i twin of Euler's formula (11B).
-(3) Core identity: cosh²x − sinh²x = 1. cosh is even and cosh x ≥ 1; sinh/tanh are odd.
-(4) Addition formulas from e^{x+y} = e^x e^y:
-    sinh(x+y) = sinh x cosh y + cosh x sinh y  (same as trig)
-    cosh(x+y) = cosh x cosh y + sinh x sinh y  (PLUS — the only change from trig)
-(5) Osborne's rule: trig → hyperbolic by sin→sinh, and flip signs on products of two sines.
-(6) Inverses: arsinh x = ln(x+√(x²+1)); arcosh x = ln(x+√(x²−1)) for x≥1;
-    artanh x = ½ ln((1+x)/(1−x)) for |x|<1.
-(7) Calculus (14A/16A): d/dx sinh = cosh, d/dx cosh = sinh, d/dx tanh = sech² — no sign flips.
-    ∫ dx/√(x²+1), ∫ dx/√(x²−1), ∫ dx/(1−x²) come out clean via inverse hyperbolics.
-(8) Applications: catenary y = a cosh(x/a); tanh = sigmoid, solves y' = 1−y² (logistic, 19).
+    (cos t, sin t) parametrize the circle. t = hyperbolic angle = 2 × sector area. (§3.11 Figs 6–7)
+(2) Built from e^x: cosh x = (e^x+e^−x)/2, sinh x = (e^x−e^−x)/2. e^x = cosh x + sinh x. (§3.11 Ex 1–10)
+(3) Core identity cosh²x − sinh²x = 1; its family, and the addition formulas for
+    sinh(x+y), cosh(x+y), tanh(x+y). (§3.11 Ex 1, 15–20)
+(4) Graphs and limits: cosh even ≥ 1, sinh/tanh odd, tanh → ±1. (§3.11 Figs 1–3, Ex 26–27)
+(5) Derivatives (Table 1): sinh→cosh, cosh→sinh, tanh→sech²; the rest pick up minus signs. (§3.11 Ex 2, 28)
+(6) Inverses (Formulas 3–5): arsinh x = ln(x+√(x²+1)); arcosh x = ln(x+√(x²−1)) for x≥1;
+    artanh x = ½ln((1+x)/(1−x)) for |x|<1. (§3.11 Ex 3, 29–31)
+(7) Inverse derivatives (Table 6): 1/√(1+x²), 1/√(x²−1), 1/(1−x²). (§3.11 Ex 4–5, 33–34)
+(8) Applications: catenary y = a cosh(x/a); water-wave speed; Gateway Arch; terminal velocity. (§3.11 Ex 56–62)
 ```
+
+---
+
 ## Basic Drills
 
-> Pure fluency. Instant recall of definitions and values.
+> Pure fluency: definitions, values, identities, and the derivative tables. One clean move per item.
 
-**D1.** $\cosh 0$, $\sinh 0$, $\tanh 0$ — what are they?
+**D1.** (§3.11 #1) Find $\sinh 0$ and $\cosh 0$.
 
-**D2.** Compute $\cosh(\ln 2)$ and $\sinh(\ln 2)$ exactly.
+**D2.** (§3.11 #2) Find $\tanh 0$ and $\tanh 1$ (give $\tanh 1$ to three decimals).
 
-**D3.** $\cosh^2 x - \sinh^2 x = ?$ (always)
+**D3.** (§3.11 #3) Find $\cosh(\ln 5)$ exactly.
 
-**D4.** Write $e^x$ and $e^{-x}$ in terms of $\cosh x$ and $\sinh x$.
+**D4.** (§3.11 #4) Find $\sinh(\ln 4)$ exactly.
 
-**D5.** True or false: $\cosh x \ge 1$ for all real $x$.
+**D5.** (§3.11 #5) Find $\operatorname{sech} 0$ and $\cosh^{-1} 1$.
 
-**D6.** Compute $\sinh(2\ln 2)$ exactly (double-angle or definition).
+**D6.** (§3.11 #6) Find $\sinh 1$ (three decimals) and $\sinh^{-1} 1$.
 
-**D7.** $\displaystyle \lim_{x\to\infty}\tanh x = ?$ And as $x \to -\infty$?
+**D7.** (§3.11 #7) Write $8\sinh x + 5\cosh x$ in terms of $e^x$ and $e^{-x}$.
 
-**D8.** Simplify $\operatorname{sech}^2 x + \tanh^2 x$.
+**D8.** (§3.11 #8) Write $2e^{2x} + 3e^{-2x}$ in terms of $\sinh 2x$ and $\cosh 2x$.
 
-**D9.** $\operatorname{arsinh} 0 = ?$ and $\operatorname{artanh} 0 = ?$
+**D9.** (§3.11 #9) Write $\sinh(\ln x)$ as a rational function of $x$.
 
-**D10.** $\frac{d}{dx}\sinh x$ and $\frac{d}{dx}\cosh x$.
+**D10.** (§3.11 #10) Write $\cosh(4\ln x)$ as a rational function of $x$.
+
+**D11.** (§3.11 #11–12) Prove $\sinh(-x) = -\sinh x$ and $\cosh(-x) = \cosh x$.
+
+**D12.** (§3.11 #13–14) Show $\cosh x + \sinh x = e^x$ and $\cosh x - \sinh x = e^{-x}$.
+
+**D13.** (§3.11 #17) Prove $\coth^2 x - 1 = \operatorname{csch}^2 x$.
+
+**D14.** (§3.11 #19–20) Prove $\sinh 2x = 2\sinh x\cosh x$ and $\cosh 2x = \cosh^2 x + \sinh^2 x$.
+
+**D15.** (§3.11 #21) Show $\tanh(\ln x) = \dfrac{x^2-1}{x^2+1}$.
+
+**D16.** (§3.11 #24) If $\tanh x = \frac{12}{13}$, find the other five hyperbolic functions at $x$.
+
+**D17.** (§3.11 #25) If $\cosh x = \frac53$ and $x > 0$, find the other five hyperbolic functions at $x$.
+
+**D18.** (§3.11 #27) Evaluate $\displaystyle\lim_{x\to\infty}\tanh x$ and $\displaystyle\lim_{x\to-\infty}\tanh x$.
+
+**D19.** (§3.11 #35) Differentiate $f(x) = \cosh 3x$.
+
+**D20.** (§3.11 #37) Differentiate $h(x) = \sinh(x^2)$.
+
+**D21.** (§3.11 #41) Differentiate $f(x) = \tanh\sqrt{x}$.
+
+**D22.** (§3.11 #47) Differentiate $f(x) = \sinh^{-1}(-2x)$.
+
+**D23.** (§3.11 #48) Differentiate $g(x) = \tanh^{-1}(x^3)$.
+
+**D24.** (§3.11 #65) At what point of $y = \cosh x$ does the tangent have slope $1$?
 
 > Solutions: [Solutions](solutions/11C-solutions.md#basic-drill)
 
@@ -292,95 +353,66 @@ $\operatorname{arcosh}$ needs $x \ge 1$; $\operatorname{artanh}$ needs $|x| < 1$
 
 ## Advanced Drills
 
-> Chains 2–3 techniques. Covers identities, equations, inverses, and the calculus preview.
+> Chains two or three moves. Covers the identity proofs, the inverse formulas, and the applications.
 
-**A1.** Prove $\cosh(x+y) = \cosh x\cosh y + \sinh x\sinh y$ directly from the $e^x$ definitions.
+**A1.** (§3.11 #15) Prove $\sinh(x+y) = \sinh x\cosh y + \cosh x\sinh y$ from the $e^x$ definitions.
+
+**A2.** (§3.11 #16) Prove $\cosh(x+y) = \cosh x\cosh y + \sinh x\sinh y$ from the $e^x$ definitions.
+
+**A3.** (§3.11 #18) Derive $\tanh(x+y) = \dfrac{\tanh x + \tanh y}{1 + \tanh x\,\tanh y}$.
+
+**A4.** (§3.11 #22) Prove $\dfrac{1+\tanh x}{1-\tanh x} = e^{2x}$.
+
+**A5.** (§3.11 #23) Prove $(\cosh x + \sinh x)^n = \cosh nx + \sinh nx$ for any real number $n$.
 
 <details>
 <summary>💡 Hint</summary>
 
-Multiply out $\frac{(e^x+e^{-x})(e^y+e^{-y}) + (e^x-e^{-x})(e^y-e^{-y})}{4}$ and collect the four $e$-terms.
+Write $\cosh x + \sinh x = e^x$ and raise both sides to the $n$-th power.
 
 </details>
 
-**A2.** Derive $\tanh(x+y) = \frac{\tanh x + \tanh y}{1 + \tanh x\,\tanh y}$ using Osborne's rule or the $\sinh$/$\cosh$ addition formulas.
+**A6.** (§3.11 #28) Prove the Table 1 formula for $\operatorname{sech}$: $\dfrac{d}{dx}\operatorname{sech} x = -\operatorname{sech} x\tanh x$.
+
+**A7.** (§3.11 #29) Give an alternative solution to Example 3: set $y = \sinh^{-1} x$, then use $\cosh^2 y - \sinh^2 y = 1$ to reach the logarithmic form.
+
+**A8.** (§3.11 #30) Prove Formula 4: $\cosh^{-1} x = \ln\left(x + \sqrt{x^2-1}\right)$, $x \ge 1$.
+
+**A9.** (§3.11 #31) Prove Formula 5, $\tanh^{-1} x = \frac12\ln\left(\frac{1+x}{1-x}\right)$, by (a) the method of Example 3 and (b) the addition formula for $\tanh$.
+
+**A10.** (§3.11 #33) Prove the Table 6 formula for $\cosh^{-1}$: $\dfrac{d}{dx}\cosh^{-1} x = \dfrac{1}{\sqrt{x^2-1}}$.
+
+**A11.** (§3.11 #54) Show $\dfrac{d}{dx}\sqrt[4]{\dfrac{1+\tanh x}{1-\tanh x}} = \dfrac{1}{2}e^{x/2}$.
+
+**A12.** (§3.11 #55) Show $\dfrac{d}{dx}\arctan(\tanh x) = \operatorname{sech} 2x$.
+
+**A13.** (§3.11 #56) The Gateway Arch is $y = 211.49 - 20.96\cosh(0.03291765\,x)$, $|x| \le 91.20$. (a) Find the height at the center. (b) Find the points where the height is 100 m. (c) Find the slope there.
+
+**A14.** (§3.11 #57) For the water-wave speed $v = \sqrt{\dfrac{gL}{2\pi}\tanh\left(\dfrac{2\pi d}{L}\right)}$, explain why $v \approx \sqrt{\dfrac{gL}{2\pi}}$ in deep water.
+
+**A15.** (§3.11 #59) The telephone line $y = 20\cosh(x/20) - 15$ meets the right-hand pole at $x = 7$. (a) Find the slope there. (b) Find the angle between the line and the pole.
+
+**A16.** (§3.11 #60) Verify that $y = \dfrac{T}{\rho g}\cosh\left(\dfrac{\rho g x}{T}\right)$ solves $\dfrac{d^2 y}{dx^2} = \dfrac{\rho g}{T}\sqrt{1+\left(\dfrac{dy}{dx}\right)^2}$.
 
 <details>
 <summary>💡 Hint</summary>
 
-Divide $\sinh(x+y)$ by $\cosh(x+y)$ and divide top and bottom by $\cosh x\cosh y$.
+Compute $y' = \sinh\left(\frac{\rho g x}{T}\right)$, then $y'' = \frac{\rho g}{T}\cosh\left(\frac{\rho g x}{T}\right)$. Compare $1+(y')^2 = \cosh^2\left(\frac{\rho g x}{T}\right)$.
 
 </details>
 
-**A3.** Solve $\cosh x = 2$ for all real $x$. Give exact $\ln$ forms. What is the minimum value of $\cosh x$?
+**A17.** (§3.11 #62) A falling object has velocity $v(t) = \sqrt{\dfrac{mg}{k}}\tanh\left(t\sqrt{\dfrac{gk}{m}}\right)$. (a) Find the terminal velocity. (b) For a 60-kg person, compute it for $k = 0.515$ (belly-to-earth) and $k = 0.067$ (feet-first).
+
+**A18.** (§3.11 #63) (a) Show that $y = A\sinh mx + B\cosh mx$ satisfies $y'' = m^2 y$. (b) Find $y$ with $y'' = 9y$, $y(0) = -4$, and $y'(0) = 6$.
+
+**A19.** (§3.11 #64) If $x = \ln(\sec\theta + \tan\theta)$, show $\sec\theta = \cosh x$.
+
+**A20.** (§3.11 #67) Show that if $a \ne 0$ and $b \ne 0$, then $a e^x + b e^{-x}$ equals either $\alpha\sinh(x+\beta)$ or $\alpha\cosh(x+\beta)$.
 
 <details>
 <summary>💡 Hint</summary>
 
-$\operatorname{arcosh} 2 = \ln(2 + \sqrt{3})$. Since $\cosh$ is even, both $x$ and $-x$ work.
-
-</details>
-
-**A4.** Show $\sinh(3x) = 3\sinh x + 4\sinh^3 x$. Compare with $\sin 3\theta = 3\sin\theta - 4\sin^3\theta$ — which sign changed and why?
-
-<details>
-<summary>💡 Hint</summary>
-
-Start from $\sinh(3x) = \sinh(2x+x)$ and use both addition and double-angle formulas. Compare the two signs: Osborne's rule says a product of three sines is odd.
-
-</details>
-
-**A5.** Derive $\operatorname{arsinh} x = \ln\left(x + \sqrt{x^2+1}\right)$ by solving $y = \sinh x$ for $x$.
-
-<details>
-<summary>💡 Hint</summary>
-
-$2y = e^x - e^{-x}$; multiply by $e^x$ to get a quadratic in $e^x$. Discard the negative root since $e^x > 0$.
-
-</details>
-
-**A6.** Sketch $y = \tanh x$ and $y = \coth x$ on the same axes. Label all horizontal and vertical asymptotes, and the $y$-intercept.
-
-<details>
-<summary>💡 Hint</summary>
-
-$\tanh$: between $y=\pm1$, passes through the origin. $\coth = 1/\tanh$: blows up at $x=0$, approaches $\pm1$ at the ends — note the gap between $-1$ and $1$.
-
-</details>
-
-**A7.** Differentiate $\operatorname{arsinh} x$ using the chain rule (14A) and show the result is $\frac{1}{\sqrt{x^2+1}}$.
-
-<details>
-<summary>💡 Hint</summary>
-
-$\frac{d}{dx}\ln(x+\sqrt{x^2+1}) = \frac{1 + x/\sqrt{x^2+1}}{x+\sqrt{x^2+1}}$. Combine the numerator over one fraction and cancel.
-
-</details>
-
-**A8.** A cable hangs as $y = a\cosh\left(\frac{x}{a}\right)$. (a) What is the lowest point? (b) What is the height at $x = a$? (c) What is the slope at $x = a$?
-
-<details>
-<summary>💡 Hint</summary>
-
-Lowest point at $x=0$: $y = a\cosh 0 = a$. Height at $x=a$: $a\cosh 1$. Slope: $y' = \sinh(x/a)$.
-
-</details>
-
-**A9.** Evaluate $\displaystyle \int_0^1 \frac{dx}{\sqrt{x^2+1}}$ exactly.
-
-<details>
-<summary>💡 Hint</summary>
-
-$\int \frac{dx}{\sqrt{x^2+1}} = \operatorname{arsinh} x$; then $\operatorname{arsinh} 1 = \ln(1+\sqrt2)$.
-
-</details>
-
-**A10.** Prove $\cosh(2x) = 1 + 2\sinh^2 x$ and use it to find all real $x$ with $\cosh(2x) = 2$. Give exact answers.
-
-<details>
-<summary>💡 Hint</summary>
-
-$\cosh 2x = 2\cosh^2x - 1 = 1 + 2\sinh^2x$. Setting this equal to $2$ gives $\sinh x = \pm\frac{1}{\sqrt2}$, so $x = \pm\operatorname{arsinh}\frac{1}{\sqrt2}$.
+Write $a e^x + b e^{-x} = \frac{a+b}{2}(e^x + e^{-x}) + \frac{a-b}{2}(e^x - e^{-x}) = (a+b)\cosh x + (a-b)\sinh x$, then combine the two into one shifted function.
 
 </details>
 
@@ -391,12 +423,12 @@ $\cosh 2x = 2\cosh^2x - 1 = 1 + 2\sinh^2x$. Setting this equal to $2$ gives $\si
 ## Today's Procedure
 
 ```
-Step 1: Definitions — cosh x = (e^x+e^−x)/2, sinh x = (e^x−e^−x)/2. tanh = sinh/cosh.
-         e^x = cosh x + sinh x. cosh even, ≥1; sinh/tanh odd.
+Step 1: Definitions — cosh x = (e^x+e^−x)/2, sinh x = (e^x−e^−x)/2, tanh = sinh/cosh. (§3.11)
+         e^x = cosh x + sinh x. cosh even and ≥ 1; sinh/tanh odd.
 
 Step 2: Identities — cosh²x − sinh²x = 1. Addition: sinh(x±y), cosh(x±y) (the + sign!).
-         Double/half angle. For ANY 11B identity, apply Osborne's rule:
-         sin→sinh and flip the sign of products of two sines.
+         Double angle. For any 11B identity, apply Osborne's rule: sin→sinh, and flip
+         the sign of every product of two sines.
 
 Step 3: Inverses — arsinh x = ln(x+√(x²+1)) (all x). arcosh x = ln(x+√(x²−1)) (x≥1).
          artanh x = ½ln((1+x)/(1−x)) (|x|<1). To solve, use the log forms.
@@ -404,7 +436,7 @@ Step 3: Inverses — arsinh x = ln(x+√(x²+1)) (all x). arcosh x = ln(x+√(x�
 Step 4: Calculus (14A/16A) — d/dx sinh = cosh, cosh = sinh, tanh = sech² (no minus signs!).
          ∫ dx/√(x²+1) = arsinh, ∫ dx/√(x²−1) = arcosh, ∫ dx/(1−x²) = artanh.
 
-Step 5: Recognize — catenary: y = a cosh(x/a). Sigmoid/logistic: y = tanh x, y' = 1−y².
+Step 5: Recognize — catenary y = a cosh(x/a); water-wave speed; tanh saturates (→ ±1).
 ```
 
 ---
@@ -413,19 +445,18 @@ Step 5: Recognize — catenary: y = a cosh(x/a). Sigmoid/logistic: y = tanh x, y
 
 | Symbol | Reads as | Meaning |
 |:---:|:---:|------|
-| $\cosh x$ | "kosh x" / hyperbolic cosine | $\frac{e^x+e^{-x}}{2}$ — the even half of $e^x$ |
+| $\cosh x$ | "kosh x" / hyperbolic cosine | $\frac{e^x+e^{-x}}{2}$ — the even half of $e^x$ (§3.11) |
 | $\sinh x$ | "sinch x" / hyperbolic sine | $\frac{e^x-e^{-x}}{2}$ — the odd half of $e^x$ |
-| $\tanh x$ | "tanch x" | $\sinh x/\cosh x$ — range $(-1,1)$, like a smoothed step |
+| $\tanh x$ | "tanch x" | $\sinh x/\cosh x$ — range $(-1,1)$, a smoothed step |
 | $\operatorname{sech} x$ | "setch x" | $1/\cosh x$ — range $(0,1]$ |
 | $\operatorname{csch} x$ | "cosetch x" | $1/\sinh x$ |
 | $\coth x$ | "cotanch x" | $1/\tanh x$ |
-| $\operatorname{arsinh} x$ | "a r sinch x" | inverse hyperbolic sine: $\ln(x+\sqrt{x^2+1})$ |
-| $\operatorname{arcosh} x$ | "a r kosh x" | inverse hyperbolic cosine: $\ln(x+\sqrt{x^2-1})$, $x\ge1$ |
-| $\operatorname{artanh} x$ | "a r tanch x" | inverse hyperbolic tangent: $\frac12\ln\frac{1+x}{1-x}$, $\lvert x\rvert<1$ |
+| $\sinh^{-1} x$ | "inverse sinch x" | inverse hyperbolic sine: $\ln(x+\sqrt{x^2+1})$ |
+| $\cosh^{-1} x$ | "inverse kosh x" | inverse hyperbolic cosine: $\ln(x+\sqrt{x^2-1})$, $x\ge1$ |
+| $\tanh^{-1} x$ | "inverse tanch x" | inverse hyperbolic tangent: $\frac12\ln\frac{1+x}{1-x}$, $\lvert x\rvert<1$ |
 | $e^x = \cosh x + \sinh x$ | "e to the x equals kosh plus sinch" | the no-$i$ twin of Euler's formula from 11B |
-| Osborne's rule | "Osborne's rule" | trig → hyperbolic by $\sin\to\sinh$, flipping products of two sines |
-| catenary | "catenary" | hanging-cable curve $y = a\cosh(x/a)$ |
-| sigmoid | "sigmoid" | S-shaped curve; $\tanh$ is a standard one, solving $y'=1-y^2$ |
+| catenary | "catenary" | hanging-cable curve $y = a\cosh(x/a)$ (§3.11 Fig 4) |
+| $\tanh$ | "tanch" | the sigmoid — saturates toward $\pm1$ (§3.11 Ex 27) |
 
 ---
 
@@ -434,9 +465,8 @@ Step 5: Recognize — catenary: y = a cosh(x/a). Sigmoid/logistic: y = tanh x, y
 | What we call it | Math term | Notation |
 |:---:|:---:|:---:|
 | the trig of the hyperbola | hyperbolic functions | $\cosh, \sinh, \tanh, \operatorname{sech}, \operatorname{csch}, \coth$ |
-| sector parameter on the hyperbola | hyperbolic angle | $t$ in $(\cosh t, \sinh t)$ |
+| sector parameter on the hyperbola | hyperbolic angle | $t$ in $(\cosh t, \sinh t)$ (§3.11 Figs 6–7) |
 | parallel version of a trig identity | hyperbolic identity | $\cosh^2-\sinh^2=1$, addition formulas |
-| flipping trig identities into hyperbolic ones | Osborne's rule | $\sin\to\sinh$; flip products of two sines |
-| inverse of a hyperbolic function | inverse hyperbolic function | $\operatorname{arsinh}, \operatorname{arcosh}, \operatorname{artanh}$ |
-| shape of a hanging chain | catenary | $y = a\cosh(x/a)$ |
-| S-shaped activation function | sigmoid / logistic curve | $y = \tanh x$, $y' = 1-y^2$ |
+| inverse of a hyperbolic function | inverse hyperbolic function | $\sinh^{-1}, \cosh^{-1}, \tanh^{-1}$ |
+| shape of a hanging chain | catenary | $y = a\cosh(x/a)$ (§3.11 Fig 4) |
+| S-shaped saturating curve | sigmoid | $y = \tanh x$, range $(-1,1)$ |
