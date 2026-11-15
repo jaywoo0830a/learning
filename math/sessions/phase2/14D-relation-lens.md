@@ -78,6 +78,8 @@ $F(d) = 4 + 2d$. Constant slope = the relation is uniform: every km buys the sam
 
 </details>
 
+![RP1: constant slope: +2 at every kilometre]({{graph:14d-rp1}})
+
 **RP2.** A square metal plate has side $s$ cm and area $A$.
 
 - **A.** Set up $A(s)$ and compute $\frac{dA}{ds}$ at $s=5$ with units.
@@ -90,6 +92,8 @@ $F(d) = 4 + 2d$. Constant slope = the relation is uniform: every km buys the sam
 $A = s^2$, so $\frac{dA}{ds} = 2s$. The degree of relation is local: a bigger plate has more boundary to grow from.
 
 </details>
+
+![RP2: growing slope: the same +1 cm buys more area further out]({{graph:14d-rp2}})
 
 **RP3.** A car consumes 8 L of fuel per 100 km.
 
@@ -104,6 +108,8 @@ $f = 0.08d$ (L/km); $d = 12.5f$ (km/L). Reciprocals: $0.08 \times 12.5 = 1$.
 
 </details>
 
+![RP3: reciprocal relation: the duration sinks toward zero, never below]({{graph:14d-rp3}})
+
 **RP4.** A sealed gas container obeys $P = 0.4T$ (kPa vs kelvin), and its heater raises temperature as $T = 300 + 2t$ (K vs seconds).
 
 - **A.** Set up each relation and write each derivative with units — there are two degrees of relation here.
@@ -117,11 +123,15 @@ $\frac{dP}{dT} = 0.4$ kPa/K and $\frac{dT}{dt} = 2$ K/s. Composed relation: $\fr
 
 </details>
 
+![RP4: chained relations: the two local degrees multiply]({{graph:14d-rp4}})
+
 ---
 
 #### Basic RP — Straight Setups (RPB1–RPB5)
 
 > One relation, one shape. Set up the function, differentiate, read the sentence.
+>
+> The two shapes below are the whole Basic tier in one picture: a level plus a flow in the same formula (RPB1), and a relation whose degree grows with the driver (RPB2).
 
 **RPB1.** A tank starts with 50 L of water and a pump adds 12 L/min.
 
@@ -136,6 +146,8 @@ $V(t) = 50 + 12t$. A constant rate means the relation is uniform — every minut
 
 </details>
 
+![RPB1: a starting value and a constant rate in one formula]({{graph:14d-rpb1}})
+
 **RPB2.** An equilateral triangle has side $s$ cm and area $A$.
 
 - **A.** Set up $A(s) = \frac{\sqrt3}{4}s^2$.
@@ -148,6 +160,8 @@ $V(t) = 50 + 12t$. A constant rate means the relation is uniform — every minut
 $\frac{dA}{ds} = \frac{\sqrt3}{2}s$. The degree grows with $s$ — the relation is local.
 
 </details>
+
+![RPB2: equilateral triangle: the degree grows with the side]({{graph:14d-rpb2}})
 
 **RPB3.** A trip is 120 km long, driven at a constant speed $v$ km/h.
 
@@ -162,6 +176,8 @@ $t(v) = \frac{120}{v}$, so $\frac{dt}{dv} = -\frac{120}{v^2}$. At $v=60$: $-\fra
 
 </details>
 
+![RPB3: trip time against speed: 2 h at 60 km/h, shrinking]({{graph:14d-rpb3}})
+
 **RPB4.** Apples sell for \$3 per kg.
 
 - **A.** Set up cost $C(w)$ and compute $\frac{dC}{dw}$ with units.
@@ -175,6 +191,8 @@ $C = 3w$ and $w = \frac13 C$. $3 \times \frac13 = 1$.
 
 </details>
 
+![RPB4: cost against weight and the reciprocal reading]({{graph:14d-rpb4}})
+
 **RPB5.** A rock dropped from rest falls $d(t) = 4.9t^2$ meters in $t$ seconds.
 
 - **A.** Compute $\frac{dd}{dt}$ at $t=2$ with units — this degree of relation has a name: what is it?
@@ -187,6 +205,8 @@ $C = 3w$ and $w = \frac13 C$. $3 \times \frac13 = 1$.
 $\frac{dd}{dt} = 9.8t$ — velocity. At $t=2$: 19.6 m/s; at $t=5$: 49 m/s. The relation strengthens as it falls.
 
 </details>
+
+![RPB5: falling distance: each second buys more metres]({{graph:14d-rpb5}})
 
 #### Advanced RP — Chained & Inverted Setups (RPA1–RPA5)
 
@@ -206,6 +226,8 @@ $S(x) = 2x^2 + 40x$, $\frac{dS}{dx} = 4x + 40 = 60$ at $x=5$. $C = 0.02S$, so $\
 
 </details>
 
+![RPA1: surface then cost: the units chain to dollars per cm]({{graph:14d-rpa1}})
+
 **RPA2.** Demand is $q(p) = 200 - 5p$ and revenue is $R = p\cdot q$.
 
 - **A.** Set up $R(p)$ and compute $\frac{dR}{dp}$ at $p=10$ with units.
@@ -218,6 +240,8 @@ $S(x) = 2x^2 + 40x$, $\frac{dS}{dx} = 4x + 40 = 60$ at $x=5$. $C = 0.02S$, so $\
 $R = 200p - 5p^2$, $\frac{dR}{dp} = 200 - 10p$. Zero at $p=20$ — revenue stops responding to price: the peak.
 
 </details>
+
+![RPA2: cone at fixed base: a constant degree]({{graph:14d-rpa2}})
 
 **RPA3.** A heater's power is $P = \frac{V^2}{R}$ with fixed voltage $V = 120$ V.
 
@@ -232,6 +256,8 @@ $\frac{dP}{dR} = -\frac{V^2}{R^2} = -\frac{14400}{3600} = -4$ W/Ω. $P = 240$ W,
 
 </details>
 
+![RPA3: power against resistance with the voltage locked]({{graph:14d-rpa3}})
+
 **RPA4.** A farmer fences a rectangular pen against a river (the river side needs no fence) using 200 m of fence.
 
 - **A.** With width $x$ as the side perpendicular to the river, set up the area $A(x)$.
@@ -245,6 +271,8 @@ $A(x) = x(200 - 2x) = 200x - 2x^2$, so $\frac{dA}{dx} = 200 - 4x$: $120$ m²/m a
 
 </details>
 
+![RPA4: revenue peak: the degree vanishes at a place, not a moment]({{graph:14d-rpa4}})
+
 **RPA5.** A faucet drips 2 drops per second, each drop 0.05 mL.
 
 - **A.** Set up the wasted volume $V(t)$ in mL and compute $\frac{dV}{dt}$ with units.
@@ -257,6 +285,8 @@ $A(x) = x(200 - 2x) = 200x - 2x^2$, so $\frac{dA}{dx} = 200 - 4x$: $120$ m²/m a
 $\frac{dV}{dt} = 2 \times 0.05 = 0.1$ mL/s. $0.1 \times 3600 \times 24 \times 365 = 3{,}153{,}600$ mL ≈ 3,154 L/yr — degrees of relation multiply through every unit conversion.
 
 </details>
+
+![RPA5: cubic: where the degree becomes zero]({{graph:14d-rpa5}})
 
 → Solutions: [Solutions](solutions/14D-solutions.md#relationship-practice)
 
@@ -308,6 +338,8 @@ $B(10) = -300$ (in debt); $B' = 50 > 0$ always. Crosses at $t = 16$; the degree 
 
 </details>
 
+![SN1: balance below zero yet climbing]({{graph:14d-sn1}})
+
 **SN2.** Coffee cools: $T(t) = 85 - 3t$ °C after $t$ minutes.
 
 - **A.** Compute $T(10)$ — where does the number sit?
@@ -322,6 +354,8 @@ $T(10) = 55$ °C (still hot); $T' = -3 < 0$. Reaches 25 at $t = 20$; the degree 
 
 </details>
 
+![SN2: coffee still hot yet cooling]({{graph:14d-sn2}})
+
 **SN3.** $f(x) = x^3$.
 
 - **A.** Compute $f(0)$ and $f'(0)$ — both zero, or only one?
@@ -334,6 +368,8 @@ $T(10) = 55$ °C (still hot); $T' = -3 < 0$. Reaches 25 at $t = 20$; the degree 
 $f(0) = 0$ and $f'(0) = 0$ — value and flatness coincide here. But $f(0.1) = 0.001$ and $f(-0.1) = -0.001$: the function passes through and keeps rising. "Flat for an instant — coincidence, not implication."
 
 </details>
+
+![SN3: cubic through zero: flat for an instant, nothing stops]({{graph:14d-sn3}})
 
 **SN4.** A ball: $s(t) = 5 + 20t - 4.9t^2$ meters.
 
@@ -349,6 +385,8 @@ $v = 20 - 9.8t = 0$ at $t \approx 2.04$; $s \approx 25.4$ m — "paused at 25 m 
 
 </details>
 
+![SN4: ball at its peak: velocity zero while the height is 25.4 m]({{graph:14d-sn4}})
+
 **SN5.** $f(x) = x + 2$ and $g(x) = x - 5$.
 
 - **A.** Compute $f'(x)$ and $g'(x)$ — where does each go?
@@ -361,6 +399,8 @@ $v = 20 - 9.8t = 0$ at $t \approx 2.04$; $s \approx 25.4$ m — "paused at 25 m 
 $f' = g' = 1$ — identical arrows. $f(0) = 2 > 0$, $g(0) = -5 < 0$ — opposite positions. Direction is shared; position is not.
 
 </details>
+
+![SN5: two lines with identical slopes on opposite sides of zero]({{graph:14d-sn5}})
 
 **SN6.** A car's position is $s(t) = t^2 - 25$ meters ($t \ge 0$).
 
@@ -376,6 +416,8 @@ $s(3) = -16$ m (behind the line); $v = 2t = 6 > 0$ m/s — "behind the start lin
 
 </details>
 
+![SN6: car behind the start line, moving forward]({{graph:14d-sn6}})
+
 **SN7.** A sinking balance: $B(t) = -200 - 30t$ dollars after $t$ days.
 
 - **A.** Compute $B(5)$ — where does the number sit?
@@ -389,6 +431,8 @@ $s(3) = -16$ m (behind the line); $v = 2t = 6 > 0$ m/s — "behind the start lin
 $B(5) = -350$, $B' = -30 < 0$ always — "below zero, sinking deeper." Never: the arrow stays $-30$ whether the debt is $-200$ or $-2{,}000{,}000$.
 
 </details>
+
+![SN7: debt below zero, sinking deeper]({{graph:14d-sn7}})
 
 **SN8.** $f(x) = (x-1)^3 + 2$.
 
@@ -404,6 +448,8 @@ $f' = 3(x-1)^2 = 0$ at $x = 1$; $f(1) = 2$. $f(0.9) = 1.999$, $f(1.1) = 2.001$ �
 
 </details>
 
+![SN8: flat point that is neither peak nor valley]({{graph:14d-sn8}})
+
 **SN9.** Freezing while warming: $T(t) = -10 + 0.5t$ °C after $t$ minutes.
 
 - **A.** Compute $T(10)$ — where does the number sit?
@@ -418,6 +464,8 @@ $T(10) = -5$ °C; $T' = 0.5 > 0$ — "below freezing, warming." Crosses at $t = 
 
 </details>
 
+![SN9: below freezing yet warming]({{graph:14d-sn9}})
+
 **SN10.** Two size traps: $f(x) = 1000x$ and $g(x) = 100$.
 
 - **A.** Compute $f(0)$ and $f'(0)$ — where does the number sit, how big is the arrow?
@@ -430,6 +478,8 @@ $T(10) = -5$ °C; $T' = 0.5 > 0$ — "below freezing, warming." Crosses at $t = 
 $f(0) = 0$ with $f' = 1000$ — a giant arrow at zero. $g(0) = 100$ with $g' = 0$ — a giant number with no arrow. The arrow's size is its own axis, in both directions.
 
 </details>
+
+![SN10: a giant arrow at zero]({{graph:14d-sn10}})
 
 → Solutions: [Solutions](solutions/14D-solutions.md#sign-practice)
 
@@ -480,6 +530,8 @@ Then, and only then, write the function and differentiate. The jail *is* the int
 
 </details>
 
+![JA1: power against resistance, voltage locked]({{graph:14d-ja1}})
+
 **JA2.** A 240 km trip.
 
 - **A.** Set up the duration $T(v)$ and compute $\frac{dT}{dv}$ at $v = 80$ — which jail is $T$ in?
@@ -492,6 +544,8 @@ Then, and only then, write the function and differentiate. The jail *is* the int
 (a) $T = \frac{240}{v}$, $\frac{dT}{dv} = -\frac{240}{v^2} = -0.0375$ h/(km/h) = −2.25 min per km/h at 80 — duration is bought by speed. (b) $s' = 80$ km/h — each hour of flowing time buys 80 km. (c) Duration is a response; flowing time is a driver.
 
 </details>
+
+![JA2: duration against speed: a response, not the clock]({{graph:14d-ja2}})
 
 **JA3.** A tank drains: $V(t) = 100 - 2t$ liters.
 
@@ -506,6 +560,8 @@ Then, and only then, write the function and differentiate. The jail *is* the int
 
 </details>
 
+![JA3: draining tank: a value and a degree at one instant]({{graph:14d-ja3}})
+
 **JA4.** Ideal gas $PV = nRT$ with $nR = 8.3$.
 
 - **A.** Lock $T = 300$: set up $P(V)$, compute $\frac{dP}{dV}$ at $V = 10$, and read the sentence.
@@ -519,6 +575,8 @@ Then, and only then, write the function and differentiate. The jail *is* the int
 
 </details>
 
+![JA4: ideal gas with the temperature locked]({{graph:14d-ja4}})
+
 **JA5.** The heater, chained: $V = 120$ V fixed, but the resistance heats up: $R(t) = 60 + 0.2t$ Ω.
 
 - **A.** Set up $P(t)$ through the chain and compute $\frac{dP}{dt}$ at $t = 0$ with units.
@@ -531,6 +589,8 @@ Then, and only then, write the function and differentiate. The jail *is* the int
 (a) Chain: $\frac{dP}{dt} = \frac{dP}{dR}\cdot\frac{dR}{dt} = -\frac{14400}{R^2}\cdot 0.2$; at $t=0$: $-4 \cdot 0.2 = -0.8$ W/s — each second of heating drops the power by 0.8 W. (b) Link 1: $P$ responds to $R$, with $V$ locked. Link 2: $R$ responds to $t$, with the start 60 and the rate 0.2 locked. (c) $-4$ W/Ω is the degree per ohm; $-0.8$ W/s is the degree per second — chained by the 0.2 Ω/s. Both true because they answer different "with respect to what" questions.
 
 </details>
+
+![JA5: heater: two chained degrees for one device]({{graph:14d-ja5}})
 
 **JA6.** A 120 km trip takes $t(v) = \frac{120}{v}$ hours.
 
@@ -546,6 +606,8 @@ $t(60) = 2$ h; $\frac{dt}{dv} = -\frac{120}{v^2} = -\frac{1}{30}$ h/(km/h) = −
 
 </details>
 
+![JA6: trip time: down forever, never below zero]({{graph:14d-ja6}})
+
 **JA7.** One formula, two jails — a 240 km trip, both readings.
 
 - **A.** Duration jail: $T(v) = \frac{240}{v}$. Compute $\frac{dT}{dv}$ at $v = 80$ and read the sentence.
@@ -559,6 +621,8 @@ $t(60) = 2$ h; $\frac{dt}{dv} = -\frac{120}{v^2} = -\frac{1}{30}$ h/(km/h) = −
 (a) $T' = -\frac{240}{v^2} = -0.0375$ h/(km/h) = −2.25 min per km/h. (b) $s' = 80$ km/h. (c) The minus belongs to the relation's direction in the duration jail only; the clock jail has no minus because its driver is the clock itself. (d) Both are ordinary arrows — one shrinks a total, one builds a position. In (a) time is the response being counted; in (b) time is the driver doing the counting — different roles, different signs.
 
 </details>
+
+![JA7: the duration jail carries the minus]({{graph:14d-ja7}})
 
 → Solutions: [Solutions](solutions/14D-solutions.md#variable-jail-practice)
 
@@ -582,6 +646,8 @@ $T(20) = 20$ min; $\frac{dT}{dr} = -\frac{400}{r^2} = -1$ min per (L/min) — "e
 
 </details>
 
+![DC1: the trap, drawn]({{graph:14d-dc1}})
+
 **DC2.** A 60 kWh battery drawn at $P$ kW lasts $T(P) = \frac{60}{P}$ hours.
 
 - **A.** Compute $\frac{dT}{dP}$ at $P = 6$ and read the sentence.
@@ -595,6 +661,8 @@ $T(20) = 20$ min; $\frac{dT}{dr} = -\frac{400}{r^2} = -1$ min per (L/min) — "e
 $T(6) = 10$ h; $\frac{dT}{dP} = -\frac{60}{P^2} = -\frac{5}{3} \approx -1.67$ h/kW — "each extra kW of draw shortens the battery's life by about 1.7 hours." $T$ is a lifetime (duration): positive, shrinking, never negative; $T\to+\infty$ as $P\to0^{+}$, $T\to0^{+}$ as $P\to\infty$.
 
 </details>
+
+![DC2: the trap, drawn]({{graph:14d-dc2}})
 
 **DC3.** A 300-page book read at $p$ pages/day takes $T(p) = \frac{300}{p}$ days.
 
@@ -610,6 +678,8 @@ $T(30) = 10$ days; $\frac{dT}{dp} = -\frac{300}{p^2} = -\frac{1}{3}$ day per (pa
 
 </details>
 
+![DC3: the trap, drawn]({{graph:14d-dc3}})
+
 **DC4.** A 5000 MB file downloading at $b$ MB/s takes $T(b) = \frac{5000}{b}$ seconds.
 
 - **A.** Compute $\frac{dT}{db}$ at $b = 50$ and read the sentence.
@@ -623,6 +693,8 @@ $T(30) = 10$ days; $\frac{dT}{dp} = -\frac{300}{p^2} = -\frac{1}{3}$ day per (pa
 $T(50) = 100$ s; $\frac{dT}{db} = -\frac{5000}{b^2} = -2$ s per (MB/s) — "each extra MB/s shaves 2 seconds off the download." The duration shrinks; the clock never reverses.
 
 </details>
+
+![DC4: the trap, drawn]({{graph:14d-dc4}})
 
 **DC5.** Saving \$1200 at \$d per week takes $T(d) = \frac{1200}{d}$ weeks.
 
@@ -638,6 +710,8 @@ $T(40) = 30$ weeks; $\frac{dT}{dd} = -\frac{1200}{d^2} = -0.75$ week per (dollar
 
 </details>
 
+![DC5: the trap, drawn]({{graph:14d-dc5}})
+
 **DC6.** A 50 m³ pool filled at $q$ m³/h takes $T(q) = \frac{50}{q}$ hours.
 
 - **A.** Compute $\frac{dT}{dq}$ at $q = 2.5$ and read the sentence.
@@ -651,6 +725,8 @@ $T(40) = 30$ weeks; $\frac{dT}{dd} = -\frac{1200}{d^2} = -0.75$ week per (dollar
 $T(2.5) = 20$ h; $\frac{dT}{dq} = -\frac{50}{q^2} = -8$ h per (m³/h) — "each extra m³/h shaves 8 hours off the fill." Duration, not clock.
 
 </details>
+
+![DC6: the trap, drawn]({{graph:14d-dc6}})
 
 **DC7.** A 42 km marathon run at $v$ km/h takes $T(v) = \frac{42}{v}$ hours.
 
@@ -666,6 +742,8 @@ $T(14) = 3$ h; $\frac{dT}{dv} = -\frac{42}{v^2} = -\frac{3}{14}$ h per (km/h) �
 
 </details>
 
+![DC7: the trap, drawn]({{graph:14d-dc7}})
+
 **DC8.** A 1000-page document printed at $n$ pages/min takes $T(n) = \frac{1000}{n}$ minutes.
 
 - **A.** Compute $\frac{dT}{dn}$ at $n = 20$ and read the sentence.
@@ -680,6 +758,8 @@ $T(20) = 50$ min; $\frac{dT}{dn} = -\frac{1000}{n^2} = -2.5$ min per (page/min).
 
 </details>
 
+![DC8: the trap, drawn]({{graph:14d-dc8}})
+
 **DC9.** The clock jail, side by side: the same 400 L tank drains at a fixed $r = 20$ L/min.
 
 - **A.** In the clock jail, $V(t) = 400 - 20t$: compute $V'(t)$ and read the sentence — which jail is $t$ in now?
@@ -693,6 +773,8 @@ $V' = -20$ L/min — "each flowing minute drains 20 L." Here $t$ IS the clock (d
 
 </details>
 
+![DC9: the trap, drawn]({{graph:14d-dc9}})
+
 **DC10.** The limit trap: $T(r) = \frac{400}{r}$ again.
 
 - **A.** What is $\lim_{r\to0^{+}} T(r)$?
@@ -705,6 +787,8 @@ $V' = -20$ L/min — "each flowing minute drains 20 L." Here $t$ IS the clock (d
 $T \to +\infty$ as $r \to 0^{+}$ (a stopped drain never empties); $T \to 0^{+}$ as $r \to \infty$. Never negative: the duration jail contains no negative numbers — "down forever, never below zero."
 
 </details>
+
+![DC10: the trap, drawn]({{graph:14d-dc10}})
 
 → Solutions: [Solutions](solutions/14D-solutions.md#duration-clock-drills)
 
@@ -727,6 +811,8 @@ $2$ h is a *value* (the duration, in hours). $-2$ min/(km/h) is a *degree* (dura
 
 </details>
 
+![JT1: the trap, drawn]({{graph:14d-jt1}})
+
 **JT2.** The letter-soup trap: coffee cools $T(t) = 85 - 3t$ °C while a 240 km trip takes $T(v) = \frac{240}{v}$ hours.
 
 - **A.** Compute $T'(t)$ — which jail is each letter in?
@@ -739,6 +825,8 @@ $2$ h is a *value* (the duration, in hours). $-2$ min/(km/h) is a *degree* (dura
 (a) $T' = -3$ °C/min — $T$ is temperature, $t$ is the flowing clock. (b) $T' = -\frac{240}{v^2} = -0.0375$ h/(km/h) — $T$ is duration, $v$ is speed. The letter carries nothing; the jail carries everything.
 
 </details>
+
+![JT2: the trap, drawn]({{graph:14d-jt2}})
 
 **JT3.** The parameter trap: a faucet drips 2 drops per second, 0.05 mL per drop.
 
@@ -753,6 +841,8 @@ $V'(t) = 0.1$ mL/s — the degree of the built function $V$. The 2 drops/s and 0
 
 </details>
 
+![JT3: the trap, drawn]({{graph:14d-jt3}})
+
 **JT4.** The units-name-the-jail trap: match each degree to its jail.
 
 - **A.** $m^3/s$ — clock jail or duration jail?
@@ -765,6 +855,8 @@ $V'(t) = 0.1$ mL/s — the degree of the built function $V$. The 2 drops/s and 0
 quantity per time (m³/s, L/min) = clock jail — something flows per second. Time per quantity (h/(km/h), min/(L/min)) = duration jail — a lifetime per rate. The fingerprint: a duration jail's units have time on top of a rate.
 
 </details>
+
+![JT4: the trap, drawn]({{graph:14d-jt4}})
 
 **JT5.** The domain trap: in $T(v) = \frac{120}{v}$, someone plugs $v = -60$.
 
@@ -779,6 +871,8 @@ $T(-60) = -2$ h — but $v = -60$ is outside the model: speed is nonnegative. $-
 
 </details>
 
+![JT5: the trap, drawn]({{graph:14d-jt5}})
+
 **JT6.** The chain-with-a-duration trap: a 300 km trip at speed $v$ takes $T(v) = \frac{300}{v}$ hours, and the car burns 6 L of fuel per flowing hour.
 
 - **A.** Set up fuel $f(v)$ through the chain and compute $\frac{df}{dv}$ at $v = 100$ with units.
@@ -791,6 +885,8 @@ $T(-60) = -2$ h — but $v = -60$ is outside the model: speed is nonnegative. $-
 $f = 6\cdot T(v) = \frac{1800}{v}$; $\frac{df}{dv} = -\frac{1800}{v^2} = -0.18$ L per (km/h) at $v=100$ — "each extra km/h saves 0.18 L of fuel for the whole trip." The 6 L/h is a clock-jail rate (fuel per flowing hour, a locked parameter); $T'(v)$ is the duration jail — the chain multiplies one jail's degree into the other.
 
 </details>
+
+![JT6: the trap, drawn]({{graph:14d-jt6}})
 
 → Solutions: [Solutions](solutions/14D-solutions.md#jail-trap-gallery)
 
@@ -813,6 +909,8 @@ $5{,}000{,}000$ m³ is a **level** (a value — how much water sits there); $30$
 
 </details>
 
+![JT7: the trap, drawn]({{graph:14d-jt7}})
+
 **JT8.** The depth trap: two submarines — (i) $e_1(t) = -50 + 3t$, (ii) $e_2(t) = -20 - 2t$ meters, $t$ in minutes.
 
 - **A.** Sub (i) at $t = 10$: compute $e_1$ and $e_1'$ — the two-question sentence.
@@ -825,6 +923,8 @@ $5{,}000{,}000$ m³ is a **level** (a value — how much water sits there); $30$
 (i) $e_1 = -20$ m, $e_1' = +3$ m/min — "below sea level, climbing." (ii) $e_2 = -40$ m, $e_2' = -2$ m/min — "below sea level, sinking deeper." Depth is a legitimate negative coordinate, not reversed height; the degree's minus is the direction of motion. Same symbol, two jobs.
 
 </details>
+
+![JT8: the trap, drawn]({{graph:14d-jt8}})
 
 **JT9.** The negative-demand trap: $q(p) = 200 - 5p$ units at price $p$.
 
@@ -839,6 +939,8 @@ $q(45) = -25$ — but the model lives on $0 \le p \le 40$; at $p = 45$ the formu
 
 </details>
 
+![JT9: the trap, drawn]({{graph:14d-jt9}})
+
 **JT10.** The reciprocal-read trap: a car burns 8 L per 100 km.
 
 - **A.** Read it as a degree $\frac{df}{dd} = 0.08$ L/km — which jail (driver? response?)?
@@ -851,6 +953,8 @@ $q(45) = -25$ — but the model lives on $0 \le p \le 40$; at $p = 45$ the formu
 $0.08$ L/km: driver = km, response = L (small is good). $12.5$ km/L: driver = L, response = km (big is good) — reciprocals, $0.08 \times 12.5 = 1$. The "reversed" feeling is the reader swapping drivers, not the car changing.
 
 </details>
+
+![JT10: the trap, drawn]({{graph:14d-jt10}})
 
 **JT11.** The parameter trap, finance: a balance $B(t)$ earns 5% per year.
 
@@ -865,6 +969,8 @@ $B' = 50$ \$/yr is a **degree** (balance per year); the 5%/yr is a **locked para
 
 </details>
 
+![JT11: the trap, drawn]({{graph:14d-jt11}})
+
 **JT12.** The letter-soup trap, physics: $P(V) = \frac{2490}{V}$ and $P(R) = \frac{14400}{R}$.
 
 - **A.** In the first, $P$ is pressure: compute $\frac{dP}{dV}$ at $V = 10$ and read the sentence.
@@ -877,6 +983,8 @@ $B' = 50$ \$/yr is a **degree** (balance per year); the 5%/yr is a **locked para
 (a) $-24.9$ kPa/m³ — "squeezing one m³ buys 24.9 kPa." (b) $-4$ W/Ω — "each extra ohm costs 4 W." The units (kPa/m³ vs W/Ω) are the jail's ID card; the letter $P$ is just ink.
 
 </details>
+
+![JT12: the trap, drawn]({{graph:14d-jt12}})
 
 **JT13.** The peak trap: revenue $R(p) = 200p - 5p^2$.
 
@@ -891,6 +999,8 @@ $R'(20) = 0$ with $R(20) = 2000$ — a pause at the peak, not a zero. At $p=30$:
 
 </details>
 
+![JT13: the trap, drawn]({{graph:14d-jt13}})
+
 **JT14.** The frame-question trap, geometry: a cylinder has $V = \pi r^2 h$.
 
 - **A.** Lock $h = 10$: compute $\frac{dV}{dr}$ at $r = 2$ — which jail, and what shape does the degree have?
@@ -903,6 +1013,8 @@ $R'(20) = 0$ with $R(20) = 2000$ — a pause at the peak, not a zero. At $p=30$:
 (a) $\frac{dV}{dr} = 2\pi rh = 40\pi \approx 125.7$ m³/m — growing $r$ wraps a shell of side area $2\pi rh$. (b) $\frac{dV}{dh} = \pi r^2 = 4\pi \approx 12.6$ m³/m — growing $h$ stacks disks of area $\pi r^2$. The frame question picks the driver, and each driver carries its own degree (14D1A).
 
 </details>
+
+![JT14: the trap, drawn]({{graph:14d-jt14}})
 
 **JT15.** The word-"per" trap: two sentences about the same car.
 
@@ -917,6 +1029,8 @@ $R'(20) = 0$ with $R(20) = 2000$ — a pause at the peak, not a zero. At $p=30$:
 
 </details>
 
+![JT15: the trap, drawn]({{graph:14d-jt15}})
+
 **JT16.** The odometer-vs-speedometer trap: one trip, two numbers.
 
 - **A.** "We drove 120 km" — value or degree?
@@ -929,6 +1043,8 @@ $R'(20) = 0$ with $R(20) = 2000$ — a pause at the peak, not a zero. At $p=30$:
 120 km is the trip's total (a value — the odometer); 80 km/h is the trip's speed (a degree — the speedometer). The odometer reads values; the speedometer reads degrees. Same word, two jails.
 
 </details>
+
+![JT16: the trap, drawn]({{graph:14d-jt16}})
 
 → Solutions: [Solutions](solutions/14D-solutions.md#jail-trap-gallery)
 
@@ -951,6 +1067,8 @@ $P(2) = 77$ kPa > 0; $\frac{dP}{dh} = -12$ kPa/km — "each km higher costs 12 k
 
 </details>
 
+![JT17: the trap, drawn]({{graph:14d-jt17}})
+
 **JT18.** The price driver: demand $q(p) = 200 - 5p$.
 
 - **A.** Compute $\frac{dq}{dp}$ and read the sentence.
@@ -963,6 +1081,8 @@ $P(2) = 77$ kPa > 0; $\frac{dP}{dh} = -12$ kPa/km — "each km higher costs 12 k
 $-5$ units/\$ — per dollar, not per second: the driver is price. If $p$ were $t$, the sentence would be a flow in time; here it is a trade in money. The driver's jail IS the sentence's tense.
 
 </details>
+
+![JT18: the trap, drawn]({{graph:14d-jt18}})
 
 **JT19.** The radius driver: circle area $A(r) = \pi r^2$.
 
@@ -977,6 +1097,8 @@ $\frac{dA}{dr} = 2\pi r = 6\pi \approx 18.8$ m² per meter of radius. The formul
 
 </details>
 
+![JT19: the trap, drawn]({{graph:14d-jt19}})
+
 **JT20.** The temperature driver: gas volume $V(T) = 0.083\,T$ m³ at fixed pressure.
 
 - **A.** Compute $\frac{dV}{dT}$ and read the sentence.
@@ -989,6 +1111,8 @@ $\frac{dA}{dr} = 2\pi r = 6\pi \approx 18.8$ m² per meter of radius. The formul
 $\frac{dV}{dT} = 0.083$ m³/K — per kelvin, not per second: the driver is temperature. $V'(t)$ would need $T(t)$ chained in; $V'(T)$ is a static trade — "each kelvin buys 0.083 m³."
 
 </details>
+
+![JT20: the trap, drawn]({{graph:14d-jt20}})
 
 **JT21.** The distance driver: fuel $f(d) = 0.08d$ liters.
 
@@ -1003,6 +1127,8 @@ Per kilometer, not per second. The 0.08 is identical ink; the driver's unit (km 
 
 </details>
 
+![JT21: the trap, drawn]({{graph:14d-jt21}})
+
 **JT22.** The dose driver: a body's response $R(x) = 2x - 0.05x^2$ to a dose of $x$ mg.
 
 - **A.** Compute $\frac{dR}{dx}$ at $x = 10$ and read the sentence.
@@ -1015,6 +1141,8 @@ Per kilometer, not per second. The 0.08 is identical ink; the driver's unit (km 
 $\frac{dR}{dx} = 2 - 0.1x = 1$ per mg at $x=10$ — the driver is dose, not time. $\frac{dR}{dx} = 0$ at $x = 20$: the response peaks at 20 mg — a dose-location, not a moment.
 
 </details>
+
+![JT22: the trap, drawn]({{graph:14d-jt22}})
 
 **JT23.** The depth driver: water pressure $P(d) = 101 + 9.8d$ kPa at depth $d$ meters.
 
@@ -1029,6 +1157,8 @@ $\frac{dP}{dd} = 9.8$ kPa/m — per meter of depth: the driver is a place, not a
 
 </details>
 
+![JT23: the trap, drawn]({{graph:14d-jt23}})
+
 **JT24.** The quantity driver: cost $C(q) = 400 + 2q$ dollars for $q$ units.
 
 - **A.** Compute $\frac{dC}{dq}$ and read the sentence.
@@ -1041,6 +1171,8 @@ $\frac{dP}{dd} = 9.8$ kPa/m — per meter of depth: the driver is a place, not a
 400 is a locked **value** (the fixed cost); $2$ \$/unit is a **degree** (the marginal cost). Per unit, not per hour — the driver is quantity. Value and degree side by side in one formula.
 
 </details>
+
+![JT24: the trap, drawn]({{graph:14d-jt24}})
 
 → Solutions: [Solutions](solutions/14D-solutions.md#jail-trap-gallery)
 
