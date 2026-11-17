@@ -83,7 +83,7 @@ $f(x) = x^3$ on $[0,2]$: average slope = $\frac{8-0}{2-0} = 4$. $f'(x) = 3x^2 = 
 
 > **Geometric meaning**: There is at least one point where the tangent is parallel to the secant. For a car trip averaging 60 mph, you must have been going exactly 60 mph at some moment — you can't average 60 without ever hitting 60.
 
-![MVT: secant and tangent parallel for f(x)=x³ on [0,2]](graphs/0728/15A/03-mvt.png)
+![MVT: secant and tangent parallel for f(x)=x³ on the interval 0 to 2](graphs/0728/15A/03-mvt.png)
 
 ---
 

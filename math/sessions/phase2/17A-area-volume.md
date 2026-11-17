@@ -91,7 +91,7 @@ $A = (e+1) - 1 = e$.
 
 > **Geometric note**: Since $e^x$ and $\ln x$ are reflections of each other across $y=x$, the area between them on $[0,1]$ equals the area between $\ln x$ and the line $y=x$, plus the area between $e^x$ and $y=x$ — a symmetry that can simplify some calculations.
 
-![Lens between e^x and ln x on [0,1]: area = e](graphs/0808/17A/17a-inverse-curves.png)
+![Lens between e^x and ln x over 0 to 1: area = e](graphs/0808/17A/17a-inverse-curves.png)
 
 ---
 
