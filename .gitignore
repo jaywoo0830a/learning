@@ -1,3 +1,5 @@
 math/graph/node_modules/
 math/graphs/
 math/build/
+__pycache__/
+*.pyc

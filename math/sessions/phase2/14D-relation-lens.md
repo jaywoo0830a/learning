@@ -28,7 +28,7 @@ A derivative is a fraction: $dy/dx$ carries **y-units per x-unit**. Writing the 
 
 **Worked**: $s(t) = \frac12 t^2$ meters. $s'(t) = t$, so at $t=2$: $s'(2) = 2$ m/s. Read it as a sentence: "at $t=2$, each extra second adds about 2 meters of position." The number 2 alone means nothing — 2 m/s is the whole story.
 
-![Units of the derivative: m/s for position, $/unit for cost]({{graph:14d-01-derivative-units}})
+![Units of the derivative: m/s for position, dollars per unit for cost]({{graph:14d-01-derivative-units}})
 
 *Graph 14D-1: Left — position vs time, tangent slope 4 m/s. Right — cost vs quantity, tangent slope 28 \$/unit. The same geometric object (a tangent) says completely different sentences depending on its units.*
 

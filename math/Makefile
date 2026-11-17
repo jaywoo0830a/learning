@@ -40,7 +40,8 @@ DOCKER_USER := $(shell id -u 2>/dev/null || echo 0):$(shell id -g 2>/dev/null ||
 DOCKER_BASE := $(DOCKER) run --rm -v "$(CURDIR):/work" -e HOME=/tmp -e npm_config_cache=/tmp/.npm -u "$(DOCKER_USER)"
 
 .PHONY: install install-host graph graph-host build build-host strict strict-host \
-        serve serve-host send clean require-docker
+        serve serve-host send clean require-docker \
+        verify verify-katex verify-all verify-image verify-host verify-selftest
 
 # ── 도커 확인 (도커 기반 타깃의 공통 전제) ─────────────────────────
 require-docker:
@@ -91,3 +92,41 @@ send:
 
 clean:
 	rm -rf graphs build
+
+# ── 검증 (정답 · KaTeX 구문) ──────────────────────────────────────
+#   답안은 sympy 로 기호 검증한다 — 모두 도커 파이썬 컨테이너에서 돈다.
+#   세션 md 는 바인드 마운트되므로 세션·답안 수정에 이미지 재빌드가 필요 없다.
+#
+#     make verify             # 답안 검증 (답안 모듈이 있는 모든 세션)
+#     make verify VERIFY=14D  # 특정 세션만
+#     make verify-katex       # 모든 세션의 마크다운+KaTeX 구문
+#     make verify-all         # 둘 다 (CI 게이트)
+#
+#   로컬 파이썬으로 돌리려면 *-host 타깃을 쓴다(도커 불필요).
+VERIFY_IMAGE ?= math-verify
+VERIFY       ?=
+VERIFY_RUN   := $(DOCKER) run --rm -v "$(CURDIR):/work" $(VERIFY_IMAGE)
+
+verify-image:
+	@$(DOCKER) image inspect $(VERIFY_IMAGE) >/dev/null 2>&1 || \
+	  { echo "▶ $(VERIFY_IMAGE) 이미지 빌드"; $(DOCKER) build -t $(VERIFY_IMAGE) verify; }
+
+verify: require-docker verify-image
+	$(VERIFY_RUN) answers $(VERIFY)
+
+verify-katex: require-docker verify-image
+	$(VERIFY_RUN) katex $(VERIFY)
+
+verify-all: require-docker verify-image
+	$(VERIFY_RUN) all
+
+# 검사기 자체의 회귀 테스트 (도커 불필요 — 순수 파이썬)
+verify-selftest:
+	python3 verify/test_katex_checker.py
+
+# 도커 없이: 호스트 python3 + sympy
+verify-host:
+	python3 verify/verify.py answers $(VERIFY)
+
+verify-katex-host:
+	python3 verify/verify.py katex $(VERIFY)
